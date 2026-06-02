@@ -1,0 +1,1370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex AI Insurtech - Insurance powered by AI</title>
+    <meta name="description" content="AI-powered insurance, handled by humans. Get smart protection in 90 seconds.">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./style-test.css">
+    <link rel="stylesheet" href="../css/style-quote.css">
+    <link rel="stylesheet" href="../css/style.css?v=3">
+
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
+</head>
+<body>
+
+    <div class="top-header-aurora">
+        <div class="container top-bar-flex">
+            
+            <div class="top-info-group">
+                <a href="tel:+14806309630" class="top-link glass-hover">
+                    <i class="fa-solid fa-phone pulse-icon"></i> 
+                    <span>+1 480 630 9630</span>
+                </a>
+                
+                <span class="divider-vertical"></span>
+                
+                <a href="mailto:hello@alexai.cloud" class="top-link glass-hover">
+                    <i class="fa-solid fa-envelope"></i> 
+                    <span>hello@alexai.cloud</span>
+                </a>
+
+                <span class="divider-vertical desktop-only"></span>
+                <div class="top-location desktop-only">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>3101 N Central Ave ste 1174, Phoenix, AZ</span>
+                </div>
+            </div>
+
+            <div class="top-social-group">
+                <span class="social-label desktop-only">Connect:</span>
+                <a href="https://www.facebook.com/p/Alexai-Insurtech-USA-61573922245346/" target="_blank" class="social-btn" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank" class="social-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="aurora-border-glow"></div>
+    </div>
+
+   <header class="site-header glass-navbar">
+        <div class="container nav-container">
+            
+            <a href="https://alexai.cloud/" class="brand-logo">
+                <img src="../assets/img/Logo-alexai-main.png" alt="Alex AI Logo" class="site-logo">
+            </a>
+
+            <nav class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-item active">Home</a></li>
+                    <li><a href="../cotizacion/cotizacion.html" class="nav-item">Quote</a></li>
+                    
+                    <li class="nav-dropdown-group">
+                        <button class="nav-item dropdown-btn">
+                            Products <i class="fa-solid fa-angle-down arrow-indicator"></i>
+                        </button>
+                        
+                        <div class="dropdown-glass-panel">
+                            <div class="dropdown-grid">
+                                <a href="../alex-sign/index.html" class="dd-card">
+                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-signature"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Alex Sign</span><span class="dd-desc">Digital signatures</span></div>
+                                </a>
+                                <a href="../seguro-complementario-salud/index.html" class="dd-card">
+                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-house-chimney"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Hogar</span><span class="dd-desc">Protección de propiedad</span></div>
+                                </a>
+                                <a href="../seguro-pymes/index.html" class="dd-card">
+                                    <div class="icon-tile tile-cyan"><i class="fa-solid fa-key"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Pymes</span><span class="dd-desc">Apartment coverage</span></div>
+                                </a>
+                                <a href="../contacto/index.html" class="dd-card">
+                                    <div class="icon-tile tile-purple"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Others</span><span class="dd-desc">Custom plans</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#carriers" class="nav-item">Carriers</a></li>
+                    <li><a href="../blog/index.html" class="nav-item">Blog</a></li>
+                    <li><a href="../contacto/index.html" class="nav-item">Contact</a></li>
+
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                
+                <a href="../embajadores/documentos.html" class="link-secondary desktop-only">
+                    Become an Ambassador
+                </a>
+
+                <span class="divider-vertical desktop-only"></span>
+
+                <a href="../cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
+                    <span>Check Prices</span>
+                    <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
+                </a>
+                
+                <button class="mobile-toggle-btn mobile-only" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu-dropdown" id="mobileMenu">
+            <ul class="mobile-list">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="../cotizacion/cotizacion.html">Quote</a></li>
+                <li><a href="../embajadores/documentos.html" style="color: var(--c-blue);">Become an Ambassador</a></li>
+                <li class="divider-horizontal"></li>
+                <li><a href="../alex-sign/index.html">Alex Sign</a></li>
+                <li><a href="../seguro-complementario-salud/index.html">Hogar</a></li>
+                <li><a href="../seguro-pymes/index.html">Pymes</a></li>
+                <li class="divider-horizontal"></li>
+                <li><a href="../contacto/index.html">Contact</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <section id="hero-split" class="hero-clean-section">
+        <div class="container">
+            <div class="hero-layout">
+                
+                <div class="hero-text-area">
+                    
+                    <div class="pill-badge">
+                        <span class="pill-dot"></span> New: Smart Quote 2.0
+                    </div>
+
+                    <h1 class="hero-headline">
+                        Insurance powered by AI, <br>
+                        <span class="text-gradient-anim">handled by humans.</span>
+                    </h1>
+                    
+                    <p class="hero-desc">
+                        Forget paperwork. Get smart protection in <strong>90 seconds</strong> with our hybrid intelligence engine.
+                    </p>
+                    
+                    <div class="hero-cta-group">
+                        <a href="../cotizacion/cotizacion.html" class="btn-primary-tech js-trigger-quote">
+                            Get Your Instant Quote
+                        </a>
+                        
+                        <div class="rating-box">
+                            <div class="stars">
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                                <i class="fa-solid fa-star"></i>
+                            </div>
+                            <span><strong>4.9/5</strong> from 10k+ users</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-visual-area">
+                    <div class="video-clean-frame">
+                        <video id="heroVideoElement" muted autoplay loop playsinline>
+                            <source src="./assets/videos/hero-video-1.mp4" type="video/mp4">
+                        </video>
+                        <div class="frame-shine"></div>
+                    </div>
+                    
+                    <div class="float-card">
+                        <div class="icon-check"><i class="fa-solid fa-check"></i></div>
+                        <div>
+                            <strong>Policy Active</strong>
+                            <span>Insured instantly</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="carriers" class="trust-dock-section">
+        <div class="container">
+            
+            <div class="aurora-dock">
+                
+                <div class="dock-gradient-top"></div>
+
+                <div class="dock-label">
+                    <div class="status-indicator">
+                        <span class="pulse-ring"></span>
+                        <span class="dot"></span>
+                    </div>
+                    <div class="label-text">
+                        <span class="sub">Verified Network</span>
+                        <span class="main">Our Partners</span>
+                    </div>
+                </div>
+
+                <div class="dock-divider desktop-only"></div>
+
+                <div class="dock-slider-area">
+                    <div class="infinite-track">
+                        <div class="tech-logo"><img src="../assets/img/Carrier-aspire.jpg" alt="Aspire"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-assurance-america.png" alt="Assurance"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-chubb.jpg" alt="Chubb"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-clearcover.png" alt="Clearcover"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-covercube-2.jpg" alt="Covercube"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-just.jpg" alt="Just"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-kemper.jpg" alt="Kemper"></div>
+
+                        <div class="tech-logo"><img src="../assets/img/Carrier-aspire.jpg" alt="Aspire"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-assurance-america.png" alt="Assurance"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-chubb.jpg" alt="Chubb"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-clearcover.png" alt="Clearcover"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-covercube-2.jpg" alt="Covercube"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-just.jpg" alt="Just"></div>
+                        <div class="tech-logo"><img src="../assets/img/Carrier-kemper.jpg" alt="Kemper"></div>
+                    </div>
+                    
+                    <div class="dock-fade-left"></div>
+                    <div class="dock-fade-right"></div>
+                </div>
+
+            </div>
+            
+        </div>
+    </section>
+
+    <section id="products" class="products-section">
+        <div class="container">
+
+            <div class="social-header text-center">
+                <div class="inline-badge-premium mb-3">
+                    <span class="pulse-dot-purple"></span> Smart Coverage Instanly
+                </div>
+                <h2 class="headline-tech">Protect what <span class="text-gradient-anim">matters most.</span></h2>
+                <p class="subhead-tech">Select a product to get an AI-powered quote in seconds.</p>
+            </div>
+            
+            <div class="products-grid">
+                
+                <div class="product-card js-product-trigger" data-product="car">
+                    <div class="card-aurora-top"></div>
+                    
+                    <div class="card-media-area">
+                        <video class="js-hover-video" loop muted playsinline>
+                            <source src="../assets/videos/car-insurance.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-overlay"></div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="icon-box icon-car">
+                            <i class="fa-solid fa-car"></i>
+                        </div>
+                        
+                        <h3>Car Insurance</h3>
+                        <p>Drive smarter with rates that adapt to you.</p>
+                        
+                        <div class="card-action-area">
+                            <button class="btn-aurora-full">
+                                <span>Get Auto Quote</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card js-product-trigger-home" data-product="home">
+                    <div class="card-aurora-top"></div>
+                    
+                    <div class="card-media-area">
+                        <video class="js-hover-video" loop muted playsinline>
+                            <source src="../assets/videos/home-insurance.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-overlay"></div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="icon-box icon-home">
+                            <i class="fa-solid fa-house-chimney"></i>
+                        </div>
+                        
+                        <h3>Hogar</h3>
+                        <p>Protect your castle and everything inside with comprehensive AI coverage.</p>
+                        
+                        <div class="card-action-area">
+                            <button class="btn-aurora-full">
+                                <span>Get Home Quote</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="product-card js-product-trigger-renters" data-product="inquilinos">
+                    <div class="card-aurora-top"></div>
+                    
+                    <div class="card-media-area">
+                        <video class="js-hover-video" loop muted playsinline>
+                            <source src="../assets/videos/renters-insurance.mp4" type="video/mp4">
+                        </video>
+                        <div class="media-overlay"></div>
+                    </div>
+                    
+                    <div class="card-content">
+                        <div class="icon-box icon-renters">
+                            <i class="fa-solid fa-key"></i>
+                        </div>
+                        
+                        <h3>Pymes</h3>
+                        <p>Cover your personal property and liability for less than a coffee a month.</p>
+                        
+                        <div class="card-action-area">
+                            <button class="btn-aurora-full">
+                                <span>Get Pymes Quote</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="command-section">
+        <div class="container">
+
+            <div class="social-header text-center">
+                <div class="inline-badge-premium mb-3">
+                    <span class="pulse-dot-purple"></span> System Operational
+                </div>
+                <h2 class="headline-tech">More than just <span class="text-gradient-anim">algorithms.</span></h2>
+                <p class="subhead-tech">We use AI to cut costs and wait times, not the human connection.</p>
+            </div>
+
+            <div class="command-grid">
+                
+                <div class="cmd-card card-speed">
+                    <div class="card-aurora-border"></div>
+                    <div class="cmd-content">
+                        <div class="cmd-label"><i class="fa-solid fa-bolt"></i> Latency</div>
+                        <div class="speed-gauge">
+                            <svg viewBox="0 0 100 50" class="gauge-svg">
+                                <path d="M10 50 A 40 40 0 0 1 90 50" stroke="#E2E8F0" stroke-width="8" fill="none" />
+                                <path d="M10 50 A 40 40 0 0 1 90 50" stroke="#009cff" stroke-width="8" fill="none" stroke-dasharray="126" stroke-dashoffset="10" class="gauge-fill" />
+                            </svg>
+                            <div class="gauge-value">90<span>s</span></div>
+                        </div>
+                        <h3>Lightning Fast</h3>
+                        <p>Bind quotes in under 90 seconds.</p>
+                    </div>
+                </div>
+
+                <div class="cmd-card card-core">
+                    <div class="card-aurora-border"></div>
+                    <div class="core-visual">
+                        <div class="data-stream">
+                            <span>0101</span><span>AI</span><span>BIND</span><span>01</span>
+                        </div>
+                        
+                        <div class="fusion-circle">
+                            <img src="../assets/img/agent-smile-placeholder.jpg" alt="Agent" class="agent-img">
+                            <div class="scan-ring"></div>
+                            <div class="scan-ring delayed"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="core-info">
+                        <div class="chip-group">
+                            <span class="tech-tag">AI Powered</span>
+                            <span class="tech-tag tag-human">Human Verified</span>
+                        </div>
+                        <h3>The Phygital Experience</h3>
+                        <p>We don't choose between algorithms and people. We use AI to handle the math, and <strong>real licensed agents</strong> to handle your peace of mind.</p>
+                    </div>
+                </div>
+
+                <div class="cmd-card card-custom">
+                    <div class="card-aurora-border"></div>
+                    <div class="cmd-content">
+                        <div class="cmd-label"><i class="fa-solid fa-sliders"></i> Calibration</div>
+                        <div class="eq-visual">
+                            <div class="eq-bar"><div class="eq-fill h-80"></div></div>
+                            <div class="eq-bar"><div class="eq-fill h-40"></div></div>
+                            <div class="eq-bar"><div class="eq-fill h-60"></div></div>
+                            <div class="eq-bar"><div class="eq-fill h-90"></div></div>
+                            <div class="eq-bar"><div class="eq-fill h-30"></div></div>
+                        </div>
+                        <h3>Hyper Customized</h3>
+                        <p>Coverage that fits your life like a glove.</p>
+                    </div>
+                </div>
+
+                <div class="cmd-card card-map-light">
+                    <div class="card-aurora-border"></div>
+                    
+                    <div class="global-map-container">
+                        <img src="../assets/img/world-map-dots.jpg" alt="Global Coverage" class="map-img-bg">
+                        
+                        <div class="connection-point cp-1"></div>
+                        <div class="connection-point cp-2"></div>
+                        <div class="connection-point cp-3"></div>
+                        <div class="connection-point cp-4"></div>
+                        
+                        <div class="radar-scan-light"></div>
+                    </div>
+
+                    <div class="cmd-content bottom-aligned">
+                        <div class="map-header-light">
+                            <div class="live-indicator">
+                                <span class="blink-dot"></span> LIVE NETWORK
+                            </div>
+                            <div class="active-count">Global Support</div>
+                        </div>
+                        <h3>24/7 Availability</h3>
+                        <p>We are here whenever you need us. Day or night.</p>
+                    </div>
+                </div>
+
+                <div class="cmd-card card-digital">
+                    <div class="card-aurora-border"></div>
+                    <div class="digital-icon-stack">
+                        <i class="fa-solid fa-file-invoice file-back"></i>
+                        <i class="fa-solid fa-mobile-screen file-front"></i>
+                        <div class="check-mark"><i class="fa-solid fa-check"></i></div>
+                    </div>
+                    <div class="cmd-content">
+                        <h3>100% Digital</h3>
+                        <p>Zero paperwork. Full control from your phone.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="savings" class="savings-section-lab">
+        <div class="container">
+            
+            <div class="lab-header text-center">
+                <div class="header-status-light">
+                    <span class="pulse-blue"></span> Live Market Analysis
+                </div>
+                <h2 class="display-title-lab">Price <span class="text-gradient-anim">intelligence.</span></h2>
+                <p class="lead-text-lab">See how Alex AI restructures pricing models to unlock massive savings.</p>
+            </div>
+
+            <div class="pricing-lab-wrapper">
+                
+                <div class="data-module">
+                    <div class="module-status-bar">
+                        <span class="id-code">ID: SARAH-AUTO</span>
+                        <span class="status-live"><i class="fa-solid fa-circle-check"></i> OPTIMIZED</span>
+                    </div>
+                    
+                    <div class="module-body">
+                        <div class="profile-cluster">
+                            <img src="../assets/img/profile-sarah.jpg" alt="Sarah" class="profile-avatar">
+                            <div class="profile-meta">
+                                <h4>Sarah T.</h4>
+                                <span class="meta-tag">Safe Driver</span>
+                            </div>
+                            <div class="icon-stamp icon-blue"><i class="fa-solid fa-car"></i></div>
+                        </div>
+
+                        <div class="comparison-chart">
+                            <div class="chart-row old-market">
+                                <span class="bar-label">Market</span>
+                                <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+                                <span class="bar-value">$145</span>
+                            </div>
+                            <div class="chart-row new-alex">
+                                <span class="bar-label">Alex AI</span>
+                                <div class="bar-track"><div class="bar-fill fill-aurora" style="width: 60%;"></div></div>
+                                <span class="bar-value aurora-text">$89</span>
+                            </div>
+                        </div>
+
+                        <div class="savings-readout">
+                            <span class="readout-label">Monthly Efficiency</span>
+                            <span class="readout-value text-green">+$56.00 / mo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-module hero-module">
+                    <div class="module-loading-line"></div>
+                    
+                    <div class="module-status-bar">
+                        <span class="id-code">ID: MILLERS-HOME</span>
+                        <span class="status-live"><i class="fa-solid fa-bolt"></i> BEST VALUE</span>
+                    </div>
+                    
+                    <div class="module-body">
+                        <div class="profile-cluster">
+                            <img src="../assets/img/profile-family.jpg" alt="Family" class="profile-avatar lg">
+                            <div class="profile-meta">
+                                <h4>The Millers</h4>
+                                <span class="meta-tag">Smart Home</span>
+                            </div>
+                            <div class="icon-stamp icon-indigo"><i class="fa-solid fa-house-chimney"></i></div>
+                        </div>
+
+                        <div class="price-synthesis-light">
+                            <div class="legacy-price">
+                                <span>Traditional</span>
+                                <strong>$1,200</strong>
+                            </div>
+                            <div class="arrow-transform"><i class="fa-solid fa-arrow-right"></i></div>
+                            <div class="alex-price">
+                                <span>Alex AI Rate</span>
+                                <strong class="aurora-text-lg">$850<small>/yr</small></strong>
+                            </div>
+                        </div>
+
+                        <div class="savings-readout highlight-green">
+                            <span class="readout-label">Total Annual Savings</span>
+                            <span class="readout-value">Save $350.00 / yr</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="data-module">
+                    <div class="module-status-bar">
+                        <span class="id-code">ID: DAVID-RENT</span>
+                        <span class="status-live"><i class="fa-solid fa-circle-check"></i> OPTIMIZED</span>
+                    </div>
+                    
+                    <div class="module-body">
+                        <div class="profile-cluster">
+                            <img src="../assets/img/profile-david.jpg" alt="David" class="profile-avatar">
+                            <div class="profile-meta">
+                                <h4>David L.</h4>
+                                <span class="meta-tag">Bundled</span>
+                            </div>
+                            <div class="icon-stamp icon-purple"><i class="fa-solid fa-key"></i></div>
+                        </div>
+
+                        <div class="comparison-chart">
+                            <div class="chart-row old-market">
+                                <span class="bar-label">Market</span>
+                                <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+                                <span class="bar-value">$28</span>
+                            </div>
+                            <div class="chart-row new-alex">
+                                <span class="bar-label">Alex AI</span>
+                                <div class="bar-track"><div class="bar-fill fill-aurora" style="width: 45%;"></div></div>
+                                <span class="bar-value aurora-text">$12</span>
+                            </div>
+                        </div>
+
+                        <div class="savings-readout">
+                            <span class="readout-label">Monthly Efficiency</span>
+                            <span class="readout-value text-green">+$16.00 / mo</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="lab-footer text-center">
+                <a href="../cotizacion/cotizacion.html">
+                    <button class="btn-aurora-wide">
+                        Run My Analysis <i class="fa-solid fa-angle-right"></i>
+                    </button>
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="app" class="app-marketing-section">
+        <div class="container">
+            <div class="app-showcase-wrapper">
+                
+                <div class="app-text-content">
+                    <div class="social-header text-center">
+                        <div class="inline-badge-premium mb-3">
+                            <span class="pulse-dot-purple"></span> Mobile App
+                        </div>
+                        <h2 class="display-title-app">Insurance that keeps up with <span class="text-gradient-corp">real life.</span></h2>
+                        <p class="lead-text-app">Forget paperwork. Manage your policy, file claims in seconds, and get paid faster—all from your pocket.</p>
+                    </div>
+                    
+                    <div class="benefit-visual-list">
+                        
+                        <div class="benefit-item">
+                            <div class="benefit-icon-box box-blue">
+                                <i class="fa-solid fa-bolt-lightning"></i>
+                            </div>
+                            <div class="benefit-details">
+                                <strong>Request Policy Changes</strong>
+                                <p>Add a vehicle, driver, or coverage easily.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon-box box-purple">
+                                <i class="fa-solid fa-user-shield"></i>
+                            </div>
+                            <div class="benefit-details">
+                                <strong>Expert Support</strong>
+                                <p>Chat with licensed humans 24/7.</p>
+                            </div>
+                        </div>
+
+                        <div class="benefit-item">
+                            <div class="benefit-icon-box box-cyan">
+                                <i class="fa-solid fa-sliders"></i>
+                            </div>
+                            <div class="benefit-details">
+                                <strong>Total Control</strong>
+                                <p>Adjust coverage instantly.</p>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="store-btn-group">
+                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                            <button class="btn-store-unified">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="btn-text-col">
+                                    <span>Download on the</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share&pli=1" target="_blank">
+                            <button class="btn-store-unified">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="btn-text-col">
+                                    <span>Get it on</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="app-visual-marketing">
+                    
+                    <div class="phone-core-video">
+                        <div class="phone-aura-clean"></div>
+                        <div class="phone-chassis-premium">
+                            <video class="app-screen-video" autoplay loop muted playsinline poster="../assets/img/app-screen-light.jpg">
+                                <source src="../assets/videos/app-demo.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                    </div>
+
+                    <div class="marketing-card card-payout">
+                        <div class="icon-circle-marketing icon-green"><i class="fa-solid fa-file-signature"></i></div>
+                        <div class="marketing-info">
+                            <strong class="benefit-title">My policy in minutes</strong>
+                            <span class="benefit-desc">Documents sent directly.</span>
+                        </div>
+                    </div>
+
+                    <div class="marketing-card card-help">
+                        <div class="agent-stack-marketing">
+                            <img src="../assets/img/profile-jenny.png" alt="Agent" class="avatar-marketing">
+                            <span class="online-dot-marketing"></span>
+                        </div>
+                        <div class="marketing-info">
+                            <strong class="benefit-title">We're here 24/7</strong>
+                            <span class="benefit-desc">Real help, right away.</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="reviews" class="reviews-aurora-section">
+        <div class="aurora-mesh-bg"></div>
+        
+        <div class="container position-relative z-2">
+            
+            <div class="reviews-header text-center">
+                <div class="rating-pill">
+                    <span class="score-val">4.9/5</span>
+                    <div class="stars-mini">
+                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                    </div>
+                    <span class="score-label">Average Customer Rating</span>
+                </div>
+                
+                <h2 class="display-title-reviews">Trusted by the <span class="text-gradient-corp">modern world.</span></h2>
+                <p class="lead-text-reviews">Join over 50,000 policyholders who switched to Alex AI for the speed, and stayed for the service.</p>
+            </div>
+
+            <div class="glass-reviews-grid">
+                
+                <div class="review-glass-card card-featured-glass">
+                    <div class="card-glow-border"></div>
+                    <div class="card-glass-content">
+                        <div class="review-meta">
+                            <div class="user-info">
+                                <img src="../assets/img/profile-review-1.jpg" alt="Michael" class="avatar-glow">
+                                <div>
+                                    <h4>Michael R.</h4>
+                                    <span class="verified-tag"><i class="fa-solid fa-certificate"></i> Verified Policyholder</span>
+                                </div>
+                            </div>
+                            <div class="quote-mark-aurora"><i class="fa-solid fa-quote-right"></i></div>
+                        </div>
+
+                        <div class="aurora-stars">
+                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                        </div>
+
+                        <h3 class="quote-headline">"I saved $450 in 10 minutes."</h3>
+                        <p class="quote-body">
+                            "I was skeptical about an AI insurance company, but the process was flawless. Alex matched my old coverage instantly and undercut the price significantly. The app is gorgeous."
+                        </p>
+                    </div>
+                </div>
+
+                <div class="reviews-column-right">
+                    
+                    <div class="review-glass-card">
+                        <div class="card-glass-content">
+                            <div class="review-meta-compact">
+                                <img src="../assets/img/profile-review-2.jpg" alt="Jessica" class="avatar-sm">
+                                <div class="meta-text">
+                                    <h4>Jessica L.</h4>
+                                    <span>Home & Auto Bundle</span>
+                                </div>
+                                <div class="aurora-stars-sm ms-auto">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="quote-body-sm">
+                                "Finally, insurance that doesn't feel like the 1990s. The claim process was incredibly fast—money in my bank account the same day."
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="review-glass-card">
+                        <div class="card-glass-content">
+                            <div class="review-meta-compact">
+                                <img src="../assets/img/profile-review-3.jpg" alt="David" class="avatar-sm">
+                                <div class="meta-text">
+                                    <h4>David K.</h4>
+                                    <span>Seguro Pymes</span>
+                                </div>
+                                <div class="aurora-stars-sm ms-auto">
+                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                </div>
+                            </div>
+                            <p class="quote-body-sm">
+                                "I needed a COI for my landlord ASAP on a Sunday. Alex generated it instantly. Lifesaver."
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="press-section">
+                <p class="press-label">FEATURED IN</p>
+                <div class="press-logos-row">
+                    <i class="fa-brands fa-envira logo-dim"></i>
+                    <i class="fa-brands fa-pied-piper logo-dim"></i>
+                    <i class="fa-brands fa-stripe logo-dim"></i>
+                    <i class="fa-brands fa-aws logo-dim"></i>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="blog" class="blog-magazine-section">
+        <div class="container">
+            
+            <div class="magazine-header">
+                <div>
+                    <div class="social-header text-center">
+                        <div class="inline-badge-premium mb-3">
+                            <span class="pulse-dot-purple"></span> Mobile App
+                        </div>
+                    </div>
+                    <h2 class="display-title-mag">Smarter living & <span class="text-gradient-corp">insurance tips.</span></h2>
+                </div>
+                
+                <a href="../blog/index.html" class="btn-view-aurora">
+                    <span>View Full Blog</span> <i class="fa-solid fa-arrow-right-long"></i>
+                </a>
+            </div>
+
+            <div class="magazine-grid">
+                
+                <div class="featured-column">
+                    <article class="hero-card">
+                        <div class="hero-image-wrapper">
+                            <img src="../assets/img/article-12.jpg" alt="Auto Insurance" class="hero-img">
+                            <div class="hero-overlay-gradient"></div>
+                            <span class="aurora-badge-lg">
+                                <i class="fa-solid fa-car-side"></i> Auto Insurance
+                            </span>
+                        </div>
+
+                        <div class="hero-content-glass">
+                            <div class="meta-row-light">
+                                <span><i class="fa-regular fa-calendar"></i> Jul 28, 2025</span>
+                                <span class="dot-light">•</span>
+                                <span>5 min read</span>
+                            </div>
+                            
+                            <a href="../5-mitos-comunes-sobre-el-seguro-de-auto-que-debes-saber/index.html" class="hero-title-link">
+                                <h3>5 Common Myths About Car Insurance You Should Know.</h3>
+                            </a>
+                            
+                            <p class="hero-excerpt">The world of auto insurance involves complex variables. Over the years, several myths have been widely accepted as fact, leading to inefficient coverage and unnecessary spending.</p>
+                            
+                            <a href="../5-mitos-comunes-sobre-el-seguro-de-auto-que-debes-saber/index.html" class="btn-hero-action">
+                                Read Full Article <i class="fa-solid fa-circle-arrow-right"></i>
+                            </a>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="side-column">
+                    
+                    <article class="side-card">
+                        <div class="side-img-box">
+                            <img src="../assets/img/article-11.jpg" alt="Technology" class="side-img">
+                        </div>
+                        <div class="side-content">
+                            <span class="category-text text-purple">Technology</span>
+                            <a href="../como-la-ia-esta-revolucionando-la-industria-de-los-seguros/index.html" class="side-title-link">
+                                <h4>How AI is revolutionizing the insurance industry.</h4>
+                            </a>
+                            <div class="meta-side">
+                                <span>Jul 22, 2025</span> • <span>4 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="side-card">
+                        <div class="side-img-box">
+                            <img src="../assets/img/article-10.jpg" alt="Pymes" class="side-img">
+                        </div>
+                        <div class="side-content">
+                            <span class="category-text text-cyan">Pymes</span>
+                            <a href="../guia-para-principiantes-que-cubre-el-seguro-de-inquilinos/index.html" class="side-title-link">
+                                <h4>A beginner's guide: what does inquilinos insurance cover?</h4>
+                            </a>
+                            <div class="meta-side">
+                                <span>Jul 15, 2025</span> • <span>6 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="side-card">
+                        <div class="side-img-box">
+                            <img src="../assets/img/article-9.jpg" alt="Finance" class="side-img">
+                        </div>
+                        <div class="side-content">
+                            <span class="category-text text-blue">Finance</span>
+                            <a href="../cuanto-seguro-de-vida-necesitas-realmente/index.html" class="side-title-link">
+                                <h4>How much life insurance do you really need?</h4>
+                            </a>
+                            <div class="meta-side">
+                                <span>Jul 10, 2025</span> • <span>5 min read</span>
+                            </div>
+                        </div>
+                    </article>
+
+                    <div class="newsletter-vip-card">
+                        <div class="vip-bg-mesh"></div>
+                        
+                        <div class="vip-content">
+                            <div class="vip-header">
+                                <div class="icon-sparkle-box">
+                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                                </div>
+                                <div class="vip-text">
+                                    <h4>Unlock Weekly Intel</h4>
+                                    <p>Join <strong>50,000+ policyholders</strong> getting exclusive tips on lowering premiums.</p>
+                                </div>
+                            </div>
+
+                            <form class="vip-form">
+                                <div class="input-pill-wrapper">
+                                    <input type="email" placeholder="Your email address" class="vip-input" required>
+                                    <button type="submit" class="btn-vip-submit">
+                                        Join Free
+                                    </button>
+                                </div>
+                            </form>
+
+                            <div class="trust-footer">
+                                <span><i class="fa-solid fa-lock"></i> No spam. Unsubscribe anytime.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <section id="social" class="social-aurora-section">
+        <div class="ambient-light-social"></div>
+        
+        <div class="container position-relative z-2">
+            
+            <div class="social-header text-center">
+                <div class="inline-badge-premium mb-3">
+                    <span class="pulse-dot-purple"></span> Live Community Pulse
+                </div>
+                <h2 class="display-title-social">Join the <span class="text-gradient-corp">conversation.</span></h2>
+                <p class="lead-text-social">See how thousands of modern policyholders are rethinking insurance. Follow our signals.</p>
+            </div>
+
+            <div class="social-hub-grid">
+                
+                <div class="main-feed-col">
+                    
+                    <div class="social-glass-card card-ig-visual">
+                        <div class="card-header-social">
+                            <div class="platform-identity">
+                                <img src="../assets/img/logo-alex-heart.png" alt="Alex AI" class="brand-avatar-sm">
+                                <div class="handle-info">
+                                    <strong>Alex AI Insurtech</strong>
+                                    <span>@alexai.insurtech.usa • Instagram</span>
+                                </div>
+                            </div>
+                            <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank">
+                                <i class="fa-brands fa-instagram icon-ig-gradient"></i>
+                            </a>
+                        </div>
+                        
+                        <div class="post-visual-wrapper">
+                            <img src="../assets/img/ig-post-1.png" alt="Lifestyle Post" class="post-img">
+                            <div class="visual-overlay-glass">
+                            <span class="trending-tag"><i class="fa-solid fa-arrow-trend-up"></i> Trending</span>
+                            </div>
+                        </div>
+                        
+                        <div class="post-caption">
+                            <p>Asegurar tu auto nunca fue tan easy. ✨ 
+                                Cotiza al instante, elige tu plan y contrata sin letras chiquitas. 100% digital. 🤳
+                                Try Alex AI now 👉 Link en bio #Insurtech #AlexAI #Insurance #CarInsurance</p>
+                        </div>
+                        
+                        <div class="engagement-row">
+                            <span><i class="fa-regular fa-heart"></i> 142 likes</span>
+                            <span><i class="fa-regular fa-comment"></i> 2 comments</span>
+                        </div>
+                    </div>
+
+                    <div class="social-double-row">
+                        
+                        <div class="social-glass-card card-twitter-text">
+                            <div class="card-header-social header-compact">
+                                <div class="platform-identity">
+                                    <i class="fa-brands fa-x-twitter icon-x-black"></i>
+                                    <span class="handle-compact">Alex AI Insurtech USA</span>
+                                </div>
+                                <span class="time-stamp">Jan 18, 2026</span>
+                            </div>
+                            <div class="post-caption caption-compact">
+                                <p>
+                                    ¿Asegurar tu auto te da dolor de cabeza? 🤯 Olvídate del estrés y las dudas.
+                                    <br><br>
+                                    Con AlexAI, el proceso es tan claro como el agua. Cotiza hoy y descubre lo fácil que es estar protegido. 🚗✅
+                                    <br><br>
+                                    💙 Protección inteligente, a tu manera. 👉 Learn more here: https://alexai.cloud/
+                                    <br><br>
+                                    ¿Dudas? Contáctanos:
+                                    <br>
+                                    📩 hello@alexai.cloud
+                                    <br>
+                                    📞 (480) 630-9630
+                                    <br>
+                                    📌 3101 N Central Ave ste 1174, Phoenix, AZ
+                                    <br>
+                                    #Insurtech #AlexAI #Insurance #CarInsurance</p>
+                            </div>
+                            <div class="engagement-row row-compact">
+                                <span><i class="fa-solid fa-retweet"></i> 2</span>
+                                <span><i class="fa-regular fa-heart"></i> 82</span>
+                            </div>
+                        </div>
+
+                        <div class="social-glass-card card-linkedin-pro">
+                            <div class="card-header-social header-compact">
+                                <div class="platform-identity">
+                                    <i class="fa-brands fa-youtube icon-youtube-red"></i>
+                                    <span class="handle-compact">Alex AI Insurtech</span>
+                                </div>
+                                <span class="time-stamp">Nov 25, 2025</span>
+                            </div>
+                            <div class="post-caption caption-compact">
+                                <p>
+                                    Asegura tu auto en minutos con AlexAI 🚀 100% digital y sin complicaciones.
+                                    <br><br>
+                                    ¿Seguro de auto confuso? 😩 ¡Alex Insurtech te lo explica TODO sin drama! 🤩 Somos 100% digitales y sin letras pequeñas. Gestiona tu póliza desde tu cel. ¡Cotiza ya! 👇</p>
+                            </div>
+                            <div class="mini-link-preview">
+                                <div class="preview-icon"><i class="fa-solid fa-video"></i></div>
+                                <div class="preview-text">Watch our latest marketing videos</div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="stats-sidebar-col">
+                    
+                    <div class="community-stats-card">
+                        <div class="aurora-border-glow"></div>
+                        <h3>Community Reach</h3>
+                        
+                        <div class="stat-row-big">
+                            <span class="stat-number text-gradient-corp">1.5M+</span>
+                            <span class="stat-label">Total viewers across platforms</span>
+                        </div>
+                        
+                        <div class="divider-line-soft"></div>
+                        
+                        <div class="secondary-stats">
+                            <div class="mini-stat">
+                                <strong>4.9/5</strong>
+                                <span>App Rating</span>
+                            </div>
+                            <div class="mini-stat">
+                                <strong>24/7</strong>
+                                <span>Active Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="social-cta-box">
+                        <h4>Don't miss a beat.</h4>
+                        <p>Follow us for exclusive tips, product updates, and community perks.</p>
+                       <div class="follow-buttons-row">
+    
+                            <a href="https://www.facebook.com/people/Alexai-Insurtech-USA/61573922245346/" class="btn-social-magnet fb" aria-label="Facebook" target="_blank">
+                                <i class="fa-brands fa-facebook-f"></i>
+                            </a>
+                            
+                            <a href="https://www.instagram.com/alexai.insurtech.usa/" class="btn-social-magnet ig" aria-label="Instagram" target="_blank">
+                                <i class="fa-brands fa-instagram"></i>
+                            </a>
+                            
+                            <a href="https://www.youtube.com/channel/UCphdQNb7AT5jauTFKYgSh9g" class="btn-social-magnet yt" aria-label="YouTube" target="_blank">
+                                <i class="fa-brands fa-youtube"></i>
+                            </a>
+                            
+                            <a href="https://www.tiktok.com/@alexaiinsurtech" class="btn-social-magnet tt" aria-label="TikTok" target="_blank">
+                                <i class="fa-brands fa-tiktok"></i>
+                            </a>
+
+                            <a href="https://www.facebook.com/people/Alexai-Insurtech-USA/61573922245346/" class="btn-follow-main" target="_blank">
+                                <span>Connect</span> <i class="fa-solid fa-plus"></i>
+                            </a>
+                            
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <section id="faq" class="faq-aurora-section">
+        <div class="container">
+            <div class="faq-grid-layout">
+                
+                <div class="faq-sidebar">
+                    <div class="faq-header-content">
+                        <span class="badge-tech-outline">Knowledge Base</span>
+                        <h2 class="display-title-faq">Frequently Asked <span class="text-gradient-corp">Questions.</span></h2>
+                        <p class="lead-text-faq">Everything you need to know about the Alex AI ecosystem, coverage protocols, and security.</p>
+                    </div>
+
+                    <div class="support-glass-card">
+                        <div class="icon-support-glow"><i class="fa-solid fa-headset"></i></div>
+                        <div class="support-text">
+                            <strong>Still have questions?</strong>
+                            <p>Our expert team is online.</p>
+                        </div>
+                        <a href="../contacto/index.html">
+                            <button class="btn-chat-support">Chat with us</button>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="faq-content-column">
+                    
+                    <div class="faq-item active"> <div class="faq-question">
+                            <h3>What exactly is Alex AI Insurtech?</h3>
+                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Alex AI is a hybrid insurance platform that merges predictive artificial intelligence with expert human empathy. Unlike traditional carriers, our Neural Engine analyzes thousands of data points to generate hyper-personalized coverage in seconds, eliminating paperwork and reducing premiums by cutting administrative inefficiencies.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>How does Alex AI work</h3>
+                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Our intelligent AI analyzes your profile and needs to find your perfect insurance match. In just a few clicks, you'll receive customized options. Forget the paperwork and the phone calls—this is instant protection.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What types of coverage do you offer?</h3>
+                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>We provide a comprehensive suite of protection products:
+                            <br>• <strong>Auto:</strong> Liability, collision, and comprehensive with telematics options.
+                            <br>• <strong>Hogar & Pymes:</strong> Structure and contents protection.
+                            <br>• <strong>Tech & Cyber:</strong> Coverage for devices and digital identity.
+                            <br>• <strong>Commercial:</strong> Protect your company and your assets from any risk.
+                            <br>All policies can be bundled for maximum efficiency and savings.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Is my personal data secure?</h3>
+                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Security is our foundation. We utilize military-grade <strong>AES-256 encryption</strong> for all data storage and transmission. Our infrastructure is SOC2 Type II compliant, meaning your personal and financial information is fortified by the strictest data privacy protocols in the industry.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>What makes Alex AI different?</h3>
+                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>It's simple: we put you in control. Instant quotes powered by AI, transparent pricing with no hidden fees, 24/7 real-time support, and full control to manage your policy anytime, anywhere.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            <h3>Can I cancel or modify my policy?</h3>
+                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                        </div>
+                        <div class="faq-answer">
+                            <p>You have total control. Via the Command Center (App or Web), you can add drivers, change vehicles, adjust limits, or cancel your policy instantly. No phone calls, no retention agents, no hassle.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer-aurora">
+        <div class="footer-light-mesh"></div>
+
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/img/Logo-alexai-main.png" alt="Alex AI Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">
+                        Smart insurance for modern life. Powered by intelligence, driven by humans.
+                    </p>
+                    <div class="footer-social-mini">
+                        <a href="https://www.facebook.com/people/Alexai-Insurtech-USA/61573922245346/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCphdQNb7AT5jauTFKYgSh9g" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@alexaiinsurtech" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+
+
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="../cotizacion/cotizacion.html">Car Insurance</a></li>
+                        <li><a href="../seguro-complementario-salud/index.html">Seguro complementario de salud</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguro Pymes</a></li>
+                        <li><a href="../alex-sign/index.html">Alex Sign <span class="badge-new">New</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank">About Us</a></li>
+                        <li><a href="../embajadores/documentos.html">Ambassadors</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contacto/index.html">Contact Support</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Contact & Access</h4>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa-solid fa-phone"></i> 
+                            <a href="tel:+14806309630">+1 480-630-9630</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <a href="mailto:hello@alexai.cloud">hello@alexai.cloud</a>
+                        </li>
+                    </ul>
+
+                    <div class="footer-app-buttons">
+                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="store-text">
+                                    <span>Download on</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="store-text">
+                                    <span>Get it on</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 Alex AI Insurtech. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="../politica-privacidad/index.html">Privacy Policy</a>
+                    <span class="divider">|</span>
+                    <a href="../terminos-condiciones/index.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="aurora-bottom-line"></div>
+        </div>
+    </footer>
+
+
+    <div id="floating-menu-container">
+        <div class="nav-command-center" id="megaMenu">
+            <div class="cmd-header">
+                <span>Quick Navigate</span>
+                <span class="cmd-badge">MENU</span>
+            </div>
+            <div class="cmd-grid">
+                <a href="../funnel-auto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
+                    <span>Seguro de Auto</span>
+                </a>
+                <a href="../seguro-complementario-salud/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                    <span>Seguro complementario de salud</span>
+                </a>
+                <a href="../seguro-pymes/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
+                    <span>Seguro Pymes</span>
+                </a>
+                <a href="../productos/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <span>Más productos</span>
+                </a>
+                <a href="../blog/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <span>Blog</span>
+                </a>
+                <a href="../contacto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
+                    <span>Contactar Soporte</span>
+                </a>
+            </div>
+            <div class="cmd-footer">
+                <a href="../index.html">Back to Home <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
+            <i class="fa-regular fa-compass"></i>
+        </button>
+    </div>
+
+    <div id="floating-chat-container">
+        <div class="alex-chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="agent-info">
+                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
+                    <div class="agent-text">
+                        <span class="name">Alex AI Assistant</span>
+                        <span class="status">Reply time: Instant</span>
+                    </div>
+                </div>
+                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-timestamp">Today, 5:00 PM</div>
+                
+                <div class="msg-row bot">
+                    <div class="msg-bubble">
+                        Hello! I see you're looking at quotes. Do you have any questions about the <strong>Collision Deductible</strong>? 🚗
+                    </div>
+                </div>
+                
+                <div class="chat-suggestions">
+                    <button>Explain Deductibles</button>
+                    <button>Talk to Human</button>
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" placeholder="Type your question..." class="chat-input">
+                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span class="online-badge"></span>
+        </button>
+    </div>
+
+    
+
+    <script src="./script-test.js"></script>
+    <script src="../js/script-quote.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alex AI Seguro Pymes Quote</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    
+    <link rel="stylesheet" href="../css/style.css?v=3"> 
+    <link rel="stylesheet" href="../css/style-quote.css"> 
+    <!-- <link rel="stylesheet" href="./style-test.css">  -->
+
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+</head>
+<body class="bg-body">
+
+    <div id="toast-container"></div>
+
+    <div class="noise-overlay"></div>
+
+    <div class="top-header-aurora">
+        <div class="container top-bar-flex">
+            
+            <div class="top-info-group">
+                <a href="tel:+14806309630" class="top-link glass-hover">
+                    <i class="fa-solid fa-phone pulse-icon"></i> 
+                    <span>+1 480 630 9630</span>
+                </a>
+                
+                <span class="divider-vertical"></span>
+                
+                <a href="mailto:hello@alexai.cloud" class="top-link glass-hover">
+                    <i class="fa-solid fa-envelope"></i> 
+                    <span>hello@alexai.cloud</span>
+                </a>
+
+                <span class="divider-vertical desktop-only"></span>
+                <div class="top-location desktop-only">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>3101 N Central Ave ste 1174, Phoenix, AZ</span>
+                </div>
+            </div>
+
+            <div class="top-social-group">
+                <span class="social-label desktop-only">Connect:</span>
+                <a href="https://www.facebook.com/p/Alexai-Insurtech-USA-61573922245346/" target="_blank" class="social-btn" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank" class="social-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="aurora-border-glow"></div>
+    </div>
+
+   <header class="site-header glass-navbar">
+        <div class="container nav-container">
+            
+            <a href="https://alexai.cloud/" class="brand-logo">
+                <img src="../assets/img/Logo-alexai-main.png" alt="Alex AI Logo" class="site-logo">
+            </a>
+
+            <nav class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-item active">Home</a></li>
+                    <li><a href="../cotizacion/cotizacion.html" class="nav-item">Quote</a></li>
+                    
+                    <li class="nav-dropdown-group">
+                        <button class="nav-item dropdown-btn">
+                            Products <i class="fa-solid fa-angle-down arrow-indicator"></i>
+                        </button>
+                        
+                        <div class="dropdown-glass-panel">
+                            <div class="dropdown-grid">
+                                <a href="../alex-sign/index.html" class="dd-card">
+                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-signature"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Alex Sign</span><span class="dd-desc">Digital signatures</span></div>
+                                </a>
+                                <a href="../seguro-complementario-salud/index.html" class="dd-card">
+                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-house-chimney"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Hogar</span><span class="dd-desc">Protección de propiedad</span></div>
+                                </a>
+                                <a href="../seguro-pymes/index.html" class="dd-card">
+                                    <div class="icon-tile tile-cyan"><i class="fa-solid fa-key"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Pymes</span><span class="dd-desc">Apartment coverage</span></div>
+                                </a>
+                                <a href="../contacto/index.html" class="dd-card">
+                                    <div class="icon-tile tile-purple"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Others</span><span class="dd-desc">Custom plans</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#carriers" class="nav-item">Carriers</a></li>
+                    <li><a href="../blog/index.html" class="nav-item">Blog</a></li>
+                    <li><a href="../contacto/index.html" class="nav-item">Contact</a></li>
+
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                
+                <a href="../embajadores/documentos.html" class="btn-view-aurora desktop-only">
+                    Become an Affiliate
+                </a>
+
+                <span class="divider-vertical desktop-only"></span>
+
+                <a href="../cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
+                    <span>Check Prices</span>
+                    <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
+                </a>
+                
+                <button class="mobile-toggle-btn mobile-only" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu-premium" id="mobileMenu">
+            <div class="menu-aurora-bg"></div>
+            
+            <div class="menu-inner-container">
+                
+                <div class="menu-internal-header">
+                    <img src="../assets/img/Logo-alexai-main.png" alt="Logo" style="height: 30px;">
+                    <button class="menu-close-btn" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <a href="../cotizacion/cotizacion.html" class="menu-widget-card highlight-card">
+                    <div class="widget-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="widget-info">
+                        <span class="widget-title">Obtener cotización</span>
+                        <span class="widget-desc">Start in 90 seconds</span>
+                    </div>
+                    <div class="widget-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <div class="menu-grid-row">
+                    <a href="../embajadores/documentos.html" class="menu-square-card">
+                        <i class="fa-solid fa-users-viewfinder" style="color: #7C3AED;"></i>
+                        <span>Affiliate</span>
+                    </a>
+                    <a href="../alex-sign/index.html" class="menu-square-card">
+                        <i class="fa-solid fa-file-signature" style="color: #2563EB;"></i>
+                        <span>Alex Sign</span>
+                    </a>
+                </div>
+
+                <div class="menu-section-title">INSURANCE PRODUCTS</div>
+                <div class="menu-links-group">
+                    <a href="../seguro-complementario-salud/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-house"></i> Hogar
+                    </a>
+                    <a href="../seguro-pymes/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-key"></i> Pymes
+                    </a>
+                    <a href="../index.html#carriers" class="menu-link-item">
+                        <i class="fa-solid fa-shield-halved"></i> Our Carriers
+                    </a>
+                </div>
+
+                <div class="menu-footer">
+                    <a href="../contacto/index.html" class="menu-footer-link">Contact Support</a>
+                    <div class="menu-socials">
+                        <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/p/Alexai-Insurtech-USA-61573922245346/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.youtube.com/channel/UCphdQNb7AT5jauTFKYgSh9g" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+
+    <nav class="quote-nav">
+        <a href="../index.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Exit quote</span></a>
+        <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
+    </nav>
+    <div class="text-center">
+        <div class="header-status-light">
+            <span class="pulse-blue"></span> <strong class="text-gradient-corp">Assisted Quotation</strong> 
+        </div>
+    </div>
+
+    <main class="page-wrapper" style="padding-bottom: 80px;">
+        <div class="container">
+            
+            <div class="wizard-container" id="tour-renters-intro">
+                <div class="wizard-top">
+                    <div class="wizard-title"><i class="fa-solid fa-key"></i> Pymes Coverage</div>
+                    <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
+                </div>
+                <div class="progress-track"><div class="progress-fill" id="visualProgressBar" style="width: 14%;"></div></div>
+                <div class="header-split"></div>
+                <header class="brand-page-header">
+                    <div class="title-group">
+                        <h1 id="stepTitle" class="text-gradient-corp">Protect Your Stuff</h1>
+                        <div class="aurora-line"></div>
+                    </div>
+                    <p id="stepDesc">Let's verify your personal details first.</p>
+                </header>
+            </div>
+
+            <div class="specs-layout-grid">
+                
+                <div class="main-spec-col">
+                    <div class="premium-white-card">                  
+                        <form id="renters-quote-form" novalidate autocomplete="off">
+                            
+                            <div class="form-tab-panel active" data-step="0">
+                                <div class="premium-group">
+                                    <div class="pg-header">
+                                        <div class="pg-header-badge blue"><i class="fa-solid fa-user-check"></i> POLICY HOLDER</div>
+                                        <div class="pg-header-line"></div>
+                                    </div>
+
+                                    <div class="inp-rich-group mb-4">
+                                        <label class="lbl-premium">Effective Date</label>
+                                        <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-regular fa-calendar-check"></i></div>
+                                            <input type="text" name="effective-date" class="rich-input date-picker validate-req" placeholder="Select Date">
+                                        </div>
+                                    </div>
+
+                                    <div class="grid-2-tight mb-4">
+                                        <div class="inp-rich-group">
+                                            <label class="lbl-premium">Email Address</label>
+                                            <div class="input-rich-wrapper compact-premium theme-blue">
+                                                <div class="icon-slot"><i class="fa-regular fa-envelope"></i></div>
+                                                <input type="email" name="email" class="rich-input validate-req" placeholder="name@email.com">
+                                            </div>
+                                        </div>
+                                        <div class="inp-rich-group">
+                                            <label class="lbl-premium">Phone Number</label>
+                                            <div class="input-rich-wrapper compact-premium theme-blue">
+                                                <div class="icon-slot"><i class="fa-solid fa-phone"></i></div>
+                                                <input type="tel" name="phone" class="rich-input" placeholder="(555) 000-0000">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="inp-rich-group mb-4">
+                                        <label class="lbl-premium">Full Legal Name</label>
+                                        <div class="grid-3-tight">
+                                            <div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-user"></i></div><input type="text" name="first-name" class="rich-input validate-req" placeholder="First Name"></div>
+                                            <div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-user-tag"></i></div><input type="text" name="middle-name" class="rich-input" placeholder="Middle"></div>
+                                            <div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-signature"></i></div><input type="text" name="last-name" class="rich-input validate-req" placeholder="Last Name"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="grid-3-tight">
+                                        <div class="inp-rich-group"><label class="lbl-premium">Date of Birth</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-cake-candles"></i></div><input type="text" name="dob" class="rich-input date-picker validate-req" placeholder="MM/DD/YYYY"></div></div>
+                                        <div class="inp-rich-group">
+                                            <label class="lbl-premium">Gender</label>
+                                            <div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-venus-mars"></i></div>
+                                                <select name="gender" class="rich-input premium-select validate-req">
+                                                    <option value="" disabled selected>Select...</option><option value="Male">Male</option><option value="Female">Female</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="inp-rich-group">
+                                            <label class="lbl-premium">Marital Status</label>
+                                            <div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-ring"></i></div>
+                                                <select name="marital-status" class="rich-input premium-select validate-req">
+                                                    <option value="" disabled selected>Select...</option><option value="Single">Single</option><option value="Married">Married</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-tab-panel" data-step="1">
+                                <div class="premium-group anim-entry">
+                                    <div class="pg-header">
+                                        <div class="pg-header-badge teal"><i class="fa-solid fa-building-user"></i> PROPERTY SPECS</div>
+                                        <div class="pg-header-line"></div>
+                                    </div>
+
+                                    <div class="inp-rich-group mb-4">
+                                        <label class="lbl-premium">Residence Type</label>
+                                        <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-house-chimney"></i></div>
+                                            <select id="residence-type" name="residence-type" class="rich-input premium-select validate-req">
+                                                <option value="" disabled selected>Select...</option>
+                                                <option value="Single Family">Single Family</option>
+                                                <option value="Duplex">Duplex</option>
+                                                <option value="Townhouse">Townhouse</option>
+                                                <option value="Condo">Condo</option>
+                                                <option value="Apartment">Apartment</option>
+                                                <option value="Mobile Home">Mobile Home</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div id="wrapper-complex" style="display:none;" class="mb-4">
+                                        <div class="inp-rich-group"><label class="lbl-premium">Complex Name</label><div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-regular fa-building"></i></div><input type="text" id="complex-name" class="rich-input validate-req" placeholder="e.g. Sunset Heights"></div></div>
+                                    </div>
+
+                                    <div id="wrapper-gated-units" style="display:none;" class="grid-2-tight mb-4">
+                                        <div class="inp-rich-group">
+                                            <label class="lbl-premium">Gated Community?</label>
+                                            <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-torii-gate"></i></div><select id="gated-community" class="rich-input premium-select"><option value="No">No</option><option value="Yes">Yes</option></select></div>
+                                        </div>
+                                        <div class="inp-rich-group">
+                                            <label class="lbl-premium"># of Units</label>
+                                            <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-arrow-up-9-1"></i></div><input type="number" id="num-units" class="rich-input validate-req" placeholder="e.g. 50"></div>
+                                        </div>
+                                    </div>
+
+                                    <div class="inp-rich-group mb-4">
+                                        <label class="lbl-premium">Property Address 1</label>
+                                        <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-map-location-dot"></i></div><input type="text" name="prop-address1" class="rich-input validate-req" placeholder="Street Address"></div>
+                                    </div>
+                                    <div class="inp-rich-group mb-4">
+                                        <label class="lbl-premium">Property Address 2 (Optional)</label>
+                                        <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-door-open"></i></div><input type="text" name="prop-address2" class="rich-input" placeholder="Apt, Unit, Suite"></div>
+                                    </div>
+
+                                    <div class="grid-3-tight mb-4">
+                                        <div class="inp-rich-group"><label class="lbl-premium">City</label><div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-city"></i></div><input type="text" name="prop-city" class="rich-input validate-req" placeholder="City"></div></div>
+                                        <div class="inp-rich-group"><label class="lbl-premium">State</label><div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-flag-usa"></i></div><input type="text" name="prop-state" class="rich-input" value="AZ" readonly></div></div>
+                                        <div class="inp-rich-group"><label class="lbl-premium">Zip</label><div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-hashtag"></i></div><input type="text" name="prop-zip" class="rich-input validate-req" placeholder="Zip"></div></div>
+                                    </div>
+                                    <div class="inp-rich-group"><label class="lbl-premium">Billing Reminders</label><div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-regular fa-bell"></i></div><select class="rich-input premium-select"><option value="Yes">Yes</option><option value="No">No</option></select></div></div>
+                                </div>
+                            </div>
+
+                            <div class="form-tab-panel" data-step="2">
+                                <div class="premium-group anim-entry">
+                                    <div class="pg-header"><div class="pg-header-badge purple"><i class="fa-solid fa-paper-plane"></i> MAILING ADDRESS</div><div class="pg-header-line"></div></div>
+
+                                    <div class="mailing-toggle-container mb-4">
+                                        <input type="checkbox" id="same-as-property" checked class="hidden-toggle">
+                                        <label for="same-as-property" class="premium-toggle-card">
+                                            <div class="pt-icon"><i class="fa-solid fa-house-chimney-user"></i></div>
+                                            <div class="pt-info"><span class="pt-title">Same as Property Address</span><span class="pt-desc">Uncheck if you receive mail somewhere else.</span></div>
+                                            <div class="pt-status"><div class="status-circle"><i class="fa-solid fa-check"></i></div></div>
+                                        </label>
+                                    </div>
+
+                                    <div id="mailing-address-wrapper" style="display:none;">
+                                        <div class="inp-rich-group mb-3"><label class="lbl-premium">Mailing Address 1</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-envelope"></i></div><input type="text" name="mail-address1" class="rich-input validate-req" placeholder="Street"></div></div>
+                                        <div class="inp-rich-group mb-3"><label class="lbl-premium">Mailing Address 2</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-door-closed"></i></div><input type="text" name="mail-address2" class="rich-input" placeholder="Unit"></div></div>
+                                        <div class="grid-3-tight">
+                                            <div class="inp-rich-group"><label class="lbl-premium">City</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-city"></i></div><input type="text" name="mail-city" class="rich-input validate-req" placeholder="City"></div></div>
+                                            <div class="inp-rich-group"><label class="lbl-premium">State</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-flag"></i></div><input type="text" name="mail-state" class="rich-input validate-req" placeholder="State"></div></div>
+                                            <div class="inp-rich-group"><label class="lbl-premium">Zip</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-hashtag"></i></div><input type="text" name="mail-zip" class="rich-input validate-req" placeholder="Zip"></div></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-tab-panel" data-step="3">
+                                <div class="premium-group anim-entry">
+                                    <div class="pg-header"><div class="pg-header-badge warning"><i class="fa-solid fa-shield-cat"></i> COVERAGE</div><div class="pg-header-line"></div></div>
+                                    <div class="inp-rich-group mb-4" id="tour-content-limit"><label class="lbl-premium">Content Limit</label><div class="input-rich-wrapper compact-premium theme-warning"><div class="icon-slot"><i class="fa-solid fa-couch"></i></div><select name="content-limit" class="rich-input premium-select validate-req"><option value="" disabled selected>Select...</option><option value="5000">$5,000</option><option value="10000">$10,000</option><option value="15000">$15,000</option><option value="20000">$20,000</option></select></div></div>
+                                    <div class="inp-rich-group mb-4"><label class="lbl-premium">Deductible</label><div class="input-rich-wrapper compact-premium theme-warning"><div class="icon-slot"><i class="fa-solid fa-wallet"></i></div><select name="content-deductible" class="rich-input premium-select validate-req"><option value="" disabled selected>Select...</option><option value="250|500">$250 | $500</option><option value="250|1000">$250 | $1,000</option><option value="500|500">$500 | $500</option><option value="500|1000">$500 | $1,000</option><option value="1000|1000">$1,000 | $1,000</option></select></div></div>
+                                    <div class="inp-rich-group mb-4"><label class="lbl-premium">Liability Limit</label><div class="input-rich-wrapper compact-premium theme-warning"><div class="icon-slot"><i class="fa-solid fa-gavel"></i></div><select name="liability-limit" class="rich-input premium-select validate-req"><option value="" disabled selected>Select...</option><option value="50000">$50,000</option><option value="100000">$100,000</option></select></div></div>
+                                    <div class="vault-switch-row" id="tour-water-backup">
+                                        <div class="vs-label"><i class="fa-solid fa-faucet-drip" style="color: #3B82F6;"></i> Include Water Backup Coverage?</div>
+                                        <div class="aurora-toggle-segment small"><input type="radio" name="water-backup" id="wb_yes" value="yes"><label for="wb_yes">Yes</label><input type="radio" name="water-backup" id="wb_no" value="no" checked><label for="wb_no">No</label><div class="segment-highlight"></div></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-tab-panel" data-step="4">
+                                <div class="premium-group anim-entry">
+                                    <div class="pg-header"><div class="pg-header-badge blue"><i class="fa-solid fa-user-group"></i> HOUSEHOLD</div><div class="pg-header-line"></div></div>
+                                    <p style="color:#64748B; font-size:0.9rem; margin-bottom:15px;">Add roommates or partners who need coverage.</p>
+                                    <div id="additional-insured-list"></div>
+                                    <button type="button" id="btn-add-insured" class="btn-view-aurora border-0" style="width:100%; justify-content:center; border: 2px dashed #E2E8F0; margin-top:15px;"><i class="fa-solid fa-plus"></i> Add Person</button>
+                                </div>
+                            </div>
+
+                            <div class="form-tab-panel" data-step="5">
+                                <div class="premium-group anim-entry">
+                                    <div class="pg-header"><div class="pg-header-badge purple"><i class="fa-solid fa-file-circle-check"></i> PRIOR INSURANCE</div><div class="pg-header-line"></div></div>
+                                    <p style="color:#64748B; font-size:0.9rem; margin-bottom:15px;">Provide details about your current policy (Optional).</p>
+                                    <div class="grid-2-tight mb-4"><div class="inp-rich-group"><label class="lbl-premium">Current Company</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-briefcase"></i></div><input type="text" name="current-company" class="rich-input" placeholder="e.g. Geico"></div></div><div class="inp-rich-group"><label class="lbl-premium">Policy Number</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-hashtag"></i></div><input type="text" name="current-policy-num" class="rich-input" placeholder="Policy #"></div></div></div>
+                                    <div class="grid-2-tight mb-4"><div class="inp-rich-group"><label class="lbl-premium">Contents Amount</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-couch"></i></div><input type="text" name="current-contents" class="rich-input" placeholder="$"></div></div><div class="inp-rich-group"><label class="lbl-premium">Liability Limit</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-user-shield"></i></div><input type="text" name="current-liability" class="rich-input" placeholder="$"></div></div></div>
+                                    <div class="inp-rich-group mb-4"><label class="lbl-premium">Deductible</label><div class="input-rich-wrapper compact-premium theme-purple"><div class="icon-slot"><i class="fa-solid fa-wallet"></i></div><input type="text" name="current-deductible" class="rich-input" placeholder="$"></div></div>
+                                    <div class="inp-rich-group">
+                                        <label class="lbl-premium">Upload Declaration Page</label>
+                                        <div class="file-upload-zone" id="dec-upload-zone" style="border: 2px dashed #E2E8F0; border-radius: 16px; padding: 30px; text-align: center; position: relative; transition: 0.3s; background: #F8FAFC; cursor: pointer;">
+                                            <input type="file" id="declarationPageInput" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer;">
+                                            <div class="upload-content">
+                                                <div style="font-size: 2rem; color: #8B5CF6; margin-bottom: 10px;"><i class="fa-solid fa-cloud-arrow-up"></i></div>
+                                                <div id="uploadText" style="font-weight: 600; color: #1E293B;">Click or Drag file here</div>
+                                                <div style="font-size: 0.8rem; color: #94A3B8;">PDF, JPG or PNG</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-tab-panel" data-step="6">
+                                <div class="premium-group anim-entry">
+                                    <div class="pg-header"><div class="pg-header-badge teal"><i class="fa-solid fa-building-user"></i> INTERESTED PARTY</div><div class="pg-header-line"></div></div>
+                                    <p style="color:#64748B; font-size:0.9rem; margin-bottom:15px;">Add landlord or property management if needed.</p>
+                                    <div id="additional-interest-list"></div>
+                                    <button type="button" id="btn-add-interest" class="btn-view-aurora border-0" style="width:100%; justify-content:center; border: 2px dashed #E2E8F0; margin-top:15px;"><i class="fa-solid fa-building"></i> Add Interest</button>
+                                </div>
+                            </div>
+
+                            <div class="hero-action-area" style="margin-top: 30px; display: flex; gap: 15px; justify-content: flex-end; align-items: center;">
+                                <button type="button" id="btn-prev" class="btn-view-aurora" style="display:none;"><i class="fa-solid fa-arrow-left"></i> Back</button>
+                                <button type="button" id="btn-next" class="btn-hero-gradient">Next Step <i class="fa-solid fa-arrow-right-long"></i></button>
+                                <button type="submit" id="btn-submit" class="btn-hero-gradient" style="display:none;">Get Quote <i class="fa-solid fa-bolt"></i></button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+
+                <aside class="sidebar-column">
+                    <aside class="config-sidebar anim-entry" style="animation-delay: 0.2s;">
+                        <div class="organic-panel" style="position: sticky; top: 100px;">
+                            <div class="sidebar-title">YOUR PROGRESS</div>
+                            <ul class="aurora-list" id="sidebarList">
+                                <li class="active"><span class="pulse-dot"></span> Personal Information</li>
+                                <li><i class="fa-regular fa-circle"></i> Property Specs</li>
+                                <li><i class="fa-regular fa-circle"></i> Mailing Address</li>
+                                <li><i class="fa-regular fa-circle"></i> Coverages</li>
+                                <li><i class="fa-regular fa-circle"></i> Additional Insured</li>
+                                <li><i class="fa-regular fa-circle"></i> Current Policy</li>
+                                <li><i class="fa-regular fa-circle"></i> Additional Interest</li>
+                            </ul>
+                            <div class="discount-box-vibrant">
+                                <i class="fa-solid fa-ticket bg-icon"></i>
+                                <div class="db-title"><strong>Bundle & Save</strong></div>
+                                <div class="db-msg">Crunching the numbers...</div>
+                            </div>
+                            <div class="tip-box-vibrant" style="margin-top: 20px;">
+                                <i class="fa-regular fa-lightbulb tip-icon"></i>
+                                <div>
+                                    <strong>Alex Tip:</strong> Did you know combining your Auto and Pymes insurance with the same carrier can save you up to 20%? Ask about the multi-policy discount.
+                                </div>
+                            </div>
+                        </div>
+                    </aside>
+                </aside>
+
+            </div>
+        </div>
+    </main>
+
+
+    <div id="bindSuccessModal" class="zlight-overlay">
+        <div class="zlight-card">
+            <div class="shimmer-effect"></div>
+            
+            <div class="zlight-ambient-glow"></div>
+
+            <div class="zlight-content">
+                
+                <div class="zlight-header">
+                    <div class="success-icon-animated">
+                        <div class="icon-circle-premium"><i class="fa-solid fa-award"></i></div>
+                        <div class="icon-ripple-premium"></div>
+                    </div>
+                    <h2 class="zlight-title">Application <span class="text-gradient-corp">Received</span></h2>
+                    <p class="zlight-desc">
+                        Your request ID: <strong>#AX-RENT-2026</strong>. We are finalizing your details.
+                    </p>
+                </div>
+
+                <div class="agent-assigned-box">
+                    <div class="agent-avatar">
+                        <img src="../assets/img/Profile-stephanie.webp" alt="Agent">
+                        <div class="status-dot"></div>
+                    </div>
+                    <div class="agent-info">
+                        <span class="agent-label">Senior Agent Assigned</span>
+                        <strong class="agent-name">Stephanie M.</strong>
+                        <span class="agent-status">Reviewing your application...</span>
+                    </div>
+                    <div class="agent-action-icon">
+                        <i class="fa-solid fa-message"></i>
+                    </div>
+                </div>
+
+                <div class="policy-timeline">
+                    <div class="timeline-track"></div>
+                    <div class="tl-node completed">
+                        <div class="node-dot"><i class="fa-solid fa-check"></i></div>
+                        <span class="node-label">Submitted</span>
+                    </div>
+                    <div class="tl-node active">
+                        <div class="node-dot"><i class="fa-solid fa-user-magnifying-glass"></i></div>
+                        <span class="node-label">Agent Review</span>
+                    </div>
+                    <div class="tl-node pending">
+                        <div class="node-dot"><i class="fa-solid fa-file-signature"></i></div>
+                        <span class="node-label">Issuance</span>
+                    </div>
+                </div>
+
+                <div class="next-step-msg">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Expect a verification call within <strong>10-15 minutes</strong>.</span>
+                </div>
+
+                <div class="zlight-actions">
+                    <button id="btnGoHome" class="btn-corp-primary shimmer-btn" style="width: 100%;">
+                        Go to ALEXAI.CLOUD <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="zlight-footer">
+                    <i class="fa-solid fa-envelope-open"></i> A confirmation email has been sent to you.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+     <footer class="footer-aurora">
+        <div class="footer-light-mesh"></div>
+
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/img/Logo-alexai-main-white.png" alt="Alex AI Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">
+                        Smart insurance for modern life. Powered by intelligence, driven by humans.
+                    </p>
+                    <div class="footer-social-mini">
+                        <a href="https://www.facebook.com/people/Alexai-Insurtech-USA/61573922245346/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.youtube.com/channel/UCphdQNb7AT5jauTFKYgSh9g" target="_blank"><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@alexaiinsurtech" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
+
+
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Products</h4>
+                    <ul class="footer-links">
+                        <li><a href="../cotizacion/cotizacion.html">Car Insurance</a></li>
+                        <li><a href="../seguro-complementario-salud/index.html">Seguro complementario de salud</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguro Pymes</a></li>
+                        <li><a href="../alex-sign/index.html">Alex Sign <span class="badge-new">New</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Company</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank">About Us</a></li>
+                        <li><a href="../embajadores/documentos.html">Affiliates</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contacto/index.html">Contact Support</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Contact & Access</h4>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa-solid fa-phone"></i> 
+                            <a href="tel:+14806309630">+1 480-630-9630</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <a href="mailto:hello@alexai.cloud">hello@alexai.cloud</a>
+                        </li>
+                    </ul>
+
+                    <div class="footer-app-buttons">
+                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="store-text">
+                                    <span>Download on</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="store-text">
+                                    <span>Get it on</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 Alex AI Insurtech. All rights reserved.
+                </div>
+                <div class="legal-links">
+                    <a href="../politica-privacidad/index.html">Privacy Policy</a>
+                    <span class="divider">|</span>
+                    <a href="../terminos-condiciones/index.html">Terms of Service</a>
+                </div>
+            </div>
+            <div class="aurora-bottom-line"></div>
+        </div>
+    </footer>
+
+
+    <div id="floating-menu-container">
+        <div class="nav-command-center" id="megaMenu">
+            <div class="cmd-header">
+                <span>Quick Navigate</span>
+                <span class="cmd-badge">MENU</span>
+            </div>
+            <div class="cmd-grid">
+                <a href="../funnel-auto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
+                    <span>Seguro de Auto</span>
+                </a>
+                <a href="../seguro-complementario-salud/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                    <span>Seguro complementario de salud</span>
+                </a>
+                <a href="../seguro-pymes/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
+                    <span>Seguro Pymes</span>
+                </a>
+                <a href="../productos/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <span>Más productos</span>
+                </a>
+                <a href="../blog/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <span>Blog</span>
+                </a>
+                <a href="../contacto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
+                    <span>Contactar Soporte</span>
+                </a>
+            </div>
+            <div class="cmd-footer">
+                <a href="../index.html">Back to Home <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
+            <i class="fa-regular fa-compass"></i>
+        </button>
+    </div>
+
+    <div id="floating-chat-container">
+        <div class="alex-chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="agent-info">
+                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
+                    <div class="agent-text">
+                        <span class="name">Alex AI Assistant</span>
+                        <span class="status">Reply time: Instant</span>
+                    </div>
+                </div>
+                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-timestamp">Today, 5:00 PM</div>
+                
+                <div class="msg-row bot">
+                    <div class="msg-bubble">
+                        Hello! I see you're looking at quotes. Do you have any questions about the <strong>Collision Deductible</strong>? 🚗
+                    </div>
+                </div>
+                
+                <div class="chat-suggestions">
+                    <button>Explain Deductibles</button>
+                    <button>Talk to Human</button>
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" placeholder="Type your question..." class="chat-input">
+                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span class="online-badge"></span>
+        </button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/script-quote.js"></script>
+
+    <div id="tourFocusRing">
+        <div class="scan-line"></div>
+        <div class="focus-label" id="focusLabel">SCANNING</div>
+    </div>
+    <div id="tourCard" class="tour-card-holo">
+        <div class="holo-header">
+            <span class="holo-badge">RENTERS GUIDE <span id="tcCurrent">1</span>/<span id="tcTotal">3</span></span>
+            <button class="holo-skip" onclick="endHomeTour()">Skip Guide</button>
+        </div>
+        <div class="holo-body">
+            <div class="graphic-stage" id="graphicStage"></div>
+            <h3 class="holo-title" id="tcTitle">Title</h3>
+            <p class="holo-desc" id="tcDesc">Desc</p>
+        </div>
+        <div class="holo-footer">
+            <button class="btn-holo-prev" id="btnHomePrev" onclick="prevHomeStep()"><i class="fa-solid fa-arrow-left"></i> Back</button>
+            <button class="btn-holo-next" id="btnHomeNext" onclick="nextHomeStep()">Next <i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+    </div>    
+
+</body>
+</html>
