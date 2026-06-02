@@ -3,10 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Driving Habits</title>
+    <title>Alex AI Car Insurance Quote | Employment & Home</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
     <link rel="stylesheet" href="../css/style.css?v=3"> 
     <link rel="stylesheet" href="../css/style-quote.css"> 
@@ -179,7 +180,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-8.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Employment & Home</span></a>
+        <a href="cotizacion-8.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Licensing Details</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -193,17 +194,17 @@
         
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-solid fa-road"></i>Driving Habits</div>
+                <div class="wizard-title"><i class="fa-solid fa-briefcase"></i>Employment & Home</div>
                 <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 64%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 57%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Daily Routine</h1>
+                    <h1 class="text-gradient-corp">Tell Us About You</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>A few final details about how you use your vehicle and your household status.</p>
+                <p>Occupation and housing stability are key factors that carriers use to determine discounts.</p>
             </header>
         </div>
 
@@ -220,39 +221,84 @@
                     </button>
                 </div>
 
-                <div class="premium-white-card" id="quoteFormStep9">
+                <div class="premium-white-card" id="quoteFormStep8">
                     
                     <div id="panel-d1" class="car-panel active" data-id="d1">
                         
                         <div class="info-banner-blue mb-4">
-                            <div class="banner-icon"><i class="fa-solid fa-circle-user"></i></div>
-                            <div><strong>Primary Driver:</strong> Uri Williams</div>
+                            <div class="banner-icon"><i class="fa-solid fa-id-card"></i></div>
+                            <div><strong>Primary Applicant:</strong> Uri Williams</div>
                         </div>
-
+                        
                         <div class="premium-group">
                             <div class="pg-header">
                                 <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-stopwatch"></i> USAGE FREQUENCY
+                                    <i class="fa-solid fa-building-user"></i> EMPLOYMENT DETAILS
                                 </div>
                                 <div class="pg-header-line"></div>
                             </div>
 
-                            <div class="row-switch-container">
-                                <div class="switch-label-group">
-                                    <div class="sl-icon"><i class="fa-regular fa-clock"></i></div>
-                                    <div class="sl-text">
-                                        <span class="sl-title">Occasional Operator?</span>
-                                        <span class="sl-sub">Driven less than 25% of time?</span>
+                            <div class="inp-rich-group mb-4">
+                                <label class="cov-label">Industry
+                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('employment-details')"></i>
+                                </label>
+                                <div class="input-rich-wrapper compact-premium theme-blue">
+                                    <div class="icon-slot"><i class="fa-solid fa-industry"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="" disabled selected>Select Industry</option>
+                                        <option>Agriculture / Forestry / Fishing</option>
+                                        <option>Banking / Finance / Real Estate</option>
+                                        <option>Business / Sales / Office</option>
+                                        <option>Construction / Energy / Mining</option>
+                                        <option>Education / Library</option>
+                                        <option>Engineer / Architect / Science</option>
+                                        <option>Government / Military</option>
+                                        <option>Information Technology</option>
+                                        <option>Medical / Social Services</option>
+                                        <option>Retail / Food Service</option>
+                                        <option>Student (full-time)</option>
+                                        <option>Retired</option>
+                                        <option>Unemployed</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="inp-rich-group mb-4">
+                                <label>Occupation</label>
+                                <div class="input-rich-wrapper compact-premium theme-blue">
+                                    <div class="icon-slot"><i class="fa-solid fa-briefcase"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="" disabled selected>Select Occupation</option>
+                                        <option>Administrative Assistant</option>
+                                        <option>Analyst</option>
+                                        <option>Engineer</option>
+                                        <option>Executive / Manager</option>
+                                        <option>Teacher / Professor</option>
+                                        <option>Nurse / Doctor</option>
+                                        <option>Programmer / Developer</option>
+                                        <option>Sales Representative</option>
+                                        <option>Student</option>
+                                        <option>Technician</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-2-tight">
+                                <div class="inp-rich-group">
+                                    <label>Start Date</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-regular fa-calendar-check"></i></div>
+                                        <input type="text" class="rich-input date-picker validate-req" placeholder="MM/DD/YYYY">
                                     </div>
                                 </div>
-                                <div class="aurora-toggle-segment">
-                                    <input type="radio" name="occ_d1" id="occ_d1_yes" value="yes">
-                                    <label for="occ_d1_yes">Yes</label>
-                                    
-                                    <input type="radio" name="occ_d1" id="occ_d1_no" value="no" checked>
-                                    <label for="occ_d1_no">No</label>
-                                    
-                                    <div class="segment-highlight"></div>
+                                <div class="inp-rich-group">
+                                    <label>Years Employed</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid locked fa-calculator"></i></div>
+                                        <input type="text" class="rich-input years-calc" placeholder="Auto-calc" readonly>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -260,45 +306,57 @@
                         <div class="premium-group">
                             <div class="pg-header">
                                 <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-route"></i> COMMUTE
+                                    <i class="fa-solid fa-house-chimney"></i> PERSONAL & HOME
                                 </div>
-                                <div class="pg-header-line"></div>
                             </div>
 
-                            <div class="inp-rich-group">
-                                <label>Daily Round-Trip Commute</label>
+                            <div class="inp-rich-group mb-4">
+                                <label class="cov-label">Education Level
+                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('education-level')"></i>
+                                </label>
                                 <div class="input-rich-wrapper compact-premium theme-teal">
-                                    <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
-                                    <input type="number" class="rich-input validate-req" placeholder="e.g. 20">
-                                    <span class="currency" style="padding-right:15px; padding-left:0; color:#94A3B8; font-size:0.8rem;">Miles</span>
+                                            <div class="icon-slot"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="" disabled selected>Select Level</option>
+                                        <option>High School Diploma</option>
+                                        <option>Some College</option>
+                                        <option>Associates Degree</option>
+                                        <option>Bachelors Degree</option>
+                                        <option>Masters Degree</option>
+                                        <option>Doctorate / PhD</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="premium-group">
-                            <div class="pg-header">
-                                <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-house-chimney-user"></i> HOUSEHOLD
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-
-                            <div class="row-switch-container">
-                                <div class="switch-label-group">
-                                    <div class="sl-icon"><i class="fa-solid fa-baby-carriage"></i></div>
-                                    <div class="sl-text">
-                                        <span class="sl-title">Single Parent?</span>
-                                        <span class="sl-sub">Do you have dependent children?</span>
+                            <div class="grid-2-tight">
+                                <div class="inp-rich-group">
+                                    <label class="cov-label">Residence Type
+                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('residence-type')"></i>
+                                    </label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-city"></i></div>
+                                        <select class="rich-input validate-req premium-select">
+                                            <option value="" disabled selected>Select</option>
+                                            <option>Home</option>
+                                            <option>Apartment</option>
+                                            <option>Condo</option>
+                                            <option>Mobile Home</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="aurora-toggle-segment">
-                                    <input type="radio" name="sp_d1" id="sp_d1_yes" value="yes">
-                                    <label for="sp_d1_yes">Yes</label>
-                                    
-                                    <input type="radio" name="sp_d1" id="sp_d1_no" value="no" checked>
-                                    <label for="sp_d1_no">No</label>
-                                    
-                                    <div class="segment-highlight"></div>
+                                <div class="inp-rich-group">
+                                    <label class="cov-label">Ownership
+                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('ownership-status')"></i>
+                                    </label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-key"></i></div>
+                                        <select class="rich-input validate-req premium-select">
+                                            <option value="" disabled selected>Select</option>
+                                            <option>Own</option>
+                                            <option>Rent</option>
+                                            <option>Lease</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -319,27 +377,72 @@
                         <div class="premium-group">
                             <div class="pg-header">
                                 <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-stopwatch"></i> USAGE FREQUENCY
+                                    <i class="fa-solid fa-building-user"></i> EMPLOYMENT DETAILS
                                 </div>
                                 <div class="pg-header-line"></div>
                             </div>
 
-                            <div class="row-switch-container">
-                                <div class="switch-label-group">
-                                    <div class="sl-icon"><i class="fa-regular fa-clock"></i></div>
-                                    <div class="sl-text">
-                                        <span class="sl-title">Occasional Operator?</span>
-                                        <span class="sl-sub">Driven less than 25% of time?</span>
+                            <div class="inp-rich-group mb-4">
+                                <label class="cov-label">Industry
+                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('employment-details')"></i>
+                                </label>
+                                <div class="input-rich-wrapper compact-premium theme-blue">
+                                    <div class="icon-slot"><i class="fa-solid fa-industry"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="" disabled selected>Select Industry</option>
+                                        <option>Agriculture / Forestry / Fishing</option>
+                                        <option>Banking / Finance / Real Estate</option>
+                                        <option>Business / Sales / Office</option>
+                                        <option>Construction / Energy / Mining</option>
+                                        <option>Education / Library</option>
+                                        <option>Engineer / Architect / Science</option>
+                                        <option>Government / Military</option>
+                                        <option>Information Technology</option>
+                                        <option>Medical / Social Services</option>
+                                        <option>Retail / Food Service</option>
+                                        <option>Student (full-time)</option>
+                                        <option>Retired</option>
+                                        <option>Unemployed</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="inp-rich-group mb-4">
+                                <label>Occupation</label>
+                                <div class="input-rich-wrapper compact-premium theme-blue">
+                                    <div class="icon-slot"><i class="fa-solid fa-briefcase"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="" disabled selected>Select Occupation</option>
+                                        <option>Administrative Assistant</option>
+                                        <option>Analyst</option>
+                                        <option>Engineer</option>
+                                        <option>Executive / Manager</option>
+                                        <option>Teacher / Professor</option>
+                                        <option>Nurse / Doctor</option>
+                                        <option>Programmer / Developer</option>
+                                        <option>Sales Representative</option>
+                                        <option>Student</option>
+                                        <option>Technician</option>
+                                        <option>Other</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="grid-2-tight">
+                                <div class="inp-rich-group">
+                                    <label>Start Date</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-regular fa-calendar-check"></i></div>
+                                        <input type="text" class="rich-input date-picker validate-req" placeholder="MM/DD/YYYY">
                                     </div>
                                 </div>
-                                <div class="aurora-toggle-segment">
-                                    <input type="radio" name="occ_d2" id="occ_d2_yes" value="yes">
-                                    <label for="occ_d2_yes">Yes</label>
-                                    
-                                    <input type="radio" name="occ_d2" id="occ_d2_no" value="no" checked>
-                                    <label for="occ_d2_no">No</label>
-                                    
-                                    <div class="segment-highlight"></div>
+                                <div class="inp-rich-group">
+                                    <label>Years Employed</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid locked fa-calculator"></i></div>
+                                        <input type="text" class="rich-input years-calc" placeholder="Auto-calc" readonly>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -347,45 +450,57 @@
                         <div class="premium-group">
                             <div class="pg-header">
                                 <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-route"></i> COMMUTE
+                                    <i class="fa-solid fa-house-chimney"></i> PERSONAL & HOME
                                 </div>
-                                <div class="pg-header-line"></div>
                             </div>
 
-                            <div class="inp-rich-group">
-                                <label>Daily Round-Trip Commute</label>
+                            <div class="inp-rich-group mb-4">
+                                <label class="cov-label">Education Level
+                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('education-level')"></i>
+                                </label>
                                 <div class="input-rich-wrapper compact-premium theme-teal">
-                                    <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
-                                    <input type="number" class="rich-input validate-req" placeholder="e.g. 20">
-                                    <span class="currency" style="padding-right:15px; padding-left:0; color:#94A3B8; font-size:0.8rem;">Miles</span>
+                                            <div class="icon-slot"><i class="fa-solid fa-graduation-cap"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="" disabled selected>Select Level</option>
+                                        <option>High School Diploma</option>
+                                        <option>Some College</option>
+                                        <option>Associates Degree</option>
+                                        <option>Bachelors Degree</option>
+                                        <option>Masters Degree</option>
+                                        <option>Doctorate / PhD</option>
+                                    </select>
                                 </div>
                             </div>
-                        </div>
 
-                        <div class="premium-group">
-                            <div class="pg-header">
-                                <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-house-chimney-user"></i> HOUSEHOLD
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-
-                            <div class="row-switch-container">
-                                <div class="switch-label-group">
-                                    <div class="sl-icon"><i class="fa-solid fa-baby-carriage"></i></div>
-                                    <div class="sl-text">
-                                        <span class="sl-title">Single Parent?</span>
-                                        <span class="sl-sub">Do you have dependent children?</span>
+                            <div class="grid-2-tight">
+                                <div class="inp-rich-group">
+                                    <label class="cov-label">Residence Type
+                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('residence-type')"></i>
+                                    </label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-city"></i></div>
+                                        <select class="rich-input validate-req premium-select">
+                                            <option value="" disabled selected>Select</option>
+                                            <option>Home</option>
+                                            <option>Apartment</option>
+                                            <option>Condo</option>
+                                            <option>Mobile Home</option>
+                                        </select>
                                     </div>
                                 </div>
-                                <div class="aurora-toggle-segment">
-                                    <input type="radio" name="sp_d2" id="sp_d2_yes" value="yes">
-                                    <label for="sp_d2_yes">Yes</label>
-                                    
-                                    <input type="radio" name="sp_d2" id="sp_d2_no" value="no" checked>
-                                    <label for="sp_d2_no">No</label>
-                                    
-                                    <div class="segment-highlight"></div>
+                                <div class="inp-rich-group">
+                                    <label class="cov-label">Ownership
+                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('ownership-status')"></i>
+                                    </label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-key"></i></div>
+                                        <select class="rich-input validate-req premium-select">
+                                            <option value="" disabled selected>Select</option>
+                                            <option>Own</option>
+                                            <option>Rent</option>
+                                            <option>Lease</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -396,7 +511,7 @@
                     </div>
 
                     <div class="hero-action-area">
-                        <div class="secure-badge-modern"><i class="fa-solid fa-shield-halved"></i> Data Encrypted</div>
+                        <div class="secure-badge-modern"><i class="fa-solid fa-shield-halved"></i> Data Privacy Protected</div>
                         <button type="button" class="btn-hero-gradient" id="btnNext">
                             Next Step <i class="fa-solid fa-arrow-right-long"></i>
                         </button>
@@ -420,14 +535,14 @@
                     <div class="discount-box-vibrant">
                         <i class="fa-solid fa-tags bg-icon"></i>
                         <div class="db-title">Potential Discounts</div>
-                        <div class="db-val">5</div>
-                        <div class="db-msg">Low mileage likely!</div>
+                        <div class="db-val">4</div>
+                        <div class="db-msg">Homeowner discount pending...</div>
                     </div>
 
                     <div class="tip-box-vibrant" style="margin-top: 20px;">
                         <i class="fa-regular fa-lightbulb tip-icon"></i>
                         <div>
-                            <strong>Alex Tip:</strong> If your daily commute is under 20 miles, you might qualify for a "Low Mileage" discount.
+                            <strong>Alex Tip:</strong> Hogar often get significant discounts ("bundling potential"), even if you don't buy seguro complementario de salud right now.
                         </div>
                     </div>
                 </div>
@@ -615,8 +730,37 @@
         </button>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="../js/script.js"></script>
     <script src="../js/script-quote.js"></script>
+
+    <div id="richInfoModal" class="zlight-overlay">
+        <div class="zlight-card rich-mode">
+            
+            <button class="close-float-btn" onclick="closeRichInfo()">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="rich-media-header" id="richHeaderColor">
+                <div class="media-content" id="richMediaContainer">
+                    </div>
+            </div>
+
+            <div class="rich-body">
+                <h3 class="rich-title" id="richTitle">Title Here</h3>
+                <p class="rich-desc" id="richDesc">Description text...</p>
+
+                <div class="example-box">
+                    <div class="ex-tag"><i class="fa-regular fa-lightbulb"></i> Example</div>
+                    <p id="richExample">If X happens, Y pays for Z...</p>
+                </div>
+            </div>
+
+            <div class="rich-footer">
+                <button class="btn-rich-action" onclick="closeRichInfo()">Got it</button>
+            </div>
+        </div>
+    </div>
 
 </body>
 </html>

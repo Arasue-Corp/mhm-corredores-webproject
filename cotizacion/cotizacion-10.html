@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Vehicle Identification</title>
+    <title>Alex AI Car Insurance Quote | Driving Habits</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -179,7 +179,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-9.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Driving Habits</span></a>
+        <a href="cotizacion-9.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Employment & Home</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -190,20 +190,20 @@
         </div>
 
     <div class="page-wrapper">
-
+        
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-solid fa-file-invoice-dollar"></i>Vehicle Identification</div>
+                <div class="wizard-title"><i class="fa-solid fa-road"></i>Driving Habits</div>
                 <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 71%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 64%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Your Vehicles</h1>
+                    <h1 class="text-gradient-corp">Daily Routine</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Add the vehicles you want to insure. Accurate VINs ensure the best rate.</p>
+                <p>A few final details about how you use your vehicle and your household status.</p>
             </header>
         </div>
 
@@ -211,232 +211,192 @@
             
             <div class="main-spec-col">
                 
-                <div class="car-tabs-integrated" id="carTabs">
-                    <button type="button" class="tab-int active" id="tab-car-1" onclick="switchTab('car-1', this)">
-                        <span class="tab-txt">Car 1</span>
+                <div class="car-tabs-integrated" id="driverTabs">
+                    <button type="button" class="tab-int active" onclick="switchDriverTab('d1', this)">
+                        <span class="tab-txt"><i class="fa-solid fa-user"></i> Driver 1</span>
                     </button>
-                    <button type="button" class="tab-int add-btn" id="btnAddCar">
-                        <i class="fa-solid fa-plus"></i> Add
+                    <button type="button" class="tab-int" onclick="switchDriverTab('d2', this)">
+                        <span class="tab-txt"><i class="fa-solid fa-user-group"></i> Driver 2</span>
                     </button>
                 </div>
 
-                <div class="premium-white-card" id="quoteFormStep10">
+                <div class="premium-white-card" id="quoteFormStep9">
                     
-                    <div id="carFormsContainer">
+                    <div id="panel-d1" class="car-panel active" data-id="d1">
                         
-                        <div class="car-panel active" id="panel-car-1" data-id="1">
-                            
-                            <div class="info-banner-blue mb-4">
-                                <div class="banner-icon"><i class="fa-solid fa-star"></i></div>
-                                <div><strong>Primary Vehicle:</strong> This determines base rates and cannot be removed.</div>
-                            </div>
-
-                            <div class="premium-group">
-                                <div class="pg-header">
-                                    <div class="pg-header-badge blue">
-                                        <i class="fa-solid fa-fingerprint"></i> IDENTIFICATION
-                                    </div>
-                                    <div class="pg-header-line"></div>
-                                </div>
-
-                                <div class="inp-rich-group mb-4" id="tour-vin-section">
-                                    <label class="cov-label">Vehicle Identification Number (VIN)
-                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('vehicle-vin')"></i>
-                                    </label>
-                                <div class="input-rich-wrapper compact-premium theme-blue">
-                                    <div class="icon-slot"><i class="fa-solid fa-barcode"></i></div>
-                                        <input type="text" class="rich-input validate-req" placeholder="17 Characters" style="letter-spacing: 2px; font-weight: 700; text-transform: uppercase;">
-                                    </div>
-                                </div>
-
-                                <div class="grid-3-tight">
-                                    <div class="inp-rich-group">
-                                        <label>Model Year</label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-regular fa-calendar"></i></div>
-                                            <select class="rich-input validate-req premium-select" id="year-1">
-                                                <option value="" disabled selected>Select</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="inp-rich-group">
-                                        <label>Make</label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-tag"></i></div>
-                                            <select class="rich-input validate-req premium-select" id="make-1" onchange="updateTabName(1, this.value)">
-                                                <option value="" disabled selected>Select</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="inp-rich-group">
-                                        <label>Model</label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-car-side"></i></div>
-                                            <select class="rich-input validate-req premium-select">
-                                                <option value="" disabled selected>Select</option>
-                                                <option>Camry</option><option>Corolla</option><option>RAV4</option><option>Other</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="divider-hairline"></div>
-
-                                <div class="row-switch-container">
-                                    <div class="switch-label-group">
-                                        <div class="sl-icon"><i class="fa-solid fa-location-dot"></i></div>
-                                        <div class="sl-text">
-                                            <span class="sl-title">Garaging Address</span>
-                                            <span class="sl-sub">Same as home address?</span>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="aurora-toggle-segment">
-                                        <input type="radio" name="garage_1" id="g1_yes" value="yes" checked onchange="toggleGarage(1, 'no')">
-                                        <label for="g1_yes">Yes</label>
-                                        
-                                        <input type="radio" name="garage_1" id="g1_no" value="no" onchange="toggleGarage(1, 'yes')">
-                                        <label for="g1_no">No</label>
-                                        
-                                        <div class="segment-highlight"></div>
-                                    </div>
-                                </div>
-                                
-                                <div id="garage-addr-1" class="hidden-anim mt-3">
-                                    <div class="inp-rich-group">
-                                        <label>Alternate Address</label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-map-location-dot"></i></div>
-                                            <input type="text" class="rich-input validate-cond" placeholder="Enter Street, City, Zip">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="premium-group" id="tour-coverage-config">
-                                <div class="pg-header">
-                                    <div class="pg-header-badge teal">
-                                        <i class="fa-solid fa-shield-halved"></i> COVERAGE CONFIGURATION
-                                    </div>
-                                    <div class="pg-header-line"></div>
-                                </div>
-                            
-                                <div class="grid-2-tight">
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">Comprehensive
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('comp-coverage')"></i>
-                                        </label>
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-cloud-showers-heavy"></i></div>
-                                            <select class="rich-input premium-select">
-                                                <option>No Coverage</option>
-                                                <option selected>$500 deductible</option>
-                                                <option>$1000 deductible</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">Collision
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('coll-coverage')"></i>
-                                        </label>
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-car-burst"></i></div>
-                                            <select class="rich-input premium-select">
-                                                <option>No Coverage</option>
-                                                <option selected>$500 deductible</option>
-                                                <option>$1000 deductible</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="grid-2-tight mt-3">
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">Towing
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('roadside-assistance')"></i>
-                                        </label>
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-truck-pickup"></i></div>
-                                            <select class="rich-input premium-select"><option>No Coverage</option><option selected>$50</option><option>$75</option></select>
-                                        </div>
-                                    </div>
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">Rental
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('rental-reimbursement')"></i>
-                                        </label>
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-key"></i></div>
-                                            <select class="rich-input premium-select"><option>No Coverage</option><option selected>$30 / day</option></select>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            <div class="divider-hairline"></div>
-
-                                <div class="extras-list-container">
-                                    
-                                    <div class="row-switch-container compact">
-                                        <div class="switch-label-group">
-                                            <div class="sl-text"><span class="sl-title cov-label">Gap Coverage
-                                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('gap-coverage')"></i>
-                                            </span></div>
-                                        </div>
-                                        <div class="aurora-toggle-segment small">
-                                            <input type="radio" name="gap_1" id="gap1_yes" value="yes">
-                                            <label for="gap1_yes">Yes</label>
-                                            <input type="radio" name="gap_1" id="gap1_no" value="no" checked>
-                                            <label for="gap1_no">No</label>
-                                            <div class="segment-highlight"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row-switch-container compact">
-                                        <div class="switch-label-group">
-                                            <div class="sl-text"><span class="sl-title cov-label">Safety Features
-                                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('safety-features')"></i>
-                                            </span></div>
-                                        </div>
-                                        <div class="aurora-toggle-segment small">
-                                            <input type="radio" name="safe_1" id="safe1_yes" value="yes">
-                                            <label for="safe1_yes">Yes</label>
-                                            <input type="radio" name="safe_1" id="safe1_no" value="no" checked>
-                                            <label for="safe1_no">No</label>
-                                            <div class="segment-highlight"></div>
-                                        </div>
-                                    </div>
-
-                                    <div class="row-switch-container compact">
-                                        <div class="switch-label-group">
-                                            <div class="sl-text"><span class="sl-title cov-label">Custom Equipment
-                                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('custom-equipment')"></i>
-                                            </span></div>
-                                        </div>
-                                        <div class="input-rich-wrapper compact-input">
-                                            <span class="currency">$</span>
-                                            <input type="number" class="rich-input" placeholder="0">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="nav-row-right" style="justify-content:space-between; display:flex;">
-                                <div></div> 
-                                <button type="button" class="btn-nav-outline btn-next-car" onclick="switchTab('car-2')">Next Car <i class="fa-solid fa-arrow-right"></i></button>
-                            </div>
-
-                        </div>
+                        <div class="info-banner-blue mb-4">
+                            <div class="banner-icon"><i class="fa-solid fa-circle-user"></i></div>
+                            <div><strong>Primary Driver:</strong> Uri Williams</div>
                         </div>
 
-                    <div id="tabsContainer" class="hero-action-area" style="margin: 25px 0;">
+                        <div class="premium-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge blue">
+                                    <i class="fa-solid fa-stopwatch"></i> USAGE FREQUENCY
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="row-switch-container">
+                                <div class="switch-label-group">
+                                    <div class="sl-icon"><i class="fa-regular fa-clock"></i></div>
+                                    <div class="sl-text">
+                                        <span class="sl-title">Occasional Operator?</span>
+                                        <span class="sl-sub">Driven less than 25% of time?</span>
+                                    </div>
+                                </div>
+                                <div class="aurora-toggle-segment">
+                                    <input type="radio" name="occ_d1" id="occ_d1_yes" value="yes">
+                                    <label for="occ_d1_yes">Yes</label>
+                                    
+                                    <input type="radio" name="occ_d1" id="occ_d1_no" value="no" checked>
+                                    <label for="occ_d1_no">No</label>
+                                    
+                                    <div class="segment-highlight"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="premium-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge teal">
+                                    <i class="fa-solid fa-route"></i> COMMUTE
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="inp-rich-group">
+                                <label>Daily Round-Trip Commute</label>
+                                <div class="input-rich-wrapper compact-premium theme-teal">
+                                    <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
+                                    <input type="number" class="rich-input validate-req" placeholder="e.g. 20">
+                                    <span class="currency" style="padding-right:15px; padding-left:0; color:#94A3B8; font-size:0.8rem;">Miles</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="premium-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge blue">
+                                    <i class="fa-solid fa-house-chimney-user"></i> HOUSEHOLD
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="row-switch-container">
+                                <div class="switch-label-group">
+                                    <div class="sl-icon"><i class="fa-solid fa-baby-carriage"></i></div>
+                                    <div class="sl-text">
+                                        <span class="sl-title">Single Parent?</span>
+                                        <span class="sl-sub">Do you have dependent children?</span>
+                                    </div>
+                                </div>
+                                <div class="aurora-toggle-segment">
+                                    <input type="radio" name="sp_d1" id="sp_d1_yes" value="yes">
+                                    <label for="sp_d1_yes">Yes</label>
+                                    
+                                    <input type="radio" name="sp_d1" id="sp_d1_no" value="no" checked>
+                                    <label for="sp_d1_no">No</label>
+                                    
+                                    <div class="segment-highlight"></div>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="nav-row-right">
+                            <button type="button" class="btn-nav-outline" onclick="switchDriverTab('d2')">Next Driver <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div id="panel-d2" class="car-panel" data-id="d2">
                         
-                        <button type="button" id="btnAdd" class="btn-add-car-static add-btn" onclick="document.getElementById('btnAddCar').click()">
-                            <i class="fa-solid fa-car-side"></i> Add Another Car
-                        </button>
-                        
-                    </div>    
+                        <div class="info-banner-blue mb-4">
+                            <div class="banner-icon"><i class="fa-solid fa-user-group"></i></div>
+                            <div><strong>Driver 2:</strong> Elois Wolf</div>
+                        </div>
+
+                        <div class="premium-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge blue">
+                                    <i class="fa-solid fa-stopwatch"></i> USAGE FREQUENCY
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="row-switch-container">
+                                <div class="switch-label-group">
+                                    <div class="sl-icon"><i class="fa-regular fa-clock"></i></div>
+                                    <div class="sl-text">
+                                        <span class="sl-title">Occasional Operator?</span>
+                                        <span class="sl-sub">Driven less than 25% of time?</span>
+                                    </div>
+                                </div>
+                                <div class="aurora-toggle-segment">
+                                    <input type="radio" name="occ_d2" id="occ_d2_yes" value="yes">
+                                    <label for="occ_d2_yes">Yes</label>
+                                    
+                                    <input type="radio" name="occ_d2" id="occ_d2_no" value="no" checked>
+                                    <label for="occ_d2_no">No</label>
+                                    
+                                    <div class="segment-highlight"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="premium-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge teal">
+                                    <i class="fa-solid fa-route"></i> COMMUTE
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="inp-rich-group">
+                                <label>Daily Round-Trip Commute</label>
+                                <div class="input-rich-wrapper compact-premium theme-teal">
+                                    <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
+                                    <input type="number" class="rich-input validate-req" placeholder="e.g. 20">
+                                    <span class="currency" style="padding-right:15px; padding-left:0; color:#94A3B8; font-size:0.8rem;">Miles</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="premium-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge blue">
+                                    <i class="fa-solid fa-house-chimney-user"></i> HOUSEHOLD
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="row-switch-container">
+                                <div class="switch-label-group">
+                                    <div class="sl-icon"><i class="fa-solid fa-baby-carriage"></i></div>
+                                    <div class="sl-text">
+                                        <span class="sl-title">Single Parent?</span>
+                                        <span class="sl-sub">Do you have dependent children?</span>
+                                    </div>
+                                </div>
+                                <div class="aurora-toggle-segment">
+                                    <input type="radio" name="sp_d2" id="sp_d2_yes" value="yes">
+                                    <label for="sp_d2_yes">Yes</label>
+                                    
+                                    <input type="radio" name="sp_d2" id="sp_d2_no" value="no" checked>
+                                    <label for="sp_d2_no">No</label>
+                                    
+                                    <div class="segment-highlight"></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nav-row-spaced">
+                            <button type="button" class="btn-nav-outline" onclick="switchDriverTab('d1')"><i class="fa-solid fa-chevron-left"></i> Prev Driver</button>
+                        </div>
+                    </div>
 
                     <div class="hero-action-area">
-                        <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> SSL Encrypted Data</div>
+                        <div class="secure-badge-modern"><i class="fa-solid fa-shield-halved"></i> Data Encrypted</div>
                         <button type="button" class="btn-hero-gradient" id="btnNext">
                             Next Step <i class="fa-solid fa-arrow-right-long"></i>
                         </button>
@@ -448,30 +408,33 @@
             <aside class="config-sidebar">
                 <div class="organic-panel">
                     <div class="sidebar-title">Coverage Path</div>
+                    
                     <ul class="aurora-list">
                         <li class="done"><i class="fa-solid fa-circle-check"></i> Client Information</li>
                         <li class="done"><i class="fa-solid fa-circle-check"></i> Drivers</li>
                         <li class="done"><i class="fa-solid fa-circle-check"></i> Violations</li>
-                        <li class="done"><i class="fa-solid fa-circle-check"></i> Additional Info</li>
-                        <li class="active"><span class="pulse-dot"></span> Vehicle</li>
+                        <li class="active"><span class="pulse-dot"></span> Additional Info</li>
+                        <li><i class="fa-regular fa-circle"></i> Vehicle</li>
                     </ul>
+
                     <div class="discount-box-vibrant">
                         <i class="fa-solid fa-tags bg-icon"></i>
                         <div class="db-title">Potential Discounts</div>
-                        <div class="db-val">4</div>
-                        <div class="db-msg">Multi-Car Pending</div>
+                        <div class="db-val">5</div>
+                        <div class="db-msg">Low mileage likely!</div>
                     </div>
+
                     <div class="tip-box-vibrant" style="margin-top: 20px;">
                         <i class="fa-regular fa-lightbulb tip-icon"></i>
                         <div>
-                            <strong>Alex Tip:</strong> Higher deductibles (e.g. $1000) can lower your monthly payment significantly.
+                            <strong>Alex Tip:</strong> If your daily commute is under 20 miles, you might qualify for a "Low Mileage" discount.
                         </div>
                     </div>
                 </div>
             </aside>
         </div>
     </div>
-    
+
     <footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
@@ -654,61 +617,6 @@
 
     <script src="../js/script.js"></script>
     <script src="../js/script-quote.js"></script>
-
-    <div id="richInfoModal" class="zlight-overlay">
-        <div class="zlight-card rich-mode">
-            
-            <button class="close-float-btn" onclick="closeRichInfo()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="rich-media-header" id="richHeaderColor">
-                <div class="media-content" id="richMediaContainer">
-                    </div>
-            </div>
-
-            <div class="rich-body">
-                <h3 class="rich-title" id="richTitle">Title Here</h3>
-                <p class="rich-desc" id="richDesc">Description text...</p>
-
-                <div class="example-box">
-                    <div class="ex-tag"><i class="fa-regular fa-lightbulb"></i> Example</div>
-                    <p id="richExample">If X happens, Y pays for Z...</p>
-                </div>
-            </div>
-
-            <div class="rich-footer">
-                <button class="btn-rich-action" onclick="closeRichInfo()">Got it</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="tourFocusRing">
-        <div class="scan-line"></div>
-        <div class="focus-label" id="focusLabel">SCANNING</div>
-    </div>
-
-    <div id="tourCard" class="tour-card-holo">
-        <div class="holo-header">
-            <span class="holo-badge">ASSETS <span id="tcCurrent">1</span>/<span id="tcTotal">3</span></span>
-            <button class="holo-skip" onclick="endVehicleTour()">Skip Guide</button>
-        </div>
-
-        <div class="holo-body">
-            <div class="graphic-stage" id="graphicStage"></div>
-            <h3 class="holo-title" id="tcTitle">Title</h3>
-            <p class="holo-desc" id="tcDesc">Desc</p>
-        </div>
-
-        <div class="holo-footer">
-            <button class="btn-holo-prev" id="btnVehPrev" onclick="prevVehicleStep()">
-                <i class="fa-solid fa-arrow-left"></i> Back
-            </button>
-            <button class="btn-holo-next" id="btnVehNext" onclick="nextVehicleStep()">
-                Next <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </div>
-    </div>
 
 </body>
 </html>

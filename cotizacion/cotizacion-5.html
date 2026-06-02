@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Driving History</title>
+    <title>Alex AI Car Insurance Quote | Driver Details</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -180,7 +180,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-4.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Driver Details</span></a>
+        <a href="cotizacion-4.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Customize Protection</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -194,17 +194,17 @@
         
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-solid fa-id-card"></i>Driving History</div>
+                <div class="wizard-title"><i class="fa-solid fa-user"></i>Driver Details</div>
                 <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 35%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 28%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Accidents or Violations?</h1>
+                    <h1 class="text-gradient-corp">Who Is Driving?</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Have any drivers had tickets, accidents, or claims in the last 5 years?</p>
+                <p>Please list all household members of driving age (15+).</p>
             </header>
         </div>
 
@@ -216,116 +216,146 @@
                     <button type="button" class="tab-int active" onclick="switchDriverTab('d1', this)">
                         <span class="tab-txt"><i class="fa-solid fa-user"></i> Driver 1</span>
                     </button>
-                    <button type="button" class="tab-int" onclick="switchDriverTab('d2', this)">
-                        <span class="tab-txt"><i class="fa-solid fa-user-group"></i> Driver 2</span>
+                    <button type="button" class="tab-int add-btn" id="btnAddDriverTop" onclick="window.addNewDriverGlobal()">
+                        <i class="fa-solid fa-plus"></i> Add
                     </button>
                 </div>
 
-                <div class="premium-white-card" id="quoteFormStep5">
+                <div class="premium-white-card" id="quoteFormStep4">
                     
-                    <div id="panel-d1" class="car-panel active" data-id="d1">
+                    <div id="driverFormsContainer">
                         
-                        <div class="info-banner-blue mb-4">
-                            <div class="banner-icon"><i class="fa-solid fa-user-clock"></i></div>
-                            <div><strong>Primary Driver:</strong> Uri Williams</div>
-                        </div>
-                        
-                        <div class="premium-group">
-
-                            <div class="pg-header">
-                                <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-circle-question"></i> INCIDENT CHECK
-                                </div>
-                                <div class="pg-header-line"></div>
+                        <div id="panel-d1" class="car-panel active" data-id="1">
+                            
+                            <div class="info-banner-blue mb-4">
+                                <div class="banner-icon"><i class="fa-solid fa-circle-info"></i></div>
+                                <div><strong>Primary Driver:</strong> Main applicant. Cannot be excluded.</div>
                             </div>
 
-                            <div class="row-switch-container" id="tour-incident-toggle">
-                                <div class="switch-label-group">
-                                    <div class="sl-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                                    <div class="sl-text">
-                                        <span class="sl-title">Any incidents in the last 5 years?</span>
-                                        <span class="sl-sub">Tickets, accidents, or claims.</span>
+                            <div class="premium-group">
+                                <div class="pg-header">
+                                    <div class="pg-header-badge blue">
+                                        <i class="fa-solid fa-id-card"></i> PERSONAL DETAILS
+                                    </div>
+                                    <div class="pg-header-line"></div>
+                                </div>
+
+                                <div class="grid-3-tight mb-4">
+                                    <div class="inp-rich-group">
+                                        <label>First Name</label>
+                                        <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-user"></i></div>
+                                            <input type="text" class="rich-input validate-req" placeholder="e.g. John" oninput="updateTabName(1, this.value)">
+                                        </div>
+                                    </div>
+                                    <div class="inp-rich-group">
+                                        <label>Middle</label>
+                                        <div class="input-rich-wrapper">
+                                            <input type="text" class="rich-input" placeholder="M.I." style="text-align:center;">
+                                        </div>
+                                    </div>
+                                    <div class="inp-rich-group">
+                                        <label>Last Name</label>
+                                        <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-font"></i></div>
+                                            <input type="text" class="rich-input validate-req" placeholder="e.g. Doe">
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="aurora-toggle-segment">
-                                    <input type="radio" name="viol_d1" id="viol_d1_yes" value="yes" onchange="toggleDriverViolations('d1', 'yes')">
-                                    <label for="viol_d1_yes">Yes</label>
-                                    
-                                    <input type="radio" name="viol_d1" id="viol_d1_no" value="no" checked onchange="toggleDriverViolations('d1', 'no')">
-                                    <label for="viol_d1_no">No</label>
-                                    <div class="segment-highlight"></div>
+
+                                <div class="grid-3-tight">
+                                    <div class="inp-rich-group">
+                                        <label>Date of Birth</label>
+                                        <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-calendar"></i></div>
+                                            <input type="text" class="rich-input date-picker-dob validate-req" placeholder="MM/DD/YYYY">
+                                        </div>
+                                    </div>
+                                    <div class="inp-rich-group">
+                                        <label>Age</label>
+                                        <div class="input-rich-wrapper locked">
+                                            <input type="text" class="rich-input age-display" placeholder="--" readonly style="text-align:center; font-weight:800; color:#64748B;">
+                                        </div>
+                                    </div>
+                                    <div class="inp-rich-group">
+                                        <label>Gender</label>
+                                        <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-venus-mars"></i></div>
+                                            <select class="rich-input validate-req premium-select">
+                                                <option value="" disabled selected>Select</option>
+                                                <option>Male</option>
+                                                <option>Female</option>
+                                            </select>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
-                        </div>
+                            <div class="exclusion-zone">
+
+                                <div class="premium-group">
+
+                                    <div class="pg-header">
+                                        <div class="pg-header-badge teal">
+                                            <i class="fa-solid fa-users"></i> RELATIONSHIP & LICENSE
+                                        </div>
+                                        <div class="pg-header-line"></div>
+                                    </div>
+
+                                    <div class="grid-2-tight" id="tour-relationship-area">
+                                        <div class="inp-rich-group">
+                                            <label>Marital Status</label>
+                                            <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-ring"></i></div>
+                                                <select class="rich-input validate-req premium-select">
+                                                    <option value="" disabled selected>Select</option>
+                                                    <option>Single</option>
+                                                    <option>Married</option>
+                                                    <option>Divorced</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="inp-rich-group">
+                                            <label>Relationship</label>
+                                            <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-link"></i></div>
+                                                <select class="rich-input premium-select" disabled>
+                                                    <option selected>Insured (Self)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="inp-rich-group mt-3">
+                                        <label class="cov-label">Driver License / ID / Passport Number
+                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('document-requirements')"></i>
+                                        </label>
+                                        <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-id-card"></i></div>
+                                            <input type="text" class="rich-input validate-req" placeholder="Enter DL Number">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
 
-                        <div id="viol-wrapper-d1" class="hidden-anim mb-4">
-                            <div class="divider-hairline"></div>
-                            <div id="cards-container-d1"></div>
-                            
-                            <button type="button" class="btn-add-dashed" onclick="addViolationCard('d1')">
-                                <i class="fa-solid fa-plus-circle"></i> Add Violation
-                            </button>
-                        </div>
+                            <div class="nav-row-right">
+                                <button type="button" class="btn-nav-outline btn-next-driver" style="display:none;" onclick="switchDriverTab('d2')">
+                                    Next Driver <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
 
-                        <div class="nav-row-right">
-                            <button type="button" class="btn-nav-outline" onclick="switchDriverTab('d2')">Next Driver <i class="fa-solid fa-arrow-right"></i></button>
                         </div>
                     </div>
 
-                    <div id="panel-d2" class="car-panel" data-id="d2">
-                        
-                        <div class="info-banner-blue mb-4">
-                            <div class="banner-icon"><i class="fa-solid fa-user-group"></i></div>
-                            <div><strong>Driver 2:</strong> Elois Wolf</div>
-                        </div>
-
-                        <div class="premium-group">
-
-                            <div class="pg-header">
-                                <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-circle-question"></i> INCIDENT CHECK
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-
-                            <div class="row-switch-container" id="tour-incident-toggle">
-                                <div class="switch-label-group">
-                                    <div class="sl-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                                    <div class="sl-text">
-                                        <span class="sl-title">Any incidents in the last 5 years?</span>
-                                        <span class="sl-sub">Tickets, accidents, or claims.</span>
-                                    </div>
-                                </div>
-                                <div class="aurora-toggle-segment">
-                                    <input type="radio" name="viol_d2" id="viol_d2_yes" value="yes" onchange="toggleDriverViolations('d2', 'yes')">
-                                    <label for="viol_d2_yes">Yes</label>
-                                    
-                                    <input type="radio" name="viol_d2" id="viol_d2_no" value="no" checked onchange="toggleDriverViolations('d2', 'no')">
-                                    <label for="viol_d2_no">No</label>
-                                    <div class="segment-highlight"></div>
-                                </div>
-                            </div>
-                        </div>
-
-
-                        <div id="viol-wrapper-d2" class="hidden-anim mb-4">
-                            <div class="divider-hairline"></div>
-                            <div id="cards-container-d2"></div>
-                            
-                            <button type="button" class="btn-add-dashed" onclick="addViolationCard('d2')">
-                                <i class="fa-solid fa-plus-circle"></i> Add Violation
-                            </button>
-                        </div>
-
-                        <div class="nav-row-spaced">
-                            <button type="button" class="btn-nav-outline" onclick="switchDriverTab('d1')"><i class="fa-solid fa-chevron-left"></i> Prev Driver</button>
-                        </div>
+                    <div class="hero-action-area" style="margin: 25px 0;">
+                        <button type="button" class="btn-add-driver-static" id="tour-add-bottom" onclick="window.addNewDriverGlobal()">
+                            <i class="fa-solid fa-user-plus"></i> Add Another Driver
+                        </button>
                     </div>
 
                     <div class="hero-action-area">
-                        <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> History Verification</div>
+                        <div class="secure-badge-modern"><i class="fa-solid fa-shield-halved"></i> Data Encrypted</div>
                         <button type="button" class="btn-hero-gradient" id="btnNext">
                             Next Step <i class="fa-solid fa-arrow-right-long"></i>
                         </button>
@@ -339,28 +369,28 @@
                     <div class="sidebar-title">Coverage Path</div>
                     <ul class="aurora-list">
                         <li class="done"><i class="fa-solid fa-circle-check"></i> Client Information</li>
-                        <li class="done"><i class="fa-solid fa-circle-check"></i> Drivers</li>
-                        <li class="active"><span class="pulse-dot"></span> Violations</li>
+                        <li class="active"><span class="pulse-dot"></span> Drivers</li>
+                        <li><i class="fa-regular fa-circle"></i> Violations</li>
                         <li><i class="fa-regular fa-circle"></i> Additional Info</li>
                         <li><i class="fa-regular fa-circle"></i> Vehicle</li>
                     </ul>
                     <div class="discount-box-vibrant">
                         <i class="fa-solid fa-tags bg-icon"></i>
                         <div class="db-title">Potential Discounts</div>
-                        <div class="db-val">4</div>
-                        <div class="db-msg">Safe driver check pending...</div>
+                        <div class="db-val">3</div>
+                        <div class="db-msg">Multi-Driver pending...</div>
                     </div>
                     <div class="tip-box-vibrant" style="margin-top: 20px;">
                         <i class="fa-regular fa-lightbulb tip-icon"></i>
                         <div>
-                            <strong>Alex Tip:</strong> Be honest! Carriers run reports anyway. Disclosing incidents now ensures your final quote is accurate.
+                            <strong>Alex Tip:</strong> Listing all household members prevents claim denial later.
                         </div>
                     </div>
                 </div>
             </aside>
         </div>
     </div>
-    
+
     <footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
@@ -545,6 +575,7 @@
     <script src="../js/script.js"></script>
     <script src="../js/script-quote.js"></script>
 
+    
     <div id="richInfoModal" class="zlight-overlay">
         <div class="zlight-card rich-mode">
             
@@ -580,8 +611,8 @@
 
     <div id="tourCard" class="tour-card-holo">
         <div class="holo-header">
-            <span class="holo-badge">HISTORY <span id="tcCurrent">1</span>/<span id="tcTotal">2</span></span>
-            <button class="holo-skip" onclick="endViolTour()">Skip Guide</button>
+            <span class="holo-badge">HOUSEHOLD <span id="tcCurrent">1</span>/<span id="tcTotal">3</span></span>
+            <button class="holo-skip" onclick="endDriverTour()">Skip Guide</button>
         </div>
 
         <div class="holo-body">
@@ -591,11 +622,11 @@
         </div>
 
         <div class="holo-footer">
-            <button class="btn-holo-prev" id="btnViolPrev" onclick="prevViolStep()">
+            <button class="btn-holo-prev" id="btnDrvPrev" onclick="prevDriverStep()">
                 <i class="fa-solid fa-arrow-left"></i> Back
             </button>
-            <button class="btn-holo-next" id="btnViolNext" onclick="nextViolStep()">
-                Next Step <i class="fa-solid fa-arrow-right"></i>
+            <button class="btn-holo-next" id="btnDrvNext" onclick="nextDriverStep()">
+                Next <i class="fa-solid fa-arrow-right"></i>
             </button>
         </div>
     </div>

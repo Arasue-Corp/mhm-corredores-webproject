@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Customize Protection</title>
+    <title>Alex AI Car Insurance Quote | Location Details</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -11,7 +11,6 @@
     
     <link rel="stylesheet" href="../css/style.css?v=3"> 
     <link rel="stylesheet" href="../css/style-quote.css"> 
-
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-body">
@@ -181,7 +180,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-2.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Location Details</span></a>
+        <a href="cotizacion.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Contact Information</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -191,213 +190,128 @@
             </div>
         </div>
 
+
     <div class="page-wrapper">
 
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-solid fa-shield-heart"></i>Customize Protection</div>
+                <div class="wizard-title"><i class="fa-solid fa-map-location-dot"></i>Location Details</div>
                 <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 21%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 14%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Define Your Limits</h1>
+                    <h1 class="text-gradient-corp">Where do you call home?</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Choose the coverage levels that fit your needs.</p>
+                <p>Your address helps us find regional discounts and rates.</p>
             </header>
         </div>
 
         <div class="specs-layout-grid">
             <div class="main-spec-col">
-                <div class="premium-white-card" id="quoteFormStep3">
-                    <div id="carFormsContainer">
-                        <div class="car-panel active" id="panel-car-1" data-id="1">
-                            
-                            <div class="premium-group single-row anim-entry">
-                                <div class="pg-icon-box">
-                                    <i class="fa-regular fa-calendar-check"></i>
-                                </div>
-                                <div class="pg-content-row">
-                                    <div class="pg-labels">
-                                        <span class="pg-title-main">Effective Date</span>
-                                        <span class="pg-subtitle">Policy Start</span>
-                                    </div>
-                                    <div class="pg-input-area">
-                                        <div class="input-rich-wrapper compact-premium">
-                                            <input type="text" class="rich-input date-picker validate-req" placeholder="MM/DD/YYYY">
-                                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('effective-date')"></i>
-                                        </div>
-                                    </div>
-                                </div>
+                <div class="premium-white-card" id="quoteFormStep2">
+                    
+                    <div id="addressFormsContainer">
+                        
+                        <div class="premium-group single-row anim-entry">
+                            <div class="pg-icon-box">
+                                <i class="fa-solid fa-location-dot"></i>
                             </div>
-
-                            <div class="premium-group anim-entry delay-1" id="tour-mandatory">
-                                <div class="pg-header">
-                                    <div class="pg-header-badge blue">
-                                        <i class="fa-solid fa-scale-balanced"></i> MANDATORY
-                                    </div>
-                                    <div class="pg-header-line"></div>
+                            <div class="pg-content-row">
+                                <div class="pg-labels">
+                                    <span class="pg-title-main">Street Address</span>
+                                    <span class="pg-subtitle">Primary Residence</span>
                                 </div>
-                                
-                                <div class="grid-2-tight">
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">
-                                            Bodily Injury (BI) 
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('bodily-injury')"></i>
-                                        </label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-user-injured"></i></div>
-                                            <select class="rich-input validate-req premium-select">
-                                                <option value="" disabled selected>Select Limit</option>
-                                                <option value="25/50">25/50</option>
-                                                <option value="50/100">50/100</option>
-                                                <option value="100/300">100/300</option>
-                                                <option value="250/500">250/500</option>
-                                                <option value="300/500">300/500</option>
-                                                <option value="500/500">500/500</option>
-                                                <option value="500/1mil">500/1 mil</option>
-                                                <option value="1mil/1mil">1 mil/1 mil</option>
-                                                <option value="5mil/5mil">5 mil/5 mil</option>
-                                                <option value="100CSL">100 CSL</option>
-                                                <option value="300CSL">300 CSL</option>
-                                                <option value="500CSL">500 CSL</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">
-                                            Property Damage (PD)
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('property-damage')"></i>
-                                        </label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-car-burst"></i></div>
-                                            <select class="rich-input validate-req premium-select">
-                                                <option value="" disabled selected>Select Limit</option>
-                                                <option value="15">15</option>
-                                                <option value="20">20</option>
-                                                <option value="50">50</option>
-                                                <option value="100">100</option>
-                                                <option value="250">250</option>
-                                                <option value="500">500</option>
-                                                <option value="1mil">1 mil</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <label class="lbl-premium">
-                                </div>
-                            </div>
-
-                            <div class="premium-group anim-entry delay-2" id="tour-protection">
-                                <div class="pg-header">
-                                    <div class="pg-header-badge teal">
-                                        <i class="fa-solid fa-shield-halved"></i> YOUR PROTECTION
-                                    </div>
-                                    <div class="pg-header-line"></div>
-                                </div>
-
-                                <div class="grid-2-tight">
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">
-                                            Uninsured Motorist BI
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('uninsured-motorist')"></i>
-                                        </label>                                        
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-user-shield"></i></div>
-                                            <select class="rich-input validate-req premium-select js-target-um" id="inputUM">
-                                                <option value="" disabled selected>Select Limit</option>
-                                                <option value="No Coverage">No coverage</option>
-                                                <option value="25/50">25/50</option>
-                                                <option value="50/100">50/100</option>
-                                                <option value="100/300">100/300</option>
-                                                <option value="250/500">250/500</option>
-                                                <option value="300/500">300/500</option>
-                                                <option value="500/500">500/500</option>
-                                                <option value="500/1000">500/1000</option>
-                                                <option value="1000/1000">1000/1000</option>
-                                                <option value="100CSL">100 CSL</option>
-                                                <option value="300CSL">300 CSL</option>
-                                                <option value="500CSL">500 CSL</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">
-                                            Underinsured Motorist BI
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('underinsured-motorist')"></i>
-                                        </label>
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-umbrella"></i></div>
-                                            <select class="rich-input validate-req premium-select js-target-uim" id="inputUIM">
-                                                <option value="" disabled selected>Select Limit</option>
-                                                <option value="No Coverage">No coverage</option>
-                                                <option value="25/50">25/50</option>
-                                                <option value="50/100">50/100</option>
-                                                <option value="100/300">100/300</option>
-                                                <option value="250/500">250/500</option>
-                                                <option value="300/500">300/500</option>
-                                                <option value="500/500">500/500</option>
-                                                <option value="500/1000">500/1000</option>
-                                                <option value="1000/1000">1000/1000</option>
-                                                <option value="100CSL">100 CSL</option>
-                                                <option value="300CSL">300 CSL</option>
-                                                <option value="500CSL">500 CSL</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">
-                                            Medical Payments
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('medical-payments')"></i>
-                                        </label>                                        
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-briefcase-medical"></i></div>
-                                            <select class="rich-input validate-req premium-select">
-                                                <option value="" disabled selected>Select Limit</option>
-                                                <option value="No Coverage">No coverage</option>
-                                                <option value="500">500</option>
-                                                <option value="1000">1000</option>
-                                                <option value="2000">2000</option>
-                                                <option value="2500">2500</option>
-                                                <option value="5000">5000</option>
-                                                <option value="10000">10000</option>
-                                                <option value="25000">25000</option>
-                                                <option value="50000">50000</option>
-                                                <option value="100000">100000</option>
-                                            </select>
-                                        </div>
-                                    </div>
-
-                                    <div class="inp-rich-group">
-                                        <label class="cov-label">
-                                            Accidental Death
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('accidental-death')"></i>
-                                        </label>                                            
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-heart-pulse"></i></div>
-                                            <select class="rich-input validate-req premium-select">
-                                                <option value="" disabled selected>Select Limit</option>
-                                                <option value="No Coverage">No coverage</option>
-                                                <option value="1000">1000</option>
-                                                <option value="2000">2000</option>
-                                                <option value="3000">3000</option>
-                                                <option value="4000">4000</option>
-                                                <option value="5000">5000</option>
-                                                <option value="6000">6000</option>
-                                                <option value="7000">7000</option>
-                                                <option value="8000">8000</option>
-                                                <option value="9000">9000</option>
-                                                <option value="10000">10000</option>
-                                            </select>
-                                        </div>
+                                <div class="pg-input-area" style="width: 100%; max-width: 320px;">
+                                    <div class="input-rich-wrapper compact-premium">
+                                        <input type="text" class="rich-input validate-req" id="inputAddress" placeholder="Start typing address...">
+                                        <div class="chevron-slot"><i class="fa-solid fa-magnifying-glass"></i></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+
+                        <div class="premium-group anim-entry delay-1">
+                            <div class="pg-header">
+                                <div class="pg-header-badge blue">
+                                    <i class="fa-solid fa-map"></i> LOCATION DETAILS
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+                            
+                            <div class="grid-2-tight" style="grid-template-columns:none;">
+                                <div class="inp-rich-group">
+                                    <label class="lbl-premium">Apt / Suite</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                        <div class="icon-slot"><i class="fa-regular fa-building"></i></div>
+                                        <input type="text" class="rich-input" placeholder="Unit #">
+                                    </div>
+                                </div>
+
+                                <div class="inp-rich-group">
+                                    <label class="lbl-premium">Zip Code</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                        <div class="icon-slot"><i class="fa-solid fa-hashtag"></i></div>
+                                        <input type="tel" class="rich-input validate-req" placeholder="e.g. 85001" maxlength="5">
+                                    </div>
+                                </div>
+
+                                <div class="inp-rich-group">
+                                    <label class="lbl-premium">City</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                        <div class="icon-slot"><i class="fa-solid fa-city"></i></div>
+                                        <input type="text" class="rich-input validate-req" placeholder="City Name">
+                                    </div>
+                                </div>
+
+                                <div class="inp-rich-group">
+                                    <label class="lbl-premium">County</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                        <div class="icon-slot"><i class="fa-solid fa-map"></i></div>
+                                        <input type="text" class="rich-input validate-req" placeholder="County Name">
+                                    </div>
+                                </div>
+                                
+                                <div class="inp-rich-group" style="grid-column: span 2;">
+                                    <label class="lbl-premium">State</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                        <div class="icon-slot"><i class="fa-solid fa-flag-usa"></i></div>
+                                        <select class="rich-input validate-req premium-select">
+                                            <option value="" disabled selected>Select State</option>
+                                            <option value="AZ">Arizona</option>
+                                            <option value="TX">Texas</option>
+                                            <option value="CA">California</option>
+                                            <option value="NV">Nevada</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="premium-group anim-entry delay-2">
+                            <div class="pg-header">
+                                <div class="pg-header-badge teal">
+                                    <i class="fa-solid fa-clock-rotate-left"></i> HISTORY
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="grid-2-tight">
+                                <div class="inp-rich-group" style="grid-column: span 2;">
+                                    <label class="lbl-premium">
+                                        Time at Residence (Move-in Date)
+                                    </label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal">
+                                        <div class="icon-slot"><i class="fa-solid fa-calendar-day"></i></div>
+                                        <input type="text" class="rich-input date-picker-past validate-req" placeholder="Select Move-in Date">
+                                        <div class="chevron-slot"><i class="fa-solid fa-chevron-down"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
 
                     <div class="hero-action-area">
@@ -410,7 +324,7 @@
                 </div>
             </div>
 
-            <aside class="config-sidebar" id="tour-sidebar">
+            <aside class="config-sidebar">
                 <div class="organic-panel">
                     <div class="sidebar-title">Coverage Path</div>
                     <ul class="aurora-list">
@@ -423,62 +337,17 @@
                     <div class="discount-box-vibrant">
                         <i class="fa-solid fa-tags bg-icon"></i>
                         <div class="db-title">Potential Discounts</div>
-                        <div class="db-val">3</div>
-                        <div class="db-msg">Custom limits unlocked!</div>
+                        <div class="db-val">2</div>
+                        <div class="db-msg">Unlock more in next steps!</div>
                     </div>
                     <div class="tip-box-vibrant" style="margin-top: 20px;">
                         <i class="fa-regular fa-lightbulb tip-icon"></i>
                         <div>
-                            <strong>Alex Tip:</strong> Choosing higher limits (like 100/300) often costs just a few dollars more but offers much better protection.
+                            <strong>Alex Tip:</strong> Did you know? Accurate garaging addresses prevent future rate hikes or claim denials.
                         </div>
                     </div>
                 </div>
             </aside>
-        </div>
-    </div>
-
-    <div id="waiverModal" class="modal-backdrop-aurora">
-        <div class="modal-content-tech warning-theme">
-            <div class="shimmer-effect"></div>
-            
-            <div class="aurora-ambient-warning"></div>
-
-            <div class="modal-header-tech">
-                <div class="header-icon-glass warning">
-                    <i class="fa-solid fa-triangle-exclamation"></i>
-                </div>
-                <div class="header-text-tech">
-                    <h3 class="tech-title warning-text">Coverage Waiver</h3>
-                    <p>Important safety notice regarding your protection.</p>
-                </div>
-            </div>
-
-            <div class="modal-body-tech">
-                <div class="waiver-alert-box">
-                    <p class="main-question">Are you sure you want to decline protection?</p>
-                    <p class="sub-text">
-                        By selecting <strong>"No Coverage"</strong>, you acknowledge that you will be financially responsible for your own medical bills if hit by an uninsured/underinsured driver.
-                    </p>
-                </div>
-
-                <div class="legal-tech-card">
-                    <div class="legal-icon"><i class="fa-solid fa-scale-balanced"></i></div>
-                    <div class="legal-content">
-                        <span class="legal-label">OFFICIAL ACKNOWLEDGMENT</span>
-                        <span class="legal-desc">Pursuant to State Insurance Laws A.R.S. § 20-259.01.</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-footer-tech">
-                <button id="btnConfirmWaiver" class="btn-ghost-warning">
-                    I Understand, Proceed <i class="fa-solid fa-chevron-right"></i>
-                </button>
-
-                <button id="btnReturnToCoverages" class="btn-primary-warning shimmer-btn">
-                    <i class="fa-solid fa-shield-halved"></i> Go Back & Add Coverage
-                </button>
-            </div>
         </div>
     </div>
 
@@ -662,65 +531,14 @@
         </button>
     </div>
 
-    <div id="richInfoModal" class="zlight-overlay">
-        <div class="zlight-card rich-mode">
-            
-            <button class="close-float-btn" onclick="closeRichInfo()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="rich-media-header" id="richHeaderColor">
-                <div class="media-content" id="richMediaContainer">
-                    </div>
-            </div>
-
-            <div class="rich-body">
-                <h3 class="rich-title" id="richTitle">Title Here</h3>
-                <p class="rich-desc" id="richDesc">Description text...</p>
-
-                <div class="example-box">
-                    <div class="ex-tag"><i class="fa-regular fa-lightbulb"></i> Example</div>
-                    <p id="richExample">If X happens, Y pays for Z...</p>
-                </div>
-            </div>
-
-            <div class="rich-footer">
-                <button class="btn-rich-action" onclick="closeRichInfo()">Got it</button>
-            </div>
-        </div>
-    </div>
-
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="../js/script.js"></script>
     <script src="../js/script-quote.js"></script>
-
-    <div id="tourFocusRing">
-        <div class="scan-line"></div> <div class="focus-label" id="focusLabel">ANALYZING</div>
-    </div>
-
-    <div id="tourCard" class="tour-card-holo">
-        <div class="holo-header">
-            <span class="holo-badge">COVERAGES <span id="tcCurrent">1</span> / <span id="tcTotal">3</span></span>
-            <button class="holo-skip" onclick="endHoloTour()">Skip Guide</button>
-        </div>
-
-        <div class="holo-body">
-            <div class="graphic-stage" id="graphicStage">
-                </div>
-            
-            <h3 class="holo-title" id="tcTitle">Title</h3>
-            <p class="holo-desc" id="tcDesc">Desc</p>
-        </div>
-
-        <div class="holo-footer">
-            <button class="btn-holo-prev" id="btnTourPrev" onclick="prevHoloStep()">
-                <i class="fa-solid fa-arrow-left"></i> Back
-            </button>
-            <button class="btn-holo-next" id="btnTourNext" onclick="nextHoloStep()">
-                Next Step <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </div>
-    </div>
-
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+             if(window.initStep2Logic) window.initStep2Logic();
+        });
+    </script>
 </body>
 </html>

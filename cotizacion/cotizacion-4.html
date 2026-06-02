@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Driver Details</title>
+    <title>Alex AI Car Insurance Quote | Customize Protection</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -11,6 +11,7 @@
     
     <link rel="stylesheet" href="../css/style.css?v=3"> 
     <link rel="stylesheet" href="../css/style-quote.css"> 
+
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-body">
@@ -180,7 +181,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-3.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Customize Protection</span></a>
+        <a href="cotizacion-3.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Location Details</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -191,172 +192,217 @@
         </div>
 
     <div class="page-wrapper">
-        
+
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-solid fa-user"></i>Driver Details</div>
+                <div class="wizard-title"><i class="fa-solid fa-shield-heart"></i>Customize Protection</div>
                 <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 28%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 21%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Who Is Driving?</h1>
+                    <h1 class="text-gradient-corp">Define Your Limits</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Please list all household members of driving age (15+).</p>
+                <p>Choose the coverage levels that fit your needs.</p>
             </header>
         </div>
 
         <div class="specs-layout-grid">
-            
             <div class="main-spec-col">
-                
-                <div class="car-tabs-integrated" id="driverTabs">
-                    <button type="button" class="tab-int active" onclick="switchDriverTab('d1', this)">
-                        <span class="tab-txt"><i class="fa-solid fa-user"></i> Driver 1</span>
-                    </button>
-                    <button type="button" class="tab-int add-btn" id="btnAddDriverTop" onclick="window.addNewDriverGlobal()">
-                        <i class="fa-solid fa-plus"></i> Add
-                    </button>
-                </div>
-
-                <div class="premium-white-card" id="quoteFormStep4">
-                    
-                    <div id="driverFormsContainer">
-                        
-                        <div id="panel-d1" class="car-panel active" data-id="1">
+                <div class="premium-white-card" id="quoteFormStep3">
+                    <div id="carFormsContainer">
+                        <div class="car-panel active" id="panel-car-1" data-id="1">
                             
-                            <div class="info-banner-blue mb-4">
-                                <div class="banner-icon"><i class="fa-solid fa-circle-info"></i></div>
-                                <div><strong>Primary Driver:</strong> Main applicant. Cannot be excluded.</div>
+                            <div class="premium-group single-row anim-entry">
+                                <div class="pg-icon-box">
+                                    <i class="fa-regular fa-calendar-check"></i>
+                                </div>
+                                <div class="pg-content-row">
+                                    <div class="pg-labels">
+                                        <span class="pg-title-main">Effective Date</span>
+                                        <span class="pg-subtitle">Policy Start</span>
+                                    </div>
+                                    <div class="pg-input-area">
+                                        <div class="input-rich-wrapper compact-premium">
+                                            <input type="text" class="rich-input date-picker validate-req" placeholder="MM/DD/YYYY">
+                                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('effective-date')"></i>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
 
-                            <div class="premium-group">
+                            <div class="premium-group anim-entry delay-1" id="tour-mandatory">
                                 <div class="pg-header">
                                     <div class="pg-header-badge blue">
-                                        <i class="fa-solid fa-id-card"></i> PERSONAL DETAILS
+                                        <i class="fa-solid fa-scale-balanced"></i> MANDATORY
+                                    </div>
+                                    <div class="pg-header-line"></div>
+                                </div>
+                                
+                                <div class="grid-2-tight">
+                                    <div class="inp-rich-group">
+                                        <label class="cov-label">
+                                            Bodily Injury (BI) 
+                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('bodily-injury')"></i>
+                                        </label>
+                                        <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-user-injured"></i></div>
+                                            <select class="rich-input validate-req premium-select">
+                                                <option value="" disabled selected>Select Limit</option>
+                                                <option value="25/50">25/50</option>
+                                                <option value="50/100">50/100</option>
+                                                <option value="100/300">100/300</option>
+                                                <option value="250/500">250/500</option>
+                                                <option value="300/500">300/500</option>
+                                                <option value="500/500">500/500</option>
+                                                <option value="500/1mil">500/1 mil</option>
+                                                <option value="1mil/1mil">1 mil/1 mil</option>
+                                                <option value="5mil/5mil">5 mil/5 mil</option>
+                                                <option value="100CSL">100 CSL</option>
+                                                <option value="300CSL">300 CSL</option>
+                                                <option value="500CSL">500 CSL</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="inp-rich-group">
+                                        <label class="cov-label">
+                                            Property Damage (PD)
+                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('property-damage')"></i>
+                                        </label>
+                                        <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-car-burst"></i></div>
+                                            <select class="rich-input validate-req premium-select">
+                                                <option value="" disabled selected>Select Limit</option>
+                                                <option value="15">15</option>
+                                                <option value="20">20</option>
+                                                <option value="50">50</option>
+                                                <option value="100">100</option>
+                                                <option value="250">250</option>
+                                                <option value="500">500</option>
+                                                <option value="1mil">1 mil</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <label class="lbl-premium">
+                                </div>
+                            </div>
+
+                            <div class="premium-group anim-entry delay-2" id="tour-protection">
+                                <div class="pg-header">
+                                    <div class="pg-header-badge teal">
+                                        <i class="fa-solid fa-shield-halved"></i> YOUR PROTECTION
                                     </div>
                                     <div class="pg-header-line"></div>
                                 </div>
 
-                                <div class="grid-3-tight mb-4">
+                                <div class="grid-2-tight">
                                     <div class="inp-rich-group">
-                                        <label>First Name</label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-user"></i></div>
-                                            <input type="text" class="rich-input validate-req" placeholder="e.g. John" oninput="updateTabName(1, this.value)">
+                                        <label class="cov-label">
+                                            Uninsured Motorist BI
+                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('uninsured-motorist')"></i>
+                                        </label>                                        
+                                        <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-user-shield"></i></div>
+                                            <select class="rich-input validate-req premium-select js-target-um" id="inputUM">
+                                                <option value="" disabled selected>Select Limit</option>
+                                                <option value="No Coverage">No coverage</option>
+                                                <option value="25/50">25/50</option>
+                                                <option value="50/100">50/100</option>
+                                                <option value="100/300">100/300</option>
+                                                <option value="250/500">250/500</option>
+                                                <option value="300/500">300/500</option>
+                                                <option value="500/500">500/500</option>
+                                                <option value="500/1000">500/1000</option>
+                                                <option value="1000/1000">1000/1000</option>
+                                                <option value="100CSL">100 CSL</option>
+                                                <option value="300CSL">300 CSL</option>
+                                                <option value="500CSL">500 CSL</option>
+                                            </select>
                                         </div>
                                     </div>
-                                    <div class="inp-rich-group">
-                                        <label>Middle</label>
-                                        <div class="input-rich-wrapper">
-                                            <input type="text" class="rich-input" placeholder="M.I." style="text-align:center;">
-                                        </div>
-                                    </div>
-                                    <div class="inp-rich-group">
-                                        <label>Last Name</label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-font"></i></div>
-                                            <input type="text" class="rich-input validate-req" placeholder="e.g. Doe">
-                                        </div>
-                                    </div>
-                                </div>
 
-                                <div class="grid-3-tight">
                                     <div class="inp-rich-group">
-                                        <label>Date of Birth</label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-calendar"></i></div>
-                                            <input type="text" class="rich-input date-picker-dob validate-req" placeholder="MM/DD/YYYY">
+                                        <label class="cov-label">
+                                            Underinsured Motorist BI
+                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('underinsured-motorist')"></i>
+                                        </label>
+                                        <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-umbrella"></i></div>
+                                            <select class="rich-input validate-req premium-select js-target-uim" id="inputUIM">
+                                                <option value="" disabled selected>Select Limit</option>
+                                                <option value="No Coverage">No coverage</option>
+                                                <option value="25/50">25/50</option>
+                                                <option value="50/100">50/100</option>
+                                                <option value="100/300">100/300</option>
+                                                <option value="250/500">250/500</option>
+                                                <option value="300/500">300/500</option>
+                                                <option value="500/500">500/500</option>
+                                                <option value="500/1000">500/1000</option>
+                                                <option value="1000/1000">1000/1000</option>
+                                                <option value="100CSL">100 CSL</option>
+                                                <option value="300CSL">300 CSL</option>
+                                                <option value="500CSL">500 CSL</option>
+                                            </select>
                                         </div>
                                     </div>
+                                    
                                     <div class="inp-rich-group">
-                                        <label>Age</label>
-                                        <div class="input-rich-wrapper locked">
-                                            <input type="text" class="rich-input age-display" placeholder="--" readonly style="text-align:center; font-weight:800; color:#64748B;">
-                                        </div>
-                                    </div>
-                                    <div class="inp-rich-group">
-                                        <label>Gender</label>
-                                        <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-venus-mars"></i></div>
+                                        <label class="cov-label">
+                                            Medical Payments
+                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('medical-payments')"></i>
+                                        </label>                                        
+                                        <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-briefcase-medical"></i></div>
                                             <select class="rich-input validate-req premium-select">
-                                                <option value="" disabled selected>Select</option>
-                                                <option>Male</option>
-                                                <option>Female</option>
+                                                <option value="" disabled selected>Select Limit</option>
+                                                <option value="No Coverage">No coverage</option>
+                                                <option value="500">500</option>
+                                                <option value="1000">1000</option>
+                                                <option value="2000">2000</option>
+                                                <option value="2500">2500</option>
+                                                <option value="5000">5000</option>
+                                                <option value="10000">10000</option>
+                                                <option value="25000">25000</option>
+                                                <option value="50000">50000</option>
+                                                <option value="100000">100000</option>
+                                            </select>
+                                        </div>
+                                    </div>
+
+                                    <div class="inp-rich-group">
+                                        <label class="cov-label">
+                                            Accidental Death
+                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('accidental-death')"></i>
+                                        </label>                                            
+                                        <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-heart-pulse"></i></div>
+                                            <select class="rich-input validate-req premium-select">
+                                                <option value="" disabled selected>Select Limit</option>
+                                                <option value="No Coverage">No coverage</option>
+                                                <option value="1000">1000</option>
+                                                <option value="2000">2000</option>
+                                                <option value="3000">3000</option>
+                                                <option value="4000">4000</option>
+                                                <option value="5000">5000</option>
+                                                <option value="6000">6000</option>
+                                                <option value="7000">7000</option>
+                                                <option value="8000">8000</option>
+                                                <option value="9000">9000</option>
+                                                <option value="10000">10000</option>
                                             </select>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="exclusion-zone">
-
-                                <div class="premium-group">
-
-                                    <div class="pg-header">
-                                        <div class="pg-header-badge teal">
-                                            <i class="fa-solid fa-users"></i> RELATIONSHIP & LICENSE
-                                        </div>
-                                        <div class="pg-header-line"></div>
-                                    </div>
-
-                                    <div class="grid-2-tight" id="tour-relationship-area">
-                                        <div class="inp-rich-group">
-                                            <label>Marital Status</label>
-                                            <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-ring"></i></div>
-                                                <select class="rich-input validate-req premium-select">
-                                                    <option value="" disabled selected>Select</option>
-                                                    <option>Single</option>
-                                                    <option>Married</option>
-                                                    <option>Divorced</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <div class="inp-rich-group">
-                                            <label>Relationship</label>
-                                            <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-link"></i></div>
-                                                <select class="rich-input premium-select" disabled>
-                                                    <option selected>Insured (Self)</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="inp-rich-group mt-3">
-                                        <label class="cov-label">Driver License / ID / Passport Number
-                                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('document-requirements')"></i>
-                                        </label>
-                                        <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-id-card"></i></div>
-                                            <input type="text" class="rich-input validate-req" placeholder="Enter DL Number">
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-
-                            <div class="nav-row-right">
-                                <button type="button" class="btn-nav-outline btn-next-driver" style="display:none;" onclick="switchDriverTab('d2')">
-                                    Next Driver <i class="fa-solid fa-arrow-right"></i>
-                                </button>
-                            </div>
-
                         </div>
                     </div>
 
-                    <div class="hero-action-area" style="margin: 25px 0;">
-                        <button type="button" class="btn-add-driver-static" id="tour-add-bottom" onclick="window.addNewDriverGlobal()">
-                            <i class="fa-solid fa-user-plus"></i> Add Another Driver
-                        </button>
-                    </div>
-
                     <div class="hero-action-area">
-                        <div class="secure-badge-modern"><i class="fa-solid fa-shield-halved"></i> Data Encrypted</div>
-                        <button type="button" class="btn-hero-gradient" id="btnNext">
+                        <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> SSL Encrypted Data</div>
+                        <button type="button" class="btn-hero-gradient" id="btnNext" style="border-radius: 8px;">
                             Next Step <i class="fa-solid fa-arrow-right-long"></i>
                         </button>
                     </div>
@@ -364,12 +410,12 @@
                 </div>
             </div>
 
-            <aside class="config-sidebar">
+            <aside class="config-sidebar" id="tour-sidebar">
                 <div class="organic-panel">
                     <div class="sidebar-title">Coverage Path</div>
                     <ul class="aurora-list">
-                        <li class="done"><i class="fa-solid fa-circle-check"></i> Client Information</li>
-                        <li class="active"><span class="pulse-dot"></span> Drivers</li>
+                        <li class="active"><span class="pulse-dot"></span> Client Information</li>
+                        <li><i class="fa-regular fa-circle"></i> Drivers</li>
                         <li><i class="fa-regular fa-circle"></i> Violations</li>
                         <li><i class="fa-regular fa-circle"></i> Additional Info</li>
                         <li><i class="fa-regular fa-circle"></i> Vehicle</li>
@@ -378,16 +424,61 @@
                         <i class="fa-solid fa-tags bg-icon"></i>
                         <div class="db-title">Potential Discounts</div>
                         <div class="db-val">3</div>
-                        <div class="db-msg">Multi-Driver pending...</div>
+                        <div class="db-msg">Custom limits unlocked!</div>
                     </div>
                     <div class="tip-box-vibrant" style="margin-top: 20px;">
                         <i class="fa-regular fa-lightbulb tip-icon"></i>
                         <div>
-                            <strong>Alex Tip:</strong> Listing all household members prevents claim denial later.
+                            <strong>Alex Tip:</strong> Choosing higher limits (like 100/300) often costs just a few dollars more but offers much better protection.
                         </div>
                     </div>
                 </div>
             </aside>
+        </div>
+    </div>
+
+    <div id="waiverModal" class="modal-backdrop-aurora">
+        <div class="modal-content-tech warning-theme">
+            <div class="shimmer-effect"></div>
+            
+            <div class="aurora-ambient-warning"></div>
+
+            <div class="modal-header-tech">
+                <div class="header-icon-glass warning">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="header-text-tech">
+                    <h3 class="tech-title warning-text">Coverage Waiver</h3>
+                    <p>Important safety notice regarding your protection.</p>
+                </div>
+            </div>
+
+            <div class="modal-body-tech">
+                <div class="waiver-alert-box">
+                    <p class="main-question">Are you sure you want to decline protection?</p>
+                    <p class="sub-text">
+                        By selecting <strong>"No Coverage"</strong>, you acknowledge that you will be financially responsible for your own medical bills if hit by an uninsured/underinsured driver.
+                    </p>
+                </div>
+
+                <div class="legal-tech-card">
+                    <div class="legal-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                    <div class="legal-content">
+                        <span class="legal-label">OFFICIAL ACKNOWLEDGMENT</span>
+                        <span class="legal-desc">Pursuant to State Insurance Laws A.R.S. § 20-259.01.</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-footer-tech">
+                <button id="btnConfirmWaiver" class="btn-ghost-warning">
+                    I Understand, Proceed <i class="fa-solid fa-chevron-right"></i>
+                </button>
+
+                <button id="btnReturnToCoverages" class="btn-primary-warning shimmer-btn">
+                    <i class="fa-solid fa-shield-halved"></i> Go Back & Add Coverage
+                </button>
+            </div>
         </div>
     </div>
 
@@ -571,11 +662,6 @@
         </button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="../js/script.js"></script>
-    <script src="../js/script-quote.js"></script>
-
-    
     <div id="richInfoModal" class="zlight-overlay">
         <div class="zlight-card rich-mode">
             
@@ -604,29 +690,34 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script src="../js/script.js"></script>
+    <script src="../js/script-quote.js"></script>
+
     <div id="tourFocusRing">
-        <div class="scan-line"></div>
-        <div class="focus-label" id="focusLabel">SCANNING</div>
+        <div class="scan-line"></div> <div class="focus-label" id="focusLabel">ANALYZING</div>
     </div>
 
     <div id="tourCard" class="tour-card-holo">
         <div class="holo-header">
-            <span class="holo-badge">HOUSEHOLD <span id="tcCurrent">1</span>/<span id="tcTotal">3</span></span>
-            <button class="holo-skip" onclick="endDriverTour()">Skip Guide</button>
+            <span class="holo-badge">COVERAGES <span id="tcCurrent">1</span> / <span id="tcTotal">3</span></span>
+            <button class="holo-skip" onclick="endHoloTour()">Skip Guide</button>
         </div>
 
         <div class="holo-body">
-            <div class="graphic-stage" id="graphicStage"></div>
+            <div class="graphic-stage" id="graphicStage">
+                </div>
+            
             <h3 class="holo-title" id="tcTitle">Title</h3>
             <p class="holo-desc" id="tcDesc">Desc</p>
         </div>
 
         <div class="holo-footer">
-            <button class="btn-holo-prev" id="btnDrvPrev" onclick="prevDriverStep()">
+            <button class="btn-holo-prev" id="btnTourPrev" onclick="prevHoloStep()">
                 <i class="fa-solid fa-arrow-left"></i> Back
             </button>
-            <button class="btn-holo-next" id="btnDrvNext" onclick="nextDriverStep()">
-                Next <i class="fa-solid fa-arrow-right"></i>
+            <button class="btn-holo-next" id="btnTourNext" onclick="nextHoloStep()">
+                Next Step <i class="fa-solid fa-arrow-right"></i>
             </button>
         </div>
     </div>

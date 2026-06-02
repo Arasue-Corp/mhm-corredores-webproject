@@ -3,48 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Review Information</title>
+    <title>Alex AI Car Insurance Quote | Checkout</title>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css?v=3"> 
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style-quote.css">
+    <link rel="stylesheet" href="../css/style-quote.css">    
+    
 </head>
-<body class="bg-ultra-matte">
+
+<body class="bg-matte-brand">
 
     <div id="toast-container"></div>
-
-    <div id="custom-modal" class="zlight-overlay">
-        <div class="zlight-card delete-premium-card">
-            
-            <div class="danger-icon-container">
-                <div class="danger-ripple"></div>
-                <div class="danger-circle">
-                    <i class="fa-regular fa-trash-can"></i>
-                </div>
-            </div>
-
-            <div class="zlight-content text-center" style="padding: 20px 30px 30px;">
-                <h3 class="zlight-title" style="font-size: 1.4rem;">Delete this item?</h3>
-                <p class="zlight-desc" style="margin-bottom: 5px;">
-                    This action cannot be undone.
-                </p>
-                <div class="warning-capsule">
-                    <i class="fa-solid fa-circle-exclamation"></i> Quote will be recalculated
-                </div>
-            </div>
-
-            <div class="modal-actions-grid">
-                <button type="button" class="btn-premium-ghost" onclick="closeModalToast()">
-                    Cancel
-                </button>
-                
-                <button type="button" id="btn-confirm-action" class="btn-premium-danger">
-                    Yes, Delete
-                </button>
-            </div>
-        </div>
-    </div>
 
     <div class="noise-overlay"></div>
 
@@ -209,7 +179,8 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-14.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Back to quote</span></a>
+        <a href="cotizacion-15.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Quotes</span></a>
+        <div class="text-center">
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -219,362 +190,246 @@
         </div>
     </div>
 
-    <main class="editor-stage">
-        
+    <main class="brand-wrapper">       
         <header class="brand-page-header">
             <div class="title-group">
-                <h1 class="text-gradient-corp">Review Information</h1>
+                <h1 class="text-gradient-corp">Final Policy Review</h1>
                 <div class="aurora-line"></div> 
             </div>
-            <p>Verify your details below. Changes trigger automatic recalculation.</p>
+            <p>Please review the coverage terms and payment schedule below to activate your policy.</p>
         </header>
 
-        <form id="editForm" onsubmit="event.preventDefault();">
-
-            <div class="section-label">
-                <h2><i class="fa-solid fa-users text-indigo"></i> Drivers</h2>
-                <button type="button" class="btn-add-outline" onclick="addEntity('Driver')">
-                    <i class="fa-solid fa-plus"></i> Add Driver
-                </button>
+        <div class="alex-smart-card">
+            <div class="smart-avatar">
+                <i class="fa-solid fa-heart"></i>
             </div>
-
-            <div class="premium-card" id="driver-1">
-                <div class="card-head-center">
-                    <div class="avatar-circle primary"><i class="fa-solid fa-heart"></i></div>
-                    <div class="head-info">
-                        <h3>Uri Williams <span class="badge blue">Primary</span></h3>
-                        <div class="meta-line">
-                            <span>Age: 30</span> <span class="dot"></span> <span>Prior Insurance: <strong class="txt-green">Yes</strong></span>
-                        </div>
-                        <div class="contact-line">
-                            <small><i class="fa-regular fa-envelope"></i> uri.williams@gmail.com</small>
-                            <small><i class="fa-solid fa-phone"></i> +1 (480) 555-0199</small>
-                        </div>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="split-layout" id="tour-quick-fields">
-                        <div class="split-col">
-                            <div class="pg-header">
-                                <div class="module-title pg-header-badge blue">
-                                    <i class="fa-solid fa-user-pen"></i> PROFILE
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            <div class="grid-2">
-                                <div class="inp-group"><label>First Name</label><input type="text" class="clean-input" value="Uri"></div>
-                                <div class="inp-group"><label>Last Name</label><input type="text" class="clean-input" value="Williams"></div>
-                            </div>
-                            <div class="grid-2 mt-3">
-                                <div class="inp-group"><label>Date of Birth</label><input type="date" class="clean-input" value="1995-11-28"></div>
-                                <div class="inp-group"><label>Gender</label><select class="clean-select premium-select"><option>Male</option><option>Female</option></select></div>
-                                <div class="inp-group"><label>Marital Status</label><select class="clean-select premium-select"><option>Married</option><option>Single</option></select></div>
-                                <div class="inp-group"><label>Education</label><select class="clean-select premium-select"><option>Bachelors Degree</option><option>Masters</option></select></div>
-                            </div>
-                        </div>
-
-                        <div class="split-col">
-                            <div class="pg-header">
-                                <div class="module-title pg-header-badge blue">
-                                    <i class="fa-solid fa-shield-halved"></i> INSURANCE
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            <div class="inp-group full">
-                            <div class="inp-group"><label>Status</label><input type="text" class="clean-input locked" value="Currently Insured" readonly></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="divider-line"></div>
-
-                    <div class="full-layout">
-                        <div class="pg-header">
-                                <div class="module-title center pg-header-badge blue">
-                                    <i class="fa-solid fa-id-card"></i> LICENSE DETAILS
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                        <div class="grid-4">
-                            <div class="inp-group"><label>Status</label><input type="text" class="clean-input locked" value="Valid" readonly></div>
-                            <div class="inp-group span-2"><label>DL Number / ID</label><input type="text" class="clean-input" value="L3110RC17036"></div>
-                            <div class="inp-group"><label>Age Acq.</label><input type="text" class="clean-input locked" value="16" readonly></div>
-                            
-                            <div class="inp-group"><label>Foreign Exp</label><input type="text" class="clean-input locked" value="0" readonly></div>
-                            
-                            <div class="inp-group">
-                                <label>Foreign License</label>
-                                <select class="clean-select js-trigger premium-select" data-target="d1-for">
-                                    <option value="None">None</option>
-                                    <option value="Mexico">Mexico</option>
-                                    <option value="International">International</option>
-                                </select>
-                            </div>
-                            <div class="inp-group hidden-anim" id="d1-for"><label class="txt-blue">Date Issued</label><input type="date" class="clean-input"></div>
-
-                            <div class="inp-group">
-                                <label>Suspended?</label>
-                                <select class="clean-select js-trigger premium-select" data-target="d1-sus">
-                                    <option value="No">No</option>
-                                    <option value="Yes">Yes</option>
-                                </select>
-                            </div>
-                            <div class="inp-group hidden-anim" id="d1-sus"><label class="txt-red">Suspension Date</label><input type="date" class="clean-input"></div>
-
-                            <div class="inp-group">
-                                <label>SR-22 Filing?</label>
-                                <select class="clean-select js-trigger premium-select" data-target="d1-sr22">
-                                    <option value="No">No</option>
-                                    <option value="Yes">Yes</option>
-                                </select>
-                            </div>
-                            <div class="inp-group hidden-anim" id="d1-sr22"><label class="txt-warn">Reason</label><select class="clean-select premium-select"><option>DUI</option><option>No Insurance</option></select></div>
-                        </div>
-                    </div>
-                </div>
+            <div class="smart-content">
+                <h5>Alex AI Recommendation</h5>
+                <p>Excellent choice. The <strong>Kemper Auto Flex</strong> plan provides the best liability protection for your 2 vehicles compared to similar quotes in Arizona.</p>
             </div>
+        </div>
 
-            <div class="premium-card" id="driver-2">
-                <div class="card-head-center">
-                    <div class="avatar-circle gray"><i class="fa-solid fa-user"></i></div>
-                    <div class="head-info">
-                        <h3>Elois Wolf<span class="badge gray">Driver 2</span></h3>
-                        <div class="meta-line">
-                            <span>Age: 26</span> <span class="dot"></span> <span>Prior Insurance: <strong class="txt-red">No</strong></span>
+        <div class="brand-grid">
+            
+            <section class="finance-col">
+                <div class="brand-card main-contract">
+                    <div class="carrier-brand-row">
+                        <img src="../assets/img/Carrier-kemper.jpg" alt="CoverCube" class="carrier-logo-img">
+                        <span class="term-pill">6 Month Term</span>
+                    </div>
+
+                    <div class="total-due-hero">
+                        <span class="label">Total Due Today</span>
+                        <div class="amount-brand">$870.32</div>
+                    </div>
+
+                    <div class="schedule-container">
+                        <h6 class="sched-label">Payment Schedule</h6>
+                        <div class="sched-item current">
+                            <div class="dot-indicator"></div>
+                            <span class="date">Today</span>
+                            <span class="val">$870.32</span>
+                        </div>
+                        <div class="sched-item future">
+                            <div class="dot-indicator ghost"></div>
+                            <span class="date">Feb 20, 2026</span>
+                            <span class="val">$661.64</span>
+                        </div>
+                        <div class="sched-item future">
+                            <div class="dot-indicator ghost"></div>
+                            <span class="date">Mar 20, 2026</span>
+                            <span class="val">$661.64</span>
                         </div>
                     </div>
-                    <div class="btn-action-edit-info">
-                        <button type="button" class="btn-abs-delete" onclick="confirmRemove('driver-2', 'Driver')">
-                            <i class="fa-solid fa-trash-can"></i>
+
+                    <div class="action-footer">
+                        <button class="btn-bind-aurora">
+                            <div class="btn-content">
+                                <span class="btn-title shimmer-btn">Bind Coverage Now</span>
+                                <span class="btn-sub">Instant Activation via SSL</span>
+                            </div>
+                            <div class="btn-icon">
+                                <i class="fa-solid fa-file-signature"></i>
+                            </div>
                         </button>
-                        <button type="button" class="btn-abs-edit" id="tour-deep-edit-btn">
-                            <i class="fa-solid fa-file-pen theme-blue"></i>
-                        </button>
+                        
+                        <p class="legal-disclaimer">
+                            By clicking "Bind Coverage Now", you confirm the information is accurate and agree to the <a href="../terminos-condiciones/index.html">Terms of Service</a>. Rates are final upon underwriting.
+                        </p>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="split-layout">
-                        <div class="split-col">
-                            <div class="pg-header">
-                                <div class="module-title pg-header-badge blue">
-                                    <i class="fa-solid fa-user-pen"></i> PROFILE
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            <div class="grid-2">
-                                <div class="inp-group"><label>First Name</label><input type="text" class="clean-input" value="Elois"></div>
-                                <div class="inp-group"><label>Last Name</label><input type="text" class="clean-input" value="Wolf"></div>
-                            </div>
-                            <div class="grid-2 mt-3">
-                                <div class="inp-group"><label>Date of Birth</label><input type="date" class="clean-input" value="1999-09-09"></div>
-                                <div class="inp-group"><label>Gender</label><select class="clean-select premium-select"><option>Female</option><option>Male</option></select></div>
-                                <div class="inp-group"><label>Marital Status</label><select class="clean-select premium-select"><option>Married</option><option>Single</option></select></div>
-                                <div class="inp-group"><label>Education</label><select class="clean-select premium-select"><option>Bachelors Degree</option><option>Masters</option></select></div>
-                            </div>
+            </section>
+
+            <section class="assets-col">
+                
+                <div class="brand-card asset-item">
+                    <div class="asset-top">
+                        <div class="icon-brand-box">
+                            <img src="../assets/img/logo-nissan.png" alt="Nissan Logo">
                         </div>
-                        <div class="split-col">
-                            <div class="pg-header">
-                                <div class="module-title pg-header-badge blue">
-                                    <i class="fa-solid fa-sliders"></i> SETTINGS
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            <div class="inp-group highlight">
-                                <label class="txt-blue">Relationship</label>
-                                <select class="clean-select premium-select"><option>Spouse</option><option>Child</option></select>
-                            </div>
-                            <div class="inp-group highlight">
-                                <label class="txt-blue">Exclude Driver?</label>
-                                <select class="clean-select js-exclude premium-select">
-                                    <option value="No">No</option>
-                                    <option value="Yes">Yes</option>
-                                </select>
-                            </div>
+                        <div class="asset-name">
+                            <h4>2019 NISSAN TITAN S</h4>
+                            <span class="vin">VIN: ...3849</span>
+                            <br>
+                            <div class="coverage-tags">Liability | Property | Uninsured | Underinsured | Medical | Comp | Collision | Towing | Rental</div>
                         </div>
+                        <div class="status-check"><i class="fa-solid fa-circle-check"></i></div>
                     </div>
-                    <div class="full-layout mt-4 pt-4 border-top">
-                        <div class="pg-header">
-                                <div class="module-title pg-header-badge blue">
-                                    <i class="fa-solid fa-id-card"></i> LICENSE DETAILS
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                        <div class="grid-4">
-                            <div class="inp-group"><label>Status</label><input type="text" class="clean-input locked" value="Valid" readonly></div>
-                            <div class="inp-group span-2"><label>DL Number</label><input type="text" class="clean-input" value="C95339337"></div>
-                            <div class="inp-group"><label>Age Acq.</label><input type="text" class="clean-input locked" value="16" readonly></div>
-                            <div class="inp-group"><label>Foreign Exp</label><input type="text" class="clean-input locked" value="0" readonly></div>
-                            
-                            <div class="inp-group">
-                                <label>Foreign License</label>
-                                <select class="clean-select js-trigger premium-select" data-target="d1-for">
-                                    <option value="None">None</option>
-                                    <option value="Mexico">Mexico</option>
-                                    <option value="International">International</option>
-                                </select>
-                            </div>
-                            <div class="inp-group hidden-anim" id="d1-for"><label class="txt-blue">Date Issued</label><input type="date" class="clean-input"></div>
 
-                            <div class="inp-group">
-                                <label>Suspended?</label>
-                                <select class="clean-select js-trigger premium-select" data-target="d1-sus">
-                                    <option value="No">No</option>
-                                    <option value="Yes">Yes</option>
-                                </select>
-                            </div>
-                            <div class="inp-group hidden-anim" id="d1-sus"><label class="txt-red">Suspension Date</label><input type="date" class="clean-input"></div>
-
-                            <div class="inp-group">
-                                <label>SR-22 Filing?</label>
-                                <select class="clean-select js-trigger premium-select" data-target="d1-sr22">
-                                    <option value="No">No</option>
-                                    <option value="Yes">Yes</option>
-                                </select>
-                            </div>
-                            <div class="inp-group hidden-anim" id="d1-sr22"><label class="txt-warn">Reason</label><select class="clean-select premium-select"><option>DUI</option><option>No Insurance</option></select></div>
+                    <div class="specs-grid">
+                        <div class="spec-group included">
+                            <span class="group-title text-brand">Included Coverage</span>
+                            <ul>
+                                <li><strong>Bodily Injury</strong></li>
+                                <li><strong>Property Damage Liability:</strong></li>
+                                <li><strong>Uninsured Motorist</strong></li>
+                                <li><strong>Underinsured Motorist</strong></li>
+                                <li><strong>Medical Payments</strong></li>
+                                <li><strong>Comprehensive</strong></li>
+                                <li><strong>Collision</strong></li>
+                                <li><strong>Towing and Labor</strong></li>
+                                <li><strong>Rental Reimbursement</strong></li>
+                            </ul>
+                        </div>
+                        <div class="spec-group excluded">
+                            <span class="group-title text-warn">Excluded</span>
+                            <ul>
+                                <li><i class="fa-solid fa-xmark"></i> Accidental Death Benefit</li>
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="section-label mt-60">
-                <h2><i class="fa-solid fa-car text-indigo"></i> Vehicles</h2>
-                <button type="button" class="btn-add-outline" onclick="addEntity('Vehicle')">
-                    <i class="fa-solid fa-plus"></i> Add Vehicle
-                </button>
-            </div>
-
-            <div class="premium-card vehicle-card" id="veh-1">
-                <div class="card-head-center">
-                    <div class="avatar-logo"><img src="../assets/img/logo-nissan.png" alt="Nissan"></div>
-                    <div class="head-info">
-                        <h3>2019 NISSAN TITAN S</h3>
-                        <div class="vin-mono">VIN: ...1N6AA1EK518910</div>
-                    </div>
-                    <div class="btn-action-edit-info">
-                        <button type="button" class="btn-abs-delete disabled">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
-                        <button type="button" class="btn-abs-edit disabled">
-                            <i class="fa-solid fa-file-pen theme-blue"></i>
-                        </button>
-                    </div>                </div>
-                <div class="card-body">
-                    <div class="split-layout">
-                        <div class="split-col">
-                            <div class="pg-header">
-                                <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-car-side"></i> CAR
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            <div class="input-stack">
-                                <div class="inp-group"><label>Year</label><input type="text" class="clean-input locked" value="2019" readonly></div>
-                                <div class="inp-group"><label>Make</label><input type="text" class="clean-input locked" value="NISSAN" readonly></div>
-                                <div class="inp-group"><label>Model</label><input type="text" class="clean-input locked" value="TITAN S" readonly></div>
-                            </div>
+                <div class="brand-card asset-item">
+                    <div class="asset-top">
+                        <div class="icon-brand-box">
+                            <img src="../assets/img/logo-gmc.png" alt="GMC Logo">
                         </div>
-                        <div class="split-col">
-                            <div class="pg-header">
-                                <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-gauge-high"></i> DETAILS
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            <div class="grid-2">
-                                <div class="inp-group"><label>Purpose</label><select class="clean-select premium-select"><option>Work/School</option></select></div>
-                                <div class="inp-group"><label>Daily Miles</label><input type="number" class="clean-input" value="10"></div>
-                            </div>
-                            <div class="grid-2 mt-3">
-                                <div class="inp-group"><label>Purchased</label><input type="date" class="clean-input" value="2019-06-15"></div>
-                                <div class="inp-group"><label>Payment</label><input type="text" class="clean-input locked" value="Loan" readonly></div>
-                            </div>
-                            <div class="inp-group mt-3"><label>Full Coverage</label><input type="text" class="clean-input locked" value="Yes" readonly></div>
+                        <div class="asset-name">
+                            <h4>2022 GMC CANYON</h4>
+                            <span class="vin">VIN: ...9921</span>
+                            <br>
+                            <div class="coverage-tags">Liability | Property | Uninsured | Underinsured | Medical | Comp | Collision</div>
+                        </div>
+                        <div class="status-check"><i class="fa-solid fa-circle-check"></i></div>
+                    </div>
+
+                    <div class="specs-grid">
+                        <div class="spec-group included">
+                            <span class="group-title text-brand">Included Coverage</span>
+                            <ul>
+                                <li><strong>Bodily Injury</strong></li>
+                                <li><strong>Property Damage Liability:</strong></li>
+                                <li><strong>Uninsured Motorist</strong></li>
+                                <li><strong>Underinsured Motorist</strong></li>
+                                <li><strong>Medical Payments</strong></li>
+                                <li><strong>Comprehensive</strong></li>
+                                <li><strong>Collision</strong></li>
+                            </ul>
+                        </div>
+                        <div class="spec-group excluded">
+                            <span class="group-title text-warn">Excluded</span>
+                            <ul>
+                                <li><i class="fa-solid fa-xmark"></i> Accidental Death Benefit</li>
+                                <li><i class="fa-solid fa-xmark"></i> Rental Reimbursement</li>
+                                <li><i class="fa-solid fa-xmark"></i> Towing and Labor</li>
+
+                            </ul>
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="premium-card vehicle-card" id="veh-2">
-                <div class="card-head-center">
-                    <div class="avatar-logo"><img src="../assets/img/logo-gmc.png" alt="GMC"></div>
-                    <div class="head-info">
-                        <h3>2022 GMC CANYON</h3>
-                        <div class="vin-mono">VIN: ...C4RJEA384</div>
-                    <div class="btn-action-edit-info">
-                        <button type="button" class="btn-abs-delete" onclick="confirmRemove('veh-2', 'Vehicle')">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
-                        <button type="button" class="btn-abs-edit">
-                            <i class="fa-solid fa-file-pen theme-blue"></i>
-                        </button>
-                    </div>
-                </div>
-                <div class="card-body">
-                    <div class="split-layout">
-                        <div class="split-col">
-                            <div class="pg-header">
-                                <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-car-side"></i> CAR
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            <div class="input-stack">
-                                <div class="inp-group"><label>Year</label><input type="text" class="clean-input locked" value="2022" readonly></div>
-                                <div class="inp-group"><label>Make</label><input type="text" class="clean-input locked" value="GMC" readonly></div>
-                                <div class="inp-group"><label>Model</label><input type="text" class="clean-input locked" value="CANYON" readonly></div>
-                            </div>
-                        </div>
-                        <div class="split-col">
-                            <div class="pg-header">
-                                <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-gauge-high"></i> DETAILS
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            <div class="grid-2">
-                                <div class="inp-group"><label>Purpose</label><select class="clean-select premium-select"><option>Work/School</option></select></div>
-                                <div class="inp-group"><label>Daily Miles</label><input type="number" class="clean-input" value="10"></div>
-                            </div>
-                            <div class="grid-2 mt-3">
-                                <div class="inp-group"><label>Purchased</label><input type="date" class="clean-input" value="2019-06-15"></div>
-                                <div class="inp-group"><label>Payment</label><input type="text" class="clean-input locked" value="Loan" readonly></div>
-                            </div>
-                            <div class="inp-group mt-3"><label>Full Coverage</label><input type="text" class="clean-input locked" value="Yes" readonly></div>
-                        </div>
-                    </div>
+            </section>
+        </div>
+
+        <br>
+        <nav class="nav-brand-header">
+            <div class="nav-right">
+                <div class="secure-badge-blue">
+                    <i class="fa-solid fa-shield-halved"></i> Secure Binding
                 </div>
             </div>
-
-            <div class="legal-accordian">
-                <details>
-                    <summary>Legal Disclosures & Consent <i class="fa-solid fa-chevron-down"></i></summary>
-                    <div class="legal-text">
-                        <p>By clicking the "Save & Re-Quote" button, you are providing explicit consent for Alex AI Insurtech to collect, store, and use your personal information for the purpose of retrieving and presenting up-to-date insurance quotes. Your information may be shared with insurance carriers and licensed professionals to help you find the most accurate and relevant policy options based on your profile. These parties may also use your information to conduct a credit history check in order to generate more personalized and competitive quotes. In doing so, you also agree to Alex AI Insurtech’s Privacy Policy and Terms of Service, which explain in detail how your information is handled and protected. Additionally, you consent to receive marketing and promotional emails from AlexAI Insurtech. You can unsubscribe from these emails at any time using the opt-out link included in every message. Your email marketing consent is strictly for Alex AI Insurtech and will not be shared with any insurance carriers or thirdparty professionals.</p>
-                        <p>If you choose to provide your phone number, by clicking "View my quotes", you also give your express consent under the Electronic Signatures in Global and National Commerce Act (E-Sign Act)—to receive marketing calls and text messages from Alex AI Insurtech. These may be delivered via automated systems and may include prerecorded voice messages, even if your number is listed on the national Do Not Call registry. Standard message and data rates may apply. Message frequency may vary. You may reply HELP for assistance or STOP to opt out at any time.</p>
-                        <p>This phone communication consent is strictly limited to Alex AI Insurtech and will not be shared with insurance providers or outside professionals. By providing your phone number, you confirm that you are the owner or authorized user of that number. Please note that giving this consent is not required in order to receive an insurance quote. If you prefer not to receive calls or texts, feel free to contacto us directly at (480)-630-9630 for assistance.</p>
-                    </div>
-                </details>
-            </div>
-
-            <div class="dock-wrapper">
-                <div class="dock-glass" id="tour-action-dock">
-                    <button type="button" class="dock-btn ghost" onclick="window.location.href='./cotizacion.html'">
-                        <i class="fa-solid fa-rotate-left"></i> Edit All (Restart)
-                    </button>
-                    <div class="dock-sep"></div>
-                    <button type="button" class="dock-btn text" onclick="window.history.back()">
-                        Back without saving
-                    </button>
-                    <button type="button" class="dock-btn primary" onclick="simulateSave('save')">
-                       <i class="fa-solid fa-calculator"></i> Save & Re-Quote <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-            </div>
-
-        </form>
+        </nav>
     </main>
-    
+
+    <div id="bindSuccessModal" class="zlight-overlay">
+        
+        <div class="zlight-card">
+            <div class="shimmer-effect"></div>
+            
+            <div class="zlight-ambient-glow"></div>
+
+            <div class="zlight-content">
+                
+                <div class="zlight-header">
+                    <div class="success-icon-animated">
+                        <div class="icon-circle-premium">
+                            <i class="fa-solid fa-award"></i>
+                        </div>
+                        <div class="icon-ripple-premium"></div>
+                    </div>
+                    <h2 class="zlight-title">Application <span class="text-gradient-corp">Received</span></h2>
+                    <p class="zlight-desc">
+                        Your request ID: <strong>#AX-BND-2026</strong>. We are finalizing your details.
+                    </p>
+                </div>
+
+                <div class="agent-assigned-box">
+                    <div class="agent-avatar">
+                        <img src="../assets/img/Profile-stephanie.webp" alt="Agent">
+                        <div class="status-dot"></div>
+                    </div>
+                    <div class="agent-info">
+                        <span class="agent-label">Senior Agent Assigned</span>
+                        <strong class="agent-name">Stephanie M.</strong>
+                        <span class="agent-status">Reviewing your application...</span>
+                    </div>
+                    <div class="agent-action-icon">
+                        <i class="fa-solid fa-message"></i>
+                    </div>
+                </div>
+
+                <div class="policy-timeline">
+                    <div class="timeline-track"></div>
+                    
+                    <div class="tl-node completed">
+                        <div class="node-dot"><i class="fa-solid fa-check"></i></div>
+                        <span class="node-label">Submitted</span>
+                    </div>
+                    
+                    <div class="tl-node active">
+                        <div class="node-dot"><i class="fa-solid fa-user-magnifying-glass"></i></div>
+                        <span class="node-label">Underwriting</span>
+                    </div>
+                    
+                    <div class="tl-node pending">
+                        <div class="node-dot"><i class="fa-solid fa-file-signature"></i></div>
+                        <span class="node-label">Issuance</span>
+                    </div>
+                </div>
+
+                <div class="next-step-msg">
+                    <i class="fa-regular fa-clock"></i>
+                    <span>Expect a verification call within <strong>10-15 minutes</strong>.</span>
+                </div>
+
+                <div class="zlight-actions">
+                    <button id="btnGoHome" class="btn-corp-primary shimmer-btn">
+                        Return to Homepage
+                    </button>
+                    <button id="btnBackToQuotes" class="btn-corp-ghost">
+                        View Other Offers
+                    </button>
+                </div>
+
+                <div class="zlight-footer">
+                    <i class="fa-solid fa-envelope-open"></i> A confirmation email has been sent to you.
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
@@ -758,32 +613,78 @@
     <script src="../js/script.js"></script>
     <script src="../js/script-quote.js"></script>
 
-    <div id="tourFocusRing">
-        <div class="scan-line"></div>
-        <div class="focus-label" id="focusLabel">SCANNING</div>
-    </div>
+    <script>
+    (function() {
+        console.clear();
+        console.log("%c🕵️‍♂️ INICIANDO DIAGNÓSTICO DE ALEX AI...", "color: cyan; font-size: 16px; font-weight: bold; background: #333; padding: 5px;");
 
-    <div id="tourCard" class="tour-card-holo">
-        <div class="holo-header">
-            <span class="holo-badge">REVIEW <span id="tcCurrent">1</span>/<span id="tcTotal">3</span></span>
-            <button class="holo-skip" onclick="endEditTour()">Skip Guide</button>
-        </div>
+        // ---------------------------------------------------------
+        // 1. BÚSQUEDA DE "TRAMPAS" CSS (La Jaula Invisible)
+        // ---------------------------------------------------------
+        const floater = document.getElementById('floating-chat-container');
+        
+        if (!floater) {
+            console.error("❌ ERROR CRÍTICO: El div '#floating-chat-container' NO EXISTE en el HTML. Revisa que no lo hayas borrado.");
+        } else {
+            console.log("✅ El contenedor del chat existe. Buscando padres conflictivos...");
+            
+            let parent = floater.parentElement;
+            let foundTrap = false;
 
-        <div class="holo-body">
-            <div class="graphic-stage" id="graphicStage"></div>
-            <h3 class="holo-title" id="tcTitle">Title</h3>
-            <p class="holo-desc" id="tcDesc">Desc</p>
-        </div>
+            while (parent && parent !== document) {
+                const style = window.getComputedStyle(parent);
+                const tag = parent.tagName.toLowerCase();
+                const cls = parent.className ? `.${parent.className.replace(/ /g, '.')}` : '';
+                const id = parent.id ? `#${parent.id}` : '';
+                const name = `${tag}${id}${cls}`;
 
-        <div class="holo-footer">
-            <button class="btn-holo-prev" id="btnEditPrev" onclick="prevEditStep()">
-                <i class="fa-solid fa-arrow-left"></i> Back
-            </button>
-            <button class="btn-holo-next" id="btnEditNext" onclick="nextEditStep()">
-                Next <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </div>
-    </div>
+                // Propiedades que rompen position: fixed
+                const trapProps = [];
+                if (style.transform !== 'none') trapProps.push(`transform: ${style.transform}`);
+                if (style.filter !== 'none') trapProps.push(`filter: ${style.filter}`);
+                if (style.perspective !== 'none') trapProps.push(`perspective: ${style.perspective}`);
+                if (style.backdropFilter !== 'none') trapProps.push(`backdrop-filter: ${style.backdropFilter}`);
+                if (style.contain === 'paint' || style.contain === 'content' || style.contain === 'strict') trapProps.push(`contain: ${style.contain}`);
+                if (style.willChange !== 'auto' && (style.willChange.includes('transform') || style.willChange.includes('opacity'))) trapProps.push(`will-change: ${style.willChange}`);
+
+                if (trapProps.length > 0) {
+                    foundTrap = true;
+                    console.group(`🚨 CULPABLE ENCONTRADO: <${name}>`);
+                    console.error(`Este elemento está rompiendo tus botones flotantes.`);
+                    console.warn(`Propiedades conflictivas: \n👉 ${trapProps.join('\n👉 ')}`);
+                    console.log("Solución: Aplica 'transform: none !important' (u otra propiedad) a este elemento.");
+                    console.groupEnd();
+                }
+                parent = parent.parentElement;
+            }
+
+            if (!foundTrap) {
+                console.log("✅ No se encontraron trampas CSS en los padres. El CSS parece limpio.");
+            }
+        }
+
+        // ---------------------------------------------------------
+        // 2. BÚSQUEDA DE ERRORES LÓGICOS (Crash de JS)
+        // ---------------------------------------------------------
+        console.log("%c🔍 VERIFICANDO SCRIPT CRASH...", "color: yellow; font-weight: bold;");
+        
+        // Elementos que script-quote.js intenta buscar
+        const criticalElements = ['btnNext', 'quoteFormStep4', 'btnAddDriverTop'];
+        const missingElements = [];
+
+        criticalElements.forEach(id => {
+            if (!document.getElementById(id)) missingElements.push(id);
+        });
+
+        if (missingElements.length > 0) {
+            console.warn(`⚠️ AVISO: Faltan elementos ID: [${missingElements.join(', ')}]`);
+            console.warn("Si tu archivo 'script-quote.js' intenta hacer 'document.getElementById(...).addEventListener' a estos elementos sin verificar si existen, EL SCRIPT CRASHEARÁ AQUÍ y todo lo que esté debajo dejará de funcionar.");
+        } else {
+            console.log("✅ Todos los elementos críticos para el script existen.");
+        }
+
+    })();
+</script>
 
 </body>
 </html>

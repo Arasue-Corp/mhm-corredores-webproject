@@ -1,54 +1,169 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Let's Get Started</title>
+    <title>Centro de Cotización | MHM Corredores</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="../css/style.css?v=3"> 
-    <link rel="stylesheet" href="../css/style-quote.css"> 
+    <link rel="stylesheet" href="../css/style.css?v=4">
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+    
+    <style>
+        .hub-body { background-color: #F8FAFC; font-family: 'Poppins', sans-serif; }
+        
+        .hub-hero {
+            padding: 80px 20px 40px;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(121, 107, 252, 0.05), rgba(46, 217, 195, 0.05));
+            border-bottom: 1px solid #E2E8F0;
+        }
+        .hub-hero h1 { font-size: 2.8rem; font-weight: 800; color: #0F172A; margin-bottom: 10px; }
+        .hub-hero h1 span { background: linear-gradient(135deg, #796bfc, #2ed9c3); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hub-hero p { font-size: 1.1rem; color: #64748B; max-width: 600px; margin: 0 auto; }
+
+        .hub-container { max-width: 1200px; margin: 50px auto; padding: 0 20px; }
+
+        /* TABS */
+        .hub-tabs {
+            display: flex; justify-content: center; gap: 15px; margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .hub-tab-btn {
+            padding: 14px 28px; background: white; border: 2px solid #E2E8F0;
+            border-radius: 100px; font-weight: 600; color: #64748B; font-size: 1rem;
+            cursor: pointer; transition: all 0.3s;
+            display: flex; align-items: center; gap: 10px;
+        }
+        .hub-tab-btn i { font-size: 1.2rem; }
+        .hub-tab-btn:hover { border-color: #796bfc; color: #796bfc; box-shadow: 0 10px 20px rgba(121, 107, 252, 0.1); transform: translateY(-2px); }
+        .hub-tab-btn.active { background: #796bfc; border-color: #796bfc; color: white; box-shadow: 0 10px 20px rgba(121, 107, 252, 0.2); }
+
+        /* GRID CONTENT */
+        .hub-tab-content { display: none; animation: fadeIn 0.4s ease-out; }
+        .hub-tab-content.active { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 25px; }
+
+        /* CARD */
+        .hub-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(10px);
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 30px 25px;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            display: flex; flex-direction: column; align-items: center; gap: 15px;
+            cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            position: relative; overflow: hidden;
+        }
+        .hub-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(121, 107, 252, 0.12);
+            border-color: #cb6ce6;
+            background: white;
+        }
+        
+        /* Efecto Glow en Hover */
+        .hub-card::before {
+            content: ''; position: absolute; top: -50px; left: -50px; width: 100px; height: 100px;
+            background: radial-gradient(circle, rgba(121, 107, 252,0.2) 0%, transparent 70%);
+            border-radius: 50%; opacity: 0; transition: 0.5s; pointer-events: none;
+        }
+        .hub-card:hover::before { opacity: 1; transform: scale(3); top: 0; left: 0; }
+
+        .hub-icon {
+            width: 70px; height: 70px; border-radius: 18px;
+            background: linear-gradient(135deg, #F8FAFC, #E2E8F0);
+            color: #796bfc; font-size: 2rem;
+            display: flex; align-items: center; justify-content: center;
+            box-shadow: inset 0 2px 4px white, 0 4px 10px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .hub-card:hover .hub-icon { background: linear-gradient(135deg, #796bfc, #cb6ce6); color: white; }
+        
+        .hub-card h3 { margin: 0; font-size: 1.2rem; color: #0F172A; font-weight: 700; }
+        .hub-card p { margin: 0; font-size: 0.9rem; color: #64748B; }
+
+        /* MODAL COMING SOON */
+        .cs-modal-overlay {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            background: rgba(15, 23, 42, 0.6); backdrop-filter: blur(8px);
+            z-index: 9999; display: none; align-items: center; justify-content: center;
+            opacity: 0; transition: 0.3s;
+        }
+        .cs-modal-overlay.active { display: flex; opacity: 1; }
+        
+        .cs-modal {
+            background: white; width: 90%; max-width: 450px; border-radius: 24px;
+            padding: 40px; text-align: center;
+            transform: scale(0.9); transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+            position: relative;
+        }
+        .cs-modal-overlay.active .cs-modal { transform: scale(1); }
+        
+        .cs-modal-close {
+            position: absolute; top: 15px; right: 15px; width: 32px; height: 32px;
+            background: #F1F5F9; color: #64748B; border: none; border-radius: 50%;
+            cursor: pointer; display: flex; align-items: center; justify-content: center;
+            transition: 0.2s;
+        }
+        .cs-modal-close:hover { background: #E2E8F0; color: #0F172A; }
+        
+        .cs-icon { font-size: 3rem; color: #cb6ce6; margin-bottom: 20px; }
+        .cs-modal h3 { font-size: 1.5rem; color: #0F172A; font-weight: 800; margin-bottom: 10px; }
+        .cs-modal p { color: #64748B; font-size: 1rem; margin-bottom: 25px; line-height: 1.5; }
+        
+        .cs-btn {
+            width: 100%; padding: 14px; background: #796bfc; color: white;
+            border: none; border-radius: 12px; font-weight: 600; font-size: 1rem;
+            cursor: pointer; transition: 0.2s;
+        }
+        .cs-btn:hover { background: #6151e3; transform: translateY(-2px); }
+
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+
+        @media (max-width: 768px) {
+            .hub-hero h1 { font-size: 2rem; }
+            .hub-tab-btn { padding: 10px 20px; font-size: 0.9rem; }
+        }
+    </style>
 </head>
-<body class="bg-body">
+<body class="hub-body">
 
-    <div id="toast-container"></div>
-    <div class="noise-overlay"></div>
-
-
-    <div class="top-header-aurora">
+<div class="top-header-aurora">
         <div class="container top-bar-flex">
             
             <div class="top-info-group">
-                <a href="tel:+14806309630" class="top-link glass-hover">
+                <a href="tel:+56961446652" class="top-link glass-hover">
                     <i class="fa-solid fa-phone pulse-icon"></i> 
-                    <span>+1 480 630 9630</span>
+                    <span>+56 9 6144 6652</span>
                 </a>
                 
                 <span class="divider-vertical"></span>
                 
-                <a href="mailto:hello@alexai.cloud" class="top-link glass-hover">
+                <a href="mailto:info@mhmseguros.cl" class="top-link glass-hover">
                     <i class="fa-solid fa-envelope"></i> 
-                    <span>hello@alexai.cloud</span>
+                    <span>info@mhmseguros.cl</span>
                 </a>
 
                 <span class="divider-vertical desktop-only"></span>
                 <div class="top-location desktop-only">
                     <i class="fa-solid fa-location-dot"></i>
-                    <span>3101 N Central Ave ste 1174, Phoenix, AZ</span>
+                    <span>Huérfanos 669, piso 7, Santiago, Chile</span>
                 </div>
             </div>
 
             <div class="top-social-group">
-                <span class="social-label desktop-only">Connect:</span>
-                <a href="https://www.facebook.com/p/Alexai-Insurtech-USA-61573922245346/" target="_blank" class="social-btn" aria-label="Facebook">
+                <span class="social-label desktop-only">Conectar:</span>
+                <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank" class="social-btn" aria-label="Facebook">
                     <i class="fa-brands fa-facebook-f"></i>
                 </a>
-                <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank" class="social-btn" aria-label="Instagram">
+                <a href="https://www.instagram.com/mhmseguros.cl" target="_blank" class="social-btn" aria-label="Instagram">
                     <i class="fa-brands fa-instagram"></i>
                 </a>
             </div>
@@ -61,58 +176,45 @@
         <div class="container nav-container">
             
             <a href="https://alexai.cloud/" class="brand-logo">
-                <img src="../assets/img/Logo-alexai-main.png" alt="Alex AI Logo" class="site-logo">
+                <img src="../assets/img/logo-mhm-color.png" alt="Alex AI Logo" class="site-logo">
             </a>
 
             <nav class="nav-center desktop-only">
                 <ul class="nav-links">
-                    <li><a href="../index.html" class="nav-item active">Home</a></li>
-                    <li><a href="../cotizacion/cotizacion.html" class="nav-item">Quote</a></li>
+                    <li><a href="../index.html" class="nav-item active">Inicio</a></li>
+                    <li><a href="../cotizacion/cotizacion.html" class="nav-item">Cotizar auto</a></li>
                     
                     <li class="nav-dropdown-group">
-                        <button class="nav-item dropdown-btn">
-                            Products <i class="fa-solid fa-angle-down arrow-indicator"></i>
-                        </button>
+                        <a href="productos/index.html" class="nav-item dropdown-btn" style="text-decoration: none; cursor: pointer; display: inline-block;">Productos <i class="fa-solid fa-angle-down arrow-indicator"></i></a>
                         
                         <div class="dropdown-glass-panel">
                             <div class="dropdown-grid">
-                                <a href="../alex-sign/index.html" class="dd-card">
-                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-signature"></i></div>
-                                    <div class="dd-info"><span class="dd-title">Alex Sign</span><span class="dd-desc">Digital signatures</span></div>
+                                <a href="../seguros-personales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-user"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros personales</span><span class="dd-desc">Auto, salud, viajes y más.</span></div>
                                 </a>
-                                <a href="../seguro-complementario-salud/index.html" class="dd-card">
-                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-house-chimney"></i></div>
-                                    <div class="dd-info"><span class="dd-title">Hogar</span><span class="dd-desc">Protección de propiedad</span></div>
-                                </a>
-                                <a href="../seguro-pymes/index.html" class="dd-card">
-                                    <div class="icon-tile tile-cyan"><i class="fa-solid fa-key"></i></div>
-                                    <div class="dd-info"><span class="dd-title">Pymes</span><span class="dd-desc">Apartment coverage</span></div>
-                                </a>
-                                <a href="../contacto/index.html" class="dd-card">
-                                    <div class="icon-tile tile-purple"><i class="fa-solid fa-shield-halved"></i></div>
-                                    <div class="dd-info"><span class="dd-title">Others</span><span class="dd-desc">Custom plans</span></div>
+                                <a href="../seguros-comerciales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-store"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros comerciales</span><span class="dd-desc">Pymes, construcción, garantías y más.</span></div>
                                 </a>
                             </div>
                         </div>
                     </li>
                     
-                    <li><a href="#carriers" class="nav-item">Carriers</a></li>
+                    <li><a href="#carriers" class="nav-item">Aseguradoras</a></li>
                     <li><a href="../blog/index.html" class="nav-item">Blog</a></li>
-                    <li><a href="../contacto/index.html" class="nav-item">Contact</a></li>
+                    <li><a href="../contacto/index.html" class="nav-item">Contacto</a></li>
 
                 </ul>
             </nav>
 
             <div class="nav-actions">
                 
-                <a href="../embajadores/documentos.html" class="btn-view-aurora desktop-only">
-                    Become an Affiliate
-                </a>
 
                 <span class="divider-vertical desktop-only"></span>
 
                 <a href="../cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
-                    <span>Check Prices</span>
+                    <span>Cotizar auto</span>
                     <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
                 </a>
                 
@@ -137,8 +239,8 @@
                 <a href="../cotizacion/cotizacion.html" class="menu-widget-card highlight-card">
                     <div class="widget-icon"><i class="fa-solid fa-bolt"></i></div>
                     <div class="widget-info">
-                        <span class="widget-title">Obtener cotización</span>
-                        <span class="widget-desc">Start in 90 seconds</span>
+                        <span class="widget-title">Cotizar auto</span>
+                        <span class="widget-desc">Revisa los precios en menos de 90 segundos</span>
                     </div>
                     <div class="widget-arrow"><i class="fa-solid fa-arrow-right"></i></div>
                 </a>
@@ -146,24 +248,24 @@
                 <div class="menu-grid-row">
                     <a href="../embajadores/documentos.html" class="menu-square-card">
                         <i class="fa-solid fa-users-viewfinder" style="color: #7C3AED;"></i>
-                        <span>Affiliate</span>
+                        <span>Seguros personales</span>
                     </a>
                     <a href="../alex-sign/index.html" class="menu-square-card">
                         <i class="fa-solid fa-file-signature" style="color: #2563EB;"></i>
-                        <span>Alex Sign</span>
+                        <span>Seguros comerciales</span>
                     </a>
                 </div>
 
-                <div class="menu-section-title">INSURANCE PRODUCTS</div>
+                <div class="menu-section-title">Seguros disponibles</div>
                 <div class="menu-links-group">
                     <a href="../seguro-complementario-salud/index.html" class="menu-link-item">
-                        <i class="fa-solid fa-house"></i> Hogar
+                        <i class="fa-solid fa-house"></i> Seguro complementario de salud
                     </a>
                     <a href="../seguro-pymes/index.html" class="menu-link-item">
-                        <i class="fa-solid fa-key"></i> Pymes
+                        <i class="fa-solid fa-key"></i> Seguro Pymes
                     </a>
                     <a href="../index.html#carriers" class="menu-link-item">
-                        <i class="fa-solid fa-shield-halved"></i> Our Carriers
+                        <i class="fa-solid fa-shield-halved"></i>Asistencia de viajes
                     </a>
                 </div>
 
@@ -180,244 +282,122 @@
         </div>
     </header>
 
-    <nav class="quote-nav">
-        <a href="../index.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Exit quote</span></a>
-        <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
-    </nav>
+<main>
+    <section class="hub-hero">
+        <h1>¿Qué deseas <span>proteger hoy?</span></h1>
+        <p>Selecciona el producto que deseas cotizar. Nuestra plataforma 100% digital te encontrará la mejor opción en minutos.</p>
+    </section>
 
-        <div class="text-center">
-            <div class="header-status-light">
-                <span class="pulse-blue"></span> <strong class="text-gradient-corp">Real-Time Quotation</strong> 
-            </div>
+    <div class="hub-container">
+        <!-- TABS -->
+        <div class="hub-tabs">
+            <button class="hub-tab-btn active" onclick="openTab('tab-generales', this)">
+                <i class="fa-solid fa-car-side"></i> Generales
+            </button>
+            <button class="hub-tab-btn" onclick="openTab('tab-salud', this)">
+                <i class="fa-solid fa-heart-pulse"></i> Vida y Salud
+            </button>
+            <button class="hub-tab-btn" onclick="openTab('tab-asistencias', this)">
+                <i class="fa-solid fa-headset"></i> Asistencias
+            </button>
         </div>
 
-
-    <div class="page-wrapper">
-
-        <div class="wizard-container">
-            <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-regular fa-hand-spock"></i>Let's Get Started</div>
-                <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
-            </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 7%;"></div></div>
-            <div class="header-split"></div>
-            <header class="brand-page-header">
-                <div class="title-group">
-                    <h1 class="text-gradient-corp">First things first</h1>
-                    <div class="aurora-line"></div> 
-                </div>
-                <p>We need some basic info to start finding your best match.</p>
-            </header>
-        </div>
-
-        <div class="specs-layout-grid">
+        <!-- TAB CONTENT: Generales -->
+        <div id="tab-generales" class="hub-tab-content active">
+            <!-- AUTO (Links to cotizacion-1.html) -->
+            <a href="cotizacion-1.html" class="hub-card">
+                <div class="hub-icon"><i class="fa-solid fa-car"></i></div>
+                <h3>Seguro de Auto</h3>
+                <p>Protección completa para tu vehículo personal o comercial.</p>
+            </a>
             
-            <div class="main-spec-col">
-                <div class="premium-white-card" id="quoteFormStep1">
-                    
-                    <form id="startForm">
-                        
-                        <div class="premium-group single-row anim-entry">
-                            <div class="pg-icon-box">
-                                <i class="fa-regular fa-user"></i>
-                            </div>
-                            <div class="pg-content-row">
-                                <div class="pg-labels">
-                                    <span class="pg-title-main">First Name</span>
-                                    <span class="pg-subtitle">Who are we quoting?</span>
-                                </div>
-                                <div class="pg-input-area" style="width: 100%; max-width: 300px;">
-                                    <div class="input-rich-wrapper compact-premium">
-                                        <input type="text" id="firstName" class="rich-input validate-req" placeholder="e.g. John">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="premium-group anim-entry delay-1">
-                            <div class="pg-header">
-                                <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-address-card"></i> BASIC DETAILS
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            
-                            <div class="grid-2-tight">
-                                <div class="inp-rich-group">
-                                    <label class="lbl-premium">Zip Code</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-map-pin"></i></div>
-                                        <input type="tel" id="zipCode" class="rich-input validate-req" placeholder="00000" maxlength="5">
-                                    </div>
-                                </div>
-
-                                <div class="inp-rich-group">
-                                    <label class="lbl-premium">Email Address</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-regular fa-envelope"></i></div>
-                                        <input type="email" id="email" class="rich-input validate-req" placeholder="you@example.com">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="premium-group anim-entry delay-2" style="background: #F8FAFC; border-color: #E2E8F0;">
-                            <div class="legal-flex-row">
-                                <div class="custom-check-wrapper">
-                                    <input type="checkbox" id="legalCheck" class="validate-req">
-                                    </div>
-                                <div class="legal-content">
-                                    <p class="legal-txt">
-                                        By checking this box, you agree to our <a href="../terminos-condiciones/index.html">Terms of Service</a> and <a href="../politica-privacidad/index.html">Privacy Policy</a>. You also consent to receive notifications, quotes, and marketing communications from Alex AI Insurtech LLC. For SMS: Message frequency varies. Message and data rates may apply. Text HELP to (480) 630-9630 for assistance or STOP to cancel at any time. For Email: You can unsubscribe by clicking the 'Unsubscribe' link at the bottom of any email.
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="hero-action-area anim-entry delay-3">
-                            <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> 256-bit SSL Encrypted</div>
-                            <button type="button" class="btn-hero-gradient" id="btnNext" style="border-radius: 8px;">
-                                Get My Quote <i class="fa-solid fa-arrow-right-long"></i>
-                            </button>
-                        </div>
-
-                    </form>
-
-                </div>
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-motorcycle"></i></div>
+                <h3>Seguro de Moto</h3>
+                <p>Asegura tu motocicleta y rueda con total tranquilidad.</p>
             </div>
 
-            <aside class="config-sidebar anim-entry delay-2">
-                <div class="organic-panel">
-                    <div class="sidebar-title">Coverage Path</div>
-                    <ul class="aurora-list">
-                        <li class="active"><span class="pulse-dot"></span> Client Information</li>
-                        <li><i class="fa-regular fa-circle"></i> Address</li>
-                        <li><i class="fa-regular fa-circle"></i> Drivers</li>
-                        <li><i class="fa-regular fa-circle"></i> Vehicles</li>
-                        <li><i class="fa-regular fa-circle"></i> Coverages</li>
-                    </ul>
-                    
-                    <div class="discount-box-vibrant">
-                        <i class="fa-solid fa-ticket bg-icon"></i>
-                        <div class="db-title">Early Bird Discount</div>
-                        <div class="db-msg">Start now to lock in rates!</div>
-                    </div>
-                    <div class="tip-box-vibrant" style="margin-top: 20px;">
-                        <i class="fa-regular fa-lightbulb tip-icon"></i>
-                        <div>
-                            <strong>Alex Tip:</strong> Accuracy matters! Using your exact Zip Code ensures we find your <i>Early Bird</i> discount.
-                        </div>
-                    </div>
-                </div>
-            </aside>
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
+                <h3>SOAP</h3>
+                <p>Seguro Obligatorio de Accidentes Personales digital y rápido.</p>
+            </div>
 
-        </div>
-    </div>
-
-    <div id="quotesModal" class="modal-backdrop-aurora">
-        <div class="modal-content-tech">
-            <div class="shimmer-effect"></div>
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-bicycle"></i></div>
+                <h3>Seguro de Bicicleta</h3>
+                <p>Protege tu bici y accesorios contra robo y daños.</p>
+            </div>
             
-            <div class="aurora-ambient-light"></div>
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                <h3>Seguro de Hogar</h3>
+                <p>Protege tu propiedad y bienes familiares.</p>
+            </div>
+        </div>
 
-            <div class="modal-header-tech">
-                <div class="header-icon-glass">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                </div>
-                <div class="header-text-tech">
-                    <h3 class="tech-title text-gradient-corp">Welcome Back</h3>
-                    <p>We found <strong>3 existing sessions</strong> linked to <span id="userEmailSpan" style="color: #4F46E5; font-weight: 700;">your profile</span>.</p>
-                </div>
-                <button class="btn-close-tech js-close-modal"><i class="fa-solid fa-xmark"></i></button>
+        <!-- TAB CONTENT: Vida y Salud -->
+        <div id="tab-salud" class="hub-tab-content">
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-briefcase-medical"></i></div>
+                <h3>Seguro de Salud</h3>
+                <p>Planes de salud complementaria y catastrófica.</p>
             </div>
 
-            <div class="modal-body-tech">
-                
-                <div class="list-labels-tech">
-                    <span>QUOTE DETAILS</span>
-                    <span>TIMELINE</span>
-                    <span class="text-right">ACTION</span>
-                </div>
-
-                <div class="quote-card-tech">
-                    <div class="col-info">
-                        <span class="q-id">#00000263</span>
-                        <span class="q-badge inactive">Inactive</span>
-                    </div>
-                    <div class="col-timeline">
-                        <div class="tl-item">
-                            <i class="fa-regular fa-pen-to-square gradient-icon"></i>
-                            <span>Updated: <strong>03/02/2026</strong> 11:28</span>
-                        </div>
-                        <div class="tl-item sub">
-                            <i class="fa-solid fa-plus gradient-icon"></i>
-                            <span>Created: 30/01/2026</span>
-                        </div>
-                    </div>
-                    <div class="col-action">
-                        <button class="btn-select-tech">
-                            Select <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="quote-card-tech">
-                    <div class="col-info">
-                        <span class="q-id">#00000261</span>
-                        <span class="q-badge inactive">Inactive</span>
-                    </div>
-                    <div class="col-timeline">
-                        <div class="tl-item">
-                            <i class="fa-regular fa-pen-to-square gradient-icon"></i>
-                            <span>Updated: <strong>03/02/2026</strong> 11:29</span>
-                        </div>
-                        <div class="tl-item sub">
-                            <i class="fa-solid fa-plus gradient-icon"></i>
-                            <span>Created: 27/01/2026</span>
-                        </div>
-                    </div>
-                    <div class="col-action">
-                        <button class="btn-select-tech">
-                            Select <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="quote-card-tech">
-                    <div class="col-info">
-                        <span class="q-id">#00000264</span>
-                        <span class="q-badge inactive">Inactive</span>
-                    </div>
-                    <div class="col-timeline">
-                        <div class="tl-item">
-                            <i class="fa-regular fa-pen-to-square gradient-icon"></i>
-                            <span>Updated: <strong>30/01/2026</strong> 12:51</span>
-                        </div>
-                        <div class="tl-item sub">
-                            <i class="fa-solid fa-plus gradient-icon"></i>
-                            <span>Created: 30/01/2026</span>
-                        </div>
-                    </div>
-                    <div class="col-action">
-                        <button class="btn-select-tech">
-                            Select <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-person-running"></i></div>
+                <h3>Seguro de Deporte</h3>
+                <p>Cobertura especializada para deportistas amateur y pro.</p>
             </div>
 
-            <div class="modal-footer-tech">
-                <button class="btn-cancel-simple js-close-modal">Cancel</button>
-                
-                <button class="btn-start-new-gradient js-start-new shimmer-btn">
-                    Start New Quote <i class="fa-solid fa-plus"></i>
-                </button>
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-tooth"></i></div>
+                <h3>Seguro Dental</h3>
+                <p>Amplia red odontológica y reembolsos preferenciales.</p>
+            </div>
+            
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-heart"></i></div>
+                <h3>Vida Temporal</h3>
+                <p>Respaldo económico y tranquilidad para tu familia.</p>
+            </div>
+        </div>
+
+        <!-- TAB CONTENT: Asistencias -->
+        <div id="tab-asistencias" class="hub-tab-content">
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-plane"></i></div>
+                <h3>Asistencia de Viajes</h3>
+                <p>Cobertura médica y soporte en el extranjero 24/7.</p>
+            </div>
+
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-truck-pickup"></i></div>
+                <h3>Asistencia en Carretera</h3>
+                <p>Grúa, cambio de neumático y batería donde estés.</p>
+            </div>
+            
+            <div class="hub-card btn-coming-soon">
+                <div class="hub-icon"><i class="fa-solid fa-stethoscope"></i></div>
+                <h3>Telemedicina</h3>
+                <p>Consultas médicas online inmediatas sin salir de casa.</p>
             </div>
         </div>
     </div>
+</main>
 
-    <footer class="footer-aurora">
+<!-- MODAL COMING SOON -->
+<div class="cs-modal-overlay" id="comingSoonModal">
+    <div class="cs-modal">
+        <button class="cs-modal-close" onclick="closeComingSoon()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="cs-icon"><i class="fa-solid fa-rocket"></i></div>
+        <h3>Próximamente</h3>
+        <p>¡Estamos preparando algo increíble! Muy pronto podrás cotizar este producto de forma 100% digital a través de nuestra plataforma de MHM.</p>
+        <button class="cs-btn" onclick="closeComingSoon()">Entendido</button>
+    </div>
+</div>
+
+<footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
         <div class="container">
@@ -425,62 +405,59 @@
                 
                 <div class="footer-col brand-col">
                     <a href="../index.html" class="footer-logo">
-                        <img src="../assets/img/Logo-alexai-main-white.png" alt="Alex AI Logo" class="footer-logo-img">
+                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corradora Logo" class="footer-logo-img">
                     </a>
                     <p class="footer-tagline">
-                        Smart insurance for modern life. Powered by intelligence, driven by humans.
+                        Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades que mejorarán tu vida de forma accesible, dinámica y eficiente.
                     </p>
                     <div class="footer-social-mini">
-                        <a href="https://www.facebook.com/people/Alexai-Insurtech-USA/61573922245346/" target="_blank"><i class="fa-brands fa-facebook"></i></a>
-                        <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.youtube.com/channel/UCphdQNb7AT5jauTFKYgSh9g" target="_blank"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="https://www.tiktok.com/@alexaiinsurtech" target="_blank"><i class="fa-brands fa-tiktok"></i></a>
-
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
 
                     </div>
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">Products</h4>
+                    <h4 class="footer-heading">Productos</h4>
                     <ul class="footer-links">
-                        <li><a href="../cotizacion/cotizacion.html">Car Insurance</a></li>
+                        <li><a href="../cotizacion/cotizacion.html">Seguros de auto</a></li>
                         <li><a href="../seguro-complementario-salud/index.html">Seguro complementario de salud</a></li>
-                        <li><a href="../seguro-pymes/index.html">Seguro Pymes</a></li>
-                        <li><a href="../alex-sign/index.html">Alex Sign <span class="badge-new">New</span></a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguros Pymes</a></li>
+                        <li><a href="../seguros-personales/index.html">Productos personales <span class="badge-new">New</span></a></li>
+                        <li><a href="../seguros-comerciales/index.html">Productos comerciales <span class="badge-new">New</span></a></li>
                     </ul>
                 </div>
 
                 <div class="footer-col">
-                    <h4 class="footer-heading">Company</h4>
+                    <h4 class="footer-heading">Compañía</h4>
                     <ul class="footer-links">
-                        <li><a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank">About Us</a></li>
-                        <li><a href="../embajadores/documentos.html">Affiliates</a></li>
+                        <li><a href="https://www.instagram.com/mhmseguros.cl" target="_blank">Sobre nosotros</a></li>
                         <li><a href="../blog/index.html">Blog</a></li>
-                        <li><a href="../contacto/index.html">Contact Support</a></li>
+                        <li><a href="../contacto/index.html">Contactar con soporte</a></li>
 
                     </ul>
                 </div>
 
                 <div class="footer-col contact-col">
-                    <h4 class="footer-heading">Contact & Access</h4>
+                    <h4 class="footer-heading">Contacto y Acceso</h4>
                     
                     <ul class="contact-list">
                         <li>
                             <i class="fa-solid fa-phone"></i> 
-                            <a href="tel:+14806309630">+1 480-630-9630</a>
+                            <a href="tel:+56961446652">+56 9 6144 6652</a>
                         </li>
                         <li>
                             <i class="fa-solid fa-envelope"></i> 
-                            <a href="mailto:hello@alexai.cloud">hello@alexai.cloud</a>
+                            <a href="mailto:info@mhmseguros.cl">info@mhmseguros.cl</a>
                         </li>
                     </ul>
-
+                    
                     <div class="footer-app-buttons">
                         <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
                             <button class="btn-footer-store">
                                 <i class="fa-brands fa-apple"></i>
                                 <div class="store-text">
-                                    <span>Download on</span>
+                                    <span>Download on the</span>
                                     <strong>App Store</strong>
                                 </div>
                             </button>
@@ -503,24 +480,22 @@
         <div class="footer-bottom">
             <div class="container bottom-flex">
                 <div class="copyright-text">
-                    &copy; 2026 Alex AI Insurtech. All rights reserved.
+                    &copy; 2026 MHM Corradora de Seguros. Todos los derechos reservados.
                 </div>
                 <div class="legal-links">
-                    <a href="../politica-privacidad/index.html">Privacy Policy</a>
+                    <a href="../politica-privacidad/index.html">Política de Privacidad</a>
                     <span class="divider">|</span>
-                    <a href="../terminos-condiciones/index.html">Terms of Service</a>
+                    <a href="../terminos-condiciones/index.html">Términos de Servicio</a>
                 </div>
             </div>
             <div class="aurora-bottom-line"></div>
         </div>
     </footer>
-
-
-    <div id="floating-menu-container">
+<div id="floating-menu-container">
         <div class="nav-command-center" id="megaMenu">
             <div class="cmd-header">
-                <span>Quick Navigate</span>
-                <span class="cmd-badge">MENU</span>
+                <span>Navegación rápida</span>
+                <span class="cmd-badge">MENÚ</span>
             </div>
             <div class="cmd-grid">
                 <a href="../funnel-auto/index.html" class="cmd-card">
@@ -552,163 +527,49 @@
                 <a href="../index.html">Back to Home <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
-        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
-            <i class="fa-regular fa-compass"></i>
-        </button>
-    </div>
-
-    <div id="floating-chat-container">
+<div id="floating-chat-container">
         <div class="alex-chat-window" id="chatWindow">
             <div class="chat-header">
                 <div class="agent-info">
                     <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
-                    <div class="agent-text">
-                        <span class="name">Alex AI Assistant</span>
-                        <span class="status">Reply time: Instant</span>
-                    </div>
-                </div>
-                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            
-            <div class="chat-body">
-                <div class="chat-timestamp">Today, 5:00 PM</div>
-                
-                <div class="msg-row bot">
-                    <div class="msg-bubble">
-                        Hello! I see you're looking at quotes. Do you have any questions about the <strong>Collision Deductible</strong>? 🚗
-                    </div>
-                </div>
-                
-                <div class="chat-suggestions">
-                    <button>Explain Deductibles</button>
-                    <button>Talk to Human</button>
-                </div>
-            </div>
-            
-            <div class="chat-footer">
-                <input type="text" placeholder="Type your question..." class="chat-input">
-                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
 
-        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
-            <i class="fa-solid fa-comment-dots"></i>
-            <span class="online-badge"></span>
-        </button>
-    </div>
-
-    <script src="../js/script.js"></script>
-    <script src="../js/script-quote.js"></script>
-
-    <div id="alexOnboarding" class="crystal-overlay active">
+<script>
+    // Tab Logic
+    function openTab(tabId, btnElement) {
+        // Hide all tabs
+        const contents = document.querySelectorAll('.hub-tab-content');
+        contents.forEach(content => content.classList.remove('active'));
         
-        <div class="crystal-card">
-            <button class="skip-link" onclick="closeWelcomeOnboarding()">SKIP INTRO</button>
+        // Deactivate all buttons
+        const btns = document.querySelectorAll('.hub-tab-btn');
+        btns.forEach(btn => btn.classList.remove('active'));
+        
+        // Activate target tab and button
+        document.getElementById(tabId).classList.add('active');
+        btnElement.classList.add('active');
+    }
 
-            <div class="c-body">
+    // Modal Logic
+    const modal = document.getElementById('comingSoonModal');
+    const csButtons = document.querySelectorAll('.btn-coming-soon');
+    
+    csButtons.forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            e.preventDefault();
+            modal.classList.add('active');
+        });
+    });
+    
+    function closeComingSoon() {
+        modal.classList.remove('active');
+    }
+    
+    // Close on overlay click
+    modal.addEventListener('click', (e) => {
+        if(e.target === modal) closeComingSoon();
+    });
+</script>
 
-                <div class="c-slide active" data-step="0">
-                    <div class="tech-icon-stack">
-                        <div class="tech-icon-bg"></div>
-                        <i class="fa-solid fa-microchip tech-icon-main"></i>
-                        <div class="tech-icon-badge"><i class="fa-solid fa-bolt"></i></div>
-                    </div>
-
-                    <h2 class="c-title">Welcome to the <br><span class="shimmer-text">Alex AI System</span></h2>
-                    
-                    <div class="c-copy">
-                        <p>You have accessed a next-generation insurance platform. We combine <strong>artificial intelligence</strong> with premium carrier networks to find what others miss.</p>
-                        <p>Our process is designed for speed. In less than <strong>5 minutes</strong>, we will analyze your profile and present a range of optimized coverage options.</p>
-                    </div>
-                </div>
-
-                <div class="c-slide" data-step="1">
-                    <div class="tech-icon-stack">
-                        <div class="tech-icon-bg"></div>
-                        <i class="fa-solid fa-file-contract tech-icon-main"></i>
-                        <div class="tech-icon-badge"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    </div>
-
-                    <h2 class="c-title">Precision <br><span class="shimmer-text">Prerequisites</span></h2>
-                    
-                    <div class="c-copy">
-                        <p>To guarantee a binding rate (not just an estimate), our algorithm requires accurate data inputs:</p>
-                    </div>
-
-                    <div class="info-group">
-                        
-                        <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-id-card"></i></div>
-                            <div class="ic-content">
-                                <h4>Valid Identification</h4>
-                                <p>US License, Foreign License, Passport, or Matricula.</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card-row" style="border-color: #009cff33; background: #f0f9ff;">
-                            <div class="ic-icon" style="background:white; color:#009cff;"><i class="fa-solid fa-file-invoice"></i></div>
-                            <div class="ic-content">
-                                <h4>Currently Insured?</h4>
-                                <p>Please use your <span class="highlight-doc">Declaration Page</span> to match limits and secure a transfer discount.</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-car-side"></i></div>
-                            <div class="ic-content">
-                                <h4>Vehicle VIN</h4>
-                                <p>Required for exact safety feature valuation.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="c-slide" data-step="2">
-                    <div class="tech-icon-stack">
-                        <div class="tech-icon-bg"></div>
-                        <i class="fa-solid fa-hand-holding-heart tech-icon-main"></i>
-                        <div class="tech-icon-badge"><i class="fa-solid fa-check"></i></div>
-                    </div>
-
-                    <h2 class="c-title">Your Journey, <br><span class="shimmer-text">Your Choice</span></h2>
-                    
-                    <div class="c-copy">
-                        <p>At the end of this analysis, you will be presented with a customized dashboard. You maintain full control to <strong>purchase instantly</strong> or request a consultation with an <strong>Alex Agent</strong>.</p>
-                        <p>Thank you for trusting us with your protection.</p>
-                    </div>
-
-                    <div class="alex-signature-container">
-                        <div class="alex-logo-mark icon-image-mode">
-                            <img src="../assets/img/logo-alex-heart-white.png" alt="Alex AI Logo">
-                        </div>
-                    
-                        <div class="sig-text-block">
-                            <span class="sig-label">Sincerely,</span>
-                            <span class="sig-name">The Alex AI Team</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="c-footer">
-                <button class="btn-back" id="btnWelcomeBack" onclick="prevWelcomeSlide()" disabled>
-                    <i class="fa-solid fa-arrow-left"></i> Back
-                </button>
-                
-                <div class="dots-nav" id="welcomeDots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-
-                <button class="btn-primary-shimmer" id="btnWelcomeNext" onclick="nextWelcomeSlide()">
-                    CONTINUE
-                </button>
-            </div>
-        </div>
-    </div>
-
+<script src="../js/components.js"></script>
 </body>
 </html>

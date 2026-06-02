@@ -3,20 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Final Policy Review</title>
+    <title>Alex AI Car Insurance Quote | Asset Details</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
     <link rel="stylesheet" href="../css/style.css?v=3"> 
+    <link rel="stylesheet" href="../css/style-quote.css"> 
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="../css/style-quote.css">
-
-
 </head>
-<body class="quote-page-body">
+<body class="bg-body">
 
     <div id="toast-container"></div>
+
+    <div id="phoneModal" class="clean-overlay">
+        
+        <div class="card-container-relative">
+            <div class="shimmer-effect"></div>
+            
+            <div class="aurora-ambient-light"></div>
+
+            <div class="clean-white-card">
+                <div id="modalStepA" class="clean-content">
+                    
+                    <div class="clean-header">
+                        <div class="glowing-icon-box">
+                            <i class="fa-regular fa-gem"></i>
+                        </div>
+                        
+                        <h3 class="clean-title">Unlock <span class="text-gradient-corp">Premier Access</span></h3>
+                        <p class="clean-desc">Secure your quote and instantly activate exclusive member benefits.</p>
+                    </div>
+
+                    <div class="clean-features-list">
+                        <div class="clean-feat-item">
+                            <div class="cf-icon"><i class="fa-solid fa-percent"></i></div>
+                            <div class="cf-text">
+                                <strong>Exclusive Offers</strong>
+                                <span>Member-only pricing & deals.</span>
+                            </div>
+                        </div>
+                        <div class="clean-feat-item">
+                            <div class="cf-icon"><i class="fa-solid fa-bolt"></i></div>
+                            <div class="cf-text">
+                                <strong>Real-time Updates</strong>
+                                <span>Instant SMS status alerts.</span>
+                            </div>
+                        </div>
+                        <div class="clean-feat-item">
+                            <div class="cf-icon"><i class="fa-solid fa-headset"></i></div>
+                            <div class="cf-text">
+                                <strong>VIP Support Line</strong>
+                                <span>Direct access to senior agents.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="clean-actions">
+                        <button id="btnYesPhone" class="btn-aurora-solid shimmer-btn">
+                            Get Premier Access
+                            <i class="fa-solid fa-arrow-right-long icon-right"></i>
+                        </button>
+                        <button id="btnNoPhone" class="btn-clean-ghost">
+                            No thanks, continue as Guest
+                        </button>
+                    </div>
+                </div>
+
+                <div id="modalStepB" class="clean-content" style="display: none;">
+                    
+                    <div class="clean-header">
+                        <div class="glowing-icon-box blue-theme">
+                            <i class="fa-solid fa-shield-halved"></i>
+                        </div>
+                        <h3 class="clean-title">Verify Access</h3>
+                        <p class="clean-desc">Enter your number to receive your secure access code.</p>
+                    </div>
+
+                    <div class="clean-input-group">
+                        <div class="flag-addon">
+                            <select id="countryCode">
+                                <option value="+1">🇺🇸 +1</option>
+                                <option value="+52">🇲🇽 +52</option>
+                            </select>
+                        </div>
+                        <input type="tel" id="phoneNumber" placeholder="(555) 000-0000" autofocus>
+                    </div>
+
+                    <div class="trust-micro-copy">
+                        <i class="fa-solid fa-lock"></i> 
+                        <span>Your privacy is protected by end-to-end encryption.</span>
+                    </div>
+
+                    <div class="clean-actions">
+                        <button id="btnSavePhone" class="btn-aurora-solid">
+                            Confirm Number
+                        </button>
+                        <button id="btnBackToA" class="btn-clean-ghost">
+                            Go Back
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
 
     <div class="noise-overlay"></div>
 
@@ -181,7 +273,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-13.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Asset Details</span></a>
+        <a href="cotizacion-13.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Vehicle Usage</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -192,450 +284,282 @@
         </div>
 
     <div class="page-wrapper">
+        
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-solid fa-cart-shopping"></i>Final Policy Review</div>
+                <div class="wizard-title"><i class="fa-solid fa-pen-to-square"></i>Asset Details</div>
                 <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
             </div>
-            <div class="progress-track"><div class="progress-fill"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 92%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">The Marketplace</h1>
+                    <h1 class="text-gradient-corp">Vehicle Specs</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Compare tailored quotes from top carriers.</p>
+                <p>Specifics about the car's history, value, and usage metrics for accurate valuation.</p>
             </header>
         </div>
 
-        <div class="mobile-filter-bar">
-            <button id="btnMobileFilter" class="btn-mobile-filter" onclick="toggleFilters()">
-                <i class="fa-solid fa-sliders"></i> Edit Coverage & Filters
-            </button>
-        </div>
-
-        <div class="marketplace-grid">
+        <div class="specs-layout-grid">
             
-            <aside class="organic-panel config-sidebar" id="configSidebar">
-                <button onclick="toggleFilters()" style="position:absolute; top:15px; right:15px; background:none; border:none; font-size:2rem; cursor:pointer; display:none;" id="closeFiltersBtn">&times;</button>
-
-                <div class="sidebar-title">Coverages Configuration</div>
+            <div class="main-spec-col">
                 
-                <div class="veh-nav">
-                    <button class="veh-btn"><i class="fa-solid fa-chevron-left"></i></button>
-                    <span class="veh-name">2019 NISSAN TITAN S</span>
-                    <button class="veh-btn"><i class="fa-solid fa-chevron-right"></i></button>
+                <div class="car-tabs-integrated" id="carTabs">
+                    <button type="button" class="tab-int active" onclick="switchTab('car-1', this)">
+                        <i class="fa-solid fa-car"></i> 2019 NISSAN TITAN
+                        <i class="fa-solid fa-circle t-status pending"></i>
+                    </button>
+                    <button type="button" class="tab-int" onclick="switchTab('car-2', this)">
+                        <i class="fa-solid fa-car-side"></i> 2022 GMC CANYON
+                        <i class="fa-solid fa-circle t-status"></i>
+                    </button>
                 </div>
 
-                <div class="premium-group">
-                    <div class="cov-field">
-                        <label class="cov-label">Coverage Selected 
-                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('general-coverages')"></i>
-                        </label>
-                        <div class="radio-stack">
-                            <label class="radio-opt"><input type="radio" name="cov_mode" value="liability" class="recalc"> Liability Coverage Only</label>
-                            <label class="radio-opt"><input type="radio" name="cov_mode" value="comp_coll" checked class="recalc"> Comprehensive & Collision</label>
-                            <label class="radio-opt"><input type="radio" name="cov_mode" value="comp" class="recalc"> Comprehensive</label>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="premium-group">                
-                    <div id="deductibleSection">
-                        <div class="section-break"></div>
-                        <div class="sec-title">Comprehensive & Collision</div>
+                <div class="premium-white-card" id="quoteFormStep13">
+                    
+                    <div id="panel-car-1" class="car-panel active" data-id="1">
                         
-                        <div class="form-grid-2">
-                            <div class="cov-field" id="collGroup" style="margin-bottom:0;">
-                                <label class="cov-label">COMP
-                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('comp-coverage')"></i>
-                                </label>
-                                <select class="cov-select recalc premium-select">
-                                    <option>No Cov</option><option>100</option><option>250</option><option>500</option><option selected>1000</option><option>2000</option>
-                                </select>
+                        <div class="premium-group" id="tour-op-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge blue">
+                                    <i class="fa-solid fa-key"></i> OPERATION & OWNERSHIP
+                                </div>
+                                <div class="pg-header-line"></div>
                             </div>
-                            <div class="cov-field" id="compGroup" style="margin-bottom:0;">
-                                <label class="cov-label">COLL
-                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('coll-coverage')"></i>
-                                </label>
-                                <select class="cov-select recalc premium-select">
-                                    <option>No Cov</option><option>100</option><option>250</option><option>500</option><option selected>1000</option><option>2000</option>
-                                </select>
+
+                            <div class="grid-2-tight">
+                                <div class="inp-rich-group">
+                                    <label>Purchase Date</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-regular fa-calendar-check"></i></div>
+                                        <input type="text" class="rich-input date-picker validate-req" placeholder="MM/DD/YYYY">
+                                    </div>
+                                </div>
+                                <div class="inp-rich-group">
+                                    <label>Condition</label>
+                                    <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-star-half-stroke"></i></div>
+                                        <select class="rich-input validate-req premium-select">
+                                            <option value="" disabled selected>Select...</option>
+                                            <option value="New">New</option>
+                                            <option value="Used">Used</option>
+                                        </select>
+                                    </div>
+                                </div>
                             </div>
+                            <div class="inp-rich-group" style="margin-top: 15px;">
+                                <label>Primary Operator</label>
+                                <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-user-tag"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="Driver 1" selected>Driver 1 (Uri)</option>
+                                        <option value="Driver 2">Driver 2 (Eloise)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="divider-hairline"></div>
+
+                        <div class="premium-group" id="tour-mileage-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge teal">
+                                    <i class="fa-solid fa-gauge-high"></i> MILEAGE METRICS
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="grid-2-tight">
+                                <div class="inp-rich-group">
+                                    <label>Miles Driven to Work</label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
+                                        <input type="number" id="milesWork-1" class="rich-input validate-req" placeholder="Daily Miles">
+                                    </div>
+                                </div>
+                                <div class="inp-rich-group">
+                                    <label>% Driven to Work</label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-percent"></i></div>
+                                        <input type="number" class="rich-input validate-req" placeholder="e.g. 60">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid-2-tight" style="margin-top: 15px;">
+                                <div class="inp-rich-group">
+                                    <label>Annual Miles (Est.)</label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal locked">
+                                            <div class="icon-slot"><i class="fa-solid fa-calculator"></i></div>
+                                        <input type="number" id="annualMiles-1" class="rich-input validate-req" placeholder="Auto-calculated" readonly>
+                                    </div>
+                                </div>
+                                <div class="inp-rich-group">
+                                    <label class="cov-label">Current Odometer
+                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('vehicle-odometer')"></i>
+                                    </label>
+                                    <div class="input-rich-wrapper compact-premium theme-teal">
+                                            <div class="icon-slot"><i class="fa-solid fa-hashtag"></i></div>
+                                        <input type="number" class="rich-input validate-req" placeholder="Total Miles">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>    
+
+                        <div class="divider-hairline"></div>
+
+                        <div class="premium-group" id="tour-status-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge blue">
+                                    <i class="fa-solid fa-toggle-on"></i> VEHICLE STATUS
+                                </div>
+                                <span class="cov-label" style="margin-bottom:-6px !important;"><i class="fa-solid fa-circle-info tooltip-icon cov-label" onclick="showRichInfo('vehicle-status-flags')"></i></span>
+                                <div class="pg-header-line"></div>
+                            </div>
+                        
+                            <div class="toggles-compact-grid">
+                                <label class="toggle-compact">
+                                    <input type="checkbox">
+                                    <div class="toggle-face">
+                                        <span class="tog-ind"></span>
+                                        <span class="tog-name">Monitoring Device</span>
+                                    </div>
+                                </label>
+                                <label class="toggle-compact">
+                                    <input type="checkbox">
+                                    <div class="toggle-face">
+                                        <span class="tog-ind"></span>
+                                        <span class="tog-name">Leased Vehicle</span>
+                                    </div>
+                                </label>
+                                <label class="toggle-compact">
+                                    <input type="checkbox">
+                                    <div class="toggle-face">
+                                        <span class="tog-ind error"></span> <span class="tog-name">Salvaged Title</span>
+                                    </div>
+                                </label>
+                                <label class="toggle-compact">
+                                    <input type="checkbox">
+                                    <div class="toggle-face">
+                                        <span class="tog-ind"></span>
+                                        <span class="tog-name">Grey Market</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+
+                        <div class="divider-hairline"></div>
+
+                        <div class="premium-group">
+                            <div class="pg-header">
+                                <div class="pg-header-badge teal">
+                                    <i class="fa-solid fa-file-invoice-dollar"></i> FINANCIALS & SECURITY
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
+
+                            <div class="grid-3-tight">
+                                <div class="inp-rich-group">
+                                    <label>Purchase Cost</label>
+                                    <div class="input-rich-wrapper">
+                                        <span class="currency">$</span>
+                                        <input type="number" class="rich-input" placeholder="0.00">
+                                    </div>
+                                </div>
+                                <div class="inp-rich-group">
+                                    <label class="cov-label">MSRP
+                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('vehicle-values')"></i>
+                                    </label>
+                                    <div class="input-rich-wrapper">
+                                        <span class="currency">$</span>
+                                        <input type="number" class="rich-input" placeholder="0.00">
+                                    </div>
+                                </div>
+                                <div class="inp-rich-group">
+                                    <label class="cov-label">ACV (Current)
+                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('vehicle-values')"></i>
+                                    </label>
+                                    <div class="input-rich-wrapper">
+                                        <span class="currency">$</span>
+                                        <input type="number" class="rich-input" placeholder="0.00">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="inp-rich-group" style="margin-top: 20px;">
+                                <label class="cov-label">Anti-Theft System
+                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('anti-theft-levels')"></i>
+                                </label>
+                                <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-shield-halved"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="Level 1" selected>Anti-Theft level 1</option>
+                                        <option>No Anti-Theft</option>
+                                        <option>Anti-Theft level 2</option>
+                                        <option>Anti-Theft level 3</option>
+                                        <option>Anti-Theft level 4 (Passive)</option>
+                                        <option>Anti-Theft level 5 (GPS)</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="nav-row-right">
+                            <button type="button" class="btn-nav-outline" onclick="switchTab('car-2')">Next Car <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+
+                    <div id="panel-car-2" class="car-panel" data-id="2">
+                        <div style="text-align: center; padding: 40px;">
+                            <div class="icon-box-soft blue" style="margin: 0 auto 20px; width: 60px; height: 60px; font-size: 1.5rem;">
+                                <i class="fa-solid fa-car-side"></i>
+                            </div>
+                            <h4 style="color:var(--color-indigo); margin-bottom: 10px;">Car 2 Specs</h4>
+                            <p style="color:#94A3B8; font-size: 0.9rem;">The fields for the GMC Canyon would be repeated here.</p>
+                        </div>
+                        <div class="nav-row-spaced">
+                            <button type="button" class="btn-nav-outline" onclick="switchTab('car-1')"><i class="fa-solid fa-chevron-left"></i> Prev Car</button>
+                        </div>
+                    </div>
+
+                    <div class="hero-action-area">
+                        <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> Specs Encrypted via SSL</div>
+                        <button type="button" class="btn-hero-gradient" id="btnNext">
+                            Next Step <i class="fa-solid fa-arrow-right-long"></i>
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+
+            <aside class="config-sidebar">
+                <div class="organic-panel">
+                    <div class="sidebar-title">Coverage Path</div>
+                    
+                    <ul class="aurora-list">
+                        <li class="done"><i class="fa-solid fa-circle-check"></i> Client Information</li>
+                        <li class="done"><i class="fa-solid fa-circle-check"></i> Drivers</li>
+                        <li class="done"><i class="fa-solid fa-circle-check"></i> Violations</li>
+                        <li class="done"><i class="fa-solid fa-circle-check"></i> Additional Info</li>
+                        <li class="active"><span class="pulse-dot"></span> Vehicle</li>
+                    </ul>
+
+                    <div class="discount-box-vibrant">
+                        <i class="fa-solid fa-tags bg-icon"></i>
+                        <div class="db-title">Potential Discounts</div>
+                        <div class="db-val">6</div>
+                        <div class="db-msg">Anti-Theft likely!</div>
+                    </div>
+
+                    <div class="tip-box-vibrant" style="margin-top: 20px;">
+                        <i class="fa-regular fa-lightbulb tip-icon"></i>
+                        <div>
+                            <strong>Alex Tip:</strong> Installing a passive anti-theft device (Level 4+) can reduce your comprehensive premium significantly.
                         </div>
                     </div>
                 </div>
-
-
-                <div class="section-break"></div>
-
-                <div id="customLiabilityOptions" class="premium-group">
-                    <div class="sec-title">Liability Coverage</div>                    
-                    <div class="radio-stack">
-                        <label class="radio-opt">
-                            <input type="radio" name="liab_mode" value="state" class="recalc"> 
-                            <div>
-                                <span>State Minimum ($25K/50K/15K)</span>
-                                <div class="radio-desc">Legal minimum. Good only if price sensitive.</div>
-                            </div>
-                        </label>
-                        <label class="radio-opt">
-                            <input type="radio" name="liab_mode" value="custom" checked class="recalc"> 
-                            <span>Your Protection (Recommended)</span>
-                        </label>
-                    </div>
-
-
-                        <div class="form-grid-2" style="margin-bottom:0;">
-                            <div class="cov-field" style="margin-bottom:0;">
-                                <label class="cov-label">Bodily Injury 
-                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('bodily-injury')"></i>
-                                </label>
-                                <select class="cov-select recalc premium-select">
-                                    <option>25K/50K</option><option>50K/100K</option><option selected>100K/300K</option><option>250K/500K</option>
-                                </select>
-                            </div>
-                            <div class="cov-field" style="margin-bottom:0;">
-                                <label class="cov-label">Property Damage 
-                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('property-damage')"></i>
-                                </label>
-                                <select class="cov-select recalc premium-select">
-                                    <option>15K</option><option>25K</option><option selected>50K</option><option>100K</option>
-                                </select>
-                            </div>
-                        </div>
-                </div>
-
-
-                <div class="section-break"></div>
-
-                <div class="premium-group">                
-                    <div class="sec-title">Medical & Protection</div>
-                    
-                    <div class="form-grid-2">
-                        <div class="cov-field" style="margin-bottom:0;">
-                            <label class="cov-label">Medical Payments 
-                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('medical-payments')"></i>
-                            </label>
-                            <select class="cov-select recalc premium-select"><option>No Cov</option><option>500</option><option>1000</option><option>5000</option></select>
-                        </div>
-                        <div class="cov-field" style="margin-bottom:0;">
-                            <label class="cov-label">Accidental Death 
-                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('accidental-death')"></i>
-                            </label>
-                            <select class="cov-select recalc premium-select"><option>No Cov</option><option>5000</option><option>10000</option></select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-grid-2">
-                        <div class="cov-field" style="margin-bottom:0;">
-                            <label class="cov-label">Uninsured BI 
-                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('uninsured-motorist')"></i>
-                            </label>
-                            <select class="cov-select recalc premium-select"><option>No Cov</option><option>25/50</option><option>50/100</option><option selected>100/300</option></select>
-                        </div>
-                        <div class="cov-field" style="margin-bottom:0;">
-                            <label class="cov-label">Underinsured BI 
-                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('underinsured-motorist')"></i>
-                            </label>
-                            <select class="cov-select recalc premium-select"><option>No Cov</option><option>25/50</option><option>50/100</option><option selected>100/300</option></select>
-                        </div>
-                    </div>
-
-                    <div class="section-break"></div>
-                    <div class="sec-title">Extras</div>
-                    
-                    <div class="form-grid-2">
-                        <div class="cov-field" style="margin-bottom:0;">
-                            <label class="cov-label">Roadside Asst. 
-                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('roadside-assistance')"></i>
-                            </label>
-                            <select class="cov-select recalc premium-select"><option>No</option><option>50</option><option>75</option><option>100</option></select>
-                        </div>
-                        <div class="cov-field" style="margin-bottom:0;">
-                            <label class="cov-label">Rental Car 
-                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('rental-reimbursement')"></i>
-                            </label>
-                            <select class="cov-select recalc premium-select"><option>No</option><option>30</option><option>40</option><option>50</option></select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-grid-2">
-                        <div class="cov-field" style="margin-bottom:0;">
-                            <label class="cov-label">Gap Coverage 
-                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('gap-coverage')"></i>
-                            </label>
-                            <select class="cov-select recalc premium-select"><option>No</option><option>Yes</option></select>
-                        </div>
-                        <div class="cov-field" style="margin-bottom:0;">
-                            <label class="cov-label">Safety Feat. 
-                                <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('safety-features')"></i>
-                            </label>
-                            <select class="cov-select recalc premium-select"><option>No</option><option>Yes</option></select>
-                        </div>
-                    </div>
-
-                    <div class="cov-field">
-                        <label class="cov-label">Custom Equipment Value 
-                            <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('custom-equipment')"></i>
-                        </label>
-                        <input type="number" class="custom-input recalc" placeholder="$0">
-                    </div>
-                </div>
-                
-                <div class="cov-field" style="margin-top:20px;">
-                    <label class="cov-label">Policy Length</label>
-                    <input type="text" class="custom-input" value="6 months" disabled style="background:#F1F5F9; font-weight:700; color:#94A3B8;">
-                </div>
-
-                <button id="btnRecalc" class="btn-get-quote">UPDATE QUOTES</button>
             </aside>
-
-            <div id="offersContainer">
-                <div id="loader" class="loading-box">
-                    <div class="spinner"></div>
-                    <h4 style="color:var(--color-dark); font-weight: 700;">Analyzing Carriers...</h4>
-                    <p style="font-size:0.85rem; color:#64748B;">AI is comparing 12 data points</p>
-                </div>
-            </div>
-
-            <aside class="organic-panel summary-sidebar" id="tour-summary-panel">
-                <div class="sidebar-title">Quote Summary</div>
-                
-                <div class="summary-list">
-                    <div class="sum-item"><span class="sum-lbl">Drivers</span><span class="sum-val">2</span></div>
-                    <div class="sum-item"><span class="sum-lbl">Vehicles</span><span class="sum-val">2</span></div>
-                    <div class="sum-item"><span class="sum-lbl">Lienholders</span><span class="sum-val">1</span></div>
-                    
-                    <div class="sum-item text-green" style="margin-top: 10px;">
-                        <span class="sum-lbl text-green"><i class="fa-solid fa-leaf"></i> Paperless</span> 
-                        <span class="sum-val text-green">Applied</span>
-                    </div>
-                    <div class="sum-item text-green">
-                        <span class="sum-lbl text-green"><i class="fa-solid fa-users"></i> Multi-Car</span> 
-                        <span class="sum-val text-green">Applied</span>
-                    </div>
-                </div>
-
-                <div class="desktop-btns action-btns">
-                    <button id="btnCheckoutSidebar" class="btn-action btn-next js-btn-next">PROCEED TO CHECKOUT <i class="fa-solid fa-arrow-right"></i></button>
-                    <button id="btnCompareSidebar" class="btn-action btn-compare js-btn-compare">COMPARE SELECTED <i class="fa-solid fa-scale-balanced"></i></button>
-                    <button id="btnEditSidebar" class="btn-action btn-update js-btn-update"><i class="fa-solid fa-pen"></i> Edit Information</button>
-                </div>
-            </aside>
-
-        </div>
-    </div>
-
-    <div class="mobile-dock">
-        <div class="mobile-dock-row">
-            <button id="btnMobileCheckout" class="btn-action btn-next js-btn-next">PROCEED TO CHECKOUT <i class="fa-solid fa-arrow-right"></i></button>
-            <div class="mobile-dock-sub">
-                <button id="btnMobileCompare" class="btn-action btn-compare js-btn-compare" style="flex:1;">COMPARE</button>
-                <button id="btnMobileEdit" class="btn-action btn-update js-btn-update" onclick="alert('Redirecting...')" style="flex:1;">EDIT</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="compareModal" class="modal-overlay-quote" style="display: none;">
-        <div class="comp-card">
-            
-            <div class="comp-header">
-                <div class="comp-title">
-                    <h3 class="text-gradient-corp"><i class="fa-solid fa-scale-balanced text-gradient-corp"></i> Quote Comparison</h3>
-                    <p>Analyzing coverage details across top carriers.</p>
-                </div>
-                <button onclick="closeCompareModal()" class="close-comp-btn"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-
-            <div class="comp-controls-area">
-                <div class="veh-toggle-container">
-                    <button class="veh-tab-btn active" onclick="switchCompTab('v1', this)">
-                        <i class="fa-solid fa-truck-pickup"></i> 2019 NISSAN TITAN S
-                    </button>
-                    <button class="veh-tab-btn" onclick="switchCompTab('v2', this)">
-                        <i class="fa-solid fa-truck-monster"></i> 2022 GMC CANYON
-                    </button>
-                </div>
-            </div>
-
-            <div class="comp-body">
-                
-                <div id="v1" class="comp-tab-content active">
-                    <div class="table-scroll-wrapper">
-                        <table class="tech-table">
-                            <thead>
-                                <tr>
-                                    <th class="sticky-col" style="vertical-align: middle;">
-                                        <span style="font-size:1.1rem; font-weight:800; color:#0F172A;">Features</span>
-                                    </th>
-
-                                    <th>
-                                        <div class="brand-box">
-                                            <span class="rec-badge shimmer-effect"><i class="fa-solid fa-bolt"></i> Instant Bind</span>
-                                            <img src="../assets/img/Carrier-assurance-america.png" alt="Assurance America" class="carrier-logo-compare">
-                                            <span class="plan-badge">MobileMax</span>
-                                        </div>
-                                    </th>
-
-                                    <th class="highlight-head">
-                                        <div class="brand-box">
-                                            <span class="rec-badge shimmer-effect"><i class="fa-solid fa-bolt"></i> Instant Bind</span>
-                                            <img src="../assets/img/Carrier-covercube-2.jpg" alt="CoverCube" class="carrier-logo-compare">
-                                            <span class="plan-badge" style="background:#009cff; color:white;">Direct Value</span>
-                                        </div>
-                                    </th>
-
-                                    <th>
-                                        <div class="brand-box">
-                                            <span class="rec-badge shimmer-effect"><i class="fa-solid fa-bolt"></i> Instant Bind</span>
-                                            <img src="../assets/img/Carrier-commonwealth.jpg" alt="Commonwealth Casualty" class="carrier-logo-compare">
-                                            <span class="plan-badge">Casualty RTR</span>
-                                        </div>
-                                    </th>
-
-                                    <th>
-                                        <div class="brand-box">
-                                            <span class="rec-badge-blue shimmer-effect"><i class="fa-solid fa-heart"></i> Alex Choice</span>
-                                            <img src="../assets/img/Carrier-kemper.jpg" alt="Kemper" class="carrier-logo-compare">
-                                            <span class="plan-badge">Auto FLex</span>
-                                        </div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="feature-col sticky-col"><div class="f-icon"><i class="fa-solid fa-file-invoice"></i></div> Payment Plan</td>
-                                    <td style="font-size:0.8rem; line-height:1.3;">50% Down Plus 1 (EFT)</td>
-                                    <td class="highlight-cell" style="font-size:0.8rem; line-height:1.3;">20% Down - Direct</td>
-                                    <td style="font-size:0.8rem; line-height:1.3;">5 Installments (20% Down)</td>
-                                    <td style="font-size:0.8rem; line-height:1.3;">Six Monthly Equal Payments</td>
-                                </tr>
-
-                                <tr class="table-section-row"><td colspan="5"><i class="fa-solid fa-coins"></i> Financial Breakdown</td></tr>
-                                
-                                <tr>
-                                    <td class="feature-col sticky-col">Starting Price</td>
-                                    <td class="font-bold">$5,350.50</td>
-                                    <td class="highlight-cell font-bold">$1,266.54</td>
-                                    <td class="font-bold">$901.03</td>
-                                    <td class="font-bold">$393.48</td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-col sticky-col">Monthly Pmt</td>
-                                    <td><div class="price-tag-lg">$5,343</div><div class="price-sub">/mo</div></td>
-                                    <td class="highlight-cell"><div class="price-tag-lg text-primary">$978</div><div class="price-sub text-primary">/mo</div></td>
-                                    <td><div class="price-tag-lg">$703</div><div class="price-sub">/mo</div></td>
-                                    <td><div class="price-tag-lg">$387</div><div class="price-sub">/mo</div></td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-col sticky-col">Term</td>
-                                    <td>6 Months</td>
-                                    <td class="highlight-cell">6 Months</td>
-                                    <td>6 Months</td>
-                                    <td>6 Months</td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-col sticky-col">Policy Fee</td>
-                                    <td>$30.00</td>
-                                    <td class="highlight-cell">$30.00</td>
-                                    <td>$31.01</td>
-                                    <td>$0.00</td>
-                                </tr>
-                                <tr>
-                                    <td class="feature-col sticky-col">Agency Fee</td>
-                                    <td>$0.00</td>
-                                    <td class="highlight-cell">$0.00</td>
-                                    <td>$0.00</td>
-                                    <td>$0.00</td>
-                                </tr>
-                                <tr style="background-color: #F8FAFC;">
-                                    <td class="feature-col sticky-col" style="color:#0F172A;">Total Premium</td>
-                                    <td class="text-muted" style="text-decoration: line-through;">$10,686.00</td>
-                                    <td class="highlight-cell text-dark font-bold" style="font-size:1.1rem;">$6,159.69</td>
-                                    <td class="text-muted">$4,381.18</td>
-                                    <td class="text-muted">$2,324.23</td>
-                                </tr>
-
-                                <tr class="table-section-row"><td colspan="5"><i class="fa-solid fa-shield-halved"></i> Coverage Details</td></tr>
-
-                                <tr>
-                                    <td class="feature-col sticky-col"><div class="f-icon"><i class="fa-solid fa-user-injured"></i></div> Bodily Injury (BI)</td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$1,369.00</div></td>
-                                    <td class="highlight-cell"><div class="cov-val">25/50</div><div class="cov-price">$500.56</div></td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$952.68</div></td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$214.25</div></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="feature-col sticky-col"><div class="f-icon"><i class="fa-solid fa-car-burst"></i></div> Property Dmg (PD)</td>
-                                    <td><div class="cov-val">15k</div><div class="cov-price">$503.00</div></td>
-                                    <td class="highlight-cell"><div class="cov-val">15k</div><div class="cov-price">$431.17</div></td>
-                                    <td><div class="cov-val">15k</div><div class="cov-price">$470.57</div></td>
-                                    <td><div class="cov-val">15k</div><div class="cov-price">$240.96</div></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="feature-col sticky-col"><div class="f-icon"><i class="fa-solid fa-user-shield"></i></div> Uninsured (UM)</td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$519.00</div></td>
-                                    <td class="highlight-cell"><div class="cov-val">25/50</div><div class="cov-price">$100.08</div></td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$172.89</div></td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$18.93</div></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="feature-col sticky-col"><div class="f-icon"><i class="fa-solid fa-person-circle-question"></i></div> Underinsured (UNDUM)</td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$132.00</div></td>
-                                    <td class="highlight-cell"><div class="cov-val">25/50</div><div class="cov-price">$90.45</div></td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$210.10</div></td>
-                                    <td><div class="cov-val">25/50</div><div class="cov-price">$35.33</div></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="feature-col sticky-col"><div class="f-icon"><i class="fa-solid fa-cloud-showers-heavy"></i></div> Comprehensive</td>
-                                    <td><div class="cov-val">Ded: $500</div><div class="cov-price">$173.00</div></td>
-                                    <td class="highlight-cell"><div class="cov-val">Ded: $500</div><div class="cov-price">$241.10</div></td>
-                                    <td><div class="cov-val">Ded: $500</div><div class="cov-price">$218.70</div></td>
-                                    <td><div class="cov-val">Ded: $500</div><div class="cov-price">$127.78</div></td>
-                                </tr>
-
-                                <tr>
-                                    <td class="feature-col sticky-col"><div class="f-icon"><i class="fa-solid fa-car-side"></i></div> Collision</td>
-                                    <td><div class="cov-val">Ded: $500</div><div class="cov-price">$1,308.00</div></td>
-                                    <td class="highlight-cell"><div class="cov-val">Ded: $500</div><div class="cov-price">$2,286.71</div></td>
-                                    <td><div class="cov-val">Ded: $500</div><div class="cov-price">$669.97</div></td>
-                                    <td><div class="cov-val">Ded: $500</div><div class="cov-price">$484.76</div></td>
-                                </tr>
-
-                                <tr style="height: 80px;">
-                                    <td class="feature-col sticky-col"></td>
-                                    <td style="vertical-align:bottom;"><button class="btn-select-ghost">Select</button></td>
-                                    <td class="highlight-cell" style="vertical-align:bottom; border-bottom-left-radius: 12px; border-bottom-right-radius: 12px;">
-                                        <button class="btn-select-primary shimmer-effect" style="width:100%; padding:12px;">
-                                            Select Plan <i class="fa-solid fa-arrow-right"></i>
-                                        </button>
-                                    </td>
-                                    <td style="vertical-align:bottom;"><button class="btn-select-ghost">Select</button></td>
-                                    <td style="vertical-align:bottom;"><button class="btn-select-ghost">Select</button></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-
-                <div id="v2" class="comp-tab-content">
-                    <div style="padding: 50px; text-align: center;">
-                        <i class="fa-solid fa-truck-monster" style="font-size: 3rem; color: #E2E8F0; margin-bottom: 20px;"></i>
-                        <h4 style="color: #64748B;">2022 GMC Canyon Elevation</h4>
-                        <p style="color: #94A3B8;">(Data structure is identical to Nissan Titan tab)</p>
-                    </div>
-                </div>
-
-            </div> <div class="comp-footer">
-                <div class="disclaimer"><i class="fa-solid fa-lock"></i> Quote ID: #REF-2026-X99. Valid for 24h.</div>
-                <button onclick="closeCompareModal()" class="btn-update">Back to Quotes</button>
-            </div>
         </div>
     </div>
 
@@ -819,6 +743,7 @@
         </button>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="../js/script.js"></script>
     <script src="../js/script-quote.js"></script>
 
@@ -857,8 +782,8 @@
 
     <div id="tourCard" class="tour-card-holo">
         <div class="holo-header">
-            <span class="holo-badge">MARKETPLACE <span id="tcCurrent">1</span>/<span id="tcTotal">3</span></span>
-            <button class="holo-skip" onclick="endReviewTour()">Skip Guide</button>
+            <span class="holo-badge">VALUATION <span id="tcCurrent">1</span>/<span id="tcTotal">3</span></span>
+            <button class="holo-skip" onclick="endAssetTour()">Skip Guide</button>
         </div>
 
         <div class="holo-body">
@@ -868,10 +793,10 @@
         </div>
 
         <div class="holo-footer">
-            <button class="btn-holo-prev" id="btnRevPrev" onclick="prevReviewStep()">
+            <button class="btn-holo-prev" id="btnAssetPrev" onclick="prevAssetStep()">
                 <i class="fa-solid fa-arrow-left"></i> Back
             </button>
-            <button class="btn-holo-next" id="btnRevNext" onclick="nextReviewStep()">
+            <button class="btn-holo-next" id="btnAssetNext" onclick="nextAssetStep()">
                 Next <i class="fa-solid fa-arrow-right"></i>
             </button>
         </div>

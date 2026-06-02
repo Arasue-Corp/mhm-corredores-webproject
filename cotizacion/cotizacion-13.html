@@ -3,11 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex AI Car Insurance Quote | Asset Details</title>
+    <title>Alex AI Car Insurance Quote | Vehicle Usage</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     
     <link rel="stylesheet" href="../css/style.css?v=3"> 
     <link rel="stylesheet" href="../css/style-quote.css"> 
@@ -16,99 +15,6 @@
 <body class="bg-body">
 
     <div id="toast-container"></div>
-
-    <div id="phoneModal" class="clean-overlay">
-        
-        <div class="card-container-relative">
-            <div class="shimmer-effect"></div>
-            
-            <div class="aurora-ambient-light"></div>
-
-            <div class="clean-white-card">
-                <div id="modalStepA" class="clean-content">
-                    
-                    <div class="clean-header">
-                        <div class="glowing-icon-box">
-                            <i class="fa-regular fa-gem"></i>
-                        </div>
-                        
-                        <h3 class="clean-title">Unlock <span class="text-gradient-corp">Premier Access</span></h3>
-                        <p class="clean-desc">Secure your quote and instantly activate exclusive member benefits.</p>
-                    </div>
-
-                    <div class="clean-features-list">
-                        <div class="clean-feat-item">
-                            <div class="cf-icon"><i class="fa-solid fa-percent"></i></div>
-                            <div class="cf-text">
-                                <strong>Exclusive Offers</strong>
-                                <span>Member-only pricing & deals.</span>
-                            </div>
-                        </div>
-                        <div class="clean-feat-item">
-                            <div class="cf-icon"><i class="fa-solid fa-bolt"></i></div>
-                            <div class="cf-text">
-                                <strong>Real-time Updates</strong>
-                                <span>Instant SMS status alerts.</span>
-                            </div>
-                        </div>
-                        <div class="clean-feat-item">
-                            <div class="cf-icon"><i class="fa-solid fa-headset"></i></div>
-                            <div class="cf-text">
-                                <strong>VIP Support Line</strong>
-                                <span>Direct access to senior agents.</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="clean-actions">
-                        <button id="btnYesPhone" class="btn-aurora-solid shimmer-btn">
-                            Get Premier Access
-                            <i class="fa-solid fa-arrow-right-long icon-right"></i>
-                        </button>
-                        <button id="btnNoPhone" class="btn-clean-ghost">
-                            No thanks, continue as Guest
-                        </button>
-                    </div>
-                </div>
-
-                <div id="modalStepB" class="clean-content" style="display: none;">
-                    
-                    <div class="clean-header">
-                        <div class="glowing-icon-box blue-theme">
-                            <i class="fa-solid fa-shield-halved"></i>
-                        </div>
-                        <h3 class="clean-title">Verify Access</h3>
-                        <p class="clean-desc">Enter your number to receive your secure access code.</p>
-                    </div>
-
-                    <div class="clean-input-group">
-                        <div class="flag-addon">
-                            <select id="countryCode">
-                                <option value="+1">🇺🇸 +1</option>
-                                <option value="+52">🇲🇽 +52</option>
-                            </select>
-                        </div>
-                        <input type="tel" id="phoneNumber" placeholder="(555) 000-0000" autofocus>
-                    </div>
-
-                    <div class="trust-micro-copy">
-                        <i class="fa-solid fa-lock"></i> 
-                        <span>Your privacy is protected by end-to-end encryption.</span>
-                    </div>
-
-                    <div class="clean-actions">
-                        <button id="btnSavePhone" class="btn-aurora-solid">
-                            Confirm Number
-                        </button>
-                        <button id="btnBackToA" class="btn-clean-ghost">
-                            Go Back
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </div>
 
     <div class="noise-overlay"></div>
 
@@ -273,7 +179,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-12.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Vehicle Usage</span></a>
+        <a href="cotizacion-12.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Financial Interest</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -284,20 +190,19 @@
         </div>
 
     <div class="page-wrapper">
-        
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-solid fa-pen-to-square"></i>Asset Details</div>
+                <div class="wizard-title"><i class="fa-solid fa-car-tunnel"></i>Vehicle Usage</div>
                 <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 92%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 85%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Vehicle Specs</h1>
+                    <h1 class="text-gradient-corp">How do you use it?</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Specifics about the car's history, value, and usage metrics for accurate valuation.</p>
+                <p>Usage type affects your premium. Be specific about rideshare activities.</p>
             </header>
         </div>
 
@@ -316,135 +221,34 @@
                     </button>
                 </div>
 
-                <div class="premium-white-card" id="quoteFormStep13">
+                <div class="premium-white-card" id="quoteFormStep12">
                     
                     <div id="panel-car-1" class="car-panel active" data-id="1">
                         
-                        <div class="premium-group" id="tour-op-group">
+                        <div class="premium-group">
                             <div class="pg-header">
                                 <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-key"></i> OPERATION & OWNERSHIP
+                                    <i class="fa-solid fa-briefcase"></i> PRIMARY PURPOSE
                                 </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-
-                            <div class="grid-2-tight">
-                                <div class="inp-rich-group">
-                                    <label>Purchase Date</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-regular fa-calendar-check"></i></div>
-                                        <input type="text" class="rich-input date-picker validate-req" placeholder="MM/DD/YYYY">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Condition</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-star-half-stroke"></i></div>
-                                        <select class="rich-input validate-req premium-select">
-                                            <option value="" disabled selected>Select...</option>
-                                            <option value="New">New</option>
-                                            <option value="Used">Used</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="inp-rich-group" style="margin-top: 15px;">
-                                <label>Primary Operator</label>
-                                <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-user-tag"></i></div>
-                                    <select class="rich-input validate-req premium-select">
-                                        <option value="Driver 1" selected>Driver 1 (Uri)</option>
-                                        <option value="Driver 2">Driver 2 (Eloise)</option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="divider-hairline"></div>
-
-                        <div class="premium-group" id="tour-mileage-group">
-                            <div class="pg-header">
-                                <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-gauge-high"></i> MILEAGE METRICS
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-
-                            <div class="grid-2-tight">
-                                <div class="inp-rich-group">
-                                    <label>Miles Driven to Work</label>
-                                    <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
-                                        <input type="number" id="milesWork-1" class="rich-input validate-req" placeholder="Daily Miles">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>% Driven to Work</label>
-                                    <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-percent"></i></div>
-                                        <input type="number" class="rich-input validate-req" placeholder="e.g. 60">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="grid-2-tight" style="margin-top: 15px;">
-                                <div class="inp-rich-group">
-                                    <label>Annual Miles (Est.)</label>
-                                    <div class="input-rich-wrapper compact-premium theme-teal locked">
-                                            <div class="icon-slot"><i class="fa-solid fa-calculator"></i></div>
-                                        <input type="number" id="annualMiles-1" class="rich-input validate-req" placeholder="Auto-calculated" readonly>
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label class="cov-label">Current Odometer
-                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('vehicle-odometer')"></i>
-                                    </label>
-                                    <div class="input-rich-wrapper compact-premium theme-teal">
-                                            <div class="icon-slot"><i class="fa-solid fa-hashtag"></i></div>
-                                        <input type="number" class="rich-input validate-req" placeholder="Total Miles">
-                                    </div>
-                                </div>
-                            </div>
-                        </div>    
-
-                        <div class="divider-hairline"></div>
-
-                        <div class="premium-group" id="tour-status-group">
-                            <div class="pg-header">
-                                <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-toggle-on"></i> VEHICLE STATUS
-                                </div>
-                                <span class="cov-label" style="margin-bottom:-6px !important;"><i class="fa-solid fa-circle-info tooltip-icon cov-label" onclick="showRichInfo('vehicle-status-flags')"></i></span>
                                 <div class="pg-header-line"></div>
                             </div>
                         
-                            <div class="toggles-compact-grid">
-                                <label class="toggle-compact">
-                                    <input type="checkbox">
-                                    <div class="toggle-face">
-                                        <span class="tog-ind"></span>
-                                        <span class="tog-name">Monitoring Device</span>
-                                    </div>
-                                </label>
-                                <label class="toggle-compact">
-                                    <input type="checkbox">
-                                    <div class="toggle-face">
-                                        <span class="tog-ind"></span>
-                                        <span class="tog-name">Leased Vehicle</span>
-                                    </div>
-                                </label>
-                                <label class="toggle-compact">
-                                    <input type="checkbox">
-                                    <div class="toggle-face">
-                                        <span class="tog-ind error"></span> <span class="tog-name">Salvaged Title</span>
-                                    </div>
-                                </label>
-                                <label class="toggle-compact">
-                                    <input type="checkbox">
-                                    <div class="toggle-face">
-                                        <span class="tog-ind"></span>
-                                        <span class="tog-name">Grey Market</span>
-                                    </div>
-                                </label>
+                            <div class="inp-rich-group">
+                                <label>Vehicle Usage</label>
+                                <div class="input-rich-wrapper compact-premium theme-blue">
+                                            <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="" disabled selected>Select Usage...</option>
+                                        <option value="Pleasure">Pleasure (No Work Commute)</option>
+                                        <option value="Work/School">Work/School Commute</option>
+                                        <option value="Business">Business Use</option>
+                                        <option value="Artisan">Artisan / Contractor</option>
+                                        <option value="Farm">Farm Use</option>
+                                    </select>
+                                </div>
+                                <div style="font-size: 0.75rem; color: #94A3B8; margin-top: 8px; display: flex; align-items: center; gap: 6px;">
+                                    <i class="fa-solid fa-circle-info"></i> "Pleasure" means the car is not driven to work or school.
+                                </div>
                             </div>
                         </div>
 
@@ -454,56 +258,29 @@
                         <div class="premium-group">
                             <div class="pg-header">
                                 <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-file-invoice-dollar"></i> FINANCIALS & SECURITY
+                                    <i class="fa-solid fa-car-on"></i> RISE SHARE ACTIVITIES
                                 </div>
                                 <div class="pg-header-line"></div>
                             </div>
-
-                            <div class="grid-3-tight">
-                                <div class="inp-rich-group">
-                                    <label>Purchase Cost</label>
-                                    <div class="input-rich-wrapper">
-                                        <span class="currency">$</span>
-                                        <input type="number" class="rich-input" placeholder="0.00">
+                        
+                            <div class="grid-2-tight">
+                                <label class="radio-card-opt">
+                                    <input type="radio" name="ride_1" value="yes">
+                                    <div class="radio-content">
+                                        <span class="radio-title">Yes, I do Rideshare</span>
+                                        <span class="radio-desc">Uber, Lyft, DoorDash, etc.</span>
                                     </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label class="cov-label">MSRP
-                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('vehicle-values')"></i>
-                                    </label>
-                                    <div class="input-rich-wrapper">
-                                        <span class="currency">$</span>
-                                        <input type="number" class="rich-input" placeholder="0.00">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label class="cov-label">ACV (Current)
-                                        <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('vehicle-values')"></i>
-                                    </label>
-                                    <div class="input-rich-wrapper">
-                                        <span class="currency">$</span>
-                                        <input type="number" class="rich-input" placeholder="0.00">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="inp-rich-group" style="margin-top: 20px;">
-                                <label class="cov-label">Anti-Theft System
-                                    <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('anti-theft-levels')"></i>
                                 </label>
-                                <div class="input-rich-wrapper compact-premium theme-blue">
-                                            <div class="icon-slot"><i class="fa-solid fa-shield-halved"></i></div>
-                                    <select class="rich-input validate-req premium-select">
-                                        <option value="Level 1" selected>Anti-Theft level 1</option>
-                                        <option>No Anti-Theft</option>
-                                        <option>Anti-Theft level 2</option>
-                                        <option>Anti-Theft level 3</option>
-                                        <option>Anti-Theft level 4 (Passive)</option>
-                                        <option>Anti-Theft level 5 (GPS)</option>
-                                    </select>
-                                </div>
+                                <label class="radio-card-opt">
+                                    <input type="radio" name="ride_1" value="no" checked>
+                                    <div class="radio-content">
+                                        <span class="radio-title">No Rideshare</span>
+                                        <span class="radio-desc">Personal use only.</span>
+                                    </div>
+                                </label>
                             </div>
                         </div>
+  
 
                         <div class="nav-row-right">
                             <button type="button" class="btn-nav-outline" onclick="switchTab('car-2')">Next Car <i class="fa-solid fa-arrow-right"></i></button>
@@ -511,20 +288,71 @@
                     </div>
 
                     <div id="panel-car-2" class="car-panel" data-id="2">
-                        <div style="text-align: center; padding: 40px;">
-                            <div class="icon-box-soft blue" style="margin: 0 auto 20px; width: 60px; height: 60px; font-size: 1.5rem;">
-                                <i class="fa-solid fa-car-side"></i>
+                        
+                        <div class="premium-group">
+                                <div class="pg-header">
+                                    <div class="pg-header-badge blue">
+                                        <i class="fa-solid fa-briefcase"></i> PRIMARY PURPOSE (CAR 2)
+                                    </div>
+                                    <div class="pg-header-line"></div>
+                                </div>
+                        
+                        
+                            <div class="inp-rich-group">
+                                <label>Vehicle Usage</label>
+                                <div class="input-rich-wrapper compact-premium theme-blue">
+                                    <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
+                                    <select class="rich-input validate-req premium-select">
+                                        <option value="" disabled selected>Select Usage...</option>
+                                        <option value="Pleasure">Pleasure (No Work Commute)</option>
+                                        <option value="Work/School">Work/School Commute</option>
+                                        <option value="Business">Business Use</option>
+                                        <option value="Artisan">Artisan / Contractor</option>
+                                        <option value="Farm">Farm Use</option>
+                                    </select>
+                                </div>
+                                <div style="font-size: 0.75rem; color: #94A3B8; margin-top: 8px; display: flex; align-items: center; gap: 6px;">
+                                    <i class="fa-solid fa-circle-info"></i> "Pleasure" means the car is not driven to work or school.
+                                </div>
                             </div>
-                            <h4 style="color:var(--color-indigo); margin-bottom: 10px;">Car 2 Specs</h4>
-                            <p style="color:#94A3B8; font-size: 0.9rem;">The fields for the GMC Canyon would be repeated here.</p>
                         </div>
+
+
+                        <div class="divider-hairline"></div>
+
+                        <div class="premium-group">
+                                <div class="pg-header">
+                                    <div class="pg-header-badge teal">
+                                        <i class="fa-solid fa-briefcase"></i> RIDE SHARE ACTIVITIES
+                                    </div>
+                                    <div class="pg-header-line"></div>
+                                </div>
+                        
+                            <div class="grid-2-tight">
+                                <label class="radio-card-opt">
+                                    <input type="radio" name="ride_2" value="yes"> <div class="radio-content">
+                                        <span class="radio-title">Yes, I do Rideshare</span>
+                                        <span class="radio-desc">Uber, Lyft, DoorDash, etc.</span>
+                                    </div>
+                                </label>
+                                <label class="radio-card-opt">
+                                    <input type="radio" name="ride_2" value="no" checked>
+                                    <div class="radio-content">
+                                        <span class="radio-title">No Rideshare</span>
+                                        <span class="radio-desc">Personal use only.</span>
+                                    </div>
+                                </label>
+                            </div>
+                        </div>
+
+
                         <div class="nav-row-spaced">
                             <button type="button" class="btn-nav-outline" onclick="switchTab('car-1')"><i class="fa-solid fa-chevron-left"></i> Prev Car</button>
                         </div>
                     </div>
 
                     <div class="hero-action-area">
-                        <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> Specs Encrypted via SSL</div>
+                        <div class="secure-badge-modern"><i class="fa-solid fa-shield-halved"></i> Risk Assessment Secure</div>
                         <button type="button" class="btn-hero-gradient" id="btnNext">
                             Next Step <i class="fa-solid fa-arrow-right-long"></i>
                         </button>
@@ -548,14 +376,14 @@
                     <div class="discount-box-vibrant">
                         <i class="fa-solid fa-tags bg-icon"></i>
                         <div class="db-title">Potential Discounts</div>
-                        <div class="db-val">6</div>
-                        <div class="db-msg">Anti-Theft likely!</div>
+                        <div class="db-val">5</div>
+                        <div class="db-msg">Farm/Low mileage possible.</div>
                     </div>
 
                     <div class="tip-box-vibrant" style="margin-top: 20px;">
                         <i class="fa-regular fa-lightbulb tip-icon"></i>
                         <div>
-                            <strong>Alex Tip:</strong> Installing a passive anti-theft device (Level 4+) can reduce your comprehensive premium significantly.
+                            <strong>Alex Tip:</strong> Rideshare coverage is a critical gap. Personal policies usually deny claims during rideshare periods.
                         </div>
                     </div>
                 </div>
@@ -743,64 +571,8 @@
         </button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="../js/script.js"></script>
     <script src="../js/script-quote.js"></script>
-
-    <div id="richInfoModal" class="zlight-overlay">
-        <div class="zlight-card rich-mode">
-            
-            <button class="close-float-btn" onclick="closeRichInfo()">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
-
-            <div class="rich-media-header" id="richHeaderColor">
-                <div class="media-content" id="richMediaContainer">
-                    </div>
-            </div>
-
-            <div class="rich-body">
-                <h3 class="rich-title" id="richTitle">Title Here</h3>
-                <p class="rich-desc" id="richDesc">Description text...</p>
-
-                <div class="example-box">
-                    <div class="ex-tag"><i class="fa-regular fa-lightbulb"></i> Example</div>
-                    <p id="richExample">If X happens, Y pays for Z...</p>
-                </div>
-            </div>
-
-            <div class="rich-footer">
-                <button class="btn-rich-action" onclick="closeRichInfo()">Got it</button>
-            </div>
-        </div>
-    </div>
-
-    <div id="tourFocusRing">
-        <div class="scan-line"></div>
-        <div class="focus-label" id="focusLabel">SCANNING</div>
-    </div>
-
-    <div id="tourCard" class="tour-card-holo">
-        <div class="holo-header">
-            <span class="holo-badge">VALUATION <span id="tcCurrent">1</span>/<span id="tcTotal">3</span></span>
-            <button class="holo-skip" onclick="endAssetTour()">Skip Guide</button>
-        </div>
-
-        <div class="holo-body">
-            <div class="graphic-stage" id="graphicStage"></div>
-            <h3 class="holo-title" id="tcTitle">Title</h3>
-            <p class="holo-desc" id="tcDesc">Desc</p>
-        </div>
-
-        <div class="holo-footer">
-            <button class="btn-holo-prev" id="btnAssetPrev" onclick="prevAssetStep()">
-                <i class="fa-solid fa-arrow-left"></i> Back
-            </button>
-            <button class="btn-holo-next" id="btnAssetNext" onclick="nextAssetStep()">
-                Next <i class="fa-solid fa-arrow-right"></i>
-            </button>
-        </div>
-    </div>
 
 </body>
 </html>
