@@ -3686,9 +3686,9 @@ function updateWelcomeInterface() {
 
     if (btnNext) {
         if (welcomeStep === welcomeTotalSteps - 1) {
-            btnNext.innerText = "START QUOTE";
+            btnNext.innerText = "COTIZA AHORA";
         } else {
-            btnNext.innerText = "CONTINUE";
+            btnNext.innerText = "CONTINUAR";
         }
     }
 }

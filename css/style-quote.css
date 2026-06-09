@@ -5068,7 +5068,7 @@ h3.tech-title.warning-text {
 
 .sig-text-block { display: flex; flex-direction: column; text-align: left; }
 .sig-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 1px; color: #94a3b8; font-weight: 600; }
-.sig-name { font-family: 'Dancing Script', cursive; font-size: 1.6rem; color: #1e293b; }
+.sig-name { font-family: 'Poppins', sans-serif; font-weight: 700; font-size: 1.2rem; color: #1e293b; letter-spacing: -0.02em; }
 
 /* 3. MEJORAS EN TIPOGRAFÍA Y LISTAS */
 .highlight-doc {
