@@ -2812,12 +2812,20 @@ position: absolute;
 
 .footer-social-mini { display: flex; gap: 15px; }
 .footer-social-mini a {
-    color: rgba(255, 255, 255, 0.6); /* Iconos sutiles */
-    font-size: 1.4rem; transition: all 0.3s;
+    background: #ffffff;
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    font-size: 1.6rem;
+    transition: all 0.3s;
     display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
-/* Al hover, brillan con luz cian */
-.footer-social-mini a:hover { color: #00e1ff; text-shadow: 0 0 15px rgba(0, 225, 255, 0.5); transform: translateY(-3px); }
+/* Al hover, se elevan ligeramente */
+.footer-social-mini a:hover { 
+    transform: translateY(-3px) scale(1.05); 
+    box-shadow: 0 5px 15px rgba(255, 255, 255, 0.3); 
+}
 
 
 /* --- COLUMNAS DE ENLACES --- */
@@ -7853,8 +7861,28 @@ input.pm-checkbox:checked + .pm-button:hover .pm-remove i {
     .circle-top, .circle-bottom { opacity: 0.5; }
 }
 
-.nav-back-btn { color: #796bfc; font-weight: 800; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; transition: transform 0.2s; }
-.nav-back-btn:hover { transform: translateX(-5px); }
+.nav-back-btn { 
+    color: #796bfc; 
+    font-weight: 800; 
+    font-size: 1.1rem; 
+    display: flex; 
+    align-items: center; 
+    gap: 10px; 
+    transition: all 0.3s ease; 
+    padding: 8px 16px 8px 8px; /* padding for background on hover */
+    border-radius: 30px;
+    border: none; /* ensure no outline */
+    text-decoration: none;
+}
+.nav-back-btn:hover { 
+    transform: translateX(-5px); 
+    background: #2ed9c3; 
+    color: #ffffff; 
+}
+.nav-back-btn:hover .icon-circle {
+    background: rgba(255, 255, 255, 0.2);
+    color: #ffffff;
+}
 .nav-mini-logo { height: 80px; opacity: 0.8; }
 
 .lang-switch { background-color: #E2E8F0; padding: 5px; border-radius: 30px; display: flex; gap: 5px; font-size: 0.85rem; font-weight: 700; }
@@ -10108,7 +10136,6 @@ button.btn-rich-action {
 .btn-glow-anim,
 .btn-gradient-primary,
 .btn-green-sketch,
-.btn-hero-action,
 .btn-hero-gradient,
 .btn-hero-primary,
 .btn-holo-next,
@@ -10240,7 +10267,6 @@ input[type="button"] {
 .btn-glow-anim:hover,
 .btn-gradient-primary:hover,
 .btn-green-sketch:hover,
-.btn-hero-action:hover,
 .btn-hero-gradient:hover,
 .btn-hero-primary:hover,
 .btn-holo-next:hover,
@@ -10325,7 +10351,6 @@ input[type="button"]:hover {
 
 .btn-action-secondary,
 .btn-add-outline,
-.btn-back,
 .btn-blue-outline,
 .btn-cancel,
 .btn-cancel-simple,
@@ -10361,7 +10386,6 @@ input[type="button"]:hover {
 .menu-close-btn,
 .modal-close-btn,
 .modal-close-btn-simple,
-.nav-back-btn,
 .sketch-close-btn,
 .tour-close-btn {
     background: transparent !important;
@@ -10372,7 +10396,6 @@ input[type="button"]:hover {
 
 .btn-action-secondary:hover,
 .btn-add-outline:hover,
-.btn-back:hover,
 .btn-blue-outline:hover,
 .btn-cancel:hover,
 .btn-cancel-simple:hover,
@@ -10408,7 +10431,6 @@ input[type="button"]:hover {
 .menu-close-btn:hover,
 .modal-close-btn:hover,
 .modal-close-btn-simple:hover,
-.nav-back-btn:hover,
 .sketch-close-btn:hover,
 .tour-close-btn:hover {
     background: #2ed9c3 !important;
@@ -10420,3 +10442,268 @@ input[type="button"]:hover {
 [style*="linear-gradient(135deg, #796bfc, #cb6ce6)"] {
     background: #2ed9c3 !important;
 }
+
+/* --- BRAND SOCIAL COLORS --- */
+.social-btn[aria-label="Facebook"], 
+.btn-social-magnet.fb,
+.menu-socials a[href*="facebook"] {
+    background: #4267B2 !important;
+    border-color: #4267B2 !important;
+    color: white !important;
+}
+
+.social-btn[aria-label="Instagram"], 
+.btn-social-magnet.ig,
+.menu-socials a[href*="instagram"] {
+    background: #C57E8C !important;
+    border-color: transparent !important;
+    color: white !important;
+}
+
+/* Colores para íconos sueltos */
+i.fa-facebook, i.fa-facebook-f {
+    color: #4267B2;
+}
+
+i.fa-instagram {
+    background: none;
+    color: #C57E8C;
+    -webkit-background-clip: border-box;
+    -webkit-text-fill-color: currentcolor;
+}
+
+/* Forzar blanco cuando el icono esta dentro del boton de color */
+.social-btn i, 
+.btn-social-magnet i,
+.menu-socials a i,
+.social-btn[aria-label="Facebook"] i.fa-facebook-f,
+.social-btn[aria-label="Facebook"] i.fa-facebook,
+.social-btn[aria-label="Instagram"] i.fa-instagram {
+    color: white !important;
+    background: none !important;
+    -webkit-text-fill-color: white !important;
+}
+
+/* FORZAR TEXTO BLANCO EN ELEMENTOS INTERNOS DE BOTONES VERDES */
+.nav-actions .btn-aurora-gradient *,
+.btn-submit *,
+.btn-view-aurora *,
+.btn-holo-next *,
+.send-btn *,
+.menu-widget-card *,
+button.btn-primary-warning *,
+button.btn-rich-action *,
+.btn-aurora-gradient:hover *,
+.btn-hero-gradient:hover *,
+.corp-btn-primary:hover *,
+.btn-tour-secondary * {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-shadow: none !important;
+    background: none !important; /* Quitar gradiente solo a los textos/span/i */
+}
+
+/* ASEGURAR QUE EL BOTON EN SI TENGA TEXTO BLANCO PERO SIN BORRAR SU FONDO VERDE */
+.nav-actions .btn-aurora-gradient,
+.btn-submit,
+input[type="submit"],
+.btn-view-aurora,
+.btn-holo-next,
+.send-btn,
+.menu-widget-card,
+button.btn-primary-warning,
+button.btn-rich-action,
+.btn-tour-secondary {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+/* --- DISENO ORIGINAL (MEJORADO) DE BOTONES DE TIENDAS DE APPS (GLOBAL) --- */
+.btn-footer-store, .btn-store-unified {
+    display: flex !important;
+    align-items: center !important;
+    gap: 12px !important;
+    background: #000000 !important;
+    border: 1px solid rgba(255, 255, 255, 0.25) !important;
+    color: #ffffff !important;
+    border-radius: 10px !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3) !important;
+    transition: all 0.2s ease-in-out !important;
+    padding: 6px 16px !important;
+    width: auto !important;
+    min-width: 170px !important;
+    justify-content: flex-start !important;
+    text-decoration: none !important;
+}
+
+.btn-footer-store .store-text, .btn-footer-store .btn-text-col,
+.btn-store-unified .store-text, .btn-store-unified .btn-text-col {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    line-height: 1.2 !important;
+}
+
+.btn-footer-store .store-text span, .btn-footer-store .btn-text-col span,
+.btn-store-unified .store-text span, .btn-store-unified .btn-text-col span {
+    font-size: 0.65rem !important;
+    text-transform: none !important;
+    opacity: 0.8 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    margin-bottom: 2px !important;
+    font-weight: 400 !important;
+    letter-spacing: 0.2px !important;
+    background: none !important;
+}
+
+.btn-footer-store .store-text strong, .btn-footer-store .btn-text-col strong,
+.btn-store-unified .store-text strong, .btn-store-unified .btn-text-col strong {
+    font-size: 1.15rem !important;
+    font-weight: 500 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    letter-spacing: 0.3px !important;
+    background: none !important;
+}
+
+.btn-footer-store i.fa-apple, .btn-store-unified i.fa-apple {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: 2rem !important;
+    margin-bottom: 2px !important;
+    background: none !important;
+}
+
+.btn-footer-store i.fa-google-play, .btn-store-unified i.fa-google-play {
+    background: linear-gradient(135deg, #4285F4 0%, #34A853 35%, #FBBC05 70%, #EA4335 100%) !important;
+    -webkit-background-clip: text !important;
+    -webkit-text-fill-color: transparent !important;
+    color: transparent !important;
+    font-size: 1.8rem !important;
+}
+
+.btn-footer-store:hover, .btn-store-unified:hover {
+    background: #111111 !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-2px) scale(1.02) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.4) !important;
+}
+
+
+/* --- FIX MOBILE TOGGLE BTN --- */
+button.mobile-toggle-btn {
+    background: transparent !important;
+    color: #2ed9c3 !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 8px !important;
+}
+button.mobile-toggle-btn i {
+    color: #2ed9c3 !important;
+    -webkit-text-fill-color: #2ed9c3 !important;
+    font-size: 1.8rem !important; /* To make it prominent since there's no background */
+}
+button.mobile-toggle-btn:hover {
+    background: transparent !important;
+    transform: scale(1.1) !important;
+}
+button.mobile-toggle-btn:hover i {
+    color: #20bca8 !important;
+    -webkit-text-fill-color: #20bca8 !important;
+}
+
+
+/* --- FIX MOBILE MENU SOCIAL ICONS PROPORTIONS --- */
+.menu-socials a {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 50% !important;
+    font-size: 1.3rem !important;
+    transition: all 0.3s ease !important;
+    text-decoration: none !important;
+    padding: 0 !important;
+}
+.menu-socials a:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2) !important;
+}
+
+
+/* --- FIX CHAT DESIGN --- */
+button.close-chat-btn {
+    background: transparent !important;
+    border: none !important;
+    color: #ffffff !important; 
+    font-size: 1.5rem !important;
+    opacity: 0.8 !important;
+    padding: 0 !important;
+}
+button.close-chat-btn:hover {
+    background: transparent !important;
+    color: #ffffff !important;
+    opacity: 1 !important;
+    transform: rotate(90deg) scale(1.1) !important;
+}
+button.close-chat-btn i {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+
+.agent-avatar {
+    background-image: url('../assets/img/NEUTRAL.gif') !important;
+    background-size: cover !important;
+    background-position: center !important;
+    background-color: white !important;
+    border: 2px solid #ffffff !important;
+}
+.agent-avatar i.fa-robot {
+    display: none !important;
+}
+
+
+/* --- FIX BLOG SECTION MOBILE (HOME) --- */
+@media (max-width: 992px) {
+    .magazine-header {
+        flex-direction: column !important;
+        align-items: flex-start !important;
+        gap: 20px !important;
+        margin-bottom: 30px !important;
+    }
+    .display-title-mag {
+        font-size: 2.2rem !important;
+        line-height: 1.2 !important;
+    }
+    .btn-view-aurora {
+        width: 100% !important;
+        justify-content: center !important;
+    }
+
+    .hero-card {
+        height: auto !important;
+        min-height: 450px !important;
+        padding-top: 100px !important; /* to ensure background image shows above text */
+    }
+    .hero-content-glass {
+        padding: 30px 20px !important;
+    }
+    .hero-title-link h3 {
+        font-size: 1.8rem !important;
+        margin-bottom: 10px !important;
+        line-height: 1.2 !important;
+    }
+    .hero-excerpt {
+        font-size: 0.95rem !important;
+        margin-bottom: 20px !important;
+        line-height: 1.5 !important;
+    }
+    .aurora-badge-lg {
+        top: 20px !important;
+        left: 20px !important;
+    }
+}
+
+

@@ -3629,9 +3629,11 @@ const welcomeTotalSteps = 3;
 // Lanzar al inicio (Solo si existe el elemento en la página)
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('alexOnboarding')) {
-        setTimeout(() => {
-            document.getElementById('alexOnboarding').classList.add('active');
-        }, 600);
+        if (!sessionStorage.getItem('onboardingSeen')) {
+            setTimeout(() => {
+                document.getElementById('alexOnboarding').classList.add('active');
+            }, 600);
+        }
     }
 });
 
@@ -3657,6 +3659,7 @@ window.prevWelcomeSlide = function() {
 window.closeWelcomeOnboarding = function() {
     const overlay = document.getElementById('alexOnboarding');
     if (overlay) overlay.classList.remove('active');
+    sessionStorage.setItem('onboardingSeen', 'true');
     
     // Opcional: Aquí podrías iniciar el siguiente tour automáticamente
     // if (typeof startDriverTour === 'function') startDriverTour();

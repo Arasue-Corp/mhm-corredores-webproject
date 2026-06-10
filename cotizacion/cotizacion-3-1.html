@@ -67,7 +67,6 @@
             <nav class="nav-center desktop-only">
                 <ul class="nav-links">
                     <li><a href="../index.html" class="nav-item active">Inicio</a></li>
-                    <li><a href="../cotizacion/cotizacion.html" class="nav-item">Cotizar seguro</a></li>
                     
                     <li class="nav-dropdown-group">
                         <a href="../productos/index.html" class="nav-item dropdown-btn" style="text-decoration: none; cursor: pointer; display: inline-block;">Productos <i class="fa-solid fa-angle-down arrow-indicator"></i></a>
@@ -157,9 +156,8 @@
                 <div class="menu-footer">
                     <a href="../contacto/index.html" class="menu-footer-link">Contact Support</a>
                     <div class="menu-socials">
-                        <a href="https://www.instagram.com/alexai.insurtech.usa/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/p/Alexai-Insurtech-USA-61573922245346/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="https://www.youtube.com/channel/UCphdQNb7AT5jauTFKYgSh9g" target="_blank""><i class="fa-brands fa-youtube"></i></a>
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&amp;locale=es_LA" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     </div>
                 </div>
 
@@ -168,7 +166,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="../index.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Salir de la cotización</span></a>
+        <a href="cotizacion-2.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -224,56 +222,50 @@
                                 <!-- Marca -->
                                 <div class="corp-field">
                                     <label class="corp-label">Marca del Vehículo</label>
-                                    <div class="corp-select" id="csMarca">
-                                        <input type="hidden" name="marca">
-                                        <div class="corp-select-btn">
-                                            <div class="btn-content"><i class="fa-solid fa-tag"></i> <span class="sel-text">Selecciona una marca</span></div>
-                                            <i class="fa-solid fa-chevron-down"></i>
-                                        </div>
-                                        <div class="corp-select-menu">
-                                            <div class="corp-select-item" data-value="toyota">Toyota</div>
-                                            <div class="corp-select-item" data-value="chevrolet">Chevrolet</div>
-                                            <div class="corp-select-item" data-value="suzuki">Suzuki</div>
-                                            <div class="corp-select-item" data-value="hyundai">Hyundai</div>
-                                            <div class="corp-select-item" data-value="nissan">Nissan</div>
-                                            <div class="corp-select-item" data-value="kia">Kia</div>
-                                            <div class="corp-select-item" data-value="ford">Ford</div>
-                                            <div class="corp-select-item" data-value="peugeot">Peugeot</div>
-                                        </div>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-solid fa-tag native-premium-select-icon"></i>
+                                        <select class="native-premium-select" name="marca" id="select_marca" onchange="unlockModelo()">
+                                            <option value="" disabled selected>Elige la marca</option>
+                                            <option value="toyota">Toyota</option>
+                                            <option value="chevrolet">Chevrolet</option>
+                                            <option value="suzuki">Suzuki</option>
+                                            <option value="hyundai">Hyundai</option>
+                                            <option value="nissan">Nissan</option>
+                                            <option value="kia">Kia</option>
+                                            <option value="ford">Ford</option>
+                                            <option value="peugeot">Peugeot</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down native-premium-select-arrow"></i>
                                     </div>
                                 </div>
 
                                 <!-- Modelo -->
                                 <div class="corp-field">
                                     <label class="corp-label">Modelo del Vehículo</label>
-                                    <div class="corp-select disabled" id="csModelo">
-                                        <input type="hidden" name="modelo">
-                                        <div class="corp-select-btn">
-                                            <div class="btn-content"><i class="fa-solid fa-car"></i> <span class="sel-text">Primero elige marca</span></div>
-                                            <i class="fa-solid fa-chevron-down"></i>
-                                        </div>
-                                        <div class="corp-select-menu">
-                                            <div class="corp-select-item" data-value="yaris">Yaris</div>
-                                            <div class="corp-select-item" data-value="corolla">Corolla</div>
-                                            <div class="corp-select-item" data-value="hilux">Hilux</div>
-                                        </div>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-solid fa-car native-premium-select-icon"></i>
+                                        <select class="native-premium-select" name="modelo" id="select_modelo" disabled>
+                                            <option value="" disabled selected>Elige modelo</option>
+                                            <option value="yaris">Yaris</option>
+                                            <option value="corolla">Corolla</option>
+                                            <option value="hilux">Hilux</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down native-premium-select-arrow"></i>
                                     </div>
                                 </div>
 
                                 <!-- Año -->
                                 <div class="corp-field">
                                     <label class="corp-label">Año</label>
-                                    <div class="corp-select" id="csAno">
-                                        <input type="hidden" name="ano">
-                                        <div class="corp-select-btn">
-                                            <div class="btn-content"><i class="fa-regular fa-calendar"></i> <span class="sel-text">Selecciona año</span></div>
-                                            <i class="fa-solid fa-chevron-down"></i>
-                                        </div>
-                                        <div class="corp-select-menu">
-                                            <div class="corp-select-item" data-value="2026">2026</div>
-                                            <div class="corp-select-item" data-value="2025">2025</div>
-                                            <div class="corp-select-item" data-value="2024">2024</div>
-                                        </div>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-regular fa-calendar native-premium-select-icon"></i>
+                                        <select class="native-premium-select" name="ano" id="select_ano" required>
+                                            <option value="" disabled selected>Elige año</option>
+                                            <option value="2026">2026</option>
+                                            <option value="2025">2025</option>
+                                            <option value="2024">2024</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down native-premium-select-arrow"></i>
                                     </div>
                                 </div>
                             </div>
@@ -290,49 +282,49 @@
 
                             <div class="corp-grid">
                                 <!-- App Pasajeros -->
-                                <div class="corp-field">
+                                <div class="corp-field" style="grid-column: 1 / -1;">
                                     <label class="corp-label">¿Uso en App de Pasajeros?</label>
-                                    <div class="corp-select" id="csApp">
-                                        <input type="hidden" name="app_uso">
-                                        <div class="corp-select-btn">
-                                            <div class="btn-content"><i class="fa-solid fa-taxi"></i> <span class="sel-text">No, uso particular</span></div>
-                                            <i class="fa-solid fa-chevron-down"></i>
+                                    <input type="hidden" name="app_uso" value="no" id="input_app_uso">
+                                    <div class="radio-card-grid">
+                                        <div class="radio-card active" onclick="selectRadioCard('app_uso', 'no', this)">
+                                            <i class="fa-solid fa-car"></i>
+                                            <span>No, uso particular</span>
                                         </div>
-                                        <div class="corp-select-menu">
-                                            <div class="corp-select-item selected" data-value="no">No, uso particular</div>
-                                            <div class="corp-select-item" data-value="si">Sí, aplicación / entregas</div>
+                                        <div class="radio-card" onclick="selectRadioCard('app_uso', 'si', this)">
+                                            <i class="fa-solid fa-taxi"></i>
+                                            <span>Sí, aplicación / entregas</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Alta Gama -->
-                                <div class="corp-field">
+                                <div class="corp-field" style="grid-column: 1 / -1;">
                                     <label class="corp-label">¿Alta gama, Híbrido, Eléctrico?</label>
-                                    <div class="corp-select" id="csAltaGama">
-                                        <input type="hidden" name="alta_gama">
-                                        <div class="corp-select-btn">
-                                            <div class="btn-content"><i class="fa-solid fa-plug-circle-bolt"></i> <span class="sel-text">No, combustión estándar</span></div>
-                                            <i class="fa-solid fa-chevron-down"></i>
+                                    <input type="hidden" name="alta_gama" value="no" id="input_alta_gama">
+                                    <div class="radio-card-grid">
+                                        <div class="radio-card active" onclick="selectRadioCard('alta_gama', 'no', this)">
+                                            <i class="fa-solid fa-gas-pump"></i>
+                                            <span>No, combustión estándar</span>
                                         </div>
-                                        <div class="corp-select-menu">
-                                            <div class="corp-select-item selected" data-value="no">No, combustión estándar</div>
-                                            <div class="corp-select-item" data-value="si">Sí, Ecológico / Alta Gama</div>
+                                        <div class="radio-card" onclick="selectRadioCard('alta_gama', 'si', this)">
+                                            <i class="fa-solid fa-plug-circle-bolt"></i>
+                                            <span>Sí, Ecológico / Alta Gama</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <!-- Uso Principal -->
-                                <div class="corp-field">
+                                <div class="corp-field" style="grid-column: 1 / -1;">
                                     <label class="corp-label">Uso principal del vehículo</label>
-                                    <div class="corp-select" id="csUso">
-                                        <input type="hidden" name="uso_ppal">
-                                        <div class="corp-select-btn">
-                                            <div class="btn-content"><i class="fa-solid fa-briefcase"></i> <span class="sel-text">Uso Particular</span></div>
-                                            <i class="fa-solid fa-chevron-down"></i>
+                                    <input type="hidden" name="uso_ppal" value="particular" id="input_uso_ppal">
+                                    <div class="radio-card-grid">
+                                        <div class="radio-card active" onclick="selectRadioCard('uso_ppal', 'particular', this)">
+                                            <i class="fa-solid fa-briefcase"></i>
+                                            <span>Uso Particular</span>
                                         </div>
-                                        <div class="corp-select-menu">
-                                            <div class="corp-select-item selected" data-value="particular">Uso Particular</div>
-                                            <div class="corp-select-item" data-value="comercial">Uso Comercial / Empresa</div>
+                                        <div class="radio-card" onclick="selectRadioCard('uso_ppal', 'comercial', this)">
+                                            <i class="fa-solid fa-truck-fast"></i>
+                                            <span>Uso Comercial / Empresa</span>
                                         </div>
                                     </div>
                                 </div>
@@ -402,104 +394,59 @@
     color: #334155;
     margin-left: 6px;
 }
-.corp-select {
+/* Premium Native Selects */
+.native-premium-select-wrapper {
     position: relative;
+    width: 100%;
 }
-.corp-select-btn {
+.native-premium-select {
     width: 100%;
     height: 60px;
-    background: #F8FAFC;
+    box-sizing: border-box;
+    background: #FFFFFF;
     border: 2px solid #E2E8F0;
-    border-radius: 16px;
-    padding: 0 20px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    font-size: 1rem;
+    border-radius: 12px;
+    padding: 0 35px 0 42px; /* Reducido para dar mas espacio al texto */
+    font-size: 0.95rem; /* Ligeramente mas pequeno para que quepa mejor */
     font-weight: 600;
     color: #1E293B;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
     cursor: pointer;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    user-select: none;
+    transition: all 0.2s ease;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
-.corp-select-btn .btn-content {
-    display: flex;
-    align-items: center;
-    gap: 12px;
+.native-premium-select:focus {
+    border-color: #2ed9c3;
+    outline: none;
+    box-shadow: 0 0 0 4px rgba(46, 217, 195, 0.1);
 }
-.corp-select-btn i {
-    color: #94A3B8;
-    transition: transform 0.3s ease;
+.native-premium-select:disabled {
+    background: #F1F5F9;
+    opacity: 0.6;
+    cursor: not-allowed;
 }
-.corp-select-btn .btn-content i {
+.native-premium-select-icon {
+    position: absolute;
+    left: 14px;
+    top: 50%;
+    transform: translateY(-50%);
     color: #cb6ce6;
     font-size: 1.1rem;
+    pointer-events: none;
     width: 20px;
     text-align: center;
 }
-.corp-select-btn:hover {
-    background: #FFFFFF;
-    border-color: #CBD5E1;
-}
-.corp-select.is-open .corp-select-btn {
-    background: #FFFFFF;
-    border-color: #796bfc;
-    box-shadow: 0 0 0 4px rgba(121, 107, 252, 0.1);
-}
-.corp-select.is-open .corp-select-btn i.fa-chevron-down {
-    transform: rotate(180deg);
-    color: #796bfc;
-}
-.corp-select-menu {
+.native-premium-select-arrow {
     position: absolute;
-    top: calc(100% + 8px);
-    left: 0;
-    width: 100%;
-    background: #FFFFFF;
-    border: 1px solid #E2E8F0;
-    border-radius: 16px;
-    box-shadow: 0 15px 40px rgba(15, 23, 42, 0.12);
-    z-index: 1000;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
-    max-height: 250px;
-    overflow-y: auto;
-}
-.corp-select.is-open .corp-select-menu {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-.corp-select-item {
-    padding: 16px 20px;
-    font-size: 0.95rem;
-    font-weight: 500;
-    color: #475569;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    border-bottom: 1px solid #F8FAFC;
-    display: flex;
-    align-items: center;
-}
-.corp-select-item:last-child {
-    border-bottom: none;
-}
-.corp-select-item:hover {
-    background: #F8FAFC;
-    color: #796bfc;
-    padding-left: 26px;
-}
-.corp-select-item.selected {
-    background: #F5F3FF;
-    color: #796bfc;
-    font-weight: 700;
-}
-.corp-select.disabled .corp-select-btn {
-    opacity: 0.6;
-    cursor: not-allowed;
-    background: #F1F5F9;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #94A3B8;
+    pointer-events: none;
 }
 
 /* Help Section */
@@ -523,16 +470,16 @@
     transition: all 0.3s ease;
 }
 .corp-help-btn:hover {
-    border-color: #cb6ce6;
+    border-color: #94A3B8;
     transform: translateY(-3px);
-    box-shadow: 0 10px 25px rgba(203, 108, 230, 0.15);
+    box-shadow: 0 10px 25px rgba(148, 163, 184, 0.15);
 }
 .corp-help-btn strong {
-    color: #cb6ce6;
+    color: #475569;
     font-weight: 800;
 }
 .icon-pulse {
-    color: #cb6ce6;
+    color: #64748B;
     animation: pulseIcon 2s infinite;
 }
 @keyframes pulseIcon {
@@ -543,8 +490,8 @@
 
 /* Alert Banner */
 .corp-alert-banner {
-    background: linear-gradient(135deg, #FEF2F2, #FFF1F2);
-    border: 1px solid #FECDD3;
+    background: #F8FAFC;
+    border: 1px solid #E2E8F0;
     border-radius: 20px;
     padding: 24px;
     display: flex;
@@ -556,11 +503,11 @@
     width: 45px;
     height: 45px;
     border-radius: 50%;
-    background: #FEE2E2;
+    background: #F1F5F9;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #EF4444;
+    color: #64748B;
     font-size: 1.2rem;
     flex-shrink: 0;
 }
@@ -570,12 +517,12 @@
     gap: 4px;
 }
 .alert-title {
-    color: #991B1B;
+    color: #334155;
     font-weight: 800;
     font-size: 1.05rem;
 }
 .alert-desc {
-    color: #7F1D1D;
+    color: #475569;
     font-size: 0.95rem;
     line-height: 1.5;
 }
@@ -625,66 +572,80 @@
     .corp-grid { grid-template-columns: 1fr; gap: 15px; }
     .corp-action-row { flex-direction: column; gap: 15px; }
 }
+
+/* Radio Cards */
+.radio-card-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+    margin-top: 5px;
+}
+.radio-card {
+    background: #FFFFFF;
+    border: 2px solid #E2E8F0;
+    border-radius: 16px;
+    padding: 20px 15px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: #64748B;
+}
+.radio-card i {
+    font-size: 1.8rem;
+    color: #94A3B8;
+    transition: all 0.2s ease;
+}
+.radio-card span {
+    font-weight: 700;
+    font-size: 0.95rem;
+}
+.radio-card:hover {
+    border-color: #CBD5E1;
+    background: #F8FAFC;
+    transform: translateY(-2px);
+}
+.radio-card.active {
+    border-color: #2ed9c3;
+    background: #F0FDFA; /* Very light teal */
+    color: #0F766E;
+    box-shadow: 0 4px 15px rgba(46, 217, 195, 0.15);
+}
+.radio-card.active i {
+    color: #2ed9c3;
+    transform: scale(1.1);
+}
+
+@media (max-width: 480px) {
+    .radio-card-grid {
+        grid-template-columns: 1fr; /* Stack vertically on very small screens */
+    }
+}
 </style>
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    const selects = document.querySelectorAll('.corp-select');
+function unlockModelo() {
+    const selectModelo = document.getElementById('select_modelo');
+    selectModelo.disabled = false;
+    selectModelo.options[0].text = 'Selecciona un modelo';
+}
+</script>
+<script>
+// Radio Card Logic
+function selectRadioCard(inputName, value, element) {
+    // Actualizar input oculto
+    document.getElementById('input_' + inputName).value = value;
     
-    // Toggle dropdown
-    selects.forEach(select => {
-        const btn = select.querySelector('.corp-select-btn');
-        const items = select.querySelectorAll('.corp-select-item');
-        const hiddenInput = select.querySelector('input[type="hidden"]');
-        const textSpan = select.querySelector('.sel-text');
-
-        if(btn) {
-            btn.addEventListener('click', (e) => {
-                e.stopPropagation();
-                if(select.classList.contains('disabled')) return;
-                
-                // Close others
-                selects.forEach(s => {
-                    if(s !== select) s.classList.remove('is-open');
-                });
-                
-                select.classList.toggle('is-open');
-            });
-        }
-
-        items.forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.stopPropagation();
-                
-                // Remove selected class from all items in this menu
-                items.forEach(i => i.classList.remove('selected'));
-                item.classList.add('selected');
-                
-                // Update text and value
-                const value = item.getAttribute('data-value');
-                const text = item.textContent;
-                
-                if(hiddenInput) hiddenInput.value = value;
-                if(textSpan) textSpan.textContent = text;
-                
-                select.classList.remove('is-open');
-                
-                // Specific logic for Marca -> Unlock Modelo
-                if(select.id === 'csMarca') {
-                    const modeloSelect = document.getElementById('csModelo');
-                    modeloSelect.classList.remove('disabled');
-                    const modSpan = modeloSelect.querySelector('.sel-text');
-                    modSpan.textContent = 'Selecciona un modelo';
-                }
-            });
-        });
-    });
-
-    // Click outside to close
-    document.addEventListener('click', () => {
-        selects.forEach(s => s.classList.remove('is-open'));
-    });
-});
+    // Remover clase active de hermanos
+    const parentGrid = element.closest('.radio-card-grid');
+    parentGrid.querySelectorAll('.radio-card').forEach(card => card.classList.remove('active'));
+    
+    // Añadir active al clickeado
+    element.classList.add('active');
+}
 </script>
 
 
@@ -721,72 +682,264 @@ document.addEventListener('DOMContentLoaded', function() {
                 </div>
             </aside>
 
+    <style>
+    /* Premium Modal Styles */
+    .modal-backdrop-modern {
+        position: fixed;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background: rgba(15, 23, 42, 0.6);
+        backdrop-filter: blur(8px);
+        z-index: 9999;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
+    }
+    .modal-backdrop-modern.is-visible {
+        opacity: 1;
+        visibility: visible;
+    }
+    .modal-modern {
+        background: #FFFFFF;
+        border-radius: 24px;
+        width: 100%;
+        max-width: 500px;
+        box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25);
+        overflow: hidden;
+        transform: scale(0.95) translateY(20px);
+        opacity: 0;
+        transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        margin: 20px;
+    }
+    .modal-backdrop-modern.is-visible .modal-modern {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+    .modal-modern-header {
+        background: #F8FAFC;
+        padding: 24px 30px;
+        border-bottom: 1px solid #E2E8F0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .modal-modern-title {
+        font-size: 1.25rem;
+        font-weight: 800;
+        color: #1E293B;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin: 0;
+    }
+    .modal-modern-title i {
+        color: #10B981;
+        background: #D1FAE5;
+        padding: 10px;
+        border-radius: 12px;
+        font-size: 1.1rem;
+    }
+    .btn-close-modern {
+        background: none;
+        border: none;
+        color: #94A3B8;
+        font-size: 1.5rem;
+        cursor: pointer;
+        transition: color 0.2s;
+        padding: 5px;
+    }
+    .btn-close-modern:hover { color: #1E293B; }
+    .modal-modern-body {
+        padding: 30px;
+    }
+    .modal-desc {
+        color: #475569;
+        font-size: 0.95rem;
+        line-height: 1.5;
+        margin-bottom: 24px;
+    }
+    .premium-input-wrapper {
+        position: relative;
+        width: 100%;
+        margin-bottom: 16px;
+    }
+    .premium-input {
+        width: 100%;
+        height: 56px;
+        box-sizing: border-box;
+        background: #FFFFFF;
+        border: 2px solid #E2E8F0;
+        border-radius: 12px;
+        padding: 0 20px 0 50px;
+        font-size: 0.95rem;
+        font-weight: 500;
+        color: #1E293B;
+        transition: all 0.2s ease;
+    }
+    .premium-input::placeholder { color: #94A3B8; }
+    .premium-input:focus {
+        border-color: #10B981;
+        outline: none;
+        box-shadow: 0 0 0 4px rgba(16, 185, 129, 0.1);
+    }
+    .premium-input-icon {
+        position: absolute;
+        left: 20px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #94A3B8;
+        font-size: 1.1rem;
+        pointer-events: none;
+        transition: color 0.2s;
+    }
+    .premium-input-wrapper:focus-within .premium-input-icon { color: #10B981; }
+    .modal-modern-footer {
+        padding: 24px 30px;
+        background: #F8FAFC;
+        border-top: 1px solid #E2E8F0;
+        display: flex;
+        justify-content: flex-end;
+        gap: 12px;
+    }
+    .btn-modern-cancel {
+        background: #FFFFFF;
+        border: 1px solid #E2E8F0;
+        color: #475569;
+        padding: 0 24px;
+        height: 48px;
+        border-radius: 12px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: all 0.2s;
+    }
+    .btn-modern-cancel:hover { background: #F1F5F9; color: #1E293B; }
+    .btn-modern-submit {
+        background: #10B981;
+        color: #FFFFFF;
+        border: none;
+        padding: 0 24px;
+        height: 48px;
+        border-radius: 12px;
+        font-weight: 700;
+        cursor: pointer;
+        transition: all 0.2s;
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+    }
+    .btn-modern-submit:hover {
+        background: #059669;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 20px rgba(16, 185, 129, 0.3);
+    }
+    .grid-2-modal {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px;
+    }
+    </style>
+
+    <div id="missingVehicleModal" class="modal-backdrop-modern">
+        <div class="modal-modern">
+            <div class="modal-modern-header">
+                <h3 class="modal-modern-title"><i class="fa-solid fa-car-side"></i> Ayuda Especializada</h3>
+                <button class="btn-close-modern" onclick="closeMissingVehicleModal()"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+
+            <div id="missingVehicleFormContent">
+                <div class="modal-modern-body">
+                    <p class="modal-desc">¿Tu vehículo es un modelo reciente, importado o no aparece en la lista? No te preocupes. Déjanos los datos y un experto de MHM te enviará una cotización exacta en minutos.</p>
+                    
+                    <div class="premium-input-wrapper">
+                        <i class="fa-regular fa-user premium-input-icon"></i>
+                        <input type="text" class="premium-input" placeholder="Nombre completo">
+                    </div>
+                    
+                    <div class="grid-2-modal">
+                        <div class="premium-input-wrapper" style="margin-bottom:0;">
+                            <i class="fa-regular fa-envelope premium-input-icon"></i>
+                            <input type="email" class="premium-input" placeholder="Correo electrónico">
+                        </div>
+                        <div class="premium-input-wrapper" style="margin-bottom:0;">
+                            <i class="fa-solid fa-phone premium-input-icon"></i>
+                            <input type="tel" class="premium-input" placeholder="+56 9 1234 5678">
+                        </div>
+                    </div>
+                    
+                    <div style="margin: 24px 0 16px 0; font-size: 0.85rem; font-weight: 700; color: #94A3B8; text-transform: uppercase; letter-spacing: 1px;">Detalles del Vehículo</div>
+                    
+                    <div class="grid-2-modal">
+                        <div class="premium-input-wrapper">
+                            <i class="fa-solid fa-tag premium-input-icon"></i>
+                            <input type="text" class="premium-input" placeholder="Marca">
+                        </div>
+                        <div class="premium-input-wrapper">
+                            <i class="fa-solid fa-car premium-input-icon"></i>
+                            <input type="text" class="premium-input" placeholder="Modelo">
+                        </div>
+                    </div>
+                    <div class="premium-input-wrapper" style="margin-bottom:0;">
+                        <i class="fa-regular fa-calendar premium-input-icon"></i>
+                        <input type="number" class="premium-input" placeholder="Año (Ej. 2026)">
+                    </div>
+                </div>
+
+                <div class="modal-modern-footer">
+                    <button class="btn-modern-cancel" onclick="closeMissingVehicleModal()">Cancelar</button>
+                    <button class="btn-modern-submit" onclick="submitMissingVehicleForm()">
+                        Enviar Solicitud <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div id="missingVehicleSuccess" style="display: none; padding: 50px 30px; text-align: center;">
+                <div style="font-size: 4.5rem; color: #10B981; margin-bottom: 20px; animation: scaleIn 0.5s cubic-bezier(0.16, 1, 0.3, 1);">
+                    <i class="fa-regular fa-circle-check"></i>
+                </div>
+                <h3 style="font-size: 1.5rem; font-weight: 800; color: #1E293B; margin-bottom: 15px;">¡Solicitud Recibida!</h3>
+                <p style="color: #475569; font-size: 1rem; line-height: 1.6; margin-bottom: 30px;">Hemos recibido tus datos correctamente. Nuestro equipo de expertos buscará tu modelo y te enviará una cotización exacta a tu correo en los próximos minutos.</p>
+                <button class="btn-modern-submit" style="margin: 0 auto; width: 100%; justify-content: center;" onclick="closeMissingVehicleModal()">
+                    Entendido, cerrar ventana
+                </button>
+            </div>
+            
+            <script>
+            function submitMissingVehicleForm() {
+                // Cambiar el estado visual a "Exito"
+                document.getElementById('missingVehicleFormContent').style.display = 'none';
+                document.getElementById('missingVehicleSuccess').style.display = 'block';
+                
+                // Opcional: Cerrar automaticamente despues de 5 segundos
+                setTimeout(function() {
+                    if (document.getElementById('missingVehicleModal').classList.contains('is-visible')) {
+                        closeMissingVehicleModal();
+                    }
+                }, 5000);
+            }
+            
+            // Resetear el modal cuando se cierra
+            const originalCloseMissingVehicleModal = closeMissingVehicleModal;
+            window.closeMissingVehicleModal = function() {
+                originalCloseMissingVehicleModal();
+                // Esperar a que termine la animacion para resetear el formulario
+                setTimeout(function() {
+                    document.getElementById('missingVehicleFormContent').style.display = 'block';
+                    document.getElementById('missingVehicleSuccess').style.display = 'none';
+                }, 400);
+            }
+            </script>
+            <style>
+            @keyframes scaleIn {
+                0% { transform: scale(0); opacity: 0; }
+                60% { transform: scale(1.1); opacity: 1; }
+                100% { transform: scale(1); opacity: 1; }
+            }
+            </style>
         </div>
     </div>
-
-    
-    
-    <div id="missingVehicleModal" class="modal-backdrop-aurora">
-        <div class="modal-content-tech">
-            <div class="shimmer-effect"></div>
-            
-            <div class="modal-header-tech">
-                <div class="header-icon-glass">
-                    <i class="fa-solid fa-car-on"></i>
-                </div>
-                <div class="header-text-tech">
-                    <h3 class="tech-title text-gradient-corp">Ayuda con tu Vehículo</h3>
-                </div>
-                <button class="btn-close-tech" onclick="closeMissingVehicleModal()"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-
-            <div class="modal-body-tech" style="padding: 20px;">
-                <p style="margin-bottom:20px; color:#475569; font-size:0.95rem; line-height:1.5;">Estamos trabajando para brindar la mejor experiencia en la contratación de tu seguro ideal. Déjanos tu contacto y un agente te contactará para ayudarte a cotizar.</p>
-                
-                <div class="grid-1-tight">
-                    <div class="inp-rich-group">
-                        <div class="input-rich-wrapper compact-premium theme-blue">
-                            <div class="icon-slot"><i class="fa-regular fa-user"></i></div>
-                            <input type="text" class="rich-input" placeholder="Nombre completo">
-                        </div>
-                    </div>
-                    <div class="inp-rich-group">
-                        <div class="input-rich-wrapper compact-premium theme-blue">
-                            <div class="icon-slot"><i class="fa-regular fa-envelope"></i></div>
-                            <input type="email" class="rich-input" placeholder="Correo electrónico">
-                        </div>
-                    </div>
-                    <div class="inp-rich-group">
-                        <div class="input-rich-wrapper compact-premium theme-blue">
-                            <div class="icon-slot"><i class="fa-solid fa-phone"></i></div>
-                            <span style="position:absolute; left:40px; color:#475569; font-weight:600; top:50%; transform:translateY(-50%); font-size:0.9rem;">+56</span>
-                            <input type="tel" class="rich-input" placeholder="9 9999 9999" style="padding-left: 75px;">
-                        </div>
-                    </div>
-                    <div class="grid-2-tight">
-                        <div class="inp-rich-group">
-                            <div class="input-rich-wrapper compact-premium theme-blue">
-                                <input type="text" class="rich-input" placeholder="Marca">
-                            </div>
-                        </div>
-                        <div class="inp-rich-group">
-                            <div class="input-rich-wrapper compact-premium theme-blue">
-                                <input type="text" class="rich-input" placeholder="Modelo">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="inp-rich-group">
-                        <div class="input-rich-wrapper compact-premium theme-blue">
-                            <input type="number" class="rich-input" placeholder="Año" min="1990" max="2026">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="modal-footer-tech" style="justify-content: center;">
-                <button class="btn-start-new-gradient shimmer-btn" style="width: 100%;" onclick="closeMissingVehicleModal()">
-                    Enviar Datos <i class="fa-solid fa-paper-plane"></i>
-                </button>
             </div>
         </div>
     </div>
