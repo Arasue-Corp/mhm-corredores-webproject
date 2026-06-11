@@ -993,6 +993,7 @@ if(document.getElementById('quoteFormStep10')) {
         container.appendChild(newPanel);
 
         populateLists(newId);
+        if (typeof initPremiumSelects === "function") initPremiumSelects();
         updateNavVisibility(); // Actualizar botones
         switchTab(`car-${newId}`, newTab);
         window.showToast(`Vehicle ${newId} added successfully.`, "success");
@@ -1076,9 +1077,9 @@ if(document.getElementById('quoteFormStep10')) {
                 </div>
 
                 <div class="grid-3-tight">
-                    <div class="inp-rich-group"><label>Model Year</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-regular fa-calendar"></i></div><select class="rich-input validate-req" id="year-${id}"></select></div></div>
-                    <div class="inp-rich-group"><label>Make</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-tag"></i></div><select class="rich-input validate-req" id="make-${id}" onchange="updateTabName(${id}, this.value)"></select></div></div>
-                    <div class="inp-rich-group"><label>Model</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-car-side"></i></div><select class="rich-input validate-req"><option value="" disabled selected>Select</option><option>Model A</option><option>Model B</option></select></div></div>
+                    <div class="inp-rich-group"><label>Model Year</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-regular fa-calendar"></i></div><select class="rich-input validate-req premium-select" id="year-${id}"></select></div></div>
+                    <div class="inp-rich-group"><label>Make</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-tag"></i></div><select class="rich-input validate-req premium-select" id="make-${id}" onchange="updateTabName(${id}, this.value)"></select></div></div>
+                    <div class="inp-rich-group"><label>Model</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-car-side"></i></div><select class="rich-input validate-req premium-select"><option value="" disabled selected>Select</option><option>Model A</option><option>Model B</option></select></div></div>
                 </div>
 
                 <div class="divider-hairline"></div>
@@ -1108,24 +1109,24 @@ if(document.getElementById('quoteFormStep10')) {
                         <label class="cov-label">Comprehensive
                             <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('comp-coverage')"></i>
                         </label>
-                    <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-cloud-showers-heavy"></i></div><select class="rich-input"><option>$500 ded</option><option>$1000 ded</option><option>No Cov</option></select></div></div>
+                    <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-cloud-showers-heavy"></i></div><select class="rich-input premium-select"><option>$500 ded</option><option>$1000 ded</option><option>No Cov</option></select></div></div>
                     <div class="inp-rich-group">
                         <label class="cov-label">Collision
                             <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('coll-coverage')"></i>
                         </label>
-                    <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-car-burst"></i></div><select class="rich-input"><option>$500 ded</option><option>$1000 ded</option><option>No Cov</option></select></div></div>
+                    <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-car-burst"></i></div><select class="rich-input premium-select"><option>$500 ded</option><option>$1000 ded</option><option>No Cov</option></select></div></div>
                 </div>
                 <div class="grid-2-tight mt-3">
                     <div class="inp-rich-group">
                         <label class="cov-label">Towing
                             <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('roadside-assistance')"></i>
                         </label>
-                    <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-truck-pickup"></i></div><select class="rich-input"><option>No Cov</option><option>$50</option></select></div></div>
+                    <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-truck-pickup"></i></div><select class="rich-input premium-select"><option>No Cov</option><option>$50</option></select></div></div>
                     <div class="inp-rich-group">
                         <label class="cov-label">Rental
                             <i class="fa-solid fa-circle-info tooltip-icon" onclick="showRichInfo('rental-reimbursement')"></i>
                         </label>
-                    <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-key"></i></div><select class="rich-input"><option>No Cov</option><option>$30/day</option></select></div></div>
+                    <div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-key"></i></div><select class="rich-input premium-select"><option>No Cov</option><option>$30/day</option></select></div></div>
                 </div>
 
                 <div class="extras-list-container mt-4">
@@ -1746,7 +1747,7 @@ if(document.getElementById('quoteFormStep5')) {
                         </label>
                         <div class="input-rich-wrapper compact-premium theme-blue">
                                             <div class="icon-slot"><i class="fa-solid fa-triangle-exclamation"></i></div>
-                            <select class="rich-input validate-req">
+                            <select class="rich-input validate-req premium-select">
                                 <option value="" disabled selected>Select Type...</option>
                                 <optgroup label="Accidents">
                                     <option>Accident, At-Fault</option>
@@ -2089,8 +2090,8 @@ if(document.getElementById('quoteFormStep4')) {
             <button type="button" class="delete-pill-btn" onclick="window.deleteDriver(${id})"><i class="fa-solid fa-trash-can"></i> Remove</button>`;
 
         let relationshipHTML = isPrimary ? 
-            `<div class="input-rich-wrapper locked field-lock-target"><div class="icon-slot"><i class="fa-solid fa-link"></i></div><select class="rich-input" disabled><option selected>Insured (Self)</option></select></div>` :
-            `<div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-link"></i></div><select class="rich-input validate-req"><option value="" disabled selected>Select Relation</option><option>Spouse</option><option>Child</option><option>Other</option></select></div>`;
+            `<div class="input-rich-wrapper locked field-lock-target"><div class="icon-slot"><i class="fa-solid fa-link"></i></div><select class="rich-input premium-select" disabled><option selected>Insured (Self)</option></select></div>` :
+            `<div class="input-rich-wrapper compact-premium theme-teal"><div class="icon-slot"><i class="fa-solid fa-link"></i></div><select class="rich-input validate-req premium-select"><option value="" disabled selected>Select Relation</option><option>Spouse</option><option>Child</option><option>Other</option></select></div>`;
 
         const bannerHTML = isPrimary 
             ? `<div class="info-banner-blue mb-4"><div class="banner-icon"><i class="fa-solid fa-circle-info"></i></div><div><strong>Primary Driver:</strong> Main applicant. Cannot be excluded.</div></div>`
@@ -2123,7 +2124,7 @@ if(document.getElementById('quoteFormStep4')) {
                 <div class="grid-3-tight">
                     <div class="inp-rich-group"><label>Date of Birth</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-calendar"></i></div><input type="text" class="rich-input date-picker-dob validate-req" placeholder="MM/DD/YYYY"></div></div>
                     <div class="inp-rich-group"><label>Age</label><div class="input-rich-wrapper locked"><input type="text" class="rich-input age-display" placeholder="--" readonly style="text-align:center;"></div></div>
-                    <div class="inp-rich-group"><label>Gender</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-venus-mars"></i></div><select class="rich-input validate-req"><option value="" disabled selected>Select</option><option>Male</option><option>Female</option></select></div></div>
+                    <div class="inp-rich-group"><label>Gender</label><div class="input-rich-wrapper compact-premium theme-blue"><div class="icon-slot"><i class="fa-solid fa-venus-mars"></i></div><select class="rich-input validate-req premium-select"><option value="" disabled selected>Select</option><option>Male</option><option>Female</option></select></div></div>
                 </div>
 
             </div>
@@ -2144,7 +2145,7 @@ if(document.getElementById('quoteFormStep4')) {
                         <div class="inp-rich-group">
                             <label>Marital Status</label>
                             <div class="input-rich-wrapper compact-premium theme-teal">
-                                 <div class="icon-slot"><i class="fa-solid fa-ring"></i></div><select class="rich-input validate-req"><option value="" disabled selected>Select</option><option>Single</option><option>Married</option><option>Divorced</option></select></div>
+                                 <div class="icon-slot"><i class="fa-solid fa-ring"></i></div><select class="rich-input validate-req premium-select"><option value="" disabled selected>Select</option><option>Single</option><option>Married</option><option>Divorced</option></select></div>
                         </div>
                         <div class="inp-rich-group">
                             <label>Relationship</label>
@@ -2361,7 +2362,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btnNext.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
         btnNext.style.pointerEvents = 'none';
         setTimeout(() => {
-            window.location.href = "cotizacion-4.html";
+            window.location.href = "cotizacion-4-1.html";
         }, 500);
     };
 
@@ -6387,3 +6388,225 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 });
+
+/* =========================================
+   LOGIC FOR STEP 4-1 (OWNER DETAILS)
+   ========================================= */
+document.addEventListener('DOMContentLoaded', function() {
+    const step4_1Container = document.getElementById('quoteFormStep4_1');
+    const btnNext4_1 = step4_1Container ? step4_1Container.querySelector('#btnNext') : null;
+    
+    if (!step4_1Container || !btnNext4_1) return;
+
+    // 1. DATA: Regiones y Comunas (Muestra representativa)
+    const regionesData = {
+        "Región Metropolitana": ["Santiago", "Puente Alto", "Maipú", "Las Condes", "Providencia", "Ñuñoa"],
+        "Valparaíso": ["Viña del Mar", "Valparaíso", "Quilpué", "Villa Alemana", "San Antonio"],
+        "Biobío": ["Concepción", "Talcahuano", "Los Ángeles", "San Pedro de la Paz", "Chiguayante"],
+        "Araucanía": ["Temuco", "Padre Las Casas", "Villarrica", "Pucón"],
+        "Los Lagos": ["Puerto Montt", "Osorno", "Castro", "Puerto Varas"]
+    };
+
+    const regionSelect = document.getElementById('ownerRegion');
+    const comunaSelect = document.getElementById('ownerComuna');
+
+    if (regionSelect && comunaSelect) {
+        // Cargar Regiones
+        Object.keys(regionesData).forEach(region => {
+            const opt = document.createElement('option');
+            opt.value = region;
+            opt.textContent = region;
+            regionSelect.appendChild(opt);
+        });
+
+        // Actualizar Comunas
+        regionSelect.addEventListener('change', function() {
+            comunaSelect.innerHTML = '<option value="" disabled selected>Selecciona Comuna</option>';
+            const comunas = regionesData[this.value] || [];
+            comunas.forEach(comuna => {
+                const opt = document.createElement('option');
+                opt.value = comuna;
+                opt.textContent = comuna;
+                comunaSelect.appendChild(opt);
+            });
+            comunaSelect.disabled = false;
+            
+            // Re-inicializar premium select si existe la función
+            if (typeof window.initPremiumSelects === 'function') {
+                window.initPremiumSelects();
+            }
+        });
+    }
+
+    // 2. RUT Validator Function
+    const validateRut = (rut) => {
+        rut = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+        if (rut.length < 2) return false;
+        let body = rut.slice(0, -1);
+        let dv = rut.slice(-1);
+        let sum = 0;
+        let mul = 2;
+        for (let i = body.length - 1; i >= 0; i--) {
+            sum += body[i] * mul;
+            mul = mul === 7 ? 2 : mul + 1;
+        }
+        let expectedDv = 11 - (sum % 11);
+        if (expectedDv === 11) expectedDv = '0';
+        else if (expectedDv === 10) expectedDv = 'K';
+        else expectedDv = expectedDv.toString();
+        return dv === expectedDv;
+    };
+
+    // Formateador visual básico para RUT
+    const rutInput = document.getElementById('ownerRut');
+    if (rutInput) {
+        rutInput.addEventListener('blur', function() {
+            let val = this.value.replace(/[^0-9kK]/gi, '');
+            if (val.length > 1) {
+                this.value = val.slice(0, -1).replace(/\B(?=(\d{3})+(?!\d))/g, ".") + "-" + val.slice(-1).toUpperCase();
+            }
+        });
+    }
+
+    // 3. Flatpickr
+    const dobInput = document.getElementById('ownerDob');
+    if (dobInput && typeof flatpickr !== 'undefined') {
+        flatpickr(dobInput, {
+            dateFormat: "m/d/Y",
+            maxDate: "today",
+            disableMobile: "true",
+            onChange: function(selectedDates, dateStr, instance) {
+                const wrapper = instance.element.closest('.input-rich-wrapper');
+                if(wrapper) wrapper.classList.remove('input-error', 'shake-anim');
+            }
+        });
+    }
+
+    // 4. NEXT BUTTON VALIDATION
+    btnNext4_1.addEventListener('click', function(e) {
+        e.preventDefault();
+        let isValid = true;
+        let firstError = null;
+
+        // Limpiar errores visuales
+        step4_1Container.querySelectorAll('.input-rich-wrapper, .custom-check-wrapper').forEach(w => {
+            w.classList.remove('input-error', 'shake-anim');
+        });
+
+        // A. Validar Campos Text y Select
+        const inputs = step4_1Container.querySelectorAll('.validate-req');
+        inputs.forEach(input => {
+            if (!input.value || input.value.trim() === "") {
+                isValid = false;
+                const wrapper = input.closest('.input-rich-wrapper') || input.parentElement;
+                if (wrapper) {
+                    void wrapper.offsetWidth;
+                    wrapper.classList.add('input-error', 'shake-anim');
+                }
+                if (!firstError) firstError = input;
+            }
+        });
+
+        // B. Validar RUT Matemáticamente
+        if (rutInput && rutInput.value) {
+            if (!validateRut(rutInput.value)) {
+                isValid = false;
+                const wrapper = rutInput.closest('.input-rich-wrapper');
+                if (wrapper) {
+                    void wrapper.offsetWidth;
+                    wrapper.classList.add('input-error', 'shake-anim');
+                }
+                if (!firstError) firstError = rutInput;
+                if (typeof window.showToast === 'function') window.showToast("El RUT ingresado no es válido.", "warning");
+            }
+        }
+
+        // C. Validar Checkbox Declaración
+        const declarationCheck = document.getElementById('ownerDeclaration');
+        if (declarationCheck && !declarationCheck.checked) {
+            isValid = false;
+            const wrapper = declarationCheck.closest('.pg-input-area') || declarationCheck.parentElement;
+            if (wrapper) {
+                void wrapper.offsetWidth;
+                wrapper.classList.add('input-error', 'shake-anim');
+            }
+            if (!firstError) firstError = declarationCheck;
+        }
+
+        if (!isValid) {
+            if (firstError) firstError.focus({preventScroll: true});
+            if (typeof window.showToast === 'function' && (!rutInput || validateRut(rutInput.value) || rutInput.value.trim() === "")) {
+                 window.showToast("Por favor, completa todos los campos requeridos y acepta la declaración.", "warning");
+            }
+            return;
+        }
+
+        // Si todo está bien, avanzar
+        btnNext4_1.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Processing...';
+        btnNext4_1.style.pointerEvents = 'none';
+        
+        setTimeout(() => {
+            window.location.href = "cotizacion-5.html";
+        }, 800);
+    });
+
+    // Limpiar errores on input
+    const allInputs = step4_1Container.querySelectorAll('.validate-req, .validate-req-check');
+    allInputs.forEach(input => {
+        input.addEventListener('input', function() {
+            const wrapper = this.closest('.input-rich-wrapper') || this.parentElement;
+            if(wrapper) wrapper.classList.remove('input-error', 'shake-anim');
+        });
+        input.addEventListener('change', function() {
+            const wrapper = this.closest('.input-rich-wrapper') || this.parentElement;
+            if(wrapper) wrapper.classList.remove('input-error', 'shake-anim');
+        });
+    });
+});
+/* =========================================
+   GENERIC VALIDATOR FOR FUNNEL STEPS
+   ========================================= */
+window.validateFunnelStep = function(containerId, nextUrl) {
+    const container = document.getElementById(containerId) || document;
+    let isValid = true;
+    let firstError = null;
+
+    // Clear previous errors
+    container.querySelectorAll('.input-rich-wrapper, .custom-check-wrapper, .native-premium-select-wrapper').forEach(w => {
+        w.classList.remove('input-error', 'shake-anim');
+    });
+
+    // Validate .validate-req inputs
+    const inputs = container.querySelectorAll('.validate-req');
+    inputs.forEach(input => {
+        if (!input.value || input.value.trim() === "") {
+            isValid = false;
+            const wrapper = input.closest('.input-rich-wrapper') || input.closest('.native-premium-select-wrapper') || input.parentElement;
+            if (wrapper) {
+                void wrapper.offsetWidth;
+                wrapper.classList.add('input-error', 'shake-anim');
+            }
+            if (!firstError) firstError = input;
+        }
+    });
+
+    if (!isValid) {
+        if (firstError) firstError.focus({preventScroll: true});
+        if (typeof window.showToast === 'function') {
+            window.showToast("Por favor, completa todos los campos requeridos.", "warning");
+        }
+        return false;
+    }
+
+    if (nextUrl) {
+        const btn = event ? event.currentTarget : null;
+        if (btn) {
+            btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Procesando...';
+            btn.style.pointerEvents = 'none';
+        }
+        setTimeout(() => {
+            window.location.href = nextUrl;
+        }, 600);
+    }
+    return true;
+};

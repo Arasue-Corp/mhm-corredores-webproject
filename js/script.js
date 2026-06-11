@@ -413,6 +413,7 @@ function initQuoteWizard() {
                             <div class="inp-rich-group"><label class="lbl-premium">Amount ($)</label><div class="input-rich-wrapper compact-premium theme-warning" style="background:white;"><div class="icon-slot"><i class="fa-solid fa-dollar-sign"></i></div><input type="number" class="rich-input validate-req" placeholder="0.00"></div></div>
                         </div>`;
                     lossContainer.insertAdjacentHTML('beforeend', html);
+                    if (typeof initPremiumSelects === "function") initPremiumSelects();
                 }
                 initCalendars(lossContainer);
                 initPremiumSelects();
@@ -662,6 +663,7 @@ function initPremiumSelects() {
     });
 
     window.addEventListener('resize', closeAllDropdowns);
+    window.addEventListener('scroll', closeAllDropdowns, true);
 }
 
 function initPremiumSelectsContact() {
@@ -753,6 +755,7 @@ function initPremiumSelectsContact() {
     });
 
     window.addEventListener('resize', closeAllDropdowns);
+    window.addEventListener('scroll', closeAllDropdowns, true);
 }
 
 // --- OTHER INIT FUNCTIONS (From Home, Quote, etc.) ---

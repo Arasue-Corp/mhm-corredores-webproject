@@ -6,12 +6,12 @@
     <title>Cotización de Seguro Automotriz | MHM Corredores</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1781129809" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/style.css?v=3"> 
-    <link rel="stylesheet" href="../css/style-quote.css"> 
+    <link rel="stylesheet" href="../css/style.css?v=1781129809"> 
+    <link rel="stylesheet" href="../css/style-quote.css?v=1781129809"> 
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
 <body class="bg-body">
@@ -224,7 +224,7 @@
                                     <label class="corp-label">Marca del Vehículo</label>
                                     <div class="native-premium-select-wrapper">
                                         <i class="fa-solid fa-tag native-premium-select-icon"></i>
-                                        <select class="native-premium-select" name="marca" id="select_marca" onchange="unlockModelo()">
+                                        <select class="native-premium-select validate-req" name="marca" id="select_marca" onchange="unlockModelo()">
                                             <option value="" disabled selected>Elige la marca</option>
                                             <option value="toyota">Toyota</option>
                                             <option value="chevrolet">Chevrolet</option>
@@ -244,7 +244,7 @@
                                     <label class="corp-label">Modelo del Vehículo</label>
                                     <div class="native-premium-select-wrapper">
                                         <i class="fa-solid fa-car native-premium-select-icon"></i>
-                                        <select class="native-premium-select" name="modelo" id="select_modelo" disabled>
+                                        <select class="native-premium-select validate-req" name="modelo" id="select_modelo" disabled>
                                             <option value="" disabled selected>Elige modelo</option>
                                             <option value="yaris">Yaris</option>
                                             <option value="corolla">Corolla</option>
@@ -259,7 +259,7 @@
                                     <label class="corp-label">Año</label>
                                     <div class="native-premium-select-wrapper">
                                         <i class="fa-regular fa-calendar native-premium-select-icon"></i>
-                                        <select class="native-premium-select" name="ano" id="select_ano" required>
+                                        <select class="native-premium-select validate-req" name="ano" id="select_ano" required>
                                             <option value="" disabled selected>Elige año</option>
                                             <option value="2026">2026</option>
                                             <option value="2025">2025</option>
@@ -356,7 +356,7 @@
                             <button type="button" class="corp-btn-secondary" onclick="window.location.href='cotizacion-2.html'">
                                 <i class="fa-solid fa-arrow-left"></i> Volver atrás
                             </button>
-                            <button type="button" class="corp-btn-primary" onclick="window.location.href='cotizacion-4.html'">
+                            <button type="button" class="corp-btn-primary" onclick="window.validateFunnelStep('quoteFormStep1', 'cotizacion-4-1.html')">
                                 Continuar <i class="fa-solid fa-arrow-right-long" style="margin-left: 8px;"></i>
                             </button>
                         </div>
@@ -1123,8 +1123,8 @@ function selectRadioCard(inputName, value, element) {
     </div>
 
     
-    <script src="../js/script.js"></script>
-    <script src="../js/script-quote.js"></script>
+    <script src="../js/script.js?v=1781129809"></script>
+    <script src="../js/script-quote.js?v=1781129809"></script>
 
 
 <style>
