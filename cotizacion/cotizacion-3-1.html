@@ -352,103 +352,15 @@
                         </div>
 
                         <!-- Action Buttons -->
-                        <div class="corp-action-row anim-entry delay-3">
-                            <button type="button" class="corp-btn-secondary" onclick="window.location.href='cotizacion-2.html'">
-                                <i class="fa-solid fa-arrow-left"></i> Volver atrás
-                            </button>
-                            <button type="button" class="corp-btn-primary" onclick="window.validateFunnelStep('quoteFormStep1', 'cotizacion-4-1.html')">
-                                Continuar <i class="fa-solid fa-arrow-right-long" style="margin-left: 8px;"></i>
+                        <div class="hero-action-area anim-entry delay-3">
+                            <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> 256-bit SSL Encrypted</div>
+                            <button type="button" class="btn-hero-gradient" onclick="window.validateFunnelStep('quoteFormStep1', 'cotizacion-4-1.html')" style="border-radius: 8px;">
+                                Continuar <i class="fa-solid fa-arrow-right-long"></i>
                             </button>
                         </div>
-
                     </form>
 
-
-
 <style>
-/* -------------------------------------
-   CORPORATE PREMIUM UI FOR 0KM FORM
--------------------------------------- */
-.corp-form {
-    display: flex;
-    flex-direction: column;
-}
-
-.corp-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 20px;
-    margin-top: 15px;
-}
-
-/* Custom Select Dropdowns */
-.corp-field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-    position: relative;
-}
-.corp-label {
-    font-size: 0.9rem;
-    font-weight: 700;
-    color: #334155;
-    margin-left: 6px;
-}
-/* Premium Native Selects */
-.native-premium-select-wrapper {
-    position: relative;
-    width: 100%;
-}
-.native-premium-select {
-    width: 100%;
-    height: 60px;
-    box-sizing: border-box;
-    background: #FFFFFF;
-    border: 2px solid #E2E8F0;
-    border-radius: 12px;
-    padding: 0 35px 0 42px; /* Reducido para dar mas espacio al texto */
-    font-size: 0.95rem; /* Ligeramente mas pequeno para que quepa mejor */
-    font-weight: 600;
-    color: #1E293B;
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    overflow: hidden;
-}
-.native-premium-select:focus {
-    border-color: #2ed9c3;
-    outline: none;
-    box-shadow: 0 0 0 4px rgba(46, 217, 195, 0.1);
-}
-.native-premium-select:disabled {
-    background: #F1F5F9;
-    opacity: 0.6;
-    cursor: not-allowed;
-}
-.native-premium-select-icon {
-    position: absolute;
-    left: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #cb6ce6;
-    font-size: 1.1rem;
-    pointer-events: none;
-    width: 20px;
-    text-align: center;
-}
-.native-premium-select-arrow {
-    position: absolute;
-    right: 14px;
-    top: 50%;
-    transform: translateY(-50%);
-    color: #94A3B8;
-    pointer-events: none;
-}
-
 /* Help Section */
 .corp-help-section {
     display: flex;
@@ -661,10 +573,10 @@ function selectRadioCard(inputName, value, element) {
                 <div class="organic-panel">
                     <div class="sidebar-title">Ruta de Cotización</div>
                     <ul class="aurora-list">
-                        <li><i class="fa-solid fa-check" style="color:#10B981;"></i> Tipo de Vehículo</li>
-                        <li class="active"><span class="pulse-dot"></span> Datos del Vehículo</li>
+                        <li class="done"><i class="fa-solid fa-circle-check" style="color: var(--corp-primary);"></i> Información del Cliente</li>
+                        <li><i class="fa-regular fa-circle"></i> Dirección</li>
                         <li><i class="fa-regular fa-circle"></i> Conductores</li>
-                        <li><i class="fa-regular fa-circle"></i> Vehículos</li>
+                        <li class="active"><span class="pulse-dot"></span> Vehículos</li>
                         <li><i class="fa-regular fa-circle"></i> Coberturas</li>
                     </ul>
                     

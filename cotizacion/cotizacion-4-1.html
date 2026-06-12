@@ -180,7 +180,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-4.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Define Limits</span></a>
+        <a href="javascript:history.back()" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -211,161 +211,126 @@
         <div class="specs-layout-grid">
             <div class="main-spec-col">
                 <div class="premium-white-card" id="quoteFormStep4_1">
-                    <div id="carFormsContainer">
-                        <div class="car-panel active" id="panel-car-1" data-id="1">
+                    <form id="ownerForm" class="corp-form">
+                        <div class="premium-group anim-entry">
+                            <div class="pg-header">
+                                <div class="pg-header-badge blue" style="background: #2ed9c3 !important; color: white; border: none; padding: 8px 16px; border-radius: 12px; font-weight: 700; box-shadow: 0 4px 10px rgba(46, 217, 195, 0.2);">
+                                    <i class="fa-solid fa-user-shield"></i> Datos Personales
+                                </div>
+                                <div class="pg-header-line"></div>
+                            </div>
                             
-                            <!-- ROW 1: RUT and Nombre -->
-                            <div class="grid-2-tight">
-                                <div class="premium-group anim-entry">
-                                    <div class="pg-icon-box"><i class="fa-solid fa-id-card"></i></div>
-                                    <div class="pg-content-row">
-                                        <div class="pg-labels">
-                                            <span class="pg-title-main">RUT</span>
-                                        </div>
-                                        <div class="pg-input-area">
-                                            <div class="input-rich-wrapper compact-premium">
-                                                <input type="text" id="ownerRut" class="rich-input validate-req rut-input" placeholder="Ej: 12.345.678-9">
-                                            </div>
-                                        </div>
+                            <div class="corp-grid">
+                                <!-- RUT -->
+                                <div class="corp-field">
+                                    <label class="corp-label">RUT</label>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-solid fa-id-card native-premium-select-icon"></i>
+                                        <input type="text" id="ownerRut" class="native-premium-input validate-req rut-input" placeholder="Ej: 12.345.678-9">
                                     </div>
                                 </div>
-                                <div class="premium-group anim-entry">
-                                    <div class="pg-icon-box"><i class="fa-solid fa-user"></i></div>
-                                    <div class="pg-content-row">
-                                        <div class="pg-labels">
-                                            <span class="pg-title-main">Nombre</span>
-                                        </div>
-                                        <div class="pg-input-area">
-                                            <div class="input-rich-wrapper compact-premium">
-                                                <input type="text" id="ownerName" class="rich-input validate-req" placeholder="Ingresa nombre">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- ROW 2: Apellidos and DOB -->
-                            <div class="grid-2-tight" style="margin-top: 15px;">
-                                <div class="premium-group anim-entry delay-1">
-                                    <div class="pg-icon-box"><i class="fa-regular fa-user"></i></div>
-                                    <div class="pg-content-row">
-                                        <div class="pg-labels">
-                                            <span class="pg-title-main">Apellidos</span>
-                                        </div>
-                                        <div class="pg-input-area">
-                                            <div class="input-rich-wrapper compact-premium">
-                                                <input type="text" id="ownerLastname" class="rich-input validate-req" placeholder="Ingresa apellidos">
-                                            </div>
-                                        </div>
+                                <!-- Nombre -->
+                                <div class="corp-field">
+                                    <label class="corp-label">Nombre</label>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-solid fa-user native-premium-select-icon"></i>
+                                        <input type="text" id="ownerName" class="native-premium-input validate-req" placeholder="Ingresa nombre">
                                     </div>
                                 </div>
-                                <div class="premium-group anim-entry delay-1">
-                                    <div class="pg-icon-box"><i class="fa-regular fa-calendar-check"></i></div>
-                                    <div class="pg-content-row">
-                                        <div class="pg-labels">
-                                            <span class="pg-title-main">Fecha de Nacimiento</span>
-                                        </div>
-                                        <div class="pg-input-area">
-                                            <div class="input-rich-wrapper compact-premium">
-                                                <input type="text" id="ownerDob" class="rich-input date-picker validate-req" placeholder="DD/MM/YYYY">
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- ROW 3: Region and Comuna -->
-                            <div class="grid-2-tight" style="margin-top: 15px;">
-                                <div class="premium-group anim-entry delay-2">
-                                    <div class="pg-icon-box"><i class="fa-solid fa-map"></i></div>
-                                    <div class="pg-content-row">
-                                        <div class="pg-labels">
-                                            <span class="pg-title-main">Región</span>
-                                        </div>
-                                        <div class="pg-input-area">
-                                            <div class="input-rich-wrapper compact-premium theme-blue">
-                                                <select id="ownerRegion" class="rich-input validate-req premium-select">
-                                                    <option value="" disabled selected>Selecciona Región</option>
-                                                </select>
-                                            </div>
-                                        </div>
+                                <!-- Apellidos -->
+                                <div class="corp-field">
+                                    <label class="corp-label">Apellidos</label>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-regular fa-user native-premium-select-icon"></i>
+                                        <input type="text" id="ownerLastname" class="native-premium-input validate-req" placeholder="Ingresa apellidos">
                                     </div>
                                 </div>
-                                <div class="premium-group anim-entry delay-2">
-                                    <div class="pg-icon-box"><i class="fa-solid fa-map-pin"></i></div>
-                                    <div class="pg-content-row">
-                                        <div class="pg-labels">
-                                            <span class="pg-title-main">Comuna</span>
-                                        </div>
-                                        <div class="pg-input-area">
-                                            <div class="input-rich-wrapper compact-premium theme-blue">
-                                                <select id="ownerComuna" class="rich-input validate-req premium-select" disabled>
-                                                    <option value="" disabled selected>Selecciona Comuna</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
 
-                            <!-- ROW 4: Declaración Checkbox -->
-                            <div class="premium-group single-row anim-entry delay-2" style="margin-top: 15px;">
-                                <div class="pg-content-row" style="flex-direction: row; align-items: flex-start; gap: 15px; padding: 15px;">
-                                    <div class="pg-input-area" style="width: auto;">
-                                        <input type="checkbox" id="ownerDeclaration" class="validate-req-check" style="width: 20px; height: 20px; accent-color: var(--corp-primary);">
+                                <!-- Fecha de Nacimiento -->
+                                <div class="corp-field">
+                                    <label class="corp-label">Fecha de Nacimiento</label>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-regular fa-calendar-check native-premium-select-icon"></i>
+                                        <input type="text" id="ownerDob" class="native-premium-input date-picker validate-req" placeholder="DD/MM/YYYY">
                                     </div>
-                                    <div class="pg-labels">
-                                        <label for="ownerDeclaration" style="font-size: 0.9rem; color: var(--text-dark); cursor: pointer; display: block; line-height: 1.4;">
+                                </div>
+
+                                <!-- Región -->
+                                <div class="corp-field">
+                                    <label class="corp-label">Región</label>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-solid fa-map native-premium-select-icon"></i>
+                                        <select id="ownerRegion" class="native-premium-select validate-req">
+                                            <option value="" disabled selected>Selecciona Región</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down native-premium-select-arrow"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Comuna -->
+                                <div class="corp-field">
+                                    <label class="corp-label">Comuna</label>
+                                    <div class="native-premium-select-wrapper">
+                                        <i class="fa-solid fa-map-pin native-premium-select-icon"></i>
+                                        <select id="ownerComuna" class="native-premium-select validate-req" disabled>
+                                            <option value="" disabled selected>Selecciona Comuna</option>
+                                        </select>
+                                        <i class="fa-solid fa-chevron-down native-premium-select-arrow"></i>
+                                    </div>
+                                </div>
+
+                                <!-- Contratante es propietario -->
+                                <div class="corp-field" style="grid-column: 1 / -1; margin-top: 10px;">
+                                    <label class="corp-label">¿El contratante es el propietario?</label>
+                                    <div style="display: flex; gap: 20px; margin-top: 8px; margin-left: 6px;">
+                                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: #1E293B;">
+                                            <input type="radio" name="ownerIsContractor" value="Si" style="width: 18px; height: 18px; accent-color: #2ed9c3;" checked> Sí
+                                        </label>
+                                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500; color: #1E293B;">
+                                            <input type="radio" name="ownerIsContractor" value="No" style="width: 18px; height: 18px; accent-color: #2ed9c3;"> No
+                                        </label>
+                                    </div>
+                                </div>
+
+                                <!-- Declaración -->
+                                <div class="corp-field" style="grid-column: 1 / -1; margin-top: 15px; background: #F8FAFC; padding: 20px; border-radius: 12px; border: 2px solid #E2E8F0;">
+                                    <div style="display: flex; gap: 15px; align-items: flex-start;">
+                                        <input type="checkbox" id="ownerDeclaration" class="validate-req-check" style="width: 24px; height: 24px; accent-color: #2ed9c3; margin-top: 2px; cursor: pointer;">
+                                        <label for="ownerDeclaration" style="font-size: 0.95rem; font-weight: 600; color: #1E293B; cursor: pointer; line-height: 1.6;">
                                             Declaro y confirmo que los datos entregados corresponden al dueño del vehículo (Titular). Asimismo, declaro que cuento con la debida autorización del Titular para el registro y tratamiento de sus datos en la aplicación y que en caso de revocación de autorización me comprometo a informar a Tesla Insurtech Corredores de Seguros.*
                                         </label>
                                     </div>
                                 </div>
                             </div>
-
-                            <!-- ROW 5: Contratante es el propietario -->
-                            <div class="premium-group single-row anim-entry delay-2" style="margin-top: 15px;">
-                                <div class="pg-content-row" style="padding: 15px;">
-                                    <div class="pg-labels">
-                                        <span class="pg-title-main">¿El contratante es el propietario?</span>
-                                    </div>
-                                    <div class="pg-input-area" style="margin-top: 10px; display: flex; gap: 20px;">
-                                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500;">
-                                            <input type="radio" name="ownerIsContractor" value="Si" style="width: 18px; height: 18px; accent-color: var(--corp-primary);" checked> Sí
-                                        </label>
-                                        <label style="display: flex; align-items: center; gap: 8px; cursor: pointer; font-weight: 500;">
-                                            <input type="radio" name="ownerIsContractor" value="No" style="width: 18px; height: 18px; accent-color: var(--corp-primary);"> No
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-
                         </div>
-                    </div>
 
-                    <div class="hero-action-area">
-                        <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> SSL Encrypted Data</div>
-                        <button type="button" class="btn-hero-gradient" id="btnNext" style="border-radius: 8px;">
-                            Next Step <i class="fa-solid fa-arrow-right-long"></i>
-                        </button>
-                    </div>
+                        <div class="hero-action-area anim-entry delay-3" style="margin-top: 30px;">
+                            <div class="secure-badge-modern"><i class="fa-solid fa-lock"></i> SSL Encrypted Data</div>
+                            <button type="button" class="btn-hero-gradient" onclick="window.validateFunnelStep('quoteFormStep4_1', 'cotizacion-5.html')" style="border-radius: 8px;">
+                                Continuar <i class="fa-solid fa-arrow-right-long"></i>
+                            </button>
+                        </div>
+                    </form>
 
                 </div>
             </div>
 
             <aside class="config-sidebar" id="tour-sidebar">
                 <div class="organic-panel">
-                    <div class="sidebar-title">Coverage Path</div>
+                    <div class="sidebar-title">Ruta de Cotización</div>
                     <ul class="aurora-list">
-                        <li><i class="fa-regular fa-circle-check" style="color: var(--corp-primary);"></i> Client Information</li>
-                        <li class="active"><span class="pulse-dot"></span> Owner Details</li>
-                        <li><i class="fa-regular fa-circle"></i> Drivers</li>
-                        <li><i class="fa-regular fa-circle"></i> Violations</li>
-                        <li><i class="fa-regular fa-circle"></i> Additional Info</li>
+                        <li class="done"><i class="fa-solid fa-circle-check" style="color: var(--corp-primary);"></i> Información del Cliente</li>
+                        <li class="done"><i class="fa-solid fa-circle-check" style="color: var(--corp-primary);"></i> Dirección</li>
+                        <li class="active"><span class="pulse-dot"></span> Conductores</li>
+                        <li><i class="fa-regular fa-circle"></i> Vehículos</li>
+                        <li><i class="fa-regular fa-circle"></i> Coberturas</li>
                     </ul>
                     <div class="tip-box-vibrant" style="margin-top: 20px;">
                         <i class="fa-regular fa-lightbulb tip-icon"></i>
                         <div>
-                            <strong>Alex Tip:</strong> It is important to match the vehicle owner correctly to ensure proper policy configuration and accurate legal records.
+                            <strong>Alex Tip:</strong> Es importante registrar correctamente al dueño del vehículo para asegurar la emisión correcta de la póliza y los registros legales.
                         </div>
                     </div>
                 </div>
