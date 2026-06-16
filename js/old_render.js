@@ -1,285 +1,184 @@
-/**
- * AURORA TRANSITION ENGINE
- * Maneja la transición suave entre cualquier tipo de paneles.
- * @param {HTMLElement} currentPanel - El panel que se va.
- * @param {HTMLElement} nextPanel - El panel que entra.
- * @param {string} direction - 'next' (entra derecha) o 'prev' (entra izquierda).
- */
-// --- MOTOR DE ANIMACIÓN MEJORADO (FADE SCALE) ---
-    window.auroraTransition = function(currentPanel, nextPanel) {
-        if (!currentPanel || !nextPanel) return;
-        if (currentPanel === nextPanel) return;
-
-        // 1. Bloquear interacción rápida durante la transición
-        nextPanel.style.pointerEvents = 'none';
-
-        // 2. FASE SALIDA (Rápida)
-        currentPanel.classList.remove('active', 'anim-in');
-        currentPanel.classList.add('anim-out');
-
-        // 3. FASE ENTRADA (Coordinada)
-        // Esperamos 150ms (casi al final de la salida) para que se sienta fluido
-        setTimeout(() => {
-            // Ocultar completamente el viejo
-            currentPanel.style.display = 'none';
-            currentPanel.classList.remove('anim-out');
-
-            // Mostrar y animar el nuevo
-            nextPanel.style.display = 'block';
-            nextPanel.classList.add('active');
-            nextPanel.classList.add('anim-in');
-
-            // Limpieza final
-            setTimeout(() => {
-                nextPanel.classList.remove('anim-in');
-                nextPanel.style.pointerEvents = 'auto'; // Reactivar clicks
-            }, 350); // Duración de fadeInZoom
-
-        }, 150); 
-    };
-
-document.addEventListener('DOMContentLoaded', function() {
-    
-    // --- DATOS DE EJEMPLO ---
-    // Utility to format UF with dots instead of commas
-    window.formatUF = (num) => {
-        return num.toFixed(2); // Since user wants dots, JS natively outputs 12.50
-    };
-
-    const offers = [
-        { id: 1, logo: '../assets/img/logo-fid.webp', carrier: 'fid', plan: 'Plan Auto Full', basePrimaAnualUF: 12.50, basePrimaMensualUF: 1.04, deducible: 'Sin Deducible', alexChoice: true },
-        { id: 2, logo: '../assets/img/logo-liberty-seguros.webp', carrier: 'liberty', plan: 'Liberty Auto Premium', basePrimaAnualUF: 14.20, basePrimaMensualUF: 1.18, deducible: 'Sin Deducible' },
-        { id: 3, logo: '../assets/img/logo-hdi-seguros.webp', carrier: 'hdi', plan: 'HDI Auto Clásico', basePrimaAnualUF: 13.80, basePrimaMensualUF: 1.15, deducible: 'Sin Deducible' },
-        { id: 4, logo: '../assets/img/logo-sura.webp', carrier: 'sura', plan: 'SURA Auto Protegido', basePrimaAnualUF: 15.00, basePrimaMensualUF: 1.25, deducible: 'Sin Deducible' }
-    ];
-
-        window.updateDeductible = (id, newDeductible) => {
-        const o = offers.find(off => off.id === id);
-        if(!o) return;
-        
-        let multiplier = 1.0;
-        const dedMatch = newDeductible.match(/\d+/);
-        if (newDeductible === 'Sin Deducible') {
-            multiplier = 1.15;
-        } else if (dedMatch) {
-            const uf = parseInt(dedMatch[0]);
-            const discountMap = {
-                0: 1.15,
-                3: 1.0, 
-                5: 0.95, 
-                10: 0.85, 
-                15: 0.78, 
-                20: 0.72, 
-                25: 0.67,
-                30: 0.63, 
-                35: 0.60,
-                40: 0.58, 
-                45: 0.56,
-                50: 0.55
-            };
-            multiplier = discountMap[uf] || 1.0;
-        }
-
-        const newAnual = o.basePrimaAnualUF * multiplier;
-        const newMensual = o.basePrimaMensualUF * multiplier;
-
-        const card = document.querySelector(`.offer-card[data-id="${id}"]`);
-        if(card) {
-            const anualEl = card.querySelector('.prima-anual-val');
-            const mensualEl = card.querySelector('.prima-mensual-val');
-            if(anualEl) anualEl.textContent = formatUF(newAnual);
-            if(mensualEl) mensualEl.textContent = formatUF(newMensual);
-        }
-    };
-
-    const container = document.getElementById('offersContainer');
-    const loader = document.getElementById('loader');
-    window.selectedIds = [];
-
-    // Simular tiempo de carga inicial
-    setTimeout(() => { 
-        if(loader) loader.style.display = 'none'; 
-        renderOffers(); 
-    }, 1500);
-
-    // --- LÓGICA DE FILTROS (IZQUIERDA) ---
-    const covModeRadios = document.getElementsByName('cov_mode');
-    const dedSec = document.getElementById('deductibleSection');
-    const collGrp = document.getElementById('collGroup');
-    
-    covModeRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            const val = radio.value;
-            if(val === 'liability') { dedSec.style.display = 'none'; }
-            else if(val === 'comp') { dedSec.style.display = 'block'; collGrp.style.display = 'none'; }
-            else { dedSec.style.display = 'block'; collGrp.style.display = 'block'; }
-            activateRecalc();
-        });
-    });
-
-    const liabRadios = document.getElementsByName('liab_mode');
-    const customLiab = document.getElementById('customLiabilityOptions');
-    liabRadios.forEach(radio => {
-        radio.addEventListener('change', () => {
-            customLiab.classList.toggle('active', radio.value === 'custom');
-            activateRecalc();
-        });
-    });
-
-    // --- SISTEMA DE NOTIFICACIONES (TOAST) ---
-    function showToast(msg, type = 'warning') {
-        const container = document.getElementById('toast-container');
-        container.innerHTML = ''; // Limpiar para que no se apilen
-
-        const toast = document.createElement('div');
-        let iconHtml = '<i class="fa-solid fa-heart"></i>';
-        if(type === 'danger') iconHtml = '<i class="fa-solid fa-trash-can"></i>';
-        if(type === 'warning') iconHtml = '<i class="fa-solid fa-triangle-exclamation"></i>';
-        if(type === 'success') iconHtml = '<i class="fa-solid fa-heart"></i>';
-
-
-        toast.className = `alex-toast ${type}`;
-        
-        toast.innerHTML = `
-            <div class="toast-icon-box">${iconHtml}</div>
-            <div class="toast-content">
-                <span class="toast-title">Insight</span>
-                <span class="toast-sub">${msg}</span>
-            </div>
-        `;
-        
-        container.appendChild(toast);
-        
-        // Trigger reflow para animación
-        void toast.offsetWidth;
-        toast.classList.add('show');
-        
-        setTimeout(() => {
-            toast.classList.remove('show');
-            setTimeout(() => toast.remove(), 500);
-        }, 3500);
-    }
-
-    // --- RENDERIZADO DE TARJETAS ---
-    function renderOffers() {
+function renderOffers() {
         if(!container) return;
         container.innerHTML = '';
         offers.forEach(o => {
             const div = document.createElement('div');
             div.className = 'offer-card';
             div.setAttribute('data-id', o.id);
-            div.setAttribute('data-carrier', o.carrier);
-            
             const choiceTagHTML = o.alexChoice 
-                ? `<div class="alex-choice-tag" style="background: var(--quote-indigo); color: white;"><i class="fa-solid fa-star"></i> Selección MHM</div>` 
+                ? `<div class="alex-choice-tag"><i class="fa-solid fa-heart"></i> Alex Choice</div>` 
                 : '';
-                
+            const bindTagHTML = o.instantBind 
+                ? `<div class="alex-choice-tag" style="background: var(--brand-green)"><i class="fa-solid fa-bolt"></i> Instant Bind</div>` 
+                : '';
             div.innerHTML = `
-                ${choiceTagHTML}
-                <div class="stamp-mark"><i class="fa-solid fa-check"></i> SELECCIONADO</div>
+                ${choiceTagHTML}<div class="stamp-mark""><i class="fa-solid fa-check"></i> SELECTED</div>
+
+                ${bindTagHTML}<div class="stamp-mark"><i class="fa-solid fa-check"></i> SELECTED</div>
                 
                 <div class="card-main">
-                    <div class="logo-col"><img src="${o.logo}" class="carrier-logo" alt="${o.carrier}"></div>
+                    <div class="logo-col"><img src="${o.logo}" class="carrier-logo"></div>
                     <div class="info-col">
-                        <h4 style="font-size: 1.35rem; font-weight: 800; color: var(--quote-indigo); margin-bottom: 8px; letter-spacing: -0.3px;">${o.plan}</h4>
-                        <div class="deductible-dropdown-container" style="max-width: 220px;">
-                            <button class="deductible-trigger-btn dropdown-trigger-btn" onclick="openGlobalMenu(this)">
-                                <span style="display:flex; align-items:center; gap: 10px;">
-                                    <i class="fa-solid fa-shield-halved" style="font-size: 1rem; color: #FFFFFF;"></i>
-                                    <span class="deducible-text-val">${o.deducible}</span>
-                                </span>
-                                <i class="fa-solid fa-chevron-down" style="font-size: 0.8rem; color: #FFFFFF; opacity: 0.8;"></i>
-                            </button>
-                        </div>
+                        <h4>${o.plan}</h4>
+                        <div class="coverage-tags">BI | PD | UM | MED | COMP | COLL</div>
+                        <div class="liability-tag">Liability: $100k / $300k / $50k</div>
                     </div>
                     <div class="price-col">
-                        <div class="down-row">
-                            Prima Anual¹: <strong><span class="prima-anual-val">${o.basePrimaAnualUF}</span> UF</strong>
+                        <div style="margin-bottom: 8px;">
+                            <button class="dropdown-trigger-btn" onclick="openGlobalMenu(this)">
+                                <span>25% (Rec)</span>
+                                <i class="fa-solid fa-chevron-down" style="font-size: 0.7rem;"></i>
+                            </button>
                         </div>
-                        <div class="monthly-row" style="margin-top: 5px;">
-                            <div class="price-big">
-                                <span class="prima-mensual-val">${o.basePrimaMensualUF}</span> <span style="font-size: 1.2rem; font-weight: 800;">UF</span>
+
+                        <div class="down-row">
+                            Down Payment: <strong>$<span class="js-down-val">${o.down}</span></strong>
+                        </div>
+
+                        <div class="monthly-row">
+                            <div class="highlight-bg">
+                                <span class="price-big">$<span class="js-month-val">${o.monthly}</span></span>
                             </div>
-                            <span class="per-mo">Prima Mensual²</span>
+                            <span class="per-mo">Per Month</span>
                         </div>
                     </div>
                 </div>
 
+
                 <div class="card-actions">
-                    <button class="action-btn" onclick="toggleDetails(${o.id})"><i class="fa-solid fa-list-ul" style="margin-right: 6px;"></i> Ver Detalles</button>
-                    <button class="action-btn select-btn" onclick="toggleSel(${o.id}, this, '${o.carrier}')"><i class="fa-solid fa-check" style="margin-right: 6px;"></i> Seleccionar</button>
+                    <button class="action-btn" onclick="toggleDetails(${o.id})">View Details</button>
+                    <button class="action-btn select-btn" onclick="toggleSel(${o.id}, this, '${o.carrier}')">Select Plan</button>
+                </div>
+
+                <div id="dtl-${o.id}" class="details-expand">
+                    
+                    <div class="det-sec-title"><i class="fa-solid fa-shield-halved"></i> General Policy Coverages</div>
+                    <div class="gen-cov-grid">
+                        <div class="gen-cov-item"><span class="gen-lbl">Liability Limits</span><span class="gen-val">25/50/15</span></div>
+                        <div class="gen-cov-item"><span class="gen-lbl">Uninsured BI</span><span class="gen-val">25/50</span></div>
+                        <div class="gen-cov-item"><span class="gen-lbl">Underinsured BI</span><span class="gen-val">25/50</span></div>
+                        <div class="gen-cov-item"><span class="gen-lbl">Medical Payments</span><span class="gen-val">$500</span></div>
+                        <div class="gen-cov-item"><span class="gen-lbl">Accidental Death</span><span class="gen-val text-muted">No Coverage</span></div>
+                    </div>
+
+                    <div class="det-sec-title"><i class="fa-solid fa-car-rear"></i> Insured Vehicles (2)</div>
+                    <div class="veh-details-grid">
+                        
+                        <div class="veh-det-card">
+                            <div class="veh-det-header">
+                                <div class="v-icon-box">
+                                    <img src="../assets/img/logo-nissan.png" alt="Nissan Logo">
+                                </div>
+                                <div class="v-info">
+                                    <h5>Vehicle 1: 2019 NISSAN TITAN</h5>
+                                    <span>VIN: 1N6AA...3849</span>
+                                </div>
+                            </div>
+                            <div class="veh-det-body">
+                            <div class="coverage-tags">BI | PD | UM | UNDUM | MEDPM | COMP | COLL | TL | RREIM</div>
+                                <div class="cov-list-row">
+                                    <span class="c-label">Comprehensive</span>
+                                    <div class="c-val-group">
+                                        <span class="c-ded">Ded $1,000</span>
+                                        <span class="c-prem">$219.48</span>
+                                    </div>
+                                </div>
+                                <div class="cov-list-row">
+                                    <span class="c-label">Collision</span>
+                                    <div class="c-val-group">
+                                        <span class="c-ded">Ded $1,000</span>
+                                        <span class="c-prem">$1,021.42</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="cov-group-header">ADDITIONAL</div>
+                                <div class="cov-list-row"><span class="c-label">Towing</span><span class="c-val-group"><span class="c-ded">Included</span><span class="c-prem">$90.00</span></span></div>
+                                <div class="cov-list-row"><span class="c-label">RREIM.</span><span class="c-val-group"><span class="c-ded">$40/Day</span><span class="c-prem">$31.00</span></span></div>
+                                <div class="cov-list-row"><span class="c-label">GAP</span><span class="c-val-group"><span class="c-ded text-muted">No Cov</span></span></div>
+                                <div class="cov-list-row"><span class="c-label">Custom</span><span class="c-val-group"><span class="c-ded text-muted">No Cov</span></span></div>
+                                <div class="cov-list-row"><span class="c-label">Safety</span><span class="c-val-group"><span class="c-ded text-muted">No Cov</span></span></div>
+
+                            </div>
+                        </div>
+
+                        <div class="veh-det-card">
+                            <div class="veh-det-header">
+                                <div class="v-icon-box">
+                                    <img src="../assets/img/logo-gmc.png" alt="GMC Logo">
+                                </div>
+                                <div class="v-info">
+                                    <h5>Vehicle 2: 2022 GMC CANYON</h5>
+                                    <span>VIN: 2GTEA...9921</span>
+                                </div>
+                            </div>
+                            <div class="veh-det-body">
+                            <div class="coverage-tags">BI | PD | UM | UNDUM | MEDPM | COMP | COLL</div>
+                                <div class="cov-list-row">
+                                    <span class="c-label">Comprehensive</span>
+                                    <div class="c-val-group">
+                                        <span class="c-ded">Ded $500</span>
+                                        <span class="c-prem">$145.20</span>
+                                    </div>
+                                </div>
+                                <div class="cov-list-row">
+                                    <span class="c-label">Collision</span>
+                                    <div class="c-val-group">
+                                        <span class="c-ded">Ded $500</span>
+                                        <span class="c-prem">$980.50</span>
+                                    </div>
+                                </div>
+                                
+                                <div class="cov-group-header">ADDITIONAL</div>
+                                <div class="cov-list-row"><span class="c-label">Towing</span><span class="c-val-group"><span class="c-ded text-muted">No Cov</span></span></div>
+                                <div class="cov-list-row"><span class="c-label">RREIM</span><span class="c-val-group"><span class="c-ded text-muted">No Cov</span></span></div>
+                                <div class="cov-list-row"><span class="c-label">GAP</span><span class="c-val-group"><span class="c-ded text-muted">No Cov</span></span></div>
+                                <div class="cov-list-row"><span class="c-label">Custom</span><span class="c-val-group"><span class="c-ded text-muted">No Cov</span></span></div>
+                                <div class="cov-list-row"><span class="c-label">Safety</span><span class="c-val-group"><span class="c-ded text-muted">No Cov</span></span></div>
+                            </div>
+                        </div>
+
+                    </div>
+                    
+                    <button onclick="toggleDetails(${o.id})" class="close-det-btn">Close Details <i class="fa-solid fa-chevron-up"></i></button>
                 </div>
             `;
             container.appendChild(div);
-            
-            // Si el deducible es 'Sin Deducible', aplicar el multiplicador base 1.15 al renderizar inicialmente
-            // Ya que basePrimaAnualUF es el precio base (UF 3).
-            // NOTA: Para no alterar la data source original, solo actualizamos la UI usando la funcion existente.
-            updateDeductible(o.id, o.deducible);
         });
-        updateBtns();
     }
 
-    
-
     // Funciones Globales (attached to window para acceso desde HTML inyectado)
-    
+    window.toggleDetails = id => {
+        const el = document.getElementById(`dtl-${id}`);
+        if(el) el.classList.toggle('active');
+    };
     
     window.toggleSel = function(id, btn, carrierName) {
         const card = document.querySelector(`.offer-card[data-id="${id}"]`);
         if(window.selectedIds.includes(id)) {
             window.selectedIds = window.selectedIds.filter(i => i !== id);
             card.classList.remove('selected');
-            btn.textContent = 'Seleccionar';
+            btn.textContent = 'Select Plan';
         } else {
             window.selectedIds.push(id);
             card.classList.add('selected');
-            btn.textContent = 'Desmarcar';
-            showToast(`${carrierName} Seleccionado`,'success');
+            btn.textContent = 'Unselect';
+            showToast(`${carrierName} Added`,'success');
         }
         updateBtns();
     }
 
-        window.updateBtns = function() {
-        const nextBtns = document.querySelectorAll('#btnCheckoutSidebar, #btnMobileCheckout, .js-btn-next');
-        const compBtns = document.querySelectorAll('#btnCompareSidebar, .js-btn-compare');
+    window.updateBtns = function() {
+        const nextBtns = document.querySelectorAll('.js-btn-next');
+        const compBtns = document.querySelectorAll('.js-btn-compare');
 
-        // Logic for Proceder: EXACTLY 1 selected
+        
+        nextBtns.forEach(b => b.classList.remove('active'));
+        compBtns.forEach(b => b.classList.remove('active'));
+
         if (window.selectedIds.length === 1) {
-            nextBtns.forEach(b => {
-                b.classList.add('active');
-                b.disabled = false;
-                b.style.opacity = '1';
-                b.style.pointerEvents = 'auto';
-                b.style.cursor = 'pointer';
-            });
-        } else {
-            nextBtns.forEach(b => {
-                b.classList.remove('active');
-                b.disabled = true;
-                b.style.opacity = '0.4';
-                b.style.pointerEvents = 'none';
-                b.style.cursor = 'not-allowed';
-            });
-        }
-
-        // Logic for Comparar: >= 2 selected
-        if (window.selectedIds.length >= 2) {
-            compBtns.forEach(b => {
-                b.classList.add('active');
-                b.disabled = false;
-                b.style.opacity = '1';
-                b.style.pointerEvents = 'auto';
-                b.style.cursor = 'pointer';
-            });
-        } else {
-            compBtns.forEach(b => {
-                b.classList.remove('active');
-                b.disabled = true;
-                b.style.opacity = '0.4';
-                b.style.pointerEvents = 'none';
-                b.style.cursor = 'not-allowed';
-            });
+            nextBtns.forEach(b => b.classList.add('active'));
+        } else if (window.selectedIds.length >= 2) {
+            compBtns.forEach(b => b.classList.add('active'));
         }
     }
 
@@ -4328,19 +4227,19 @@ var reviewSteps = [
     {
         targetId: 'configSidebar',
         mobileTargetId: 'btnMobileFilter', 
-        label: 'RESUMEN',
+        label: 'CONTROL',
         padding: 5,
         graphicHTML: `
             <div class="scene-eq">
                 <div class="eq-bar"></div><div class="eq-bar"></div><div class="eq-bar"></div>
                 <div class="eq-bar"></div><div class="eq-bar"></div>
             </div>`,
-        title: 'Filtros y Resumen',
-        desc: 'Revisa los datos de tu perfil en este panel y selecciona las aseguradoras que deseas ver o comparar.'
+        title: 'Live Coverage Tuning',
+        desc: 'Want to adjust prices? Use this panel to tweak deductibles and limits. The AI will instantly recalculate quotes from all carriers.'
     },
     {
         targetId: 'offersContainer',
-        label: 'MERCADO',
+        label: 'MARKETPLACE',
         padding: 10,
         graphicHTML: `
             <div class="scene-network">
@@ -4349,13 +4248,26 @@ var reviewSteps = [
                 <div class="net-node n2"></div><div class="net-line l2"></div>
                 <div class="net-node n3"></div><div class="net-line l3"></div>
             </div>`,
-        title: 'Selección Inteligente',
-        desc: 'Estas son las mejores opciones del mercado. Utiliza el selector dentro de cada tarjeta para elegir tu deducible y ver el precio al instante.'
+        title: 'AI-Curated Matches',
+        desc: 'We scanned 10+ carriers. These are your best matches based on value and coverage quality. Look for the <strong>"Alex Choice"</strong> badge.'
+    },
+    {
+        targetId: 'tour-down-btn', 
+        label: 'CASH FLOW',
+        padding: 5,
+        graphicHTML: `
+            <div class="scene-percent">
+                <div class="coin-stack"><div class="coin"></div><div class="coin"></div><div class="coin"></div></div>
+                <div class="arrow-exchange"><i class="fa-solid fa-arrow-right-arrow-left"></i></div>
+                <div class="bill-mini"><div class="bill-line"></div><div class="bill-line"></div></div>
+            </div>`,
+        title: 'Payment Flexibility',
+        desc: '<strong>You are in control.</strong> Use this dropdown to adjust your Down Payment. Paying a bit more upfront (e.g., 25%) can drastically lower your monthly installments.'
     },
     {
         targetId: 'btnCompareSidebar',
         mobileTargetId: 'btnMobileCompare',
-        label: 'COMPARAR',
+        label: 'COMPARE',
         padding: 5,
         graphicHTML: `
             <div class="scene-compare">
@@ -4363,13 +4275,25 @@ var reviewSteps = [
                 <div class="vs-badge">VS</div>
                 <div class="card-mini cm-right"></div>
             </div>`,
-        title: 'Análisis Lado a Lado',
-        desc: 'Selecciona 2 o más coberturas y presiona este botón para analizarlas al detalle y sin letra chica.'
+        title: 'Side-by-Side Analysis',
+        desc: 'Can\'t decide? Select 2 or more quotes and tap <strong>"Compare"</strong> to see a detailed feature-by-feature breakdown.'
+    },
+    {
+        targetId: 'offersContainer',
+        label: 'DEEP DIVE',
+        padding: 10,
+        graphicHTML: `
+            <div class="scene-details">
+                <div class="doc-lines"><div class="dl-line"></div><div class="dl-line"></div><div class="dl-line"></div><div class="dl-line"></div></div>
+                <div class="magnifier"><i class="fa-solid fa-magnifying-glass"></i></div>
+            </div>`,
+        title: 'X-Ray Vision',
+        desc: 'Tap <strong>"View Details"</strong> on any card to reveal the fine print: payment schedules, policy fees, and specific inclusions.'
     },
     {
         targetId: 'btnEditSidebar',
         mobileTargetId: 'btnMobileEdit',
-        label: 'EDICIÓN',
+        label: 'REFINE',
         padding: 5,
         graphicHTML: `
             <div class="scene-edit">
@@ -4379,8 +4303,21 @@ var reviewSteps = [
                 </div>
                 <div class="edit-pencil"><i class="fa-solid fa-pen"></i></div>
             </div>`,
-        title: 'Modifica tu Información',
-        desc: 'Si necesitas corregir algún dato, este botón te permitirá regresar y ajustar tu solicitud.'
+        title: 'Smart Correction',
+        desc: 'Need to fix a typo or swap a driver? Use <strong>"Edit"</strong> to jump to specific sections without restarting the whole process.'
+    },
+    {
+        targetId: 'btnCheckoutSidebar',
+        mobileTargetId: 'btnMobileCheckout',
+        label: 'FINALIZE',
+        padding: 5,
+        graphicHTML: `
+            <div class="scene-checkout">
+                <div class="cart-icon"><i class="fa-solid fa-cart-arrow-down"></i></div>
+                <div class="check-float"><i class="fa-solid fa-check"></i></div>
+            </div>`,
+        title: 'Secure & Bind',
+        desc: 'Found the winner? Select the plan and tap <strong>"Proceed"</strong> to lock in this rate and get your proof of insurance.'
     }
 ];
 
@@ -5368,16 +5305,12 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!document.getElementById('global-dropdown-portal')) {
         const menu = document.createElement('div');
         menu.id = 'global-dropdown-portal';
-                menu.innerHTML = `
-            <div class="portal-option" onclick="selectGlobalOption('Sin Deducible')">Sin Deducible</div>
-            <div class="portal-option" onclick="selectGlobalOption('Deducible UF 5')">Deducible UF 5</div>
-            <div class="portal-option" onclick="selectGlobalOption('Deducible UF 10')">Deducible UF 10</div>
-            <div class="portal-option" onclick="selectGlobalOption('Deducible UF 15')">Deducible UF 15</div>
-            <div class="portal-option" onclick="selectGlobalOption('Deducible UF 20')">Deducible UF 20</div>
-            <div class="portal-option" onclick="selectGlobalOption('Deducible UF 25')">Deducible UF 25</div>
-            <div class="portal-option" onclick="selectGlobalOption('Deducible UF 30')">Deducible UF 30</div>
-            <div class="portal-option" onclick="selectGlobalOption('Deducible UF 40')">Deducible UF 40</div>
-            <div class="portal-option" onclick="selectGlobalOption('Deducible UF 50')">Deducible UF 50</div>
+        menu.innerHTML = `
+            <div class="portal-option" onclick="selectGlobalOption(0.1666, '16% (Low)')">16% (Low)</div>
+            <div class="portal-option" onclick="selectGlobalOption(0.20, '20% (Std)')">20% (Std)</div>
+            <div class="portal-option selected" onclick="selectGlobalOption(0.25, '25% (Rec)')">25% (Rec) <i class="fa-solid fa-check"></i></div>
+            <div class="portal-option" onclick="selectGlobalOption(0.30, '30% (High)')">30% (High)</div>
+            <div class="portal-option" onclick="selectGlobalOption(1.00, 'Pay Full')">Pay Full</div>
         `;
         document.body.appendChild(menu);
         
@@ -5385,7 +5318,7 @@ document.addEventListener('DOMContentLoaded', () => {
         window.addEventListener('click', (e) => {
             if (!e.target.closest('.dropdown-trigger-btn')) closeGlobalMenu();
         });
-        window.addEventListener('scroll', (e) => { if(e.target.id === 'global-dropdown-portal') return; closeGlobalMenu(); }, true);
+        window.addEventListener('scroll', closeGlobalMenu, true);
     }
 });
 
@@ -6311,7 +6244,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } 
         // OPCIÓN B: Si necesitas redirigir a otra página
         else {
-            window.location.href = 'cotizacion-3-1.html'; 
+            window.location.href = '../cotizacion/cotizacion.html'; 
         }
     }
 
@@ -6558,47 +6491,3 @@ window.validateFunnelStep = function(containerId, nextUrl) {
     }
     return true;
 };
-
-
-    window.toggleDetails = function(id) {
-        const card = document.querySelector(`.offer-card[data-id="${id}"]`);
-        if(!card) return;
-        
-        const planName = card.querySelector('h4').textContent;
-        const modal = document.getElementById('covDetailsModal');
-        const planNamePill = document.getElementById('covModalPlanName');
-        const valuesContainer = document.getElementById('covModalValues');
-        
-        if(!modal || !planNamePill || !valuesContainer) return;
-        
-        planNamePill.innerHTML = `<i class="fa-solid fa-star"></i> ${planName}`;
-        
-        const checkIcon = '<span class="cov-check-icon"><i class="fa-solid fa-check"></i></span>';
-        const coverages = [
-            { label: "PÉRDIDA TOTAL", val: "100% valor comercial", icon: "fa-car-burst" },
-            { label: "RESP. CIVIL DAÑO EMERGENTE", val: "UF 500", icon: "fa-scale-balanced" },
-            { label: "RESP. CIVIL DAÑO MORAL", val: "UF 500", icon: "fa-heart-crack" },
-            { label: "RESP. CIVIL LUCRO CESANTE", val: "UF 500", icon: "fa-chart-line" },
-            { label: "HUELGA Y TERRORISMO", val: checkIcon, icon: "fa-fire" },
-            { label: "ACTOS MALICIOSOS", val: checkIcon, icon: "fa-mask" },
-            { label: "RIESGOS DE LA NATURALEZA", val: checkIcon, icon: "fa-cloud-bolt" },
-            { label: "DAÑOS VEH. GRANIZO", val: checkIcon, icon: "fa-snowflake" },
-            { label: "ASISTENCIA AL VEHICULO", val: checkIcon, icon: "fa-truck-pickup" }
-        ];
-
-        let html = '';
-        coverages.forEach(c => {
-            html += `
-                <div class="premium-cov-row">
-                    <div class="cov-row-left">
-                        <i class="fa-solid ${c.icon} cov-row-icon"></i>
-                        <div class="cov-label">${c.label}</div>
-                    </div>
-                    <div class="cov-val">${c.val}</div>
-                </div>
-            `;
-        });
-        
-        valuesContainer.innerHTML = html;
-        modal.classList.add('active');
-    };
