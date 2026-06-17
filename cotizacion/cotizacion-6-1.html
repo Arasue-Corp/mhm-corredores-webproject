@@ -374,32 +374,33 @@
     </div>
 
     <!-- MODAL AGENDAR ASESOR -->
-    <div id="advisorModal" class="modal-overlay-quote" style="display: none;">
-        <div class="comp-card" style="max-width: 450px;">
-            <div class="comp-header">
-                <div class="comp-title">
-                    <h3 style="color: #0284C7; font-weight: 800;"><i class="fa-regular fa-calendar-check"></i> Agendar Asesor</h3>
-                    <p>Horarios de atención de lunes a viernes de 9:00 a 18:00 hrs.</p>
+    <div id="advisorModal" class="more-offers-modal-overlay" style="display: none;">
+        <div class="more-offers-modal">
+            <button class="modal-close-btn js-close-advisor" type="button"><i class="fa-solid fa-xmark"></i></button>
+            
+            <div class="more-offers-icon">
+                <i class="fa-regular fa-calendar-check"></i>
+            </div>
+            
+            <h3 class="more-offers-title">Agendar Asesor</h3>
+            <p class="more-offers-desc">Horarios de atención de lunes a viernes de 9:00 a 18:00 hrs.</p>
+            
+            <form id="advisorForm" class="more-offers-form">
+                <div class="premium-modal-field">
+                    <label class="premium-modal-label">Nombre Completo</label>
+                    <input type="text" class="premium-modal-input" placeholder="Tu nombre" required>
                 </div>
-                <button class="comp-close js-close-advisor"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="comp-body" style="padding: 25px;">
-                <form id="advisorForm">
-                    <div class="input-rich-wrapper theme-blue mb-3">
-                        <div class="icon-slot"><i class="fa-solid fa-user"></i></div>
-                        <input type="text" class="rich-input" placeholder="Nombre completo" required>
-                    </div>
-                    <div class="input-rich-wrapper theme-blue mb-3">
-                        <div class="icon-slot"><i class="fa-solid fa-envelope"></i></div>
-                        <input type="email" class="rich-input" placeholder="Correo electrónico" required>
-                    </div>
-                    <div class="input-rich-wrapper theme-blue mb-4">
-                        <div class="icon-slot"><i class="fa-solid fa-phone"></i></div>
-                        <input type="tel" class="rich-input" placeholder="Teléfono" required>
-                    </div>
-                    <button type="submit" class="mhm-btn mhm-btn-primary" style="width: 100%;">ENVIAR SOLICITUD <i class="fa-solid fa-paper-plane"></i></button>
-                </form>
-            </div>
+                <div class="premium-modal-field">
+                    <label class="premium-modal-label">Correo electrónico</label>
+                    <input type="email" class="premium-modal-input" placeholder="correo@ejemplo.com" required>
+                </div>
+                <div class="premium-modal-field">
+                    <label class="premium-modal-label">Teléfono</label>
+                    <input type="tel" class="premium-modal-input" placeholder="+56 9 XXXX XXXX" required>
+                </div>
+                
+                <button type="submit" class="btn-submit-premium" style="width: 100%;">ENVIAR SOLICITUD <i class="fa-solid fa-paper-plane"></i></button>
+            </form>
         </div>
     </div>
 
