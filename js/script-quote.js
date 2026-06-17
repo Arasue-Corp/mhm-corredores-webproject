@@ -241,7 +241,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
         window.updateBtns = function() {
-        const nextBtns = document.querySelectorAll('#btnCheckoutSidebar, #btnMobileCheckout, .js-btn-next');
+        const nextBtns = document.querySelectorAll('#btnCheckoutSidebar, #btnMobileCheckout, .js-btn-next, .js-open-advisor');
         const compBtns = document.querySelectorAll('#btnCompareSidebar, .js-btn-compare');
 
         // Logic for Proceder: EXACTLY 1 selected

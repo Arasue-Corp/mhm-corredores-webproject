@@ -334,6 +334,7 @@
 
                 <div class="mhm-action-panel">
                     <button id="btnCheckoutSidebar" class="mhm-btn mhm-btn-primary">PROCEDER AL PAGO <i class="fa-solid fa-arrow-right"></i></button>
+                    <button class="mhm-btn mhm-btn-secondary js-open-advisor" style="background: #F0F9FF; color: #0284C7; border: 1px solid #BAE6FD; font-weight: 800;"><i class="fa-regular fa-calendar-check"></i> AGENDAR ASESOR</button>
                     <button id="btnCompareSidebar" class="mhm-btn mhm-btn-secondary" onclick="openCompareModal()"><i class="fa-solid fa-scale-balanced"></i> COMPARAR SELECCIONADOS</button>
                     <button id="btnEditSidebar" class="mhm-btn mhm-btn-ghost"><i class="fa-solid fa-pen"></i> Editar Información</button>
                 </div>
@@ -364,9 +365,40 @@
     <div class="mobile-dock">
         <div class="mobile-dock-row">
             <button id="btnMobileCheckout" class="btn-action btn-next js-btn-next">PROCEDER AL PAGO <i class="fa-solid fa-arrow-right"></i></button>
+            <button class="btn-action js-open-advisor" style="background: #F0F9FF; color: #0284C7; border: 1px solid #BAE6FD; padding: 15px; border-radius: 12px; font-weight: 800;">AGENDAR ASESOR <i class="fa-regular fa-calendar-check"></i></button>
             <div class="mobile-dock-sub">
                 <button id="btnMobileCompare" class="btn-action btn-compare js-btn-compare" style="flex:1;">COMPARAR</button>
                 <button id="btnMobileEdit" class="btn-action btn-update js-btn-update" onclick="alert('Redirecting...')" style="flex:1;">EDITAR</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL AGENDAR ASESOR -->
+    <div id="advisorModal" class="modal-overlay-quote" style="display: none;">
+        <div class="comp-card" style="max-width: 450px;">
+            <div class="comp-header">
+                <div class="comp-title">
+                    <h3 style="color: #0284C7; font-weight: 800;"><i class="fa-regular fa-calendar-check"></i> Agendar Asesor</h3>
+                    <p>Horarios de atención de lunes a viernes de 9:00 a 18:00 hrs.</p>
+                </div>
+                <button class="comp-close js-close-advisor"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            <div class="comp-body" style="padding: 25px;">
+                <form id="advisorForm">
+                    <div class="input-rich-wrapper theme-blue mb-3">
+                        <div class="icon-slot"><i class="fa-solid fa-user"></i></div>
+                        <input type="text" class="rich-input" placeholder="Nombre completo" required>
+                    </div>
+                    <div class="input-rich-wrapper theme-blue mb-3">
+                        <div class="icon-slot"><i class="fa-solid fa-envelope"></i></div>
+                        <input type="email" class="rich-input" placeholder="Correo electrónico" required>
+                    </div>
+                    <div class="input-rich-wrapper theme-blue mb-4">
+                        <div class="icon-slot"><i class="fa-solid fa-phone"></i></div>
+                        <input type="tel" class="rich-input" placeholder="Teléfono" required>
+                    </div>
+                    <button type="submit" class="mhm-btn mhm-btn-primary" style="width: 100%;">ENVIAR SOLICITUD <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
             </div>
         </div>
     </div>
@@ -983,3 +1015,55 @@ document.addEventListener('DOMContentLoaded', function() {
 
 </body>
 </html>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const advisorModal = document.getElementById('advisorModal');
+    const openBtns = document.querySelectorAll('.js-open-advisor');
+    const closeBtn = document.querySelector('.js-close-advisor');
+    const advisorForm = document.getElementById('advisorForm');
+
+    if (advisorModal) {
+        openBtns.forEach(btn => {
+            btn.addEventListener('click', function(e) {
+                e.preventDefault();
+                advisorModal.classList.add('active');
+            });
+        });
+
+        if (closeBtn) {
+            closeBtn.addEventListener('click', function() {
+                advisorModal.classList.remove('active');
+            });
+        }
+
+        if (advisorForm) {
+            advisorForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalHtml = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> ENVIANDO...';
+                
+                // Simulate API call
+                setTimeout(() => {
+                    submitBtn.innerHTML = '<i class="fa-solid fa-check"></i> ¡ENVIADO CON ÉXITO!';
+                    submitBtn.style.background = '#10B981';
+                    
+                    setTimeout(() => {
+                        advisorModal.classList.remove('active');
+                        advisorForm.reset();
+                        submitBtn.innerHTML = originalHtml;
+                        submitBtn.style.background = '';
+                    }, 2000);
+                }, 1500);
+            });
+        }
+        
+        // Close on click outside
+        advisorModal.addEventListener('click', function(e) {
+            if (e.target === advisorModal) {
+                advisorModal.classList.remove('active');
+            }
+        });
+    }
+});
+</script>
