@@ -1013,8 +1013,6 @@ document.addEventListener('DOMContentLoaded', function() {
     </div>
     </div>
 
-</body>
-</html>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     const advisorModal = document.getElementById('advisorModal');
@@ -1026,13 +1024,13 @@ document.addEventListener('DOMContentLoaded', function() {
         openBtns.forEach(btn => {
             btn.addEventListener('click', function(e) {
                 e.preventDefault();
-                advisorModal.classList.add('active');
+                advisorModal.style.display = 'flex'; setTimeout(() => advisorModal.classList.add('active'), 10);
             });
         });
 
         if (closeBtn) {
             closeBtn.addEventListener('click', function() {
-                advisorModal.classList.remove('active');
+                advisorModal.classList.remove('active'); setTimeout(() => advisorModal.style.display = 'none', 300);
             });
         }
 
@@ -1049,7 +1047,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     submitBtn.style.background = '#10B981';
                     
                     setTimeout(() => {
-                        advisorModal.classList.remove('active');
+                        advisorModal.classList.remove('active'); setTimeout(() => advisorModal.style.display = 'none', 300);
                         advisorForm.reset();
                         submitBtn.innerHTML = originalHtml;
                         submitBtn.style.background = '';
@@ -1061,9 +1059,11 @@ document.addEventListener('DOMContentLoaded', function() {
         // Close on click outside
         advisorModal.addEventListener('click', function(e) {
             if (e.target === advisorModal) {
-                advisorModal.classList.remove('active');
+                advisorModal.classList.remove('active'); setTimeout(() => advisorModal.style.display = 'none', 300);
             }
         });
     }
 });
 </script>
+</body>
+</html>
