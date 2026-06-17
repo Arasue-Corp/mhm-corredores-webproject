@@ -5393,6 +5393,13 @@ document.addEventListener('DOMContentLoaded', () => {
 window.openGlobalMenu = function(btnElement) {
     const menu = document.getElementById('global-dropdown-portal');
     
+    // Si ya está abierto y le dimos click al mismo botón, lo cerramos (toggle)
+    if (menu.classList.contains('active') && activeTriggerBtn === btnElement) {
+        menu.classList.remove('active');
+        activeTriggerBtn = null;
+        return;
+    }
+    
     // Guardamos contexto
     activeTriggerBtn = btnElement;
     activeCardContext = btnElement.closest('.offer-card');
