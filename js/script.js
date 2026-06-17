@@ -1193,16 +1193,16 @@ window.addEventListener("load", function() {
     const chat = document.getElementById('floating-chat-container');
     const menu = document.getElementById('floating-menu-container');
 
-    const commonStyle = "position: fixed !important; z-index: 999 !important; display: flex !important; transform: none !important; top: auto !important; left: auto !important;";
+    const commonStyle = "position: fixed !important; display: flex !important; transform: none !important; top: auto !important; left: auto !important;";
 
     if (chat) {
         if (chat.parentElement !== document.body) document.body.appendChild(chat);
-        chat.style.cssText = `${commonStyle} bottom: 30px !important; right: 30px !important;`;
+        chat.style.cssText = `${commonStyle}`;
     }
 
     if (menu) {
         if (menu.parentElement !== document.body) document.body.appendChild(menu);
-        menu.style.cssText = `${commonStyle} bottom: 100px !important; right: 30px !important;`;
+        menu.style.cssText = `${commonStyle}`;
     }
 
     console.log("🚀 Alex AI: Botones flotantes alineados a la derecha.");
