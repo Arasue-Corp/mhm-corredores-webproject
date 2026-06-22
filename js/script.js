@@ -1245,3 +1245,32 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
+
+// ==========================================
+// MHM 2.0 - ANIMATION ON SCROLL (IntersectionObserver)
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    // Select all sections and cards that should animate on scroll
+    const animatedElements = document.querySelectorAll("section, .comp-card, .social-glass-card, .cmd-card, .feat-card, .step-card");
+    
+    const observerOptions = {
+        root: null,
+        rootMargin: "0px",
+        threshold: 0.1
+    };
+    
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add("animate-on-scroll");
+                observer.unobserve(entry.target); // Animate only once
+            }
+        });
+    }, observerOptions);
+    
+    animatedElements.forEach(el => {
+        // Initialize opacity to 0 via CSS to prevent flashing, then observe
+        el.style.opacity = "0";
+        observer.observe(el);
+    });
+});

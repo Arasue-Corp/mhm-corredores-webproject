@@ -10721,3 +10721,53 @@ button.close-chat-btn i {
 }
 
 
+
+/* =========================================
+   PERFORMANCE & ANIMATIONS (MHM 2.0 UPDATE)
+   ========================================= */
+
+/* Rendimiento: Evitar renderizar contenido fuera de pantalla hasta que sea necesario */
+#carriers, #products, #social, #features, #savings {
+    content-visibility: auto;
+    contain-intrinsic-size: 1000px;
+}
+
+/* Glassmorphism Refinado: Sombras suaves y bordes finos */
+.glass-navbar {
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+    border: 1px solid rgba(255, 255, 255, 0.4);
+}
+
+.hero-glass-card, .comp-card, .social-glass-card, .cmd-card {
+    box-shadow: 0 10px 40px 0 rgba(31, 38, 135, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.hero-glass-card:hover, .comp-card:hover, .social-glass-card:hover, .cmd-card:hover {
+    transform: translateY(-4px) scale(1.01);
+    box-shadow: 0 15px 50px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Fade-in-up animation on load/scroll */
+@keyframes fadeInUpModern {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 30px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    animation: fadeInUpModern 0.8s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
+}
+
+/* Escalar botones premium ligeramente */
+.btn-aurora-gradient:hover, .btn-hero-primary:hover, .btn-action:hover {
+    transform: translateY(-2px) scale(1.03);
+    filter: brightness(1.1);
+}
