@@ -12,6 +12,30 @@
     <link rel="stylesheet" href="../css/style.css"> 
     <link rel="stylesheet" href="../css/style-quote.css"> 
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
+<style>
+/* ABSOLUTE MOBILE OVERFLOW KILLER */
+@media (max-width: 1024px) {
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    div, section, aside, header, footer, table, .c-table, .marketplace-grid, .offer-card, .summary-sidebar, .info-statement-box {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    .cov-val, .cov-label {
+        white-space: normal !important;
+    }
+}
+</style>
+
 </head>
 <body class="bg-body">
 
