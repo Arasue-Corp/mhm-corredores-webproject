@@ -165,7 +165,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-6-1.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Volver a Resultados</span></a>
+        <a href="cotizacion-7-1.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span>Volver a Coberturas</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -186,10 +186,10 @@
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Contrato 100% Digital</h1>
+                    <h1 class="text-gradient-corp">Carga tu documento y valida tu 0Km</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Verifica los datos del contratante antes de emitir tu póliza.</p>
+                <p>Verifica que tu vehículo es nuevo subiendo la documentación requerida.</p>
             </header>
         </div>
 
@@ -199,288 +199,86 @@
             <div class="main-spec-col">
                 
                 
-                <div class="row-switch-container mb-4" style="justify-content: center; background: transparent; border: none; padding: 0;">
-                    <div class="aurora-toggle-segment" style="transform: scale(1.1); margin: 0 auto;">
-                        <input type="radio" name="entityTypeToggle" id="togglePersona" value="persona" checked onclick="switchEntityToggle('persona')">
-                        <label for="togglePersona" style="padding: 10px 30px;" onclick="switchEntityToggle('persona')"><i class="fa-solid fa-user"></i> Persona</label>
+                
+                <div class="premium-white-card" id="quoteFormStep8">
+                    <div class="info-banner-warning mb-4" style="background: #FFFBEB; border: 1px solid #FEF08A; color: #B45309; padding: 15px 20px; border-radius: 12px; display: flex; align-items: flex-start; gap: 12px;">
+                        <div class="banner-icon" style="color: #F59E0B; margin-top:2px;"><i class="fa-solid fa-clock-rotate-left"></i></div>
+                        <div><strong>Atención:</strong> La factura o Guía de despacho no debe superar las 48 horas desde la emisión.</div>
+                    </div>
+                    
+                    <div class="grid-2-tight mb-4">
+                        <div class="inp-rich-group">
+                            <label>RUT del emisor de la factura</label>
+                            <div class="input-rich-wrapper compact-premium theme-blue">
+                                <div class="icon-slot"><i class="fa-solid fa-building"></i></div>
+                                <input type="text" class="rich-input" placeholder="Ej: 76.123.456-7" id="rutEmisor">
+                            </div>
+                        </div>
+                        <div class="inp-rich-group">
+                            <label>Número de factura</label>
+                            <div class="input-rich-wrapper compact-premium theme-blue">
+                                <div class="icon-slot"><i class="fa-solid fa-file-invoice"></i></div>
+                                <input type="text" class="rich-input" placeholder="Ej: 125678" id="numFactura">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="inp-rich-group mb-5">
+                        <label>Favor de seleccionar fecha de emisión <i class="fa-solid fa-calendar-days" style="color: var(--quote-primary); margin-left:5px;"></i></label>
+                        <div class="date-boxes-container">
+                            <div class="input-rich-wrapper compact-premium theme-purple date-box">
+                                <div class="icon-slot" style="font-size:0.75rem; font-weight:700;">DD</div>
+                                <input type="number" class="rich-input text-center" placeholder="01" min="1" max="31" id="dateDD" oninput="checkFormCompletion()">
+                            </div>
+                            <span class="date-separator">/</span>
+                            <div class="input-rich-wrapper compact-premium theme-purple date-box">
+                                <div class="icon-slot" style="font-size:0.75rem; font-weight:700;">MM</div>
+                                <input type="number" class="rich-input text-center" placeholder="12" min="1" max="12" id="dateMM" oninput="checkFormCompletion()">
+                            </div>
+                            <span class="date-separator">/</span>
+                            <div class="input-rich-wrapper compact-premium theme-purple date-box year-box">
+                                <div class="icon-slot" style="font-size:0.75rem; font-weight:700;">YYYY</div>
+                                <input type="number" class="rich-input text-center" placeholder="2026" min="2020" max="2030" id="dateYYYY" oninput="checkFormCompletion()">
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="pg-header">
+                        <div class="pg-header-badge teal">
+                            <i class="fa-solid fa-cloud-arrow-up"></i> CARGA DE DOCUMENTO
+                        </div>
+                        <div class="pg-header-line"></div>
+                    </div>
+                    
+                    <div class="upload-area-container mb-2">
+                        <input type="file" id="fileUpload" class="hidden-file-input" accept="application/pdf" onchange="handleFileUpload(event)">
                         
-                        <input type="radio" name="entityTypeToggle" id="toggleEmpresa" value="empresa" onclick="switchEntityToggle('empresa')">
-                        <label for="toggleEmpresa" style="padding: 10px 30px;" onclick="switchEntityToggle('empresa')"><i class="fa-solid fa-building"></i> Empresa</label>
-                        <div class="segment-highlight"></div>
-                    </div>
-                </div>
-
-
-                <div class="premium-white-card" id="quoteFormStep7">
-                    
-                    
-                    <!-- FORMULARIO PERSONA -->
-                    <div id="panel-persona" class="car-panel active" data-id="persona">
-                        <div class="info-banner-blue mb-4">
-                            <div class="banner-icon"><i class="fa-solid fa-id-card"></i></div>
-                            <div><strong>Identidad Verificada:</strong> Contratante Persona</div>
+                        <div class="upload-drop-zone" id="dropZone" onclick="document.getElementById('fileUpload').click()">
+                            <div class="upload-icon-wrapper">
+                                <i class="fa-solid fa-file-pdf"></i>
+                            </div>
+                            <h3 class="upload-title">Adjunta PDF</h3>
+                            <p class="upload-desc">Arrastra y suelta tu archivo aquí, o haz clic para explorar</p>
+                            <div class="upload-btn-fake">Seleccionar Archivo</div>
                         </div>
-
-                        <div class="premium-group">
-                            <div class="pg-header">
-                                <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-user-check"></i> DATOS DEL CONTRATANTE
-                                </div>
-                                <div class="pg-header-line"></div>
+                        
+                        <div class="document-preview-card" id="docPreview" style="display: none;">
+                            <div class="doc-icon"><i class="fa-solid fa-file-pdf" style="color: #EF4444;"></i></div>
+                            <div class="doc-info">
+                                <div class="doc-name" id="docName">factura.pdf</div>
+                                <div class="doc-size" id="docSize">-- • Carga completada</div>
                             </div>
-                            
-                            <div class="grid-2-tight mb-3">
-                                <div class="inp-rich-group">
-                                    <label>RUT</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-hashtag"></i></div>
-                                        <input type="text" class="rich-input" value="10.042.595-5" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                        <div class="verified-badge-inline" style="position:absolute; right: 15px; color: var(--success, #10b981);"><i class="fa-solid fa-circle-check"></i></div>
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Fecha de Nacimiento</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-calendar-day"></i></div>
-                                        <input type="text" class="rich-input" value="22/05/1981" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="grid-2-tight mb-4">
-                                <div class="inp-rich-group">
-                                    <label>Nombre(s)</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-user"></i></div>
-                                        <input type="text" class="rich-input" value="Cristian Gonzalo" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Apellidos</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-users"></i></div>
-                                        <input type="text" class="rich-input" value="Martinez" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="pg-header">
-                                <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-map-location-dot"></i> RESIDENCIA & CONTACTO
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            
-                            <div class="grid-2-tight mb-3">
-                                <div class="inp-rich-group">
-                                    <label>Región</label>
-                                    <div class="input-rich-wrapper compact-premium theme-teal">
-                                        <div class="icon-slot"><i class="fa-solid fa-map"></i></div>
-                                        <input type="text" class="rich-input" value="DE LOS RÍOS" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Comuna</label>
-                                    <div class="input-rich-wrapper compact-premium theme-teal">
-                                        <div class="icon-slot"><i class="fa-solid fa-city"></i></div>
-                                        <input type="text" class="rich-input" value="VALDIVIA" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="inp-rich-group mb-3">
-                                <label>Dirección</label>
-                                <div class="input-rich-wrapper compact-premium theme-teal">
-                                    <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
-                                    <input type="text" class="rich-input" value="Calle Los Robles 1234" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                </div>
-                            </div>
-
-                            <div class="grid-2-tight mb-4">
-                                <div class="inp-rich-group">
-                                    <label>Teléfono Móvil (Envío Póliza)</label>
-                                    <div class="input-rich-wrapper compact-premium theme-purple">
-                                        <div class="icon-slot"><i class="fa-solid fa-mobile-screen"></i></div>
-                                        <input type="text" class="rich-input" value="+56 999 999 999" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Correo (Envío Póliza)</label>
-                                    <div class="input-rich-wrapper compact-premium theme-purple">
-                                        <div class="icon-slot"><i class="fa-solid fa-at"></i></div>
-                                        <input type="text" class="rich-input" value="cristian.martinez@email.com" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row-switch-container">
-                                <div class="switch-label-group">
-                                    <div class="sl-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                                    <div class="sl-text">
-                                        <span class="sl-title" style="font-size:1.15rem;">¿Confirma que los datos son correctos?</span>
-                                        <span class="sl-sub">Esto es necesario para emitir su póliza digital legalmente.</span>
-                                    </div>
-                                </div>
-                                <div class="aurora-toggle-segment">
-                                    <input type="radio" name="correct_p" id="correct_p_yes" value="yes" onchange="toggleContinueBtn()">
-                                    <label for="correct_p_yes">Sí</label>
-                                    
-                                    <input type="radio" name="correct_p" id="correct_p_no" value="no" checked onchange="toggleContinueBtn()">
-                                    <label for="correct_p_no">No</label>
-                                    <div class="segment-highlight"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- FORMULARIO EMPRESA -->
-                    <div id="panel-empresa" class="car-panel" data-id="empresa" style="display:none;">
-                        <div class="info-banner-blue mb-4">
-                            <div class="banner-icon"><i class="fa-solid fa-building"></i></div>
-                            <div><strong>Entidad Legal Verificada:</strong> Contratante Empresa</div>
-                        </div>
-
-                        <div class="premium-group">
-                            <div class="pg-header">
-                                <div class="pg-header-badge blue">
-                                    <i class="fa-solid fa-building-circle-check"></i> DATOS DE LA EMPRESA
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            
-                            <div class="grid-2-tight mb-3">
-                                <div class="inp-rich-group">
-                                    <label>RUT Empresa</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-hashtag"></i></div>
-                                        <input type="text" class="rich-input" value="76.543.210-K" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                        <div class="verified-badge-inline" style="position:absolute; right: 15px; color: var(--success, #10b981);"><i class="fa-solid fa-circle-check"></i></div>
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Giro Comercial</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-briefcase"></i></div>
-                                        <input type="text" class="rich-input" value="Desarrollo de Software" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="grid-2-tight mb-4">
-                                <div class="inp-rich-group">
-                                    <label>Razón Social</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-building-columns"></i></div>
-                                        <input type="text" class="rich-input" value="Tech Innovators SpA" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Nombre de Fantasía</label>
-                                    <div class="input-rich-wrapper compact-premium theme-blue">
-                                        <div class="icon-slot"><i class="fa-solid fa-tag"></i></div>
-                                        <input type="text" class="rich-input" value="Tech Innovators" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="pg-header">
-                                <div class="pg-header-badge teal">
-                                    <i class="fa-solid fa-user-tie"></i> REPRESENTANTE LEGAL
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-
-                            <div class="grid-2-tight mb-4">
-                                <div class="inp-rich-group">
-                                    <label>RUT Representante</label>
-                                    <div class="input-rich-wrapper compact-premium theme-teal">
-                                        <div class="icon-slot"><i class="fa-solid fa-id-card-clip"></i></div>
-                                        <input type="text" class="rich-input" value="15.123.456-7" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Nombre Completo</label>
-                                    <div class="input-rich-wrapper compact-premium theme-teal">
-                                        <div class="icon-slot"><i class="fa-solid fa-signature"></i></div>
-                                        <input type="text" class="rich-input" value="Ana Gómez Silva" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="pg-header">
-                                <div class="pg-header-badge purple">
-                                    <i class="fa-solid fa-map-location-dot"></i> DOMICILIO & CONTACTO EMPRESA
-                                </div>
-                                <div class="pg-header-line"></div>
-                            </div>
-                            
-                            <div class="grid-2-tight mb-3">
-                                <div class="inp-rich-group">
-                                    <label>Región</label>
-                                    <div class="input-rich-wrapper compact-premium theme-purple">
-                                        <div class="icon-slot"><i class="fa-solid fa-map"></i></div>
-                                        <input type="text" class="rich-input" value="METROPOLITANA" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Comuna</label>
-                                    <div class="input-rich-wrapper compact-premium theme-purple">
-                                        <div class="icon-slot"><i class="fa-solid fa-city"></i></div>
-                                        <input type="text" class="rich-input" value="PROVIDENCIA" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="inp-rich-group mb-3">
-                                <label>Dirección Comercial</label>
-                                <div class="input-rich-wrapper compact-premium theme-purple">
-                                    <div class="icon-slot"><i class="fa-solid fa-road"></i></div>
-                                    <input type="text" class="rich-input" value="Av. Nueva Providencia 456, Piso 8" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                </div>
-                            </div>
-
-                            <div class="grid-2-tight mb-4">
-                                <div class="inp-rich-group">
-                                    <label>Teléfono Comercial</label>
-                                    <div class="input-rich-wrapper compact-premium theme-purple">
-                                        <div class="icon-slot"><i class="fa-solid fa-phone"></i></div>
-                                        <input type="text" class="rich-input" value="+56 2 2988 8888" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                                <div class="inp-rich-group">
-                                    <label>Correo Corporativo</label>
-                                    <div class="input-rich-wrapper compact-premium theme-purple">
-                                        <div class="icon-slot"><i class="fa-solid fa-envelope"></i></div>
-                                        <input type="text" class="rich-input" value="contacto@techinnovators.cl" disabled style="color: var(--text-dark, #333); font-weight: 600;">
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <div class="row-switch-container">
-                                <div class="switch-label-group">
-                                    <div class="sl-icon"><i class="fa-solid fa-clipboard-check"></i></div>
-                                    <div class="sl-text">
-                                        <span class="sl-title" style="font-size:1.15rem;">¿Confirma que los datos son correctos?</span>
-                                        <span class="sl-sub">Esto es necesario para emitir su póliza digital legalmente.</span>
-                                    </div>
-                                </div>
-                                <div class="aurora-toggle-segment">
-                                    <input type="radio" name="correct_e" id="correct_e_yes" value="yes" onchange="toggleContinueBtn()">
-                                    <label for="correct_e_yes">Sí</label>
-                                    
-                                    <input type="radio" name="correct_e" id="correct_e_no" value="no" checked onchange="toggleContinueBtn()">
-                                    <label for="correct_e_no">No</label>
-                                    <div class="segment-highlight"></div>
-                                </div>
-                            </div>
+                            <button class="doc-remove-btn" onclick="removeDocument(event)"><i class="fa-solid fa-xmark"></i></button>
                         </div>
                     </div>
 
                     <div class="hero-action-area mt-5" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem;">
                         <div class="secure-badge-modern"><i class="fa-solid fa-lock" style="color: #2dd4bf;"></i> Conexión Encriptada 256-bit</div>
-                        <button type="button" class="btn-hero-gradient disabled" id="btnNext" style="cursor:not-allowed; padding: 12px 32px; font-size: 1.1rem; border-radius: 100px; opacity: 0.5;" disabled onclick="window.location.href='cotizacion-8-1.html'">
+                        <a href="cotizacion-9.html" id="linkNext" style="text-decoration:none; pointer-events: none;">
+                            <button type="button" class="btn-hero-gradient disabled" id="btnNext" style="cursor:not-allowed; padding: 12px 32px; font-size: 1.1rem; border-radius: 100px; opacity: 0.5;" disabled>
                                 Continuar Emisión <i class="fa-solid fa-arrow-right-long"></i>
                             </button>
+                        </a>
                     </div>
 
                 </div>
@@ -494,8 +292,8 @@
                         <li class="done"><i class="fa-solid fa-circle-check" style="color: var(--corp-primary);"></i> Tipo de Seguro</li>
                         <li class="done"><i class="fa-solid fa-circle-check" style="color: var(--corp-primary);"></i> Datos del Auto</li>
                         <li class="done"><i class="fa-solid fa-circle-check" style="color: var(--corp-primary);"></i> Datos Personales</li>
-                        <li class="active"><span class="pulse-dot"></span> Coberturas</li>
-                        <li><i class="fa-regular fa-circle"></i> Validación 0Km</li>
+                        <li class="done"><i class="fa-solid fa-circle-check" style="color: var(--corp-primary);"></i> Coberturas</li>
+                        <li class="active"><span class="pulse-dot"></span> Validación 0Km</li>
                         <li><i class="fa-regular fa-circle"></i> Plan de Pago</li>
                     </ul>
 
@@ -686,9 +484,99 @@
         </button>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-    <script src="../js/script.js?v=1781129809"></script>
-    <script src="../js/script-quote.js?v=1781129809"></script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr">function toggleContinueBtn() {
+    const isPersona = document.getElementById('panel-persona').classList.contains('active');
+    const btnNext = document.getElementById('btnNext');
+    const linkNext = document.getElementById('linkNext');
+    let isYesChecked = false;
+    
+    if (isPersona) {
+        isYesChecked = document.getElementById('correct_p_yes').checked;
+    } else {
+        isYesChecked = document.getElementById('correct_e_yes').checked;
+    }
+    
+    if (isYesChecked) {
+        btnNext.disabled = false;
+        btnNext.classList.remove('disabled');
+        btnNext.style.cursor = 'pointer';
+        btnNext.style.opacity = '1';
+        linkNext.style.pointerEvents = 'auto';
+    } else {
+        btnNext.disabled = true;
+        btnNext.classList.add('disabled');
+        btnNext.style.cursor = 'not-allowed';
+        btnNext.style.opacity = '0.5';
+        linkNext.style.pointerEvents = 'none';
+    }
+}
+
+// Call on load and on entity switch
+document.addEventListener("DOMContentLoaded", toggleContinueBtn);
+
+</script>
+    <script src="../js/script.js?v=1781129809">function toggleContinueBtn() {
+    const isPersona = document.getElementById('panel-persona').classList.contains('active');
+    const btnNext = document.getElementById('btnNext');
+    const linkNext = document.getElementById('linkNext');
+    let isYesChecked = false;
+    
+    if (isPersona) {
+        isYesChecked = document.getElementById('correct_p_yes').checked;
+    } else {
+        isYesChecked = document.getElementById('correct_e_yes').checked;
+    }
+    
+    if (isYesChecked) {
+        btnNext.disabled = false;
+        btnNext.classList.remove('disabled');
+        btnNext.style.cursor = 'pointer';
+        btnNext.style.opacity = '1';
+        linkNext.style.pointerEvents = 'auto';
+    } else {
+        btnNext.disabled = true;
+        btnNext.classList.add('disabled');
+        btnNext.style.cursor = 'not-allowed';
+        btnNext.style.opacity = '0.5';
+        linkNext.style.pointerEvents = 'none';
+    }
+}
+
+// Call on load and on entity switch
+document.addEventListener("DOMContentLoaded", toggleContinueBtn);
+
+</script>
+    <script src="../js/script-quote.js?v=1781129809">function toggleContinueBtn() {
+    const isPersona = document.getElementById('panel-persona').classList.contains('active');
+    const btnNext = document.getElementById('btnNext');
+    const linkNext = document.getElementById('linkNext');
+    let isYesChecked = false;
+    
+    if (isPersona) {
+        isYesChecked = document.getElementById('correct_p_yes').checked;
+    } else {
+        isYesChecked = document.getElementById('correct_e_yes').checked;
+    }
+    
+    if (isYesChecked) {
+        btnNext.disabled = false;
+        btnNext.classList.remove('disabled');
+        btnNext.style.cursor = 'pointer';
+        btnNext.style.opacity = '1';
+        linkNext.style.pointerEvents = 'auto';
+    } else {
+        btnNext.disabled = true;
+        btnNext.classList.add('disabled');
+        btnNext.style.cursor = 'not-allowed';
+        btnNext.style.opacity = '0.5';
+        linkNext.style.pointerEvents = 'none';
+    }
+}
+
+// Call on load and on entity switch
+document.addEventListener("DOMContentLoaded", toggleContinueBtn);
+
+</script>
 
     <div id="richInfoModal" class="zlight-overlay">
         <div class="zlight-card rich-mode">
@@ -747,55 +635,75 @@
 
 
 <script>
-
-function switchEntityToggle(entityType) {
-    const panelPersona = document.getElementById('panel-persona');
-    const panelEmpresa = document.getElementById('panel-empresa');
-    const sideIndicator = document.getElementById('sideEntityIndicator');
-
-    if (entityType === 'persona') {
-        panelPersona.classList.add('active');
-        panelEmpresa.classList.remove('active');
-        panelPersona.style.display = ''; // Clear inline styles if any
-        panelEmpresa.style.display = '';
-        if (sideIndicator) sideIndicator.innerText = "Contratante Persona";
-        toggleContinueBtn();
-    } else {
-        panelPersona.classList.remove('active');
-        panelEmpresa.classList.add('active');
-        panelPersona.style.display = ''; 
-        panelEmpresa.style.display = '';
-        if (sideIndicator) sideIndicator.innerText = "Contratante Empresa";
-        toggleContinueBtn();
+    function handleFileUpload(event) {
+        const file = event.target.files[0];
+        if (file) {
+            document.getElementById('dropZone').style.display = 'none';
+            document.getElementById('docPreview').style.display = 'flex';
+            document.getElementById('docName').innerText = file.name;
+            const sizeInMB = (file.size / (1024*1024)).toFixed(2);
+            document.getElementById('docSize').innerText = sizeInMB + " MB • Carga completada";
+            checkFormCompletion();
+        }
     }
-}
-function toggleContinueBtn() {
-    const isPersona = document.getElementById('panel-persona').classList.contains('active');
-    const btnNext = document.getElementById('btnNext');
-    let isYesChecked = false;
-    
-    if (isPersona) {
-        isYesChecked = document.getElementById('correct_p_yes').checked;
-    } else {
-        isYesChecked = document.getElementById('correct_e_yes').checked;
+
+    function removeDocument(event) {
+        event.stopPropagation();
+        document.getElementById('fileUpload').value = "";
+        document.getElementById('docPreview').style.display = 'none';
+        document.getElementById('dropZone').style.display = 'flex';
+        checkFormCompletion();
     }
     
-    if (isYesChecked) {
-        btnNext.disabled = false;
-        btnNext.classList.remove('disabled');
-        btnNext.style.cursor = 'pointer';
-        btnNext.style.opacity = '1';
-    } else {
-        btnNext.disabled = true;
-        btnNext.classList.add('disabled');
-        btnNext.style.cursor = 'not-allowed';
-        btnNext.style.opacity = '0.5';
+    function checkFormCompletion() {
+        // Logic to enable continue button if file is loaded
+        const btnNext = document.getElementById('btnNext');
+        const linkNext = document.getElementById('linkNext');
+        const fileVal = document.getElementById('fileUpload').value;
+        const rut = document.getElementById('rutEmisor').value;
+        const num = document.getElementById('numFactura').value;
+        
+        // For prototype, just checking if a file is uploaded to enable button
+        if (fileVal !== "") {
+            btnNext.disabled = false;
+            btnNext.classList.remove('disabled');
+            btnNext.style.cursor = 'pointer';
+            btnNext.style.opacity = '1';
+            linkNext.style.pointerEvents = 'auto';
+        } else {
+            btnNext.disabled = true;
+            btnNext.classList.add('disabled');
+            btnNext.style.cursor = 'not-allowed';
+            btnNext.style.opacity = '0.5';
+            linkNext.style.pointerEvents = 'none';
+        }
     }
-}
+    
+    // Drag and drop visuals
+    const dropZone = document.getElementById('dropZone');
+    dropZone.addEventListener('dragover', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = 'var(--quote-primary)';
+        dropZone.style.background = '#EFF6FF';
+    });
+    dropZone.addEventListener('dragleave', (e) => {
+        e.preventDefault();
+        dropZone.style.borderColor = '#CBD5E1';
+        dropZone.style.background = '#F8FAFC';
+    });
+    dropZone.addEventListener('drop', (e) => {
+        e.preventDefault();
+        if (e.dataTransfer.files.length) {
+            document.getElementById('fileUpload').files = e.dataTransfer.files;
+            // Manually trigger change event
+            const event = new Event('change');
+            document.getElementById('fileUpload').dispatchEvent(event);
+        }
+    });
 
-// Call on load and on entity switch
-document.addEventListener("DOMContentLoaded", toggleContinueBtn);
-
+    // Make inputs trigger checkFormCompletion
+    document.getElementById('rutEmisor').addEventListener('input', checkFormCompletion);
+    document.getElementById('numFactura').addEventListener('input', checkFormCompletion);
 </script>
 </body>
 

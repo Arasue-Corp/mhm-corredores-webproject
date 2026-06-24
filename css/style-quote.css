@@ -8184,3 +8184,294 @@ DROPDOWN DOWNPAYMENT */
 .data-section-title:first-child {
     margin-top: 0;
 }
+
+
+/* =========================================
+   PANTALLA 8-1: FILE UPLOAD & DATE BOXES
+   ========================================= */
+
+/* Date Boxes */
+.date-boxes-container {
+    display: flex; align-items: center; gap: 15px; width: 100%;
+}
+.date-box { width: 100px; flex: none; }
+.year-box { width: 130px; }
+.date-separator { font-size: 1.5rem; font-weight: 300; color: #CBD5E1; }
+.text-center { text-align: center; }
+
+/* File Upload Zone */
+.hidden-file-input { display: none; }
+.upload-drop-zone {
+    border: 2px dashed #CBD5E1; background: #F8FAFC;
+    border-radius: 16px; padding: 40px 20px;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    cursor: pointer; transition: all 0.3s ease; text-align: center;
+}
+.upload-drop-zone:hover {
+    border-color: var(--quote-primary); background: #EFF6FF;
+    box-shadow: 0 10px 25px rgba(46, 217, 195, 0.1);
+}
+.upload-icon-wrapper {
+    width: 64px; height: 64px; border-radius: 50%;
+    background: white; color: var(--quote-primary);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.8rem; box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    margin-bottom: 15px; transition: transform 0.3s ease;
+}
+.upload-drop-zone:hover .upload-icon-wrapper { transform: scale(1.1); }
+.upload-title { font-size: 1.2rem; font-weight: 700; color: var(--quote-dark); margin-bottom: 5px; }
+.upload-desc { font-size: 0.9rem; color: #64748B; margin-bottom: 20px; }
+.upload-btn-fake {
+    background: white; border: 1px solid #E2E8F0; color: var(--quote-indigo);
+    padding: 8px 24px; border-radius: 50px; font-weight: 600; font-size: 0.9rem;
+    transition: all 0.2s ease;
+}
+.upload-drop-zone:hover .upload-btn-fake { border-color: var(--quote-primary); }
+
+/* Document Preview Card */
+.document-preview-card {
+    display: flex; align-items: center; gap: 15px;
+    background: white; border: 1px solid #E2E8F0; border-radius: 12px;
+    padding: 15px 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+    animation: slideInPanel 0.3s ease-out forwards;
+}
+.doc-icon { font-size: 2rem; color: #EF4444; }
+.doc-info { flex: 1; text-align: left; }
+.doc-name { font-weight: 600; color: var(--quote-dark); font-size: 0.95rem; margin-bottom: 2px; }
+.doc-size { font-size: 0.75rem; color: #10B981; font-weight: 500; }
+.doc-remove-btn {
+    background: #FEF2F2; color: #EF4444; border: none;
+    width: 32px; height: 32px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer; transition: 0.2s;
+}
+.doc-remove-btn:hover { background: #FCA5A5; color: white; }
+
+
+/* =========================================
+   PANTALLA 9-1: PAYMENTS & EMAIL MODAL
+   ========================================= */
+
+/* PIN Code Inputs for Email Modal */
+.pin-box {
+    width: 50px;
+    height: 60px;
+    font-size: 1.5rem;
+    font-weight: 800;
+    text-align: center;
+    border: 2px solid #E2E8F0;
+    border-radius: 12px;
+    background: white;
+    color: var(--quote-dark);
+    outline: none;
+    transition: all 0.2s ease;
+}
+.pin-box:focus {
+    border-color: var(--quote-primary);
+    box-shadow: 0 0 0 4px rgba(46, 217, 195, 0.15);
+}
+
+/* Payment Tabs */
+.payment-tabs-container {
+    display: flex;
+    background: #F8FAFC;
+    border-radius: 50px;
+    padding: 6px;
+    gap: 5px;
+    border: 1px solid #E2E8F0;
+}
+.payment-tab {
+    flex: 1;
+    border: none;
+    background: transparent;
+    padding: 12px;
+    border-radius: 50px;
+    font-weight: 700;
+    color: #64748b;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+.payment-tab.active {
+    background: white;
+    color: var(--quote-indigo);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+}
+.payment-form-box {
+    animation: fadeInForm 0.4s ease-out forwards;
+}
+
+@keyframes fadeInForm {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+
+
+/* =========================================
+   PREMIUM MODAL UPGRADE
+   ========================================= */
+.premium-modal-glass {
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255,255,255,0.4);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    border-radius: 24px;
+    padding: 40px 30px;
+    max-width: 450px;
+    width: 90%;
+    margin: auto;
+    text-align: center;
+    position: relative;
+    animation: scaleUpGlass 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes scaleUpGlass {
+    from { transform: scale(0.95) translateY(20px); opacity: 0; }
+    to { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+.modal-floating-icon {
+    width: 80px; height: 80px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 2rem; margin: -80px auto 20px;
+    background: white; border: 4px solid white;
+}
+.modal-floating-icon.blue-glow {
+    color: #3B82F6; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+.modal-floating-icon.purple-glow {
+    color: #8B5CF6; box-shadow: 0 10px 25px rgba(139, 92, 246, 0.3);
+}
+
+.modal-premium-title { font-weight: 800; font-size: 1.5rem; color: #1E293B; margin-bottom: 10px; }
+.modal-premium-desc { color: #64748B; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5; }
+
+.email-display-card {
+    background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px;
+    padding: 15px; display: flex; align-items: center; gap: 12px; margin-bottom: 30px;
+}
+.ed-icon { color: #94A3B8; font-size: 1.2rem; }
+.ed-text { flex: 1; font-weight: 700; color: #334155; text-align: left; }
+.ed-badge { background: #DCFCE7; color: #16A34A; font-size: 0.75rem; font-weight: 800; padding: 4px 8px; border-radius: 50px; }
+
+.modal-action-stack { display: flex; flex-direction: column; gap: 12px; }
+.btn-ghost-premium {
+    background: transparent; border: 1px solid #CBD5E1; color: #475569;
+    padding: 14px; border-radius: 12px; font-weight: 600; cursor: pointer; transition: 0.3s;
+}
+.btn-ghost-premium:hover { background: #F1F5F9; border-color: #94A3B8; }
+
+.pin-box-premium {
+    width: 55px; height: 65px; font-size: 2rem; font-weight: 800;
+    text-align: center; border: 2px solid #E2E8F0; border-radius: 16px;
+    background: #F8FAFC; color: #1E293B; outline: none; transition: 0.3s;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+.pin-box-premium:focus { border-color: #8B5CF6; background: white; box-shadow: 0 0 0 4px rgba(139, 92, 246, 0.15); }
+.resend-text { font-size: 0.85rem; color: #64748B; margin-bottom: 30px; }
+.resend-text span { font-weight: 700; color: #8B5CF6; cursor: pointer; }
+
+
+/* =========================================
+   PREMIUM DASHBOARD CARDS (PLAN & PAGADOR)
+   ========================================= */
+.dashboard-grid-main {
+    display: grid; grid-template-columns: 1fr 1.8fr; gap: 20px;
+}
+@media (max-width: 768px) { .dashboard-grid-main { grid-template-columns: 1fr; } }
+
+.dashboard-card {
+    background: white; border: 1px solid #E2E8F0; border-radius: 20px;
+    padding: 24px; box-shadow: 0 4px 20px rgba(0,0,0,0.02);
+}
+.dc-header { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+.dc-icon {
+    width: 40px; height: 40px; border-radius: 12px; background: #EFF6FF;
+    color: #3B82F6; display: flex; align-items: center; justify-content: center; font-size: 1.1rem;
+}
+.dc-icon.purple { background: #F5F3FF; color: #8B5CF6; }
+.dc-title { font-weight: 800; font-size: 1.1rem; color: #1E293B; }
+
+.receipt-amount-big {
+    font-size: 2.5rem; font-weight: 900; color: #0F172A; margin-bottom: 20px;
+}
+.receipt-amount-big .currency { font-size: 1.2rem; color: #64748B; vertical-align: super; font-weight: 700; }
+
+.receipt-breakdown { display: flex; flex-direction: column; gap: 12px; }
+.rb-row { display: flex; justify-content: space-between; font-size: 0.95rem; }
+.rb-label { color: #64748B; }
+.rb-value { font-weight: 700; color: #334155; }
+.rb-divider { height: 1px; border-top: 1px dashed #CBD5E1; margin: 5px 0; }
+.rb-row.highlight .rb-value { color: #3B82F6; font-size: 1.05rem; }
+
+.payer-data-grid { display: grid; grid-template-columns: 1fr; gap: 15px; }
+.pd-item { display: flex; flex-direction: column; gap: 4px; }
+.pd-item.full-width { grid-column: span 2; }
+.pd-label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.5px; color: #94A3B8; font-weight: 700; }
+.pd-value { font-size: 0.95rem; font-weight: 600; color: #1E293B; }
+
+
+/* =========================================
+   MODERN TOGGLE BOXES & SEGMENTED CONTROL
+   ========================================= */
+.modern-toggle-box {
+    display: flex; justify-content: space-between; align-items: center;
+    background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 16px; padding: 15px 20px;
+}
+.modern-toggle-box.highlight-box { background: #F0FDF4; border-color: #BBF7D0; }
+.mtb-info { display: flex; align-items: center; gap: 15px; }
+.mtb-icon {
+    width: 40px; height: 40px; border-radius: 50%; background: white;
+    color: #64748B; display: flex; align-items: center; justify-content: center;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+.mtb-icon.teal { color: #10B981; }
+.mtb-title { font-weight: 800; color: #1E293B; font-size: 1rem; }
+.mtb-desc { font-size: 0.8rem; color: #64748B; }
+
+.ios-segmented-control {
+    display: flex; position: relative; background: #E2E8F0; border-radius: 12px;
+    padding: 4px; overflow: hidden;
+}
+.ios-segment {
+    flex: 1; text-align: center; padding: 12px; font-weight: 700; color: #64748B;
+    border: none; background: transparent; cursor: pointer; position: relative; z-index: 2;
+    transition: color 0.3s;
+}
+.ios-segment.active { color: #1E293B; }
+.ios-segment-pill {
+    position: absolute; top: 4px; left: 4px; height: calc(100% - 8px); width: calc(50% - 4px);
+    background: white; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    z-index: 1; transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+
+/* Editable Payer Inputs */
+.pd-input {
+    width: 100%;
+    border: 1px solid #CBD5E1;
+    border-radius: 8px;
+    padding: 8px 12px;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1E293B;
+    background: #F8FAFC;
+    outline: none;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 2px 4px rgba(0,0,0,0.02);
+}
+.pd-input:focus {
+    border-color: #3B82F6;
+    background: white;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+.pd-input.locked {
+    border-color: transparent;
+    background: transparent;
+    box-shadow: none;
+    padding-left: 0;
+    pointer-events: none;
+}
