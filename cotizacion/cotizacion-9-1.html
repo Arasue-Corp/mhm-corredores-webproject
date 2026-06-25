@@ -981,7 +981,10 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
         if (type === 'PAC') {
             tabPAC.classList.add('active');
             tabPAT.classList.remove('active');
-            if(pill) pill.style.transform = 'translateX(0)';
+            if(pill) {
+                pill.style.transform = 'translateX(0)';
+                pill.classList.remove('pat-mode');
+            }
             if(btnText) btnText.innerText = "Contratar Seguro con PAC";
             
             formPAC.style.display = 'block';
@@ -989,7 +992,10 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
         } else {
             tabPAT.classList.add('active');
             tabPAC.classList.remove('active');
-            if(pill) pill.style.transform = 'translateX(100%)';
+            if(pill) {
+                pill.style.transform = 'translateX(100%)';
+                pill.classList.add('pat-mode');
+            }
             if(btnText) btnText.innerText = "Contratar Seguro con PAT";
             
             formPAT.style.display = 'block';
