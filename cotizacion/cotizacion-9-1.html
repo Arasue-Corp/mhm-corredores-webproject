@@ -515,14 +515,15 @@
                                     <input type="text" class="rich-input" placeholder="Ej: Santander">
                                 </div>
                             </div>
-                                           <div class="hero-action-area mt-5" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem;">
-                        <div class="secure-badge-modern"><i class="fa-solid fa-lock" style="color: #2dd4bf;"></i> Conexión Encriptada 256-bit</div>
-                        <button type="button" class="btn-hero-gradient disabled" id="btnNext" style="cursor:not-allowed; padding: 12px 32px; font-size: 1.1rem; border-radius: 100px; opacity: 0.5;" disabled onclick="window.location.href='cotizacion-10-1-fid.html'">
-                                Contratar Seguro <i class="fa-solid fa-check"></i>
-                            </button>
-                    </div>          
                         </div>
-
+                        
+                        <!-- CTA Button (Outside of forms so it applies to both) -->
+                        <div class="hero-action-area mt-5" style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid rgba(0,0,0,0.05); padding-top: 1.5rem;">
+                            <div class="secure-badge-modern"><i class="fa-solid fa-lock" style="color: #2dd4bf;"></i> Conexión Encriptada 256-bit</div>
+                            <button type="button" class="btn-hero-gradient disabled" id="btnNext" style="cursor:not-allowed; padding: 12px 32px; font-size: 1.1rem; border-radius: 100px; opacity: 0.5;" disabled onclick="window.location.href='cotizacion-10-1-fid.html'">
+                                <span id="btnNextText">Contratar Seguro con PAC</span> <i class="fa-solid fa-check"></i>
+                            </button>
+                        </div>
                     </div>
 
 
@@ -975,10 +976,13 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
         const formPAT = document.getElementById('formPAT');
         const pill = document.getElementById('iosPill');
         
+        const btnText = document.getElementById('btnNextText');
+        
         if (type === 'PAC') {
             tabPAC.classList.add('active');
             tabPAT.classList.remove('active');
             if(pill) pill.style.transform = 'translateX(0)';
+            if(btnText) btnText.innerText = "Contratar Seguro con PAC";
             
             formPAC.style.display = 'block';
             formPAT.style.display = 'none';
@@ -986,6 +990,7 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
             tabPAT.classList.add('active');
             tabPAC.classList.remove('active');
             if(pill) pill.style.transform = 'translateX(100%)';
+            if(btnText) btnText.innerText = "Contratar Seguro con PAT";
             
             formPAT.style.display = 'block';
             formPAC.style.display = 'none';
