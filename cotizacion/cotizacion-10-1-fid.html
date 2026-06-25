@@ -63,9 +63,9 @@
                     Para proteger tu transacción, enviaremos un PIN seguro a tu correo electrónico.
                 </p>
                 
-                <div class="email-display-card">
+                <div class="email-display-card" id="emailDisplayArea">
                     <div class="ed-icon"><i class="fa-solid fa-at"></i></div>
-                    <div class="ed-text">juan.perez@ejemplo.com</div>
+                    <div class="ed-text" id="emailTextSpan">juan.perez@ejemplo.com</div>
                     <div class="ed-badge"><i class="fa-solid fa-check"></i> Listo</div>
                 </div>
                 
@@ -73,9 +73,9 @@
                     <button class="btn-hero-gradient w-100" style="padding: 14px; border-radius: 12px; font-size: 1.05rem;" onclick="goToModalStep2()">
                         Enviar Código <i class="fa-solid fa-paper-plane" style="margin-left: 8px;"></i>
                     </button>
-                    <button class="btn-ghost-premium w-100" onclick="alert('Funcionalidad de actualizar correo en desarrollo.')">
+                    <a href="#" id="btnUpdateEmail" onclick="enableEmailEdit(event)" style="display: block; text-align: center; margin-top: 15px; color: #64748B; text-decoration: underline; font-size: 0.95rem;">
                         Actualizar Correo
-                    </button>
+                    </a>
                 </div>
             </div>
 
@@ -668,6 +668,19 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
         document.getElementById('emailStep1').style.display = 'none';
         document.getElementById('emailStep2').style.display = 'block';
         setTimeout(() => { document.querySelector('.pin-box-premium').focus(); }, 100);
+    }
+    
+    function enableEmailEdit(e) {
+        if(e) e.preventDefault();
+        const displayBox = document.getElementById('emailDisplayArea');
+        if(displayBox) {
+            displayBox.innerHTML = `
+                <div class="ed-icon"><i class="fa-solid fa-at"></i></div>
+                <input type="email" id="newEmailInput" value="" placeholder="nuevo.correo@ejemplo.com" style="width: 100%; border: none; background: transparent; outline: none; font-size: 1rem; color: #1E293B;" autofocus>
+            `;
+            setTimeout(() => { document.getElementById('newEmailInput').focus(); }, 50);
+        }
+        if(e && e.target) e.target.style.display = 'none';
     }
     
     function moveNext(elem, nextId) {
