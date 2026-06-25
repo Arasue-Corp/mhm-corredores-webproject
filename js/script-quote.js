@@ -333,7 +333,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if(modal) modal.classList.remove('active');
     };
 
-    document.querySelectorAll('.js-btn-next').forEach(btn => {
+    document.querySelectorAll('.js-btn-next, #btnMobileCheckout, #btnCheckoutSidebar').forEach(btn => {
         btn.addEventListener('click', () => { 
             if(btn.classList.contains('active')) window.location.href = "cotizacion-7-1.html";
 
