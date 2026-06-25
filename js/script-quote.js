@@ -1320,11 +1320,13 @@ if(document.getElementById('quoteFormStep8')) {
     // 3. VALIDATION
     if (btnNext) {
         btnNext.addEventListener('click', (e) => {
+            const activePanel = document.querySelector('.car-panel.active');
+            if (!activePanel) return; // Exit early if not on the old form, so <a> links can work natively
+            
             e.preventDefault();
             let isValid = true;
             let firstError = null;
             
-            const activePanel = document.querySelector('.car-panel.active');
             const inputs = activePanel.querySelectorAll('.validate-req');
             
             inputs.forEach(input => {
