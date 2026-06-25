@@ -3611,14 +3611,12 @@ function updateTourPosition(target, ring, card, stepPadding, forceSide) {
 let welcomeStep = 0;
 const welcomeTotalSteps = 3;
 
-// Lanzar al inicio (Solo si existe el elemento en la página)
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('alexOnboarding')) {
-        if (!sessionStorage.getItem('onboardingSeen')) {
-            setTimeout(() => {
-                document.getElementById('alexOnboarding').classList.add('active');
-            }, 600);
-        }
+        // Force show during development by ignoring sessionStorage
+        setTimeout(() => {
+            document.getElementById('alexOnboarding').classList.add('active');
+        }, 600);
     }
 });
 
