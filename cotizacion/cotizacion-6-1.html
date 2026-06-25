@@ -252,7 +252,7 @@
                 <div class="sidebar-title" style="margin-top: 30px;">Filtrar Aseguradoras</div>
                 <div class="filter-cards-group">
                     <!-- FID -->
-                    <label class="premium-filter-card">
+                    <label class="premium-filter-card" onclick="setTimeout(window.applyCarrierFilters, 50)">
                         <input type="checkbox" class="carrier-filter" value="fid" onchange="applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
@@ -263,7 +263,7 @@
                         </div>
                     </label>
                     <!-- Liberty -->
-                    <label class="premium-filter-card">
+                    <label class="premium-filter-card" onclick="setTimeout(window.applyCarrierFilters, 50)">
                         <input type="checkbox" class="carrier-filter" value="liberty" onchange="applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
@@ -274,7 +274,7 @@
                         </div>
                     </label>
                     <!-- HDI -->
-                    <label class="premium-filter-card">
+                    <label class="premium-filter-card" onclick="setTimeout(window.applyCarrierFilters, 50)">
                         <input type="checkbox" class="carrier-filter" value="hdi" onchange="applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
@@ -285,7 +285,7 @@
                         </div>
                     </label>
                     <!-- SURA -->
-                    <label class="premium-filter-card">
+                    <label class="premium-filter-card" onclick="setTimeout(window.applyCarrierFilters, 50)">
                         <input type="checkbox" class="carrier-filter" value="sura" onchange="applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
@@ -877,12 +877,20 @@
         const activeCarriers = Array.from(document.querySelectorAll('.carrier-filter:checked')).map(cb => cb.value.toLowerCase());
         const cards = document.querySelectorAll('.offer-card');
         
+        let styleTag = document.getElementById('filter-hide-style');
+        if (!styleTag) {
+            styleTag = document.createElement('style');
+            styleTag.id = 'filter-hide-style';
+            styleTag.innerHTML = '.hide-by-filter { display: none !important; }';
+            document.head.appendChild(styleTag);
+        }
+
         cards.forEach(card => {
             const carrier = card.getAttribute('data-carrier');
             if (carrier && activeCarriers.includes(carrier.toLowerCase())) {
-                card.style.display = ''; // Revertir a default para no romper el layout
+                card.classList.remove('hide-by-filter');
             } else {
-                card.style.display = 'none';
+                card.classList.add('hide-by-filter');
             }
         });
     };
