@@ -5417,52 +5417,18 @@ window.openGlobalMenu = function(btnElement) {
 };
 
 // 3. FUNCIÓN AL SELECCIONAR UNA OPCIÓN
-window.selectGlobalOption = function(percentValue, textLabel) {
+window.selectGlobalOption = function(deducibleVal) {
     if (!activeCardContext || !activeTriggerBtn) return;
 
     // A. Actualizar texto del botón
-    const spanText = activeTriggerBtn.querySelector('span');
-    if(spanText) spanText.innerText = textLabel;
+    const spanText = activeTriggerBtn.querySelector('.deducible-text-val');
+    if(spanText) spanText.innerText = deducibleVal;
 
     // B. Lógica Matemática (Recalcular Precio)
-    const card = activeCardContext;
-    const downDisplay = card.querySelector('.js-down-val');
-    const monthDisplay = card.querySelector('.js-month-val');
-    const termDisplay = card.querySelector('.per-mo');
-
-    // Recuperar total base
-    let totalPremium = parseFloat(card.getAttribute('data-calc-total'));
-    if (isNaN(totalPremium)) {
-        // Fallback: Si no existe, calcúlalo de los datos visibles actuales
-        const d = parseFloat(downDisplay.innerText.replace(/[^0-9.]/g, ''));
-        const m = parseFloat(monthDisplay.innerText.replace(/[^0-9.]/g, ''));
-        totalPremium = d + (m * 5); // Asumiendo base actual era válida
-        card.setAttribute('data-calc-total', totalPremium);
+    const cardId = parseInt(activeCardContext.getAttribute('data-id'));
+    if(!isNaN(cardId) && typeof updateDeductible === 'function') {
+        updateDeductible(cardId, deducibleVal);
     }
-
-    // Calcular nuevos montos
-    let newDown = totalPremium * percentValue;
-    let newMonthly = 0;
-
-    if (percentValue >= 0.99) {
-        newMonthly = 0;
-        if(termDisplay) termDisplay.innerText = "Paid in Full";
-    } else {
-        newMonthly = (totalPremium - newDown) / 5;
-        if(termDisplay) termDisplay.innerText = "Per Month";
-    }
-
-    // Actualizar HTML
-    downDisplay.innerText = Math.round(newDown).toLocaleString('en-US');
-    monthDisplay.innerText = newMonthly.toLocaleString('en-US', {minimumFractionDigits: 2, maximumFractionDigits: 2});
-
-    // Efecto visual azul
-    downDisplay.style.color = '#2563EB';
-    monthDisplay.style.color = '#2563EB';
-    setTimeout(() => {
-        downDisplay.style.color = '';
-        monthDisplay.style.color = '';
-    }, 300);
 
     closeGlobalMenu();
 };

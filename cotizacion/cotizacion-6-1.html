@@ -890,7 +890,7 @@ document.addEventListener('DOMContentLoaded', function() {
         cards.forEach(card => {
             const carrier = card.getAttribute('data-carrier');
             if (activeCarriers.includes(carrier)) {
-                card.style.display = 'flex'; // o block, dependiendo del layout, la clase es offer-card
+                card.style.display = ''; // Revertir a default (block) para no romper el layout
             } else {
                 card.style.display = 'none';
             }
