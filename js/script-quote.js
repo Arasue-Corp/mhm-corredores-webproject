@@ -335,7 +335,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     document.querySelectorAll('.js-btn-next').forEach(btn => {
         btn.addEventListener('click', () => { 
-            if(btn.classList.contains('active')) window.location.href = "cotizacion-15.html";
+            if(btn.classList.contains('active')) window.location.href = "cotizacion-7-1.html";
 
         });
     });
