@@ -6501,7 +6501,7 @@ document.addEventListener('DOMContentLoaded', function() {
         btnNext4_1.style.pointerEvents = 'none';
         
         setTimeout(() => {
-            window.location.href = "cotizacion-5.html";
+            window.location.href = "cotizacion-5-1.html";
         }, 800);
     });
 
