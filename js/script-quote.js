@@ -3005,11 +3005,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 /* --- MODAL COMPARADOR LOGIC --- */
 
-// 1. ABRIR (Llamar con onclick="openCompareModal()")
 function openCompareModal() {
     const modal = document.getElementById('compareModal');
     if(modal) {
-        modal.style.display = 'flex';
+        modal.style.setProperty('display', 'flex', 'important');
+        modal.style.setProperty('z-index', '999999', 'important');
         setTimeout(() => modal.classList.add('active'), 10);
     }
 }

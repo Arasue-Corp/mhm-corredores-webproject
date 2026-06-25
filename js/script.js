@@ -1251,7 +1251,7 @@ document.addEventListener('DOMContentLoaded', function() {
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
     // Select all sections and cards that should animate on scroll
-    const animatedElements = document.querySelectorAll("section, .comp-card, .social-glass-card, .cmd-card, .feat-card, .step-card");
+    const animatedElements = document.querySelectorAll("section, .social-glass-card, .cmd-card, .feat-card, .step-card");
     
     const observerOptions = {
         root: null,
