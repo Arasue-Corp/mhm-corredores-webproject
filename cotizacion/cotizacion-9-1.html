@@ -987,12 +987,19 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
         const formPAC = document.getElementById('formPAC');
         const formPAT = document.getElementById('formPAT');
         const btnText = document.getElementById('btnNextText');
+        const badge = document.querySelector('#paymentOptionsSection .pg-header-badge');
         
         if (type === 'PAC') {
             tabPAC.style.background = 'linear-gradient(135deg, #10B981, #059669)';
             tabPAC.style.color = 'white';
             tabPAT.style.background = 'transparent';
             tabPAT.style.color = '#64748B';
+            
+            if(badge) {
+                badge.style.background = 'linear-gradient(135deg, #10B981, #059669)';
+                badge.style.color = 'white';
+                badge.innerHTML = '<i class="fa-solid fa-building-columns"></i> MEDIO DE PAGO SELECCIONADO: PAC (CUENTA)';
+            }
             
             if(btnText) btnText.innerText = "Contratar Seguro con PAC";
             formPAC.style.display = 'block';
@@ -1002,6 +1009,12 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
             tabPAT.style.color = 'white';
             tabPAC.style.background = 'transparent';
             tabPAC.style.color = '#64748B';
+            
+            if(badge) {
+                badge.style.background = 'linear-gradient(135deg, #8B5CF6, #6D28D9)';
+                badge.style.color = 'white';
+                badge.innerHTML = '<i class="fa-regular fa-credit-card"></i> MEDIO DE PAGO SELECCIONADO: PAT (TARJETA)';
+            }
             
             if(btnText) btnText.innerText = "Contratar Seguro con PAT";
             formPAT.style.display = 'block';
