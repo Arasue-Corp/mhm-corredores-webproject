@@ -253,7 +253,7 @@
                 <div class="filter-cards-group">
                     <!-- FID -->
                     <label class="premium-filter-card">
-                        <input type="checkbox" class="carrier-filter" value="fid" checked>
+                        <input type="checkbox" class="carrier-filter" value="fid" onchange="applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
                                 <img src="../assets/img/logo-fid.webp" alt="FID Seguros">
@@ -264,7 +264,7 @@
                     </label>
                     <!-- Liberty -->
                     <label class="premium-filter-card">
-                        <input type="checkbox" class="carrier-filter" value="liberty" checked>
+                        <input type="checkbox" class="carrier-filter" value="liberty" onchange="applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
                                 <img src="../assets/img/logo-liberty-seguros.webp" alt="Liberty">
@@ -275,7 +275,7 @@
                     </label>
                     <!-- HDI -->
                     <label class="premium-filter-card">
-                        <input type="checkbox" class="carrier-filter" value="hdi" checked>
+                        <input type="checkbox" class="carrier-filter" value="hdi" onchange="applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
                                 <img src="../assets/img/logo-hdi-seguros.webp" alt="HDI Seguros">
@@ -286,7 +286,7 @@
                     </label>
                     <!-- SURA -->
                     <label class="premium-filter-card">
-                        <input type="checkbox" class="carrier-filter" value="sura" checked>
+                        <input type="checkbox" class="carrier-filter" value="sura" onchange="applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
                                 <img src="../assets/img/logo-sura.webp" alt="SURA">
@@ -873,48 +873,39 @@
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function() {
-    // Escuchar cambios en los checkboxes de aseguradoras
-    const filterCheckboxes = document.querySelectorAll('.carrier-filter');
-    
-    filterCheckboxes.forEach(cb => {
-        cb.addEventListener('change', function() {
-            applyCarrierFilters();
-        });
-    });
-
-    function applyCarrierFilters() {
-        const activeCarriers = Array.from(document.querySelectorAll('.carrier-filter:checked')).map(cb => cb.value);
+    window.applyCarrierFilters = function() {
+        const activeCarriers = Array.from(document.querySelectorAll('.carrier-filter:checked')).map(cb => cb.value.toLowerCase());
         const cards = document.querySelectorAll('.offer-card');
         
         cards.forEach(card => {
             const carrier = card.getAttribute('data-carrier');
-            if (activeCarriers.includes(carrier)) {
-                card.style.display = ''; // Revertir a default (block) para no romper el layout
+            if (carrier && activeCarriers.includes(carrier.toLowerCase())) {
+                card.style.display = ''; // Revertir a default para no romper el layout
             } else {
                 card.style.display = 'none';
             }
         });
-    }
+    };
 
-    // Ya que renderOffers ocurre asincronamente después de 1500ms en el script principal,
-    // interceptaremos y esperaremos a que se creen las tarjetas para aplicar un filtro inicial si fuera necesario
-    const observer = new MutationObserver(function(mutations) {
-        mutations.forEach(function(mutation) {
-            if (mutation.addedNodes.length > 0) {
-                const hasOfferCards = Array.from(mutation.addedNodes).some(n => n.classList && n.classList.contains('offer-card'));
-                if (hasOfferCards) {
-                    applyCarrierFilters();
+    document.addEventListener('DOMContentLoaded', function() {
+        // Ya que renderOffers ocurre asincronamente después de 1500ms en el script principal,
+        // interceptaremos y esperaremos a que se creen las tarjetas para aplicar un filtro inicial si fuera necesario
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.addedNodes.length > 0) {
+                    const hasOfferCards = Array.from(mutation.addedNodes).some(n => n.classList && n.classList.contains('offer-card'));
+                    if (hasOfferCards) {
+                        window.applyCarrierFilters();
+                    }
                 }
-            }
+            });
         });
+        
+        const offersContainer = document.getElementById('offersContainer');
+        if (offersContainer) {
+            observer.observe(offersContainer, { childList: true });
+        }
     });
-    
-    const offersContainer = document.getElementById('offersContainer');
-    if (offersContainer) {
-        observer.observe(offersContainer, { childList: true });
-    }
-});
 </script>
 
 
