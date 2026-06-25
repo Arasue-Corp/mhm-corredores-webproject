@@ -153,7 +153,6 @@
     }
 }
 </style>
-
 <style>
 /* POPOVER HOVER */
 .card-popover {
@@ -259,6 +258,89 @@
     .modal-image-panel { width: 100%; height: 150px; }
     .modal-data-panel { width: 100%; padding: 25px; }
     .modal-covers-list { grid-template-columns: 1fr; }
+}
+</style>
+
+<style id="flip-css">
+/* 3D Flip Card Styles */
+.flip-container {
+    background-color: transparent !important;
+    perspective: 1000px;
+    height: 180px; /* Adjust height based on your original card */
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.6s cubic-bezier(0.4, 0.2, 0.2, 1);
+    transform-style: preserve-3d;
+    border-radius: 20px;
+}
+
+.flip-container:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: 20px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+}
+
+.flip-card-front {
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(226, 232, 240, 0.8);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+}
+
+.flip-card-back {
+    background: linear-gradient(135deg, #796bfc, #2ed9c3);
+    color: white;
+    transform: rotateY(180deg);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 15px 35px rgba(121, 107, 252, 0.3);
+}
+
+.back-tag {
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    background: rgba(255, 255, 255, 0.2);
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 12px;
+}
+
+.back-desc {
+    font-size: 0.85rem;
+    line-height: 1.4;
+    margin: 0;
+    opacity: 0.95;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.back-icon {
+    margin-top: 15px;
+    font-size: 1.2rem;
+    opacity: 0.8;
 }
 </style>
 </head>
@@ -402,72 +484,72 @@
 <!-- TAB CONTENT: Generales -->
 <div class="hub-tab-content active" id="tab-generales">
 <!-- AUTO (Links to cotizacion-1.html) -->
-<div class="hub-card" data-covers="['Daños materiales del vehículo (parcial/total)', 'Robo y/o hurto del vehículo', 'Responsabilidad frente a terceros', 'Asistencia en ruta 24/7']" data-desc="Protección completa para tu vehículo personal o comercial. El Seguro Automotriz es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros." data-icon="fa-car" data-link="cotizacion-1.html" data-tag="Protección Vehicular" data-title="Seguro de Auto" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card flip-container" data-covers="['Daños materiales del vehículo (parcial/total)', 'Robo y/o hurto del vehículo', 'Responsabilidad frente a terceros', 'Asistencia en ruta 24/7']" data-desc="Protección completa para tu vehículo personal o comercial. El Seguro Automotriz es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros." data-icon="fa-car" data-link="cotizacion-1.html" data-tag="Protección Vehicular" data-title="Seguro de Auto" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-car"></i></div>
 <h3>Seguro de Auto</h3>
 <p>Protección completa para tu vehículo personal o comercial.</p>
-</div>
-<div class="hub-card" data-covers="['Daños materiales', 'Robo, hurto o uso no autorizado', 'Responsabilidad Civil', 'Asistencia de grúa']" data-desc="Asegura tu motocicleta y rueda con total tranquilidad ante accidentes, robos o daños a terceros." data-icon="fa-motorcycle" data-link="#" data-tag="Protección 2 Ruedas" data-title="Seguro de Moto" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Protección Vehicular</span><p class="back-desc">Protección completa para tu vehículo personal o comercial. El Seguro Automotriz es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Daños materiales', 'Robo, hurto o uso no autorizado', 'Responsabilidad Civil', 'Asistencia de grúa']" data-desc="Asegura tu motocicleta y rueda con total tranquilidad ante accidentes, robos o daños a terceros." data-icon="fa-motorcycle" data-link="#" data-tag="Protección 2 Ruedas" data-title="Seguro de Moto" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-motorcycle"></i></div>
 <h3>Seguro de Moto</h3>
 <p>Asegura tu motocicleta y rueda con total tranquilidad.</p>
-</div>
-<div class="hub-card" data-covers="['Cobertura por muerte accidental', 'Incapacidad permanente total y parcial', 'Gastos médicos y hospitalarios', 'Cobertura para el conductor y terceros']" data-desc="Seguro Obligatorio de Accidentes Personales digital y rápido. Exigido por ley para transitar." data-icon="fa-file-invoice-dollar" data-link="#" data-tag="Seguro Obligatorio" data-title="SOAP" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Protección 2 Ruedas</span><p class="back-desc">Asegura tu motocicleta y rueda con total tranquilidad ante accidentes, robos o daños a terceros.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Cobertura por muerte accidental', 'Incapacidad permanente total y parcial', 'Gastos médicos y hospitalarios', 'Cobertura para el conductor y terceros']" data-desc="Seguro Obligatorio de Accidentes Personales digital y rápido. Exigido por ley para transitar." data-icon="fa-file-invoice-dollar" data-link="#" data-tag="Seguro Obligatorio" data-title="SOAP" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-file-invoice-dollar"></i></div>
 <h3>SOAP</h3>
 <p>Seguro Obligatorio de Accidentes Personales digital y rápido.</p>
-</div>
-<div class="hub-card" data-covers="['Robo con fuerza', 'Daños accidentales', 'Responsabilidad civil', 'Asistencia al ciclista']" data-desc="Protege tu bici y accesorios contra robo y daños, permitiéndote moverte por la ciudad sin preocupaciones." data-icon="fa-bicycle" data-link="#" data-tag="Micro-movilidad" data-title="Seguro de Bicicleta" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Seguro Obligatorio</span><p class="back-desc">Seguro Obligatorio de Accidentes Personales digital y rápido. Exigido por ley para transitar.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Robo con fuerza', 'Daños accidentales', 'Responsabilidad civil', 'Asistencia al ciclista']" data-desc="Protege tu bici y accesorios contra robo y daños, permitiéndote moverte por la ciudad sin preocupaciones." data-icon="fa-bicycle" data-link="#" data-tag="Micro-movilidad" data-title="Seguro de Bicicleta" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-bicycle"></i></div>
 <h3>Seguro de Bicicleta</h3>
 <p>Protege tu bici y accesorios contra robo y daños.</p>
-</div>
-<div class="hub-card" data-covers="['Incendio y riesgos adicionales', 'Sismo (Opcional)', 'Robo de bienes (Contenido)', 'Asistencia domiciliaria 24/7']" data-desc="Protege tu propiedad y bienes familiares ante incendios, sismos, robos y otros imprevistos." data-icon="fa-house-chimney" data-link="#" data-tag="Protección Residencial" data-title="Seguro de Hogar" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Micro-movilidad</span><p class="back-desc">Protege tu bici y accesorios contra robo y daños, permitiéndote moverte por la ciudad sin preocupaciones.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Incendio y riesgos adicionales', 'Sismo (Opcional)', 'Robo de bienes (Contenido)', 'Asistencia domiciliaria 24/7']" data-desc="Protege tu propiedad y bienes familiares ante incendios, sismos, robos y otros imprevistos." data-icon="fa-house-chimney" data-link="#" data-tag="Protección Residencial" data-title="Seguro de Hogar" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-house-chimney"></i></div>
 <h3>Seguro de Hogar</h3>
 <p>Protege tu propiedad y bienes familiares.</p>
-</div>
+</div><div class="flip-card-back"><span class="back-tag">Protección Residencial</span><p class="back-desc">Protege tu propiedad y bienes familiares ante incendios, sismos, robos y otros imprevistos.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
 </div>
 <!-- TAB CONTENT: Vida y Salud -->
 <div class="hub-tab-content" id="tab-salud">
-<div class="hub-card" data-covers="['Reducción de gastos médicos', 'Cobertura hospitalaria y catastrófica', 'Medicamentos en farmacias', 'Protección para cargas familiares']" data-desc="Planes de salud complementaria y catastrófica para reducir tus gastos médicos ambulatorios y hospitalarios." data-icon="fa-briefcase-medical" data-link="#" data-tag="Bienestar" data-title="Seguro de Salud" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card flip-container" data-covers="['Reducción de gastos médicos', 'Cobertura hospitalaria y catastrófica', 'Medicamentos en farmacias', 'Protección para cargas familiares']" data-desc="Planes de salud complementaria y catastrófica para reducir tus gastos médicos ambulatorios y hospitalarios." data-icon="fa-briefcase-medical" data-link="#" data-tag="Bienestar" data-title="Seguro de Salud" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-briefcase-medical"></i></div>
 <h3>Seguro de Salud</h3>
 <p>Planes de salud complementaria y catastrófica.</p>
-</div>
-<div class="hub-card" data-covers="['Lesiones en entrenamientos o competición', 'Gastos médicos, kinesiología', 'Incapacidad temporal', 'Cobertura internacional']" data-desc="Cobertura especializada para deportistas amateur y pro ante lesiones deportivas y accidentes." data-icon="fa-person-running" data-link="#" data-tag="Actividad Física" data-title="Seguro de Deporte" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Bienestar</span><p class="back-desc">Planes de salud complementaria y catastrófica para reducir tus gastos médicos ambulatorios y hospitalarios.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Lesiones en entrenamientos o competición', 'Gastos médicos, kinesiología', 'Incapacidad temporal', 'Cobertura internacional']" data-desc="Cobertura especializada para deportistas amateur y pro ante lesiones deportivas y accidentes." data-icon="fa-person-running" data-link="#" data-tag="Actividad Física" data-title="Seguro de Deporte" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-person-running"></i></div>
 <h3>Seguro de Deporte</h3>
 <p>Cobertura especializada para deportistas amateur y pro.</p>
-</div>
-<div class="hub-card" data-covers="['Consultas y diagnóstico', 'Tratamientos de prevención', 'Ortodoncia e implantes', 'Urgencias dentales 24/7']" data-desc="Amplia red odontológica y reembolsos preferenciales en tratamientos dentales para toda la familia." data-icon="fa-tooth" data-link="#" data-tag="Salud Bucal" data-title="Seguro Dental" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Actividad Física</span><p class="back-desc">Cobertura especializada para deportistas amateur y pro ante lesiones deportivas y accidentes.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Consultas y diagnóstico', 'Tratamientos de prevención', 'Ortodoncia e implantes', 'Urgencias dentales 24/7']" data-desc="Amplia red odontológica y reembolsos preferenciales en tratamientos dentales para toda la familia." data-icon="fa-tooth" data-link="#" data-tag="Salud Bucal" data-title="Seguro Dental" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-tooth"></i></div>
 <h3>Seguro Dental</h3>
 <p>Amplia red odontológica y reembolsos preferenciales.</p>
-</div>
-<div class="hub-card" data-covers="['Fallecimiento natural o accidental', 'Invalidez total y permanente', 'Anticipo por enfermedades graves', 'Asistencia funeraria']" data-desc="Respaldo económico y tranquilidad para tu familia en caso de fallecimiento o invalidez." data-icon="fa-heart" data-link="#" data-tag="Tranquilidad Familiar" data-title="Vida Temporal" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Salud Bucal</span><p class="back-desc">Amplia red odontológica y reembolsos preferenciales en tratamientos dentales para toda la familia.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Fallecimiento natural o accidental', 'Invalidez total y permanente', 'Anticipo por enfermedades graves', 'Asistencia funeraria']" data-desc="Respaldo económico y tranquilidad para tu familia en caso de fallecimiento o invalidez." data-icon="fa-heart" data-link="#" data-tag="Tranquilidad Familiar" data-title="Vida Temporal" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-heart"></i></div>
 <h3>Vida Temporal</h3>
 <p>Respaldo económico y tranquilidad para tu familia.</p>
-</div>
+</div><div class="flip-card-back"><span class="back-tag">Tranquilidad Familiar</span><p class="back-desc">Respaldo económico y tranquilidad para tu familia en caso de fallecimiento o invalidez.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
 </div>
 <!-- TAB CONTENT: Asistencias -->
 <div class="hub-tab-content" id="tab-asistencias">
-<div class="hub-card" data-covers="['Asistencia médica por enfermedad o accidente', 'Pérdida o retraso de equipaje', 'Cancelación de vuelo', 'Repatriación sanitaria']" data-desc="Cobertura médica y soporte en el extranjero 24/7 para que viajes con total tranquilidad." data-icon="fa-plane" data-link="#" data-tag="Viajes Seguros" data-title="Asistencia de Viajes" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card flip-container" data-covers="['Asistencia médica por enfermedad o accidente', 'Pérdida o retraso de equipaje', 'Cancelación de vuelo', 'Repatriación sanitaria']" data-desc="Cobertura médica y soporte en el extranjero 24/7 para que viajes con total tranquilidad." data-icon="fa-plane" data-link="#" data-tag="Viajes Seguros" data-title="Asistencia de Viajes" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-plane"></i></div>
 <h3>Asistencia de Viajes</h3>
 <p>Cobertura médica y soporte en el extranjero 24/7.</p>
-</div>
-<div class="hub-card" data-covers="['Remolque o grúa', 'Cambio de neumáticos', 'Paso de corriente', 'Envío de combustible']" data-desc="Servicio de grúa, cambio de neumático, carga de batería y más, estés donde estés." data-icon="fa-truck-pickup" data-link="#" data-tag="Apoyo Vial" data-title="Asistencia en Carretera" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Viajes Seguros</span><p class="back-desc">Cobertura médica y soporte en el extranjero 24/7 para que viajes con total tranquilidad.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Remolque o grúa', 'Cambio de neumáticos', 'Paso de corriente', 'Envío de combustible']" data-desc="Servicio de grúa, cambio de neumático, carga de batería y más, estés donde estés." data-icon="fa-truck-pickup" data-link="#" data-tag="Apoyo Vial" data-title="Asistencia en Carretera" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-truck-pickup"></i></div>
 <h3>Asistencia en Carretera</h3>
 <p>Grúa, cambio de neumático y batería donde estés.</p>
-</div>
-<div class="hub-card" data-covers="['Medicina general 24/7', 'Recetas médicas digitales', 'Órdenes de exámenes', 'Orientación pediátrica']" data-desc="Consultas médicas online inmediatas sin salir de casa, disponibles las 24 horas." data-icon="fa-stethoscope" data-link="#" data-tag="Salud Digital" data-title="Telemedicina" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+</div><div class="flip-card-back"><span class="back-tag">Apoyo Vial</span><p class="back-desc">Servicio de grúa, cambio de neumático, carga de batería y más, estés donde estés.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
+<div class="hub-card flip-container" data-covers="['Medicina general 24/7', 'Recetas médicas digitales', 'Órdenes de exámenes', 'Orientación pediátrica']" data-desc="Consultas médicas online inmediatas sin salir de casa, disponibles las 24 horas." data-icon="fa-stethoscope" data-link="#" data-tag="Salud Digital" data-title="Telemedicina" onclick="openModal(this)"><div class="flip-card-inner"><div class="flip-card-front">
 <div class="hub-icon"><i class="fa-solid fa-stethoscope"></i></div>
 <h3>Telemedicina</h3>
 <p>Consultas médicas online inmediatas sin salir de casa.</p>
-</div>
+</div><div class="flip-card-back"><span class="back-tag">Salud Digital</span><p class="back-desc">Consultas médicas online inmediatas sin salir de casa, disponibles las 24 horas.</p><i class="fa-solid fa-rotate back-icon"></i></div></div></div>
 </div>
 </div>
 </main>
@@ -641,14 +723,9 @@
         if(e.target === modal) closeComingSoon();
     });
 </script>
-
 </div></div></div></div></div>
 <!-- POPOVER -->
-<div class="card-popover" id="card-popover">
-<span class="popover-tag" id="po-tag">Tag</span>
-<h3 class="popover-title" id="po-title">Title</h3>
-<p class="popover-desc" id="po-desc">Desc</p>
-</div>
+
 <!-- PREMIUM MODAL -->
 <div class="glass-modal-overlay" id="product-modal">
 <div class="glass-modal">
