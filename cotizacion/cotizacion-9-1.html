@@ -981,9 +981,11 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
         if (type === 'PAC') {
             tabPAC.classList.add('active');
             tabPAT.classList.remove('active');
+            tabPAC.style.color = 'white';
+            tabPAT.style.color = '#64748B';
             if(pill) {
                 pill.style.transform = 'translateX(0)';
-                pill.classList.remove('pat-mode');
+                pill.style.background = 'linear-gradient(135deg, #10B981, #059669)';
             }
             if(btnText) btnText.innerText = "Contratar Seguro con PAC";
             
@@ -992,9 +994,11 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
         } else {
             tabPAT.classList.add('active');
             tabPAC.classList.remove('active');
+            tabPAT.style.color = 'white';
+            tabPAC.style.color = '#64748B';
             if(pill) {
                 pill.style.transform = 'translateX(100%)';
-                pill.classList.add('pat-mode');
+                pill.style.background = 'linear-gradient(135deg, #8B5CF6, #6D28D9)';
             }
             if(btnText) btnText.innerText = "Contratar Seguro con PAT";
             
@@ -1006,6 +1010,7 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
     // On load, disable body scroll until modal is closed
     document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = 'hidden';
+        switchPaymentTab('PAC'); // Force initial inline styles so user sees the green pill immediately
     });
 </script>
 </body>
