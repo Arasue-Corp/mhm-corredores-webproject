@@ -253,7 +253,7 @@
                 <div class="filter-cards-group">
                     <!-- FID -->
                     <label class="premium-filter-card" onclick="setTimeout(window.applyCarrierFilters, 50)">
-                        <input type="checkbox" class="carrier-filter" value="fid" onchange="applyCarrierFilters()" checked>
+                        <input type="checkbox" class="carrier-filter" value="fid" onchange="window.applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
                                 <img src="../assets/img/logo-fid.webp" alt="FID Seguros">
@@ -264,7 +264,7 @@
                     </label>
                     <!-- Liberty -->
                     <label class="premium-filter-card" onclick="setTimeout(window.applyCarrierFilters, 50)">
-                        <input type="checkbox" class="carrier-filter" value="liberty" onchange="applyCarrierFilters()" checked>
+                        <input type="checkbox" class="carrier-filter" value="liberty" onchange="window.applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
                                 <img src="../assets/img/logo-liberty-seguros.webp" alt="Liberty">
@@ -275,7 +275,7 @@
                     </label>
                     <!-- HDI -->
                     <label class="premium-filter-card" onclick="setTimeout(window.applyCarrierFilters, 50)">
-                        <input type="checkbox" class="carrier-filter" value="hdi" onchange="applyCarrierFilters()" checked>
+                        <input type="checkbox" class="carrier-filter" value="hdi" onchange="window.applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
                                 <img src="../assets/img/logo-hdi-seguros.webp" alt="HDI Seguros">
@@ -286,7 +286,7 @@
                     </label>
                     <!-- SURA -->
                     <label class="premium-filter-card" onclick="setTimeout(window.applyCarrierFilters, 50)">
-                        <input type="checkbox" class="carrier-filter" value="sura" onchange="applyCarrierFilters()" checked>
+                        <input type="checkbox" class="carrier-filter" value="sura" onchange="window.applyCarrierFilters()" checked>
                         <div class="filter-card-content">
                             <div class="filter-logo-box">
                                 <img src="../assets/img/logo-sura.webp" alt="SURA">
@@ -335,7 +335,7 @@
                 <div class="mhm-action-panel">
                     <button id="btnCheckoutSidebar" class="mhm-btn mhm-btn-primary">CONTRATAR ONLINE <i class="fa-solid fa-arrow-right"></i></button>
                     <button class="mhm-btn mhm-btn-secondary js-open-advisor" style="background: #F0F9FF; color: #0284C7; border: 1px solid #BAE6FD; font-weight: 800;"><i class="fa-regular fa-calendar-check"></i> AGENDAR ASESOR</button>
-                    <button id="btnCompareSidebar" class="mhm-btn mhm-btn-secondary" onclick="openCompareModal()"><i class="fa-solid fa-scale-balanced"></i> COMPARAR SELECCIONADOS</button>
+                    <button type="button" id="btnCompareSidebar" class="mhm-btn mhm-btn-secondary" onclick="event.preventDefault(); openCompareModal();"><i class="fa-solid fa-scale-balanced"></i> COMPARAR SELECCIONADOS</button>
                     <button id="btnEditSidebar" class="mhm-btn mhm-btn-ghost"><i class="fa-solid fa-pen"></i> Editar Información</button>
                 </div>
             
@@ -367,8 +367,8 @@
             <button id="btnMobileCheckout" class="btn-action btn-next js-btn-next">CONTRATAR ONLINE <i class="fa-solid fa-arrow-right"></i></button>
             <button class="btn-action js-open-advisor" style="background: #F0F9FF; color: #0284C7; border: 1px solid #BAE6FD; padding: 15px; border-radius: 12px; font-weight: 800;">AGENDAR ASESOR <i class="fa-regular fa-calendar-check"></i></button>
             <div class="mobile-dock-sub">
-                <button id="btnMobileCompare" class="btn-action btn-compare js-btn-compare" style="flex:1;">COMPARAR</button>
-                <button id="btnMobileEdit" class="btn-action btn-update js-btn-update" onclick="alert('Redirecting...')" style="flex:1;">EDITAR</button>
+                <button type="button" id="btnMobileCompare" class="btn-action btn-compare js-btn-compare" style="flex:1;">COMPARAR</button>
+                <button type="button" id="btnMobileEdit" class="btn-action btn-update js-btn-update" onclick="alert('Redirecting...')" style="flex:1;">EDITAR</button>
             </div>
         </div>
     </div>
@@ -877,22 +877,21 @@
         const activeCarriers = Array.from(document.querySelectorAll('.carrier-filter:checked')).map(cb => cb.value.toLowerCase());
         const cards = document.querySelectorAll('.offer-card');
         
-        let styleTag = document.getElementById('filter-hide-style');
-        if (!styleTag) {
-            styleTag = document.createElement('style');
-            styleTag.id = 'filter-hide-style';
-            styleTag.innerHTML = '.hide-by-filter { display: none !important; }';
-            document.head.appendChild(styleTag);
-        }
-
         cards.forEach(card => {
             const carrier = card.getAttribute('data-carrier');
             if (carrier && activeCarriers.includes(carrier.toLowerCase())) {
+                card.style.display = 'flex'; // The cards use display flex typically, or block. Let's just remove the none.
                 card.classList.remove('hide-by-filter');
             } else {
+                card.style.display = 'none';
                 card.classList.add('hide-by-filter');
             }
         });
+        
+        // Also call updateBtns to make sure compare button disables if hidden cards are unchecked
+        if(typeof window.updateBtns === 'function') {
+            window.updateBtns();
+        }
     };
 
     document.addEventListener('DOMContentLoaded', function() {
