@@ -3613,10 +3613,11 @@ const welcomeTotalSteps = 3;
 
 document.addEventListener('DOMContentLoaded', () => {
     if (document.getElementById('alexOnboarding')) {
-        // Force show during development by ignoring sessionStorage
-        setTimeout(() => {
-            document.getElementById('alexOnboarding').classList.add('active');
-        }, 600);
+        if (!sessionStorage.getItem('onboardingSeen')) {
+            setTimeout(() => {
+                document.getElementById('alexOnboarding').classList.add('active');
+            }, 600);
+        }
     }
 });
 
