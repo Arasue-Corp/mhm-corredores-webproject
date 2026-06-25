@@ -437,15 +437,14 @@
                         </div>
 
                         
-                        <!-- APPLE STYLE SEGMENTED CONTROL -->
-                        <div class="ios-segmented-control mb-4">
-                            <button class="ios-segment active" id="tabPAC" onclick="switchPaymentTab('PAC')">
+                        <!-- APPLE STYLE SEGMENTED CONTROL (FOOLPROOF INLINE BACKGROUNDS) -->
+                        <div class="ios-segmented-control mb-4" style="background: #E2E8F0; padding: 4px; border-radius: 12px; display: flex;">
+                            <button class="ios-segment active" id="tabPAC" onclick="switchPaymentTab('PAC')" style="flex: 1; border-radius: 8px; padding: 12px; font-weight: bold; border: none; transition: 0.3s; color: white; background: linear-gradient(135deg, #10B981, #059669);">
                                 <i class="fa-solid fa-building-columns"></i> PAC (Cuenta)
                             </button>
-                            <button class="ios-segment" id="tabPAT" onclick="switchPaymentTab('PAT')">
+                            <button class="ios-segment" id="tabPAT" onclick="switchPaymentTab('PAT')" style="flex: 1; border-radius: 8px; padding: 12px; font-weight: bold; border: none; transition: 0.3s; color: #64748B; background: transparent;">
                                 <i class="fa-regular fa-credit-card"></i> PAT (Tarjeta)
                             </button>
-                            <div class="ios-segment-pill" id="iosPill"></div>
                         </div>
 
                         <!-- PAC FORM -->
@@ -987,34 +986,24 @@ document.addEventListener("DOMContentLoaded", toggleContinueBtn);
         const tabPAT = document.getElementById('tabPAT');
         const formPAC = document.getElementById('formPAC');
         const formPAT = document.getElementById('formPAT');
-        const pill = document.getElementById('iosPill');
-        
         const btnText = document.getElementById('btnNextText');
         
         if (type === 'PAC') {
-            tabPAC.classList.add('active');
-            tabPAT.classList.remove('active');
+            tabPAC.style.background = 'linear-gradient(135deg, #10B981, #059669)';
             tabPAC.style.color = 'white';
+            tabPAT.style.background = 'transparent';
             tabPAT.style.color = '#64748B';
-            if(pill) {
-                pill.style.transform = 'translateX(0)';
-                pill.style.background = 'linear-gradient(135deg, #10B981, #059669)';
-            }
-            if(btnText) btnText.innerText = "Contratar Seguro con PAC";
             
+            if(btnText) btnText.innerText = "Contratar Seguro con PAC";
             formPAC.style.display = 'block';
             formPAT.style.display = 'none';
         } else {
-            tabPAT.classList.add('active');
-            tabPAC.classList.remove('active');
+            tabPAT.style.background = 'linear-gradient(135deg, #8B5CF6, #6D28D9)';
             tabPAT.style.color = 'white';
+            tabPAC.style.background = 'transparent';
             tabPAC.style.color = '#64748B';
-            if(pill) {
-                pill.style.transform = 'translateX(100%)';
-                pill.style.background = 'linear-gradient(135deg, #8B5CF6, #6D28D9)';
-            }
-            if(btnText) btnText.innerText = "Contratar Seguro con PAT";
             
+            if(btnText) btnText.innerText = "Contratar Seguro con PAT";
             formPAT.style.display = 'block';
             formPAC.style.display = 'none';
         }
