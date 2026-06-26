@@ -303,39 +303,19 @@
                 <div class="premium-white-card" id="quoteFormStep1">
                     
 
-<div id="paymentUI" style="display: flex; flex-direction: column; align-items: center; padding: 20px 10px; font-family: 'Inter', sans-serif;">
-    
-    <div style="text-align: center; margin-bottom: 30px;">
-        <p style="color: #64748B; font-size: 1rem; margin-bottom: 15px; font-weight: 500;">Estás inscribiendo tu tarjeta en:</p>
-        <img src="../assets/img/logo-mhm-color.png" alt="MHM Corredores" style="max-height: 45px; object-fit: contain;">
-    </div>
-
-    <div style="width: 100%; max-width: 400px; margin-bottom: 40px;">
-        <p style="color: #0F172A; font-weight: 700; font-size: 1.05rem; margin-bottom: 15px;">Selecciona tu medio de pago:</p>
-        
-        <a href="javascript:void(0)" onclick="document.getElementById('successModal').style.display='flex';" style="display: flex; align-items: center; padding: 20px; border: 1px solid #E2E8F0; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); background: white;" onmouseover="this.style.borderColor='#F97316'; this.style.boxShadow='0 10px 20px rgba(249, 115, 22, 0.1)';" onmouseout="this.style.borderColor='#E2E8F0'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.02)';">
-            <div style="background: #FFF7ED; width: 50px; height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 20px; flex-shrink: 0;">
-                <i class="fa-solid fa-credit-card" style="font-size: 1.5rem; color: #F97316;"></i>
-            </div>
-            <div>
-                <h4 style="margin: 0 0 5px 0; color: #0F172A; font-size: 1.15rem; font-weight: 700;">Tarjetas</h4>
-                <p style="margin: 0; color: #64748B; font-size: 0.9rem;">Crédito, Débito, Prepago</p>
-            </div>
-        </a>
-    </div>
-
-    <a href="cotizacion-mascota-2.html" style="color: #3B82F6; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: 0.3s;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
-        Abandonar y volver
-    </a>
-
-    <div style="margin-top: 50px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
-        <i class="fa-solid fa-lock" style="color: #F59E0B; font-size: 1.1rem;"></i>
-        <span style="color: #64748B; font-size: 0.85rem;">
-            Transacción respaldada por <strong>Flow</strong>. Revisa las <a href="https://www.flow.cl/terminos-y-condiciones.php" target="_blank" style="color: #3B82F6; text-decoration: none; font-weight: 600;">Políticas de Seguridad y Privacidad</a>.
-        </span>
-    </div>
-
+<!-- Pet Forms Flow -->
+<div id="petsContainer" style="margin-bottom: 30px; width: 100%;">
+    <!-- dynamic accordions go here -->
 </div>
+
+<div style="display: flex; align-items: center; margin-bottom: 30px; width: 100%;">
+    <input type="checkbox" id="chkPetsCorrect" class="custom-chk" onchange="validatePetsForm()">
+    <label for="chkPetsCorrect" style="margin-left: 10px; font-size: 0.95rem; font-weight: 500; color: #475569; cursor: pointer; user-select: none;">Todos los datos registrados son correctos.</label>
+</div>
+
+<button type="button" id="btn-finish" onclick="finishFlow()" style="background: #104C5C; color: white; border: none; width: 100%; padding: 18px; border-radius: 12px; font-size: 1.15rem; font-weight: 700; cursor: pointer; opacity: 0.5; pointer-events: none; transition: 0.3s; box-shadow: 0 4px 15px rgba(16, 76, 92, 0.3);" onmouseover="if(this.style.opacity=='1'){this.style.background='#0A323D';}" onmouseout="if(this.style.opacity=='1'){this.style.background='#104C5C';}">
+    Registrar
+</button>
 
 
 <script>
