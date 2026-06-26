@@ -80,6 +80,39 @@
             .accordion-label .label-text { font-size: 0; } 
             .accordion-label .label-text::before { font-size: 0.95rem; }
         }
+    
+        /* Custom Checkbox */
+        .custom-chk {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #CBD5E1;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            margin: 0;
+        }
+        .custom-chk:checked {
+            background-color: #2ED9C3;
+            border-color: #2ED9C3;
+        }
+        .custom-chk:checked::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-top: -2px;
+        }
     </style>
 
 </head>
@@ -438,11 +471,11 @@
             
             <div class="legal-checks" style="margin-top: 25px; padding: 20px; background: rgba(248,250,252,0.8); border-radius: 16px; border: 1px solid #E2E8F0;">
                 <label class="custom-checkbox-row" style="display: flex; align-items: center; gap: 12px; cursor: pointer; margin-bottom: 15px;">
-                    <input type="checkbox" id="chk-terms" onchange="validateForm()" style="width: 20px; height: 20px; accent-color: #2ED9C3;">
+                    <input type="checkbox" id="chk-terms" onchange="validateForm()" class="custom-chk">
                     <span style="font-size: 0.95rem; color: #334155;">He leído y acepto los <a href="../terminos-condiciones/index.html" target="_blank" style="color: #2563EB; font-weight: 600; text-decoration: underline;">Términos y condiciones</a>.</span>
                 </label>
                 <label class="custom-checkbox-row" style="display: flex; align-items: center; gap: 12px; cursor: pointer;">
-                    <input type="checkbox" id="chk-legal" onchange="validateForm()" style="width: 20px; height: 20px; accent-color: #2ED9C3;">
+                    <input type="checkbox" id="chk-legal" onchange="validateForm()" class="custom-chk">
                     <span style="font-size: 0.95rem; color: #334155;">Comprendo y acepto el <a href="../politica-privacidad/index.html" target="_blank" style="color: #2563EB; font-weight: 600; text-decoration: underline;">Detalle legal de servicio</a>.</span>
                 </label>
             </div>
