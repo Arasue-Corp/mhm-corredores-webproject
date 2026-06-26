@@ -449,30 +449,28 @@
                 const uniqueId = id + '-' + i;
                 
                 html += `
-                <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 25px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); box-sizing: border-box;">
-                    <div style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #F1F5F9; padding-bottom: 10px;">
-                        <div>
-                            <h3 style="color: #0F172A; font-size: 1.1rem; font-weight: 700; margin: 0;">Mascota ${petCounter}</h3>
-                            <span style="color: #10B981; font-size: 0.85rem; font-weight: 500;">Plan: ${plans[id].name}</span>
-                        </div>
+                <div class="harmonic-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+                        <h3 style="color: #0F172A; font-size: 1.1rem; font-weight: 700; margin: 0;">Mascota ${petCounter}</h3>
+                        <span style="color: #10B981; font-size: 14px; font-weight: 600;">Plan: ${plans[id].name}</span>
                     </div>
                     
-                    <div style="margin-bottom: 12px;">
-                        <input type="text" onkeyup="validatePetsForm()" class="pet-input" placeholder="Nombre de la Mascota" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;" required>
+                    <div style="margin-bottom: 16px;">
+                        <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Nombre de la Mascota" required>
                     </div>
                     
-                    <div style="display: flex; gap: 10px; margin-bottom: 12px;">
-                        <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 12px; box-sizing: border-box;">
-                            <label style="display: block; font-size: 0.75rem; color: #1E293B; font-weight: 500; margin-bottom: 2px;">Especie</label>
-                            <select onchange="validatePetsForm()" class="pet-input" style="border: none; background: transparent; outline: none; width: 100%; color: #64748B; font-size: 0.9rem;" required>
+                    <div class="harmonic-row">
+                        <div class="harmonic-input-wrapper">
+                            <span class="harmonic-label">Especie</span>
+                            <select onchange="validatePetsForm()" class="pet-input harmonic-input" required>
                                 <option value="" disabled selected>Selecciona...</option>
                                 <option value="Perro">Perro</option>
                                 <option value="Gato">Gato</option>
                             </select>
                         </div>
-                        <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 12px; box-sizing: border-box;">
-                            <label style="display: block; font-size: 0.75rem; color: #1E293B; font-weight: 500; margin-bottom: 2px;">Sexo</label>
-                            <select onchange="validatePetsForm()" class="pet-input" style="border: none; background: transparent; outline: none; width: 100%; color: #64748B; font-size: 0.9rem;" required>
+                        <div class="harmonic-input-wrapper">
+                            <span class="harmonic-label">Sexo</span>
+                            <select onchange="validatePetsForm()" class="pet-input harmonic-input" required>
                                 <option value="" disabled selected>Selecciona...</option>
                                 <option value="Macho">Macho</option>
                                 <option value="Hembra">Hembra</option>
@@ -480,12 +478,12 @@
                         </div>
                     </div>
 
-                    <div style="display: flex; gap: 10px; margin-bottom: 0;">
-                        <div style="flex: 1;">
-                            <input type="text" onkeyup="validatePetsForm()" class="pet-input" placeholder="Raza" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;" required>
+                    <div class="harmonic-row" style="margin-bottom: 0;">
+                        <div class="harmonic-input-wrapper row-layout">
+                            <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input" placeholder="Raza" required>
                         </div>
-                        <div style="flex: 1;">
-                            <input type="number" onkeyup="validatePetsForm()" onchange="validatePetsForm()" class="pet-input" placeholder="Edad (Años)" min="0" max="30" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;" required>
+                        <div class="harmonic-input-wrapper row-layout">
+                            <input type="number" onkeyup="validatePetsForm()" onchange="validatePetsForm()" class="pet-input harmonic-input" placeholder="Edad (Años)" min="0" max="30" required>
                         </div>
                     </div>
                 </div>`;
@@ -510,41 +508,111 @@
         }
         
         container.innerHTML = `
-            <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 25px; max-width: 100%; box-sizing: border-box;">
-                
-                <div style="display: flex; gap: 10px; margin-bottom: 12px;">
-                    <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 10px 15px; display: flex; align-items: center; box-sizing: border-box;">
-                        <strong style="color: #1E293B; font-size: 0.95rem; margin-right: 8px;">Rut</strong>
-                        <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="12345678-9" value="${client.rut}" style="border: none; background: transparent; outline: none; width: 100%; color: #94A3B8; font-size: 0.95rem;">
+            <style>
+                .harmonic-card {
+                    background: #FFFFFF;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 12px;
+                    padding: 24px;
+                    margin-bottom: 24px;
+                    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                .harmonic-row {
+                    display: grid;
+                    grid-template-columns: 1fr;
+                    gap: 16px;
+                    margin-bottom: 16px;
+                }
+                @media (min-width: 600px) {
+                    .harmonic-row {
+                        grid-template-columns: 1fr 1fr;
+                    }
+                }
+                .harmonic-input-wrapper {
+                    background: #F8FAFC;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 8px;
+                    padding: 6px 16px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    min-height: 56px;
+                }
+                .harmonic-input-wrapper.row-layout {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 0 16px;
+                }
+                .harmonic-label {
+                    font-size: 13px;
+                    color: #64748B;
+                    margin-bottom: 2px;
+                    font-weight: 500;
+                }
+                .harmonic-input {
+                    border: none;
+                    background: transparent;
+                    outline: none;
+                    width: 100%;
+                    color: #0F172A;
+                    font-size: 16px;
+                    padding: 0;
+                    font-family: inherit;
+                }
+                .harmonic-input::placeholder {
+                    color: #94A3B8;
+                }
+                .harmonic-input.large {
+                    padding: 16px;
+                    background: #F8FAFC;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 8px;
+                    box-sizing: border-box;
+                    min-height: 56px;
+                }
+                .harmonic-input:focus, .harmonic-input.large:focus {
+                    background: #FFFFFF;
+                }
+            </style>
+            
+            <div class="harmonic-card">
+                <div class="harmonic-row">
+                    <div class="harmonic-input-wrapper row-layout">
+                        <strong style="color: #1E293B; font-size: 16px; margin-right: 12px; min-width: 35px;">Rut</strong>
+                        <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input" placeholder="12345678-9" value="${client.rut}">
                     </div>
-                    <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 12px; box-sizing: border-box;">
-                        <label style="display: block; font-size: 0.75rem; color: #1E293B; font-weight: 500; margin-bottom: 2px;">Fecha de cumpleaños</label>
-                        <input type="date" onchange="validatePetsForm()" class="req-input" style="border: none; background: transparent; outline: none; width: 100%; color: #94A3B8; font-size: 0.85rem;">
+                    <div class="harmonic-input-wrapper">
+                        <span class="harmonic-label">Fecha de cumpleaños</span>
+                        <input type="date" onchange="validatePetsForm()" class="req-input harmonic-input" style="color: #64748B;">
                     </div>
                 </div>
 
-                <div style="margin-bottom: 12px;">
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="Nombre" value="${client.name}" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
+                <div style="margin-bottom: 16px;">
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Nombre" value="${client.name}">
                 </div>
                 
-                <div style="margin-bottom: 12px;">
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="Apellidos" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
+                <div style="margin-bottom: 16px;">
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Apellidos">
                 </div>
                 
-                <div style="margin-bottom: 12px;">
-                    <input type="email" onkeyup="validatePetsForm()" class="req-input" placeholder="Email" value="${client.email}" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
+                <div style="margin-bottom: 16px;">
+                    <input type="email" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Email" value="${client.email}">
                 </div>
                 
-                <div style="margin-bottom: 12px;">
-                    <input type="tel" onkeyup="validatePetsForm()" class="req-input" placeholder="Teléfono" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
+                <div style="margin-bottom: 16px;">
+                    <input type="tel" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Teléfono">
                 </div>
                 
-                <div style="margin-bottom: 12px;">
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="Dirección" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
+                <div style="margin-bottom: 16px;">
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Dirección">
                 </div>
                 
                 <div style="margin-bottom: 0;">
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="Comuna" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Comuna">
                 </div>
             </div>
         `;
