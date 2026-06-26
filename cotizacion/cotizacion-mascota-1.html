@@ -212,10 +212,10 @@
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Datos Principales</h1>
+                    <h1 class="text-gradient-corp">Planes de Asistencia</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Indícanos qué tipo de seguro de auto buscas para guiarte en el proceso.</p>
+                <p>Elige el plan de Asistencia Veterinaria que mejor se adapte a tu mascota.</p>
             </header>
         </div>
 
@@ -328,236 +328,33 @@
     </style>
 
     <div class="veh-type-grid">
-        <div class="veh-type-card" onclick="selectType('liviano', this)">
-            <div class="vt-icon"><i class="fa-solid fa-car"></i></div>
+        <div class="veh-type-card" onclick="selectType('basico', this)">
+            <div class="vt-icon"><i class="fa-solid fa-dog"></i></div>
             <div class="vt-info">
-                <h4>Vehículo Liviano</h4>
-                <p>Autos, Camionetas, SUV de uso particular.</p>
+                <h4>Asistencia Mascota</h4>
+                <p>Urgencias médicas, vacunas y más.</p>
             </div>
-            <input type="radio" name="vehType" class="vt-radio" value="liviano">
+            <input type="radio" name="vehType" class="vt-radio" value="basico">
         </div>
 
-        <div class="veh-type-card" onclick="selectType('pesado', this)">
-            <div class="vt-icon"><i class="fa-solid fa-truck-moving"></i></div>
+        <div class="veh-type-card" onclick="selectType('pro', this)" style="border-color: #2563EB; background: rgba(37, 99, 235, 0.05);">
+            <div class="vt-icon" style="background: #2563EB; color: white;"><i class="fa-solid fa-shield-dog"></i></div>
             <div class="vt-info">
-                <h4>Vehículo Pesado</h4>
-                <p>Camiones, Remolques, Maquinaria.</p>
+                <h4 style="color: #2563EB;">Asistencia Mascota Pro <span style="font-size: 0.7em; background: #2563EB; color: white; padding: 2px 6px; border-radius: 4px; vertical-align: middle;">Recomendado</span></h4>
+                <p>Telemedicina, descuentos y consultas generales.</p>
             </div>
-            <input type="radio" name="vehType" class="vt-radio" value="pesado">
+            <input type="radio" name="vehType" class="vt-radio" value="pro">
         </div>
 
-        <div class="veh-type-card" onclick="selectType('km', this)">
-            <div class="vt-icon"><i class="fa-solid fa-gauge-high"></i></div>
+        <div class="veh-type-card" onclick="selectType('senior', this)">
+            <div class="vt-icon"><i class="fa-solid fa-bone"></i></div>
             <div class="vt-info">
-                <h4>Seguro por Kilómetro</h4>
-                <p>Paga solo por lo que manejas al mes.</p>
+                <h4>Asistencia Senior</h4>
+                <p>Para mascotas mayores a 7 años.</p>
             </div>
-            <input type="radio" name="vehType" class="vt-radio" value="km">
+            <input type="radio" name="vehType" class="vt-radio" value="senior">
         </div>
     </div>
-    
-    <div class="term-legal">
-        <p>Al continuar, confirmas que has elegido correctamente la categoría de tu vehículo para que MHM Corredores pueda brindarte la mejor opción disponible.</p>
-    </div>
-
-    
-</form>
-
-
-
-<script>
-    function selectType(type, element) {
-        // Instant visual feedback
-        element.style.transform = 'scale(0.98)';
-        
-        setTimeout(() => {
-            if(type === 'liviano') {
-                // Add a subtle transition effect before redirecting
-                document.body.style.opacity = '0';
-                document.body.style.transition = 'opacity 0.3s ease';
-                setTimeout(() => {
-                    window.location.href = 'cotizacion-2.html';
-                }, 300);
-            } else if (type === 'pesado' || type === 'km') {
-                element.style.transform = 'translateY(-5px) scale(1.02)';
-                document.getElementById('leadModal').classList.add('active');
-            }
-        }, 150);
-    }
-    
-    function closeLeadModal() {
-        document.getElementById('leadModal').classList.remove('active');
-    }
-    
-    function submitLead() {
-        const nameInput = document.getElementById('leadName');
-        const emailInput = document.getElementById('leadEmail');
-        const phoneInput = document.getElementById('leadPhone');
-        
-        let isValid = true;
-        
-        // Remove old errors
-        [nameInput, emailInput, phoneInput].forEach(el => el.classList.remove('error'));
-        
-        if(!nameInput.value.trim()) { nameInput.classList.add('error'); isValid = false; }
-        if(!emailInput.value.trim()) { emailInput.classList.add('error'); isValid = false; }
-        if(!phoneInput.value.trim()) { phoneInput.classList.add('error'); isValid = false; }
-        
-        if(!isValid) {
-            if(typeof window.showToast === 'function') {
-                window.showToast("Por favor, completa todos los campos.", "warning");
-            }
-            [nameInput, emailInput, phoneInput].forEach(el => {
-                if(el.classList.contains('error')) {
-                    el.classList.add('shake-anim');
-                    setTimeout(() => el.classList.remove('shake-anim'), 500);
-                }
-            });
-            return;
-        }
-        
-        // Simular envío
-        const btn = document.querySelector('.lead-submit');
-        const oldText = btn.innerHTML;
-        btn.innerHTML = '<i class="fa-solid fa-circle-notch fa-spin"></i> Procesando...';
-        btn.disabled = true;
-        
-        setTimeout(() => {
-            document.getElementById('leadContent').style.display = 'none';
-            document.getElementById('leadSuccess').style.display = 'block';
-        }, 1500);
-    }
-</script>
-
-
-                </div>
-            </div>
-
-            <aside class="config-sidebar anim-entry delay-2">
-                <div class="organic-panel">
-
-                    <style>
-                    /* Premium Feature Cards */
-                    .mhm-premium-features {
-                        display: flex;
-                        flex-direction: column;
-                        gap: 16px;
-                        margin-top: 15px;
-                    }
-
-                    .mhm-feature-card {
-                        position: relative;
-                        padding: 18px 16px;
-                        border-radius: 16px;
-                        background: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(248,250,252,0.6) 100%);
-                        border: 1px solid rgba(226, 232, 240, 0.8);
-                        display: flex;
-                        gap: 16px;
-                        align-items: flex-start;
-                        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                        overflow: hidden;
-                        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);
-                        cursor: default;
-                    }
-
-                    .mhm-feature-card:hover {
-                        transform: translateY(-4px) scale(1.02);
-                        border-color: rgba(45, 212, 191, 0.4);
-                        box-shadow: 0 12px 25px rgba(45, 212, 191, 0.15);
-                        background: linear-gradient(145deg, rgba(255,255,255,1) 0%, rgba(240,253,250,0.9) 100%);
-                    }
-
-                    .mhm-feature-card::before {
-                        content: '';
-                        position: absolute;
-                        top: 0; left: 0; right: 0; bottom: 0;
-                        border-radius: 16px;
-                        background: linear-gradient(135deg, transparent, rgba(45, 212, 191, 0.03));
-                        pointer-events: none;
-                    }
-
-                    .mhm-feature-icon {
-                        width: 44px;
-                        height: 44px;
-                        border-radius: 12px;
-                        background: linear-gradient(135deg, rgba(45, 212, 191, 0.15) 0%, rgba(16, 185, 129, 0.05) 100%);
-                        color: var(--brand-green, #10B981);
-                        display: flex;
-                        align-items: center;
-                        justify-content: center;
-                        font-size: 1.25rem;
-                        flex-shrink: 0;
-                        position: relative;
-                        z-index: 2;
-                        transition: all 0.4s ease;
-                        border: 1px solid rgba(45, 212, 191, 0.2);
-                    }
-
-                    .mhm-feature-card:hover .mhm-feature-icon {
-                        background: linear-gradient(135deg, var(--brand-green, #10B981) 0%, #059669 100%);
-                        color: #ffffff;
-                        box-shadow: 0 6px 15px rgba(16, 185, 129, 0.35);
-                        transform: rotate(-8deg) scale(1.1);
-                        border-color: transparent;
-                    }
-
-                    .mhm-feature-content {
-                        position: relative;
-                        z-index: 2;
-                        padding-top: 2px;
-                    }
-
-                    .mhm-feature-title {
-                        margin: 0 0 5px 0;
-                        font-size: 1rem;
-                        color: #0F172A;
-                        font-weight: 800;
-                        letter-spacing: -0.3px;
-                        transition: color 0.3s ease;
-                    }
-
-                    .mhm-feature-card:hover .mhm-feature-title {
-                        color: var(--brand-green, #10B981);
-                    }
-
-                    .mhm-feature-desc {
-                        margin: 0;
-                        font-size: 0.85rem;
-                        color: #64748B;
-                        line-height: 1.45;
-                        font-weight: 500;
-                    }
-                    </style>
-
-                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
-                        ¿Por qué cotizar con MHM?
-                    </div>
-
-                    <div class="mhm-premium-features">
-                        <div class="mhm-feature-card">
-                            <div class="mhm-feature-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                            <div class="mhm-feature-content">
-                                <h4 class="mhm-feature-title">Seguridad y Confianza</h4>
-                                <p class="mhm-feature-desc">Trabajamos con las aseguradoras más prestigiosas y sólidas de Chile.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="mhm-feature-card">
-                            <div class="mhm-feature-icon"><i class="fa-solid fa-headset"></i></div>
-                            <div class="mhm-feature-content">
-                                <h4 class="mhm-feature-title">Asesoría 360°</h4>
-                                <p class="mhm-feature-desc">Acompañamiento experto en la elección y gestión 24/7 de siniestros.</p>
-                            </div>
-                        </div>
-                        
-                        <div class="mhm-feature-card">
-                            <div class="mhm-feature-icon"><i class="fa-solid fa-bolt"></i></div>
-                            <div class="mhm-feature-content">
-                                <h4 class="mhm-feature-title">Eficiencia Digital</h4>
-                                <p class="mhm-feature-desc">Proceso 100% online, ultra rápido y sin papeleos innecesarios.</p>
-                            </div>
-                        </div>
-                    </div>
 
                 </div>
             </aside>
@@ -862,7 +659,7 @@
                         <div class="tech-icon-badge"><i class="fa-solid fa-bolt"></i></div>
                     </div>
 
-                    <h2 class="c-title">Bienvenido a <br><span class="shimmer-text">MHM Seguros</span></h2>
+                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Mascotas</span></h2>
                     
                     <div class="c-copy">
                         <p>Has accedido a una plataforma de seguros de nueva generación. Conectamos con las mejores aseguradoras de Chile para darte la cobertura ideal.</p>
@@ -886,26 +683,26 @@
                     <div class="info-group">
                         
                         <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-id-card"></i></div>
+                            <div class="ic-icon"><i class="fa-solid fa-user"></i></div>
                             <div class="ic-content">
-                                <h4>Cédula de Identidad</h4>
-                                <p>RUT chileno vigente o pasaporte para extranjeros.</p>
+                                <h4>Datos del Dueño</h4>
+                                <p>Tu nombre, RUT, teléfono y correo electrónico.</p>
                             </div>
                         </div>
 
                         <div class="info-card-row" style="border-color: #2ED9C333; background: #f0f9ff;">
-                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-file-invoice"></i></div>
+                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-paw"></i></div>
                             <div class="ic-content">
-                                <h4>¿Tienes seguro actualmente?</h4>
-                                <p>Ten a mano las condiciones de tu <span class="highlight-doc">póliza actual</span> para asegurar un descuento por traspaso.</p>
+                                <h4>Información de la Mascota</h4>
+                                <p>Nombre, especie, raza y edad de tu mascota.</p>
                             </div>
                         </div>
 
                         <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-car-side"></i></div>
+                            <div class="ic-icon"><i class="fa-solid fa-shield-dog"></i></div>
                             <div class="ic-content">
-                                <h4>Patente del Vehículo</h4>
-                                <p>Requerido para la validación exacta del modelo y año.</p>
+                                <h4>Plan Deseado</h4>
+                                <p>Elige entre Básico, Pro o Senior según sus necesidades.</p>
                             </div>
                         </div>
 

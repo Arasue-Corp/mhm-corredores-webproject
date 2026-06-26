@@ -273,10 +273,12 @@
                     }
                 });
                 
-                // Update specific link for Seguro Automotriz
+                // Update specific link for Seguro Automotriz y Asistencia Veterinaria
                 const quoteBtn = document.getElementById('dynamic-quote-btn');
                 if (p.title === "Seguro Automotríz") {
                     quoteBtn.href = "../funnel-auto/index.html";
+                } else if (p.title === "Asistencia Veterinaria") {
+                    quoteBtn.href = "../cotizacion/cotizacion-mascota-1.html";
                 } else {
                     quoteBtn.href = "../cotizacion/cotizacion.html";
                 }
