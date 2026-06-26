@@ -327,8 +327,8 @@
             <div class="vt-info">
                 <h4>Asistencia Mascota</h4>
                 <div class="plan-price">$5.555 / mes</div>
-                <button type="button" class="details-toggle-btn" onclick="toggleDetails(this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
-                <ul class="pet-feature-list">
+                <button type="button" class="details-toggle-btn" onclick="toggleDetails('list-basico', this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="pet-feature-list" id="list-basico">
                     <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
                     <li><i class="fa-solid fa-check"></i> Ingreso: 0 hasta 9 años con 365 días</li>
@@ -348,8 +348,8 @@
             <div class="vt-info">
                 <h4 style="color: #2563EB;">Asistencia Mascota Pro <br><span style="font-size: 0.6em; background: #2563EB; color: white; padding: 4px 8px; border-radius: 6px; vertical-align: middle; display: inline-block; margin-top: 5px;">Recomendado</span></h4>
                 <div class="plan-price">$5.555 / mes</div>
-                <button type="button" class="details-toggle-btn" onclick="toggleDetails(this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
-                <ul class="pet-feature-list">
+                <button type="button" class="details-toggle-btn" onclick="toggleDetails('list-pro', this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="pet-feature-list" id="list-pro">
                     <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
                     <li><i class="fa-solid fa-check"></i> Ingreso: 0 hasta 9 años con 365 días</li>
@@ -369,8 +369,8 @@
             <div class="vt-info">
                 <h4>Asistencia Senior</h4>
                 <div class="plan-price">$5.555 / mes</div>
-                <button type="button" class="details-toggle-btn" onclick="toggleDetails(this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
-                <ul class="pet-feature-list">
+                <button type="button" class="details-toggle-btn" onclick="toggleDetails('list-senior', this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="pet-feature-list" id="list-senior">
                     <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
                     <li><i class="fa-solid fa-check"></i> Ingreso: 7 hasta 13 años con 365 días</li>
@@ -458,21 +458,18 @@
     };
 
     
-    function toggleDetails(btn) {
-        // Find the next element sibling that is a UL
-        let list = btn.nextElementSibling;
-        while(list && list.tagName !== 'UL') {
-            list = list.nextElementSibling;
-        }
-        
+    function toggleDetails(listId, btn) {
+        const list = document.getElementById(listId);
         if (!list) return;
         
-        list.classList.toggle('show-details');
-        btn.classList.toggle('open');
-        if (list.classList.contains('show-details')) {
-            btn.innerHTML = 'Ocultar detalles <i class="fa-solid fa-chevron-up"></i>';
-        } else {
+        if (list.classList.contains('show-details') || list.style.display === 'block') {
+            list.classList.remove('show-details');
+            list.style.setProperty('display', 'none', 'important');
             btn.innerHTML = 'Ver detalles <i class="fa-solid fa-chevron-down"></i>';
+        } else {
+            list.classList.add('show-details');
+            list.style.setProperty('display', 'block', 'important');
+            btn.innerHTML = 'Ocultar detalles <i class="fa-solid fa-chevron-up"></i>';
         }
     }
 
