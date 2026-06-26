@@ -465,7 +465,7 @@
                         <input type="text" onkeyup="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: Firulais" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
                     </div>
                     
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
                         <div class="input-group-modern">
                             <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Especie</label>
                             <select onchange="validatePetsForm()" class="pet-input rich-input" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
@@ -484,7 +484,7 @@
                         </div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
                         <div class="input-group-modern">
                             <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Raza</label>
                             <input type="text" onkeyup="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: Poodle" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
@@ -527,7 +527,7 @@
                     </div>
                 </div>
                 
-                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
                     <div class="input-group-modern">
                         <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">RUT</label>
                         <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" placeholder="12345678-9" value="${client.rut}" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
