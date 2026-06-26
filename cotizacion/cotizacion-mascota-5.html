@@ -280,71 +280,108 @@
 
 
     
-    <div class="page-wrapper" style="background: transparent; min-height: 80vh; display: flex; align-items: center; justify-content: center; position: relative;">
+    
+    <div class="page-wrapper" style="background: transparent; min-height: 80vh; display: flex; align-items: center; justify-content: center; position: relative; padding: 20px;">
         <!-- Confetti Background (CSS based) -->
         <div class="confetti-container" style="position: absolute; top:0; left:0; width:100%; height:100%; overflow:hidden; z-index:0; pointer-events:none;">
             <!-- Simple dots via CSS background -->
         </div>
         
-        <div class="success-card-wrapper" style="position: relative; z-index: 1; background: white; border-radius: 16px; box-shadow: 0 10px 40px rgba(0,0,0,0.05); max-width: 800px; width: 95%; margin: 40px auto; overflow: hidden;">
+        <div class="premium-white-card anim-entry" style="position: relative; z-index: 1; max-width: 800px; width: 100%; padding: 0; overflow: hidden; display: flex; flex-direction: column;">
             
-            <div style="background: #A3D80E; color: white; text-align: center; padding: 20px; font-size: 1.4rem; font-weight: 800; letter-spacing: 1px;">
+            <div style="background: var(--primary, #104C5C); color: white; text-align: center; padding: 25px 20px; font-size: 1.25rem; font-weight: 800; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 10px;">
+                <i class="fa-solid fa-circle-check" style="font-size: 1.7rem; color: var(--accent, #A3D80E);"></i>
                 ¡TU ASISTENCIA YA ESTÁ ACTIVA!
             </div>
             
             <div style="padding: 40px 30px;">
-                <h3 style="color: #104C5C; font-size: 1.1rem; font-weight: 700; margin-bottom: 15px;">-Detalle de contratación:</h3>
-                <ul style="list-style: none; padding: 0; margin: 0 0 35px 20px; color: #475569; line-height: 1.8;">
-                    <li><strong style="color: #1E293B;">Nº de contrato:</strong> <span id="contractNumber">1234567</span></li>
-                    <li><strong style="color: #1E293B;">Fecha de activación:</strong> <span id="activationDate">Cargando...</span></li>
-                    <li><strong style="color: #1E293B;">Medio de pago:</strong> Tarjeta de débito terminada en *****4539</li>
-                    <li><strong style="color: #1E293B;">Total mensual:</strong> <span id="totalMonthly">Cargando...</span></li>
+                <h3 class="text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-file-invoice" style="color: var(--primary, #104C5C); font-size: 1.1rem;"></i>
+                    Detalle de contratación:
+                </h3>
+                <ul style="list-style: none; padding: 0; margin: 0 0 40px 15px; color: var(--text-dark, #1E293B); line-height: 1.8; font-size: 1.05rem;">
+                    <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
+                        <i class="fa-solid fa-file-contract" style="color: var(--accent, #A3D80E); margin-top: 4px;"></i>
+                        <div><strong style="color: var(--primary, #104C5C);">Nº de contrato:</strong> <span id="contractNumber">1234567</span></div>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
+                        <i class="fa-solid fa-calendar-check" style="color: var(--accent, #A3D80E); margin-top: 4px;"></i>
+                        <div><strong style="color: var(--primary, #104C5C);">Fecha de activación:</strong> <span id="activationDate">Cargando...</span></div>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
+                        <i class="fa-solid fa-credit-card" style="color: var(--accent, #A3D80E); margin-top: 4px;"></i>
+                        <div><strong style="color: var(--primary, #104C5C);">Medio de pago:</strong> Tarjeta terminada en *****4539</div>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
+                        <i class="fa-solid fa-sack-dollar" style="color: var(--accent, #A3D80E); margin-top: 4px;"></i>
+                        <div><strong style="color: var(--primary, #104C5C);">Total mensual:</strong> <span id="totalMonthly" style="font-weight: 800;">Cargando...</span></div>
+                    </li>
                 </ul>
                 
-                <h3 style="color: #104C5C; font-size: 1.1rem; font-weight: 700; margin-bottom: 15px;">-Acciones disponibles:</h3>
-                <ul style="padding-left: 20px; margin: 0 0 40px 20px; color: #475569; line-height: 1.8;">
-                    <li>Te enviamos una copia de tu contrato a <strong id="ownerEmail" style="color: #1E293B;">tu correo</strong> o <a href="#" style="color: #104C5C; font-weight: 700; text-decoration: underline;">descarga aquí</a>. *revisar por contrato dsp de 24 hrs.</li>
-                    <li>Conoce el <a href="#" style="color: #104C5C; font-weight: 700; text-decoration: underline;">detalle legal de tu asistencia</a>.</li>
+                <h3 class="text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
+                    <i class="fa-solid fa-layer-group" style="color: var(--primary, #104C5C); font-size: 1.1rem;"></i>
+                    Acciones disponibles:
+                </h3>
+                <ul style="padding: 0; margin: 0 0 40px 15px; list-style: none; color: var(--text-dark, #1E293B); line-height: 1.8; font-size: 1.05rem;">
+                    <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
+                        <i class="fa-solid fa-envelope-circle-check" style="color: var(--accent, #A3D80E); margin-top: 4px;"></i>
+                        <div>Te enviamos una copia de tu contrato a <strong id="ownerEmail" style="color: var(--primary, #104C5C);">tu correo</strong> o <a href="#" style="color: var(--accent, #A3D80E); font-weight: 800; text-decoration: none;">descárgala aquí</a>.<br><span style="font-size: 0.85rem; color: #64748B;">*Revisar por contrato después de 24 hrs.</span></div>
+                    </li>
+                    <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
+                        <i class="fa-solid fa-scale-balanced" style="color: var(--accent, #A3D80E); margin-top: 4px;"></i>
+                        <div>Conoce el <a href="#" style="color: var(--accent, #A3D80E); font-weight: 800; text-decoration: none;">detalle legal de tu asistencia</a>.</div>
+                    </li>
                 </ul>
                 
-                <div style="text-align: center; margin-top: 50px;">
-                    <h2 style="color: #104C5C; font-size: 1.4rem; font-weight: 800; margin-bottom: 10px;">CUIDAR LO QUE QUIERES NO TERMINA AQUÍ <i class="fa-solid fa-heart" style="color: #22C55E;"></i></h2>
-                    <p style="color: #64748B; font-size: 1rem; margin-bottom: 30px;">Descubre otras asistencias que pueden ayudarte en tu día a día:</p>
+                <div style="text-align: center; margin-top: 50px; border-top: 1px dashed #CBD5E1; padding-top: 40px;">
+                    <h2 class="text-gradient-corp" style="font-size: 1.4rem; font-weight: 900; margin-bottom: 10px; text-transform: uppercase;">
+                        CUIDAR LO QUE QUIERES NO TERMINA AQUÍ 
+                        <i class="fa-solid fa-heart" style="color: var(--accent, #A3D80E);"></i>
+                    </h2>
+                    <p style="color: #64748B; font-size: 1rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 500;">
+                        Descubre otras asistencias que pueden ayudarte en tu día a día:
+                    </p>
                     
                     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 20px;">
                         <!-- Hogar -->
-                        <div style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #F1F5F9; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                            <div style="background: #104C5C; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2.5rem;">
+                        <div class="card-hover-effect" style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #E2E8F0; cursor: pointer; transition: 0.3s;" onmouseover="this.style.borderColor='var(--accent, #A3D80E)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='#E2E8F0'; this.style.transform='translateY(0)';">
+                            <div style="background: var(--primary, #104C5C); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem; box-shadow: 0 10px 20px rgba(16,76,92,0.15);">
                                 <i class="fa-solid fa-house"></i>
                             </div>
-                            <h4 style="color: #104C5C; font-size: 1.2rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; text-decoration: underline; text-decoration-color: #104C5C; text-decoration-thickness: 2px;">Hogar</h4>
-                            <span style="color: #64748B; font-size: 0.8rem; font-weight: 700;">DESDE <strong style="color: #104C5C; font-size: 1.1rem;">$7.990</strong></span>
+                            <h4 class="text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase;">Hogar</h4>
+                            <span style="color: #64748B; font-size: 0.85rem; font-weight: 700;">DESDE <strong style="color: var(--primary, #104C5C); font-size: 1.15rem;">$7.990</strong></span>
                         </div>
                         
                         <!-- Movilidad -->
-                        <div style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #F1F5F9; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                            <div style="background: #104C5C; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2.5rem;">
+                        <div class="card-hover-effect" style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #E2E8F0; cursor: pointer; transition: 0.3s;" onmouseover="this.style.borderColor='var(--accent, #A3D80E)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='#E2E8F0'; this.style.transform='translateY(0)';">
+                            <div style="background: var(--primary, #104C5C); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem; box-shadow: 0 10px 20px rgba(16,76,92,0.15);">
                                 <i class="fa-solid fa-car-side"></i>
                             </div>
-                            <h4 style="color: #104C5C; font-size: 1.2rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; text-decoration: underline; text-decoration-color: #104C5C; text-decoration-thickness: 2px;">Movilidad</h4>
-                            <span style="color: #64748B; font-size: 0.8rem; font-weight: 700;">DESDE <strong style="color: #104C5C; font-size: 1.1rem;">$3.200</strong></span>
+                            <h4 class="text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase;">Movilidad</h4>
+                            <span style="color: #64748B; font-size: 0.85rem; font-weight: 700;">DESDE <strong style="color: var(--primary, #104C5C); font-size: 1.15rem;">$3.200</strong></span>
                         </div>
                         
                         <!-- Salud -->
-                        <div style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #F1F5F9; transition: transform 0.3s; cursor: pointer;" onmouseover="this.style.transform='translateY(-5px)'" onmouseout="this.style.transform='translateY(0)'">
-                            <div style="background: #104C5C; width: 90px; height: 90px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2.5rem;">
+                        <div class="card-hover-effect" style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #E2E8F0; cursor: pointer; transition: 0.3s;" onmouseover="this.style.borderColor='var(--accent, #A3D80E)'; this.style.transform='translateY(-5px)';" onmouseout="this.style.borderColor='#E2E8F0'; this.style.transform='translateY(0)';">
+                            <div style="background: var(--primary, #104C5C); width: 80px; height: 80px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 2rem; box-shadow: 0 10px 20px rgba(16,76,92,0.15);">
                                 <i class="fa-solid fa-hand-holding-medical"></i>
                             </div>
-                            <h4 style="color: #104C5C; font-size: 1.2rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase; text-decoration: underline; text-decoration-color: #104C5C; text-decoration-thickness: 2px;">Salud</h4>
-                            <span style="color: #64748B; font-size: 0.8rem; font-weight: 700;">DESDE <strong style="color: #104C5C; font-size: 1.1rem;">$3.780</strong></span>
+                            <h4 class="text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase;">Salud</h4>
+                            <span style="color: #64748B; font-size: 0.85rem; font-weight: 700;">DESDE <strong style="color: var(--primary, #104C5C); font-size: 1.15rem;">$3.780</strong></span>
                         </div>
                     </div>
+                </div>
+                
+                <!-- Botón Volver al Inicio -->
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="../index.html" class="btn-primary" style="display: inline-block; padding: 15px 40px; font-weight: 800; font-size: 1.1rem; text-decoration: none; border-radius: 30px; box-shadow: 0 10px 20px rgba(16,76,92,0.2);">
+                        Volver al Inicio
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-    
-    <script>
+<script>
         document.addEventListener('DOMContentLoaded', () => {
             // Generar número de contrato random
             document.getElementById('contractNumber').innerText = Math.floor(Math.random() * 9000000) + 1000000;
