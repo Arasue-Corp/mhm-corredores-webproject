@@ -280,170 +280,458 @@
 
 
     
-    
-    
     <div class="page-wrapper">
-        <div class="specs-layout-grid" style="display: flex; justify-content: center; padding: 40px 20px;">
-            <div class="main-spec-col" style="max-width: 800px; width: 100%;">
+
+        <div class="wizard-container">
+            <div class="wizard-top">
+                <div class="wizard-title" style="color: #10B981;"><i class="fa-solid fa-circle-check"></i>¡Todo Listo!</div>
+                <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 100%; background: #10B981;"></div></div>
+            <div class="header-split"></div>
+            <header class="brand-page-header">
+                <div class="title-group">
+                    <h1 style="color: #0F172A; font-weight: 900; font-size: 2.2rem; letter-spacing: -0.5px;">¡TU ASISTENCIA YA ESTÁ ACTIVA!</h1>
+                    <div class="aurora-line" style="background: #10B981;"></div> 
+                </div>
+                <p>Tu mascota ahora cuenta con la mejor protección. Revisa los detalles a continuación.</p>
+            </header>
+        </div>
+
+        <div class="specs-layout-grid">
+            <div class="main-spec-col">
                 
-                <div class="premium-white-card anim-entry" style="position: relative; overflow: hidden; padding: 0;">
-                    <!-- Confetti Background (CSS based) -->
-                    <div class="confetti-container" style="position: absolute; top:0; left:0; width:100%; height:100%; overflow:hidden; z-index:0; pointer-events:none;"></div>
+                <style>
+                    .harmonic-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); overflow: hidden; }
+                    .harmonic-header { background: #F8FAFC; padding: 15px 20px; border-bottom: 1px solid #E2E8F0; font-weight: 800; color: #104C5C; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
+                    .harmonic-body { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
+                    .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: #F1F5F9; border-radius: 8px; font-size: 0.95rem; }
+                    .detail-row strong { color: #104C5C; font-weight: 800; display: flex; align-items: center; gap: 8px; }
+                    .detail-row span { color: #475569; font-weight: 600; }
                     
-                    <div style="position: relative; z-index: 1;">
-                        <div style="background: var(--primary); color: white; text-align: center; padding: 25px 20px; font-size: 1.25rem; font-weight: 800; letter-spacing: 1px; display: flex; align-items: center; justify-content: center; gap: 10px;">
-                            <i class="fa-solid fa-circle-check" style="font-size: 1.7rem; color: var(--accent);"></i>
-                            ¡TU ASISTENCIA YA ESTÁ ACTIVA!
+                    .action-link { display: flex; align-items: center; justify-content: space-between; padding: 15px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; text-decoration: none; color: #1E293B; font-weight: 700; transition: all 0.2s; }
+                    .action-link:hover { border-color: #2ED9C3; background: #FFFFFF; box-shadow: 0 4px 10px rgba(46, 217, 195, 0.1); transform: translateY(-2px); }
+                    .action-link i { color: #2ED9C3; font-size: 1.2rem; }
+                    
+                    .cross-sell-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 15px; margin-top: 10px; }
+                    .cross-sell-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px 10px; text-align: center; cursor: pointer; transition: all 0.3s; text-decoration: none; display: block; }
+                    .cross-sell-card:hover { border-color: #104C5C; transform: translateY(-4px); box-shadow: 0 10px 20px rgba(16, 76, 92, 0.08); }
+                    .cross-sell-icon { width: 50px; height: 50px; border-radius: 50%; background: #F1F5F9; color: #104C5C; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; margin: 0 auto 15px; }
+                    .cross-sell-card:hover .cross-sell-icon { background: #104C5C; color: white; }
+                    
+                    @media (max-width: 600px) {
+                        .cross-sell-grid { grid-template-columns: 1fr; }
+                        .detail-row { flex-direction: column; align-items: flex-start; gap: 5px; }
+                    }
+                </style>
+                
+                <!-- Confetti animation layer -->
+                <div class="success-graphic" style="margin: 20px auto 40px;">
+                    <div class="success-bg"></div>
+                    <i class="fa-solid fa-check success-icon"></i>
+                </div>
+
+                <div class="harmonic-card">
+                    <div class="harmonic-header">
+                        <i class="fa-solid fa-file-invoice"></i> Detalle de contratación
+                    </div>
+                    <div class="harmonic-body">
+                        <div class="detail-row">
+                            <strong><i class="fa-solid fa-file-contract" style="color: #64748B;"></i> Nº de contrato:</strong>
+                            <span id="contractNumber">1234567</span>
                         </div>
-                        
-                        <div style="padding: 40px 30px;">
-                            <h3 class="text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
-                                <i class="fa-solid fa-file-invoice" style="color: var(--primary); font-size: 1.1rem;"></i>
-                                Detalle de contratación:
-                            </h3>
-                            <ul style="list-style: none; padding: 0; margin: 0 0 40px 15px; color: var(--text-dark); line-height: 1.8; font-size: 1.05rem;">
-                                <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
-                                    <i class="fa-solid fa-file-contract" style="color: var(--accent); margin-top: 4px;"></i>
-                                    <div><strong style="color: var(--primary);">Nº de contrato:</strong> <span id="contractNumber">1234567</span></div>
-                                </li>
-                                <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
-                                    <i class="fa-solid fa-calendar-check" style="color: var(--accent); margin-top: 4px;"></i>
-                                    <div><strong style="color: var(--primary);">Fecha de activación:</strong> <span id="activationDate">Cargando...</span></div>
-                                </li>
-                                <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
-                                    <i class="fa-solid fa-credit-card" style="color: var(--accent); margin-top: 4px;"></i>
-                                    <div><strong style="color: var(--primary);">Medio de pago:</strong> Tarjeta terminada en *****4539</div>
-                                </li>
-                                <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
-                                    <i class="fa-solid fa-sack-dollar" style="color: var(--accent); margin-top: 4px;"></i>
-                                    <div><strong style="color: var(--primary);">Total mensual:</strong> <span id="totalMonthly" style="font-weight: 800;">Cargando...</span></div>
-                                </li>
-                            </ul>
-                            
-                            <h3 class="text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 25px; display: flex; align-items: center; gap: 10px;">
-                                <i class="fa-solid fa-layer-group" style="color: var(--primary); font-size: 1.1rem;"></i>
-                                Acciones disponibles:
-                            </h3>
-                            <ul style="padding: 0; margin: 0 0 40px 15px; list-style: none; color: var(--text-dark); line-height: 1.8; font-size: 1.05rem;">
-                                <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
-                                    <i class="fa-solid fa-envelope-circle-check" style="color: var(--accent); margin-top: 4px;"></i>
-                                    <div>Te enviamos una copia de tu contrato a <strong id="ownerEmail" style="color: var(--primary);">tu correo</strong> o <a href="#" style="color: var(--accent); font-weight: 800; text-decoration: none;">descárgala aquí</a>.<br><span style="font-size: 0.85rem; color: #64748B;">*Revisar por contrato después de 24 hrs.</span></div>
-                                </li>
-                                <li style="display: flex; gap: 12px; margin-bottom: 15px; align-items: flex-start;">
-                                    <i class="fa-solid fa-scale-balanced" style="color: var(--accent); margin-top: 4px;"></i>
-                                    <div>Conoce el <a href="#" style="color: var(--accent); font-weight: 800; text-decoration: none;">detalle legal de tu asistencia</a>.</div>
-                                </li>
-                            </ul>
-                            
-                            <div style="text-align: center; margin-top: 50px; border-top: 1px dashed #CBD5E1; padding-top: 40px;">
-                                <h2 class="text-gradient-corp" style="font-size: 1.4rem; font-weight: 900; margin-bottom: 10px; text-transform: uppercase;">
-                                    CUIDAR LO QUE QUIERES NO TERMINA AQUÍ 
-                                    <i class="fa-solid fa-heart" style="color: var(--accent);"></i>
-                                </h2>
-                                <p style="color: #64748B; font-size: 1rem; margin-bottom: 30px; max-width: 600px; margin-left: auto; margin-right: auto; font-weight: 500;">
-                                    Descubre otras asistencias que pueden ayudarte en tu día a día:
-                                </p>
-                                
-                                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 20px;">
-                                    <!-- Hogar -->
-                                    <div class="card-hover-effect" style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #E2E8F0; cursor: pointer; transition: 0.3s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='#E2E8F0';">
-                                        <div style="background: var(--primary); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.8rem; box-shadow: 0 10px 20px rgba(16,76,92,0.15);">
-                                            <i class="fa-solid fa-house"></i>
-                                        </div>
-                                        <h4 class="text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase;">Hogar</h4>
-                                        <span style="color: #64748B; font-size: 0.85rem; font-weight: 700;">DESDE <strong style="color: var(--primary); font-size: 1.15rem;">$7.990</strong></span>
-                                    </div>
-                                    
-                                    <!-- Movilidad -->
-                                    <div class="card-hover-effect" style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #E2E8F0; cursor: pointer; transition: 0.3s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='#E2E8F0';">
-                                        <div style="background: var(--primary); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.8rem; box-shadow: 0 10px 20px rgba(16,76,92,0.15);">
-                                            <i class="fa-solid fa-car-side"></i>
-                                        </div>
-                                        <h4 class="text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase;">Movilidad</h4>
-                                        <span style="color: #64748B; font-size: 0.85rem; font-weight: 700;">DESDE <strong style="color: var(--primary); font-size: 1.15rem;">$3.200</strong></span>
-                                    </div>
-                                    
-                                    <!-- Salud -->
-                                    <div class="card-hover-effect" style="background: #F8FAFC; border-radius: 16px; padding: 30px 20px; text-align: center; border: 1px solid #E2E8F0; cursor: pointer; transition: 0.3s;" onmouseover="this.style.borderColor='var(--accent)';" onmouseout="this.style.borderColor='#E2E8F0';">
-                                        <div style="background: var(--primary); width: 70px; height: 70px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; color: white; font-size: 1.8rem; box-shadow: 0 10px 20px rgba(16,76,92,0.15);">
-                                            <i class="fa-solid fa-hand-holding-medical"></i>
-                                        </div>
-                                        <h4 class="text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 5px; text-transform: uppercase;">Salud</h4>
-                                        <span style="color: #64748B; font-size: 0.85rem; font-weight: 700;">DESDE <strong style="color: var(--primary); font-size: 1.15rem;">$3.780</strong></span>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <!-- Botón Volver al Inicio -->
-                            <div style="text-align: center; margin-top: 40px;">
-                                <a href="../index.html" class="btn-primary" style="display: inline-block; padding: 15px 40px; font-weight: 800; font-size: 1.1rem; text-decoration: none; border-radius: 30px; box-shadow: 0 10px 20px rgba(16,76,92,0.2);">
-                                    Volver al Inicio
-                                </a>
-                            </div>
+                        <div class="detail-row">
+                            <strong><i class="fa-solid fa-calendar-check" style="color: #64748B;"></i> Fecha de activación:</strong>
+                            <span id="activationDate">Cargando...</span>
+                        </div>
+                        <div class="detail-row">
+                            <strong><i class="fa-solid fa-credit-card" style="color: #64748B;"></i> Medio de pago:</strong>
+                            <span>Débito terminada en *****4539</span>
+                        </div>
+                        <div class="detail-row" style="background: #ECFDF5; border: 1px solid #A7F3D0;">
+                            <strong style="color: #065F46;"><i class="fa-solid fa-sack-dollar" style="color: #10B981;"></i> Total mensual:</strong>
+                            <span id="totalMonthly" style="color: #065F46; font-size: 1.1rem; font-weight: 800;">Cargando...</span>
                         </div>
                     </div>
                 </div>
+
+                <div class="harmonic-card">
+                    <div class="harmonic-header">
+                        <i class="fa-solid fa-layer-group"></i> Acciones disponibles
+                    </div>
+                    <div class="harmonic-body">
+                        <a href="#" class="action-link">
+                            <div style="display: flex; flex-direction: column; gap: 4px;">
+                                <span>Descargar copia del contrato</span>
+                                <span style="font-size: 0.8rem; color: #64748B; font-weight: 500;">O revisa tu correo <span id="ownerEmail" style="color: #104C5C; font-weight: 700;"></span></span>
+                            </div>
+                            <i class="fa-solid fa-download"></i>
+                        </a>
+                        
+                        <a href="#" class="action-link">
+                            <div style="display: flex; flex-direction: column; gap: 4px;">
+                                <span>Ver detalle legal de asistencia</span>
+                                <span style="font-size: 0.8rem; color: #64748B; font-weight: 500;">Términos, condiciones y exclusiones</span>
+                            </div>
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </a>
+                        <p style="font-size: 0.8rem; color: #94A3B8; text-align: center; margin: 0;">*Los documentos pueden tardar hasta 24 hrs en estar disponibles.</p>
+                    </div>
+                </div>
+
+                <div class="harmonic-card" style="border-color: #2ED9C3; background: #FAFAFA;">
+                    <div class="harmonic-header" style="background: #2ED9C3; color: white; border: none; justify-content: center; font-size: 1.2rem;">
+                        CUIDAR LO QUE QUIERES NO TERMINA AQUÍ <i class="fa-solid fa-heart"></i>
+                    </div>
+                    <div class="harmonic-body" style="padding: 25px 20px;">
+                        <p style="color: #475569; text-align: center; font-weight: 600; margin-bottom: 5px;">Descubre otras asistencias para tu día a día:</p>
+                        
+                        <div class="cross-sell-grid">
+                            <a href="../cotizacion-hogar/index.html" class="cross-sell-card">
+                                <div class="cross-sell-icon"><i class="fa-solid fa-house"></i></div>
+                                <div style="color: #104C5C; font-weight: 900; text-transform: uppercase; margin-bottom: 4px;">Hogar</div>
+                                <div style="color: #64748B; font-size: 0.8rem; font-weight: 600;">Desde <strong style="color: #2ED9C3; font-size: 1rem;">$7.990</strong></div>
+                            </a>
+                            
+                            <a href="../funnel-auto/index.html" class="cross-sell-card">
+                                <div class="cross-sell-icon"><i class="fa-solid fa-car-side"></i></div>
+                                <div style="color: #104C5C; font-weight: 900; text-transform: uppercase; margin-bottom: 4px;">Movilidad</div>
+                                <div style="color: #64748B; font-size: 0.8rem; font-weight: 600;">Desde <strong style="color: #2ED9C3; font-size: 1rem;">$3.200</strong></div>
+                            </a>
+                            
+                            <a href="../seguro-complementario-salud/index.html" class="cross-sell-card">
+                                <div class="cross-sell-icon"><i class="fa-solid fa-hand-holding-medical"></i></div>
+                                <div style="color: #104C5C; font-weight: 900; text-transform: uppercase; margin-bottom: 4px;">Salud</div>
+                                <div style="color: #64748B; font-size: 0.8rem; font-weight: 600;">Desde <strong style="color: #2ED9C3; font-size: 1rem;">$3.780</strong></div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="../index.html" class="btn-aurora-gradient" style="display: flex; margin: 30px auto; width: max-content; padding: 15px 40px;">
+                    <span>Volver al Inicio</span>
+                    <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
+                </a>
 
             </div>
         </div>
     </div>
 <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Generar número de contrato random
-            document.getElementById('contractNumber').innerText = Math.floor(Math.random() * 9000000) + 1000000;
-            
-            // Fecha actual
-            const date = new Date();
-            const options = { day: 'numeric', month: 'long', year: 'numeric' };
-            document.getElementById('activationDate').innerText = date.toLocaleDateString('es-ES', options);
-            
-            // Obtener email del cliente
-            const clientStr = sessionStorage.getItem('mhmPetClient');
-            if (clientStr) {
-                const client = JSON.parse(clientStr);
-                if(client.email) {
-                    document.getElementById('ownerEmail').innerText = client.email;
+    function renderSidebarSummary() {
+        const summaryDiv = document.getElementById('cart-summary-step3');
+        if(!summaryDiv) return;
+        
+        let html = '';
+        let hasItems = false;
+        
+        const cartStr = sessionStorage.getItem('mhmPetCart');
+        if (cartStr) {
+            const plans = JSON.parse(cartStr);
+            for(let id in plans) {
+                if(plans[id].qty > 0) {
+                    hasItems = true;
+                    html += `
+                    <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #E2E8F0;">
+                        <h4 style="color: #104C5C; font-size: 1.15rem; font-weight: 800; margin-bottom: 15px; line-height: 1.3;">
+                            ¡Excelente elección!<br>
+                            Contrataste ${plans[id].name}
+                        </h4>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
+                                Protección y coberturas 100%.
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
+                                Eventos disponibles todo el año.
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
+                                Usa tu asistencia en la veterinaria que desees, estamos en todo Chile.
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
+                                Reembolso rápido y fácil.
+                            </li>
+                        </ul>
+
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center;">
+                            <div>
+                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">Valores accesibles.</span>
+                            </div>
+                            <div>
+                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">Sin trámites complejos.</span>
+                            </div>
+                            <div>
+                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                </div>
+                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">+ Protección,<br>+ Tranquilidad.</span>
+                            </div>
+                        </div>
+                    </div>`;
                 }
             }
-            
-            // Calcular total mensual
-            const cartStr = sessionStorage.getItem('mhmPetCart');
-            if (cartStr) {
-                const plans = JSON.parse(cartStr);
-                let total = 0;
-                for(let id in plans) {
-                    if(plans[id].qty > 0) {
-                        const price = parseInt(plans[id].price.replace(/\D/g, ''));
-                        total += price * plans[id].qty;
-                    }
-                }
-                document.getElementById('totalMonthly').innerText = "$" + total.toLocaleString('es-CL');
-            } else {
-                document.getElementById('totalMonthly').innerText = "$5.555";
+        }
+        
+        if (!hasItems) {
+            window.location.href = 'cotizacion-mascota-1.html';
+            return;
+        }
+
+        summaryDiv.innerHTML = html;
+        
+        const genericBox = document.getElementById('generic-protection-box');
+        if(genericBox) genericBox.style.display = 'none';
+        
+        const headerTitle = document.getElementById('resumen-title-header');
+        if(headerTitle) headerTitle.style.display = 'none';
+    }
+
+    function validatePetsForm() {
+        const chk = document.getElementById('chkPetsCorrect');
+        if(!chk) return;
+        
+        const isChecked = chk.checked;
+        const btn = document.getElementById('btn-finish');
+        let allValid = true;
+        
+        const petInputs = document.querySelectorAll('.pet-input');
+        petInputs.forEach(input => {
+            if(!input.value.trim()) {
+                allValid = false;
             }
         });
-    </script>
-    <style>
-        .confetti-container {
-            background-image: radial-gradient(#FDE047 15%, transparent 16%), radial-gradient(#FCA5A5 15%, transparent 16%), radial-gradient(#60A5FA 15%, transparent 16%), radial-gradient(#34D399 15%, transparent 16%);
-            background-size: 90px 90px, 110px 110px, 130px 130px, 150px 150px;
-            background-position: 0 0, 40px 60px, 100px 30px, 20px 120px;
-            opacity: 0.2;
+        
+        const reqInputs = document.querySelectorAll('.req-input');
+        reqInputs.forEach(input => {
+            if(!input.value.trim()) {
+                allValid = false;
+            }
+        });
+
+        if (isChecked && allValid) {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        } else {
+            btn.style.opacity = '0.5';
+            btn.style.pointerEvents = 'none';
         }
-        @media (max-width: 600px) {
-            .success-card-wrapper {
-                margin: 20px auto;
-                border-radius: 12px;
-            }
-            .success-card-wrapper > div:first-child {
-                font-size: 1.1rem;
-                padding: 15px;
-            }
-            .success-card-wrapper > div:last-child {
-                padding: 25px 15px;
+    }
+
+    function renderPetsForm() {
+        const container = document.getElementById('petsContainer');
+        if(!container) return;
+        
+        const cartStr = sessionStorage.getItem('mhmPetCart');
+        if (!cartStr) return;
+
+        const plans = JSON.parse(cartStr);
+        let html = '';
+        let petCounter = 1;
+        
+        for(let id in plans) {
+            for(let i=0; i<plans[id].qty; i++) {
+                const uniqueId = id + '-' + i;
+                
+                html += `
+                <div class="harmonic-card">
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+                        <h3 style="color: #0F172A; font-size: 1.1rem; font-weight: 700; margin: 0;">Mascota ${petCounter}</h3>
+                        <span style="color: #10B981; font-size: 14px; font-weight: 600;">Plan: ${plans[id].name}</span>
+                    </div>
+                    
+                    <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Nombre de la Mascota" required>
+                    
+                    <div class="harmonic-input-wrapper">
+                        <span class="harmonic-label">Especie</span>
+                        <select onchange="validatePetsForm()" class="pet-input harmonic-input" required>
+                            <option value="" disabled selected>Selecciona...</option>
+                            <option value="Perro">Perro</option>
+                            <option value="Gato">Gato</option>
+                        </select>
+                    </div>
+                    
+                    <div class="harmonic-input-wrapper">
+                        <span class="harmonic-label">Sexo</span>
+                        <select onchange="validatePetsForm()" class="pet-input harmonic-input" required>
+                            <option value="" disabled selected>Selecciona...</option>
+                            <option value="Macho">Macho</option>
+                            <option value="Hembra">Hembra</option>
+                        </select>
+                    </div>
+
+                    <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Raza" required>
+                    
+                    <input type="number" onkeyup="validatePetsForm()" onchange="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Edad (Años)" min="0" max="30" style="margin-bottom: 0;" required>
+                </div>`;
+                petCounter++;
             }
         }
-    </style>
+        
+        container.innerHTML = html;
+    }
+    
+    function renderOwnerSummary() {
+        const container = document.getElementById('ownerSummaryContainer');
+        if(!container) return;
+        
+        const clientStr = sessionStorage.getItem('mhmPetClient');
+        let client = { name: '', rut: '', email: '' };
+        
+        if(clientStr) {
+            try {
+                client = JSON.parse(clientStr);
+            } catch(e) {}
+        }
+        
+        container.innerHTML = `
+            <style>
+                .harmonic-card {
+                    background: #FFFFFF;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 12px;
+                    padding: 15px;
+                    margin-bottom: 15px;
+                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
+                    width: 100%;
+                    box-sizing: border-box;
+                }
+                .harmonic-input-wrapper {
+                    background: #F8FAFC;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 8px;
+                    padding: 6px 12px;
+                    box-sizing: border-box;
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    min-height: 52px;
+                    margin-bottom: 12px;
+                }
+                .harmonic-input-wrapper:last-child {
+                    margin-bottom: 0;
+                }
+                .harmonic-input-wrapper.row-layout {
+                    flex-direction: row;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding: 0 12px;
+                }
+                .harmonic-label {
+                    font-size: 13px;
+                    color: #64748B;
+                    margin-bottom: 2px;
+                    font-weight: 500;
+                }
+                .harmonic-input {
+                    border: none;
+                    background: transparent;
+                    outline: none;
+                    width: 100%;
+                    color: #0F172A;
+                    font-size: 16px;
+                    padding: 0;
+                    font-family: inherit;
+                }
+                .harmonic-input::placeholder {
+                    color: #94A3B8;
+                }
+                .harmonic-input.large {
+                    padding: 14px 12px;
+                    background: #F8FAFC;
+                    border: 1px solid #E2E8F0;
+                    border-radius: 8px;
+                    box-sizing: border-box;
+                    min-height: 52px;
+                    margin-bottom: 12px;
+                }
+                .harmonic-input:focus, .harmonic-input.large:focus, .harmonic-input-wrapper:focus-within {
+                    background: #FFFFFF;
+                    border-color: #10B981;
+                }
+            </style>
+            
+            <div class="harmonic-card">
+                <div class="harmonic-input-wrapper row-layout">
+                    <strong style="color: #1E293B; font-size: 16px; margin-right: 12px; min-width: 35px;">Rut</strong>
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input" placeholder="12345678-9" value="${client.rut}">
+                </div>
+                
+                <div class="harmonic-input-wrapper">
+                    <span class="harmonic-label">Fecha de cumpleaños</span>
+                    <input type="date" onchange="validatePetsForm()" class="req-input harmonic-input" style="color: #64748B;">
+                </div>
+
+                <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Nombre" value="${client.name}">
+                
+                <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Apellidos">
+                
+                <input type="email" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Email" value="${client.email}">
+                
+                <input type="tel" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Teléfono">
+                
+                <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Dirección">
+                
+                <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Comuna" style="margin-bottom: 0;">
+            </div>
+        `;
+    }
+
+    function finishFlow() {
+        window.location.href = 'cotizacion-mascota-5.html';
+    }
+    
+    document.addEventListener('DOMContentLoaded', function() {
+        renderSidebarSummary();
+        renderOwnerSummary();
+        renderPetsForm();
+    });
+</script>
+
+                </div>
+            </div>
+            
+            <aside class="config-sidebar anim-entry delay-2">
+                <div class="organic-panel" style="position: sticky; top: 100px;">
+                    
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
+                        Ruta de Contratación
+                    </div>
+                    <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Datos del Contratante</li>
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Pago Seguro</li>
+                        <li class="active"><span class="pulse-dot"></span> Registro Mascotas</li>
+                    </ul>
+
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
+                        Resumen de Selección
+                    </div>
+                    
+                    <div id="cart-summary-step3">
+                        <!-- Javascript will render selected plans here -->
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
+                        <i class="fa-solid fa-shield-cat" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
+                        <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a pocos pasos de asegurar a tu mascota.</p>
+                    </div>
+                </div>
+            </aside>
+
+
+        </div>
+    </div>
+
     <footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
