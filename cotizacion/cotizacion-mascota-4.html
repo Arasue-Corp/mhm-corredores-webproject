@@ -449,34 +449,30 @@
                 const uniqueId = id + '-' + i;
                 
                 html += `
-                <div style="background: white; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 25px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-                    <div style="display: flex; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #F1F5F9; padding-bottom: 15px;">
-                        <div style="background: rgba(16, 76, 92, 0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-                            <i class="fa-solid fa-paw" style="color: #104C5C; font-size: 1.2rem;"></i>
-                        </div>
+                <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 25px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); box-sizing: border-box;">
+                    <div style="display: flex; align-items: center; margin-bottom: 15px; border-bottom: 1px solid #F1F5F9; padding-bottom: 10px;">
                         <div>
-                            <h3 style="color: #0F172A; font-size: 1.2rem; font-weight: 800; margin: 0;">Mascota ${petCounter}</h3>
-                            <span style="color: #10B981; font-size: 0.9rem; font-weight: 600;">Plan: ${plans[id].name}</span>
+                            <h3 style="color: #0F172A; font-size: 1.1rem; font-weight: 700; margin: 0;">Mascota ${petCounter}</h3>
+                            <span style="color: #10B981; font-size: 0.85rem; font-weight: 500;">Plan: ${plans[id].name}</span>
                         </div>
                     </div>
                     
-                    <div class="input-group-modern" style="margin-bottom: 20px;">
-                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Nombre de la Mascota</label>
-                        <input type="text" onkeyup="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: Firulais" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                    <div style="margin-bottom: 12px;">
+                        <input type="text" onkeyup="validatePetsForm()" class="pet-input" placeholder="Nombre de la Mascota" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;" required>
                     </div>
                     
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 20px;">
-                        <div class="input-group-modern">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Especie</label>
-                            <select onchange="validatePetsForm()" class="pet-input rich-input" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                    <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                        <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 12px; box-sizing: border-box;">
+                            <label style="display: block; font-size: 0.75rem; color: #1E293B; font-weight: 500; margin-bottom: 2px;">Especie</label>
+                            <select onchange="validatePetsForm()" class="pet-input" style="border: none; background: transparent; outline: none; width: 100%; color: #64748B; font-size: 0.9rem;" required>
                                 <option value="" disabled selected>Selecciona...</option>
                                 <option value="Perro">Perro</option>
                                 <option value="Gato">Gato</option>
                             </select>
                         </div>
-                        <div class="input-group-modern">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Sexo</label>
-                            <select onchange="validatePetsForm()" class="pet-input rich-input" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                        <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 12px; box-sizing: border-box;">
+                            <label style="display: block; font-size: 0.75rem; color: #1E293B; font-weight: 500; margin-bottom: 2px;">Sexo</label>
+                            <select onchange="validatePetsForm()" class="pet-input" style="border: none; background: transparent; outline: none; width: 100%; color: #64748B; font-size: 0.9rem;" required>
                                 <option value="" disabled selected>Selecciona...</option>
                                 <option value="Macho">Macho</option>
                                 <option value="Hembra">Hembra</option>
@@ -484,14 +480,12 @@
                         </div>
                     </div>
 
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                        <div class="input-group-modern">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Raza</label>
-                            <input type="text" onkeyup="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: Poodle" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                    <div style="display: flex; gap: 10px; margin-bottom: 0;">
+                        <div style="flex: 1;">
+                            <input type="text" onkeyup="validatePetsForm()" class="pet-input" placeholder="Raza" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;" required>
                         </div>
-                        <div class="input-group-modern">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Edad (Años)</label>
-                            <input type="number" onkeyup="validatePetsForm()" onchange="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: 3" min="0" max="30" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                        <div style="flex: 1;">
+                            <input type="number" onkeyup="validatePetsForm()" onchange="validatePetsForm()" class="pet-input" placeholder="Edad (Años)" min="0" max="30" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;" required>
                         </div>
                     </div>
                 </div>`;
@@ -516,56 +510,41 @@
         }
         
         container.innerHTML = `
-            <div style="background: white; border: 1px solid #E2E8F0; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-                <div style="display: flex; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #F1F5F9; padding-bottom: 15px;">
-                    <div style="background: rgba(16, 76, 92, 0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-                        <i class="fa-solid fa-user" style="color: #104C5C; font-size: 1.2rem;"></i>
-                    </div>
-                    <div>
-                        <h3 style="color: #0F172A; font-size: 1.2rem; font-weight: 800; margin: 0;">Datos del Contratante</h3>
-                        <span style="color: #64748B; font-size: 0.9rem;">Completa la información del dueño</span>
-                    </div>
-                </div>
+            <div style="background: white; border: 1px solid #E2E8F0; border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); margin-bottom: 25px; max-width: 100%; box-sizing: border-box;">
                 
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 15px;">
-                    <div class="input-group-modern">
-                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">RUT</label>
-                        <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" placeholder="12345678-9" value="${client.rut}" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                <div style="display: flex; gap: 10px; margin-bottom: 12px;">
+                    <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 10px 15px; display: flex; align-items: center; box-sizing: border-box;">
+                        <strong style="color: #1E293B; font-size: 0.95rem; margin-right: 8px;">Rut</strong>
+                        <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="12345678-9" value="${client.rut}" style="border: none; background: transparent; outline: none; width: 100%; color: #94A3B8; font-size: 0.95rem;">
                     </div>
-                    <div class="input-group-modern">
-                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Fecha de cumpleaños</label>
-                        <input type="date" onchange="validatePetsForm()" class="req-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                    <div style="flex: 1; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 6px; padding: 6px 12px; box-sizing: border-box;">
+                        <label style="display: block; font-size: 0.75rem; color: #1E293B; font-weight: 500; margin-bottom: 2px;">Fecha de cumpleaños</label>
+                        <input type="date" onchange="validatePetsForm()" class="req-input" style="border: none; background: transparent; outline: none; width: 100%; color: #94A3B8; font-size: 0.85rem;">
                     </div>
                 </div>
 
-                <div class="input-group-modern" style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Nombre</label>
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" value="${client.name}" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                <div style="margin-bottom: 12px;">
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="Nombre" value="${client.name}" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
                 </div>
                 
-                <div class="input-group-modern" style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Apellidos</label>
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                <div style="margin-bottom: 12px;">
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="Apellidos" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
                 </div>
                 
-                <div class="input-group-modern" style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Email</label>
-                    <input type="email" onkeyup="validatePetsForm()" class="req-input rich-input" value="${client.email}" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                <div style="margin-bottom: 12px;">
+                    <input type="email" onkeyup="validatePetsForm()" class="req-input" placeholder="Email" value="${client.email}" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
                 </div>
                 
-                <div class="input-group-modern" style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Teléfono</label>
-                    <input type="tel" onkeyup="validatePetsForm()" class="req-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                <div style="margin-bottom: 12px;">
+                    <input type="tel" onkeyup="validatePetsForm()" class="req-input" placeholder="Teléfono" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
                 </div>
                 
-                <div class="input-group-modern" style="margin-bottom: 15px;">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Dirección</label>
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                <div style="margin-bottom: 12px;">
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="Dirección" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
                 </div>
                 
-                <div class="input-group-modern">
-                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Comuna</label>
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" placeholder="Selecciona la comuna..." style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                <div style="margin-bottom: 0;">
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input" placeholder="Comuna" style="width: 100%; padding: 14px 15px; border-radius: 6px; border: 1px solid #E2E8F0; background: #F8FAFC; outline: none; font-size: 0.95rem; color: #1E293B; box-sizing: border-box; transition: border-color 0.2s;">
                 </div>
             </div>
         `;
