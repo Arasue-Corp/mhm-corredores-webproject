@@ -299,7 +299,7 @@
 
         <div class="specs-layout-grid">
             
-            <div class="main-spec-col" style="grid-column: 1 / -1;">
+            <div class="main-spec-col">
                 <div class="premium-white-card" id="quoteFormStep1">
                     
 <form id="startForm" onsubmit="event.preventDefault(); goToNextStep();">
@@ -417,6 +417,36 @@
 
                 </div>
             </div>
+            
+            <aside class="config-sidebar anim-entry delay-2">
+                <div class="organic-panel" style="position: sticky; top: 100px;">
+                    
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
+                        Ruta de Contratación
+                    </div>
+                    <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
+                        <li class="active"><span class="pulse-dot"></span> Datos del Contratante</li>
+                        <li><i class="fa-regular fa-circle"></i> Datos de la Mascota</li>
+                        <li><i class="fa-regular fa-circle"></i> Pago y Emisión</li>
+                    </ul>
+
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
+                        Resumen de Selección
+                    </div>
+                    
+                    <div id="cart-summary-step2">
+                        <!-- Javascript will render selected plans here -->
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
+                        <i class="fa-solid fa-shield-cat" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
+                        <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a pocos pasos de asegurar a tu mascota.</p>
+                    </div>
+                </div>
+            </aside>
+
 
         </div>
     </div>
@@ -601,19 +631,7 @@
     <script src="../js/script.js?v=1781129809"></script>
     <script src="../js/script-quote.js?v=1781129809"></script>
 
-    <div id="alexOnboarding" class="crystal-overlay">
-        
-        <div class="crystal-card">
-            <button class="skip-link" onclick="closeWelcomeOnboarding()">SALTAR INTRO</button>
-
-            <div class="c-body">
-
-                <div class="c-slide active" data-step="0">
-                    <div class="tech-icon-stack">
-                        <div class="tech-icon-bg"></div>
-                        <i class="fa-solid fa-microchip tech-icon-main"></i>
-                        <div class="tech-icon-badge"><i class="fa-solid fa-bolt"></i></div>
-                    </div>
+    
 
                     <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Mascotas</span></h2>
                     
