@@ -529,9 +529,12 @@
         if(itemsCount === 0) {
             html = '<div style="color: #94A3B8; font-size: 1rem; text-align: center; padding: 20px 0;"><i class="fa-solid fa-basket-shopping" style="font-size: 2.5rem; margin-bottom: 15px; opacity: 0.3;"></i><br>Aún no has seleccionado ningún plan.</div>';
         } else {
-            html += `<div style="border-top: 2px dashed #E2E8F0; margin-top: 15px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 1.3rem; color: #0F172A;">
+            html += `<div style="border-top: 2px dashed #E2E8F0; margin-top: 15px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 1.3rem; color: #0F172A; align-items: baseline;">
                 <strong>Total Estimado:</strong>
-                <strong style="color: #2ED9C3;">$${total.toLocaleString('es-CL')}</strong>
+                <strong style="color: #2ED9C3;">$${total.toLocaleString('es-CL')}<span style="font-size: 0.9rem; color: #64748B; font-weight: normal; margin-left: 4px;">/mes</span></strong>
+            </div>
+            <div style="text-align: right; margin-top: 8px; font-size: 0.85rem; color: #64748B;">
+                <i class="fa-solid fa-circle-info" style="margin-right: 4px; color: #2ED9C3;"></i> Todos los valores son de cobro mensual.
             </div>`;
         }
         summaryDiv.innerHTML = html;
