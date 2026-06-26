@@ -279,8 +279,7 @@
         </div>
 
 
-    
-    <div class="page-wrapper">
+        <div class="page-wrapper">
 
         <div class="wizard-container">
             <div class="wizard-top">
@@ -416,323 +415,51 @@
             </div>
         </div>
     </div>
+
 <script>
-    function renderSidebarSummary() {
-        const summaryDiv = document.getElementById('cart-summary-step3');
-        if(!summaryDiv) return;
-        
-        let html = '';
-        let hasItems = false;
-        
-        const cartStr = sessionStorage.getItem('mhmPetCart');
-        if (cartStr) {
-            const plans = JSON.parse(cartStr);
-            for(let id in plans) {
-                if(plans[id].qty > 0) {
-                    hasItems = true;
-                    html += `
-                    <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #E2E8F0;">
-                        <h4 style="color: #104C5C; font-size: 1.15rem; font-weight: 800; margin-bottom: 15px; line-height: 1.3;">
-                            ¡Excelente elección!<br>
-                            Contrataste ${plans[id].name}
-                        </h4>
-                        
-                        <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #475569; font-size: 0.95rem; line-height: 1.6;">
-                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
-                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
-                                Protección y coberturas 100%.
-                            </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
-                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
-                                Eventos disponibles todo el año.
-                            </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
-                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
-                                Usa tu asistencia en la veterinaria que desees, estamos en todo Chile.
-                            </li>
-                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
-                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
-                                Reembolso rápido y fácil.
-                            </li>
-                        </ul>
-
-                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center;">
-                            <div>
-                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
-                                    <i class="fa-regular fa-star"></i>
-                                </div>
-                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">Valores accesibles.</span>
-                            </div>
-                            <div>
-                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
-                                    <i class="fa-solid fa-lock"></i>
-                                </div>
-                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">Sin trámites complejos.</span>
-                            </div>
-                            <div>
-                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
-                                    <i class="fa-solid fa-dollar-sign"></i>
-                                </div>
-                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">+ Protección,<br>+ Tranquilidad.</span>
-                            </div>
-                        </div>
-                    </div>`;
-                }
-            }
-        }
-        
-        if (!hasItems) {
-            window.location.href = 'cotizacion-mascota-1.html';
-            return;
-        }
-
-        summaryDiv.innerHTML = html;
-        
-        const genericBox = document.getElementById('generic-protection-box');
-        if(genericBox) genericBox.style.display = 'none';
-        
-        const headerTitle = document.getElementById('resumen-title-header');
-        if(headerTitle) headerTitle.style.display = 'none';
-    }
-
-    function validatePetsForm() {
-        const chk = document.getElementById('chkPetsCorrect');
-        if(!chk) return;
-        
-        const isChecked = chk.checked;
-        const btn = document.getElementById('btn-finish');
-        let allValid = true;
-        
-        const petInputs = document.querySelectorAll('.pet-input');
-        petInputs.forEach(input => {
-            if(!input.value.trim()) {
-                allValid = false;
-            }
-        });
-        
-        const reqInputs = document.querySelectorAll('.req-input');
-        reqInputs.forEach(input => {
-            if(!input.value.trim()) {
-                allValid = false;
-            }
-        });
-
-        if (isChecked && allValid) {
-            btn.style.opacity = '1';
-            btn.style.pointerEvents = 'auto';
-        } else {
-            btn.style.opacity = '0.5';
-            btn.style.pointerEvents = 'none';
-        }
-    }
-
-    function renderPetsForm() {
-        const container = document.getElementById('petsContainer');
-        if(!container) return;
-        
-        const cartStr = sessionStorage.getItem('mhmPetCart');
-        if (!cartStr) return;
-
-        const plans = JSON.parse(cartStr);
-        let html = '';
-        let petCounter = 1;
-        
-        for(let id in plans) {
-            for(let i=0; i<plans[id].qty; i++) {
-                const uniqueId = id + '-' + i;
-                
-                html += `
-                <div class="harmonic-card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
-                        <h3 style="color: #0F172A; font-size: 1.1rem; font-weight: 700; margin: 0;">Mascota ${petCounter}</h3>
-                        <span style="color: #10B981; font-size: 14px; font-weight: 600;">Plan: ${plans[id].name}</span>
-                    </div>
-                    
-                    <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Nombre de la Mascota" required>
-                    
-                    <div class="harmonic-input-wrapper">
-                        <span class="harmonic-label">Especie</span>
-                        <select onchange="validatePetsForm()" class="pet-input harmonic-input" required>
-                            <option value="" disabled selected>Selecciona...</option>
-                            <option value="Perro">Perro</option>
-                            <option value="Gato">Gato</option>
-                        </select>
-                    </div>
-                    
-                    <div class="harmonic-input-wrapper">
-                        <span class="harmonic-label">Sexo</span>
-                        <select onchange="validatePetsForm()" class="pet-input harmonic-input" required>
-                            <option value="" disabled selected>Selecciona...</option>
-                            <option value="Macho">Macho</option>
-                            <option value="Hembra">Hembra</option>
-                        </select>
-                    </div>
-
-                    <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Raza" required>
-                    
-                    <input type="number" onkeyup="validatePetsForm()" onchange="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Edad (Años)" min="0" max="30" style="margin-bottom: 0;" required>
-                </div>`;
-                petCounter++;
-            }
-        }
-        
-        container.innerHTML = html;
-    }
-    
-    function renderOwnerSummary() {
-        const container = document.getElementById('ownerSummaryContainer');
-        if(!container) return;
-        
+    document.addEventListener('DOMContentLoaded', function() {
         const clientStr = sessionStorage.getItem('mhmPetClient');
-        let client = { name: '', rut: '', email: '' };
-        
         if(clientStr) {
             try {
-                client = JSON.parse(clientStr);
+                const client = JSON.parse(clientStr);
+                const ownerEmailEl = document.getElementById('ownerEmail');
+                if (ownerEmailEl && client.email) {
+                    ownerEmailEl.textContent = client.email;
+                }
             } catch(e) {}
         }
         
-        container.innerHTML = `
-            <style>
-                .harmonic-card {
-                    background: #FFFFFF;
-                    border: 1px solid #E2E8F0;
-                    border-radius: 12px;
-                    padding: 15px;
-                    margin-bottom: 15px;
-                    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.02);
-                    width: 100%;
-                    box-sizing: border-box;
+        const cartStr = sessionStorage.getItem('mhmPetCart');
+        if (cartStr) {
+            try {
+                const plans = JSON.parse(cartStr);
+                let total = 0;
+                for(let id in plans) {
+                    if(plans[id].qty > 0) {
+                        let p = plans[id].price.replace('$','').replace('.','');
+                        total += parseInt(p) * plans[id].qty;
+                    }
                 }
-                .harmonic-input-wrapper {
-                    background: #F8FAFC;
-                    border: 1px solid #E2E8F0;
-                    border-radius: 8px;
-                    padding: 6px 12px;
-                    box-sizing: border-box;
-                    display: flex;
-                    flex-direction: column;
-                    justify-content: center;
-                    min-height: 52px;
-                    margin-bottom: 12px;
+                const totalEl = document.getElementById('totalMonthly');
+                if (totalEl && total > 0) {
+                    totalEl.textContent = '$' + total.toLocaleString('es-CL');
                 }
-                .harmonic-input-wrapper:last-child {
-                    margin-bottom: 0;
-                }
-                .harmonic-input-wrapper.row-layout {
-                    flex-direction: row;
-                    align-items: center;
-                    justify-content: flex-start;
-                    padding: 0 12px;
-                }
-                .harmonic-label {
-                    font-size: 13px;
-                    color: #64748B;
-                    margin-bottom: 2px;
-                    font-weight: 500;
-                }
-                .harmonic-input {
-                    border: none;
-                    background: transparent;
-                    outline: none;
-                    width: 100%;
-                    color: #0F172A;
-                    font-size: 16px;
-                    padding: 0;
-                    font-family: inherit;
-                }
-                .harmonic-input::placeholder {
-                    color: #94A3B8;
-                }
-                .harmonic-input.large {
-                    padding: 14px 12px;
-                    background: #F8FAFC;
-                    border: 1px solid #E2E8F0;
-                    border-radius: 8px;
-                    box-sizing: border-box;
-                    min-height: 52px;
-                    margin-bottom: 12px;
-                }
-                .harmonic-input:focus, .harmonic-input.large:focus, .harmonic-input-wrapper:focus-within {
-                    background: #FFFFFF;
-                    border-color: #10B981;
-                }
-            </style>
-            
-            <div class="harmonic-card">
-                <div class="harmonic-input-wrapper row-layout">
-                    <strong style="color: #1E293B; font-size: 16px; margin-right: 12px; min-width: 35px;">Rut</strong>
-                    <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input" placeholder="12345678-9" value="${client.rut}">
-                </div>
-                
-                <div class="harmonic-input-wrapper">
-                    <span class="harmonic-label">Fecha de cumpleaños</span>
-                    <input type="date" onchange="validatePetsForm()" class="req-input harmonic-input" style="color: #64748B;">
-                </div>
-
-                <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Nombre" value="${client.name}">
-                
-                <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Apellidos">
-                
-                <input type="email" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Email" value="${client.email}">
-                
-                <input type="tel" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Teléfono">
-                
-                <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Dirección">
-                
-                <input type="text" onkeyup="validatePetsForm()" class="req-input harmonic-input large" placeholder="Comuna" style="margin-bottom: 0;">
-            </div>
-        `;
-    }
-
-    function finishFlow() {
-        window.location.href = 'cotizacion-mascota-5.html';
-    }
-    
-    document.addEventListener('DOMContentLoaded', function() {
-        renderSidebarSummary();
-        renderOwnerSummary();
-        renderPetsForm();
+            } catch (e) {}
+        }
+        
+        const dateEl = document.getElementById('activationDate');
+        if (dateEl) {
+            const today = new Date();
+            dateEl.textContent = today.toLocaleDateString('es-CL');
+        }
+        
+        const contractEl = document.getElementById('contractNumber');
+        if (contractEl) {
+            contractEl.textContent = Math.floor(1000000 + Math.random() * 9000000);
+        }
     });
 </script>
-
-                </div>
-            </div>
-            
-            <aside class="config-sidebar anim-entry delay-2">
-                <div class="organic-panel" style="position: sticky; top: 100px;">
-                    
-                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
-                        Ruta de Contratación
-                    </div>
-                    <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
-                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
-                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Datos del Contratante</li>
-                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Pago Seguro</li>
-                        <li class="active"><span class="pulse-dot"></span> Registro Mascotas</li>
-                    </ul>
-
-                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
-                        Resumen de Selección
-                    </div>
-                    
-                    <div id="cart-summary-step3">
-                        <!-- Javascript will render selected plans here -->
-                    </div>
-
-                    <div style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
-                        <i class="fa-solid fa-shield-cat" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
-                        <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a pocos pasos de asegurar a tu mascota.</p>
-                    </div>
-                </div>
-            </aside>
-
-
-        </div>
-    </div>
-
-    <footer class="footer-aurora">
+<footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
         <div class="container">
