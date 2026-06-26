@@ -318,13 +318,11 @@
 </button>
 
 
-<script>
-    function renderSummaryStep3() {
+    function renderSidebarSummary() {
         const summaryDiv = document.getElementById('cart-summary-step3');
         if(!summaryDiv) return;
         
         let html = '';
-        let total = 0;
         let hasItems = false;
         
         const cartStr = sessionStorage.getItem('mhmPetCart');
@@ -333,11 +331,52 @@
             for(let id in plans) {
                 if(plans[id].qty > 0) {
                     hasItems = true;
-                    const subtotal = plans[id].qty * plans[id].price;
-                    total += subtotal;
-                    html += `<div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1.05rem; color: #334155;">
-                        <span><i class="fa-solid fa-paw" style="color: #CBD5E1; margin-right: 8px;"></i> ${plans[id].name} <strong style="color: #0F172A;">x ${plans[id].qty}</strong></span>
-                        <strong style="color: #0F172A;">$${subtotal.toLocaleString('es-CL')}</strong>
+                    html += `
+                    <div style="margin-bottom: 25px; padding-bottom: 20px; border-bottom: 1px dashed #E2E8F0;">
+                        <h4 style="color: #104C5C; font-size: 1.15rem; font-weight: 800; margin-bottom: 15px; line-height: 1.3;">
+                            ¡Excelente elección!<br>
+                            Contrataste ${plans[id].name}
+                        </h4>
+                        
+                        <ul style="list-style: none; padding: 0; margin: 0 0 20px 0; color: #475569; font-size: 0.95rem; line-height: 1.6;">
+                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
+                                Protección y coberturas 100%.
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
+                                Eventos disponibles todo el año.
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
+                                Usa tu asistencia en la veterinaria que desees, estamos en todo Chile.
+                            </li>
+                            <li style="display: flex; align-items: start; margin-bottom: 10px;">
+                                <i class="fa-solid fa-circle" style="font-size: 0.4rem; color: #104C5C; margin-top: 8px; margin-right: 12px;"></i>
+                                Reembolso rápido y fácil.
+                            </li>
+                        </ul>
+
+                        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; text-align: center;">
+                            <div>
+                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
+                                    <i class="fa-regular fa-star"></i>
+                                </div>
+                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">Valores accesibles.</span>
+                            </div>
+                            <div>
+                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
+                                    <i class="fa-solid fa-lock"></i>
+                                </div>
+                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">Sin trámites complejos.</span>
+                            </div>
+                            <div>
+                                <div style="background: #A3D80E; color: white; width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin: 0 auto 10px; font-size: 1.3rem;">
+                                    <i class="fa-solid fa-dollar-sign"></i>
+                                </div>
+                                <span style="font-size: 0.75rem; color: #104C5C; line-height: 1.2; display: block; font-weight: 600;">+ Protección,<br>+ Tranquilidad.</span>
+                            </div>
+                        </div>
                     </div>`;
                 }
             }
@@ -348,50 +387,13 @@
             return;
         }
 
-        html += `<div style="border-top: 2px dashed #E2E8F0; margin-top: 15px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 1.3rem; color: #0F172A; align-items: baseline;">
-            <strong>Total Estimado:</strong>
-            <strong style="color: #2ED9C3;">$${total.toLocaleString('es-CL')}<span style="font-size: 0.9rem; color: #64748B; font-weight: normal; margin-left: 4px;">/mes</span></strong>
-        </div>`;
-        
         summaryDiv.innerHTML = html;
-    }
-
-    function validateRut(rut) {
-        // Basic naive regex check for now, enough for a demo
-        return /^[0-9]+-[0-9kK]{1}$/.test(rut);
-    }
-    
-    function validateEmail(email) {
-        return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
-    }
-
-    function validateForm() {
-        const rut = document.getElementById('rutInput').value.trim();
-        const name = document.getElementById('nameInput').value.trim();
-        const email = document.getElementById('emailInput').value.trim();
-        const btn = document.getElementById('btn-continue');
         
-        if (rut.length > 5 && name.length > 2 && validateEmail(email)) {
-            btn.style.opacity = '1';
-            btn.style.pointerEvents = 'auto';
-        } else {
-            btn.style.opacity = '0.5';
-            btn.style.pointerEvents = 'none';
-        }
-    }
-
-    function toggleAccordion(id) {
-        const content = document.getElementById('pet-content-' + id);
-        const icon = document.getElementById('pet-icon-' + id);
-        if (content.style.display === 'none') {
-            content.style.display = 'block';
-            icon.classList.remove('fa-chevron-down');
-            icon.classList.add('fa-chevron-up');
-        } else {
-            content.style.display = 'none';
-            icon.classList.remove('fa-chevron-up');
-            icon.classList.add('fa-chevron-down');
-        }
+        const genericBox = document.getElementById('generic-protection-box');
+        if(genericBox) genericBox.style.display = 'none';
+        
+        const headerTitle = document.getElementById('resumen-title-header');
+        if(headerTitle) headerTitle.style.display = 'none';
     }
 
     function validatePetsForm() {
@@ -399,7 +401,6 @@
         const btn = document.getElementById('btn-finish');
         let allValid = true;
         
-        // We could add deeper validation here to check each pet's input, but for now we'll require the checkbox and basic non-empty values
         const inputs = document.querySelectorAll('.pet-input');
         inputs.forEach(input => {
             if(!input.value.trim()) {
@@ -421,10 +422,7 @@
         if(!container) return;
         
         const cartStr = sessionStorage.getItem('mhmPetCart');
-        if (!cartStr) {
-            window.location.href = 'cotizacion-mascota-1.html';
-            return;
-        }
+        if (!cartStr) return;
 
         const plans = JSON.parse(cartStr);
         let html = '';
@@ -433,51 +431,52 @@
         for(let id in plans) {
             for(let i=0; i<plans[id].qty; i++) {
                 const uniqueId = id + '-' + i;
-                const isOpen = petCounter === 1; // Only open the first one by default
                 
                 html += `
-                <div style="border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 15px; background: white; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.02);">
-                    <div onclick="toggleAccordion('${uniqueId}')" style="padding: 15px 20px; background: #F8FAFC; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border-bottom: ${isOpen ? '1px solid #E2E8F0' : 'none'};">
-                        <strong style="color: #0F172A; font-size: 1.05rem;">${petCounter}. ${plans[id].name}</strong>
-                        <i id="pet-icon-${uniqueId}" class="fa-solid ${isOpen ? 'fa-chevron-up' : 'fa-chevron-down'}" style="color: #64748B;"></i>
+                <div style="background: white; border: 1px solid #E2E8F0; border-radius: 16px; margin-bottom: 25px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                    <div style="display: flex; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #F1F5F9; padding-bottom: 15px;">
+                        <div style="background: rgba(16, 76, 92, 0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                            <i class="fa-solid fa-paw" style="color: #104C5C; font-size: 1.2rem;"></i>
+                        </div>
+                        <div>
+                            <h3 style="color: #0F172A; font-size: 1.2rem; font-weight: 800; margin: 0;">Mascota ${petCounter}</h3>
+                            <span style="color: #10B981; font-size: 0.9rem; font-weight: 600;">Plan: ${plans[id].name}</span>
+                        </div>
                     </div>
-                    <div id="pet-content-${uniqueId}" style="padding: 20px; display: ${isOpen ? 'block' : 'none'};">
-                        
-                        <div class="input-group-modern" style="margin-bottom: 15px;">
-                            <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Nombre de la Mascota</label>
-                            <input type="text" onkeyup="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: Firulais" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                    
+                    <div class="input-group-modern" style="margin-bottom: 20px;">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Nombre de la Mascota</label>
+                        <input type="text" onkeyup="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: Firulais" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                    </div>
+                    
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 20px;">
+                        <div class="input-group-modern">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Especie</label>
+                            <select onchange="validatePetsForm()" class="pet-input rich-input" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                <option value="" disabled selected>Selecciona...</option>
+                                <option value="Perro">Perro</option>
+                                <option value="Gato">Gato</option>
+                            </select>
                         </div>
-                        
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
-                            <div class="input-group-modern">
-                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Especie</label>
-                                <select onchange="validatePetsForm()" class="pet-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
-                                    <option value="" disabled selected>Selecciona...</option>
-                                    <option value="Perro">Perro</option>
-                                    <option value="Gato">Gato</option>
-                                </select>
-                            </div>
-                            <div class="input-group-modern">
-                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Sexo</label>
-                                <select onchange="validatePetsForm()" class="pet-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
-                                    <option value="" disabled selected>Selecciona...</option>
-                                    <option value="Macho">Macho</option>
-                                    <option value="Hembra">Hembra</option>
-                                </select>
-                            </div>
+                        <div class="input-group-modern">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Sexo</label>
+                            <select onchange="validatePetsForm()" class="pet-input rich-input" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                <option value="" disabled selected>Selecciona...</option>
+                                <option value="Macho">Macho</option>
+                                <option value="Hembra">Hembra</option>
+                            </select>
                         </div>
+                    </div>
 
-                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
-                            <div class="input-group-modern">
-                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Raza</label>
-                                <input type="text" onkeyup="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: Poodle" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
-                            </div>
-                            <div class="input-group-modern">
-                                <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Edad (Años)</label>
-                                <input type="number" onkeyup="validatePetsForm()" onchange="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: 3" min="0" max="30" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
-                            </div>
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px;">
+                        <div class="input-group-modern">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Raza</label>
+                            <input type="text" onkeyup="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: Poodle" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
                         </div>
-
+                        <div class="input-group-modern">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Edad (Años)</label>
+                            <input type="number" onkeyup="validatePetsForm()" onchange="validatePetsForm()" class="pet-input rich-input" placeholder="Ej: 3" min="0" max="30" style="width: 100%; padding: 14px 15px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                        </div>
                     </div>
                 </div>`;
                 petCounter++;
@@ -492,9 +491,8 @@
         window.location.href = '../index.html';
     }
     
-    // Auto render on load
     document.addEventListener('DOMContentLoaded', function() {
-        renderSummaryStep3();
+        renderSidebarSummary();
         renderPetsForm();
     });
 </script>
