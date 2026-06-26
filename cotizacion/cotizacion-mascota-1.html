@@ -49,13 +49,19 @@
         .details-toggle-btn.open i { transform: rotate(180deg); }
         
         @media (max-width: 768px) {
-            .details-toggle-btn { display: flex; }
-            .pet-feature-list { display: none !important; }
-            .pet-feature-list.show-details { display: block !important; animation: fadeIn 0.3s ease; }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(-5px); }
-            to { opacity: 1; transform: translateY(0); }
+            .details-toggle-btn { display: flex; position: relative; z-index: 10; }
+            .pet-feature-list { 
+                max-height: 0; 
+                overflow: hidden; 
+                opacity: 0; 
+                transition: all 0.4s ease-in-out; 
+                margin-top: 0 !important;
+            }
+            .pet-feature-list.show-details { 
+                max-height: 500px; 
+                opacity: 1; 
+                margin-top: 15px !important;
+            }
         }
     </style>
 
@@ -459,16 +465,18 @@
 
     
     function toggleDetails(listId, btn) {
+        console.log('Toggling details for:', listId);
         const list = document.getElementById(listId);
         if (!list) return;
         
-        if (list.classList.contains('show-details') || list.style.display === 'block') {
+        // Ensure any hardcoded inline display is removed
+        list.style.display = '';
+        
+        if (list.classList.contains('show-details')) {
             list.classList.remove('show-details');
-            list.style.setProperty('display', 'none', 'important');
             btn.innerHTML = 'Ver detalles <i class="fa-solid fa-chevron-down"></i>';
         } else {
             list.classList.add('show-details');
-            list.style.setProperty('display', 'block', 'important');
             btn.innerHTML = 'Ocultar detalles <i class="fa-solid fa-chevron-up"></i>';
         }
     }
