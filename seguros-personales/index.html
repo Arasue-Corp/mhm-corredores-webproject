@@ -196,6 +196,10 @@
                     <div class="menu-icon"><i class="fa-solid fa-plane-departure"></i></div>
                     <div class="menu-text">Asistencia en Viaje</div>
                 </div>
+                <div class="canvas-menu-item " id="menu-item-3" onmouseenter="updateCanvas(3)">
+                    <div class="menu-icon"><i class="fa-solid fa-paw"></i></div>
+                    <div class="menu-text">Asistencia Veterinaria</div>
+                </div>
                 </div>
 
                 <!-- Right Showcase -->
@@ -218,7 +222,7 @@
         </div>
 
         <script>
-            const productsData = [{"title": "Seguro Automotríz", "icon": "fa-car", "tag": "Protección Vehicular", "desc": "El Seguro Automotriz es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros. Cubre principalmente daños materiales del vehículo ya sea pérdidas parciales o totales, robo y/o hurto.", "covers": ["Daños materiales del vehículo (parcial/total)", "Robo y/o hurto del vehículo", "Responsabilidad frente a terceros", "Asistencia en ruta 24/7"]}, {"title": "Complementario Salud", "icon": "fa-heart-pulse", "tag": "Bienestar", "desc": "Complementa tu plan Fonasa o Isapre y reduce un 50%, 60%, 70% u 80% los gastos médicos por consulta, tratamientos, procedimientos y exámenes de hasta cinco cargas adicionales.", "covers": ["Reducción de hasta 80% en gastos médicos", "Cobertura en consultas, tratamientos y exámenes", "Hasta 5 cargas adicionales protegidas", "Opción de valor preferencial para empresas"]}, {"title": "Asistencia en Viaje", "icon": "fa-plane-departure", "tag": "Cobertura Global", "desc": "Un seguro de viaje te auxiliará cuando te encuentres fuera de tu país de residencia ante cualquier enfermedad, accidente o imprevisto ocurrido durante tu viaje.", "covers": ["Tratamientos médicos de urgencia en el extranjero", "Pérdida, demora o rastreo de equipaje", "Fallecimiento accidental", "Asistencia legal y repatriación"]}];
+            const productsData = [{"title": "Seguro Automotríz", "icon": "fa-car", "tag": "Protección Vehicular", "desc": "El Seguro Automotriz es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros. Cubre principalmente daños materiales del vehículo ya sea pérdidas parciales o totales, robo y/o hurto.", "covers": ["Daños materiales del vehículo (parcial/total)", "Robo y/o hurto del vehículo", "Responsabilidad frente a terceros", "Asistencia en ruta 24/7"]}, {"title": "Complementario Salud", "icon": "fa-heart-pulse", "tag": "Bienestar", "desc": "Complementa tu plan Fonasa o Isapre y reduce un 50%, 60%, 70% u 80% los gastos médicos por consulta, tratamientos, procedimientos y exámenes de hasta cinco cargas adicionales.", "covers": ["Reducción de hasta 80% en gastos médicos", "Cobertura en consultas, tratamientos y exámenes", "Hasta 5 cargas adicionales protegidas", "Opción de valor preferencial para empresas"]}, {"title": "Asistencia en Viaje", "icon": "fa-plane-departure", "tag": "Cobertura Global", "desc": "Un seguro de viaje te auxiliará cuando te encuentres fuera de tu país de residencia ante cualquier enfermedad, accidente o imprevisto ocurrido durante tu viaje.", "covers": ["Tratamientos médicos de urgencia en el extranjero", "Pérdida, demora o rastreo de equipaje", "Fallecimiento accidental", "Asistencia legal y repatriación"]}, {"title": "Asistencia Veterinaria", "icon": "fa-paw", "tag": "Mascotas", "desc": "Protege a tus mascotas con nuestro seguro de asistencia veterinaria. Cubre gastos médicos, accidentes, y consultas preventivas para que tus peludos amigos siempre estén sanos y salvos.", "covers": ["Urgencia médica veterinaria", "Consulta médica veterinaria", "Descuento en farmacias (uso veterinario)", "Telemedicina veterinaria", "Vacuna antirrábica"]}];
             let currentIndex = 0;
 
             function updateCanvas(index) {
