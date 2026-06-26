@@ -36,34 +36,49 @@
     }
 }
 
-        /* Native Mobile Details Accordion */
-        .mobile-details { width: 100%; margin: 0; padding: 0; }
-        .mobile-details summary { display: none; }
+        /* Mobile CSS Checkbox Accordion */
+        .accordion-checkbox { display: none; }
+        .accordion-label { display: none; }
         
         @media (max-width: 768px) {
-            .mobile-details summary {
+            .accordion-label {
                 display: flex;
                 background: #F1F5F9; border: none; color: #475569; 
                 font-weight: 700; font-size: 0.95rem; padding: 10px 20px; border-radius: 12px;
                 cursor: pointer; margin: 15px auto 0; text-align: center; width: max-content;
                 align-items: center; justify-content: center; transition: all 0.2s ease;
-                list-style: none; /* hide arrow */
-                outline: none;
+                user-select: none;
             }
-            .mobile-details summary::-webkit-details-marker { display: none; }
-            .mobile-details summary:hover { background: #E2E8F0; color: #0F172A; }
-            .mobile-details summary i { margin-left: 6px; transition: transform 0.3s; }
-            .mobile-details[open] summary i { transform: rotate(180deg); }
+            .accordion-label:hover { background: #E2E8F0; color: #0F172A; }
+            .accordion-label i { margin-left: 6px; transition: transform 0.3s; }
             
-            /* Change text dynamically using pseudo element */
-            .mobile-details summary span::before { content: "Ver detalles"; }
-            .mobile-details[open] summary span::before { content: "Ocultar detalles"; }
-        }
-        
-        @media (min-width: 769px) {
-            .mobile-details .pet-feature-list {
-                display: block !important; 
+            .pet-feature-list {
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
             }
+            
+            .accordion-checkbox:checked ~ .pet-feature-list {
+                max-height: 500px;
+                opacity: 1;
+                margin-top: 15px !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .accordion-checkbox:checked ~ .accordion-label i {
+                transform: rotate(180deg);
+            }
+            .accordion-checkbox:checked ~ .accordion-label .label-text::before {
+                content: attr(data-open);
+            }
+            .accordion-checkbox:not(:checked) ~ .accordion-label .label-text::before {
+                content: attr(data-closed);
+            }
+            .accordion-label .label-text { font-size: 0; } 
+            .accordion-label .label-text::before { font-size: 0.95rem; }
         }
     </style>
 
@@ -335,18 +350,20 @@
             <div class="vt-info">
                 <h4>Asistencia Mascota</h4>
                 <div class="plan-price">$5.555 / mes</div>
-                <details class="mobile-details">
-                <summary><span></span> <i class="fa-solid fa-chevron-down"></i></summary>
+                <input type="checkbox" id="toggle-basico" class="accordion-checkbox">
+                <label for="toggle-basico" class="accordion-label">
+                    <span class="label-text" data-open="Ocultar detalles" data-closed="Ver detalles">Ver detalles</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </label>
                 <ul class="pet-feature-list">
-                    <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
+<li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
                     <li><i class="fa-solid fa-check"></i> Ingreso: 0 hasta 9 años con 365 días</li>
                     <li><i class="fa-solid fa-check"></i> Descuento en farmacia y beneficios</li>
                     <li><i class="fa-solid fa-check"></i> Libre elección en todo Chile</li>
                 </ul>
-                </details>
                 <div class="qty-controls">
-                    <button type="button" class="qty-btn" onclick="updateQty('basico', -1)"><i class="fa-solid fa-minus"></i></button>
+                    <button type="button" class="qty-btn" onclick="updateQty(\'basico\', -1)"><i class="fa-solid fa-minus"></i></button>
                     <span class="qty-value" id="qty-basico">0</span>
                     <button type="button" class="qty-btn" onclick="updateQty('basico', 1)"><i class="fa-solid fa-plus"></i></button>
                 </div>
@@ -358,18 +375,20 @@
             <div class="vt-info">
                 <h4 style="color: #2563EB;">Asistencia Mascota Pro <br><span style="font-size: 0.6em; background: #2563EB; color: white; padding: 4px 8px; border-radius: 6px; vertical-align: middle; display: inline-block; margin-top: 5px;">Recomendado</span></h4>
                 <div class="plan-price">$5.555 / mes</div>
-                <details class="mobile-details">
-                <summary><span></span> <i class="fa-solid fa-chevron-down"></i></summary>
+                <input type="checkbox" id="toggle-pro" class="accordion-checkbox">
+                <label for="toggle-pro" class="accordion-label">
+                    <span class="label-text" data-open="Ocultar detalles" data-closed="Ver detalles">Ver detalles</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </label>
                 <ul class="pet-feature-list">
-                    <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
+<li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
                     <li><i class="fa-solid fa-check"></i> Ingreso: 0 hasta 9 años con 365 días</li>
                     <li><i class="fa-solid fa-check"></i> Descuento, mayor cobertura y beneficios</li>
                     <li><i class="fa-solid fa-check"></i> Libre elección en todo Chile</li>
                 </ul>
-                </details>
                 <div class="qty-controls">
-                    <button type="button" class="qty-btn" onclick="updateQty('pro', -1)"><i class="fa-solid fa-minus"></i></button>
+                    <button type="button" class="qty-btn" onclick="updateQty(\'pro\', -1)"><i class="fa-solid fa-minus"></i></button>
                     <span class="qty-value" id="qty-pro">0</span>
                     <button type="button" class="qty-btn" onclick="updateQty('pro', 1)"><i class="fa-solid fa-plus"></i></button>
                 </div>
@@ -381,18 +400,20 @@
             <div class="vt-info">
                 <h4>Asistencia Senior</h4>
                 <div class="plan-price">$5.555 / mes</div>
-                <details class="mobile-details">
-                <summary><span></span> <i class="fa-solid fa-chevron-down"></i></summary>
+                <input type="checkbox" id="toggle-senior" class="accordion-checkbox">
+                <label for="toggle-senior" class="accordion-label">
+                    <span class="label-text" data-open="Ocultar detalles" data-closed="Ver detalles">Ver detalles</span>
+                    <i class="fa-solid fa-chevron-down"></i>
+                </label>
                 <ul class="pet-feature-list">
-                    <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
+<li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
                     <li><i class="fa-solid fa-check"></i> Ingreso: 7 hasta 13 años con 365 días</li>
                     <li><i class="fa-solid fa-check"></i> Exámenes, mayor cobertura</li>
                     <li><i class="fa-solid fa-check"></i> Descuento en farmacia y beneficios</li>
                 </ul>
-                </details>
                 <div class="qty-controls">
-                    <button type="button" class="qty-btn" onclick="updateQty('senior', -1)"><i class="fa-solid fa-minus"></i></button>
+                    <button type="button" class="qty-btn" onclick="updateQty(\'senior\', -1)"><i class="fa-solid fa-minus"></i></button>
                     <span class="qty-value" id="qty-senior">0</span>
                     <button type="button" class="qty-btn" onclick="updateQty('senior', 1)"><i class="fa-solid fa-plus"></i></button>
                 </div>
