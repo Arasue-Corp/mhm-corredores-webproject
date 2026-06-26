@@ -300,133 +300,254 @@
         <div class="specs-layout-grid">
             <div class="main-spec-col">
                 
+        <div class="specs-layout-grid">
+            <div class="main-spec-col">
+                
                 <style>
-                    .harmonic-card { background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; margin-bottom: 25px; box-shadow: 0 4px 6px rgba(0,0,0,0.02); overflow: hidden; }
-                    .harmonic-header { background: #F8FAFC; padding: 15px 20px; border-bottom: 1px solid #E2E8F0; font-weight: 800; color: #104C5C; font-size: 1.1rem; display: flex; align-items: center; gap: 10px; }
-                    .harmonic-body { padding: 20px; display: flex; flex-direction: column; gap: 15px; }
-                    .detail-row { display: flex; justify-content: space-between; align-items: center; padding: 12px 15px; background: #F1F5F9; border-radius: 8px; font-size: 0.95rem; }
-                    .detail-row strong { color: #104C5C; font-weight: 800; display: flex; align-items: center; gap: 8px; }
-                    .detail-row span { color: #475569; font-weight: 600; }
+                    /* Premium Detail Cards */
+                    .premium-detail-card { 
+                        background: #FFFFFF; 
+                        border: 1px solid rgba(16, 76, 92, 0.1); 
+                        border-radius: 16px; 
+                        margin-bottom: 25px; 
+                        box-shadow: 0 10px 30px rgba(16, 76, 92, 0.04); 
+                        overflow: hidden; 
+                        position: relative;
+                        transition: all 0.3s ease;
+                    }
+                    .premium-detail-card:hover {
+                        box-shadow: 0 15px 40px rgba(16, 76, 92, 0.08);
+                        transform: translateY(-2px);
+                    }
+                    .card-top-accent {
+                        height: 4px;
+                        background: linear-gradient(90deg, #104C5C, #2ED9C3);
+                        width: 100%;
+                    }
+                    .premium-card-header { 
+                        padding: 20px 25px; 
+                        border-bottom: 1px solid rgba(16, 76, 92, 0.08); 
+                        font-weight: 900; 
+                        color: #104C5C; 
+                        font-size: 1.15rem; 
+                        display: flex; 
+                        align-items: center; 
+                        gap: 12px; 
+                    }
+                    .premium-card-body { padding: 25px; display: flex; flex-direction: column; gap: 15px; }
                     
-                    .action-link { display: flex; align-items: center; justify-content: space-between; padding: 15px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 8px; text-decoration: none; color: #1E293B; font-weight: 700; transition: all 0.2s; }
-                    .action-link:hover { border-color: #2ED9C3; background: #FFFFFF; box-shadow: 0 4px 10px rgba(46, 217, 195, 0.1); transform: translateY(-2px); }
-                    .action-link i { color: #2ED9C3; font-size: 1.2rem; }
+                    /* Detail Rows */
+                    .premium-row { 
+                        display: flex; 
+                        justify-content: space-between; 
+                        align-items: center; 
+                        padding: 16px 20px; 
+                        background: #F8FAFC; 
+                        border-radius: 10px; 
+                        font-size: 1rem; 
+                        transition: all 0.2s;
+                    }
+                    .premium-row:hover { background: #F1F5F9; }
+                    .premium-row strong { color: #104C5C; font-weight: 800; display: flex; align-items: center; gap: 10px; }
+                    .premium-row span { color: #334155; font-weight: 700; }
                     
-                    /* Confetti animation */
-                    .confetti-wrapper { position: relative; overflow: hidden; border-radius: 16px; padding: 30px; margin-bottom: 25px; background: linear-gradient(135deg, #ffffff, #F8FAFC); box-shadow: 0 10px 25px rgba(0,0,0,0.04); border: 1px solid #E2E8F0; text-align: center; }
-                    .confetti { position: absolute; width: 10px; height: 10px; background-color: #10B981; animation: fall 3s infinite linear; opacity: 0.7; }
-                    @keyframes fall { 0% { transform: translateY(-100px) rotate(0deg); opacity: 1;} 100% { transform: translateY(200px) rotate(360deg); opacity: 0;} }
+                    .premium-total-row {
+                        background: linear-gradient(135deg, rgba(46,217,195,0.1), rgba(16,76,92,0.05));
+                        border: 1px solid rgba(46,217,195,0.3);
+                        padding: 20px;
+                        border-radius: 12px;
+                        display: flex; justify-content: space-between; align-items: center;
+                    }
+                    .premium-total-row strong { color: #104C5C; font-size: 1.1rem; font-weight: 900; display: flex; align-items: center; gap: 10px;}
+                    .premium-total-row span { color: #10B981; font-size: 1.3rem; font-weight: 900; }
+
+                    /* Action Links */
+                    .premium-action-link { 
+                        display: flex; align-items: center; justify-content: space-between; 
+                        padding: 18px 25px; background: #FFFFFF; 
+                        border: 1px solid rgba(16, 76, 92, 0.15); 
+                        border-radius: 12px; text-decoration: none; 
+                        transition: all 0.3s; 
+                    }
+                    .premium-action-link:hover { 
+                        border-color: #2ED9C3; 
+                        background: linear-gradient(to right, #FFFFFF, #F0FDFB); 
+                        box-shadow: 0 8px 20px rgba(46, 217, 195, 0.15); 
+                        transform: translateX(4px); 
+                    }
+                    .premium-action-link .icon-box {
+                        width: 45px; height: 45px; background: #F1F5F9; border-radius: 10px; display: flex; align-items: center; justify-content: center; color: #104C5C; font-size: 1.2rem; transition: all 0.3s;
+                    }
+                    .premium-action-link:hover .icon-box {
+                        background: #104C5C; color: #2ED9C3;
+                    }
+                    
+                    /* Success Hero */
+                    .premium-success-hero { 
+                        position: relative; overflow: hidden; border-radius: 20px; padding: 40px 30px; margin-bottom: 30px; 
+                        background: #FFFFFF; box-shadow: 0 15px 40px rgba(16, 76, 92, 0.05); border: 1px solid rgba(16, 76, 92, 0.08); text-align: center; 
+                    }
+                    .success-glow {
+                        position: absolute; top: -50px; left: 50%; transform: translateX(-50%);
+                        width: 200px; height: 200px; background: radial-gradient(circle, rgba(46,217,195,0.2) 0%, rgba(255,255,255,0) 70%);
+                        z-index: 0;
+                    }
+                    .success-badge {
+                        position: relative; z-index: 1; width: 80px; height: 80px; margin: 0 auto 20px;
+                        background: linear-gradient(135deg, #104C5C, #2ED9C3);
+                        border-radius: 50%; display: flex; align-items: center; justify-content: center;
+                        box-shadow: 0 10px 25px rgba(46, 217, 195, 0.4);
+                        color: white; font-size: 2.2rem;
+                    }
+
+                    /* Dark Corporate Sidebar */
+                    .premium-dark-sidebar {
+                        background: linear-gradient(180deg, #104C5C 0%, #0B333E 100%);
+                        border-radius: 20px; padding: 30px 25px; color: #FFFFFF;
+                        box-shadow: 0 20px 50px rgba(11, 51, 62, 0.2);
+                        border: 1px solid rgba(46, 217, 195, 0.2);
+                        position: sticky; top: 100px;
+                    }
+                    .dark-cross-card {
+                        background: rgba(255, 255, 255, 0.06);
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        border-radius: 14px; padding: 18px;
+                        display: flex; align-items: center; gap: 18px;
+                        text-decoration: none; transition: all 0.3s;
+                        backdrop-filter: blur(10px);
+                    }
+                    .dark-cross-card:hover {
+                        background: rgba(46, 217, 195, 0.15);
+                        border-color: rgba(46, 217, 195, 0.4);
+                        transform: translateY(-3px);
+                    }
+                    .dark-cross-icon {
+                        width: 50px; height: 50px;
+                        background: rgba(255, 255, 255, 0.1);
+                        border-radius: 12px; color: #2ED9C3;
+                        display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
+                        transition: all 0.3s;
+                    }
+                    .dark-cross-card:hover .dark-cross-icon {
+                        background: #2ED9C3; color: #104C5C;
+                    }
                 </style>
                 
-                <div class="confetti-wrapper">
-                    <!-- Simple css confetti effect -->
-                    <div class="confetti" style="left: 10%; background: #2ED9C3; animation-delay: 0s;"></div>
-                    <div class="confetti" style="left: 30%; background: #cb6ce6; animation-delay: 1.5s;"></div>
-                    <div class="confetti" style="left: 50%; background: #F59E0B; animation-delay: 0.5s;"></div>
-                    <div class="confetti" style="left: 70%; background: #10B981; animation-delay: 2s;"></div>
-                    <div class="confetti" style="left: 90%; background: #2ED9C3; animation-delay: 1s;"></div>
-                    
-                    <div class="success-graphic" style="margin: 0 auto 20px;">
-                        <div class="success-bg"></div>
-                        <i class="fa-solid fa-check success-icon"></i>
+                <div class="premium-success-hero">
+                    <div class="success-glow"></div>
+                    <div class="success-badge anim-entry delay-1">
+                        <i class="fa-solid fa-check"></i>
                     </div>
-                    <h2 style="color: #0F172A; font-weight: 900; font-size: 1.8rem; margin-bottom: 10px;">¡Felicitaciones!</h2>
-                    <p style="color: #64748B; font-size: 1.05rem; max-width: 400px; margin: 0 auto;">Tu mascota ya está protegida. Descarga tus documentos y empieza a disfrutar de tu asistencia.</p>
+                    <h2 class="text-gradient-corp anim-entry delay-2" style="font-size: 2.2rem; font-weight: 900; margin-bottom: 12px; position: relative; z-index: 1;">¡Felicidades, todo listo!</h2>
+                    <p style="color: #475569; font-size: 1.1rem; max-width: 450px; margin: 0 auto; font-weight: 500; position: relative; z-index: 1;" class="anim-entry delay-3">
+                        Tu mascota ya cuenta con el respaldo corporativo de MHM. La excelencia en protección, ahora para tu familia.
+                    </p>
                 </div>
 
-                <div class="harmonic-card">
-                    <div class="harmonic-header">
-                        <i class="fa-solid fa-file-invoice"></i> Detalle de contratación
+                <div class="premium-detail-card anim-entry delay-4">
+                    <div class="card-top-accent"></div>
+                    <div class="premium-card-header">
+                        <i class="fa-solid fa-file-shield" style="color: #2ED9C3; font-size: 1.3rem;"></i> 
+                        Resumen de la Póliza
                     </div>
-                    <div class="harmonic-body">
-                        <div class="detail-row">
-                            <strong><i class="fa-solid fa-file-contract" style="color: #64748B;"></i> Nº de contrato:</strong>
-                            <span id="contractNumber">1234567</span>
+                    <div class="premium-card-body">
+                        <div class="premium-row">
+                            <strong><i class="fa-solid fa-file-contract" style="color: #94A3B8;"></i> Nº de contrato corporativo:</strong>
+                            <span id="contractNumber">MHM-1234567</span>
                         </div>
-                        <div class="detail-row">
-                            <strong><i class="fa-solid fa-calendar-check" style="color: #64748B;"></i> Fecha de activación:</strong>
+                        <div class="premium-row">
+                            <strong><i class="fa-solid fa-calendar-check" style="color: #94A3B8;"></i> Fecha de activación:</strong>
                             <span id="activationDate">Cargando...</span>
                         </div>
-                        <div class="detail-row">
-                            <strong><i class="fa-solid fa-credit-card" style="color: #64748B;"></i> Medio de pago:</strong>
-                            <span>Débito terminada en *****4539</span>
+                        <div class="premium-row">
+                            <strong><i class="fa-solid fa-credit-card" style="color: #94A3B8;"></i> Medio de pago:</strong>
+                            <span>Débito finalizada en *****4539</span>
                         </div>
-                        <div class="detail-row" style="background: #ECFDF5; border: 1px solid #A7F3D0;">
-                            <strong style="color: #065F46;"><i class="fa-solid fa-sack-dollar" style="color: #10B981;"></i> Total mensual:</strong>
-                            <span id="totalMonthly" style="color: #065F46; font-size: 1.1rem; font-weight: 800;">Cargando...</span>
+                        <div class="premium-total-row">
+                            <strong><i class="fa-solid fa-shield-halved" style="color: #104C5C;"></i> Total Mensual de Protección:</strong>
+                            <span id="totalMonthly">Cargando...</span>
                         </div>
                     </div>
                 </div>
 
-                <div class="harmonic-card">
-                    <div class="harmonic-header">
-                        <i class="fa-solid fa-layer-group"></i> Acciones disponibles
+                <div class="premium-detail-card anim-entry delay-5">
+                    <div class="card-top-accent" style="background: linear-gradient(90deg, #2ED9C3, #10B981);"></div>
+                    <div class="premium-card-header">
+                        <i class="fa-solid fa-layer-group" style="color: #10B981; font-size: 1.3rem;"></i> 
+                        Acceso a Documentación
                     </div>
-                    <div class="harmonic-body">
-                        <a href="#" class="action-link">
-                            <div style="display: flex; flex-direction: column; gap: 4px;">
-                                <span>Descargar copia del contrato</span>
-                                <span style="font-size: 0.8rem; color: #64748B; font-weight: 500;">O revisa tu correo <span id="ownerEmail" style="color: #104C5C; font-weight: 700;"></span></span>
+                    <div class="premium-card-body">
+                        <a href="#" class="premium-action-link">
+                            <div style="display: flex; flex-direction: column; gap: 6px;">
+                                <span style="color: #1E293B; font-weight: 800; font-size: 1.05rem;">Descargar copia del contrato</span>
+                                <span style="font-size: 0.85rem; color: #64748B; font-weight: 500;">Enviado adicionalmente a <span id="ownerEmail" style="color: #104C5C; font-weight: 700;"></span></span>
                             </div>
-                            <i class="fa-solid fa-download"></i>
+                            <div class="icon-box"><i class="fa-solid fa-cloud-arrow-down"></i></div>
                         </a>
                         
-                        <a href="#" class="action-link">
-                            <div style="display: flex; flex-direction: column; gap: 4px;">
-                                <span>Ver detalle legal de asistencia</span>
-                                <span style="font-size: 0.8rem; color: #64748B; font-weight: 500;">Términos, condiciones y exclusiones</span>
+                        <a href="#" class="premium-action-link">
+                            <div style="display: flex; flex-direction: column; gap: 6px;">
+                                <span style="color: #1E293B; font-weight: 800; font-size: 1.05rem;">Ver Condiciones Legales</span>
+                                <span style="font-size: 0.85rem; color: #64748B; font-weight: 500;">Términos, límites y exclusiones de servicio</span>
                             </div>
-                            <i class="fa-solid fa-scale-balanced"></i>
+                            <div class="icon-box"><i class="fa-solid fa-scale-balanced"></i></div>
                         </a>
-                        <p style="font-size: 0.8rem; color: #94A3B8; text-align: center; margin: 0;">*Los documentos pueden tardar hasta 24 hrs en estar disponibles.</p>
+                        <div style="display: flex; align-items: center; justify-content: center; gap: 8px; margin-top: 5px;">
+                            <i class="fa-solid fa-circle-info" style="color: #CBD5E1;"></i>
+                            <p style="font-size: 0.85rem; color: #94A3B8; margin: 0; font-weight: 500;">Los certificados pueden demorar hasta 24 hrs hábiles.</p>
+                        </div>
                     </div>
                 </div>
 
-                <a href="../index.html" class="btn-aurora-gradient" style="display: flex; margin: 30px auto; width: max-content; padding: 15px 40px;">
-                    <span>Volver al Inicio</span>
+                <a href="../index.html" class="btn-aurora-gradient anim-entry delay-6" style="display: flex; margin: 40px auto; width: max-content; padding: 18px 50px; font-size: 1.1rem; box-shadow: 0 15px 30px rgba(46, 217, 195, 0.3);">
+                    <span>Volver al Inicio Corporativo</span>
                     <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
                 </a>
 
             </div>
             
-            <aside class="summary-sidebar anim-entry delay-2">
-                <div class="organic-panel" style="position: sticky; top: 100px; padding: 25px;">
+            <aside class="summary-sidebar anim-entry delay-3">
+                <div class="premium-dark-sidebar">
                     
-                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 900; margin-bottom: 10px; line-height: 1.3;">
-                        CUIDAR LO QUE QUIERES<br>NO TERMINA AQUÍ <i class="fa-solid fa-heart" style="color: #F43F5E;"></i>
+                    <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                        <i class="fa-solid fa-gem" style="color: #2ED9C3; font-size: 1.5rem;"></i>
+                        <h3 style="font-size: 1.3rem; font-weight: 900; margin: 0; line-height: 1.2; letter-spacing: -0.5px;">
+                            MHM<br><span style="color: #2ED9C3; font-weight: 700;">PREMIUM</span>
+                        </h3>
                     </div>
-                    <p style="color: #64748B; font-size: 0.95rem; margin-bottom: 25px; font-weight: 500;">
-                        Descubre otras asistencias diseñadas para proteger todo lo que importa en tu día a día:
+                    
+                    <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; line-height: 1.5;">
+                        Cuidar lo que amas es un estilo de vida. Extiende el estándar de excelencia MHM al resto de tu rutina con condiciones preferenciales.
                     </p>
                     
-                    <div style="display: flex; flex-direction: column; gap: 15px;">
-                        <a href="../cotizacion-hogar/index.html" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.borderColor='#104C5C';" onmouseout="this.style.borderColor='#E2E8F0';">
-                            <div style="width: 45px; height: 45px; background: #E0E7FF; color: #4338CA; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                    <div style="display: flex; flex-direction: column; gap: 16px;">
+                        <a href="../cotizacion-hogar/index.html" class="dark-cross-card">
+                            <div class="dark-cross-icon">
                                 <i class="fa-solid fa-house"></i>
                             </div>
                             <div>
-                                <h4 style="color: #1E293B; font-weight: 800; font-size: 1.05rem; margin: 0 0 4px 0;">Hogar</h4>
-                                <span style="color: #64748B; font-size: 0.85rem; font-weight: 600;">Desde <strong style="color: #10B981;">$7.990</strong> /mes</span>
+                                <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Hogar</h4>
+                                <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #2ED9C3;">$7.990</strong> /mes</span>
                             </div>
                         </a>
                         
-                        <a href="../funnel-auto/index.html" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.borderColor='#104C5C';" onmouseout="this.style.borderColor='#E2E8F0';">
-                            <div style="width: 45px; height: 45px; background: #FEE2E2; color: #B91C1C; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                        <a href="../funnel-auto/index.html" class="dark-cross-card">
+                            <div class="dark-cross-icon">
                                 <i class="fa-solid fa-car-side"></i>
                             </div>
                             <div>
-                                <h4 style="color: #1E293B; font-weight: 800; font-size: 1.05rem; margin: 0 0 4px 0;">Movilidad</h4>
-                                <span style="color: #64748B; font-size: 0.85rem; font-weight: 600;">Desde <strong style="color: #10B981;">$3.200</strong> /mes</span>
+                                <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Movilidad</h4>
+                                <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #2ED9C3;">$3.200</strong> /mes</span>
                             </div>
                         </a>
                         
-                        <a href="../seguro-complementario-salud/index.html" style="display: flex; align-items: center; gap: 15px; padding: 15px; background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 12px; text-decoration: none; transition: 0.3s;" onmouseover="this.style.borderColor='#104C5C';" onmouseout="this.style.borderColor='#E2E8F0';">
-                            <div style="width: 45px; height: 45px; background: #DCFCE7; color: #15803D; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.2rem; flex-shrink: 0;">
+                        <a href="../seguro-complementario-salud/index.html" class="dark-cross-card">
+                            <div class="dark-cross-icon">
                                 <i class="fa-solid fa-hand-holding-medical"></i>
                             </div>
                             <div>
-                                <h4 style="color: #1E293B; font-weight: 800; font-size: 1.05rem; margin: 0 0 4px 0;">Salud</h4>
-                                <span style="color: #64748B; font-size: 0.85rem; font-weight: 600;">Desde <strong style="color: #10B981;">$3.780</strong> /mes</span>
+                                <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Salud</h4>
+                                <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #2ED9C3;">$3.780</strong> /mes</span>
                             </div>
                         </a>
                     </div>
