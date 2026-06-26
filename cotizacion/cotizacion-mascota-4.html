@@ -403,18 +403,28 @@
     }
 
     function validatePetsForm() {
-        const chk = document.getElementById('chkPetsCorrect').checked;
+        const chk = document.getElementById('chkPetsCorrect');
+        if(!chk) return;
+        
+        const isChecked = chk.checked;
         const btn = document.getElementById('btn-finish');
         let allValid = true;
         
-        const inputs = document.querySelectorAll('.pet-input');
-        inputs.forEach(input => {
+        const petInputs = document.querySelectorAll('.pet-input');
+        petInputs.forEach(input => {
+            if(!input.value.trim()) {
+                allValid = false;
+            }
+        });
+        
+        const reqInputs = document.querySelectorAll('.req-input');
+        reqInputs.forEach(input => {
             if(!input.value.trim()) {
                 allValid = false;
             }
         });
 
-        if (chk && allValid) {
+        if (isChecked && allValid) {
             btn.style.opacity = '1';
             btn.style.pointerEvents = 'auto';
         } else {
@@ -497,7 +507,7 @@
         if(!container) return;
         
         const clientStr = sessionStorage.getItem('mhmPetClient');
-        let client = { name: 'Falta ingresar nombre', rut: 'Falta ingresar RUT', email: 'Falta ingresar email' };
+        let client = { name: '', rut: '', email: '' };
         
         if(clientStr) {
             try {
@@ -513,22 +523,49 @@
                     </div>
                     <div>
                         <h3 style="color: #0F172A; font-size: 1.2rem; font-weight: 800; margin: 0;">Datos del Contratante</h3>
-                        <span style="color: #64748B; font-size: 0.9rem;">Información del dueño de las mascotas</span>
+                        <span style="color: #64748B; font-size: 0.9rem;">Completa la información del dueño</span>
                     </div>
                 </div>
-                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                    <div>
-                        <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">Nombre Completo</span>
-                        <strong style="color: #0F172A; font-size: 1.05rem;">${client.name || '-'}</strong>
+                
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin-bottom: 15px;">
+                    <div class="input-group-modern">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">RUT</label>
+                        <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" placeholder="12345678-9" value="${client.rut}" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
                     </div>
-                    <div>
-                        <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">RUT</span>
-                        <strong style="color: #0F172A; font-size: 1.05rem;">${client.rut || '-'}</strong>
+                    <div class="input-group-modern">
+                        <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Fecha de cumpleaños</label>
+                        <input type="date" onchange="validatePetsForm()" class="req-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
                     </div>
-                    <div>
-                        <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">Correo Electrónico</span>
-                        <strong style="color: #0F172A; font-size: 1.05rem;">${client.email || '-'}</strong>
-                    </div>
+                </div>
+
+                <div class="input-group-modern" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Nombre</label>
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" value="${client.name}" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                </div>
+                
+                <div class="input-group-modern" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Apellidos</label>
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                </div>
+                
+                <div class="input-group-modern" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Email</label>
+                    <input type="email" onkeyup="validatePetsForm()" class="req-input rich-input" value="${client.email}" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                </div>
+                
+                <div class="input-group-modern" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Teléfono</label>
+                    <input type="tel" onkeyup="validatePetsForm()" class="req-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                </div>
+                
+                <div class="input-group-modern" style="margin-bottom: 15px;">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Dirección</label>
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
+                </div>
+                
+                <div class="input-group-modern">
+                    <label style="display: block; margin-bottom: 8px; font-weight: 600; color: #1E293B; font-size: 0.9rem;">Comuna</label>
+                    <input type="text" onkeyup="validatePetsForm()" class="req-input rich-input" placeholder="Selecciona la comuna..." style="width: 100%; padding: 12px 15px; border-radius: 8px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 0.95rem; color: #0F172A;" required>
                 </div>
             </div>
         `;
