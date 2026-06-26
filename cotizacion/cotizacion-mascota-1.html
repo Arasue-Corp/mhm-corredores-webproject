@@ -35,7 +35,26 @@
         white-space: normal !important;
     }
 }
-</style>
+
+        /* Mobile Details Toggle */
+        .details-toggle-btn {
+            display: none;
+            background: none; border: none; color: #2563EB; font-weight: 700; font-size: 0.9rem;
+            cursor: pointer; margin-top: 10px; padding: 0; text-align: left; width: 100%; justify-content: center;
+        }
+        .details-toggle-btn i { margin-left: 5px; transition: transform 0.3s; }
+        .details-toggle-btn.open i { transform: rotate(180deg); }
+        
+        @media (max-width: 768px) {
+            .details-toggle-btn { display: flex; align-items: center; }
+            .pet-feature-list { display: none; }
+            .pet-feature-list.show-details { display: block; animation: fadeIn 0.3s ease; }
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
 
 </head>
 <body class="bg-body">
@@ -305,6 +324,7 @@
             <div class="vt-info">
                 <h4>Asistencia Mascota</h4>
                 <div class="plan-price">$5.555 / mes</div>
+                <button type="button" class="details-toggle-btn" onclick="toggleDetails(this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
                 <ul class="pet-feature-list">
                     <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
@@ -325,6 +345,7 @@
             <div class="vt-info">
                 <h4 style="color: #2563EB;">Asistencia Mascota Pro <br><span style="font-size: 0.6em; background: #2563EB; color: white; padding: 4px 8px; border-radius: 6px; vertical-align: middle; display: inline-block; margin-top: 5px;">Recomendado</span></h4>
                 <div class="plan-price">$5.555 / mes</div>
+                <button type="button" class="details-toggle-btn" onclick="toggleDetails(this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
                 <ul class="pet-feature-list">
                     <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
@@ -345,6 +366,7 @@
             <div class="vt-info">
                 <h4>Asistencia Senior</h4>
                 <div class="plan-price">$5.555 / mes</div>
+                <button type="button" class="details-toggle-btn" onclick="toggleDetails(this)">Ver detalles <i class="fa-solid fa-chevron-down"></i></button>
                 <ul class="pet-feature-list">
                     <li><i class="fa-solid fa-check"></i> ¡Reembolso rápido y simple!</li>
                     <li><i class="fa-solid fa-check"></i> Asistencia 24/7</li>
@@ -431,6 +453,18 @@
         'pro': { name: 'Asistencia Mascota Pro', price: 5555, qty: 0 },
         'senior': { name: 'Asistencia Senior', price: 5555, qty: 0 }
     };
+
+    
+    function toggleDetails(btn) {
+        const list = btn.nextElementSibling;
+        list.classList.toggle('show-details');
+        btn.classList.toggle('open');
+        if (list.classList.contains('show-details')) {
+            btn.innerHTML = 'Ocultar detalles <i class="fa-solid fa-chevron-up"></i>';
+        } else {
+            btn.innerHTML = 'Ver detalles <i class="fa-solid fa-chevron-down"></i>';
+        }
+    }
 
     function updateQty(id, delta) {
         plans[id].qty += delta;
