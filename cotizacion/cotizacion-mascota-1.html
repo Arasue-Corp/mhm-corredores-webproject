@@ -493,17 +493,7 @@
     };
 
     
-        
-        const isHidden = window.getComputedStyle(list).display === 'none';
-        
-        if (isHidden || list.style.display === 'none') {
-            list.style.setProperty('display', 'block', 'important');
-            btn.innerHTML = 'Ocultar detalles <i class="fa-solid fa-chevron-up"></i>';
-        } else {
-            list.style.setProperty('display', 'none', 'important');
-            btn.innerHTML = 'Ver detalles <i class="fa-solid fa-chevron-down"></i>';
-        }
-    }
+
 
     function updateQty(id, delta) {
         plans[id].qty += delta;
