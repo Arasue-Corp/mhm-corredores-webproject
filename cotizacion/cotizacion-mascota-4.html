@@ -497,36 +497,41 @@
         if(!container) return;
         
         const clientStr = sessionStorage.getItem('mhmPetClient');
+        let client = { name: 'Falta ingresar nombre', rut: 'Falta ingresar RUT', email: 'Falta ingresar email' };
+        
         if(clientStr) {
-            const client = JSON.parse(clientStr);
-            container.innerHTML = `
-                <div style="background: white; border: 1px solid #E2E8F0; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
-                    <div style="display: flex; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #F1F5F9; padding-bottom: 15px;">
-                        <div style="background: rgba(16, 76, 92, 0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
-                            <i class="fa-solid fa-user" style="color: #104C5C; font-size: 1.2rem;"></i>
-                        </div>
-                        <div>
-                            <h3 style="color: #0F172A; font-size: 1.2rem; font-weight: 800; margin: 0;">Datos del Contratante</h3>
-                            <span style="color: #64748B; font-size: 0.9rem;">Información del dueño de las mascotas</span>
-                        </div>
+            try {
+                client = JSON.parse(clientStr);
+            } catch(e) {}
+        }
+        
+        container.innerHTML = `
+            <div style="background: white; border: 1px solid #E2E8F0; border-radius: 16px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.03);">
+                <div style="display: flex; align-items: center; margin-bottom: 20px; border-bottom: 1px solid #F1F5F9; padding-bottom: 15px;">
+                    <div style="background: rgba(16, 76, 92, 0.1); width: 45px; height: 45px; border-radius: 12px; display: flex; align-items: center; justify-content: center; margin-right: 15px;">
+                        <i class="fa-solid fa-user" style="color: #104C5C; font-size: 1.2rem;"></i>
                     </div>
-                    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
-                        <div>
-                            <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">Nombre Completo</span>
-                            <strong style="color: #0F172A; font-size: 1.05rem;">${client.name || '-'}</strong>
-                        </div>
-                        <div>
-                            <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">RUT</span>
-                            <strong style="color: #0F172A; font-size: 1.05rem;">${client.rut || '-'}</strong>
-                        </div>
-                        <div>
-                            <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">Correo Electrónico</span>
-                            <strong style="color: #0F172A; font-size: 1.05rem;">${client.email || '-'}</strong>
-                        </div>
+                    <div>
+                        <h3 style="color: #0F172A; font-size: 1.2rem; font-weight: 800; margin: 0;">Datos del Contratante</h3>
+                        <span style="color: #64748B; font-size: 0.9rem;">Información del dueño de las mascotas</span>
                     </div>
                 </div>
-            `;
-        }
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px;">
+                    <div>
+                        <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">Nombre Completo</span>
+                        <strong style="color: #0F172A; font-size: 1.05rem;">${client.name || '-'}</strong>
+                    </div>
+                    <div>
+                        <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">RUT</span>
+                        <strong style="color: #0F172A; font-size: 1.05rem;">${client.rut || '-'}</strong>
+                    </div>
+                    <div>
+                        <span style="display: block; font-size: 0.85rem; color: #64748B; font-weight: 600; margin-bottom: 4px;">Correo Electrónico</span>
+                        <strong style="color: #0F172A; font-size: 1.05rem;">${client.email || '-'}</strong>
+                    </div>
+                </div>
+            </div>
+        `;
     }
 
     function finishFlow() {
