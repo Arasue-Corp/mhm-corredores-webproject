@@ -397,36 +397,36 @@
                         color: white; font-size: 2.2rem;
                     }
 
-                    /* Dark Corporate Sidebar */
-                    .premium-dark-sidebar {
-                        background: #0f0f1a;
-                        border-radius: 20px; padding: 30px 25px; color: #FFFFFF;
-                        box-shadow: 0 20px 50px rgba(15, 15, 26, 0.4);
-                        border: 1px solid rgba(255, 255, 255, 0.1);
+                    /* Light Corporate Sidebar */
+                    .premium-light-sidebar {
+                        background: #FFFFFF;
+                        border-radius: 20px; padding: 30px 25px; color: #0F172A;
+                        box-shadow: 0 15px 40px rgba(121, 107, 252, 0.08);
+                        border: 1px solid rgba(121, 107, 252, 0.15);
                         position: sticky; top: 100px;
                     }
-                    .dark-cross-card {
-                        background: rgba(255, 255, 255, 0.1);
-                        border: 1px solid rgba(255, 255, 255, 0.2);
+                    .light-cross-card {
+                        background: #FFFFFF;
+                        border: 1px solid rgba(121, 107, 252, 0.15);
                         border-radius: 14px; padding: 18px;
                         display: flex; align-items: center; gap: 18px;
                         text-decoration: none; transition: all 0.3s;
-                        backdrop-filter: blur(10px);
                     }
-                    .dark-cross-card:hover {
-                        background: rgba(255, 255, 255, 0.2);
-                        border-color: rgba(255, 255, 255, 0.4);
+                    .light-cross-card:hover {
+                        background: rgba(121, 107, 252, 0.03);
+                        border-color: #cb6ce6;
                         transform: translateY(-3px);
+                        box-shadow: 0 8px 20px rgba(203, 108, 230, 0.1);
                     }
-                    .dark-cross-icon {
+                    .light-cross-icon {
                         width: 50px; height: 50px;
-                        background: rgba(255, 255, 255, 0.2);
-                        border-radius: 12px; color: #FFFFFF;
+                        background: rgba(121, 107, 252, 0.1);
+                        border-radius: 12px; color: #796bfc;
                         display: flex; align-items: center; justify-content: center; font-size: 1.4rem;
                         transition: all 0.3s;
                     }
-                    .dark-cross-card:hover .dark-cross-icon {
-                        background: #FFFFFF; color: #796bfc;
+                    .light-cross-card:hover .light-cross-icon {
+                        background: #cb6ce6; color: #FFFFFF;
                     }
                 </style>
                 
@@ -504,47 +504,47 @@
             </div>
             
             <aside class="summary-sidebar anim-entry delay-3">
-                <div class="premium-dark-sidebar">
+                <div class="premium-light-sidebar">
                     
                     <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
-                        <i class="fa-solid fa-gem" style="color: #FFFFFF; font-size: 1.5rem;"></i>
-                        <h3 style="font-size: 1.3rem; font-weight: 900; margin: 0; line-height: 1.2; letter-spacing: -0.5px;">
-                            MHM<br><span style="color: #FFFFFF; font-weight: 700;">PREMIUM</span>
+                        <i class="fa-solid fa-gem" style="color: #796bfc; font-size: 1.5rem;"></i>
+                        <h3 style="font-size: 1.3rem; font-weight: 900; margin: 0; line-height: 1.2; letter-spacing: -0.5px; color: #0F172A;">
+                            MHM<br><span style="color: #cb6ce6; font-weight: 700;">PREMIUM</span>
                         </h3>
                     </div>
                     
-                    <p style="color: rgba(255,255,255,0.8); font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; line-height: 1.5;">
+                    <p style="color: #475569; font-size: 0.95rem; margin-bottom: 30px; font-weight: 500; line-height: 1.5;">
                         Cuidar lo que amas es un estilo de vida. Extiende el estándar de excelencia MHM al resto de tu rutina con condiciones preferenciales.
                     </p>
                     
                     <div style="display: flex; flex-direction: column; gap: 16px;">
-                        <a href="../cotizacion-hogar/index.html" class="dark-cross-card">
-                            <div class="dark-cross-icon">
+                        <a href="../cotizacion-hogar/index.html" class="light-cross-card">
+                            <div class="light-cross-icon">
                                 <i class="fa-solid fa-house"></i>
                             </div>
                             <div>
-                                <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Hogar</h4>
-                                <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #FFFFFF;">$7.990</strong> /mes</span>
+                                <h4 style="color: #0F172A; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Hogar</h4>
+                                <span style="color: #64748B; font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #796bfc;">$7.990</strong> /mes</span>
                             </div>
                         </a>
                         
-                        <a href="../funnel-auto/index.html" class="dark-cross-card">
-                            <div class="dark-cross-icon">
+                        <a href="../funnel-auto/index.html" class="light-cross-card">
+                            <div class="light-cross-icon">
                                 <i class="fa-solid fa-car-side"></i>
                             </div>
                             <div>
-                                <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Movilidad</h4>
-                                <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #FFFFFF;">$3.200</strong> /mes</span>
+                                <h4 style="color: #0F172A; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Movilidad</h4>
+                                <span style="color: #64748B; font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #796bfc;">$3.200</strong> /mes</span>
                             </div>
                         </a>
                         
-                        <a href="../seguro-complementario-salud/index.html" class="dark-cross-card">
-                            <div class="dark-cross-icon">
+                        <a href="../seguro-complementario-salud/index.html" class="light-cross-card">
+                            <div class="light-cross-icon">
                                 <i class="fa-solid fa-hand-holding-medical"></i>
                             </div>
                             <div>
-                                <h4 style="color: #FFFFFF; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Salud</h4>
-                                <span style="color: rgba(255,255,255,0.7); font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #FFFFFF;">$3.780</strong> /mes</span>
+                                <h4 style="color: #0F172A; font-weight: 800; font-size: 1.1rem; margin: 0 0 5px 0;">MHM Salud</h4>
+                                <span style="color: #64748B; font-size: 0.85rem; font-weight: 500;">Desde <strong style="color: #796bfc;">$3.780</strong> /mes</span>
                             </div>
                         </a>
                     </div>
