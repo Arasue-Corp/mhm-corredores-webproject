@@ -613,17 +613,21 @@
 
     function openCoverageModal(planId) {
         const modal = document.getElementById('coverageModal');
-        // A medida que tengamos las imágenes para 'pro' y 'senior', actualizaremos el contenido aquí dinámicamente
-        // Por ahora, como vamos 1 a 1, mostraremos la de Asistencia Mascota para todos
         if(modal) {
-            modal.classList.add('active');
+            modal.style.display = 'flex';
+            setTimeout(() => {
+                modal.classList.add('is-visible');
+            }, 10);
         }
     }
 
     function closeCoverageModal() {
         const modal = document.getElementById('coverageModal');
         if(modal) {
-            modal.classList.remove('active');
+            modal.classList.remove('is-visible');
+            setTimeout(() => {
+                modal.style.display = 'none';
+            }, 400);
         }
     }
 </script>
