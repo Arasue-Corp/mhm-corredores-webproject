@@ -381,8 +381,8 @@
         <div class="veh-type-card">
             <div class="vt-image"><img src="../assets/img/seguro-auto.jpg" alt="Mascota Basico" id="img-basico"></div>
             <div class="vt-info">
-                <h4>Asistencia Mascota</h4>
-                <div class="plan-price">$9.490 / mes</div>
+                <h4>Asistencia Mascota Pro</h4>
+                <div class="plan-price">$10.990 / mes</div>
                 <input type="checkbox" id="toggle-basico" class="accordion-checkbox">
                 <label for="toggle-basico" class="accordion-label">
                     <span class="label-text" data-open="Ocultar detalles" data-closed="Ver detalles">Ver detalles</span>
@@ -524,7 +524,7 @@
 <script>
     const plans = {
         'basico': { name: 'Asistencia Mascota', price: 9490, qty: 0 },
-        'pro': { name: 'Asistencia Mascota Pro', price: 5555, qty: 0 },
+        'pro': { name: 'Asistencia Mascota Pro', price: 10990, qty: 0 },
         'senior': { name: 'Asistencia Senior', price: 5555, qty: 0 }
     };
 
@@ -613,6 +613,25 @@
 
     function openCoverageModal(planId) {
         const modal = document.getElementById('coverageModal');
+        
+        // Hide all tables
+        document.getElementById('table-basico').style.display = 'none';
+        document.getElementById('table-pro').style.display = 'none';
+        
+        // Update Title and show table
+        const titleEl = document.getElementById('covModalTitle');
+        if (planId === 'basico') {
+            titleEl.innerText = 'Coberturas: Asistencia Mascota';
+            document.getElementById('table-basico').style.display = 'table';
+        } else if (planId === 'pro') {
+            titleEl.innerText = 'Coberturas: Asistencia Mascota Pro';
+            document.getElementById('table-pro').style.display = 'table';
+        } else if (planId === 'senior') {
+            titleEl.innerText = 'Coberturas: Asistencia Senior';
+            // Fallback for now until we have the image
+            document.getElementById('table-basico').style.display = 'table';
+        }
+
         if(modal) {
             modal.style.display = 'flex';
             setTimeout(() => {
@@ -753,7 +772,7 @@
                 <button class="btn-close-tech js-close-coverage-modal" onclick="closeCoverageModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body-tech" style="overflow-x: auto;">
-                <table class="table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;">
+                <table id="table-basico" class="table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
                     <thead>
                         <tr style="background: #023859; color: white;">
                             <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Servicio</th>
@@ -798,6 +817,55 @@
                             <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">100%</td>
                             <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2 UF</td>
                             <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table id="table-pro" class="table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
+                    <thead>
+                        <tr style="background: #023859; color: white;">
+                            <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Servicio</th>
+                            <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Protección</th>
+                            <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Límite</th>
+                            <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Max Eventos Al Año</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">URGENCIA MÉDICA<br>VETERINARIA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">80% DE LA BOLETA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">$300.000</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">3</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">CONSULTA MÉDICA<br>VETERINARIA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">100%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">$90.000</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">DESCUENTO EN FARMACIAS<br>(USO VETERINARIO)</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">50% DE LA BOLETA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">$10.000</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">12</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">TELEMEDICINA VETERINARIA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">100%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">6</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">VACUNA ANTIRRÁBICA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">100%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">$15.000</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">ASISTENCIA LEGAL<br>TELEFÓNICA MASCOTA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">100%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">4</td>
                         </tr>
                     </tbody>
                 </table>
