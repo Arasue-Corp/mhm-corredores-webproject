@@ -3580,14 +3580,17 @@ body.page-enter { animation: pageEnterAnim 0.4s ease-out forwards; }
 .header-text-tech p { margin: 8px 0 0 0; color: #64748B; font-size: 1.05rem; }
 
 .btn-close-tech {
-    background: #F1F5F9; border: none; color: #94A3B8; 
+    background: #F1F5F9 !important; border: none !important; color: #94A3B8 !important; 
     width: 40px !important; height: 40px !important; 
     min-width: 40px !important; min-height: 40px !important;
+    max-width: 40px !important; max-height: 40px !important;
     border-radius: 50% !important; padding: 0 !important; flex-shrink: 0 !important;
-    display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; transition: 0.2s;
-    position: absolute; top: 20px; right: 20px; z-index: 10;
+    display: flex !important; align-items: center !important; justify-content: center !important; 
+    font-size: 1.2rem !important; cursor: pointer !important; transition: all 0.2s !important;
+    position: absolute !important; top: 20px !important; right: 20px !important; z-index: 10 !important;
+    box-shadow: none !important;
 }
-.btn-close-tech:hover { background: #E2E8F0; color: #EF4444; transform: rotate(90deg); }
+.btn-close-tech:hover { background: #E2E8F0 !important; color: #EF4444 !important; transform: rotate(90deg) !important; border-color: transparent !important; }
 
 /* Listas y Tarjetas */
 .modal-body-tech { padding: 10px 35px 35px 35px; position: relative; z-index: 1; }
