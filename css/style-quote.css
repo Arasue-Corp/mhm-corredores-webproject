@@ -3580,7 +3580,10 @@ body.page-enter { animation: pageEnterAnim 0.4s ease-out forwards; }
 .header-text-tech p { margin: 8px 0 0 0; color: #64748B; font-size: 1.05rem; }
 
 .btn-close-tech {
-    background: #F1F5F9; border: none; color: #94A3B8; width: 40px; height: 40px; border-radius: 50%;
+    background: #F1F5F9; border: none; color: #94A3B8; 
+    width: 40px !important; height: 40px !important; 
+    min-width: 40px !important; min-height: 40px !important;
+    border-radius: 50% !important; padding: 0 !important; flex-shrink: 0 !important;
     display: flex; align-items: center; justify-content: center; font-size: 1.2rem; cursor: pointer; transition: 0.2s;
     position: absolute; top: 20px; right: 20px; z-index: 10;
 }
