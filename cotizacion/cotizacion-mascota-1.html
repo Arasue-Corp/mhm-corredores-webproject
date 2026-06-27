@@ -434,7 +434,7 @@
             <div class="vt-image"><img src="../assets/img/seguro-pymes.jpg" alt="Mascota Senior" id="img-senior"></div>
             <div class="vt-info">
                 <h4>Asistencia Senior</h4>
-                <div class="plan-price">$5.555 / mes</div>
+                <div class="plan-price">$17.990 / mes</div>
                 <input type="checkbox" id="toggle-senior" class="accordion-checkbox">
                 <label for="toggle-senior" class="accordion-label">
                     <span class="label-text" data-open="Ocultar detalles" data-closed="Ver detalles">Ver detalles</span>
@@ -525,7 +525,7 @@
     const plans = {
         'basico': { name: 'Asistencia Mascota', price: 9490, qty: 0 },
         'pro': { name: 'Asistencia Mascota Pro', price: 10990, qty: 0 },
-        'senior': { name: 'Asistencia Senior', price: 5555, qty: 0 }
+        'senior': { name: 'Asistencia Senior', price: 17990, qty: 0 }
     };
 
     
@@ -617,6 +617,7 @@
         // Hide all tables
         document.getElementById('table-basico').style.display = 'none';
         document.getElementById('table-pro').style.display = 'none';
+        document.getElementById('table-senior').style.display = 'none';
         
         // Update Title and show table
         const titleEl = document.getElementById('covModalTitle');
@@ -628,8 +629,7 @@
             document.getElementById('table-pro').style.display = 'table';
         } else if (planId === 'senior') {
             titleEl.innerText = 'Coberturas: Asistencia Senior';
-            // Fallback for now until we have the image
-            document.getElementById('table-basico').style.display = 'table';
+            document.getElementById('table-senior').style.display = 'table';
         }
 
         if(modal) {
@@ -866,6 +866,85 @@
                             <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">100%</td>
                             <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2 UF</td>
                             <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">4</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <table id="table-senior" class="table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
+                    <thead>
+                        <tr style="background: #023859; color: white;">
+                            <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Servicio</th>
+                            <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Protección</th>
+                            <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Límite</th>
+                            <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Max Eventos Al Año</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">URGENCIA VETERINARIA POR ACCIDENTE</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">100%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">3 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">2</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">CONSULTA MÉDICA VETERINARIA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">50%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">CONSULTA VETERINARIA DERMATOLÓGICA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">50%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">2 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">2</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">EXAMEN HEMOGRAMA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">50%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">1 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">3</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">EXAMEN PERFIL BIOQUÍMICO</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">50%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">1 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">3</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">EXAMEN RADIOGRÁFICO 2 VISTAS</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">50%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">1 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">2</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">VACUNA ANTIRRÁBICA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">50%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">1 UF</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">1</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">TELEMEDICINA VETERINARIA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">100%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">ILIMITADO</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">3</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">ORIENTACIÓN TELEFÓNICA MASCOTA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">100%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">ILIMITADO</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">12</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">DESCUENTO EN FARMACIA VETERINARIA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: white;">50%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">$10.000</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: white;">6</td>
+                        </tr>
+                        <tr>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">ASISTENCIA LEGAL TELEFÓNICA</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #EF4444; text-align: center; background: #F8FAFC;">100%</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">ILIMITADO</td>
+                            <td style="padding: 12px; border: 1px solid #E2E8F0; font-weight: 700; color: #023859; text-align: center; background: #F8FAFC;">12</td>
                         </tr>
                     </tbody>
                 </table>
