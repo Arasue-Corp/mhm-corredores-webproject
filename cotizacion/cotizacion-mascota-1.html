@@ -609,6 +609,16 @@
     
     document.addEventListener('DOMContentLoaded', () => {
         renderSummary();
+        
+        // Auto-add data-label for responsive tables on mobile
+        document.querySelectorAll('#coverageModal table').forEach(table => {
+            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.innerText);
+            table.querySelectorAll('tbody tr').forEach(tr => {
+                Array.from(tr.querySelectorAll('td')).forEach((td, i) => {
+                    td.setAttribute('data-label', headers[i]);
+                });
+            });
+        });
     });
 
     function openCoverageModal(planId) {
@@ -760,6 +770,52 @@
         </div>
     </div>
 
+    <style>
+        @media screen and (max-width: 768px) {
+            .responsive-table, .responsive-table tbody, .responsive-table tr, .responsive-table td {
+                display: block;
+                width: 100%;
+            }
+            .responsive-table thead {
+                display: none;
+            }
+            .responsive-table tr {
+                margin-bottom: 1.5rem;
+                border-radius: 12px;
+                overflow: hidden;
+                border: 1px solid #E2E8F0;
+                box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+            }
+            .responsive-table td {
+                text-align: right !important;
+                padding: 12px 12px 12px 50% !important;
+                position: relative;
+                border: none !important;
+                border-bottom: 1px solid #F1F5F9 !important;
+                background: white !important;
+                min-height: 40px;
+                display: flex;
+                align-items: center;
+                justify-content: flex-end;
+            }
+            .responsive-table td:last-child {
+                border-bottom: none !important;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                position: absolute;
+                left: 12px;
+                width: 45%;
+                text-align: left;
+                font-weight: 800;
+                color: #64748B;
+                font-size: 0.75rem;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+            }
+        }
+    </style>
+
     <div id="coverageModal" class="modal-backdrop-aurora">
         <div class="modal-content-tech" style="max-width: 800px; padding: 30px;">
             <div class="shimmer-effect"></div>
@@ -772,7 +828,7 @@
                 <button class="btn-close-tech js-close-coverage-modal" onclick="closeCoverageModal()"><i class="fa-solid fa-xmark"></i></button>
             </div>
             <div class="modal-body-tech" style="overflow-x: auto;">
-                <table id="table-basico" class="table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
+                <table id="table-basico" class="table responsive-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
                     <thead>
                         <tr style="background: #023859; color: white;">
                             <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Servicio</th>
@@ -821,7 +877,7 @@
                     </tbody>
                 </table>
                 
-                <table id="table-pro" class="table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
+                <table id="table-pro" class="table responsive-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
                     <thead>
                         <tr style="background: #023859; color: white;">
                             <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Servicio</th>
@@ -870,7 +926,7 @@
                     </tbody>
                 </table>
                 
-                <table id="table-senior" class="table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
+                <table id="table-senior" class="table responsive-table" style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem; display: none;">
                     <thead>
                         <tr style="background: #023859; color: white;">
                             <th style="padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;">Servicio</th>
