@@ -616,37 +616,41 @@
     .specs-layout-grid {
         display: flex !important;
         flex-direction: column !important;
+        gap: 0 !important;
     }
     .config-sidebar {
         display: contents !important;
     }
-    .resumen-container {
-        order: 2 !important;
-        margin-bottom: 20px !important;
-        position: relative !important;
-        width: 100% !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 30px !important;
-    }
     .main-spec-col {
         order: 1 !important;
-        margin-bottom: 20px !important;
+        margin-bottom: 10px !important;
+    }
+    .resumen-container {
+        order: 2 !important;
+        position: relative !important;
+        top: 0 !important;
+        margin: 10px 0 !important;
+        width: 100% !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+        padding: 25px 20px !important;
     }
     .ruta-container {
         order: 3 !important;
         position: relative !important;
+        top: 0 !important;
+        margin: 10px 0 !important;
         width: 100% !important;
-        box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
         border-radius: 12px !important;
         background: #fff !important;
-        padding: 30px !important;
+        padding: 25px 20px !important;
     }
 }
 </style>
 <aside class="config-sidebar anim-entry delay-2">
-                <div class="organic-panel ruta-container" style="position: sticky; top: 100px;">
+                <div class="organic-panel ruta-container">
                     
                     <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
                         Ruta de Contratación
