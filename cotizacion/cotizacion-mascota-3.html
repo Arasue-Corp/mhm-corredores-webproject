@@ -422,8 +422,47 @@
                 </div>
             </div>
             
-            <aside class="config-sidebar anim-entry delay-2">
-                <div class="organic-panel" style="position: sticky; top: 100px;">
+            
+<style>
+/* Split sidebar styling for desktop */
+.ruta-container { margin-bottom: 20px; }
+
+/* Mobile reordering */
+@media (max-width: 1024px) {
+    .specs-layout-grid {
+        display: flex !important;
+        flex-direction: column !important;
+    }
+    .config-sidebar {
+        display: contents !important;
+    }
+    .resumen-container {
+        order: 1 !important;
+        margin-bottom: 20px !important;
+        position: relative !important;
+        width: 100% !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+        padding: 30px !important;
+    }
+    .main-spec-col {
+        order: 2 !important;
+        margin-bottom: 20px !important;
+    }
+    .ruta-container {
+        order: 3 !important;
+        position: relative !important;
+        width: 100% !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+        padding: 30px !important;
+    }
+}
+</style>
+<aside class="config-sidebar anim-entry delay-2">
+                <div class="organic-panel ruta-container" style="position: sticky; top: 100px;">
                     
                     <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
                         Ruta de Contratación
