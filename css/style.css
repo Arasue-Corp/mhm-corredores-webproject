@@ -10821,3 +10821,19 @@ body, html {
         font-size: 2rem !important;
     }
 }
+
+
+/* =========================================
+   SIDEBAR & FORM VISIBILITY FIX ON MOBILE
+   ========================================= */
+@media (max-width: 1024px) {
+    .sidebar-column {
+        display: block !important;
+        position: relative !important;
+        width: 100% !important;
+        margin-bottom: 25px !important;
+        box-shadow: 0 10px 25px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+    }
+}
