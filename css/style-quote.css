@@ -8486,3 +8486,55 @@ DROPDOWN DOWNPAYMENT */
     padding-left: 0;
     pointer-events: none;
 }
+
+
+/* =========================================
+   GLOBAL RESPONSIVE FIXES (INJECTED)
+   ========================================= */
+body, html {
+    overflow-x: hidden; /* Prevents global horizontal scroll */
+    width: 100%;
+}
+
+.table-responsive {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    display: block; /* Important to enable scroll inside */
+}
+
+@media (max-width: 992px) {
+    /* Collapse layout grids to single column */
+    .specs-layout-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        width: 100% !important;
+        padding: 0 15px !important;
+        margin: 20px auto !important;
+    }
+    
+    .container {
+        width: 100% !important;
+        padding: 0 15px !important;
+        box-sizing: border-box;
+    }
+    
+    /* Fix modals breaking mobile view */
+    .modal-content-tech, .modal-content, .premium-modal-content {
+        width: 95% !important;
+        max-width: 95% !important;
+        min-width: 0 !important;
+        padding: 20px 15px !important;
+        margin: 10px auto !important;
+    }
+    
+    /* Fix tables with min-width */
+    .clean-table, .tech-table, table.responsive-table, table {
+        min-width: 0 !important;
+    }
+    
+    /* Adjust massive fonts or elements if any */
+    .hero-title, .tech-title {
+        font-size: 2rem !important;
+    }
+}
