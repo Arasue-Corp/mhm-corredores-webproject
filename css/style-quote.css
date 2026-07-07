@@ -7850,12 +7850,12 @@ DROPDOWN DOWNPAYMENT */
     /* Ruta de Cotización (Progress) */
     .aurora-list {
         display: flex !important;
-        flex-direction: row !important;
-        overflow-x: auto !important;
+        flex-direction: column !important;
+        overflow-x: hidden !important;
         -webkit-overflow-scrolling: touch !important;
         padding-bottom: 10px !important;
         gap: 15px !important;
-        white-space: nowrap !important;
+        white-space: normal !important;
     }
     .aurora-item {
         margin-bottom: 0 !important;
@@ -8560,5 +8560,17 @@ body, html {
         position: relative !important;
         height: auto !important;
         z-index: 1 !important;
+    }
+}
+
+
+/* =========================================
+   AURORA LIST VERTICAL FIX ON MOBILE
+   ========================================= */
+@media (max-width: 768px) {
+    .aurora-list {
+        flex-direction: column !important;
+        white-space: normal !important;
+        overflow-x: hidden !important;
     }
 }
