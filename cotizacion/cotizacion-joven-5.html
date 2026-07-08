@@ -1,0 +1,1184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización de Asistencia de Salud | MHM Corredores</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1781129809" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/style-quote.css"> 
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
+<style>
+        .veh-type-grid {
+            display: grid; 
+            grid-template-columns: repeat(2, 1fr); 
+            gap: 32px; 
+            margin-bottom: 40px;
+        }
+        @media (max-width: 992px) {
+            .veh-type-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+        }
+        @media (max-width: 768px) {
+            .veh-type-grid { grid-template-columns: 1fr; }
+        }
+        
+        .veh-type-card {
+            height: 100%; box-sizing: border-box;
+            background: #ffffff;
+            border-radius: 24px;
+            padding: 32px;
+            overflow: hidden;
+            position: relative;
+            display: flex; flex-direction: column; align-items: stretch; text-align: left; gap: 20px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 4px 10px -5px rgba(15, 23, 42, 0.02);
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .veh-type-card:hover { 
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(121, 107, 252, 0.15);
+            border-color: transparent;
+        }
+        
+        .vt-image {
+            width: 100%; aspect-ratio: 16 / 9; border-radius: 16px;
+            overflow: hidden; margin-bottom: 5px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
+            background: #F8FAFC;
+            position: relative;
+        }
+        .vt-image img {
+            width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .veh-type-card:hover .vt-image img { transform: scale(1.08); }
+        
+        .vt-info { width: 100%; display: flex; flex-direction: column; flex-grow: 1; }
+        .vt-info-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
+        .vt-info h4 { margin: 0; color: #0F172A; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
+        
+        .badge-recomendado {
+            font-size: 0.7rem; background: linear-gradient(135deg, #EEF2FF, #E0E7FF); color: #4F46E5; padding: 6px 12px; border-radius: 30px; font-weight: 700; border: 1px solid rgba(79, 70, 229, 0.1); display: inline-block; box-shadow: 0 2px 10px rgba(79, 70, 229, 0.1);
+        }
+
+        .pet-feature-list {
+            list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 0.95rem; color: #475569;
+            text-align: left;
+        }
+        .pet-feature-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; line-height: 1.4; }
+        .pet-feature-list li i { color: #2ED9C3; font-size: 1.1rem; margin-top: 2px; }
+        
+        .plan-price-wrapper { display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; }
+        .plan-price-label { font-size: 0.9rem; color: #64748B; font-weight: 600; }
+        .plan-price { font-size: 1.8rem; font-weight: 800; color: #796bfc; letter-spacing: -0.5px; }
+        .plan-price-period { font-size: 1rem; color: #94A3B8; font-weight: 500; }
+        
+        /* Pro Card Top Aurora */
+        .pro-card {
+            border: 1px solid rgba(121, 107, 252, 0.3);
+            box-shadow: 0 10px 30px -5px rgba(121, 107, 252, 0.1);
+        }
+        .pro-card .card-aurora-top {
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 6px;
+            z-index: 10;
+            background: linear-gradient(90deg, #796bfc, #2ED9C3, #796bfc);
+            background-size: 200% 100%;
+            animation: gradientMove 3s linear infinite;
+        }
+        @keyframes gradientMove {
+            0% { background-position: 100% 0; }
+            100% { background-position: -100% 0; }
+        }
+    
+        /* Accordion */
+        .accordion-checkbox { display: none; }
+        .accordion-label {
+            cursor: pointer; display: inline-flex; align-items: center; justify-content: flex-start;
+            gap: 8px; color: #796bfc; font-weight: 700; font-size: 0.95rem; margin-top: 15px;
+            transition: color 0.2s; padding: 6px 12px; border-radius: 8px; background: #F8FAFC;
+            border: 1px solid #E2E8F0; width: fit-content;
+        }
+        .accordion-label:hover { background: #F1F5F9; color: #4F46E5; border-color: #CBD5E1; }
+        .accordion-label i { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        .accordion-checkbox:checked + .accordion-label i { transform: rotate(180deg); }
+        .accordion-checkbox:checked + .accordion-label .label-text::before { content: attr(data-open); }
+        .accordion-checkbox:not(:checked) + .accordion-label .label-text::before { content: attr(data-closed); }
+        .accordion-checkbox:not(:checked) ~ .pet-feature-list { display: none; }
+        .accordion-checkbox:checked ~ .pet-feature-list { display: block; animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+        
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Buttons */
+        .card-actions {
+            display: flex; gap: 12px; flex-direction: column; margin-top: auto; padding-top: 24px;
+        }
+        
+        .btn-outline-premium {
+            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
+            border: 1.5px solid #E2E8F0; color: #475569; background: white; 
+            cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem;
+            display: flex; justify-content: center; align-items: center; gap: 8px;
+        }
+        .btn-outline-premium:hover {
+            border-color: #796bfc; color: #796bfc; background: #F8FAFC;
+        }
+        
+        .btn-primary-premium {
+            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
+            cursor: pointer; border: none; background: #2ED9C3; color: white;
+            font-size: 1rem; transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(46, 217, 195, 0.3);
+            display: flex; justify-content: center; align-items: center; gap: 8px;
+        }
+        .btn-primary-premium:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 16px rgba(46, 217, 195, 0.4);
+            background: #25C7B3;
+        }
+
+        .btn-primary-premium.familiar {
+            background: #796bfc;
+            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.3);
+        }
+        .btn-primary-premium.familiar:hover {
+            background: #6355E0;
+            box-shadow: 0 6px 16px rgba(121, 107, 252, 0.4);
+        }
+
+        .split-btn-container {
+            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;
+        }
+        .split-btn {
+            display: flex; flex-direction: column; align-items: center; justify-content: center;
+            border-radius: 12px; padding: 10px 5px; font-weight: 700; cursor: pointer; border: none; 
+            color: white; font-size: 0.95rem; line-height: 1.3; transition: all 0.3s ease;
+        }
+        .split-btn span {
+            font-size: 0.8em; font-weight: 500; opacity: 0.9;
+        }
+    </style>
+
+</head>
+<body class="bg-body">
+
+    <div id="toast-container"></div>
+    <div class="noise-overlay"></div>
+
+
+    <div class="top-header-aurora">
+        <div class="container top-bar-flex">
+            
+            <div class="top-info-group">
+                <a href="tel:+56961446652" class="top-link glass-hover">
+                    <i class="fa-solid fa-phone pulse-icon"></i> 
+                    <span>+56 9 6144 6652</span>
+                </a>
+                
+                <span class="divider-vertical"></span>
+                
+                <a href="mailto:info@mhmseguros.cl" class="top-link glass-hover">
+                    <i class="fa-solid fa-envelope"></i> 
+                    <span>info@mhmseguros.cl</span>
+                </a>
+
+                <span class="divider-vertical desktop-only"></span>
+                <div class="top-location desktop-only">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Huérfanos 669, piso 7, Santiago, Chile</span>
+                </div>
+            </div>
+
+            <div class="top-social-group">
+                <span class="social-label desktop-only">Conectar:</span>
+                <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank" class="social-btn" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/mhmseguros.cl" target="_blank" class="social-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="aurora-border-glow"></div>
+    </div>
+
+   <header class="site-header glass-navbar">
+        <div class="container nav-container">
+            
+            <a href="../index.html" class="brand-logo">
+                <img src="../assets/img/logo-mhm-color.png" alt="Alex AI Logo" class="site-logo">
+            </a>
+
+            <nav class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-item active">Inicio</a></li>
+                    
+                    <li class="nav-dropdown-group">
+                        <a href="../productos/index.html" class="nav-item dropdown-btn" style="text-decoration: none; cursor: pointer; display: inline-block;">Productos <i class="fa-solid fa-angle-down arrow-indicator"></i></a>
+                        
+                        <div class="dropdown-glass-panel">
+                            <div class="dropdown-grid">
+                                <a href="../seguros-personales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-user"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros personales</span><span class="dd-desc">Auto, salud, viajes y más.</span></div>
+                                </a>
+                                <a href="../seguros-comerciales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-store"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros comerciales</span><span class="dd-desc">Pymes, construcción, garantías y más.</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#carriers" class="nav-item">Aseguradoras</a></li>
+                    <li><a href="../blog/index.html" class="nav-item">Blog</a></li>
+                    <li><a href="../contacto/index.html" class="nav-item">Contacto</a></li>
+
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                
+
+                <span class="divider-vertical desktop-only"></span>
+
+                <a href="../cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
+                    <span>Cotizar seguro</span>
+                    <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
+                </a>
+                
+                <button class="mobile-toggle-btn mobile-only" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu-premium" id="mobileMenu">
+            <div class="menu-aurora-bg"></div>
+            
+            <div class="menu-inner-container">
+                
+                <div class="menu-internal-header">
+                    <img src="../assets/img/Logo-alexai-main.png" alt="Logo" style="height: 30px;">
+                    <button class="menu-close-btn" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <a href="../cotizacion/cotizacion.html" class="menu-widget-card highlight-card">
+                    <div class="widget-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="widget-info">
+                        <span class="widget-title">Cotizar seguro</span>
+                        <span class="widget-desc">Revisa los precios en menos de 90 segundos</span>
+                    </div>
+                    <div class="widget-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <div class="menu-grid-row">
+                    <a href="../embajadores/documentos.html" class="menu-square-card">
+                        <i class="fa-solid fa-users-viewfinder" style="color: #7C3AED;"></i>
+                        <span>Seguros personales</span>
+                    </a>
+                    <a href="../alex-sign/index.html" class="menu-square-card">
+                        <i class="fa-solid fa-file-signature" style="color: #2563EB;"></i>
+                        <span>Seguros comerciales</span>
+                    </a>
+                </div>
+
+                <div class="menu-section-title">Seguros disponibles</div>
+                <div class="menu-links-group">
+                    <a href="../seguro-complementario-salud/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-house"></i> Seguro complementario de salud
+                    </a>
+                    <a href="../seguro-pymes/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-key"></i> Seguro Pymes
+                    </a>
+                    <a href="../index.html#carriers" class="menu-link-item">
+                        <i class="fa-solid fa-shield-halved"></i>Asistencia de viajes
+                    </a>
+                </div>
+
+                <div class="menu-footer">
+                    <a href="../contacto/index.html" class="menu-footer-link">Contact Support</a>
+                    <div class="menu-socials">
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&amp;locale=es_LA" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    
+
+
+    
+    <nav class="quote-nav">
+        <a href="cotizacion-joven-4.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Producto</span></a>
+        <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
+    </nav>
+
+    <div class="text-center">
+        <div class="header-status-light">
+            <span class="pulse-blue"></span> <strong class="text-gradient-corp" style="background: linear-gradient(135deg, #3B82F6, #796bfc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cotización en Tiempo Real</strong> 
+        </div>
+    </div>
+
+    <div class="page-wrapper">
+        <div class="wizard-container">
+            <div class="wizard-top">
+                <div class="wizard-title"><i class="fa-regular fa-hand-spock"></i>Para Empezar</div>
+                <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 80%;"></div></div>
+            <div class="header-split"></div>
+            <header class="brand-page-header">
+                <div class="title-group">
+                    <h1 class="text-gradient-corp">Resumen de Cotización Salud Joven</h1>
+                    <div class="aurora-line"></div> 
+                </div>
+                <p>Revisa cuidadosamente los datos antes de proceder al pago.</p>
+            </header>
+        </div>
+            
+            <style>
+                .form-grid {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    gap: 20px;
+                }
+                
+                @media (max-width: 600px) {
+                    .form-grid {
+                        grid-template-columns: 1fr;
+                    }
+                }
+            </style>
+
+            <div class="specs-layout-grid">
+<div class="main-spec-col anim-entry delay-1">
+                    <div class="premium-white-card" style="padding: 40px; border-radius: 20px; box-shadow: 0 10px 25px -5px rgba(0,0,0,0.05); background: #ffffff;">
+                        <div style="text-align: center; margin-bottom: 30px;">
+                            <h2 style="color: #796bfc; margin-bottom: 10px; font-size: 2rem;">Resumen de Selección</h2>
+                            <p style="color: #64748B; font-size: 1.05rem;">Revisa que todos los datos sean correctos antes de confirmar tu solicitud.</p>
+                        </div>
+
+                        <!-- Sección: Comprador y Titular -->
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 30px;">
+                            <!-- Datos del Comprador -->
+                            <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px;">
+                                <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: #1E293B; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">Datos del Comprador</h3>
+                                <div style="display: grid; gap: 10px; color: #1E293B; font-size: 0.95rem;">
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">RUT:</div><span id="s-comp-rut">-</span></div>
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">Nombre completo:</div><span id="s-comp-full">-</span></div>
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">Email:</div><span id="s-comp-email">-</span></div>
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">Teléfono:</div><span id="s-comp-telefono">-</span></div>
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">Dirección:</div><span id="s-comp-dir">Pezoa Veliz 9247, Santiago</span></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Datos del Titular -->
+                            <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px;">
+                                <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: #1E293B; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">Datos del Titular</h3>
+                                <div style="display: grid; gap: 10px; color: #1E293B; font-size: 0.95rem;">
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">RUT:</div><span id="s-tit-rut">-</span></div>
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">Nombre completo:</div><span id="s-tit-full">-</span></div>
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">Email:</div><span id="s-tit-email">-</span></div>
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">Teléfono:</div><span id="s-tit-telefono">-</span></div>
+                                    <div><div style="font-size: 0.8rem; color: #94A3B8;">Dirección:</div><span id="s-tit-dir">Pezoa Veliz 9247, Santiago</span></div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sección: Producto -->
+                        <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px; margin-bottom: 30px;">
+                            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: #1E293B; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">Datos del Producto</h3>
+                            <div style="display: flex; justify-content: space-between; align-items: flex-start; color: #475569; font-size: 0.95rem;">
+                                <div>
+                                    <div style="font-size: 0.8rem; color: #94A3B8;">Producto:</div>
+                                    <div style="color: #796bfc; font-weight: 600; font-size: 1.1rem;" id="s-producto-nombre">-</div>
+                                    <div style="margin-top: 15px; font-size: 0.8rem; color: #94A3B8;">Total a pagar:</div>
+                                    <div style="color: #10B981; font-weight: 700; font-size: 1.3rem;" id="s-producto-total">$0</div>
+                                    <div style="font-size: 0.8rem; color: #94A3B8;">Mensual</div>
+                                </div>
+                                <div>
+                                    <div style="font-size: 0.8rem; color: #94A3B8;">Precio del producto:</div>
+                                    <div style="font-weight: 600; color: #1E293B;" id="s-producto-precio">$0</div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Sección: Prestaciones -->
+                        <div style="margin-bottom: 30px;">
+                            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: #1E293B; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">Prestaciones</h3>
+                            
+                            <div style="display: flex; justify-content: space-between; padding: 0 15px 10px 15px; font-size: 0.85rem; font-weight: 600; color: #1E293B;">
+                                <span>Prestación</span>
+                                <span>Límite</span>
+                            </div>
+                            
+                            <div id="prestaciones-list" style="border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden;">
+                                <!-- Llenado por JS -->
+                            </div>
+                        </div>
+
+                        <!-- Sección: Beneficiarios -->
+                        <div id="resumen-beneficiarios-section" style="margin-bottom: 30px;">
+                            <h3 style="margin: 0 0 15px 0; font-size: 1.1rem; color: #1E293B; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">Beneficiarios</h3>
+                            <div style="border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden;">
+                                <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
+                                    <thead>
+                                        <tr style="background: #F8FAFC; border-bottom: 1px solid #E2E8F0;">
+                                            <th style="padding: 15px; font-weight: 600; color: #475569;">RUT</th>
+                                            <th style="padding: 15px; font-weight: 600; color: #475569;">Nombre Completo</th>
+                                            <th style="padding: 15px; font-weight: 600; color: #475569;">Parentesco</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="s-ben-list">
+                                        <!-- JS -->
+                                    </tbody>
+                                </table>
+                                <div id="s-ben-empty" style="display: none; text-align: center; color: #94A3B8; padding: 20px;">
+                                    No se agregaron beneficiarios.
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- T&C -->
+                        <div style="border: 1px solid #E2E8F0; border-radius: 8px; padding: 20px; text-align: center; margin-bottom: 20px;">
+                            <label style="cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; font-size: 0.95rem; color: #475569;">
+                                <input type="checkbox" id="accept-tc" onchange="validateFinalize()" style="width: 18px; height: 18px; accent-color: #796bfc;">
+                                <span>Acepto los <a href="#" style="color: #796bfc; text-decoration: underline;">términos y condiciones</a></span>
+                            </label>
+                        </div>
+
+                        <!-- Alerta -->
+                        <div style="background: #ECFDF5; border: 1px solid #10B981; border-left: 4px solid #10B981; border-radius: 8px; padding: 20px; display: flex; gap: 15px; margin-bottom: 30px;">
+                            <i class="fa-solid fa-circle-info" style="color: #10B981; font-size: 1.2rem; margin-top: 2px;"></i>
+                            <div>
+                                <h4 style="margin: 0 0 5px 0; color: #065F46; font-size: 1rem;">Revisa tus datos</h4>
+                                <p style="margin: 0; color: #047857; font-size: 0.9rem; line-height: 1.5;">Por favor, revisa cuidadosamente toda la información antes de confirmar tu compra. Al hacer clic en "Finalizar", aceptas los términos y condiciones del producto contratado.</p>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción -->
+                        <div style="display: flex; justify-content: center; gap: 20px;">
+                            <button onclick="window.location.href='cotizacion-salud-5.html'" style="padding: 12px 40px; font-size: 1rem; font-weight: 600; border: 1px solid #796bfc; background: white; color: #796bfc; border-radius: 8px; cursor: pointer; transition: 0.3s;" onmouseover="this.style.background='#EEF2FF'" onmouseout="this.style.background='white'">
+                                Anterior
+                            </button>
+                            <button id="btn-finalizar" onclick="confirmQuote()" style="padding: 12px 40px; font-size: 1rem; font-weight: 600; opacity: 0.5; pointer-events: none; border-radius: 8px; background: #C4D69B; border: none; color: white; cursor: pointer; transition: 0.3s;" onmouseover="this.style.background='#A3CC39'" onmouseout="this.style.background='#C4D69B'">
+                                Finalizar
+                            </button>
+                        </div>
+                    </div>
+                </div>
+<aside class="config-sidebar anim-entry delay-2">
+                    <div class="organic-panel" style="position: sticky; top: 100px;">
+                        
+                        <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
+                            Ruta de Contratación
+                        </div>
+                        <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
+                            <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
+                            <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Datos del Contratante</li>
+                            <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Titular</li>
+                            <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Producto</li>
+                            <li class="active"><span class="pulse-dot"></span> Pago Seguro</li>
+                        </ul>
+
+                        <div id="resumen-title-header" class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
+                            Resumen de Selección
+                        </div>
+                        
+                        <div id="cart-summary-step2">
+                            <div class="summary-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                                <div>
+                                    <h4 style="margin: 0; color: #1E293B; font-weight: 700; font-size: 0.95rem;">Salud Joven</h4>
+                                    <p style="margin: 0; color: #64748B; font-size: 0.85rem;">Cobertura completa</p>
+                                </div>
+                                <div style="text-align: right;">
+                                    <div style="color: #3B82F6; font-weight: 800; font-size: 1.1rem;">$3.890</div>
+                                    <div style="color: #94A3B8; font-size: 0.75rem;">/ mes</div>
+                                </div>
+                            </div>
+                            
+                            <button onclick="openCoverageModal('joven')" class="btn-primary-shimmer" style="width: 100%; padding: 10px; font-size: 0.9rem; background: transparent; border: 1px solid #3B82F6; color: #3B82F6; margin-top: 10px;">
+                                <i class="fa-solid fa-list-check"></i> Ver Coberturas
+                            </button>
+                        </div>
+
+                        <div id="generic-protection-box" style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
+                            <i class="fa-solid fa-shield-heart" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
+                            <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
+                            <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a pocos pasos de asegurar tu salud.</p>
+                        </div>
+                    </div>
+                </aside></div> <!-- End specs-layout-grid -->
+        </div> <!-- End container -->
+    </main> <!-- End quote-main-content -->
+    
+<footer class="footer-aurora">
+        <div class="footer-light-mesh"></div>
+
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corradora Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">
+                        Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades que mejorarán tu vida de forma accesible, dinámica y eficiente.
+                    </p>
+                    <div class="footer-social-mini">
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Productos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../cotizacion/cotizacion-1.html">Seguros de auto</a></li>
+                        <li><a href="../seguro-complementario-salud/index.html">Seguro complementario de salud</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguros Pymes</a></li>
+                        <li><a href="../seguros-personales/index.html">Productos personales <span class="badge-new">New</span></a></li>
+                        <li><a href="../seguros-comerciales/index.html">Productos comerciales <span class="badge-new">New</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Compañía</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/mhmseguros.cl" target="_blank">Sobre nosotros</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contacto/index.html">Contactar con soporte</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Contacto y Acceso</h4>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa-solid fa-phone"></i> 
+                            <a href="tel:+56961446652">+56 9 6144 6652</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <a href="mailto:info@mhmseguros.cl">info@mhmseguros.cl</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="footer-app-buttons">
+                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="store-text">
+                                    <span>Download on the</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="store-text">
+                                    <span>Get it on</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 MHM Corredores de Seguros. Todos los derechos reservados.
+                </div>
+                <div class="legal-links">
+                    <a href="../politica-privacidad/index.html">Política de Privacidad</a>
+                    <span class="divider">|</span>
+                    <a href="../terminos-condiciones/index.html">Términos de Servicio</a>
+                </div>
+            </div>
+            <div class="aurora-bottom-line"></div>
+        </div>
+    </footer>
+
+
+    <div id="floating-menu-container">
+        <div class="nav-command-center" id="megaMenu">
+            <div class="cmd-header">
+                <span>Navegación rápida</span>
+                <span class="cmd-badge">MENÚ</span>
+            </div>
+            <div class="cmd-grid">
+                <a href="../funnel-auto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
+                    <span>Seguro de Auto</span>
+                </a>
+                <a href="../seguro-complementario-salud/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                    <span>Seguro complementario de salud</span>
+                </a>
+                <a href="../seguro-pymes/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
+                    <span>Seguro Pymes</span>
+                </a>
+                <a href="../productos/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <span>Más productos</span>
+                </a>
+                <a href="../blog/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <span>Blog</span>
+                </a>
+                <a href="../contacto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
+                    <span>Contactar Soporte</span>
+                </a>
+            </div>
+            <div class="cmd-footer">
+                <a href="../index.html">Volver to Home <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
+            <i class="fa-regular fa-compass"></i>
+        </button>
+    </div>
+
+    <div id="floating-chat-container">
+        <div class="alex-chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="agent-info">
+                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
+                    <div class="agent-text">
+                        <span class="name">Asistente MHM</span>
+                        <span class="status">Tiempo de respuesta: Inmediato</span>
+                    </div>
+                </div>
+                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-timestamp">Hoy, 17:00</div>
+                
+                <div class="msg-row bot">
+                    <div class="msg-bubble">
+                        ¡Hola! Veo que estás cotizando. ¿Tienes alguna pregunta sobre el <strong>Deducible</strong> o las coberturas? 🚗
+                    </div>
+                </div>
+                
+                <div class="chat-suggestions">
+                    <button>Explicar Deducibles</button>
+                    <button>Hablar con Ejecutivo</button>
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" placeholder="Escribe tu pregunta..." class="chat-input">
+                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span class="online-badge"></span>
+        </button>
+    </div>
+
+    <script src="../js/script.js?v=1781129809"></script>
+    <script src="../js/script-quote.js?v=1781129809"></script>
+
+
+<!-- Beneficiary Modal HTML -->
+                        <div id="beneficiaryModal" class="modal-backdrop-aurora" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(8px); z-index: 9999999; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease;">
+                            <div style="background: #ffffff; width: 90%; max-width: 550px; border-radius: 20px; overflow: hidden; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.25); transform: translateY(20px); transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);" id="benModalContent">
+                                <div style="background: linear-gradient(135deg, #796bfc 0%, #5b4de3 100%); padding: 25px 30px; display: flex; justify-content: space-between; align-items: center; position: relative; overflow: hidden;">
+                                    <div style="position: absolute; top: -20px; right: -20px; width: 100px; height: 100px; background: rgba(255,255,255,0.1); border-radius: 50%;"></div>
+                                    <h3 style="margin: 0; font-size: 1.4rem; color: #ffffff; font-weight: 600; display: flex; align-items: center; gap: 10px; position: relative; z-index: 1;">
+                                        <i class="fa-solid fa-user-plus"></i> Agregar Beneficiario
+                                    </h3>
+                                    <button type="button" onclick="closeBeneficiaryModal()" style="background: rgba(255,255,255,0.2); border: none; width: 36px; height: 36px; border-radius: 50%; color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: background 0.3s; position: relative; z-index: 1;" onmouseover="this.style.background='rgba(255,255,255,0.3)'" onmouseout="this.style.background='rgba(255,255,255,0.2)'">
+                                        <i class="fa-solid fa-xmark"></i>
+                                    </button>
+                                </div>
+                                
+                                <div style="padding: 30px;">
+                                    <p style="color: #64748B; font-size: 0.95rem; margin-bottom: 25px; line-height: 1.5;">Ingrese los datos de la persona que será designada como beneficiario de esta póliza.</p>
+                                    
+                                    <form id="beneficiaryForm" onsubmit="event.preventDefault(); saveBeneficiary();">
+                                        
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                            <div class="input-group">
+                                                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #1E293B; margin-bottom: 8px;">RUT <span style="color:#ef4444">*</span></label>
+                                                <input type="text" id="benRut" placeholder="12.345.678-9" onkeyup="validateBenForm()" style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #E2E8F0; background: #F8FAFC; font-size: 1rem; color: #1E293B; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#796bfc'; this.style.background='#fff'" onblur="this.style.borderColor='#E2E8F0'; this.style.background='#F8FAFC'">
+                                            </div>
+                                            
+                                            <div class="input-group" style="position: relative;">
+                                                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #1E293B; margin-bottom: 8px;">Fecha de Nacimiento <span style="color:#ef4444">*</span></label>
+                                                <input type="text" id="benDob" placeholder="DD/MM/YYYY" maxlength="10" oninput="formatDate(this); validateBenForm()" style="width: 100%; padding: 14px 16px; padding-right: 40px; border-radius: 12px; border: 1.5px solid #E2E8F0; background: #F8FAFC; font-size: 1rem; color: #1E293B; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#796bfc'; this.style.background='#fff'" onblur="this.style.borderColor='#E2E8F0'; this.style.background='#F8FAFC'">
+                                                <i class="fa-regular fa-calendar" style="position: absolute; right: 16px; top: 41px; color: #94A3B8; pointer-events: none;"></i>
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="margin-bottom: 20px;">
+                                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #1E293B; margin-bottom: 8px;">Nombres <span style="color:#ef4444">*</span></label>
+                                            <input type="text" id="benNombre" placeholder="Ingrese los nombres" onkeyup="validateBenForm()" style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #E2E8F0; background: #F8FAFC; font-size: 1rem; color: #1E293B; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#796bfc'; this.style.background='#fff'" onblur="this.style.borderColor='#E2E8F0'; this.style.background='#F8FAFC'">
+                                        </div>
+                                        
+                                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 20px;">
+                                            <div class="input-group">
+                                                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #1E293B; margin-bottom: 8px;">Apellido Paterno <span style="color:#ef4444">*</span></label>
+                                                <input type="text" id="benPaterno" placeholder="Apellido paterno" onkeyup="validateBenForm()" style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #E2E8F0; background: #F8FAFC; font-size: 1rem; color: #1E293B; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#796bfc'; this.style.background='#fff'" onblur="this.style.borderColor='#E2E8F0'; this.style.background='#F8FAFC'">
+                                            </div>
+                                            
+                                            <div class="input-group">
+                                                <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #1E293B; margin-bottom: 8px;">Apellido Materno <span style="color:#ef4444">*</span></label>
+                                                <input type="text" id="benMaterno" placeholder="Apellido materno" onkeyup="validateBenForm()" style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #E2E8F0; background: #F8FAFC; font-size: 1rem; color: #1E293B; outline: none; transition: all 0.3s;" onfocus="this.style.borderColor='#796bfc'; this.style.background='#fff'" onblur="this.style.borderColor='#E2E8F0'; this.style.background='#F8FAFC'">
+                                            </div>
+                                        </div>
+                                        
+                                        <div style="margin-bottom: 30px; position: relative;">
+                                            <label style="display: block; font-size: 0.85rem; font-weight: 600; color: #1E293B; margin-bottom: 8px;">Parentesco <span style="color:#ef4444">*</span></label>
+                                            <select id="benParentesco" onchange="validateBenForm()" style="width: 100%; padding: 14px 16px; border-radius: 12px; border: 1.5px solid #E2E8F0; background: #F8FAFC; font-size: 1rem; color: #1E293B; outline: none; transition: all 0.3s; appearance: none; cursor: pointer;" onfocus="this.style.borderColor='#796bfc'; this.style.background='#fff'" onblur="this.style.borderColor='#E2E8F0'; this.style.background='#F8FAFC'">
+                                                <option value="" disabled selected>Seleccione el parentesco</option>
+                                                <option value="Conyuge">Cónyuge / Pareja</option>
+                                                <option value="Hijo">Hijo(a)</option>
+                                                <option value="PadreMadre">Padre / Madre</option>
+                                                <option value="Otro">Otro</option>
+                                            </select>
+                                            <i class="fa-solid fa-chevron-down" style="position: absolute; right: 16px; top: 41px; color: #94A3B8; pointer-events: none;"></i>
+                                        </div>
+                                        
+                                        <div style="display: flex; justify-content: flex-end; gap: 15px; border-top: 1px solid #F1F5F9; padding-top: 25px;">
+                                            <button type="button" onclick="closeBeneficiaryModal()" style="background: transparent; border: 1px solid #CBD5E1; color: #64748B; padding: 12px 25px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; transition: all 0.3s;" onmouseover="this.style.background='#F1F5F9'" onmouseout="this.style.background='transparent'">Cancelar</button>
+                                            <button type="submit" id="btn-save-ben" style="background: linear-gradient(135deg, #A3CC39 0%, #8db32b 100%); border: none; color: white; padding: 12px 35px; border-radius: 10px; font-weight: 600; font-size: 0.95rem; cursor: pointer; opacity: 0.5; pointer-events: none; transition: all 0.3s; box-shadow: 0 4px 10px rgba(163, 204, 57, 0.3);">Guardar Beneficiario</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>            </div>
+
+<script>
+        const prestacionesIntegral = [
+            { title: "Consulta Médica General", limit: "100%", desc: "En caso de que el beneficiario requiera de atención médica ambulatoria en las especialidades: General, Pediátrica o Geriátrica; podrá solicitar la coordinación de una hora médica en cualquier centro salud en convenio con su plan de salud. El beneficio consta de un descuento automático al momento del pago a través de la modalidad i-med." },
+            { title: "Telemedicina", limit: "100%", desc: "El beneficiario podrá solicitar la coordinación de una hora de Telemedicina con un médico certificado y habilitado por Serviclick, en el área de Medicina General para consultas de cualquier patología médica. El médico orientará en tratamientos, realizará lectura e interpretación de exámenes, recetará medicamentos si así lo amerita y podrá emitir órdenes médicas para exámenes." },
+            { title: "Urgencia Dental", limit: "60% hasta UF 5", desc: "La Asistencia de atención de urgencias dentales cubrirá las afecciones que no ponen en riesgo la vida del paciente, pero que requieren de tratamiento inmediato. Estas incluyen síntomas como sangrado de tejidos de la boca o hemorragias, dolor, inflamación de los tejidos, diversos de infecciones." },
+            { title: "Orientación Médica Telefónica", limit: "100%", desc: "Este servicio pone a disposición del beneficiario, -de manera telefónica- personal sanitario que permita aclarar y/o asesorar cualquier duda respecto a cuadros clínicos, tratamientos y patologías. Este servicio está disponible a cualquier hora del día." },
+            { title: "Parto Cesárea", limit: "40% hasta UF 5", desc: "El beneficiario podrá acceder a la cobertura de parto Cesárea siempre y cuando el Asegurado titular, cónyuge, conviviente civil o pareja asegurada cuente con la fecha probable de inicio del embarazo posterior a la fecha de inicio de la vigencia de esta cobertura." },
+            { title: "Radiografía Panorámica", limit: "100% hasta UF 2", desc: "El asegurado podrá acceder a realizarse una radiografía dental de tipo Panorámica bajo solicitud de una orden médica. El servicio debe ser solicitado previamente a la central de asistencia Serviclick." },
+            { title: "Consulta Médica Especialista", limit: "100%", desc: "En caso de que el beneficiario requiera de atención médica ambulatoria en las especialidades: Fonoaudiología, Oncólogo, Kinesiólogo, Ginecólogo, Urología, Nutricionista, Oftalmología, podrá solicitar la activación para asistir a una hora médica en cualquier centro de salud en convenio." },
+            { title: "Descuento en farmacias", limit: "50% hasta $10,000", desc: "Esta asistencia está desarrollada para que sea utilizada por todos los afiliados vigentes al momento de la compra y en todas las farmacias de Chile ya sea tradicionales o alternativas. Consiste en la devolución por parte de Serviclick de los gastos realizados." },
+            { title: "Urgencia Médica por enfermedad", limit: "100% hasta UF 9", desc: "Este servicio corresponde a la atención médica inicial en una sala de urgencia, ocurrida a causa de una enfermedad. El cliente beneficiario debe contar con sistema de salud previsional FONASA o ISAPRE, a excepción de FONASA tipo A." },
+            { title: "Limpieza Dental", limit: "100% hasta UF 2", desc: "Esta asistencia está desarrollada para que sea utilizada por todos los afiliados vigentes al momento de la compra y en todas las farmacias de Chile ya sea tradicionales o alternativas." },
+            { title: "Exodoncia Simple", limit: "60% hasta UF 2", desc: "En caso el beneficiario requiera la atención dental para realizar una exodoncia simple solicitado por un médico bajo orden medica podrá solicitar la Activación para asistir a una hora médica en cualquier centro salud en convenio." },
+            { title: "Urgencia Médica por accidente", limit: "100% hasta UF 9", desc: "Este servicio corresponde a la atención médica inicial en una sala de urgencia, ocurrida a causa de un accidente. El cliente beneficiario debe contar con sistema de salud previsional FONASA o ISAPRE." },
+            { title: "Consulta Médica Psicológica", limit: "100%", desc: "En caso de que el beneficiario requiera de atención presencial en las especialidades: Psicología, podrá solicitar la Activación para asistir a una hora médica en cualquier centro salud en convenio." },
+            { title: "Orientación Maternal Telefónica", limit: "100%", desc: "Este servicio pone a disposición del beneficiario, -de manera telefónica- personal Calificado que permita aclarar y/o asesorar cualquier duda respecto a síntomas o problemas Maternales." },
+            { title: "Examen Preventivo Oncológico", limit: "100% hasta UF 2", desc: "Cuando por motivo de una solicitud por parte de un profesional de la salud para realizar todos o algunos de los Exámenes que contemplan Antígeno prostático específico (APE), perfil bioquímico, perfil lipídico, creatinina en sangre..." },
+            { title: "Parto Normal", limit: "40% hasta UF 8", desc: "El beneficiario podrá acceder a la cobertura de parto Normal siempre y cuando el Asegurado titular, cónyuge, conviviente civil o pareja asegurada cuente con la fecha probable de inicio del embarazo posterior a la fecha." },
+            { title: "Examen Médico", limit: "100% hasta UF 2", desc: "Cuando por motivo de una solicitud por parte de un profesional de la salud para realizar todos o algunos de los Exámenes que contemplan hemograma, perfil bioquímico, Perfil Lipídico, Creatinina, TSH, Tiro estimulante y Orina Completa." },
+            { title: "Telemedicina Especialista", limit: "100%", desc: "El beneficiario podrá solicitar la coordinación de una hora de Telemedicina con un médico certificado y habilitado por Serviclick, en el área de Nutrición, Psicológica, Infantil, Kinesiología." },
+            { title: "Exodoncia Colgajo", limit: "60% hasta UF 2", desc: "En caso el beneficiario requiera la atención dental para realizar una exodoncia a colgajo solicitado por un médico bajo orden medica podrá solicitar la Activación para asistir a una hora médica." }
+        ];
+
+        const prestacionesJoven = [
+            { title: "Urgencia Médica por accidente", limit: "100% hasta UF 5", desc: "Atención médica inicial en sala de urgencia por accidente." },
+            { title: "Telemedicina", limit: "100%", desc: "Coordinación de hora de Telemedicina en Medicina General." },
+            { title: "Orientación Médica Telefónica", limit: "100%", desc: "Orientación médica disponible 24/7." },
+            { title: "Descuento en farmacias", limit: "Hasta 40%", desc: "Descuento en farmacias adheridas a la red Serviclick a nivel nacional." }
+        ];
+
+        let prestacionesList = prestacionesJoven;
+
+        
+
+        function toggleAccordion(id) {
+            const el = document.getElementById('acc-content-' + id);
+            const icon = document.getElementById('acc-icon-' + id);
+            if(el.style.display === 'none') {
+                el.style.display = 'block';
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                el.style.display = 'none';
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        function renderPrestaciones() {
+            const container = document.getElementById('prestaciones-list');
+            let html = '';
+            prestacionesList.forEach((p, i) => {
+                html += `
+                    <div style="border-bottom: 1px solid #E2E8F0;">
+                        <div onclick="toggleAccordion(${i})" style="display: flex; justify-content: space-between; align-items: center; padding: 15px; cursor: pointer; transition: 0.2s;" onmouseover="this.style.background='#F8FAFC'" onmouseout="this.style.background='transparent'">
+                            <div style="display: flex; align-items: center; gap: 10px; color: #1E293B; font-size: 0.95rem;">
+                                <i id="acc-icon-${i}" class="fa-solid fa-chevron-down" style="color: #64748B; font-size: 0.8rem; transition: transform 0.3s;"></i>
+                                ${p.title}
+                            </div>
+                            <div style="color: #475569; font-size: 0.9rem;">
+                                ${p.limit}
+                            </div>
+                        </div>
+                        <div id="acc-content-${i}" style="display: none; padding: 0 15px 15px 30px; color: #64748B; font-size: 0.85rem; line-height: 1.5;">
+                            ${p.desc}
+                        </div>
+                    </div>
+                `;
+            });
+            container.innerHTML = html;
+        }
+
+        function validateFinalize() {
+            const chk = document.getElementById('accept-tc');
+            const btn = document.getElementById('btn-finalizar');
+            if(chk.checked) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+                btn.style.background = '#A3CC39';
+                btn.classList.add('btn-primary-shimmer'); // Re-enable shimmer
+            } else {
+                btn.style.opacity = '0.5';
+                btn.style.pointerEvents = 'none';
+                btn.style.background = '#C4D69B';
+                btn.classList.remove('btn-primary-shimmer'); // Disable shimmer
+            }
+        }
+
+        function loadSummaryData() {
+            const compRut = sessionStorage.getItem('compradorRut') || '-';
+            const compNombres = sessionStorage.getItem('compradorNombres') || '';
+            const compPaterno = sessionStorage.getItem('compradorPaterno') || '';
+            const compMaterno = sessionStorage.getItem('compradorMaterno') || '';
+            const compTelefono = sessionStorage.getItem('compradorTelefono') || '-';
+            const compEmail = sessionStorage.getItem('compradorEmail') || '-';
+            
+            document.getElementById('s-comp-rut').textContent = compRut;
+            document.getElementById('s-comp-full').textContent = `${compNombres} ${compPaterno} ${compMaterno}`.trim() || '-';
+            document.getElementById('s-comp-telefono').textContent = compTelefono;
+            document.getElementById('s-comp-email').textContent = compEmail;
+
+            const isSame = sessionStorage.getItem('titularMismoComprador') === 'true';
+            if (isSame) {
+                document.getElementById('s-tit-rut').textContent = compRut;
+                document.getElementById('s-tit-full').textContent = `${compNombres} ${compPaterno} ${compMaterno}`.trim() || '-';
+                document.getElementById('s-tit-telefono').textContent = compTelefono;
+                document.getElementById('s-tit-email').textContent = compEmail;
+            } else {
+                const titRut = sessionStorage.getItem('titularRut') || '-';
+                const titNombres = sessionStorage.getItem('titularNombres') || '';
+                const titPaterno = sessionStorage.getItem('titularPaterno') || '';
+                const titMaterno = sessionStorage.getItem('titularMaterno') || '';
+                const titTelefono = sessionStorage.getItem('titularTelefono') || '-';
+                const titEmail = sessionStorage.getItem('titularEmail') || '-';
+                
+                document.getElementById('s-tit-rut').textContent = titRut;
+                document.getElementById('s-tit-full').textContent = `${titNombres} ${titPaterno} ${titMaterno}`.trim() || '-';
+                document.getElementById('s-tit-telefono').textContent = titTelefono;
+                document.getElementById('s-tit-email').textContent = titEmail;
+            }
+
+            document.getElementById('s-producto-nombre').textContent = 'Salud Joven'; document.getElementById('s-producto-precio').textContent = '$3.890'; document.getElementById('s-producto-total').textContent = '$3.890';
+            document.getElementById('s-producto-precio').textContent = precio;
+            document.getElementById('s-producto-total').textContent = precio;
+
+            const benData = sessionStorage.getItem('beneficiariesData');
+            const listEl = document.getElementById('s-ben-list');
+            const emptyEl = document.getElementById('s-ben-empty');
+
+            if (benData) {
+                try {
+                    const beneficiaries = JSON.parse(benData);
+                    if (beneficiaries.length > 0) {
+                        listEl.innerHTML = '';
+                        beneficiaries.forEach((b) => {
+                            const html = `
+                                <tr style="border-bottom: 1px solid #E2E8F0; color: #1E293B;">
+                                    <td style="padding: 15px;">${b.rut}</td>
+                                    <td style="padding: 15px;">${b.nombre} ${b.paterno} ${b.materno}</td>
+                                    <td style="padding: 15px;">${b.parentesco}</td>
+                                </tr>
+                            `;
+                            listEl.innerHTML += html;
+                        });
+                    } else {
+                        emptyEl.style.display = 'block';
+                    }
+                } catch(e) {
+                    emptyEl.style.display = 'block';
+                }
+            } else {
+                emptyEl.style.display = 'block';
+            }
+        }
+
+        function confirmQuote() {
+            window.location.href = 'pago-flow.html';
+        }
+
+function openCoverageModal(planId) {
+            try {
+                let modal = document.getElementById('coverageModalDynamic');
+                if(!modal) {
+                    modal = document.createElement('div');
+                    modal.id = 'coverageModalDynamic';
+                    modal.className = 'modal-backdrop-aurora';
+                    modal.style.cssText = 'display: flex; opacity: 1; visibility: visible; pointer-events: auto; z-index: 99999999;';
+
+                    const contentHTML = `
+                        <div class="modal-content-tech" style="max-width: 800px; padding: 30px; opacity: 1; visibility: visible; transform: none;">
+                            <div class="shimmer-effect"></div>
+                            <div class="modal-header-tech" style="margin-bottom: 20px;">
+                                <div class="header-icon-glass"><i class="fa-solid fa-heart-pulse"></i></div>
+                                <div class="header-text-tech">
+                                    <h3 class="tech-title text-gradient-corp" id="covModalTitleDynamic">Coberturas: Asistencia de Salud</h3>
+                                    <p>Detalle de servicios, protección, límites y eventos máximos al año.</p>
+                                </div>
+                                <button class="btn-close-tech js-close-coverage-modal" onclick="closeCoverageModal()"><i class="fa-solid fa-xmark"></i></button>
+                            </div>
+                            <div class="modal-body-tech" style="overflow-x: auto;" id="covModalBodyDynamic">
+                            </div>
+                        </div>
+                    `;
+                    
+                    modal.innerHTML = contentHTML;
+                    document.body.appendChild(modal);
+                } else {
+                    modal.style.opacity = '1';
+                    modal.style.visibility = 'visible';
+                }
+                
+                let titleText = 'Coberturas';
+                let tableHTML = '';
+
+                const tableStyle = 'width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;';
+                const theadStyle = 'background: #023859; color: white;';
+                const thStyle = 'padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;';
+                const tdStyle = 'padding: 12px; border: 1px solid #E2E8F0; text-align: center;';
+                const tdStyleLimit = 'padding: 12px; border: 1px solid #E2E8F0; text-align: center; color: #4CAF50; font-weight: 600;';
+
+                if (planId === 'integral') {
+                    titleText = 'Coberturas: Asistencia Integral Pro T+2';
+                    tableHTML = `
+                        <table class="table responsive-table" style="${tableStyle}">
+                            <thead>
+                                <tr style="${theadStyle}">
+                                    <th style="${thStyle}">Servicio</th>
+                                    <th style="${thStyle}">Protección</th>
+                                    <th style="${thStyle}">Límite</th>
+                                    <th style="${thStyle}">Max Eventos al Año</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td style="${tdStyle}">Urgencia médica por accidente</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">9 UF</td><td style="${tdStyleLimit}">26</td></tr>
+                                <tr><td style="${tdStyle}">Urgencia médica por enfermedad</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">9 UF</td><td style="${tdStyleLimit}">7</td></tr>
+                                <tr><td style="${tdStyle}">Parto Normal</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">40%</td><td style="${tdStyleLimit}">8 UF</td><td style="${tdStyleLimit}">1</td></tr>
+                                <tr><td style="${tdStyle}">Parto Cesárea</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">40%</td><td style="${tdStyleLimit}">5 UF</td><td style="${tdStyleLimit}">1</td></tr>
+                                <tr><td style="${tdStyle}">Orientación Médica Telefónica</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">Ilimitado</td><td style="${tdStyleLimit}">100</td></tr>
+                                <tr><td style="${tdStyle}">Orientación Maternal Telefónica</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">Ilimitado</td><td style="${tdStyleLimit}">100</td></tr>
+                                <tr><td style="${tdStyle}">Consulta Médica General</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">Ilimitado</td><td style="${tdStyleLimit}">7</td></tr>
+                                <tr><td style="${tdStyle}">Consulta Médica Especialista</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">Ilimitado</td><td style="${tdStyleLimit}">5</td></tr>
+                                <tr><td style="${tdStyle}">Consulta Médica Psicológica</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">Ilimitado</td><td style="${tdStyleLimit}">5</td></tr>
+                                <tr><td style="${tdStyle}">Examen Médico</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">2 UF</td><td style="${tdStyleLimit}">5</td></tr>
+                                <tr><td style="${tdStyle}">Examen Preventivo Oncológico</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">2 UF</td><td style="${tdStyleLimit}">3</td></tr>
+                                <tr><td style="${tdStyle}">Telemedicina</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">Ilimitado</td><td style="${tdStyleLimit}">7</td></tr>
+                                <tr><td style="${tdStyle}">Telemedicina Especialista</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">Ilimitado</td><td style="${tdStyleLimit}">7</td></tr>
+                                <tr><td style="${tdStyle}">Descuento en Farmacias</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">50%</td><td style="${tdStyleLimit}">$10.000</td><td style="${tdStyleLimit}">14</td></tr>
+                                <tr><td style="${tdStyle}">Urgencia Dental</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">60%</td><td style="${tdStyleLimit}">5 UF</td><td style="${tdStyleLimit}">5</td></tr>
+                                <tr><td style="${tdStyle}">Exodoncia Simple</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">60%</td><td style="${tdStyleLimit}">2 UF</td><td style="${tdStyleLimit}">5</td></tr>
+                                <tr><td style="${tdStyle}">Exodoncia Colgajo</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">60%</td><td style="${tdStyleLimit}">2 UF</td><td style="${tdStyleLimit}">4</td></tr>
+                                <tr><td style="${tdStyle}">Radiografía Panorámica</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">2 UF</td><td style="${tdStyleLimit}">4</td></tr>
+                                <tr><td style="${tdStyle}">Limpieza Dental</td><td style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td style="${tdStyleLimit}">2 UF</td><td style="${tdStyleLimit}">4</td></tr>
+                            </tbody>
+                        </table>
+                    `;
+                } else if (planId === 'joven') {
+                    titleText = 'Coberturas: Salud Joven';
+                    tableHTML = `
+                        <table class="table responsive-table" style="${tableStyle}">
+                            <thead>
+                                <tr style="${theadStyle}">
+                                    <th style="${thStyle}">Servicio</th>
+                                    <th style="${thStyle}">Protección</th>
+                                    <th style="${thStyle}">Límite</th>
+                                    <th style="${thStyle}">Max Eventos al Año</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="${tdStyle}">Urgencia médica por accidente</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <span style="color: #E11D48;">50%</span> FONASA A</td>
+                                    <td style="${tdStyleLimit}">$270.000</td>
+                                    <td style="${tdStyleLimit}">3</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Descuento en farmacias</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">50%</span> DE LA BOLETA</td>
+                                    <td style="${tdStyleLimit}">$15.000</td>
+                                    <td style="${tdStyleLimit}">12</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Telemedicina</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">2 UF</td>
+                                    <td style="${tdStyleLimit}">3</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Orientación médica telefónica</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">2 UF</td>
+                                    <td style="${tdStyleLimit}">12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                } else if (planId === 'universal') {
+                    titleText = 'Coberturas: Salud Universal';
+                    tableHTML = `
+                        <table class="table responsive-table" style="${tableStyle}">
+                            <thead>
+                                <tr style="${theadStyle}">
+                                    <th style="${thStyle}">Servicio</th>
+                                    <th style="${thStyle}">Protección</th>
+                                    <th style="${thStyle}">Límite</th>
+                                    <th style="${thStyle}">Max Eventos al Año</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="${tdStyle}">Urgencia médica por accidente</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <br><span style="color: #E11D48;">50%</span> FONASA A</td>
+                                    <td style="${tdStyleLimit}">$315.000</td>
+                                    <td style="${tdStyleLimit}">12</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Urgencia médica por enfermedad</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <br><span style="color: #E11D48;">50%</span> FONASA A</td>
+                                    <td style="${tdStyleLimit}">$315.000</td>
+                                    <td style="${tdStyleLimit}">3</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Consulta médica general</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">2 UF</td>
+                                    <td style="${tdStyleLimit}">5</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Descuento en farmacias</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">50%</span> DE LA BOLETA</td>
+                                    <td style="${tdStyleLimit}">$15.000</td>
+                                    <td style="${tdStyleLimit}">12</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Telemedicina</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">2 UF</td>
+                                    <td style="${tdStyleLimit}">3</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Orientación médica telefónica</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">2 UF</td>
+                                    <td style="${tdStyleLimit}">12</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                } else if (planId === 'universalpro') {
+                    titleText = 'Coberturas: Universal Pro';
+                    tableHTML = `
+                        <table class="table responsive-table" style="${tableStyle}">
+                            <thead>
+                                <tr style="${theadStyle}">
+                                    <th style="${thStyle}">Servicio</th>
+                                    <th style="${thStyle}">Protección</th>
+                                    <th style="${thStyle}">Límite</th>
+                                    <th style="${thStyle}">Max Eventos al Año</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td style="${tdStyle}">Urgencia médica por accidente</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <br><span style="color: #E11D48;">50%</span> FONASA A</td>
+                                    <td style="${tdStyleLimit}">$630.000</td>
+                                    <td style="${tdStyleLimit}">12</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Urgencia médica por enfermedad</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <br><span style="color: #E11D48;">50%</span> FONASA A</td>
+                                    <td style="${tdStyleLimit}">$630.000</td>
+                                    <td style="${tdStyleLimit}">3</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Consulta médica general</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">2 UF</td>
+                                    <td style="${tdStyleLimit}">5</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Descuento en farmacias</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">50%</span> DE LA BOLETA</td>
+                                    <td style="${tdStyleLimit}">$25.000</td>
+                                    <td style="${tdStyleLimit}">12</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Telemedicina</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">2 UF</td>
+                                    <td style="${tdStyleLimit}">3</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Orientación médica telefónica</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">2 UF</td>
+                                    <td style="${tdStyleLimit}">12</td>
+                                </tr>
+                                <tr>
+                                    <td style="${tdStyle}">Médico a domicilio</td>
+                                    <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
+                                    <td style="${tdStyleLimit}">$60.000</td>
+                                    <td style="${tdStyleLimit}">3</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    `;
+                }
+
+                document.getElementById('covModalTitleDynamic').innerText = titleText;
+                document.getElementById('covModalBodyDynamic').innerHTML = tableHTML;
+
+            } catch(e) {
+                console.error("Error abriendo modal:", e);
+            }
+        }
+
+        function closeCoverageModal() {
+            const modal = document.getElementById('coverageModalDynamic');
+            if(modal) {
+                modal.style.opacity = '0';
+                modal.style.visibility = 'hidden';
+            }
+
+    </script>
+</body>
+</html>

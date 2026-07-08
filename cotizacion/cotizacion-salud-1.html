@@ -64,7 +64,41 @@
         .vt-info h4 { margin: 0; color: #0F172A; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
         
         .badge-recomendado {
-            font-size: 0.7rem; background: linear-gradient(135deg, #EEF2FF, #E0E7FF); color: #4F46E5; padding: 6px 12px; border-radius: 30px; font-weight: 700; border: 1px solid rgba(79, 70, 229, 0.1); display: inline-block; box-shadow: 0 2px 10px rgba(79, 70, 229, 0.1);
+            font-size: 0.65rem; 
+            line-height: 1;
+            background: linear-gradient(135deg, #796bfc, #4F46E5); 
+            color: #ffffff; 
+            padding: 6px 12px; 
+            border-radius: 30px; 
+            font-weight: 800; 
+            display: inline-flex; 
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .badge-recomendado i {
+            color: #FFD700 !important;
+            margin-right: 6px !important;
+            font-size: 0.8rem;
+        }
+        .badge-recomendado::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg);
+            animation: badgeShine 3s infinite;
+        }
+        @keyframes badgeShine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
         }
 
         .pet-feature-list {
@@ -169,7 +203,98 @@
         }
     </style>
 
+
+    <style>
+        .salud-layout-container {
+            margin-left: 15%; margin-right: 15%; padding: 0; max-width: none !important;
+        }
+        @media (max-width: 1200px) {
+            .salud-layout-container {
+                margin-left: 5%; margin-right: 5%;
+            }
+        }
+        @media (max-width: 768px) {
+            .salud-layout-container {
+                margin-left: 16px; margin-right: 16px;
+            }
+            .veh-type-card {
+                padding: 20px !important;
+            }
+            .veh-type-grid {
+                gap: 16px !important;
+            }
+            .split-btn-container {
+                gap: 8px !important;
+            }
+            .split-btn {
+                font-size: 0.85rem !important;
+                padding: 8px 4px !important;
+            }
+            .vt-info h4 {
+                font-size: 1.3rem !important;
+            }
+            .plan-price {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        /* Modal Table Responsive */
+        .responsive-table {
+            width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;
+        }
+        .responsive-table thead tr {
+            background: #023859; color: white;
+        }
+        .responsive-table th {
+            padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;
+        }
+        .responsive-table td {
+            padding: 12px; border: 1px solid #E2E8F0; text-align: center;
+        }
+        .responsive-table td:nth-child(3),
+        .responsive-table td:nth-child(4) {
+            color: #4CAF50; font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .responsive-table thead {
+                display: none;
+            }
+            .responsive-table tr {
+                display: block;
+                margin-bottom: 1rem;
+                border: 1px solid #E2E8F0;
+                border-radius: 8px;
+                background: #fff;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            }
+            .responsive-table td {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                text-align: right !important;
+                border: none;
+                border-bottom: 1px solid #E2E8F0;
+                padding: 12px 16px;
+            }
+            .responsive-table td:last-child {
+                border-bottom: none;
+            }
+            .responsive-table td::before {
+                content: attr(data-label);
+                font-weight: 700;
+                color: #64748B;
+                text-transform: uppercase;
+                font-size: 0.75rem;
+                margin-right: 15px;
+                text-align: left;
+                flex-shrink: 0;
+                max-width: 50%;
+            }
+        }
+    </style>
 </head>
+
 <body class="bg-body">
 
     <div id="toast-container"></div>
@@ -351,7 +476,7 @@
             </header>
         </div>
 
-        <div class="specs-layout-grid" style="max-width: none; margin-left: 15%; margin-right: 15%; padding: 0;">
+        <div class="specs-layout-grid salud-layout-container">
             
             <div class="main-spec-col" >
                 <div class="premium-white-card" id="quoteFormStep1">
@@ -407,7 +532,41 @@
         .vt-info h4 { margin: 0; color: #0F172A; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
         
         .badge-recomendado {
-            font-size: 0.7rem; background: linear-gradient(135deg, #EEF2FF, #E0E7FF); color: #4F46E5; padding: 6px 12px; border-radius: 30px; font-weight: 700; border: 1px solid rgba(79, 70, 229, 0.1); display: inline-block; box-shadow: 0 2px 10px rgba(79, 70, 229, 0.1);
+            font-size: 0.65rem; 
+            line-height: 1;
+            background: linear-gradient(135deg, #796bfc, #4F46E5); 
+            color: #ffffff; 
+            padding: 6px 12px; 
+            border-radius: 30px; 
+            font-weight: 800; 
+            display: inline-flex; 
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .badge-recomendado i {
+            color: #FFD700 !important;
+            margin-right: 6px !important;
+            font-size: 0.8rem;
+        }
+        .badge-recomendado::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg);
+            animation: badgeShine 3s infinite;
+        }
+        @keyframes badgeShine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
         }
 
         .pet-feature-list {
@@ -689,12 +848,18 @@
     
     function contratarPlan(planId) {
         const plan = plans[planId];
-        localStorage.setItem('mhm_salud_plan', JSON.stringify({
+        sessionStorage.setItem('mhm_salud_plan', JSON.stringify({
             id: planId,
             name: plan.name,
             price: plan.price
         }));
-        window.location.href = 'cotizacion-salud-2.html';
+        
+        if (planId === 'joven') {
+            window.location.href = 'cotizacion-joven-2.html';
+        } else {
+            window.location.href = 'cotizacion-salud-2.html';
+        }
+
     }
 
     document.addEventListener('DOMContentLoaded', () => {
@@ -743,11 +908,11 @@
             let titleText = 'Coberturas';
             let tableHTML = '';
 
-            const tableStyle = 'width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;';
-            const theadStyle = 'background: #023859; color: white;';
-            const thStyle = 'padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;';
-            const tdStyle = 'padding: 12px; border: 1px solid #E2E8F0; text-align: center;';
-            const tdStyleLimit = 'padding: 12px; border: 1px solid #E2E8F0; text-align: center; color: #4CAF50; font-weight: 600;';
+            const tableStyle = '';
+            const theadStyle = '';
+            const thStyle = '';
+            const tdStyle = '';
+            const tdStyleLimit = '';
 
             if (planId === 'integral') {
                 titleText = 'Coberturas: Asistencia Integral Pro T+2';
@@ -1116,7 +1281,41 @@
         .vt-info h4 { margin: 0; color: #0F172A; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
         
         .badge-recomendado {
-            font-size: 0.7rem; background: linear-gradient(135deg, #EEF2FF, #E0E7FF); color: #4F46E5; padding: 6px 12px; border-radius: 30px; font-weight: 700; border: 1px solid rgba(79, 70, 229, 0.1); display: inline-block; box-shadow: 0 2px 10px rgba(79, 70, 229, 0.1);
+            font-size: 0.65rem; 
+            line-height: 1;
+            background: linear-gradient(135deg, #796bfc, #4F46E5); 
+            color: #ffffff; 
+            padding: 6px 12px; 
+            border-radius: 30px; 
+            font-weight: 800; 
+            display: inline-flex; 
+            align-items: center;
+            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.3);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            position: relative;
+            overflow: hidden;
+            white-space: nowrap;
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+        .badge-recomendado i {
+            color: #FFD700 !important;
+            margin-right: 6px !important;
+            font-size: 0.8rem;
+        }
+        .badge-recomendado::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 50%; height: 100%;
+            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
+            transform: skewX(-20deg);
+            animation: badgeShine 3s infinite;
+        }
+        @keyframes badgeShine {
+            0% { left: -100%; }
+            20% { left: 200%; }
+            100% { left: 200%; }
         }
 
         .pet-feature-list {

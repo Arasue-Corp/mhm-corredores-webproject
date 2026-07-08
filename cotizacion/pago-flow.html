@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flow - Registrar Tarjeta | MHM</title>
+    <!-- CSS y Fuentes -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+            font-family: 'Roboto', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .flow-card {
+            background: #ffffff;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+            border-radius: 12px;
+            overflow: hidden;
+            margin: 20px;
+        }
+
+        .flow-header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 40px;
+            padding: 30px;
+            border-bottom: 1px solid #eeeeee;
+        }
+
+        .logo-placeholder {
+            height: 45px;
+            object-fit: contain;
+        }
+
+        .flow-body {
+            padding: 40px;
+            text-align: center;
+        }
+
+        .flow-title {
+            font-size: 1.4rem;
+            color: #1E293B;
+            font-weight: 500;
+            margin-top: 0;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .flow-text {
+            font-size: 0.95rem;
+            color: #555555;
+            margin-bottom: 20px;
+            line-height: 1.5;
+        }
+
+        .flow-email {
+            font-weight: 700;
+            color: #796bfc;
+        }
+
+        .flow-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn-flow {
+            padding: 12px 35px;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .btn-volver {
+            background: #ffffff;
+            border: 1px solid #796bfc;
+            color: #796bfc;
+        }
+
+        .btn-volver:hover {
+            background: #EEF2FF;
+        }
+
+        .btn-continuar {
+            background: linear-gradient(135deg, #3B82F6, #796bfc);
+            border: none;
+            color: #ffffff;
+            box-shadow: 0 4px 10px rgba(121, 107, 252, 0.3);
+        }
+
+        .btn-continuar:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(121, 107, 252, 0.4);
+        }
+
+        .flow-disclaimer {
+            padding: 30px 40px;
+            border-top: 1px solid #eeeeee;
+            font-size: 0.85rem;
+            color: #777777;
+            text-align: center;
+            line-height: 1.5;
+        }
+
+        .flow-footer {
+            background: #1E293B;
+            padding: 20px 40px;
+            color: #ffffff;
+        }
+
+        .footer-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #CBD5E1;
+        }
+
+        .footer-info div {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .footer-logo {
+            text-align: center;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            font-family: 'Dancing Script', cursive;
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: #ffffff;
+        }
+
+        @media (max-width: 500px) {
+            .footer-info {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+            .footer-info div {
+                justify-content: center;
+            }
+            .flow-buttons {
+                flex-direction: column;
+            }
+            .btn-flow {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="flow-card">
+        <!-- Logos Header -->
+        <div class="flow-header">
+            <!-- MHM Logo -->
+            <div style="display: flex; align-items: center;">
+                <img src="../assets/img/logo-mhm-color.png" alt="MHM Corredores" class="logo-placeholder">
+            </div>
+            <!-- Flow Logo -->
+            <div style="display: flex; align-items: center;">
+                <img src="../assets/img/flow-logo.png" alt="Flow Logo" style="height: 45px; object-fit: contain;">
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="flow-body">
+            <h1 class="flow-title">MHM Corredores te ha invitado a registrar tu tarjeta para realizar pagos automáticos</h1>
+
+            <p class="flow-text">
+                Al registrar tu tarjeta <strong>autorizas a Flow S.A.</strong> a efectuar cargos a nombre de <strong>MHM Corredores de Seguros</strong>.
+            </p>
+
+            <p class="flow-text">
+                En tu cartola bancaria aparecerá el cargo con la siguiente descripción:<br>
+                <strong>PAGOS.FLOW.CL.</strong>
+            </p>
+
+            <p class="flow-text">
+                Los cargos que se efectúen serán notificados vía email a<br>
+                <span class="flow-email" id="user-email">cargando...</span>
+            </p>
+
+            <p class="flow-text">
+                Para registrar tu tarjeta haz clic en Continuar:
+            </p>
+
+            <div class="flow-buttons">
+                <button class="btn-flow btn-volver" onclick="window.location.href='cotizacion-salud-6.html'">Volver</button>
+                <button class="btn-flow btn-continuar" onclick="processPayment()">Continuar con el Pago</button>
+            </div>
+        </div>
+
+        <!-- Disclaimer -->
+        <div class="flow-disclaimer">
+            <strong>Importante:</strong> Flow (<strong>www.flow.cl</strong>) sólo es responsable de recaudar pagos por cuenta de terceros de transacciones acordadas previamente entre las partes. Si tienes alguna duda, comunícate directamente con MHM Corredores al email <strong>info@mhmseguros.cl</strong>
+        </div>
+
+        <!-- Footer -->
+        <div class="flow-footer">
+            <div class="footer-info">
+                <div>
+                    <i class="fa-solid fa-shop"></i> MHM Corredores
+                </div>
+                <div>
+                    <i class="fa-regular fa-envelope"></i> info@mhmseguros.cl
+                </div>
+            </div>
+            <div class="footer-logo">
+                <img src="../assets/img/flow-logo.png" alt="Flow Logo" style="height: 35px; object-fit: contain; filter: brightness(0) invert(1); opacity: 0.8;">
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Cargar email del usuario desde sessionStorage
+            const email = sessionStorage.getItem('compradorEmail') || 'usuario@correo.cl';
+            document.getElementById('user-email').textContent = email;
+        });
+
+        function processPayment() {
+            // Simular proceso de pago y redirección final a la página de éxito o dashboard
+            alert("Iniciando transacción en entorno seguro de Flow...");
+            // window.location.href = 'pago-exito.html'; 
+        }
+    </script>
+</body>
+</html>

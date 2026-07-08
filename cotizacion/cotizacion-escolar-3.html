@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotización de Asistencia Mascota | MHM Corredores</title>
+    <title>Cotización de Asistencia Escolar | MHM Corredores</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1781129809" rel="stylesheet">
@@ -114,8 +114,7 @@
             margin-top: -2px;
         }
     </style>
-    
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
 </head>
 <body class="bg-body">
 
@@ -269,7 +268,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="../index.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-house"></i></div><span> Volver al inicio</span></a>
+        <a href="cotizacion-escolar-2.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Datos del Contratante</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -280,516 +279,230 @@
         </div>
 
 
-        <div class="page-wrapper">
+    <div class="page-wrapper">
 
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-solid fa-circle-check"></i>¡Todo Listo!</div>
+                <div class="wizard-title"><i class="fa-regular fa-hand-spock"></i>Para Empezar</div>
                 <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">¡Tu Asistencia ya está activa!</h1>
+                    <h1 class="text-gradient-corp">Pago Seguro</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Tu mascota ahora cuenta con la mejor protección. Revisa los detalles a continuación.</p>
+                <p>Selecciona tu método de pago y completa la transacción de forma segura.</p>
             </header>
         </div>
 
-        <style>
-            /* Premium Base & Animations */
-            .final-summary-container {
-                max-width: 950px;
-                margin: 0 auto 10px;
-                padding: 0 20px;
-                font-family: 'Inter', sans-serif;
-                position: relative;
-                z-index: 10;
-            }
+        <div class="specs-layout-grid">
             
-            @keyframes floatSmooth {
-                0%, 100% { transform: translateY(0); }
-                50% { transform: translateY(-10px); }
-            }
-            @keyframes glowPulse {
-                0%, 100% { box-shadow: 0 0 20px rgba(46, 217, 195, 0.2); }
-                50% { box-shadow: 0 0 40px rgba(46, 217, 195, 0.6); }
-            }
-
-            /* Premium Glassmorphism Contract Card */
-            .contract-premium-card {
-                position: relative;
-                margin-bottom: 30px;
-                padding: 50px;
-                background: rgba(255, 255, 255, 0.85);
-                backdrop-filter: blur(20px);
-                border-radius: 30px;
-                box-shadow: 0 25px 60px rgba(28, 78, 94, 0.08), 
-                            inset 0 0 0 1px rgba(255, 255, 255, 0.5);
-                overflow: hidden;
-            }
-            .contract-premium-card::before {
-                content: '';
-                position: absolute;
-                top: 0; left: 0; right: 0; height: 6px;
-                background: var(--degradado-aurora);
-                background-size: 200% 100%;
-                animation: gradientMove 3s ease infinite;
-            }
-            @keyframes gradientMove {
-                0% { background-position: 100% 0; }
-                100% { background-position: -100% 0; }
-            }
-            
-            /* Background Decoration inside card */
-
-
-            .contract-content {
-                position: relative;
-                z-index: 2;
-                display: flex;
-                flex-direction: column;
-                gap: 40px;
-            }
-
-            .premium-section-title {
-                color: var(--color-primary);
-                font-family: 'Poppins', sans-serif;
-                font-weight: 800;
-                font-size: 1.3rem;
-                margin-bottom: 20px;
-                display: flex;
-                align-items: center;
-                gap: 12px;
-                letter-spacing: -0.5px;
-            }
-            .premium-section-title i {
-                color: var(--color-primary);
-                font-size: 1.5rem;
-            }
-
-            /* Detail Rows */
-            .detail-grid {
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-                gap: 20px;
-            }
-            .detail-item {
-                background: var(--color-primary-light);
-                padding: 20px;
-                border-radius: 16px;
-                border: 1px solid var(--color-primary-glow);
-                transition: transform 0.3s, box-shadow 0.3s;
-            }
-            .detail-item:hover {
-                transform: translateY(-3px);
-                box-shadow: 0 10px 25px rgba(121, 107, 252, 0.15);
-                border-color: var(--color-primary);
-            }
-            .detail-label {
-                color: #64748B;
-                font-size: 0.85rem;
-                font-weight: 700;
-                text-transform: uppercase;
-                letter-spacing: 1px;
-                margin-bottom: 5px;
-                display: block;
-            }
-            .detail-value {
-                color: var(--color-dark-text);
-                font-size: 1.2rem;
-                font-weight: 800;
-            }
-
-            /* Action Buttons */
-            .action-buttons-flex {
-                display: flex;
-                gap: 15px;
-                flex-wrap: nowrap;
-                justify-content: center;
-                align-items: center;
-                width: 100%;
-            }
-            .premium-btn {
-                flex: 1;
-                display: inline-flex;
-                justify-content: center;
-                align-items: center;
-                gap: 8px;
-                padding: 14px 15px;
-                border-radius: 12px;
-                font-weight: 700;
-                font-size: 0.95rem;
-                text-decoration: none;
-                text-align: center;
-                white-space: nowrap;
-                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            }
-            .btn-primary {
-                background: var(--color-primary);
-                color: #FFF;
-                box-shadow: 0 10px 25px rgba(121, 107, 252, 0.2);
-            }
-            .btn-primary:hover {
-                background: var(--color-secondary);
-                transform: translateY(-3px);
-                box-shadow: 0 15px 35px rgba(121, 107, 252, 0.3);
-            }
-            .btn-secondary {
-                background: #FFFFFF;
-                color: var(--color-dark-text);
-                border: 1px solid #E2E8F0;
-            }
-            .btn-secondary:hover {
-                background: #FFFFFF;
-                border-color: var(--color-secondary);
-                color: var(--color-primary);
-                transform: translateY(-3px);
-                box-shadow: 0 10px 25px rgba(121, 107, 252, 0.15);
-            }
-
-            /* Cross-Sell Section */
-            .cross-sell-wrapper {
-                text-align: center;
-                margin-top: 40px;
-            }
-            .cross-sell-header {
-                display: inline-block;
-                padding: 8px 20px;
-                background: var(--color-primary-light);
-                color: var(--color-primary);
-                font-weight: 800;
-                border-radius: 30px;
-                margin-bottom: 25px;
-                font-size: 0.95rem;
-                letter-spacing: 1px;
-            }
-            .cross-sell-title {
-                color: var(--color-dark-text);
-                font-family: 'Poppins', sans-serif;
-                font-weight: 900;
-                font-size: 2.2rem;
-                margin-bottom: 15px;
-                line-height: 1.2;
-            }
-            .cross-sell-title span {
-                background: var(--degradado-aurora);
-                -webkit-background-clip: text;
-                -webkit-text-fill-color: transparent;
-            }
-            
-            .cs-grid {
-                display: grid;
-                grid-template-columns: repeat(3, 1fr);
-                gap: 30px;
-                margin-top: 40px;
-            }
-            .cs-premium-card {
-                background: #FFFFFF;
-                border-radius: 24px;
-                padding: 40px 25px;
-                text-align: center;
-                text-decoration: none;
-                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-                position: relative;
-                overflow: hidden;
-                border: 1px solid var(--border-light);
-                box-shadow: 0 10px 30px rgba(0,0,0,0.03);
-                z-index: 1;
-            }
-            .cs-premium-card::before {
-                content: '';
-                position: absolute;
-                top: 0; left: 0; right: 0; bottom: 0;
-                background: var(--color-primary-light);
-                opacity: 0;
-                transition: opacity 0.4s;
-                z-index: -1;
-            }
-            .cs-premium-card:hover {
-                transform: translateY(-12px);
-                border-color: var(--color-primary);
-                box-shadow: 0 25px 50px rgba(121, 107, 252, 0.12);
-            }
-            .cs-premium-card:hover::before {
-                opacity: 1;
-            }
-            
-            .cs-icon-ring {
-                width: 110px;
-                height: 110px;
-                margin: 0 auto 25px;
-                border-radius: 50%;
-                background: #F8FAFC;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                position: relative;
-                transition: all 0.4s ease;
-            }
-            .cs-icon-ring::after {
-                content: '';
-                position: absolute;
-                top: -5px; left: -5px; right: -5px; bottom: -5px;
-                border-radius: 50%;
-                border: 2px dashed var(--color-primary-glow);
-                animation: spin 10s linear infinite;
-                opacity: 0;
-                transition: opacity 0.3s;
-            }
-            @keyframes spin { 100% { transform: rotate(360deg); } }
-            
-            .cs-premium-card:hover .cs-icon-ring {
-                background: var(--color-primary);
-                box-shadow: 0 15px 30px rgba(121, 107, 252, 0.25);
-                transform: scale(1.1);
-            }
-            .cs-premium-card:hover .cs-icon-ring::after {
-                opacity: 1;
-                border-color: var(--color-secondary);
-            }
-            .cs-icon-ring i {
-                font-size: 2.8rem;
-                color: var(--color-primary);
-                transition: color 0.4s;
-            }
-            .cs-premium-card:hover .cs-icon-ring i {
-                color: #FFFFFF;
-            }
-
-            .cs-name {
-                color: var(--color-dark-text);
-                font-family: 'Poppins', sans-serif;
-                font-weight: 800;
-                font-size: 1.4rem;
-                margin: 0 0 10px 0;
-                transition: color 0.3s;
-            }
-            .cs-premium-card:hover .cs-name {
-                color: var(--color-primary);
-            }
-            .cs-price-badge {
-                display: inline-block;
-                background: var(--color-primary-light);
-                color: var(--color-primary);
-                padding: 6px 15px;
-                border-radius: 20px;
-                font-size: 0.85rem;
-                font-weight: 800;
-                transition: all 0.3s;
-            }
-            .cs-premium-card:hover .cs-price-badge {
-                background: var(--color-primary);
-                color: #FFF;
-            }
-            
-            @media (max-width: 768px) {
-                .cs-grid {
-                    grid-template-columns: 1fr;
-                    gap: 20px;
-                }
-                .contract-premium-card {
-                    padding: 30px 20px;
-                }
-                .cross-sell-title {
-                    font-size: 1.8rem;
-                }
-            }
-            
-            /* Responsive adjustments */
-            @media (max-width: 850px) {
-                .action-buttons-flex {
-                    flex-wrap: wrap;
-                }
-                .premium-btn {
-                    flex: 1 1 calc(50% - 15px);
-                    min-width: 200px;
-                }
-            }
-            @media (max-width: 650px) {
-                .action-buttons-flex {
-                    flex-direction: column;
-                }
-                .premium-btn {
-                    width: 100%;
-                    white-space: normal;
-                }
-                .detail-grid {
-                    grid-template-columns: 1fr;
-                }
-                .contract-premium-card {
-                    padding: 30px 20px;
-                }
-            }
-        </style>
-
-        <div class="final-summary-container">
-            
-            <!-- Premium Contract Details Card -->
-            <div class="contract-premium-card anim-entry delay-2">
-                
-                <div class="contract-content">
+            <div class="main-spec-col">
+                <div class="premium-white-card" id="quoteFormStep1">
                     
-                    <!-- Section 1 -->
-                    <div>
-                        <div class="premium-section-title">
-                            <i class="fa-solid fa-file-signature"></i> Resumen de tu Póliza
-                        </div>
-                        <div class="detail-grid">
-                            <div class="detail-item">
-                                <span class="detail-label">Nº de Contrato</span>
-                                <span class="detail-value" id="contractNumber">1234567</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Activación</span>
-                                <span class="detail-value" id="activationDate">Cargando...</span>
-                            </div>
-                            <div class="detail-item">
-                                <span class="detail-label">Medio de Pago</span>
-                                <span class="detail-value">Débito **** 4539</span>
-                            </div>
-                            <div class="detail-item" style="background: var(--color-primary-light); border-color: var(--color-primary-glow);">
-                                <span class="detail-label" style="color: var(--color-primary);">Total Mensual</span>
-                                <span class="detail-value" id="totalMonthly" style="color: var(--color-green); font-size: 1.4rem;">Cargando...</span>
-                            </div>
-                        </div>
-                    </div>
 
-                    <!-- Section 2 -->
-                    <div style="border-top: 1px dashed rgba(28, 78, 94, 0.15); padding-top: 30px;">
-                        <div class="premium-section-title">
-                            <i class="fa-solid fa-paper-plane"></i> Documentación
-                        </div>
-                        <p style="color: #475569; font-size: 1.1rem; font-weight: 500; margin: 0 0 20px 0;">
-                            Hemos enviado una copia digital respaldada de tu contrato a: <br>
-                            <strong style="color: var(--color-dark-text); font-size: 1.2rem;" id="ownerEmail">contacto@mhmseguros.cl</strong>
-                        </p>
-                        
-                        <div class="action-buttons-flex">
-                            <a href="#" class="premium-btn btn-primary">
-                                <i class="fa-solid fa-cloud-arrow-down"></i> Descargar Póliza PDF
-                            </a>
-                            <a href="#" class="premium-btn btn-secondary">
-                                <i class="fa-solid fa-book-open-reader"></i> Ver Condicionado General
-                            </a>
-                            <a href="#" class="premium-btn btn-secondary">
-                                <i class="fa-solid fa-notes-medical"></i> Detalle de Asistencia
-                            </a>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-            <!-- Premium Cross-Sell Section -->
-            <div class="cross-sell-wrapper anim-entry delay-3">
-                <div class="cross-sell-header">MÁS PROTECCIÓN MHM</div>
-                <h2 class="cross-sell-title">Cuidar lo que quieres <br><span>No termina aquí</span></h2>
-                <p style="color: #64748B; font-size: 1.15rem; font-weight: 500; margin-bottom: 40px; max-width: 600px; margin-inline: auto;">
-                    Potencia tu tranquilidad con condiciones preferenciales exclusivas. Descubre las asistencias diseñadas para tu día a día.
-                </p>
-
-                <div class="cs-grid">
-                    <a href="../cotizacion-hogar/index.html" class="cs-premium-card">
-                        <div class="cs-icon-ring">
-                            <i class="fa-solid fa-house-chimney"></i>
-                        </div>
-                        <h4 class="cs-name">Hogar</h4>
-                        <span class="cs-price-badge">Desde $7.990</span>
-                    </a>
-                    
-                    <a href="../funnel-auto/index.html" class="cs-premium-card">
-                        <div class="cs-icon-ring">
-                            <i class="fa-solid fa-car-side"></i>
-                        </div>
-                        <h4 class="cs-name">Movilidad</h4>
-                        <span class="cs-price-badge">Desde $3.200</span>
-                    </a>
-                    
-                    <a href="../cotizacion/cotizacion.html" class="cs-premium-card">
-                        <div class="cs-icon-ring">
-                            <i class="fa-solid fa-user-graduate"></i>
-                        </div>
-                        <h4 class="cs-name">Escolar</h4>
-                        <span class="cs-price-badge">Desde $9.490</span>
-                    </a>
-                </div>
-            </div>
-
-        </div>
-        </div>
-
+<div id="paymentUI" style="display: flex; flex-direction: column; align-items: center; padding: 20px 10px; font-family: 'Inter', sans-serif;">
+    
+    <div style="text-align: center; margin-bottom: 30px;">
+        <p style="color: #64748B; font-size: 1rem; margin-bottom: 15px; font-weight: 500;">Estás inscribiendo tu tarjeta en:</p>
+        <img src="../assets/img/logo-mhm-color.png" alt="MHM Corredores" style="max-height: 45px; object-fit: contain;">
     </div>
 
-<script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Confetti Animation
-        var duration = 3000;
-        var end = Date.now() + duration;
-        (function frame() {
-            confetti({
-                particleCount: 5,
-                angle: 60,
-                spread: 55,
-                origin: { x: 0 },
-                colors: ['#796bfc', '#cb6ce6', '#2ED9C3', '#FCD34D']
-            });
-            confetti({
-                particleCount: 5,
-                angle: 120,
-                spread: 55,
-                origin: { x: 1 },
-                colors: ['#796bfc', '#cb6ce6', '#2ED9C3', '#FCD34D']
-            });
-            if (Date.now() < end) {
-                requestAnimationFrame(frame);
-            }
-        }());
+    <div style="width: 100%; max-width: 400px; margin-bottom: 40px;">
+        <p style="color: #0F172A; font-weight: 700; font-size: 1.05rem; margin-bottom: 15px;">Selecciona tu medio de pago:</p>
+        
+        <a href="javascript:void(0)" onclick="document.getElementById('successModal').style.display='flex';" style="display: flex; align-items: center; padding: 20px; border: 1px solid #E2E8F0; border-radius: 12px; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 4px 6px rgba(0,0,0,0.02); background: white;" onmouseover="this.style.borderColor='#F97316'; this.style.boxShadow='0 10px 20px rgba(249, 115, 22, 0.1)';" onmouseout="this.style.borderColor='#E2E8F0'; this.style.boxShadow='0 4px 6px rgba(0,0,0,0.02)';">
+            <div style="background: #FFF7ED; width: 50px; height: 50px; border-radius: 8px; display: flex; align-items: center; justify-content: center; margin-right: 20px; flex-shrink: 0;">
+                <i class="fa-solid fa-credit-card" style="font-size: 1.5rem; color: #F97316;"></i>
+            </div>
+            <div>
+                <h4 style="margin: 0 0 5px 0; color: #0F172A; font-size: 1.15rem; font-weight: 700;">Tarjetas</h4>
+                <p style="margin: 0; color: #64748B; font-size: 0.9rem;">Crédito, Débito, Prepago</p>
+            </div>
+        </a>
+    </div>
 
-        const clientStr = sessionStorage.getItem('mhmPetClient');
-        if(clientStr) {
-            try {
-                const client = JSON.parse(clientStr);
-                const ownerEmailEl = document.getElementById('ownerEmail');
-                if (ownerEmailEl && client.email) {
-                    ownerEmailEl.textContent = client.email;
-                }
-            } catch(e) {}
-        }
+    <a href="cotizacion-escolar-2.html" style="color: #3B82F6; font-weight: 600; text-decoration: none; font-size: 0.95rem; transition: 0.3s;" onmouseover="this.style.textDecoration='underline';" onmouseout="this.style.textDecoration='none';">
+        Abandonar y volver
+    </a>
+
+    <div style="margin-top: 50px; text-align: center; display: flex; align-items: center; justify-content: center; gap: 8px;">
+        <i class="fa-solid fa-lock" style="color: #F59E0B; font-size: 1.1rem;"></i>
+        <span style="color: #64748B; font-size: 0.85rem;">
+            Transacción respaldada por <strong>Flow</strong>. Revisa las <a href="https://www.flow.cl/terminos-y-condiciones.php" target="_blank" style="color: #3B82F6; text-decoration: none; font-weight: 600;">Políticas de Seguridad y Privacidad</a>.
+        </span>
+    </div>
+
+</div>
+
+
+<script>
+    function renderSummaryStep3() {
+        const summaryDiv = document.getElementById('cart-summary-step3');
+        if(!summaryDiv) return;
+        
+        let html = '';
+        let total = 0;
+        let hasItems = false;
         
         const cartStr = sessionStorage.getItem('mhmPetCart');
         if (cartStr) {
-            try {
-                const plans = JSON.parse(cartStr);
-                let total = 0;
-                for(let id in plans) {
-                    if(plans[id].qty > 0) {
-                        let p = plans[id].price.replace('$','').replace('.','');
-                        total += parseInt(p) * plans[id].qty;
-                    }
+            const plans = JSON.parse(cartStr);
+            for(let id in plans) {
+                if(plans[id].qty > 0) {
+                    hasItems = true;
+                    const subtotal = plans[id].qty * plans[id].price;
+                    total += subtotal;
+                    html += `<div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1.05rem; color: #334155;">
+                        <span><i class="fa-solid fa-school" style="color: #CBD5E1; margin-right: 8px;"></i> ${plans[id].name} <strong style="color: #0F172A;">x ${plans[id].qty}</strong></span>
+                        <strong style="color: #0F172A;">$${subtotal.toLocaleString('es-CL')}</strong>
+                    </div>`;
                 }
-                const totalEl = document.getElementById('totalMonthly');
-                if (totalEl && total > 0) {
-                    totalEl.textContent = '$' + total.toLocaleString('es-CL');
-                }
-            } catch (e) {}
+            }
         }
         
-        const dateEl = document.getElementById('activationDate');
-        if (dateEl) {
-            const today = new Date();
-            dateEl.textContent = today.toLocaleDateString('es-CL');
+        if (!hasItems) {
+            window.location.href = 'cotizacion-escolar-1.html';
+            return;
         }
+
+        html += `<div style="border-top: 2px dashed #E2E8F0; margin-top: 15px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 1.3rem; color: #0F172A; align-items: baseline;">
+            <strong>Total Estimado:</strong>
+            <strong style="color: #2ED9C3;">$${total.toLocaleString('es-CL')}<span style="font-size: 0.9rem; color: #64748B; font-weight: normal; margin-left: 4px;">/mes</span></strong>
+        </div>`;
         
-        const contractEl = document.getElementById('contractNumber');
-        if (contractEl) {
-            contractEl.textContent = Math.floor(1000000 + Math.random() * 9000000);
+        summaryDiv.innerHTML = html;
+    }
+
+    function validateRut(rut) {
+        // Basic naive regex check for now, enough for a demo
+        return /^[0-9]+-[0-9kK]{1}$/.test(rut);
+    }
+    
+    function validateEmail(email) {
+        return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
+    }
+
+    function validateForm() {
+        const rut = document.getElementById('rutInput').value.trim();
+        const name = document.getElementById('nameInput').value.trim();
+        const email = document.getElementById('emailInput').value.trim();
+        const btn = document.getElementById('btn-continue');
+        
+        if (rut.length > 5 && name.length > 2 && validateEmail(email)) {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        } else {
+            btn.style.opacity = '0.5';
+            btn.style.pointerEvents = 'none';
         }
+    }
+
+    function goToNextStep() {
+        const rut = document.getElementById('rutInput').value.trim();
+        const name = document.getElementById('nameInput').value.trim();
+        const email = document.getElementById('emailInput').value.trim();
+        
+        sessionStorage.setItem('mhmEscolarClient', JSON.stringify({rut, name, email}));
+        
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+            window.location.href = 'cotizacion-escolar-3.html';
+        }, 300);
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        renderSummaryStep3();
     });
 </script>
-<footer class="footer-aurora">
+
+                </div>
+            </div>
+            
+            
+<style>
+/* Split sidebar styling for desktop */
+.ruta-container { margin-bottom: 20px; }
+
+/* Mobile reordering */
+@media (max-width: 1024px) {
+    .specs-layout-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+    .config-sidebar {
+        display: contents !important;
+    }
+    .main-spec-col {
+        order: 1 !important;
+        margin-bottom: 10px !important;
+    }
+    .resumen-container {
+        order: 2 !important;
+        position: relative !important;
+        top: 0 !important;
+        margin: 0 0 20px 0 !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        width: 100% !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+        padding: 25px 20px !important;
+    }
+    .ruta-container {
+        order: 2 !important;
+        position: relative !important;
+        top: 0 !important;
+        margin: 20px 0 0 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        width: 100% !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+        padding: 25px 20px !important;
+    }
+}
+</style>
+<aside class="config-sidebar anim-entry delay-2">
+                <div class="organic-panel ruta-container">
+                    
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
+                        Ruta de Contratación
+                    </div>
+                    <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Datos del Contratante</li>
+                        <li class="active"><span class="pulse-dot"></span> Pago Seguro</li>
+                        <li><i class="fa-regular fa-circle"></i> Registro Beneficiarios</li>
+                    </ul>
+
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
+                        Resumen de Selección
+                    </div>
+                    
+                    <div id="cart-summary-step3">
+                        <!-- Javascript will render selected plans here -->
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
+                        <i class="fa-solid fa-user-graduate" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
+                        <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a pocos pasos de asegurar al estudiante.</p>
+                    </div>
+                </div>
+            </aside>
+
+
+        </div>
+    </div>
+
+    <footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
         <div class="container">
@@ -968,29 +681,132 @@
 
     <script src="../js/script.js?v=1781129809"></script>
     <script src="../js/script-quote.js?v=1781129809"></script>
+
+    
+
+                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Escolars</span></h2>
+                    
+                    <div class="c-copy">
+                        <p>Has accedido a una plataforma de seguros de nueva generación. Conectamos con las mejores aseguradoras de Chile para darte la cobertura ideal.</p>
+                        <p>Nuestro proceso está diseñado para ser rápido y eficiente. En menos de <strong>5 minutos</strong>, vamos a analizar tu perfil y presentarte las mejores opciones de cobertura.</p>
+                    </div>
+                </div>
+
+                <div class="c-slide" data-step="1">
+                    <div class="tech-icon-stack">
+                        <div class="tech-icon-bg"></div>
+                        <i class="fa-solid fa-file-contract tech-icon-main"></i>
+                        <div class="tech-icon-badge"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    </div>
+
+                    <h2 class="c-title">Requisitos de <br><span class="shimmer-text">Cotización</span></h2>
+                    
+                    <div class="c-copy">
+                        <p>Para garantizar una tarifa exacta (no solo un estimado), necesitamos los siguientes datos:</p>
+                    </div>
+
+                    <div class="info-group">
+                        
+                        <div class="info-card-row">
+                            <div class="ic-icon"><i class="fa-solid fa-user"></i></div>
+                            <div class="ic-content">
+                                <h4>Datos del Dueño</h4>
+                                <p>Tu nombre, RUT, teléfono y correo electrónico.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card-row" style="border-color: #2ED9C333; background: #f0f9ff;">
+                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-school"></i></div>
+                            <div class="ic-content">
+                                <h4>Información del Alumno</h4>
+                                <p>Nombre, rut y fecha de nacimiento del alumno beneficiario.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card-row">
+                            <div class="ic-icon"><i class="fa-solid fa-shield-dog"></i></div>
+                            <div class="ic-content">
+                                <h4>Plan Deseado</h4>
+                                <p>Elige entre Básico, Pro o Senior según sus necesidades.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="c-slide" data-step="2">
+                    <div class="tech-icon-stack">
+                        <div class="tech-icon-bg"></div>
+                        <i class="fa-solid fa-hand-holding-heart tech-icon-main"></i>
+                        <div class="tech-icon-badge"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <h2 class="c-title">Tu Viaje, <br><span class="shimmer-text">Tu Elección</span></h2>
+                    
+                    <div class="c-copy">
+                        <p>Al final del análisis, verás un panel personalizado con tus opciones. Tendrás control total para <strong>comprar al instante</strong> o solicitar asesoría con un <strong>Agente MHM</strong>.</p>
+                        <p>Gracias por confiar tu protección en nosotros.</p>
+                    </div>
+
+                    <div class="alex-signature-container">
+                        <div class="alex-logo-mark icon-image-mode">
+                            <img src="../assets/img/logo-mhm-blanco.png" alt="Alex AI Logo">
+                        </div>
+                    
+                        <div class="sig-text-block">
+                            <span class="sig-label">Atentamente,</span>
+                            <span class="sig-name">El Equipo de MHM</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="c-footer">
+                <button class="btn-back" id="btnWelcomeBack" onclick="prevWelcomeSlide()" disabled>
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
+                
+                <div class="dots-nav" id="welcomeDots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <button class="btn-primary-shimmer" id="btnWelcomeNext" onclick="nextWelcomeSlide()">
+                    CONTINUAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
     <!-- Success Modal -->
-    <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(121, 107, 252, 0.9); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
+    <div id="successModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(71, 102, 114, 0.9); z-index: 9999; align-items: center; justify-content: center; backdrop-filter: blur(4px);">
         <div style="background: white; border-radius: 20px; width: 90%; max-width: 450px; padding: 50px 30px 40px; text-align: center; box-shadow: 0 25px 50px rgba(0,0,0,0.15); position: relative; animation: modalPop 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);">
             
             <div style="position: relative; margin: 0 auto 30px; width: 120px; height: 120px; display: flex; align-items: center; justify-content: center;">
-                <!-- Simulated Dog and Confetti -->
-                <i class="fa-solid fa-dog" style="font-size: 5rem; color: #796bfc; position: relative; z-index: 2;"></i>
+                <!-- Simulated Icon and Confetti -->
+                <i class="fa-solid fa-user-graduate" style="font-size: 5rem; color: #104C5C; position: relative; z-index: 2;"></i>
                 <div style="position: absolute; top: 0; left: 0; right: 0; bottom: 0; z-index: 1;">
                     <i class="fa-solid fa-star" style="position: absolute; top: 10%; left: 10%; color: #FCD34D; font-size: 1rem; animation: float 3s ease-in-out infinite;"></i>
                     <i class="fa-solid fa-circle" style="position: absolute; top: 20%; right: 10%; color: #F472B6; font-size: 0.6rem; animation: float 2.5s ease-in-out infinite 0.5s;"></i>
-                    <i class="fa-solid fa-heart" style="position: absolute; bottom: 15%; left: 20%; color: #cb6ce6; font-size: 0.8rem; animation: float 3.5s ease-in-out infinite 1s;"></i>
+                    <i class="fa-solid fa-heart" style="position: absolute; bottom: 15%; left: 20%; color: #10B981; font-size: 0.8rem; animation: float 3.5s ease-in-out infinite 1s;"></i>
                     <i class="fa-solid fa-certificate" style="position: absolute; bottom: 20%; right: 15%; color: #A78BFA; font-size: 0.9rem; animation: float 2.8s ease-in-out infinite 0.2s;"></i>
                 </div>
             </div>
 
-            <h2 style="color: #796bfc; font-size: 1.6rem; font-weight: 800; margin-bottom: 25px; line-height: 1.3;">PROCESO DE COMPRA<br>COMPLETADO</h2>
+            <h2 style="color: #104C5C; font-size: 1.6rem; font-weight: 800; margin-bottom: 25px; line-height: 1.3;">PROCESO DE COMPRA<br>COMPLETADO</h2>
             
             <p style="color: #1E293B; font-weight: 700; font-size: 1rem; margin-bottom: 5px;">¡Importante!</p>
             <p style="color: #475569; font-size: 0.95rem; margin-bottom: 40px; line-height: 1.5; font-weight: 500;">
-                A continuación debes completar TUS DATOS Y<br>LOS DE TUS MASCOTAS.
+                A continuación debes completar<br>LOS DATOS DEL ESTUDIANTE.
             </p>
 
-            <button onclick="window.location.href='cotizacion-mascota-4.html'" style="background: #796bfc; color: white; border: none; width: 100%; padding: 18px; border-radius: 12px; font-size: 1.25rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(121, 107, 252, 0.3);" onmouseover="this.style.background='#cb6ce6'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#796bfc'; this.style.transform='translateY(0)';">
+            <button onclick="window.location.href='cotizacion-escolar-4.html'" style="background: #104C5C; color: white; border: none; width: 100%; padding: 18px; border-radius: 12px; font-size: 1.25rem; font-weight: 700; cursor: pointer; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(16, 76, 92, 0.3);" onmouseover="this.style.background='#0A323D'; this.style.transform='translateY(-2px)';" onmouseout="this.style.background='#104C5C'; this.style.transform='translateY(0)';">
                 ACEPTAR
             </button>
         </div>

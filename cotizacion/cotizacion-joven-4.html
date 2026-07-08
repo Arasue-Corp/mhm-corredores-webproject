@@ -326,7 +326,7 @@
 
     
     <nav class="quote-nav">
-        <a href="cotizacion-salud-1.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Selección de Plan</span></a>
+        <a href="cotizacion-joven-3.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Titular</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -346,10 +346,10 @@
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp" id="dynamic-plan-title">Asistencia Integral Pro T+2</h1>
+                    <h1 class="text-gradient-corp" >Salud Joven</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Ingresa los datos del comprador para continuar con la contratación.</p>
+                <p>Por favor, completa los datos de previsión para aplicar las coberturas correctas.</p>
             </header>
         </div>
             
@@ -371,82 +371,19 @@
                 
                 <div class="main-spec-col anim-entry delay-1">
                     <div class="premium-white-card" style="padding: 40px;">
-                        <h2 style="font-size: 1.5rem; color: #796bfc; margin-bottom: 30px; font-weight: 800;">Datos del Contratante</h2>
+                        <h2 style="font-size: 1.5rem; color: #796bfc; margin-bottom: 30px; font-weight: 800;">Datos del Producto</h2>
                         
-                        <form id="compradorForm" onsubmit="event.preventDefault(); goToNextStep();">
+                        
+                        <form id="productoForm" onsubmit="event.preventDefault(); goToNextStep();">
                             
-                            <div class="input-group-modern" style="margin-bottom: 25px;">
-                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Rut *</label>
-                                <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-id-card" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="rutInput" onkeyup="validateForm()" class="rich-input" placeholder="Ej: 12.345.678-9" style="width: 100%; max-width: 300px; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
-                            </div>
-
-                            <div class="input-group-modern" style="margin-bottom: 25px;">
-                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Nombre *</label>
-                                <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-user" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="nameInput" onkeyup="validateForm()" class="rich-input" placeholder="Ingrese nombre completo" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
-                            </div>
-
-                            <div class="form-grid">
-                                <div class="input-group-modern" style="margin-bottom: 25px;">
-                                    <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Apellido Paterno *</label>
-                                    <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-user-tag" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="lastNameInput" onkeyup="validateForm()" class="rich-input" placeholder="Apellido paterno" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
+                            <div id="fields-joven">
+                                <div class="input-group-modern" style="margin-bottom: 35px;">
+                                    <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Tipo de Provisión *</label>
+                                    <div class="input-with-icon" style="position: relative;">
+                                        <i class="fa-solid fa-pen" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                        <input type="text" id="provisionInput" oninput="validateForm()" class="rich-input" placeholder="" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                    </div>
                                 </div>
-                                <div class="input-group-modern" style="margin-bottom: 25px;">
-                                    <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Apellido Materno *</label>
-                                    <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-user-tag" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="secondLastNameInput" onkeyup="validateForm()" class="rich-input" placeholder="Apellido materno" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
-                                </div>
-                            </div>
-
-                            <div class="form-grid">
-                                <div class="input-group-modern" style="margin-bottom: 25px;">
-                                    <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Correo Electrónico *</label>
-                                    <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-envelope" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="email" id="emailInput" onkeyup="validateForm()" class="rich-input" placeholder="correo@ejemplo.com" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
-                                </div>
-                                <div class="input-group-modern" style="margin-bottom: 25px;">
-                                    <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Teléfono *</label>
-                                    <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-phone" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="tel" id="phoneInput" onkeyup="validateForm()" class="rich-input" placeholder="+56 9 1234 5678" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
-                                </div>
-                            </div>
-
-                            <div class="input-group-modern" style="margin-bottom: 25px;">
-                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Dirección *</label>
-                                <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-location-dot" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="addressInput" onkeyup="validateForm()" class="rich-input" placeholder="Av. Providencia 1234, depto 501" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
-                            </div>
-
-                            <div class="input-group-modern" style="margin-bottom: 35px;">
-                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Comuna *</label>
-                                <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-map-location-dot" style="position: absolute; left: 16px; top: 16px; color: #94A3B8; z-index: 10;"></i>
-<select id="comunaInput" onchange="validateForm()" class="rich-input" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A; cursor: pointer; appearance: none;" required>
-                                    <option value="" disabled selected>Selecciona tu comuna</option>
-                                    <option value="santiago">Santiago Centro</option>
-                                    <option value="providencia">Providencia</option>
-                                    <option value="las_condes">Las Condes</option>
-                                    <option value="nunoa">Ñuñoa</option>
-                                    <option value="vitacura">Vitacura</option>
-                                    <option value="lo_barnechea">Lo Barnechea</option>
-                                    <option value="la_reina">La Reina</option>
-                                    <option value="macul">Macul</option>
-                                    <option value="florida">La Florida</option>
-                                    <option value="maipu">Maipú</option>
-                                    <option value="vina">Viña del Mar</option>
-                                    <option value="concepcion">Concepción</option>
-                                </select>
-</div>
-                                <!-- Custom dropdown arrow -->
-                                <i class="fa-solid fa-chevron-down" style="position: absolute; right: 15px; top: 45px; pointer-events: none; color: #94A3B8;"></i>
                             </div>
 
                             <div style="display: flex; justify-content: flex-end;">
@@ -455,73 +392,24 @@
                                 </button>
                             </div>
                         </form>
+
                     </div>
                 </div>
 
-                
-<style>
-/* Split sidebar styling for desktop */
-.ruta-container { margin-bottom: 20px; }
-
-/* Mobile reordering */
-@media (max-width: 1024px) {
-    .specs-layout-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0 !important;
-    }
-    .config-sidebar {
-        display: contents !important;
-    }
-    .main-spec-col {
-        order: 1 !important;
-        margin-bottom: 10px !important;
-    }
-    .resumen-container {
-        order: 2 !important;
-        position: relative !important;
-        top: 0 !important;
-        margin: 0 0 20px 0 !important;
-        border-top-left-radius: 0 !important;
-        border-top-right-radius: 0 !important;
-        width: 100% !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 25px 20px !important;
-    }
-    .ruta-container {
-        order: 2 !important;
-        position: relative !important;
-        top: 0 !important;
-        margin: 20px 0 0 0 !important;
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-        width: 100% !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 25px 20px !important;
-    }
-}
-</style>
-<aside class="config-sidebar anim-entry delay-2">
-                    <div class="organic-panel ruta-container">
+                <aside class="config-sidebar anim-entry delay-2">
+                    <div class="organic-panel" style="position: sticky; top: 100px;">
                         
                         <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
                             Ruta de Contratación
                         </div>
                         <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
                             <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
-                            <li class="active"><span class="pulse-dot"></span> Datos del Contratante</li>
-                            <li><i class="fa-regular fa-circle"></i> Titular</li>
-                            <li><i class="fa-regular fa-circle"></i> Producto</li>
-                            <li><i class="fa-regular fa-circle"></i> Beneficiarios</li>
+                            <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Datos del Contratante</li>
+                            <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Titular</li>
+                            <li class="active"><span class="pulse-dot"></span> Producto</li>
                             <li><i class="fa-regular fa-circle"></i> Pago Seguro</li>
                         </ul>
 
-                        </div>
-                        <div class="organic-panel resumen-container">
                         <div id="resumen-title-header" class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
                             Resumen de Selección
                         </div>
@@ -529,16 +417,16 @@
                         <div id="cart-summary-step2">
                             <div class="summary-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                                 <div>
-                                    <h4 id="dynamic-sidebar-title" style="margin: 0; color: #1E293B; font-weight: 700; font-size: 0.95rem;">Asistencia Integral Pro T+2</h4>
+                                    <h4 style="margin: 0; color: #1E293B; font-weight: 700; font-size: 0.95rem;">Salud Joven</h4>
                                     <p style="margin: 0; color: #64748B; font-size: 0.85rem;">Cobertura completa</p>
                                 </div>
                                 <div style="text-align: right;">
-                                    <div id="dynamic-sidebar-price" style="color: #3B82F6; font-weight: 800; font-size: 1.1rem;">$22.170</div>
+                                    <div style="color: #3B82F6; font-weight: 800; font-size: 1.1rem;">$3.890</div>
                                     <div style="color: #94A3B8; font-size: 0.75rem;">/ mes</div>
                                 </div>
                             </div>
                             
-                            <button onclick="openCoverageModal('integral')" class="btn-primary-shimmer" style="width: 100%; padding: 10px; font-size: 0.9rem; background: transparent; border: 1px solid #3B82F6; color: #3B82F6; margin-top: 10px;">
+                            <button onclick="openCoverageModal('joven')" class="btn-primary-shimmer" style="width: 100%; padding: 10px; font-size: 0.9rem; background: transparent; border: 1px solid #3B82F6; color: #3B82F6; margin-top: 10px;">
                                 <i class="fa-solid fa-list-check"></i> Ver Coberturas
                             </button>
                         </div>
@@ -555,40 +443,18 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const planStr = sessionStorage.getItem('mhm_salud_plan');
-            if (planStr) {
-                const plan = JSON.parse(planStr);
-                const title = document.getElementById('dynamic-plan-title');
-                const sbTitle = document.getElementById('dynamic-sidebar-title');
-                const sbPrice = document.getElementById('dynamic-sidebar-price');
-                if (title) title.innerText = plan.name;
-                if (sbTitle) sbTitle.innerText = plan.name;
-                if (sbPrice) sbPrice.innerText = '$' + plan.price.toLocaleString('es-CL');
+        
+
+        let isJoven = false;
+        
             }
         });
 
-        function validateEmail(email) {
-            return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
-        }
-        
-        function validateRut(rut) {
-            return rut.length >= 8;
-        }
-
         function validateForm() {
-            const rut = document.getElementById('rutInput').value.trim();
-            const name = document.getElementById('nameInput').value.trim();
-            const lastName = document.getElementById('lastNameInput').value.trim();
-            const secondLastName = document.getElementById('secondLastNameInput').value.trim();
-            const email = document.getElementById('emailInput').value.trim();
-            const phone = document.getElementById('phoneInput').value.trim();
-            const address = document.getElementById('addressInput').value.trim();
-            const comuna = document.getElementById('comunaInput').value;
             const btn = document.getElementById('btn-continue');
+            let isValid = document.getElementById('provisionInput').value.trim() !== "";
             
-            // All required fields must be somewhat filled
-            if (validateRut(rut) && name.length > 2 && lastName.length > 2 && secondLastName.length > 2 && validateEmail(email) && phone.length > 7 && address.length > 5 && comuna !== "") {
+            if (isValid) {
                 btn.style.opacity = '1';
                 btn.style.pointerEvents = 'auto';
             } else {
@@ -596,39 +462,19 @@
                 btn.style.pointerEvents = 'none';
             }
         }
-
+        
         function goToNextStep() {
-            const formData = {
-                rut: document.getElementById('rutInput').value,
-                name: document.getElementById('nameInput').value,
-                lastName: document.getElementById('lastNameInput').value,
-                secondLastName: document.getElementById('secondLastNameInput').value,
-                email: document.getElementById('emailInput').value,
-                phone: document.getElementById('phoneInput').value,
-                address: document.getElementById('addressInput').value,
-                comuna: document.getElementById('comunaInput').value
-            };
-            sessionStorage.setItem('contratanteData', JSON.stringify(formData));
+            let formData = {};
+            formData.provision = document.getElementById('provisionInput').value;
+
+            sessionStorage.setItem('productoData', JSON.stringify(formData));
 
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.3s ease';
             setTimeout(() => {
-                window.location.href = 'cotizacion-salud-3.html';
+                window.location.href = 'cotizacion-joven-5.html';
             }, 300);
         }
-
-        // Coverage Modal Logic
-        function openCoverageModal(planId) {
-            try {
-                let modal = document.getElementById('coverageModalDynamic');
-                if(!modal) {
-                    modal = document.createElement('div');
-                    modal.id = 'coverageModalDynamic';
-                    modal.className = 'modal-backdrop-aurora';
-                    modal.style.cssText = 'display: flex; opacity: 1; visibility: visible; pointer-events: auto; z-index: 99999999;';
-
-                    const contentHTML = `
-                        <div class="modal-content-tech" style="max-width: 800px; padding: 30px; opacity: 1; visibility: visible; transform: none;">
                             <div class="shimmer-effect"></div>
                             <div class="modal-header-tech" style="margin-bottom: 20px;">
                                 <div class="header-icon-glass"><i class="fa-solid fa-heart-pulse"></i></div>
@@ -847,7 +693,7 @@
                 }
 
                 document.getElementById('covModalTitleDynamic').innerText = titleText;
-                document.getElementById('covModalBodyDynamic').innerHTML = '<div class="table-responsive">' + tableHTML + '</div>';
+                document.getElementById('covModalBodyDynamic').innerHTML = tableHTML;
 
             } catch(e) {
                 console.error("Error abriendo modal:", e);

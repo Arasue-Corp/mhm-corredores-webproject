@@ -346,7 +346,7 @@
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp" id="dynamic-plan-title">Asistencia Integral Pro T+2</h1>
+                    <h1 class="text-gradient-corp" >Salud Joven</h1>
                     <div class="aurora-line"></div> 
                 </div>
                 <p>Ingresa los datos del comprador para continuar con la contratación.</p>
@@ -458,55 +458,8 @@
                     </div>
                 </div>
 
-                
-<style>
-/* Split sidebar styling for desktop */
-.ruta-container { margin-bottom: 20px; }
-
-/* Mobile reordering */
-@media (max-width: 1024px) {
-    .specs-layout-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0 !important;
-    }
-    .config-sidebar {
-        display: contents !important;
-    }
-    .main-spec-col {
-        order: 1 !important;
-        margin-bottom: 10px !important;
-    }
-    .resumen-container {
-        order: 2 !important;
-        position: relative !important;
-        top: 0 !important;
-        margin: 0 0 20px 0 !important;
-        border-top-left-radius: 0 !important;
-        border-top-right-radius: 0 !important;
-        width: 100% !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 25px 20px !important;
-    }
-    .ruta-container {
-        order: 2 !important;
-        position: relative !important;
-        top: 0 !important;
-        margin: 20px 0 0 0 !important;
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-        width: 100% !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 25px 20px !important;
-    }
-}
-</style>
-<aside class="config-sidebar anim-entry delay-2">
-                    <div class="organic-panel ruta-container">
+                <aside class="config-sidebar anim-entry delay-2">
+                    <div class="organic-panel" style="position: sticky; top: 100px;">
                         
                         <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
                             Ruta de Contratación
@@ -516,12 +469,9 @@
                             <li class="active"><span class="pulse-dot"></span> Datos del Contratante</li>
                             <li><i class="fa-regular fa-circle"></i> Titular</li>
                             <li><i class="fa-regular fa-circle"></i> Producto</li>
-                            <li><i class="fa-regular fa-circle"></i> Beneficiarios</li>
                             <li><i class="fa-regular fa-circle"></i> Pago Seguro</li>
                         </ul>
 
-                        </div>
-                        <div class="organic-panel resumen-container">
                         <div id="resumen-title-header" class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
                             Resumen de Selección
                         </div>
@@ -529,16 +479,16 @@
                         <div id="cart-summary-step2">
                             <div class="summary-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
                                 <div>
-                                    <h4 id="dynamic-sidebar-title" style="margin: 0; color: #1E293B; font-weight: 700; font-size: 0.95rem;">Asistencia Integral Pro T+2</h4>
+                                    <h4 style="margin: 0; color: #1E293B; font-weight: 700; font-size: 0.95rem;">Salud Joven</h4>
                                     <p style="margin: 0; color: #64748B; font-size: 0.85rem;">Cobertura completa</p>
                                 </div>
                                 <div style="text-align: right;">
-                                    <div id="dynamic-sidebar-price" style="color: #3B82F6; font-weight: 800; font-size: 1.1rem;">$22.170</div>
+                                    <div style="color: #3B82F6; font-weight: 800; font-size: 1.1rem;">$3.890</div>
                                     <div style="color: #94A3B8; font-size: 0.75rem;">/ mes</div>
                                 </div>
                             </div>
                             
-                            <button onclick="openCoverageModal('integral')" class="btn-primary-shimmer" style="width: 100%; padding: 10px; font-size: 0.9rem; background: transparent; border: 1px solid #3B82F6; color: #3B82F6; margin-top: 10px;">
+                            <button onclick="openCoverageModal('joven')" class="btn-primary-shimmer" style="width: 100%; padding: 10px; font-size: 0.9rem; background: transparent; border: 1px solid #3B82F6; color: #3B82F6; margin-top: 10px;">
                                 <i class="fa-solid fa-list-check"></i> Ver Coberturas
                             </button>
                         </div>
@@ -555,18 +505,7 @@
     </div>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const planStr = sessionStorage.getItem('mhm_salud_plan');
-            if (planStr) {
-                const plan = JSON.parse(planStr);
-                const title = document.getElementById('dynamic-plan-title');
-                const sbTitle = document.getElementById('dynamic-sidebar-title');
-                const sbPrice = document.getElementById('dynamic-sidebar-price');
-                if (title) title.innerText = plan.name;
-                if (sbTitle) sbTitle.innerText = plan.name;
-                if (sbPrice) sbPrice.innerText = '$' + plan.price.toLocaleString('es-CL');
-            }
-        });
+        
 
         function validateEmail(email) {
             return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
@@ -847,7 +786,7 @@
                 }
 
                 document.getElementById('covModalTitleDynamic').innerText = titleText;
-                document.getElementById('covModalBodyDynamic').innerHTML = '<div class="table-responsive">' + tableHTML + '</div>';
+                document.getElementById('covModalBodyDynamic').innerHTML = tableHTML;
 
             } catch(e) {
                 console.error("Error abriendo modal:", e);
