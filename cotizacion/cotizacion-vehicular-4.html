@@ -290,10 +290,10 @@
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Datos del Vehículo</h1>
+                    <h1 class="text-gradient-corp">Registro de Asistencia</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Ingresa los detalles de tu vehículo.</p>
+                <p>Ingresa los detalles para la asistencia.</p>
             </header>
         </div>
 
@@ -532,16 +532,32 @@
         
         <div class="harmonic-card" style="max-width: 100%;">
             <div class="form-grid-2">
-                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Patente (Ej: ABCD12)">
-                <input type="number" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Año (Ej: 2020)">
+                <div class="harmonic-input-wrapper" style="margin-bottom: 0; position: relative;">
+                    <span class="harmonic-label">Rut</span>
+                    <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input" placeholder="12345678-9">
+                </div>
+                <div class="harmonic-input-wrapper" style="margin-bottom: 0; position: relative;">
+                    <span class="harmonic-label">Fecha de cumpleaños</span>
+                    <input type="text" onchange="validatePetsForm()" onfocus="(this.type='date')" onblur="(this.value === '' ? this.type='text' : null)" class="pet-input harmonic-input" placeholder="dd/mm/aaaa">
+                </div>
             </div>
+
             <div class="form-grid-2">
-                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Marca (Ej: Toyota)">
-                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Modelo (Ej: Yaris)">
+                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Nombre">
+                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Apellidos">
             </div>
-            <div class="form-grid-2">
-                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Número de Motor (Opcional)">
-                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Número de Chasis (Opcional)">
+
+            <input type="email" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Email">
+            <input type="tel" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Teléfono">
+            <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Dirección">
+
+            <div class="harmonic-input-wrapper" style="margin-bottom: 15px;">
+                <select onchange="validatePetsForm()" class="pet-input harmonic-input" required>
+                    <option value="" disabled selected>Comuna Selecciona la comuna...</option>
+                    <option value="Providencia">Providencia</option>
+                    <option value="Las Condes">Las Condes</option>
+                    <option value="Santiago">Santiago</option>
+                </select>
             </div>
 
             <div style="display: flex; align-items: center; margin: 20px 0 20px; width: 100%;">
@@ -734,7 +750,7 @@
                         <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
                         <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Datos del Contratante</li>
                         <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Pago Seguro</li>
-                        <li class="active"><span class="pulse-dot"></span> Datos del Vehículo</li>
+                        <li class="active"><span class="pulse-dot"></span> Registro de Asistencia</li>
                     </ul>
 
                     <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
@@ -748,7 +764,7 @@
                     <div style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
                         <i class="fa-solid fa-car" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
                         <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a un paso de completar el registro de tu vehículo.</p>
+                        <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a un paso de completar el registro de asistencia.</p>
                     </div>
                 </div>
             </aside>
