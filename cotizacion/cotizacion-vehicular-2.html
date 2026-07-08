@@ -309,14 +309,6 @@
         <!-- Body -->
         <div style="padding: 40px; background: white; max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
             
-            <!-- Tooltip Message -->
-            <div style="position: relative; border: 2px solid #a4c920; border-radius: 4px; padding: 20px 25px; background: #f8fafc; max-width: 320px; font-size: 0.95rem; color: #475569;">
-                Si eres <strong>contratante y beneficiario</strong> a la vez, continúa completando los formularios con tus datos.
-                <!-- Tooltip Arrow -->
-                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 12px solid #a4c920; border-left: none;"></div>
-                <div style="position: absolute; left: -9px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 10px solid #f8fafc; border-left: none;"></div>
-            </div>
-
             <!-- Form Fields -->
             <div style="display: flex; flex-direction: column; gap: 15px; border: 1px solid #E2E8F0; border-radius: 12px; padding: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); min-width: 380px; background: white;">
                 
@@ -360,7 +352,7 @@
                     const subtotal = plans[id].qty * plans[id].price;
                     total += subtotal;
                     html += `<div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1.05rem; color: #334155;">
-                        <span><i class="fa-solid fa-school" style="color: #CBD5E1; margin-right: 8px;"></i> ${plans[id].name} <strong style="color: #0F172A;">x ${plans[id].qty}</strong></span>
+                        <span> ${plans[id].name} <strong style="color: #0F172A;">x ${plans[id].qty}</strong></span>
                         <strong style="color: #0F172A;">$${subtotal.toLocaleString('es-CL')}</strong>
                     </div>`;
                 }
@@ -720,7 +712,7 @@
                         </div>
 
                         <div class="info-card-row" style="border-color: #2ED9C333; background: #f0f9ff;">
-                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-school"></i></div>
+                            <div class="ic-icon" style="background:white; color:#2ED9C3;"></div>
                             <div class="ic-content">
                                 <h4>Información del Alumno</h4>
                                 <p>Nombre, rut y fecha de nacimiento del alumno beneficiario.</p>
