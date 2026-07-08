@@ -1,0 +1,791 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización de Asistencia Vehicular | MHM Corredores</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1783546608" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/style-quote.css"> 
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
+<style>
+/* ABSOLUTE MOBILE OVERFLOW KILLER */
+@media (max-width: 1024px) {
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    div, section, aside, header, footer, table, .c-table, .marketplace-grid, .offer-card, .summary-sidebar, .info-statement-box {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    .cov-val, .cov-label {
+        white-space: normal !important;
+    }
+}
+
+        /* Mobile CSS Checkbox Accordion */
+        .accordion-checkbox { display: none; }
+        .accordion-label { display: none; }
+        
+        @media (max-width: 768px) {
+            .accordion-label {
+                display: flex;
+                background: #F1F5F9; border: none; color: #475569; 
+                font-weight: 700; font-size: 0.95rem; padding: 10px 20px; border-radius: 12px;
+                cursor: pointer; margin: 15px auto 0; text-align: center; width: max-content;
+                align-items: center; justify-content: center; transition: all 0.2s ease;
+                user-select: none;
+            }
+            .accordion-label:hover { background: #E2E8F0; color: #0F172A; }
+            .accordion-label i { margin-left: 6px; transition: transform 0.3s; }
+            
+            .pet-feature-list {
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+            
+            .accordion-checkbox:checked ~ .pet-feature-list {
+                max-height: 500px;
+                opacity: 1;
+                margin-top: 15px !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .accordion-checkbox:checked ~ .accordion-label i {
+                transform: rotate(180deg);
+            }
+            .accordion-checkbox:checked ~ .accordion-label .label-text::before {
+                content: attr(data-open);
+            }
+            .accordion-checkbox:not(:checked) ~ .accordion-label .label-text::before {
+                content: attr(data-closed);
+            }
+            .accordion-label .label-text { font-size: 0; } 
+            .accordion-label .label-text::before { font-size: 0.95rem; }
+        }
+    
+        /* Custom Checkbox */
+        .custom-chk {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #CBD5E1;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            margin: 0;
+        }
+        .custom-chk:checked {
+            background-color: #2ED9C3;
+            border-color: #2ED9C3;
+        }
+        .custom-chk:checked::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-top: -2px;
+        }
+    </style>
+
+</head>
+<body class="bg-body">
+
+    <div id="toast-container"></div>
+    <div class="noise-overlay"></div>
+
+
+    <div class="top-header-aurora">
+        <div class="container top-bar-flex">
+            
+            <div class="top-info-group">
+                <a href="tel:+56961446652" class="top-link glass-hover">
+                    <i class="fa-solid fa-phone pulse-icon"></i> 
+                    <span>+56 9 6144 6652</span>
+                </a>
+                
+                <span class="divider-vertical"></span>
+                
+                <a href="mailto:info@mhmseguros.cl" class="top-link glass-hover">
+                    <i class="fa-solid fa-envelope"></i> 
+                    <span>info@mhmseguros.cl</span>
+                </a>
+
+                <span class="divider-vertical desktop-only"></span>
+                <div class="top-location desktop-only">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Huérfanos 669, piso 7, Santiago, Chile</span>
+                </div>
+            </div>
+
+            <div class="top-social-group">
+                <span class="social-label desktop-only">Conectar:</span>
+                <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank" class="social-btn" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/mhmseguros.cl" target="_blank" class="social-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="aurora-border-glow"></div>
+    </div>
+
+   <header class="site-header glass-navbar">
+        <div class="container nav-container">
+            
+            <a href="../index.html" class="brand-logo">
+                <img src="../assets/img/logo-mhm-color.png" alt="Alex AI Logo" class="site-logo">
+            </a>
+
+            <nav class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-item active">Inicio</a></li>
+                    
+                    <li class="nav-dropdown-group">
+                        <a href="../productos/index.html" class="nav-item dropdown-btn" style="text-decoration: none; cursor: pointer; display: inline-block;">Productos <i class="fa-solid fa-angle-down arrow-indicator"></i></a>
+                        
+                        <div class="dropdown-glass-panel">
+                            <div class="dropdown-grid">
+                                <a href="../seguros-personales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-user"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros personales</span><span class="dd-desc">Auto, salud, viajes y más.</span></div>
+                                </a>
+                                <a href="../seguros-comerciales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-store"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros comerciales</span><span class="dd-desc">Pymes, construcción, garantías y más.</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#carriers" class="nav-item">Aseguradoras</a></li>
+                    <li><a href="../blog/index.html" class="nav-item">Blog</a></li>
+                    <li><a href="../contacto/index.html" class="nav-item">Contacto</a></li>
+
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                
+
+                <span class="divider-vertical desktop-only"></span>
+
+                <a href="../cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
+                    <span>Cotizar seguro</span>
+                    <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
+                </a>
+                
+                <button class="mobile-toggle-btn mobile-only" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu-premium" id="mobileMenu">
+            <div class="menu-aurora-bg"></div>
+            
+            <div class="menu-inner-container">
+                
+                <div class="menu-internal-header">
+                    <img src="../assets/img/Logo-alexai-main.png" alt="Logo" style="height: 30px;">
+                    <button class="menu-close-btn" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <a href="../cotizacion/cotizacion.html" class="menu-widget-card highlight-card">
+                    <div class="widget-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="widget-info">
+                        <span class="widget-title">Cotizar seguro</span>
+                        <span class="widget-desc">Revisa los precios en menos de 90 segundos</span>
+                    </div>
+                    <div class="widget-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <div class="menu-grid-row">
+                    <a href="../embajadores/documentos.html" class="menu-square-card">
+                        <i class="fa-solid fa-users-viewfinder" style="color: #7C3AED;"></i>
+                        <span>Seguros personales</span>
+                    </a>
+                    <a href="../alex-sign/index.html" class="menu-square-card">
+                        <i class="fa-solid fa-file-signature" style="color: #2563EB;"></i>
+                        <span>Seguros comerciales</span>
+                    </a>
+                </div>
+
+                <div class="menu-section-title">Seguros disponibles</div>
+                <div class="menu-links-group">
+                    <a href="../seguro-complementario-salud/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-house"></i> Seguro complementario de salud
+                    </a>
+                    <a href="../seguro-pymes/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-key"></i> Seguro Pymes
+                    </a>
+                    <a href="../index.html#carriers" class="menu-link-item">
+                        <i class="fa-solid fa-shield-halved"></i>Asistencia de viajes
+                    </a>
+                </div>
+
+                <div class="menu-footer">
+                    <a href="../contacto/index.html" class="menu-footer-link">Contact Support</a>
+                    <div class="menu-socials">
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&amp;locale=es_LA" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <nav class="quote-nav">
+        <a href="cotizacion-vehicular-1.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Selección de Plan</span></a>
+        <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
+    </nav>
+
+        <div class="text-center">
+            <div class="header-status-light">
+                <span class="pulse-blue"></span> <strong class="text-gradient-corp">Cotización en Tiempo Real</strong> 
+            </div>
+        </div>
+
+
+    <div class="page-wrapper">
+
+        <div class="wizard-container">
+            <div class="wizard-top">
+                <div class="wizard-title"><i class="fa-regular fa-hand-spock"></i>Para Empezar</div>
+                <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 50%;"></div></div>
+            <div class="header-split"></div>
+            <header class="brand-page-header">
+                <div class="title-group">
+                    <h1 class="text-gradient-corp">Datos del Contratante</h1>
+                    <div class="aurora-line"></div> 
+                </div>
+                <p>Ingresa tus datos personales para continuar con la contratación.</p>
+            </header>
+        </div>
+
+        <div class="specs-layout-grid">
+            
+            <div class="main-spec-col">
+                <div class="premium-white-card" id="quoteFormStep1">
+                    
+<form id="startForm" onsubmit="event.preventDefault(); goToNextStep();">
+    <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; margin-bottom: 20px;">
+
+        
+        <!-- Body -->
+        <div style="padding: 40px; background: white; max-width: 900px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 30px; flex-wrap: wrap;">
+            
+            <!-- Tooltip Message -->
+            <div style="position: relative; border: 2px solid #a4c920; border-radius: 4px; padding: 20px 25px; background: #f8fafc; max-width: 320px; font-size: 0.95rem; color: #475569;">
+                Si eres <strong>contratante y beneficiario</strong> a la vez, continúa completando los formularios con tus datos.
+                <!-- Tooltip Arrow -->
+                <div style="position: absolute; left: -12px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 10px solid transparent; border-bottom: 10px solid transparent; border-right: 12px solid #a4c920; border-left: none;"></div>
+                <div style="position: absolute; left: -9px; top: 50%; transform: translateY(-50%); width: 0; height: 0; border-top: 8px solid transparent; border-bottom: 8px solid transparent; border-right: 10px solid #f8fafc; border-left: none;"></div>
+            </div>
+
+            <!-- Form Fields -->
+            <div style="display: flex; flex-direction: column; gap: 15px; border: 1px solid #E2E8F0; border-radius: 12px; padding: 35px; box-shadow: 0 4px 15px rgba(0,0,0,0.02); min-width: 380px; background: white;">
+                
+                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
+                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Rut</div>
+                    <input type="text" id="rutInput" onkeyup="validateForm()" placeholder="12345678-9" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
+                </div>
+                
+                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
+                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Nombre</div>
+                    <input type="text" id="nameInput" onkeyup="validateForm()" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
+                </div>
+                
+                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
+                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Email</div>
+                    <input type="email" id="emailInput" onkeyup="validateForm()" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
+                </div>
+
+                <button type="submit" id="btn-continue" style="margin-top: 10px; width: 100%; padding: 12px; border-radius: 8px; background: #1C4E5E; color: white; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; opacity: 0.5; pointer-events: none; font-size: 1rem;">
+                    Continuar
+                </button>
+            </div>
+        </div>
+    </div></form>
+
+<script>
+    function renderSummaryStep2() {
+        const summaryDiv = document.getElementById('cart-summary-step2');
+        if(!summaryDiv) return;
+        
+        let html = '';
+        let total = 0;
+        let hasItems = false;
+        
+        const cartStr = sessionStorage.getItem('mhmPetCart');
+        if (cartStr) {
+            const plans = JSON.parse(cartStr);
+            for(let id in plans) {
+                if(plans[id].qty > 0) {
+                    hasItems = true;
+                    const subtotal = plans[id].qty * plans[id].price;
+                    total += subtotal;
+                    html += `<div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1.05rem; color: #334155;">
+                        <span><i class="fa-solid fa-school" style="color: #CBD5E1; margin-right: 8px;"></i> ${plans[id].name} <strong style="color: #0F172A;">x ${plans[id].qty}</strong></span>
+                        <strong style="color: #0F172A;">$${subtotal.toLocaleString('es-CL')}</strong>
+                    </div>`;
+                }
+            }
+        }
+        
+        if (!hasItems) {
+            window.location.href = 'cotizacion-vehicular-1.html';
+            return;
+        }
+
+        html += `<div style="border-top: 2px dashed #E2E8F0; margin-top: 15px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 1.3rem; color: #0F172A; align-items: baseline;">
+            <strong>Total Estimado:</strong>
+            <strong style="color: #2ED9C3;">$${total.toLocaleString('es-CL')}<span style="font-size: 0.9rem; color: #64748B; font-weight: normal; margin-left: 4px;">/mes</span></strong>
+        </div>`;
+        
+        summaryDiv.innerHTML = html;
+    }
+
+    function validateRut(rut) {}$/.test(rut);
+    }
+    
+    function validateEmail(email) {
+        return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
+    }
+
+    function validateForm() {
+        const rut = document.getElementById('rutInput').value.trim();
+        const name = document.getElementById('nameInput').value.trim();
+        const email = document.getElementById('emailInput').value.trim();
+        const btn = document.getElementById('btn-continue');
+        
+        if (rut.length > 5 && name.length > 2 && validateEmail(email)) {
+            btn.style.opacity = '1';
+            btn.style.pointerEvents = 'auto';
+        } else {
+            btn.style.opacity = '0.5';
+            btn.style.pointerEvents = 'none';
+        }
+    }
+
+    function goToNextStep() {
+        const rut = document.getElementById('rutInput').value.trim();
+        const name = document.getElementById('nameInput').value.trim();
+        const email = document.getElementById('emailInput').value.trim();
+        
+        sessionStorage.setItem('mhmPetClient', JSON.stringify({rut, name, email}));
+        
+        document.body.style.opacity = '0';
+        document.body.style.transition = 'opacity 0.3s ease';
+        setTimeout(() => {
+            window.location.href = 'cotizacion-vehicular-3.html';
+        }, 300);
+    }
+    
+    document.addEventListener('DOMContentLoaded', () => {
+        renderSummaryStep2();
+    });
+</script>
+
+                </div>
+            </div>
+            
+            
+<style>
+/* Split sidebar styling for desktop */
+.ruta-container { margin-bottom: 20px; }
+
+/* Mobile reordering */
+@media (max-width: 1024px) {
+    .specs-layout-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 0 !important;
+    }
+    .config-sidebar {
+        display: contents !important;
+    }
+    .main-spec-col {
+        order: 1 !important;
+        margin-bottom: 10px !important;
+    }
+    .resumen-container {
+        order: 2 !important;
+        position: relative !important;
+        top: 0 !important;
+        margin: 0 0 20px 0 !important;
+        border-top-left-radius: 0 !important;
+        border-top-right-radius: 0 !important;
+        width: 100% !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+        padding: 25px 20px !important;
+    }
+    .ruta-container {
+        order: 2 !important;
+        position: relative !important;
+        top: 0 !important;
+        margin: 20px 0 0 0 !important;
+        border-bottom-left-radius: 0 !important;
+        border-bottom-right-radius: 0 !important;
+        width: 100% !important;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
+        border-radius: 12px !important;
+        background: #fff !important;
+        padding: 25px 20px !important;
+    }
+}
+</style>
+<aside class="config-sidebar anim-entry delay-2">
+                <div class="organic-panel ruta-container">
+                    
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
+                        Ruta de Contratación
+                    </div>
+                    <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
+                        <li class="active"><span class="pulse-dot"></span> Datos del Contratante</li>
+                        <li><i class="fa-regular fa-circle"></i> Pago Seguro</li>
+                        <li><i class="fa-regular fa-circle"></i> Registro Beneficiarios</li>
+                    </ul>
+
+                    </div>
+                        <div class="organic-panel resumen-container">
+                        <div id="resumen-title-header" class="sidebar-title text-gradient-corp" style="display: none; font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
+                        Resumen de Selección
+                    </div>
+                    
+                    <div id="cart-summary-step2">
+                        <!-- Javascript will render selected plans here -->
+                    </div>
+
+                    <div id="generic-protection-box" style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
+                        <i class="fa-solid fa-user-graduate" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
+                        <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #64748B; margin-top: 10px;">Si eres <strong style="font-weight: 700; color: #0F172A;">contratante y beneficiario</strong> a la vez, continúa completando los formularios con tus datos.</p>
+                    </div>
+                </div>
+            </aside>
+
+
+        </div>
+    </div>
+
+    <footer class="footer-aurora">
+        <div class="footer-light-mesh"></div>
+
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corradora Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">
+                        Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades que mejorarán tu vida de forma accesible, dinámica y eficiente.
+                    </p>
+                    <div class="footer-social-mini">
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Productos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../cotizacion/cotizacion-1.html">Seguros de auto</a></li>
+                        <li><a href="../seguro-complementario-salud/index.html">Seguro complementario de salud</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguros Pymes</a></li>
+                        <li><a href="../seguros-personales/index.html">Productos personales <span class="badge-new">New</span></a></li>
+                        <li><a href="../seguros-comerciales/index.html">Productos comerciales <span class="badge-new">New</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Compañía</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/mhmseguros.cl" target="_blank">Sobre nosotros</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contacto/index.html">Contactar con soporte</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Contacto y Acceso</h4>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa-solid fa-phone"></i> 
+                            <a href="tel:+56961446652">+56 9 6144 6652</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <a href="mailto:info@mhmseguros.cl">info@mhmseguros.cl</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="footer-app-buttons">
+                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="store-text">
+                                    <span>Download on the</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="store-text">
+                                    <span>Get it on</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 MHM Corredores de Seguros. Todos los derechos reservados.
+                </div>
+                <div class="legal-links">
+                    <a href="../politica-privacidad/index.html">Política de Privacidad</a>
+                    <span class="divider">|</span>
+                    <a href="../terminos-condiciones/index.html">Términos de Servicio</a>
+                </div>
+            </div>
+            <div class="aurora-bottom-line"></div>
+        </div>
+    </footer>
+
+
+    <div id="floating-menu-container">
+        <div class="nav-command-center" id="megaMenu">
+            <div class="cmd-header">
+                <span>Navegación rápida</span>
+                <span class="cmd-badge">MENÚ</span>
+            </div>
+            <div class="cmd-grid">
+                <a href="../funnel-auto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
+                    <span>Seguro de Auto</span>
+                </a>
+                <a href="../seguro-complementario-salud/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                    <span>Seguro complementario de salud</span>
+                </a>
+                <a href="../seguro-pymes/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
+                    <span>Seguro Pymes</span>
+                </a>
+                <a href="../productos/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <span>Más productos</span>
+                </a>
+                <a href="../blog/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <span>Blog</span>
+                </a>
+                <a href="../contacto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
+                    <span>Contactar Soporte</span>
+                </a>
+            </div>
+            <div class="cmd-footer">
+                <a href="../index.html">Volver to Home <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
+            <i class="fa-regular fa-compass"></i>
+        </button>
+    </div>
+
+    <div id="floating-chat-container">
+        <div class="alex-chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="agent-info">
+                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
+                    <div class="agent-text">
+                        <span class="name">Asistente MHM</span>
+                        <span class="status">Tiempo de respuesta: Inmediato</span>
+                    </div>
+                </div>
+                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-timestamp">Hoy, 17:00</div>
+                
+                <div class="msg-row bot">
+                    <div class="msg-bubble">
+                        ¡Hola! Veo que estás cotizando. ¿Tienes alguna pregunta sobre el <strong>Deducible</strong> o las coberturas? 🚗
+                    </div>
+                </div>
+                
+                <div class="chat-suggestions">
+                    <button>Explicar Deducibles</button>
+                    <button>Hablar con Ejecutivo</button>
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" placeholder="Escribe tu pregunta..." class="chat-input">
+                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span class="online-badge"></span>
+        </button>
+    </div>
+
+    <script src="../js/script.js?v=1783546608"></script>
+    <script src="../js/script-quote.js?v=1783546608"></script>
+
+    
+
+                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Vehiculars</span></h2>
+                    
+                    <div class="c-copy">
+                        <p>Has accedido a una plataforma de seguros de nueva generación. Conectamos con las mejores aseguradoras de Chile para darte la cobertura ideal.</p>
+                        <p>Nuestro proceso está diseñado para ser rápido y eficiente. En menos de <strong>5 minutos</strong>, vamos a analizar tu perfil y presentarte las mejores opciones de cobertura.</p>
+                    </div>
+                </div>
+
+                <div class="c-slide" data-step="1">
+                    <div class="tech-icon-stack">
+                        <div class="tech-icon-bg"></div>
+                        <i class="fa-solid fa-file-contract tech-icon-main"></i>
+                        <div class="tech-icon-badge"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    </div>
+
+                    <h2 class="c-title">Requisitos de <br><span class="shimmer-text">Cotización</span></h2>
+                    
+                    <div class="c-copy">
+                        <p>Para garantizar una tarifa exacta (no solo un estimado), necesitamos los siguientes datos:</p>
+                    </div>
+
+                    <div class="info-group">
+                        
+                        <div class="info-card-row">
+                            <div class="ic-icon"><i class="fa-solid fa-user"></i></div>
+                            <div class="ic-content">
+                                <h4>Datos del Dueño</h4>
+                                <p>Tu nombre, RUT, teléfono y correo electrónico.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card-row" style="border-color: #2ED9C333; background: #f0f9ff;">
+                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-school"></i></div>
+                            <div class="ic-content">
+                                <h4>Información del Alumno</h4>
+                                <p>Nombre, rut y fecha de nacimiento del alumno beneficiario.</p>
+                            </div>
+                        </div>
+
+                        <div class="info-card-row">
+                            <div class="ic-icon"><i class="fa-solid fa-school-circle-check"></i></div>
+                            <div class="ic-content">
+                                <h4>Plan Deseado</h4>
+                                <p>Elige entre Básico, Pro o Senior según sus necesidades.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <div class="c-slide" data-step="2">
+                    <div class="tech-icon-stack">
+                        <div class="tech-icon-bg"></div>
+                        <i class="fa-solid fa-hand-holding-heart tech-icon-main"></i>
+                        <div class="tech-icon-badge"><i class="fa-solid fa-check"></i></div>
+                    </div>
+
+                    <h2 class="c-title">Tu Viaje, <br><span class="shimmer-text">Tu Elección</span></h2>
+                    
+                    <div class="c-copy">
+                        <p>Al final del análisis, verás un panel personalizado con tus opciones. Tendrás control total para <strong>comprar al instante</strong> o solicitar asesoría con un <strong>Agente MHM</strong>.</p>
+                        <p>Gracias por confiar tu protección en nosotros.</p>
+                    </div>
+
+                    <div class="alex-signature-container">
+                        <div class="alex-logo-mark icon-image-mode">
+                            <img src="../assets/img/logo-mhm-blanco.png" alt="Alex AI Logo">
+                        </div>
+                    
+                        <div class="sig-text-block">
+                            <span class="sig-label">Atentamente,</span>
+                            <span class="sig-name">El Equipo de MHM</span>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <div class="c-footer">
+                <button class="btn-back" id="btnWelcomeBack" onclick="prevWelcomeSlide()" disabled>
+                    <i class="fa-solid fa-arrow-left"></i> Volver
+                </button>
+                
+                <div class="dots-nav" id="welcomeDots">
+                    <span class="dot active"></span>
+                    <span class="dot"></span>
+                    <span class="dot"></span>
+                </div>
+
+                <button class="btn-primary-shimmer" id="btnWelcomeNext" onclick="nextWelcomeSlide()">
+                    CONTINUAR
+                </button>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
