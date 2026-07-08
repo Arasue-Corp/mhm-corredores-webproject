@@ -297,58 +297,96 @@
             </header>
         </div>
 
-       <div style="display: flex; justify-content: center; align-items: center; min-height: 50vh; width: 100%; padding: 40px 20px;">
-        <div class="harmonic-card" style="width: 100%; max-width: 400px; padding: 40px 30px; text-align: center; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); position: relative; background: white;">
+        <div class="specs-layout-grid">
             
-            <div style="margin-bottom: 25px; color: #104C5C;">
-                <i class="fa-solid fa-car" style="font-size: 5rem;"></i>
+            <div class="main-spec-col">
+        <div class="premium-white-card" style="display: flex; justify-content: center; align-items: center; padding: 60px 20px;">
+            <div style="width: 100%; max-width: 320px; text-align: center;">
+                
+                <div style="margin-bottom: 25px; color: #104C5C;">
+                    <i class="fa-solid fa-car" style="font-size: 4rem;"></i>
+                </div>
+
+                <style>
+                    .vehicle-modal-input {
+                        width: 100%;
+                        padding: 12px 15px;
+                        border: 1px solid #E2E8F0;
+                        border-radius: 4px;
+                        font-size: 0.95rem;
+                        color: #1E293B;
+                        margin-bottom: 15px;
+                        background-color: #F8FAFC;
+                        transition: all 0.3s ease;
+                        outline: none;
+                    }
+                    .vehicle-modal-input:focus {
+                        border-color: #104C5C;
+                        background-color: white;
+                    }
+                    .vehicle-modal-select {
+                        appearance: none;
+                        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/200.svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23104C5C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+                        background-repeat: no-repeat;
+                        background-position: right 15px center;
+                        background-size: 16px;
+                    }
+                </style>
+
+                <input type="text" class="vehicle-modal-input" placeholder="Kilometraje del vehículo">
+                
+                <select class="vehicle-modal-input vehicle-modal-select">
+                    <option value="" disabled selected>Tipo de vehículo</option>
+                    <option value="Auto">Auto</option>
+                    <option value="Camioneta">Camioneta</option>
+                    <option value="SUV">SUV</option>
+                    <option value="Moto">Moto</option>
+                </select>
+                
+                <input type="text" class="vehicle-modal-input" placeholder="Patente">
+
+                <!-- User screenshot shows a bright teal button. The class 'btn-aurora-gradient' gives a similar bright teal color, let's use that or explicitly a teal background. The screenshot button says Registrar with white text. Let's use #34d399 which is a common teal. -->
+                <button onclick="window.location.href='index.html'" style="background: #34d399; color: white; border: none; width: 100%; padding: 12px; border-radius: 4px; font-size: 1rem; font-weight: 600; cursor: pointer; transition: background 0.2s ease; margin-top: 10px;" onmouseover="this.style.background='#10b981';" onmouseout="this.style.background='#34d399';">
+                    Registrar
+                </button>
             </div>
-
-            <style>
-                .vehicle-modal-input {
-                    width: 100%;
-                    padding: 12px 15px;
-                    border: 1px solid #E2E8F0;
-                    border-radius: 4px;
-                    font-size: 0.95rem;
-                    color: #1E293B;
-                    margin-bottom: 15px;
-                    background-color: #F8FAFC;
-                    transition: all 0.3s ease;
-                    outline: none;
-                }
-                .vehicle-modal-input:focus {
-                    border-color: #104C5C;
-                    background-color: white;
-                }
-                .vehicle-modal-select {
-                    appearance: none;
-                    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/200.svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%23104C5C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
-                    background-repeat: no-repeat;
-                    background-position: right 15px center;
-                    background-size: 16px;
-                }
-            </style>
-
-            <input type="text" class="vehicle-modal-input" placeholder="Kilometraje del vehículo">
-            
-            <select class="vehicle-modal-input vehicle-modal-select">
-                <option value="" disabled selected>Tipo de vehículo</option>
-                <option value="Auto">Auto</option>
-                <option value="Camioneta">Camioneta</option>
-                <option value="SUV">SUV</option>
-                <option value="Moto">Moto</option>
-            </select>
-            
-            <input type="text" class="vehicle-modal-input" placeholder="Patente">
-
-            <button onclick="window.location.href='index.html'" style="background: #104C5C; color: white; border: none; width: 100%; padding: 14px; border-radius: 6px; font-size: 1.1rem; font-weight: 600; cursor: pointer; transition: background 0.2s ease; margin-top: 10px;" onmouseover="this.style.background='#0A323D';" onmouseout="this.style.background='#104C5C';">
-                Registrar
-            </button>
         </div>
     </div>
 
-    oter class="footer-aurora">
+    <aside class="config-sidebar anim-entry delay-2">
+                <div class="organic-panel ruta-container">
+                    
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
+                        Ruta de Contratación
+                    </div>
+                    <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Datos del Contratante</li>
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Pago Seguro</li>
+                        <li class="active"><span class="pulse-dot"></span> Datos del Vehículo</li>
+                    </ul>
+
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
+                        Resumen de Selección
+                    </div>
+                    
+                    <div id="cart-summary-step3">
+                        <!-- Javascript will render selected plans here -->
+                    </div>
+
+                    <div style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
+                        <i class="fa-solid fa-car" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
+                        <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
+                        <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a un paso de completar el registro de asistencia.</p>
+                    </div>
+                </div>
+            </aside>
+
+
+        </div>
+    </div>
+
+    <footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
         <div class="container">
