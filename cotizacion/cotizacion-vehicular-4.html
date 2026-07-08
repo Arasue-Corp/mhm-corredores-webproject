@@ -530,34 +530,20 @@
             }
         </style>
         
-        <div class="harmonic-card">
+        <div class="harmonic-card" style="max-width: 100%;">
             <div class="form-grid-2">
-                <div class="form-grid-2">
-<input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Patente (Ej: ABCD12)">
-<input type="number" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Año (Ej: 2020)">
-</div>
-
-<div class="form-grid-2">
-<input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Marca (Ej: Toyota)">
-<input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Modelo (Ej: Yaris)">
-</div>
-
-<input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Número de Motor (Opcional)">
-<input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Número de Chasis (Opcional)">
-
-            
-            <input type="tel" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Teléfono">
-            <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Dirección">
-            
-            <div class="harmonic-input-wrapper">
-                <select onchange="validatePetsForm()" class="pet-input harmonic-input" required>
-                    <option value="" disabled selected>Comuna   Selecciona la comuna...</option>
-                    <option value="Santiago">Santiago</option>
-                    <option value="Providencia">Providencia</option>
-                    <option value="Las Condes">Las Condes</option>
-                </select>
+                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Patente (Ej: ABCD12)">
+                <input type="number" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Año (Ej: 2020)">
             </div>
-            
+            <div class="form-grid-2">
+                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Marca (Ej: Toyota)">
+                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Modelo (Ej: Yaris)">
+            </div>
+            <div class="form-grid-2">
+                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Número de Motor (Opcional)">
+                <input type="text" onkeyup="validatePetsForm()" class="pet-input harmonic-input large" placeholder="Número de Chasis (Opcional)">
+            </div>
+
             <div style="display: flex; align-items: center; margin: 20px 0 20px; width: 100%;">
                 <input type="checkbox" id="chkPetsCorrect" class="custom-chk" onchange="validatePetsForm()">
                 <label for="chkPetsCorrect" style="margin-left: 10px; font-size: 0.85rem; font-weight: 500; color: #475569; cursor: pointer; user-select: none;">Todos los datos registrados son correctos.</label>
@@ -760,7 +746,7 @@
                     </div>
 
                     <div style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
-                        <i class="fa-solid fa-user-graduate" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
+                        <i class="fa-solid fa-car" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
                         <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
                         <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a un paso de completar el registro de tu vehículo.</p>
                     </div>
