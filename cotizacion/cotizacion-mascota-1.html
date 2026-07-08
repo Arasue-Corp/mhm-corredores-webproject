@@ -113,6 +113,18 @@
             transform: rotate(45deg);
             margin-top: -2px;
         }
+    
+        .btn-outline-premium {
+            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
+            border: 1.5px solid #E2E8F0; color: #475569; background: white; 
+            cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem;
+            display: flex; justify-content: center; align-items: center; gap: 8px;
+            margin-top: 15px;
+        }
+        .btn-outline-premium:hover {
+            border-color: #796bfc; color: #796bfc; background: #F8FAFC;
+        }
+
     </style>
 
 </head>
@@ -400,7 +412,7 @@
                     <span class="qty-value" id="qty-basico">0</span>
                     <button type="button" class="qty-btn" onclick="updateQty('basico', 1)"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <button type="button" class="btn-outline-corp" onclick="openCoverageModal('basico')" style="margin-top: 15px; width: 100%; border-radius: 8px; padding: 10px; font-weight: 700; border: 1.5px solid #2ED9C3; color: #0F172A; background: transparent; cursor: pointer; transition: all 0.3s ease;">Ver coberturas</button>
+                <button type="button" class="btn-outline-premium" onclick="openCoverageModal('basico')"><i class="fa-solid fa-list-ul"></i> Ver coberturas completas</button>
             </div>
         </div>
 
@@ -426,7 +438,7 @@
                     <span class="qty-value" id="qty-pro">0</span>
                     <button type="button" class="qty-btn" onclick="updateQty('pro', 1)"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <button type="button" class="btn-outline-corp" onclick="openCoverageModal('pro')" style="margin-top: 15px; width: 100%; border-radius: 8px; padding: 10px; font-weight: 700; border: 1.5px solid #2563EB; color: #2563EB; background: transparent; cursor: pointer; transition: all 0.3s ease;">Ver coberturas</button>
+                <button type="button" class="btn-outline-premium" onclick="openCoverageModal('pro')"><i class="fa-solid fa-list-ul"></i> Ver coberturas completas</button>
             </div>
         </div>
 
@@ -452,7 +464,7 @@
                     <span class="qty-value" id="qty-senior">0</span>
                     <button type="button" class="qty-btn" onclick="updateQty('senior', 1)"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <button type="button" class="btn-outline-corp" onclick="openCoverageModal('senior')" style="margin-top: 15px; width: 100%; border-radius: 8px; padding: 10px; font-weight: 700; border: 1.5px solid #2ED9C3; color: #0F172A; background: transparent; cursor: pointer; transition: all 0.3s ease;">Ver coberturas</button>
+                <button type="button" class="btn-outline-premium" onclick="openCoverageModal('senior')"><i class="fa-solid fa-list-ul"></i> Ver coberturas completas</button>
             </div>
         </div>
     </div>
