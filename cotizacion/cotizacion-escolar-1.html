@@ -307,16 +307,11 @@
         .specs-layout-grid { display: block !important; }
         
         .veh-type-grid {
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
+            display: flex; 
+            justify-content: center;
             gap: 20px; 
             margin-bottom: 40px;
-        }
-        @media (max-width: 992px) {
-            .veh-type-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .veh-type-grid { grid-template-columns: 1fr; }
+            flex-wrap: wrap;
         }
         .veh-type-card {
             border: 1px solid #E2E8F0; border-radius: 20px; padding: 25px;
@@ -325,6 +320,8 @@
             position: relative; overflow: hidden;
             box-shadow: 0 4px 15px rgba(0,0,0,0.02);
             transition: all 0.3s ease;
+            max-width: 400px;
+            width: 100%;
         }
         .veh-type-card:hover { 
             border-color: #93C524; transform: translateY(-5px); 
