@@ -315,79 +315,7 @@
                 <div class="premium-white-card" id="quoteFormStep1">
                     
 <form id="startForm" onsubmit="event.preventDefault();">
-    <style>
-        .specs-layout-grid { display: block !important; }
-        
-        .veh-type-grid {
-            display: grid; 
-            grid-template-columns: repeat(3, 1fr); 
-            gap: 20px; 
-            margin-bottom: 40px;
-        }
-        @media (max-width: 992px) {
-            .veh-type-grid { grid-template-columns: repeat(2, 1fr); }
-        }
-        @media (max-width: 768px) {
-            .veh-type-grid { grid-template-columns: 1fr; }
-        }
-        .veh-type-card {
-            border: 1px solid #E2E8F0; border-radius: 20px; padding: 25px;
-            display: flex; flex-direction: column; align-items: center; text-align: center; gap: 15px;
-            background: rgba(255, 255, 255, 0.6); backdrop-filter: blur(10px);
-            position: relative; overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
-        }
-        .veh-type-card:hover { 
-            border-color: #2ED9C3; transform: translateY(-5px); 
-            box-shadow: 0 15px 35px rgba(46, 217, 195, 0.15); 
-            background: white;
-        }
-        
-        .vt-image {
-            width: 100%; height: 180px; border-radius: 16px;
-            overflow: hidden; margin-bottom: 10px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-        }
-        .vt-image img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        .veh-type-card:hover .vt-image img { transform: scale(1.05); }
-        
-        .vt-info { width: 100%; }
-        .vt-info h4 { margin: 0 0 6px 0; color: #0F172A; font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px; }
-        
-        .pet-feature-list {
-            list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 0.9rem; color: #64748B;
-            text-align: left;
-        }
-        .pet-feature-list li { margin-bottom: 8px; display: flex; align-items: flex-start; gap: 8px; }
-        .pet-feature-list li i { color: #2ED9C3; font-size: 0.9rem; margin-top: 3px; }
-        .pro-card .pet-feature-list li i { color: #2563EB; }
-        
-        .plan-price { font-size: 1.2rem; font-weight: 800; color: #0F172A; margin-top: 5px; }
-        .pro-card .plan-price { color: #2563EB; }
-        
-        /* Quantity Controls */
-        .qty-controls {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: #F1F5F9;
-            border-radius: 12px;
-            overflow: hidden;
-            margin-top: 20px;
-            width: 100%;
-        }
-        .qty-btn {
-            background: transparent; border: none; color: #475569;
-            width: 45px; height: 45px; display: flex; justify-content: center; align-items: center;
-            cursor: pointer; transition: all 0.2s; font-size: 1.1rem;
-        }
-        .qty-btn:hover { background: #E2E8F0; color: #0F172A; }
-        .qty-value { width: 50px; text-align: center; font-weight: 700; color: #0F172A; font-size: 1.1rem; }
-    </style>
+    
 
     <div class="veh-type-grid">
         <div class="veh-type-card">
@@ -610,7 +538,7 @@
     }
 
     function goToNextStep() {
-        sessionStorage.setItem('mhmPetCart', JSON.stringify(plans));
+        sessionStorage.setItem('mhmMascotaCart', JSON.stringify(plans));
         
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.3s ease';
@@ -832,9 +760,9 @@
         <div class="modal-content-tech" style="max-width: 800px; padding: 30px;">
             <div class="shimmer-effect"></div>
             <div class="modal-header-tech" style="margin-bottom: 20px;">
-                <div class="header-icon-glass"><i class="fa-solid fa-shield-cat"></i></div>
+                <div class="header-icon-glass"><i class="fa-solid fa-paw"></i></div>
                 <div class="header-text-tech">
-                    <h3 class="tech-title text-gradient-corp" id="covModalTitle">Coberturas: Asistencia Mascota</h3>
+                    <h3 class="tech-title text-gradient-corp" id="covModalTitle">Coberturas: Asistencia Mascotas</h3>
                     <p>Detalle de servicios, protección, límites y eventos máximos al año.</p>
                 </div>
                 <button class="btn-close-tech js-close-coverage-modal" onclick="closeCoverageModal()"><i class="fa-solid fa-xmark"></i></button>

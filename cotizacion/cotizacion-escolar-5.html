@@ -246,7 +246,7 @@
                 <div class="menu-section-title">Seguros disponibles</div>
                 <div class="menu-links-group">
                     <a href="../seguro-complementario-salud/index.html" class="menu-link-item">
-                        <i class="fa-solid fa-house"></i> Seguro complementario de salud
+                        <i class="fa-solid fa-bicycle"></i> Seguro complementario de salud
                     </a>
                     <a href="../seguro-pymes/index.html" class="menu-link-item">
                         <i class="fa-solid fa-key"></i> Seguro Pymes
@@ -269,7 +269,7 @@
     </header>
 
     <nav class="quote-nav">
-        <a href="../index.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-house"></i></div><span> Volver al inicio</span></a>
+        <a href="../index.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-bicycle"></i></div><span> Volver al inicio</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -294,7 +294,7 @@
                     <h1 class="text-gradient-corp">¡Tu Asistencia ya está activa!</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>El estudiante ahora cuenta con la mejor protección. Revisa los detalles a continuación.</p>
+                <p>El beneficiario ahora cuenta con la mejor protección. Revisa los detalles a continuación.</p>
             </header>
         </div>
 
@@ -695,11 +695,11 @@
                 </p>
 
                 <div class="cs-grid">
-                    <a href="../cotizacion-hogar/index.html" class="cs-premium-card">
+                    <a href="../cotizacion-ciclista/index.html" class="cs-premium-card">
                         <div class="cs-icon-ring">
-                            <i class="fa-solid fa-house-chimney"></i>
+                            <i class="fa-solid fa-user-graduate"></i>
                         </div>
-                        <h4 class="cs-name">Hogar</h4>
+                        <h4 class="cs-name">Ciclista</h4>
                         <span class="cs-price-badge">Desde $7.990</span>
                     </a>
                     
@@ -748,7 +748,7 @@
             }
         }());
 
-        const clientStr = sessionStorage.getItem('mhmPetClient');
+        const clientStr = sessionStorage.getItem('mhmEscolarClient');
         if(clientStr) {
             try {
                 const client = JSON.parse(clientStr);
@@ -759,7 +759,7 @@
             } catch(e) {}
         }
         
-        const cartStr = sessionStorage.getItem('mhmPetCart');
+        const cartStr = sessionStorage.getItem('mhmEscolarCart');
         if (cartStr) {
             try {
                 const plans = JSON.parse(cartStr);

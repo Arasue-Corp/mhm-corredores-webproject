@@ -8574,3 +8574,52 @@ body, html {
         overflow-x: hidden !important;
     }
 }
+
+
+/* =========================================
+   ESTRUCTURA RESPONSIVE PREMIUM UNIFICADA
+   ========================================= */
+
+@media (max-width: 1024px) {
+    /* Mover el Sidebar de resumen debajo del formulario en pantallas pequeñas */
+    .specs-layout-grid {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 30px;
+    }
+    .config-sidebar {
+        order: 2;
+    }
+    .specs-main-content {
+        order: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Grillas a una columna en móviles */
+    .detail-grid,
+    .cs-grid,
+    .form-grid-2 {
+        grid-template-columns: 1fr !important;
+        gap: 20px;
+    }
+    
+    /* Ajustes generales de espaciado para móviles */
+    .page-wrapper {
+        padding: 20px 15px !important;
+    }
+    
+    .wizard-container {
+        padding: 20px 15px !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    
+    .harmonic-card {
+        padding: 20px 15px !important;
+    }
+
+    .plan-grid {
+        grid-template-columns: 1fr !important;
+    }
+}

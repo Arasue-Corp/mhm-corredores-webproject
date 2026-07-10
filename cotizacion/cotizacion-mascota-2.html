@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotización de Asistencia Mascota | MHM Corredores</title>
+    <title>Cotización de Asistencia Ciclista | MHM Corredores</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1783546608" rel="stylesheet">
@@ -303,36 +303,35 @@
                 <div class="premium-white-card" id="quoteFormStep1">
                     
 <form id="startForm" onsubmit="event.preventDefault(); goToNextStep();">
-    <div style="padding: 10px 5px;">
-        <div class="input-group-modern" style="margin-bottom: 25px;">
-            <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">RUT del contratante</label>
-            <div class="input-with-icon" style="position: relative;">
-                <i class="fa-solid fa-id-card" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-                <input type="text" id="rutInput" onkeyup="validateForm()" class="rich-input" placeholder="Ej: 12.345.678-9" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+    <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; margin-bottom: 20px;">
+
+        
+        <!-- Body -->
+        <div style="padding: 40px; background: white; max-width: 500px; margin: 0 auto;">
+            <!-- Form Fields -->
+            <div style="display: flex; flex-direction: column; gap: 15px; border: 1px solid #E2E8F0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
+                
+                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
+                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Rut</div>
+                    <input type="text" id="rutInput" onkeyup="validateForm()" placeholder="12345678-9" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
+                </div>
+                
+                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
+                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Nombre</div>
+                    <input type="text" id="nameInput" onkeyup="validateForm()" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
+                </div>
+                
+                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
+                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Email</div>
+                    <input type="email" id="emailInput" onkeyup="validateForm()" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
+                </div>
+
+                <button type="submit" id="btn-continue" style="margin-top: 10px; width: 100%; padding: 12px; border-radius: 8px; background: #1C4E5E; color: white; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; opacity: 0.5; pointer-events: none; font-size: 1rem;">
+                    Continuar
+                </button>
             </div>
         </div>
-
-        <div class="input-group-modern" style="margin-bottom: 25px;">
-            <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Nombre completo</label>
-            <div class="input-with-icon" style="position: relative;">
-                <i class="fa-solid fa-user" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-                <input type="text" id="nameInput" onkeyup="validateForm()" class="rich-input" placeholder="Juan Pérez" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-            </div>
-        </div>
-
-        <div class="input-group-modern" style="margin-bottom: 35px;">
-            <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Email</label>
-            <div class="input-with-icon" style="position: relative;">
-                <i class="fa-solid fa-envelope" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-                <input type="email" id="emailInput" onkeyup="validateForm()" class="rich-input" placeholder="correo@ejemplo.com" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-            </div>
-        </div>
-
-        <button type="submit" id="btn-continue" class="btn-primary-shimmer" style="margin-top: 10px; width: 100%; opacity: 0.5; pointer-events: none; transition: 0.3s;">
-            Continuar a Siguiente Paso <i class="fa-solid fa-arrow-right"></i>
-        </button>
-    </div>
-</form>
+    </div></form>
 
 <script>
     function renderSummaryStep2() {
@@ -343,7 +342,7 @@
         let total = 0;
         let hasItems = false;
         
-        const cartStr = sessionStorage.getItem('mhmPetCart');
+        const cartStr = sessionStorage.getItem('mhmMascotaCart');
         if (cartStr) {
             const plans = JSON.parse(cartStr);
             for(let id in plans) {
@@ -372,9 +371,7 @@
         summaryDiv.innerHTML = html;
     }
 
-    function validateRut(rut) {
-        // Basic naive regex check for now, enough for a demo
-        return /^[0-9]+-[0-9kK]{1}$/.test(rut);
+    function validateRut(rut) {}$/.test(rut);
     }
     
     function validateEmail(email) {
@@ -401,7 +398,7 @@
         const name = document.getElementById('nameInput').value.trim();
         const email = document.getElementById('emailInput').value.trim();
         
-        sessionStorage.setItem('mhmPetClient', JSON.stringify({rut, name, email}));
+        sessionStorage.setItem('mhmMascotaClient', JSON.stringify({rut, name, email}));
         
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.3s ease';
@@ -419,52 +416,7 @@
             </div>
             
             
-<style>
-/* Split sidebar styling for desktop */
-.ruta-container { margin-bottom: 20px; }
 
-/* Mobile reordering */
-@media (max-width: 1024px) {
-    .specs-layout-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0 !important;
-    }
-    .config-sidebar {
-        display: contents !important;
-    }
-    .main-spec-col {
-        order: 1 !important;
-        margin-bottom: 10px !important;
-    }
-    .resumen-container {
-        order: 2 !important;
-        position: relative !important;
-        top: 0 !important;
-        margin: 0 0 20px 0 !important;
-        border-top-left-radius: 0 !important;
-        border-top-right-radius: 0 !important;
-        width: 100% !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 25px 20px !important;
-    }
-    .ruta-container {
-        order: 2 !important;
-        position: relative !important;
-        top: 0 !important;
-        margin: 20px 0 0 0 !important;
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-        width: 100% !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 25px 20px !important;
-    }
-}
-</style>
 <aside class="config-sidebar anim-entry delay-2">
                 <div class="organic-panel ruta-container">
                     
@@ -475,7 +427,7 @@
                         <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
                         <li class="active"><span class="pulse-dot"></span> Datos del Contratante</li>
                         <li><i class="fa-regular fa-circle"></i> Pago Seguro</li>
-                        <li><i class="fa-regular fa-circle"></i> Registro Mascotas</li>
+                        <li><i class="fa-regular fa-circle"></i> Registro Beneficiarios</li>
                     </ul>
 
                     </div>
@@ -489,9 +441,9 @@
                     </div>
 
                     <div id="generic-protection-box" style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
-                        <i class="fa-solid fa-shield-cat" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
+                        <i class="fa-solid fa-paw" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
                         <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a pocos pasos de asegurar a tu mascota.</p>
+                        <p style="margin: 0; font-size: 0.85rem; color: #64748B; margin-top: 10px;">Si eres <strong style="font-weight: 700; color: #0F172A;">contratante y beneficiario</strong> a la vez, continúa completando los formularios con tus datos.</p>
                     </div>
                 </div>
             </aside>
@@ -682,7 +634,7 @@
 
     
 
-                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Mascotas</span></h2>
+                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Ciclistas</span></h2>
                     
                     <div class="c-copy">
                         <p>Has accedido a una plataforma de seguros de nueva generación. Conectamos con las mejores aseguradoras de Chile para darte la cobertura ideal.</p>
@@ -716,13 +668,13 @@
                         <div class="info-card-row" style="border-color: #2ED9C333; background: #f0f9ff;">
                             <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-paw"></i></div>
                             <div class="ic-content">
-                                <h4>Información de la Mascota</h4>
-                                <p>Nombre, especie, raza y edad de tu mascota.</p>
+                                <h4>Información del Ciclista</h4>
+                                <p>Nombre, rut y fecha de nacimiento del ciclista beneficiario.</p>
                             </div>
                         </div>
 
                         <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-shield-dog"></i></div>
+                            <div class="ic-icon"><i class="fa-solid fa-shield-halved"></i></div>
                             <div class="ic-content">
                                 <h4>Plan Deseado</h4>
                                 <p>Elige entre Básico, Pro o Senior según sus necesidades.</p>

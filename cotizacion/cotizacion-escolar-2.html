@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotización de Asistencia Escolar | MHM Corredores</title>
+    <title>Cotización de Asistencia Ciclista | MHM Corredores</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1783546608" rel="stylesheet">
@@ -342,7 +342,7 @@
         let total = 0;
         let hasItems = false;
         
-        const cartStr = sessionStorage.getItem('mhmPetCart');
+        const cartStr = sessionStorage.getItem('mhmEscolarCart');
         if (cartStr) {
             const plans = JSON.parse(cartStr);
             for(let id in plans) {
@@ -351,7 +351,7 @@
                     const subtotal = plans[id].qty * plans[id].price;
                     total += subtotal;
                     html += `<div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1.05rem; color: #334155;">
-                        <span><i class="fa-solid fa-school" style="color: #CBD5E1; margin-right: 8px;"></i> ${plans[id].name} <strong style="color: #0F172A;">x ${plans[id].qty}</strong></span>
+                        <span><i class="fa-solid fa-user-graduate" style="color: #CBD5E1; margin-right: 8px;"></i> ${plans[id].name} <strong style="color: #0F172A;">x ${plans[id].qty}</strong></span>
                         <strong style="color: #0F172A;">$${subtotal.toLocaleString('es-CL')}</strong>
                     </div>`;
                 }
@@ -398,7 +398,7 @@
         const name = document.getElementById('nameInput').value.trim();
         const email = document.getElementById('emailInput').value.trim();
         
-        sessionStorage.setItem('mhmPetClient', JSON.stringify({rut, name, email}));
+        sessionStorage.setItem('mhmEscolarClient', JSON.stringify({rut, name, email}));
         
         document.body.style.opacity = '0';
         document.body.style.transition = 'opacity 0.3s ease';
@@ -416,52 +416,7 @@
             </div>
             
             
-<style>
-/* Split sidebar styling for desktop */
-.ruta-container { margin-bottom: 20px; }
 
-/* Mobile reordering */
-@media (max-width: 1024px) {
-    .specs-layout-grid {
-        display: flex !important;
-        flex-direction: column !important;
-        gap: 0 !important;
-    }
-    .config-sidebar {
-        display: contents !important;
-    }
-    .main-spec-col {
-        order: 1 !important;
-        margin-bottom: 10px !important;
-    }
-    .resumen-container {
-        order: 2 !important;
-        position: relative !important;
-        top: 0 !important;
-        margin: 0 0 20px 0 !important;
-        border-top-left-radius: 0 !important;
-        border-top-right-radius: 0 !important;
-        width: 100% !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 25px 20px !important;
-    }
-    .ruta-container {
-        order: 2 !important;
-        position: relative !important;
-        top: 0 !important;
-        margin: 20px 0 0 0 !important;
-        border-bottom-left-radius: 0 !important;
-        border-bottom-right-radius: 0 !important;
-        width: 100% !important;
-        box-shadow: 0 5px 15px rgba(0,0,0,0.05) !important;
-        border-radius: 12px !important;
-        background: #fff !important;
-        padding: 25px 20px !important;
-    }
-}
-</style>
 <aside class="config-sidebar anim-entry delay-2">
                 <div class="organic-panel ruta-container">
                     
@@ -679,7 +634,7 @@
 
     
 
-                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Escolars</span></h2>
+                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Ciclistas</span></h2>
                     
                     <div class="c-copy">
                         <p>Has accedido a una plataforma de seguros de nueva generación. Conectamos con las mejores aseguradoras de Chile para darte la cobertura ideal.</p>
@@ -711,15 +666,15 @@
                         </div>
 
                         <div class="info-card-row" style="border-color: #2ED9C333; background: #f0f9ff;">
-                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-school"></i></div>
+                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-user-graduate"></i></div>
                             <div class="ic-content">
-                                <h4>Información del Alumno</h4>
-                                <p>Nombre, rut y fecha de nacimiento del alumno beneficiario.</p>
+                                <h4>Información del Ciclista</h4>
+                                <p>Nombre, rut y fecha de nacimiento del ciclista beneficiario.</p>
                             </div>
                         </div>
 
                         <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-school-circle-check"></i></div>
+                            <div class="ic-icon"><i class="fa-solid fa-shield-halved"></i></div>
                             <div class="ic-content">
                                 <h4>Plan Deseado</h4>
                                 <p>Elige entre Básico, Pro o Senior según sus necesidades.</p>

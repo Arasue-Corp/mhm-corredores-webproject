@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cotización de Asistencia Hogar | MHM Corredores</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1783546608" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css"> 
+    <link rel="stylesheet" href="../css/style-quote.css"> 
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
+<style>
+/* ABSOLUTE MOBILE OVERFLOW KILLER */
+@media (max-width: 1024px) {
+    html, body {
+        width: 100% !important;
+        max-width: 100% !important;
+        overflow-x: hidden !important;
+        margin: 0 !important;
+        padding: 0 !important;
+    }
+    div, section, aside, header, footer, table, .c-table, .marketplace-grid, .offer-card, .summary-sidebar, .info-statement-box {
+        max-width: 100% !important;
+        min-width: 0 !important;
+        box-sizing: border-box !important;
+        word-wrap: break-word !important;
+        overflow-wrap: break-word !important;
+    }
+    .cov-val, .cov-label {
+        white-space: normal !important;
+    }
+}
+
+        /* Mobile CSS Checkbox Accordion */
+        .accordion-checkbox { display: none; }
+        .accordion-label { display: none; }
+        
+        @media (max-width: 768px) {
+            .accordion-label {
+                display: flex;
+                background: #F1F5F9; border: none; color: #475569; 
+                font-weight: 700; font-size: 0.95rem; padding: 10px 20px; border-radius: 12px;
+                cursor: pointer; margin: 15px auto 0; text-align: center; width: max-content;
+                align-items: center; justify-content: center; transition: all 0.2s ease;
+                user-select: none;
+            }
+            .accordion-label:hover { background: #E2E8F0; color: #0F172A; }
+            .accordion-label i { margin-left: 6px; transition: transform 0.3s; }
+            
+            .pet-feature-list {
+                max-height: 0;
+                overflow: hidden;
+                opacity: 0;
+                transition: all 0.3s ease-in-out;
+                margin-top: 0 !important;
+                margin-bottom: 0 !important;
+            }
+            
+            .accordion-checkbox:checked ~ .pet-feature-list {
+                max-height: 500px;
+                opacity: 1;
+                margin-top: 15px !important;
+                margin-bottom: 15px !important;
+            }
+            
+            .accordion-checkbox:checked ~ .accordion-label i {
+                transform: rotate(180deg);
+            }
+            .accordion-checkbox:checked ~ .accordion-label .label-text::before {
+                content: attr(data-open);
+            }
+            .accordion-checkbox:not(:checked) ~ .accordion-label .label-text::before {
+                content: attr(data-closed);
+            }
+            .accordion-label .label-text { font-size: 0; } 
+            .accordion-label .label-text::before { font-size: 0.95rem; }
+        }
+    
+        /* Custom Checkbox */
+        .custom-chk {
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid #CBD5E1;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            flex-shrink: 0;
+            margin: 0;
+        }
+        .custom-chk:checked {
+            background-color: #2ED9C3;
+            border-color: #2ED9C3;
+        }
+        .custom-chk:checked::after {
+            content: '';
+            position: absolute;
+            width: 5px;
+            height: 10px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: rotate(45deg);
+            margin-top: -2px;
+        }
+    </style>
+    
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body class="bg-body">
+
+    <div id="toast-container"></div>
+    <div class="noise-overlay"></div>
+
+
+    <div class="top-header-aurora">
+        <div class="container top-bar-flex">
+            
+            <div class="top-info-group">
+                <a href="tel:+56961446652" class="top-link glass-hover">
+                    <i class="fa-solid fa-phone pulse-icon"></i> 
+                    <span>+56 9 6144 6652</span>
+                </a>
+                
+                <span class="divider-vertical"></span>
+                
+                <a href="mailto:info@mhmseguros.cl" class="top-link glass-hover">
+                    <i class="fa-solid fa-envelope"></i> 
+                    <span>info@mhmseguros.cl</span>
+                </a>
+
+                <span class="divider-vertical desktop-only"></span>
+                <div class="top-location desktop-only">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Huérfanos 669, piso 7, Santiago, Chile</span>
+                </div>
+            </div>
+
+            <div class="top-social-group">
+                <span class="social-label desktop-only">Conectar:</span>
+                <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank" class="social-btn" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/mhmseguros.cl" target="_blank" class="social-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="aurora-border-glow"></div>
+    </div>
+
+   <header class="site-header glass-navbar">
+        <div class="container nav-container">
+            
+            <a href="../index.html" class="brand-logo">
+                <img src="../assets/img/logo-mhm-color.png" alt="Alex AI Logo" class="site-logo">
+            </a>
+
+            <nav class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-item active">Inicio</a></li>
+                    
+                    <li class="nav-dropdown-group">
+                        <a href="../productos/index.html" class="nav-item dropdown-btn" style="text-decoration: none; cursor: pointer; display: inline-block;">Productos <i class="fa-solid fa-angle-down arrow-indicator"></i></a>
+                        
+                        <div class="dropdown-glass-panel">
+                            <div class="dropdown-grid">
+                                <a href="../seguros-personales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-user"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros personales</span><span class="dd-desc">Auto, salud, viajes y más.</span></div>
+                                </a>
+                                <a href="../seguros-comerciales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-store"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros comerciales</span><span class="dd-desc">Pymes, construcción, garantías y más.</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="#carriers" class="nav-item">Aseguradoras</a></li>
+                    <li><a href="../blog/index.html" class="nav-item">Blog</a></li>
+                    <li><a href="../contacto/index.html" class="nav-item">Contacto</a></li>
+
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                
+
+                <span class="divider-vertical desktop-only"></span>
+
+                <a href="../cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
+                    <span>Cotizar seguro</span>
+                    <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
+                </a>
+                
+                <button class="mobile-toggle-btn mobile-only" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="mobile-menu-premium" id="mobileMenu">
+            <div class="menu-aurora-bg"></div>
+            
+            <div class="menu-inner-container">
+                
+                <div class="menu-internal-header">
+                    <img src="../assets/img/Logo-alexai-main.png" alt="Logo" style="height: 30px;">
+                    <button class="menu-close-btn" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <a href="../cotizacion/cotizacion.html" class="menu-widget-card highlight-card">
+                    <div class="widget-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="widget-info">
+                        <span class="widget-title">Cotizar seguro</span>
+                        <span class="widget-desc">Revisa los precios en menos de 90 segundos</span>
+                    </div>
+                    <div class="widget-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <div class="menu-grid-row">
+                    <a href="../embajadores/documentos.html" class="menu-square-card">
+                        <i class="fa-solid fa-users-viewfinder" style="color: #7C3AED;"></i>
+                        <span>Seguros personales</span>
+                    </a>
+                    <a href="../alex-sign/index.html" class="menu-square-card">
+                        <i class="fa-solid fa-file-signature" style="color: #2563EB;"></i>
+                        <span>Seguros comerciales</span>
+                    </a>
+                </div>
+
+                <div class="menu-section-title">Seguros disponibles</div>
+                <div class="menu-links-group">
+                    <a href="../seguro-complementario-salud/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-bicycle"></i> Seguro complementario de salud
+                    </a>
+                    <a href="../seguro-pymes/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-key"></i> Seguro Pymes
+                    </a>
+                    <a href="../index.html#carriers" class="menu-link-item">
+                        <i class="fa-solid fa-shield-halved"></i>Asistencia de viajes
+                    </a>
+                </div>
+
+                <div class="menu-footer">
+                    <a href="../contacto/index.html" class="menu-footer-link">Contact Support</a>
+                    <div class="menu-socials">
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&amp;locale=es_LA" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <nav class="quote-nav">
+        <a href="../index.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-bicycle"></i></div><span> Volver al inicio</span></a>
+        <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
+    </nav>
+
+        <div class="text-center">
+            <div class="header-status-light">
+                <span class="pulse-blue"></span> <strong class="text-gradient-corp">Cotización en Tiempo Real</strong> 
+            </div>
+        </div>
+
+
+        <div class="page-wrapper">
+
+        <div class="wizard-container">
+            <div class="wizard-top">
+                <div class="wizard-title"><i class="fa-solid fa-circle-check"></i>¡Todo Listo!</div>
+                <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
+            </div>
+            <div class="progress-track"><div class="progress-fill" style="width: 100%;"></div></div>
+            <div class="header-split"></div>
+            <header class="brand-page-header">
+                <div class="title-group">
+                    <h1 class="text-gradient-corp">¡Tu Asistencia ya está activa!</h1>
+                    <div class="aurora-line"></div> 
+                </div>
+                <p>El beneficiario ahora cuenta con la mejor protección. Revisa los detalles a continuación.</p>
+            </header>
+        </div>
+
+        
+        
+        
+        <style>
+            /* Premium Base & Animations */
+            .final-summary-container {
+                max-width: 950px;
+                margin: 0 auto 10px;
+                padding: 0 20px;
+                font-family: 'Inter', sans-serif;
+                position: relative;
+                z-index: 10;
+            }
+            
+            @keyframes floatSmooth {
+                0%, 100% { transform: translateY(0); }
+                50% { transform: translateY(-10px); }
+            }
+            @keyframes glowPulse {
+                0%, 100% { box-shadow: 0 0 20px rgba(46, 217, 195, 0.2); }
+                50% { box-shadow: 0 0 40px rgba(46, 217, 195, 0.6); }
+            }
+
+            /* Premium Glassmorphism Contract Card */
+            .contract-premium-card {
+                position: relative;
+                margin-bottom: 30px;
+                padding: 50px;
+                background: rgba(255, 255, 255, 0.85);
+                backdrop-filter: blur(20px);
+                border-radius: 30px;
+                box-shadow: 0 25px 60px rgba(28, 78, 94, 0.08), 
+                            inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+                overflow: hidden;
+            }
+            .contract-premium-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0; height: 6px;
+                background: var(--degradado-aurora);
+                background-size: 200% 100%;
+                animation: gradientMove 3s ease infinite;
+            }
+            @keyframes gradientMove {
+                0% { background-position: 100% 0; }
+                100% { background-position: -100% 0; }
+            }
+            
+            /* Background Decoration inside card */
+
+
+            .contract-content {
+                position: relative;
+                z-index: 2;
+                display: flex;
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .premium-section-title {
+                color: var(--color-primary);
+                font-family: 'Poppins', sans-serif;
+                font-weight: 800;
+                font-size: 1.3rem;
+                margin-bottom: 20px;
+                display: flex;
+                align-items: center;
+                gap: 12px;
+                letter-spacing: -0.5px;
+            }
+            .premium-section-title i {
+                color: var(--color-primary);
+                font-size: 1.5rem;
+            }
+
+            /* Detail Rows */
+            .detail-grid {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+                gap: 20px;
+            }
+            .detail-item {
+                background: var(--color-primary-light);
+                padding: 20px;
+                border-radius: 16px;
+                border: 1px solid var(--color-primary-glow);
+                transition: transform 0.3s, box-shadow 0.3s;
+            }
+            .detail-item:hover {
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px rgba(121, 107, 252, 0.15);
+                border-color: var(--color-primary);
+            }
+            .detail-label {
+                color: #64748B;
+                font-size: 0.85rem;
+                font-weight: 700;
+                text-transform: uppercase;
+                letter-spacing: 1px;
+                margin-bottom: 5px;
+                display: block;
+            }
+            .detail-value {
+                color: var(--color-dark-text);
+                font-size: 1.2rem;
+                font-weight: 800;
+            }
+
+            /* Action Buttons */
+            .action-buttons-flex {
+                display: flex;
+                gap: 15px;
+                flex-wrap: nowrap;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            }
+            .premium-btn {
+                flex: 1;
+                display: inline-flex;
+                justify-content: center;
+                align-items: center;
+                gap: 8px;
+                padding: 14px 15px;
+                border-radius: 12px;
+                font-weight: 700;
+                font-size: 0.95rem;
+                text-decoration: none;
+                text-align: center;
+                white-space: nowrap;
+                transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            }
+            .btn-primary {
+                background: var(--color-primary);
+                color: #FFF;
+                box-shadow: 0 10px 25px rgba(121, 107, 252, 0.2);
+            }
+            .btn-primary:hover {
+                background: var(--color-secondary);
+                transform: translateY(-3px);
+                box-shadow: 0 15px 35px rgba(121, 107, 252, 0.3);
+            }
+            .btn-secondary {
+                background: #FFFFFF;
+                color: var(--color-dark-text);
+                border: 1px solid #E2E8F0;
+            }
+            .btn-secondary:hover {
+                background: #FFFFFF;
+                border-color: var(--color-secondary);
+                color: var(--color-primary);
+                transform: translateY(-3px);
+                box-shadow: 0 10px 25px rgba(121, 107, 252, 0.15);
+            }
+
+            /* Cross-Sell Section */
+            .cross-sell-wrapper {
+                text-align: center;
+                margin-top: 40px;
+            }
+            .cross-sell-header {
+                display: inline-block;
+                padding: 8px 20px;
+                background: var(--color-primary-light);
+                color: var(--color-primary);
+                font-weight: 800;
+                border-radius: 30px;
+                margin-bottom: 25px;
+                font-size: 0.95rem;
+                letter-spacing: 1px;
+            }
+            .cross-sell-title {
+                color: var(--color-dark-text);
+                font-family: 'Poppins', sans-serif;
+                font-weight: 900;
+                font-size: 2.2rem;
+                margin-bottom: 15px;
+                line-height: 1.2;
+            }
+            .cross-sell-title span {
+                background: var(--degradado-aurora);
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+            }
+            
+            .cs-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                gap: 30px;
+                margin-top: 40px;
+            }
+            .cs-premium-card {
+                background: #FFFFFF;
+                border-radius: 24px;
+                padding: 40px 25px;
+                text-align: center;
+                text-decoration: none;
+                transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                position: relative;
+                overflow: hidden;
+                border: 1px solid var(--border-light);
+                box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+                z-index: 1;
+            }
+            .cs-premium-card::before {
+                content: '';
+                position: absolute;
+                top: 0; left: 0; right: 0; bottom: 0;
+                background: var(--color-primary-light);
+                opacity: 0;
+                transition: opacity 0.4s;
+                z-index: -1;
+            }
+            .cs-premium-card:hover {
+                transform: translateY(-12px);
+                border-color: var(--color-primary);
+                box-shadow: 0 25px 50px rgba(121, 107, 252, 0.12);
+            }
+            .cs-premium-card:hover::before {
+                opacity: 1;
+            }
+            
+            .cs-icon-ring {
+                width: 110px;
+                height: 110px;
+                margin: 0 auto 25px;
+                border-radius: 50%;
+                background: #F8FAFC;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                position: relative;
+                transition: all 0.4s ease;
+            }
+            .cs-icon-ring::after {
+                content: '';
+                position: absolute;
+                top: -5px; left: -5px; right: -5px; bottom: -5px;
+                border-radius: 50%;
+                border: 2px dashed var(--color-primary-glow);
+                animation: spin 10s linear infinite;
+                opacity: 0;
+                transition: opacity 0.3s;
+            }
+            @keyframes spin { 100% { transform: rotate(360deg); } }
+            
+            .cs-premium-card:hover .cs-icon-ring {
+                background: var(--color-primary);
+                box-shadow: 0 15px 30px rgba(121, 107, 252, 0.25);
+                transform: scale(1.1);
+            }
+            .cs-premium-card:hover .cs-icon-ring::after {
+                opacity: 1;
+                border-color: var(--color-secondary);
+            }
+            .cs-icon-ring i {
+                font-size: 2.8rem;
+                color: var(--color-primary);
+                transition: color 0.4s;
+            }
+            .cs-premium-card:hover .cs-icon-ring i {
+                color: #FFFFFF;
+            }
+
+            .cs-name {
+                color: var(--color-dark-text);
+                font-family: 'Poppins', sans-serif;
+                font-weight: 800;
+                font-size: 1.4rem;
+                margin: 0 0 10px 0;
+                transition: color 0.3s;
+            }
+            .cs-premium-card:hover .cs-name {
+                color: var(--color-primary);
+            }
+            .cs-price-badge {
+                display: inline-block;
+                background: var(--color-primary-light);
+                color: var(--color-primary);
+                padding: 6px 15px;
+                border-radius: 20px;
+                font-size: 0.85rem;
+                font-weight: 800;
+                transition: all 0.3s;
+            }
+            .cs-premium-card:hover .cs-price-badge {
+                background: var(--color-primary);
+                color: #FFF;
+            }
+            
+            @media (max-width: 768px) {
+                .cs-grid {
+                    grid-template-columns: 1fr;
+                    gap: 20px;
+                }
+                .contract-premium-card {
+                    padding: 30px 20px;
+                }
+                .cross-sell-title {
+                    font-size: 1.8rem;
+                }
+            }
+            
+            /* Responsive adjustments */
+            @media (max-width: 850px) {
+                .action-buttons-flex {
+                    flex-wrap: wrap;
+                }
+                .premium-btn {
+                    flex: 1 1 calc(50% - 15px);
+                    min-width: 200px;
+                }
+            }
+            @media (max-width: 650px) {
+                .action-buttons-flex {
+                    flex-direction: column;
+                }
+                .premium-btn {
+                    width: 100%;
+                    white-space: normal;
+                }
+                .detail-grid {
+                    grid-template-columns: 1fr;
+                }
+                .contract-premium-card {
+                    padding: 30px 20px;
+                }
+            }
+        </style>
+
+        <div class="final-summary-container">
+            
+            <!-- Premium Contract Details Card -->
+            <div class="contract-premium-card anim-entry delay-2">
+                
+                <div class="contract-content">
+                    
+                    <!-- Section 1 -->
+                    <div>
+                        <div class="premium-section-title">
+                            <i class="fa-solid fa-file-signature"></i> Resumen de tu Póliza
+                        </div>
+                        <div class="detail-grid">
+                            <div class="detail-item">
+                                <span class="detail-label">Nº de Contrato</span>
+                                <span class="detail-value" id="contractNumber">1234567</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Activación</span>
+                                <span class="detail-value" id="activationDate">Cargando...</span>
+                            </div>
+                            <div class="detail-item">
+                                <span class="detail-label">Medio de Pago</span>
+                                <span class="detail-value">Débito **** 4539</span>
+                            </div>
+                            <div class="detail-item" style="background: var(--color-primary-light); border-color: var(--color-primary-glow);">
+                                <span class="detail-label" style="color: var(--color-primary);">Total Mensual</span>
+                                <span class="detail-value" id="totalMonthly" style="color: var(--color-green); font-size: 1.4rem;">Cargando...</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Section 2 -->
+                    <div style="border-top: 1px dashed rgba(28, 78, 94, 0.15); padding-top: 30px;">
+                        <div class="premium-section-title">
+                            <i class="fa-solid fa-paper-plane"></i> Documentación
+                        </div>
+                        <p style="color: #475569; font-size: 1.1rem; font-weight: 500; margin: 0 0 20px 0;">
+                            Hemos enviado una copia digital respaldada de tu contrato a: <br>
+                            <strong style="color: var(--color-dark-text); font-size: 1.2rem;" id="ownerEmail">contacto@mhmseguros.cl</strong>
+                        </p>
+                        
+                        <div class="action-buttons-flex">
+                            <a href="#" class="premium-btn btn-primary">
+                                <i class="fa-solid fa-cloud-arrow-down"></i> Descargar Póliza PDF
+                            </a>
+                            <a href="#" class="premium-btn btn-secondary">
+                                <i class="fa-solid fa-book-open-reader"></i> Ver Condicionado General
+                            </a>
+                            <a href="#" class="premium-btn btn-secondary">
+                                <i class="fa-solid fa-notes-medical"></i> Detalle de Asistencia
+                            </a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Premium Cross-Sell Section -->
+            <div class="cross-sell-wrapper anim-entry delay-3">
+                <div class="cross-sell-header">MÁS PROTECCIÓN MHM</div>
+                <h2 class="cross-sell-title">Cuidar lo que quieres <br><span>No termina aquí</span></h2>
+                <p style="color: #64748B; font-size: 1.15rem; font-weight: 500; margin-bottom: 40px; max-width: 600px; margin-inline: auto;">
+                    Potencia tu tranquilidad con condiciones preferenciales exclusivas. Descubre las asistencias diseñadas para tu día a día.
+                </p>
+
+                <div class="cs-grid">
+                    <a href="../cotizacion-ciclista/index.html" class="cs-premium-card">
+                        <div class="cs-icon-ring">
+                            <i class="fa-solid fa-house"></i>
+                        </div>
+                        <h4 class="cs-name">Ciclista</h4>
+                        <span class="cs-price-badge">Desde $7.990</span>
+                    </a>
+                    
+                    <a href="../funnel-auto/index.html" class="cs-premium-card">
+                        <div class="cs-icon-ring">
+                            <i class="fa-solid fa-car-side"></i>
+                        </div>
+                        <h4 class="cs-name">Movilidad</h4>
+                        <span class="cs-price-badge">Desde $3.200</span>
+                    </a>
+                    
+                    <a href="../cotizacion/cotizacion.html" class="cs-premium-card">
+                        <div class="cs-icon-ring">
+                            <i class="fa-solid fa-paw"></i>
+                        </div>
+                        <h4 class="cs-name">Mascotas</h4>
+                        <span class="cs-price-badge">Desde $9.490</span>
+                    </a>
+                </div>
+            </div>
+
+        </div>
+        </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Confetti Animation
+        var duration = 3000;
+        var end = Date.now() + duration;
+        (function frame() {
+            confetti({
+                particleCount: 5,
+                angle: 60,
+                spread: 55,
+                origin: { x: 0 },
+                colors: ['#796bfc', '#cb6ce6', '#2ED9C3', '#FCD34D']
+            });
+            confetti({
+                particleCount: 5,
+                angle: 120,
+                spread: 55,
+                origin: { x: 1 },
+                colors: ['#796bfc', '#cb6ce6', '#2ED9C3', '#FCD34D']
+            });
+            if (Date.now() < end) {
+                requestAnimationFrame(frame);
+            }
+        }());
+
+        const clientStr = sessionStorage.getItem('mhmHogarClient');
+        if(clientStr) {
+            try {
+                const client = JSON.parse(clientStr);
+                const ownerEmailEl = document.getElementById('ownerEmail');
+                if (ownerEmailEl && client.email) {
+                    ownerEmailEl.textContent = client.email;
+                }
+            } catch(e) {}
+        }
+        
+        const cartStr = sessionStorage.getItem('mhmHogarCart');
+        if (cartStr) {
+            try {
+                const plans = JSON.parse(cartStr);
+                let total = 0;
+                for(let id in plans) {
+                    if(plans[id].qty > 0) {
+                        let p = plans[id].price.replace('$','').replace('.','');
+                        total += parseInt(p) * plans[id].qty;
+                    }
+                }
+                const totalEl = document.getElementById('totalMonthly');
+                if (totalEl && total > 0) {
+                    totalEl.textContent = '$' + total.toLocaleString('es-CL');
+                }
+            } catch (e) {}
+        }
+        
+        const dateEl = document.getElementById('activationDate');
+        if (dateEl) {
+            const today = new Date();
+            dateEl.textContent = today.toLocaleDateString('es-CL');
+        }
+        
+        const contractEl = document.getElementById('contractNumber');
+        if (contractEl) {
+            contractEl.textContent = Math.floor(1000000 + Math.random() * 9000000);
+        }
+    });
+</script>
+<footer class="footer-aurora">
+        <div class="footer-light-mesh"></div>
+
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corradora Logo" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">
+                        Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades que mejorarán tu vida de forma accesible, dinámica y eficiente.
+                    </p>
+                    <div class="footer-social-mini">
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Productos</h4>
+                    <ul class="footer-links">
+                        <li><a href="../cotizacion/cotizacion-1.html">Seguros de auto</a></li>
+                        <li><a href="../seguro-complementario-salud/index.html">Seguro complementario de salud</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguros Pymes</a></li>
+                        <li><a href="../seguros-personales/index.html">Productos personales <span class="badge-new">New</span></a></li>
+                        <li><a href="../seguros-comerciales/index.html">Productos comerciales <span class="badge-new">New</span></a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Compañía</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/mhmseguros.cl" target="_blank">Sobre nosotros</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contacto/index.html">Contactar con soporte</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Contacto y Acceso</h4>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa-solid fa-phone"></i> 
+                            <a href="tel:+56961446652">+56 9 6144 6652</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <a href="mailto:info@mhmseguros.cl">info@mhmseguros.cl</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="footer-app-buttons">
+                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="store-text">
+                                    <span>Download on the</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="store-text">
+                                    <span>Get it on</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 MHM Corredores de Seguros. Todos los derechos reservados.
+                </div>
+                <div class="legal-links">
+                    <a href="../politica-privacidad/index.html">Política de Privacidad</a>
+                    <span class="divider">|</span>
+                    <a href="../terminos-condiciones/index.html">Términos de Servicio</a>
+                </div>
+            </div>
+            <div class="aurora-bottom-line"></div>
+        </div>
+    </footer>
+
+
+    <div id="floating-menu-container">
+        <div class="nav-command-center" id="megaMenu">
+            <div class="cmd-header">
+                <span>Navegación rápida</span>
+                <span class="cmd-badge">MENÚ</span>
+            </div>
+            <div class="cmd-grid">
+                <a href="../funnel-auto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
+                    <span>Seguro de Auto</span>
+                </a>
+                <a href="../seguro-complementario-salud/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                    <span>Seguro complementario de salud</span>
+                </a>
+                <a href="../seguro-pymes/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
+                    <span>Seguro Pymes</span>
+                </a>
+                <a href="../productos/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <span>Más productos</span>
+                </a>
+                <a href="../blog/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <span>Blog</span>
+                </a>
+                <a href="../contacto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
+                    <span>Contactar Soporte</span>
+                </a>
+            </div>
+            <div class="cmd-footer">
+                <a href="../index.html">Volver to Home <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
+            <i class="fa-regular fa-compass"></i>
+        </button>
+    </div>
+
+    <div id="floating-chat-container">
+        <div class="alex-chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="agent-info">
+                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
+                    <div class="agent-text">
+                        <span class="name">Asistente MHM</span>
+                        <span class="status">Tiempo de respuesta: Inmediato</span>
+                    </div>
+                </div>
+                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-timestamp">Hoy, 17:00</div>
+                
+                <div class="msg-row bot">
+                    <div class="msg-bubble">
+                        ¡Hola! Veo que estás cotizando. ¿Tienes alguna pregunta sobre el <strong>Deducible</strong> o las coberturas? 🚗
+                    </div>
+                </div>
+                
+                <div class="chat-suggestions">
+                    <button>Explicar Deducibles</button>
+                    <button>Hablar con Ejecutivo</button>
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" placeholder="Escribe tu pregunta..." class="chat-input">
+                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span class="online-badge"></span>
+        </button>
+    </div>
+
+    <script src="../js/script.js?v=1783546608"></script>
+    <script src="../js/script-quote.js?v=1783546608"></script>
+    <style>
+        @keyframes modalPop {
+            0% { transform: scale(0.8); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+    </style>
+</body>
+</html>
