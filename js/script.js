@@ -1274,3 +1274,19 @@ document.addEventListener("DOMContentLoaded", () => {
         observer.observe(el);
     });
 });
+
+// ==========================================
+// HERO CAROUSEL LOGIC
+// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+    const slides = document.querySelectorAll('.hero-carousel-frame .carousel-slide');
+    if (!slides.length) return;
+    
+    let currentSlide = 0;
+    
+    setInterval(() => {
+        slides[currentSlide].classList.remove('active');
+        currentSlide = (currentSlide + 1) % slides.length;
+        slides[currentSlide].classList.add('active');
+    }, 4000); // Change image every 4 seconds
+});

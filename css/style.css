@@ -4213,9 +4213,26 @@ position: absolute;
     transform: perspective(1000px) rotateY(0deg) scale(1.02);
 }
 
+.hero-carousel-frame {
+    aspect-ratio: 4 / 5;
+}
+
 .arch-img {
     width: 100%; display: block;
-    height: auto;
+    height: 100%; object-fit: cover;
+}
+
+.carousel-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    position: relative;
 }
 
 /* EFECTO SHIMMER (Brillo) */
