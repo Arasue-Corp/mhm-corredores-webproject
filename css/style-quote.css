@@ -8623,3 +8623,41 @@ body, html {
         grid-template-columns: 1fr !important;
     }
 }
+
+/* ENFORCE FLOATING BUTTON POSITIONS TO PREVENT OVERLAP */
+@media (max-width: 1200px) {
+    #floating-chat-container { bottom: 120px !important; z-index: 9999 !important; }
+    #floating-menu-container { bottom: 200px !important; z-index: 9998 !important; }
+}
+@media (max-width: 768px) {
+    #floating-chat-container { bottom: 110px !important; }
+    #floating-menu-container { bottom: 190px !important; }
+}
+
+
+/* --- CRITICAL FIX FOR MOBILE POPUPS SQUISHING --- */
+#floating-menu-container, #floating-chat-container {
+    overflow: visible !important;
+}
+.nav-command-center {
+    width: 290px !important;
+    min-width: 290px !important;
+    max-width: 90vw !important;
+    right: 0 !important;
+}
+.alex-chat-window {
+    width: 360px !important;
+    min-width: 360px !important;
+    max-width: 90vw !important;
+    right: 0 !important;
+}
+@media (max-width: 768px) {
+    .nav-command-center {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+    .alex-chat-window {
+        width: 320px !important;
+        min-width: 320px !important;
+    }
+}

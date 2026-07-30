@@ -1213,7 +1213,7 @@ position: absolute;
 
 /* --- VIDEO AREA --- */
 .card-media-area {
-    height: 200px;
+    height: 300px;
     background: #F8FAFC;
     display: flex; align-items: center; justify-content: center;
     position: relative; overflow: hidden;
@@ -2797,11 +2797,10 @@ position: absolute;
 
 /* Estilos para la imagen del logo en el footer */
 .footer-logo-img {
-    height: 8vh; /* Ajusta esta altura según el diseño de tu logo */
-    width: auto; /* Mantiene la proporción */
-    display: block; /* Evita espacios extra debajo de la imagen */
-    /* Opcional: si tu logo es SVG y quieres forzarlo a blanco con CSS:
-       filter: brightness(0) invert(1); */
+    height: 60px;
+    max-width: 100%;
+    object-fit: contain;
+    display: block;
 }
 
 .footer-tagline {
@@ -10909,5 +10908,205 @@ input.harmonic-input {
     .glass-reviews-grid {
         padding-left: 15px !important;
         padding-right: 15px !important;
+    }
+}
+
+
+/* --- Ajustes de Etiquetas Flotantes --- */
+@media (min-width: 992px) {
+    .tag-top {
+        top: 20% !important;
+        right: -80px !important;
+        z-index: 10 !important;
+        transform: scale(0.9);
+    }
+    .tag-bottom {
+        bottom: 15% !important;
+        left: -80px !important;
+        z-index: 10 !important;
+        transform: scale(0.9);
+    }
+    .float-card {
+        bottom: -40px !important;
+        left: -40px !important;
+        z-index: 10 !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .arch-floating-tags,
+    .float-card {
+        display: none !important;
+    }
+}
+
+
+/* --- Ajuste Movil: Carrusel arriba --- */
+@media (max-width: 991px) {
+    .hero-visual-area {
+        order: -1 !important;
+        margin-bottom: 20px;
+    }
+}
+
+/* --- Ajuste Movil: Carrusel arriba y Cinemático --- */
+.arch-glass-frame {
+    box-shadow: 0 30px 70px -15px rgba(121, 107, 252, 0.35), inset 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+@media (max-width: 991px) {
+    .hero-visual-area {
+        order: -1 !important;
+        margin-bottom: 40px !important;
+        margin-top: 10px !important;
+        position: relative;
+    }
+    
+    .arch-glow-back {
+        width: 150vw !important;
+        height: 150vw !important;
+        background: radial-gradient(circle, rgba(121, 107, 252, 0.25), transparent 65%) !important;
+        filter: blur(45px) !important;
+    }
+    
+    .arch-visual-wrapper {
+        width: 92% !important;
+        max-width: none !important;
+        margin: 0 auto;
+    }
+
+    .arch-glass-frame {
+        transform: perspective(1000px) rotateX(4deg) translateY(-5px) !important;
+        border-radius: 28px !important;
+        box-shadow: 
+            0 30px 60px -15px rgba(121, 107, 252, 0.5),
+            0 0 0 1px rgba(255,255,255,0.7) inset !important;
+        animation: floatCinematic 6s ease-in-out infinite !important;
+    }
+}
+
+@keyframes floatCinematic {
+    0%, 100% { 
+        transform: perspective(1000px) rotateX(4deg) translateY(-5px); 
+        box-shadow: 0 30px 60px -15px rgba(121, 107, 252, 0.5), 0 0 0 1px rgba(255,255,255,0.7) inset; 
+    }
+    50% { 
+        transform: perspective(1000px) rotateX(0deg) translateY(5px); 
+        box-shadow: 0 15px 35px -10px rgba(121, 107, 252, 0.3), 0 0 0 1px rgba(255,255,255,0.9) inset; 
+    }
+}
+
+/* --- Ajuste Movil: Carrusel arriba y Cinemático --- */
+.arch-glass-frame {
+    box-shadow: 0 30px 70px -15px rgba(121, 107, 252, 0.35), inset 0 1px 0 rgba(255,255,255,0.6) !important;
+}
+
+@media (max-width: 991px) {
+    .hero-visual-area,
+    .arch-visual-col {
+        width: 100% !important;
+        display: block !important;
+    }
+    
+    .hero-visual-area {
+        order: -1 !important;
+        margin-bottom: 40px !important;
+        margin-top: 15px !important;
+        position: relative;
+    }
+    
+    .arch-glow-back {
+        width: 150vw !important;
+        height: 150vw !important;
+        background: radial-gradient(circle, rgba(121, 107, 252, 0.3), transparent 65%) !important;
+        filter: blur(45px) !important;
+    }
+    
+    .arch-visual-wrapper {
+        width: 100% !important;
+        max-width: 400px !important; 
+        margin: 0 auto !important;
+        position: relative;
+        z-index: 2;
+    }
+
+    .arch-glass-frame {
+        transform: perspective(1000px) rotateX(4deg) translateY(-5px) !important;
+        border-radius: 28px !important;
+        box-shadow: 
+            0 30px 60px -15px rgba(121, 107, 252, 0.5),
+            0 0 0 1px rgba(255,255,255,0.7) inset !important;
+        animation: floatCinematic 6s ease-in-out infinite !important;
+        width: 100% !important;
+    }
+}
+
+@keyframes floatCinematic {
+    0%, 100% { 
+        transform: perspective(1000px) rotateX(4deg) translateY(-5px); 
+        box-shadow: 0 30px 60px -15px rgba(121, 107, 252, 0.5), 0 0 0 1px rgba(255,255,255,0.7) inset; 
+    }
+    50% { 
+        transform: perspective(1000px) rotateX(0deg) translateY(5px); 
+        box-shadow: 0 15px 35px -10px rgba(121, 107, 252, 0.3), 0 0 0 1px rgba(255,255,255,0.9) inset; 
+    }
+}
+
+/* ENFORCE FLOATING BUTTON POSITIONS TO PREVENT OVERLAP */
+@media (max-width: 1200px) {
+    #floating-chat-container { bottom: 120px !important; z-index: 9999 !important; }
+    #floating-menu-container { bottom: 200px !important; z-index: 9998 !important; }
+}
+@media (max-width: 768px) {
+    #floating-chat-container { bottom: 110px !important; }
+    #floating-menu-container { bottom: 190px !important; }
+}
+
+/* FIX POPOVER WHITE SPACE ISSUE */
+.card-popover {
+    position: absolute;
+    background: white;
+    border-radius: 12px;
+    padding: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    z-index: 1000;
+    pointer-events: none;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+}
+.card-popover.visible {
+    opacity: 1;
+    visibility: visible;
+}
+.popover-tag { font-size: 0.7rem; color: #796bfc; font-weight: bold; text-transform: uppercase; display: block; margin-bottom: 5px; }
+.popover-title { font-size: 1rem; font-weight: 800; color: #1E293B; margin: 0 0 5px 0; }
+.popover-desc { font-size: 0.85rem; color: #64748B; margin: 0; line-height: 1.4; }
+
+
+/* --- CRITICAL FIX FOR MOBILE POPUPS SQUISHING --- */
+#floating-menu-container, #floating-chat-container {
+    overflow: visible !important;
+}
+.nav-command-center {
+    width: 290px !important;
+    min-width: 290px !important;
+    max-width: 90vw !important;
+    right: 0 !important;
+}
+.alex-chat-window {
+    width: 360px !important;
+    min-width: 360px !important;
+    max-width: 90vw !important;
+    right: 0 !important;
+}
+@media (max-width: 768px) {
+    .nav-command-center {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+    .alex-chat-window {
+        width: 320px !important;
+        min-width: 320px !important;
     }
 }

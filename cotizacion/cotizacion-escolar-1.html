@@ -6,7 +6,7 @@
     <title>Cotización de Asistencia Escolar | MHM Corredores</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1783546608" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1785403734" rel="stylesheet">
 
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
@@ -125,7 +125,447 @@
             border-color: #796bfc; color: #796bfc; background: #F8FAFC;
         }
 
-    </style>
+    
+
+
+
+
+
+
+
+
+
+/* ---- REDESIGN UX/UI BALANCED & PREMIUM ---- */
+.veh-type-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 24px !important;
+    margin-bottom: 40px !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.veh-type-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -3px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 300ms ease, box-shadow 300ms ease !important;
+    max-width: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+.veh-type-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12), 0 8px 16px -6px rgba(15, 23, 42, 0.06) !important;
+}
+.vt-image {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+.vt-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 30% !important;
+    transition: transform 500ms ease !important;
+}
+.veh-type-card:hover .vt-image img {
+    transform: scale(1.05) !important;
+}
+.vt-info {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    padding: 20px 24px 24px 24px !important;
+}
+.vt-info h4 {
+    color: #0F172A !important;
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 6px !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    line-height: 1.2 !important;
+}
+.vt-info h4 br {
+    display: none !important;
+}
+.plan-price {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    color: #2563EB !important;
+    margin-bottom: 16px !important;
+    font-variant-numeric: tabular-nums !important;
+    text-align: left !important;
+}
+.pet-feature-list {
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    flex: 1 !important;
+}
+.pet-feature-list li {
+    display: grid !important;
+    grid-template-columns: 18px 1fr !important;
+    gap: 10px !important;
+    align-items: start !important;
+    text-wrap: pretty !important;
+    line-height: 1.4 !important;
+    font-size: 0.95rem !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
+}
+.pet-feature-list li i {
+    margin-top: 4px !important;
+    color: #10B981 !important;
+    font-size: 0.9rem !important;
+}
+.card-actions-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    margin-top: auto !important;
+    width: 100% !important;
+    align-items: center !important;
+}
+.qty-controls {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #F8FAFC !important;
+    border-radius: 12px !important;
+    padding: 6px !important;
+    border: 1px solid #E2E8F0 !important;
+    margin: 0 auto !important;
+    width: max-content !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+}
+.qty-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03) !important;
+    background: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #0F172A !important;
+    font-size: 1.1rem !important;
+    border: 1px solid #E2E8F0 !important;
+    cursor: pointer !important;
+    transition: all 150ms ease !important;
+}
+.qty-btn:hover { background: #F1F5F9 !important; transform: translateY(-1px) !important; box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important; }
+.qty-btn:active { transform: scale(0.96) !important; }
+.qty-value { 
+    flex: none !important;
+    width: 32px !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    font-variant-numeric: tabular-nums !important;
+    text-align: center !important;
+}
+.btn-outline-premium, .btn-primary-premium {
+    width: 100% !important;
+    border-radius: 16px !important;
+    padding: 14px 16px !important;
+    margin-top: 0 !important;
+    background: #FFFFFF !important;
+    border: 2px solid #E2E8F0 !important;
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+    transition: all 200ms ease !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+}
+.btn-outline-premium:hover, .btn-primary-premium:hover {
+    background: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.04) !important;
+}
+.btn-outline-premium:active, .btn-primary-premium:active { transform: translateY(0) scale(0.98) !important; }
+
+.pro-card {
+    border: 2px solid #3B82F6 !important;
+}
+.pro-card .vt-info {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.03) 0%, rgba(255, 255, 255, 0) 100%) !important;
+}
+.pro-card .btn-outline-premium, .pro-card .btn-primary-premium {
+    border: 2px solid #3B82F6 !important;
+    background: #3B82F6 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
+}
+.pro-card .btn-outline-premium:hover, .pro-card .btn-primary-premium:hover {
+    background: #2563EB !important;
+    border-color: #2563EB !important;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+    .veh-type-grid {
+        grid-template-columns: 1fr !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+/* ---- END REDESIGN BALANCED ---- */
+
+
+/* ---- REDESIGN UX/UI COMPACT & PREMIUM ---- */
+.veh-type-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 20px !important;
+    margin-bottom: 40px !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.veh-type-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -3px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 300ms ease, box-shadow 300ms ease !important;
+    max-width: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+.veh-type-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12), 0 8px 16px -6px rgba(15, 23, 42, 0.06) !important;
+}
+.vt-image {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+.vt-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 30% !important;
+    transition: transform 500ms ease !important;
+}
+.veh-type-card:hover .vt-image img {
+    transform: scale(1.05) !important;
+}
+.vt-info {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    padding: 16px 20px 20px 20px !important;
+}
+.vt-info h4 {
+    color: #0F172A !important;
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 6px !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    line-height: 1.2 !important;
+}
+.vt-info h4 br {
+    display: none !important;
+}
+.plan-price {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #2563EB !important;
+    margin-bottom: 12px !important;
+    font-variant-numeric: tabular-nums !important;
+    text-align: left !important;
+}
+.pet-feature-list {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    flex: 1 !important;
+}
+.pet-feature-list li {
+    display: grid !important;
+    grid-template-columns: 18px 1fr !important;
+    gap: 8px !important;
+    align-items: start !important;
+    text-wrap: pretty !important;
+    line-height: 1.3 !important;
+    font-size: 0.9rem !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
+}
+.pet-feature-list li i {
+    margin-top: 3px !important;
+    color: #10B981 !important;
+    font-size: 0.85rem !important;
+}
+.card-actions-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    margin-top: auto !important;
+    width: 100% !important;
+    align-items: center !important;
+}
+.qty-controls {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #F8FAFC !important;
+    border-radius: 14px !important;
+    padding: 4px !important;
+    border: 1px solid #E2E8F0 !important;
+    margin-top: 0 !important;
+    width: auto !important;
+    box-sizing: border-box !important;
+    gap: 4px !important;
+}
+.qty-btn {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03) !important;
+    background: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #0F172A !important;
+    font-size: 1rem !important;
+    border: 1px solid #E2E8F0 !important;
+    cursor: pointer !important;
+    transition: all 150ms ease !important;
+}
+.qty-btn:hover { background: #F1F5F9 !important; transform: translateY(-1px) !important; box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important; }
+.qty-btn:active { transform: scale(0.96) !important; }
+.qty-value { 
+    flex: none !important;
+    width: 30px !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    font-variant-numeric: tabular-nums !important;
+    text-align: center !important;
+}
+.btn-outline-premium, .btn-primary-premium {
+    flex: 1 !important;
+    width: auto !important;
+    border-radius: 14px !important;
+    padding: 12px 14px !important;
+    margin-top: 0 !important;
+    background: #FFFFFF !important;
+    border: 2px solid #E2E8F0 !important;
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+    transition: all 200ms ease !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+}
+.btn-outline-premium:hover, .btn-primary-premium:hover {
+    background: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.04) !important;
+}
+.btn-outline-premium:active, .btn-primary-premium:active { transform: translateY(0) scale(0.98) !important; }
+
+.pro-card {
+    border: 2px solid #3B82F6 !important;
+}
+.pro-card .vt-info {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.03) 0%, rgba(255, 255, 255, 0) 100%) !important;
+}
+.pro-card .btn-outline-premium, .pro-card .btn-primary-premium {
+    border: 2px solid #3B82F6 !important;
+    background: #3B82F6 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
+}
+.pro-card .btn-outline-premium:hover, .pro-card .btn-primary-premium:hover {
+    background: #2563EB !important;
+    border-color: #2563EB !important;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3) !important;
+}
+/* ---- END REDESIGN COMPACT ---- */
+
+
+/* ---- REDESIGN UX/UI FIX CARDS WIDTH & FOOTER ---- */
+.veh-type-card {
+    max-width: 380px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.footer-logo-img {
+    height: auto !important;
+    max-width: 180px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+
+
+/* Ensure html and body don't have extra bottom margin */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* ---- END REDESIGN FIX ---- */
+
+</style>
 
 </head>
 <body class="bg-body">
@@ -341,7 +781,7 @@
         }
         
         .vt-image {
-            width: 100%; height: 180px; border-radius: 16px;
+            width: 100%; height: 280px; border-radius: 16px;
             overflow: hidden; margin-bottom: 10px;
             box-shadow: 0 4px 10px rgba(0,0,0,0.05);
         }
@@ -388,7 +828,7 @@
     
     <div class="veh-type-grid">
         <div class="veh-type-card">
-            <div class="vt-image"><img src="../assets/img/article-3.webp" alt="Asistencia Escolar" id="img-escolar"></div>
+            <div class="vt-image"><img src="../assets/img/escolar.svg" alt="Asistencia Escolar" id="img-escolar"></div>
             <div class="vt-info">
                 <h4>Asistencia Escolar</h4>
                 <div class="plan-price">$3.780 / mes</div>
@@ -406,12 +846,14 @@
                     <li><i class="fa-solid fa-check"></i> Descuento en farmacia, mayor cobertura y beneficios exclusivos.</li>
                     <li><i class="fa-solid fa-check"></i> Libre elección en todo Chile.</li>
                 </ul>
-                <div class="qty-controls">
+                <div class="card-actions-row">
+<div class="qty-controls">
                     <button type="button" class="qty-btn" onclick="updateQty('escolar', -1)"><i class="fa-solid fa-minus"></i></button>
                     <span class="qty-value" id="qty-escolar">0</span>
                     <button type="button" class="qty-btn" onclick="updateQty('escolar', 1)"><i class="fa-solid fa-plus"></i></button>
                 </div>
-                <button type="button" class="btn-outline-premium" onclick="openCoverageModal('escolar')"><i class="fa-solid fa-list-ul"></i> Ver coberturas completas</button>
+<button type="button" class="btn-outline-premium" onclick="openCoverageModal('escolar')"><i class="fa-solid fa-list-ul"></i> Ver coberturas completas</button>
+</div>
             </div>
         </div>
     </div>
@@ -1001,121 +1443,12 @@
         </button>
     </div>
 
-    <script src="../js/script.js?v=1783546608"></script>
-    <script src="../js/script-quote.js?v=1783546608"></script>
+    <script src="../js/script.js?v=1785403170"></script>
+    <script src="../js/script-quote.js?v=1785403170"></script>
 
-    <div id="alexOnboarding" class="crystal-overlay">
-        
-        <div class="crystal-card">
-            <button class="skip-link" onclick="closeWelcomeOnboarding()">SALTAR INTRO</button>
+    
 
-            <div class="c-body">
-
-                <div class="c-slide active" data-step="0">
-                    <div class="tech-icon-stack">
-                        <div class="tech-icon-bg"></div>
-                        <i class="fa-solid fa-microchip tech-icon-main"></i>
-                        <div class="tech-icon-badge"><i class="fa-solid fa-bolt"></i></div>
-                    </div>
-
-                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Escolar</span></h2>
-                    
-                    <div class="c-copy">
-                        <p>Has accedido a una plataforma de seguros de nueva generación. Conectamos con las mejores aseguradoras de Chile para darte la cobertura ideal.</p>
-                        <p>Nuestro proceso está diseñado para ser rápido y eficiente. En menos de <strong>5 minutos</strong>, vamos a analizar tu perfil y presentarte las mejores opciones de cobertura.</p>
-                    </div>
-                </div>
-
-                <div class="c-slide" data-step="1">
-                    <div class="tech-icon-stack">
-                        <div class="tech-icon-bg"></div>
-                        <i class="fa-solid fa-file-contract tech-icon-main"></i>
-                        <div class="tech-icon-badge"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    </div>
-
-                    <h2 class="c-title">Requisitos de <br><span class="shimmer-text">Cotización</span></h2>
-                    
-                    <div class="c-copy">
-                        <p>Para garantizar una tarifa exacta (no solo un estimado), necesitamos los siguientes datos:</p>
-                    </div>
-
-                    <div class="info-group">
-                        
-                        <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-user"></i></div>
-                            <div class="ic-content">
-                                <h4>Datos del Apoderado</h4>
-                                <p>Tu nombre, RUT, teléfono y correo electrónico.</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card-row" style="border-color: #2ED9C333; background: #f0f9ff;">
-                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-school"></i></div>
-                            <div class="ic-content">
-                                <h4>Información del Estudiante</h4>
-                                <p>Nombre, edad y nivel escolar de tu hijo(a).</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-graduation-cap"></i></div>
-                            <div class="ic-content">
-                                <h4>Plan Deseado</h4>
-                                <p>Elige el plan de Asistencia Escolar según tus necesidades.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="c-slide" data-step="2">
-                    <div class="tech-icon-stack">
-                        <div class="tech-icon-bg"></div>
-                        <i class="fa-solid fa-hand-holding-heart tech-icon-main"></i>
-                        <div class="tech-icon-badge"><i class="fa-solid fa-check"></i></div>
-                    </div>
-
-                    <h2 class="c-title">Tu Viaje, <br><span class="shimmer-text">Tu Elección</span></h2>
-                    
-                    <div class="c-copy">
-                        <p>Al final del análisis, verás un panel personalizado con tus opciones. Tendrás control total para <strong>comprar al instante</strong> o solicitar asesoría con un <strong>Agente MHM</strong>.</p>
-                        <p>Gracias por confiar tu protección en nosotros.</p>
-                    </div>
-
-                    <div class="alex-signature-container">
-                        <div class="alex-logo-mark icon-image-mode">
-                            <img src="../assets/img/logo-mhm-blanco.png" alt="Alex AI Logo">
-                        </div>
-                    
-                        <div class="sig-text-block">
-                            <span class="sig-label">Atentamente,</span>
-                            <span class="sig-name">El Equipo de MHM</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="c-footer">
-                <button class="btn-back" id="btnWelcomeBack" onclick="prevWelcomeSlide()" disabled>
-                    <i class="fa-solid fa-arrow-left"></i> Volver
-                </button>
-                
-                <div class="dots-nav" id="welcomeDots">
-                    <span class="dot active"></span>
-                    <span class="dot"></span>
-                    <span class="dot"></span>
-                </div>
-
-                <button class="btn-primary-shimmer" id="btnWelcomeNext" onclick="nextWelcomeSlide()">
-                    CONTINUAR
-                </button>
-            </div>
-        </div>
-    </div>
-
-
-<!-- Modal Leads -->
+                <!-- Modal Leads -->
 <div class="lead-modal-overlay" id="leadModal">
     
 

@@ -7,7 +7,7 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Centro de Cotización | MHM Corredores</title>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&amp;display=swap" rel="stylesheet"/>
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1783546608" rel="stylesheet"/>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1785403734" rel="stylesheet"/>
 <link href="../css/style.css" rel="stylesheet"/>
 <link href="../assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
 <style>
@@ -130,7 +130,447 @@
             .hub-hero h1 { font-size: 2rem; }
             .hub-tab-btn { padding: 10px 20px; font-size: 0.9rem; }
         }
-    </style>
+    
+
+
+
+
+
+
+
+
+
+/* ---- REDESIGN UX/UI BALANCED & PREMIUM ---- */
+.veh-type-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
+    gap: 24px !important;
+    margin-bottom: 40px !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.veh-type-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -3px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 300ms ease, box-shadow 300ms ease !important;
+    max-width: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+.veh-type-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12), 0 8px 16px -6px rgba(15, 23, 42, 0.06) !important;
+}
+.vt-image {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 3 !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+.vt-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 30% !important;
+    transition: transform 500ms ease !important;
+}
+.veh-type-card:hover .vt-image img {
+    transform: scale(1.05) !important;
+}
+.vt-info {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    padding: 20px 24px 24px 24px !important;
+}
+.vt-info h4 {
+    color: #0F172A !important;
+    font-size: 1.35rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 6px !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    line-height: 1.2 !important;
+}
+.vt-info h4 br {
+    display: none !important;
+}
+.plan-price {
+    font-size: 1.25rem !important;
+    font-weight: 800 !important;
+    color: #2563EB !important;
+    margin-bottom: 16px !important;
+    font-variant-numeric: tabular-nums !important;
+    text-align: left !important;
+}
+.pet-feature-list {
+    margin-top: 0 !important;
+    margin-bottom: 24px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 10px !important;
+    flex: 1 !important;
+}
+.pet-feature-list li {
+    display: grid !important;
+    grid-template-columns: 18px 1fr !important;
+    gap: 10px !important;
+    align-items: start !important;
+    text-wrap: pretty !important;
+    line-height: 1.4 !important;
+    font-size: 0.95rem !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
+}
+.pet-feature-list li i {
+    margin-top: 4px !important;
+    color: #10B981 !important;
+    font-size: 0.9rem !important;
+}
+.card-actions-row {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 14px !important;
+    margin-top: auto !important;
+    width: 100% !important;
+    align-items: center !important;
+}
+.qty-controls {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #F8FAFC !important;
+    border-radius: 12px !important;
+    padding: 6px !important;
+    border: 1px solid #E2E8F0 !important;
+    margin: 0 auto !important;
+    width: max-content !important;
+    box-sizing: border-box !important;
+    gap: 8px !important;
+}
+.qty-btn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03) !important;
+    background: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #0F172A !important;
+    font-size: 1.1rem !important;
+    border: 1px solid #E2E8F0 !important;
+    cursor: pointer !important;
+    transition: all 150ms ease !important;
+}
+.qty-btn:hover { background: #F1F5F9 !important; transform: translateY(-1px) !important; box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important; }
+.qty-btn:active { transform: scale(0.96) !important; }
+.qty-value { 
+    flex: none !important;
+    width: 32px !important;
+    font-size: 1.1rem !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    font-variant-numeric: tabular-nums !important;
+    text-align: center !important;
+}
+.btn-outline-premium, .btn-primary-premium {
+    width: 100% !important;
+    border-radius: 16px !important;
+    padding: 14px 16px !important;
+    margin-top: 0 !important;
+    background: #FFFFFF !important;
+    border: 2px solid #E2E8F0 !important;
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    font-size: 1rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+    transition: all 200ms ease !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+}
+.btn-outline-premium:hover, .btn-primary-premium:hover {
+    background: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.04) !important;
+}
+.btn-outline-premium:active, .btn-primary-premium:active { transform: translateY(0) scale(0.98) !important; }
+
+.pro-card {
+    border: 2px solid #3B82F6 !important;
+}
+.pro-card .vt-info {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.03) 0%, rgba(255, 255, 255, 0) 100%) !important;
+}
+.pro-card .btn-outline-premium, .pro-card .btn-primary-premium {
+    border: 2px solid #3B82F6 !important;
+    background: #3B82F6 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
+}
+.pro-card .btn-outline-premium:hover, .pro-card .btn-primary-premium:hover {
+    background: #2563EB !important;
+    border-color: #2563EB !important;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3) !important;
+}
+
+@media (max-width: 768px) {
+    .veh-type-grid {
+        grid-template-columns: 1fr !important;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+    }
+}
+/* ---- END REDESIGN BALANCED ---- */
+
+
+/* ---- REDESIGN UX/UI COMPACT & PREMIUM ---- */
+.veh-type-grid {
+    display: grid !important;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
+    gap: 20px !important;
+    margin-bottom: 40px !important;
+    align-items: stretch !important;
+    justify-content: center !important;
+    max-width: 1200px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+.veh-type-card {
+    background: #FFFFFF !important;
+    border: 1px solid #E2E8F0 !important;
+    border-radius: 20px !important;
+    padding: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    position: relative !important;
+    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -3px rgba(15, 23, 42, 0.04) !important;
+    transition: transform 300ms ease, box-shadow 300ms ease !important;
+    max-width: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+}
+.veh-type-card:hover {
+    transform: translateY(-4px) !important;
+    box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12), 0 8px 16px -6px rgba(15, 23, 42, 0.06) !important;
+}
+.vt-image {
+    width: 100% !important;
+    height: auto !important;
+    aspect-ratio: 4 / 5 !important;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+    box-shadow: none !important;
+    overflow: hidden !important;
+}
+.vt-image img {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    object-position: center 30% !important;
+    transition: transform 500ms ease !important;
+}
+.veh-type-card:hover .vt-image img {
+    transform: scale(1.05) !important;
+}
+.vt-info {
+    display: flex !important;
+    flex-direction: column !important;
+    flex: 1 !important;
+    padding: 16px 20px 20px 20px !important;
+}
+.vt-info h4 {
+    color: #0F172A !important;
+    font-size: 1.3rem !important;
+    font-weight: 800 !important;
+    letter-spacing: -0.02em !important;
+    margin-bottom: 6px !important;
+    text-align: left !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    gap: 6px !important;
+    line-height: 1.2 !important;
+}
+.vt-info h4 br {
+    display: none !important;
+}
+.plan-price {
+    font-size: 1.2rem !important;
+    font-weight: 800 !important;
+    color: #2563EB !important;
+    margin-bottom: 12px !important;
+    font-variant-numeric: tabular-nums !important;
+    text-align: left !important;
+}
+.pet-feature-list {
+    margin-top: 0 !important;
+    margin-bottom: 20px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 8px !important;
+    flex: 1 !important;
+}
+.pet-feature-list li {
+    display: grid !important;
+    grid-template-columns: 18px 1fr !important;
+    gap: 8px !important;
+    align-items: start !important;
+    text-wrap: pretty !important;
+    line-height: 1.3 !important;
+    font-size: 0.9rem !important;
+    color: #475569 !important;
+    font-weight: 500 !important;
+}
+.pet-feature-list li i {
+    margin-top: 3px !important;
+    color: #10B981 !important;
+    font-size: 0.85rem !important;
+}
+.card-actions-row {
+    display: flex !important;
+    flex-direction: row !important;
+    gap: 8px !important;
+    margin-top: auto !important;
+    width: 100% !important;
+    align-items: center !important;
+}
+.qty-controls {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    background: #F8FAFC !important;
+    border-radius: 14px !important;
+    padding: 4px !important;
+    border: 1px solid #E2E8F0 !important;
+    margin-top: 0 !important;
+    width: auto !important;
+    box-sizing: border-box !important;
+    gap: 4px !important;
+}
+.qty-btn {
+    width: 38px !important;
+    height: 38px !important;
+    border-radius: 10px !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.03) !important;
+    background: #FFFFFF !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    color: #0F172A !important;
+    font-size: 1rem !important;
+    border: 1px solid #E2E8F0 !important;
+    cursor: pointer !important;
+    transition: all 150ms ease !important;
+}
+.qty-btn:hover { background: #F1F5F9 !important; transform: translateY(-1px) !important; box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important; }
+.qty-btn:active { transform: scale(0.96) !important; }
+.qty-value { 
+    flex: none !important;
+    width: 30px !important;
+    font-size: 1.05rem !important;
+    font-weight: 700 !important;
+    color: #0F172A !important;
+    font-variant-numeric: tabular-nums !important;
+    text-align: center !important;
+}
+.btn-outline-premium, .btn-primary-premium {
+    flex: 1 !important;
+    width: auto !important;
+    border-radius: 14px !important;
+    padding: 12px 14px !important;
+    margin-top: 0 !important;
+    background: #FFFFFF !important;
+    border: 2px solid #E2E8F0 !important;
+    color: #0F172A !important;
+    font-weight: 700 !important;
+    font-size: 0.95rem !important;
+    display: flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    gap: 8px !important;
+    cursor: pointer !important;
+    transition: all 200ms ease !important;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
+    text-align: center !important;
+    line-height: 1.2 !important;
+}
+.btn-outline-premium:hover, .btn-primary-premium:hover {
+    background: #F8FAFC !important;
+    border-color: #CBD5E1 !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.04) !important;
+}
+.btn-outline-premium:active, .btn-primary-premium:active { transform: translateY(0) scale(0.98) !important; }
+
+.pro-card {
+    border: 2px solid #3B82F6 !important;
+}
+.pro-card .vt-info {
+    background: linear-gradient(180deg, rgba(59, 130, 246, 0.03) 0%, rgba(255, 255, 255, 0) 100%) !important;
+}
+.pro-card .btn-outline-premium, .pro-card .btn-primary-premium {
+    border: 2px solid #3B82F6 !important;
+    background: #3B82F6 !important;
+    color: #FFFFFF !important;
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
+}
+.pro-card .btn-outline-premium:hover, .pro-card .btn-primary-premium:hover {
+    background: #2563EB !important;
+    border-color: #2563EB !important;
+    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3) !important;
+}
+/* ---- END REDESIGN COMPACT ---- */
+
+
+/* ---- REDESIGN UX/UI FIX CARDS WIDTH & FOOTER ---- */
+.veh-type-card {
+    max-width: 380px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+.footer-logo-img {
+    height: auto !important;
+    max-width: 180px !important;
+    object-fit: contain !important;
+    display: block !important;
+}
+
+
+
+/* Ensure html and body don't have extra bottom margin */
+html, body {
+    margin: 0 !important;
+    padding: 0 !important;
+}
+/* ---- END REDESIGN FIX ---- */
+
+</style>
 <style>
 /* ABSOLUTE MOBILE OVERFLOW KILLER */
 @media (max-width: 1024px) {
@@ -256,7 +696,8 @@
 
 @media (max-width: 768px) {
     .modal-split { flex-direction: column; }
-    .modal-image-panel { width: 100%; height: 150px; }
+    .modal-image-panel { width: 100%; height: 200px; }
+    .modal-image-panel img { border-bottom-left-radius: 0 !important; border-top-right-radius: 20px; }
     .modal-data-panel { width: 100%; padding: 25px; }
     .modal-covers-list { grid-template-columns: 1fr; }
 }
@@ -409,7 +850,7 @@
 <!-- TAB CONTENT: Vehículos -->
 <div class="hub-tab-content active" id="tab-vehiculos">
 <!-- AUTO (Links to cotizacion-1.html) -->
-<div class="hub-card" data-covers="['Daños materiales del vehículo (parcial/total)', 'Robo y/o hurto del vehículo', 'Responsabilidad frente a terceros', 'Asistencia en ruta 24/7']" data-desc="Protección completa para tu vehículo personal o comercial. El Seguro Automotriz es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros." data-icon="fa-car" data-link="cotizacion-1.html" data-tag="Protección Vehicular" data-title="Seguro Automotriz" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card" data-covers="['Daños materiales del vehículo (parcial/total)', 'Robo y/o hurto del vehículo', 'Responsabilidad frente a terceros', 'Asistencia en ruta 24/7']" data-desc="Protección completa para tu vehículo personal o comercial. El Seguro Automotriz es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros." data-icon="fa-car" data-link="cotizacion-1.html" data-tag="Protección Vehicular" data-title="Seguro Automotriz" data-img="../assets/img/vehicular.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
 <div class="hub-icon"><i class="fa-solid fa-car"></i></div>
 <h3>Seguro Automotriz</h3>
 <p>Protección completa para tu vehículo personal o comercial.</p>
@@ -433,32 +874,32 @@
 
 <!-- TAB CONTENT: Asistencias -->
 <div class="hub-tab-content" id="tab-asistencias">
-<div class="hub-card" data-covers="['Urgencia Médica', 'Telemedicina', 'Médico a Domicilio', 'Descuento Farmacias']" data-desc="Protege a tu familia con acceso a servicios de urgencia, atención médica online y descuentos en medicamentos." data-icon="fa-user-doctor" data-link="cotizacion-salud-1.html" data-tag="Salud" data-title="Asistencia de Salud" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card" data-covers="['Urgencia Médica', 'Telemedicina', 'Médico a Domicilio', 'Descuento Farmacias']" data-desc="Protege a tu familia con acceso a servicios de urgencia, atención médica online y descuentos en medicamentos." data-icon="fa-user-doctor" data-link="cotizacion-salud-1.html" data-tag="Salud" data-title="Asistencia de Salud" data-img="../assets/img/salud.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
 <div class="hub-icon"><i class="fa-solid fa-user-doctor"></i></div>
 <h3>Asistencia de Salud</h3>
 <p>Servicios de urgencia, atención online y salud preventiva.</p>
 </div>
-<div class="hub-card" data-covers="['Urgencia médica veterinaria', 'Consulta médica veterinaria', 'Descuento en farmacias (uso veterinario)', 'Telemedicina veterinaria', 'Vacuna antirrábica']" data-desc="Protege a tus mascotas con nuestro seguro de asistencia veterinaria. Cubre gastos médicos, accidentes y más." data-icon="fa-paw" data-link="cotizacion-mascota-1.html" data-tag="Mascotas" data-title="Asistencia Veterinaria" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card" data-covers="['Urgencia médica veterinaria', 'Consulta médica veterinaria', 'Descuento en farmacias (uso veterinario)', 'Telemedicina veterinaria', 'Vacuna antirrábica']" data-desc="Protege a tus mascotas con nuestro seguro de asistencia veterinaria. Cubre gastos médicos, accidentes y más." data-icon="fa-paw" data-link="cotizacion-mascota-1.html" data-tag="Mascotas" data-title="Asistencia Veterinaria" data-img="../assets/img/veterinaria.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
 <div class="hub-icon"><i class="fa-solid fa-paw"></i></div>
 <h3>Asistencia Veterinaria</h3>
 <p>Seguro y asistencia completa para tus mascotas.</p>
 </div>
-<div class="hub-card" data-covers="['Urgencia médica por accidente', 'Descuento en farmacias', 'Consulta médica general', 'Telemedicina', 'Orientación médica telefónica']" data-desc="Protección y cobertura médica enfocada en escolares, brindando atención en caso de accidentes, telemedicina y descuentos en medicamentos." data-icon="fa-school" data-link="cotizacion-escolar-1.html" data-tag="Escolar" data-title="Asistencia Protección Escolar" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card" data-covers="['Urgencia médica por accidente', 'Descuento en farmacias', 'Consulta médica general', 'Telemedicina', 'Orientación médica telefónica']" data-desc="Protección y cobertura médica enfocada en escolares, brindando atención en caso de accidentes, telemedicina y descuentos en medicamentos." data-icon="fa-school" data-link="cotizacion-escolar-1.html" data-tag="Escolar" data-title="Asistencia Protección Escolar" data-img="../assets/img/escolar.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
 <div class="hub-icon"><i class="fa-solid fa-school"></i></div>
 <h3>Asistencia Protección Escolar</h3>
 <p>Protección médica y accidentes para la tranquilidad de tus hijos.</p>
 </div>
-<div class="hub-card" data-covers="['Protección para neumáticos', 'Protección para amortiguadores', 'Protección al vidrio lateral del vehículo', 'Cerrajería Vehicular', 'Protección insignia o emblema']" data-desc="Cobertura para imprevistos en tu auto, protegiendo llantas, vidrios y cerrajería en cualquier momento." data-icon="fa-car-burst" data-link="cotizacion-vehicular-1.html" data-tag="Vehicular" data-title="Asistencia Vehicular" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card" data-covers="['Protección para neumáticos', 'Protección para amortiguadores', 'Protección al vidrio lateral del vehículo', 'Cerrajería Vehicular', 'Protección insignia o emblema']" data-desc="Cobertura para imprevistos en tu auto, protegiendo llantas, vidrios y cerrajería en cualquier momento." data-icon="fa-car-burst" data-link="cotizacion-vehicular-1.html" data-tag="Vehicular" data-title="Asistencia Vehicular" data-img="../assets/img/vehicular.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
 <div class="hub-icon"><i class="fa-solid fa-car-burst"></i></div>
 <h3>Asistencia Vehicular</h3>
 <p>Protección para neumáticos, vidrios, cerrajería y más imprevistos.</p>
 </div>
-<div class="hub-card" data-covers="['Plomería', 'Electricidad', 'Cerrajería', 'Vidriería', 'Instalación de cortinas']" data-desc="Asistencia rápida y confiable para los imprevistos de tu hogar, incluyendo servicios de plomería, electricidad y cerrajería." data-icon="fa-house-chimney" data-link="cotizacion-asistencia-hogar-1.html" data-tag="Hogar" data-title="Asistencia Hogar" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card" data-covers="['Plomería', 'Electricidad', 'Cerrajería', 'Vidriería', 'Instalación de cortinas']" data-desc="Asistencia rápida y confiable para los imprevistos de tu hogar, incluyendo servicios de plomería, electricidad y cerrajería." data-icon="fa-house-chimney" data-link="cotizacion-asistencia-hogar-1.html" data-tag="Hogar" data-title="Asistencia Hogar" data-img="../assets/img/hogar.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
 <div class="hub-icon"><i class="fa-solid fa-house-chimney"></i></div>
 <h3>Asistencia Hogar</h3>
 <p>Protección y asistencia experta para los imprevistos de tu hogar.</p>
 </div>
-<div class="hub-card" data-covers="['Urgencia médica por accidente en bicicleta', 'Descuento en farmacias', 'Telemedicina', 'Orientación médica telefónica', 'Asistencia legal telefónica']" data-desc="Cobertura completa para ciclistas, con asistencia médica por accidentes, descuentos médicos y asesoría legal telefónica." data-icon="fa-person-biking" data-link="cotizacion-asistencia-ciclista-1.html" data-tag="Bicicleta" data-title="Asistencia al Ciclista" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
+<div class="hub-card" data-covers="['Urgencia médica por accidente en bicicleta', 'Descuento en farmacias', 'Telemedicina', 'Orientación médica telefónica', 'Asistencia legal telefónica']" data-desc="Cobertura completa para ciclistas, con asistencia médica por accidentes, descuentos médicos y asesoría legal telefónica." data-icon="fa-person-biking" data-link="cotizacion-asistencia-ciclista-1.html" data-tag="Bicicleta" data-title="Asistencia al Ciclista" data-img="../assets/img/ciclista.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
 <div class="hub-icon"><i class="fa-solid fa-person-biking"></i></div>
 <h3>Asistencia al Ciclista</h3>
 <p>Cobertura médica y legal pensada para tu tranquilidad sobre dos ruedas.</p>
@@ -651,10 +1092,7 @@
 <button class="modal-close-btn" id="modal-close-btn" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
 <div class="modal-split">
 <div class="modal-image-panel">
-<div class="modal-image-placeholder">
-<i class="fa-regular fa-image" id="modal-icon-big"></i>
-<span id="modal-image-text">Imagen</span>
-</div>
+<img id="modal-image-big" src="" alt="" style="width:100%; height:100%; object-fit:cover; border-top-left-radius: 20px; border-bottom-left-radius: 20px;">
 </div>
 <div class="modal-data-panel">
 <div class="modal-tag" id="modal-tag">Categoría</div>
@@ -739,8 +1177,11 @@
         document.getElementById('modal-desc').textContent = desc;
         document.getElementById('modal-tag').textContent = tag;
         
-        document.getElementById('modal-icon-big').className = `fa-solid ${icon}`;
-        document.getElementById('modal-image-text').textContent = title;
+        const img = element.getAttribute('data-img');
+        if (img) {
+            document.getElementById('modal-image-big').src = img;
+            document.getElementById('modal-image-big').alt = title;
+        }
 
         const coversList = document.getElementById('modal-covers');
         coversList.innerHTML = '';
