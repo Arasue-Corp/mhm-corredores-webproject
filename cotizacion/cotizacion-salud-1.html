@@ -306,6 +306,7 @@
             }
         }
     </style>
+    <link rel="stylesheet" href="../css/salud.css?v=2">
 </head>
 
 <body class="bg-body">
@@ -471,1022 +472,267 @@
         </div>
 
 
-    <div class="page-wrapper">
-
-        <div class="wizard-container">
-            <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-regular fa-hand-spock"></i>Para Empezar</div>
-                <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
+    
+    <main class="healthExperience">
+        <section class="healthLanding" id="inicio">
+            <div class="healthPhoto"></div>
+            <div class="container healthIntro">
+                <span class="healthKicker">SEGUROS PARA PERSONAS, FAMILIAS Y EMPRESAS</span>
+                <h1>Protege lo que estás <em>construyendo.</em></h1>
+                <p>Una familia que crece, un negocio que avanza, una salud que quieres cuidar.<br/>En MHM encontramos el seguro que acompaña lo que estás construyendo.</p>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 25%;"></div></div>
-            <div class="header-split"></div>
-            <header class="brand-page-header">
-                <div class="title-group">
-                    <h1 class="text-gradient-corp">Asistencia de Salud</h1>
-                    <div class="aurora-line"></div> 
-                </div>
-                <p>Elige el plan de Asistencia de Salud que mejor se adapte a tu familia.</p>
-            </header>
-        </div>
-
-        <div class="specs-layout-grid salud-layout-container">
             
-            <div class="main-spec-col" >
-                <div class="premium-white-card" id="quoteFormStep1">
+            <section class="healthFinder container" id="recomendador">
+                <div class="finderHead">
+                    <b><i class="fa-solid fa-magnifying-glass"></i> ENCUENTRA TU PROTECCIÓN IDEAL</b>
+                    <span>Cuéntanos sobre ti y compara opciones que sí hacen sentido</span>
+                </div>
+                <div class="finderFields">
+                    <label>Edad
+                        <input type="number" min="18" max="65" id="profileAge" placeholder="Ej. 34"/>
+                    </label>
+                    <label>Género
+                        <select id="profileGender">
+                            <option value="">Selecciona</option>
+                            <option value="Femenino">Femenino</option>
+                            <option value="Masculino">Masculino</option>
+                        </select>
+                    </label>
+                    <label>Previsión de salud
+                        <select id="profileHealth">
+                            <option value="">Selecciona</option>
+                            <option value="Fonasa">Fonasa</option>
+                            <option value="Isapre">Isapre</option>
+                        </select>
+                    </label>
+                    <button class="assuredField" id="btnAssuredOpen">
+                        <span>Asegurados<strong id="assuredSummary">Solo titular</strong></span>
+                        <b id="assuredToggle">+</b>
+                    </button>
+                    <button class="btn solid finderSubmit" id="btnRecommend" disabled>Cotizar ahora <i class="fa-solid fa-arrow-right"></i></button>
+                </div>
+                
+                <div class="assuredPanel" id="assuredPanel" style="display: none;">
+                    <div>
+                        <span><b>Pareja o cónyuge</b><small>Agregar a la cotización</small></span>
+                        <button id="btnPartner">Agregar</button>
+                    </div>
+                    <div>
+                        <span><b>Cargas</b><small>Hijos u otras cargas asegurables</small></span>
+                        <div class="stepper">
+                            <button id="btnChildrenDec">−</button>
+                            <b id="childrenCount">0</b>
+                            <button id="btnChildrenInc">+</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="healthProof">
+                    <span><i class="fa-solid fa-shield-halved"></i> Cotización sin compromiso</span>
+                    <span>• Pólizas explicadas en simple</span>
+                    <span>• Un corredor te acompaña</span>
+                </div>
+            </section>
+        </section>
+
+        <section class="healthResults" id="resultados">
+            <div class="resultsBanner">
+                <div class="container">
+                    <span>COTIZACIÓN DE SEGUROS DE SALUD</span>
+                    <h2>Opciones pensadas para ti</h2>
+                    <p>Compara coberturas y beneficios para elegir con información clara.</p>
+                </div>
+            </div>
+            
+            <div class="container resultsBody">
+                <div class="resultProfile">
+                    <span>✓</span>
+                    <div>
+                        <b id="resultTitle">Resultados para -- años</b>
+                        <small id="resultSubtitle">-- · -- · -- asegurado</small>
+                    </div>
+                    <button id="btnEditProfile">Editar mi perfil</button>
+                </div>
+                
+                <div class="resultTools">
+                    <div>
+                        <b>4 seguros de salud disponibles</b>
+                        <small>Compara alternativas seleccionadas por MHM</small>
+                    </div>
+                </div>
+
+                <div class="resultsLayout">
+                    <aside class="healthFilters">
+                        <h3>Refina tus resultados</h3>
+                        <p>Los cambios se aplican al instante</p>
+                        <fieldset>
+                            <legend>Previsión</legend>
+                            <div class="segmented">
+                                <button class="filterHealth" data-val="Fonasa">Fonasa</button>
+                                <button class="filterHealth" data-val="Isapre">Isapre</button>
+                            </div>
+                        </fieldset>
+                        <div class="futureFilter">
+                            <b>Próximamente</b>
+                            <p>Aseguradora · tipo de cobertura · precio mensual</p>
+                        </div>
+                    </aside>
                     
-<form id="startForm" onsubmit="event.preventDefault();">
-    <style>
-        .veh-type-grid {
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 32px; 
-            margin-bottom: 40px;
-        }
-        @media (max-width: 992px) {
-            .veh-type-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        }
-        @media (max-width: 768px) {
-            .veh-type-grid { grid-template-columns: 1fr; }
-        }
+                    <div class="healthPolicyList" id="policyList">
+                        <!-- Planes reales se inyectan aqui -->
+                    </div>
+                </div>
+            </div>
+        </section>
         
-        .veh-type-card {
-            height: 100%; box-sizing: border-box;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 24px;
-            overflow: hidden;
-            position: relative;
-            display: flex; flex-direction: column; align-items: stretch; text-align: left; gap: 20px;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 4px 10px -5px rgba(15, 23, 42, 0.02);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .veh-type-card:hover { 
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(121, 107, 252, 0.15);
-            border-color: transparent;
-        }
-        
-        .vt-image {
-            width: 100%; aspect-ratio: 16 / 9; border-radius: 16px;
-            overflow: hidden; margin-bottom: 5px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            background: #F8FAFC;
-            position: relative;
-        }
-        .vt-image img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .veh-type-card:hover .vt-image img { transform: scale(1.08); }
-        
-        .vt-info { width: 100%; display: flex; flex-direction: column; flex-grow: 1; }
-        .vt-info-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-        .vt-info h4 { margin: 0; color: #0F172A; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
-        
-        .badge-recomendado {
-            font-size: 0.65rem; 
-            line-height: 1;
-            background: linear-gradient(135deg, #796bfc, #4F46E5); 
-            color: #ffffff; 
-            padding: 6px 12px; 
-            border-radius: 30px; 
-            font-weight: 800; 
-            display: inline-flex; 
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .badge-recomendado i {
-            color: #FFD700 !important;
-            margin-right: 6px !important;
-            font-size: 0.8rem;
-        }
-        .badge-recomendado::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-            transform: skewX(-20deg);
-            animation: badgeShine 3s infinite;
-        }
-        @keyframes badgeShine {
-            0% { left: -100%; }
-            20% { left: 200%; }
-            100% { left: 200%; }
-        }
+        <section class="healthFaq container" id="preguntas">
+            <span class="healthKicker">RESUELVE TUS DUDAS ANTES DE COTIZAR</span>
+            <h2>Preguntas frecuentes sobre seguros de salud</h2>
+            <details><summary>¿Este seguro reemplaza a Fonasa o Isapre?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
+            <details><summary>¿Desde cuándo puedo usar las asistencias?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
+            <details><summary>¿Cuál es la edad para contratar?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
+            <details><summary>¿Estoy protegido fuera de Chile?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
+            <details><summary>¿Cómo se activan las asistencias?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
+        </section>
+    </main>
 
-        .pet-feature-list {
-            list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 0.95rem; color: #475569;
-            text-align: left;
-        }
-        .pet-feature-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; line-height: 1.4; }
-        .pet-feature-list li i { color: #2ED9C3; font-size: 1.1rem; margin-top: 2px; }
-        
-        .plan-price-wrapper { display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; }
-        .plan-price-label { font-size: 0.9rem; color: #64748B; font-weight: 600; }
-        .plan-price { font-size: 1.8rem; font-weight: 800; color: #796bfc; letter-spacing: -0.5px; }
-        .plan-price-period { font-size: 1rem; color: #94A3B8; font-weight: 500; }
-        
-        /* Pro Card Top Aurora */
-        .pro-card {
-            border: 1px solid rgba(121, 107, 252, 0.3);
-            box-shadow: 0 10px 30px -5px rgba(121, 107, 252, 0.1);
-        }
-        .pro-card .card-aurora-top {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            z-index: 10;
-            background: linear-gradient(90deg, #796bfc, #2ED9C3, #796bfc);
-            background-size: 200% 100%;
-            animation: gradientMove 3s linear infinite;
-        }
-        @keyframes gradientMove {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
-    
-        /* Accordion */
-        .accordion-checkbox { display: none; }
-        .accordion-label {
-            cursor: pointer; display: inline-flex; align-items: center; justify-content: flex-start;
-            gap: 8px; color: #796bfc; font-weight: 700; font-size: 0.95rem; margin-top: 15px;
-            transition: color 0.2s; padding: 6px 12px; border-radius: 8px; background: #F8FAFC;
-            border: 1px solid #E2E8F0; width: fit-content;
-        }
-        .accordion-label:hover { background: #F1F5F9; color: #4F46E5; border-color: #CBD5E1; }
-        .accordion-label i { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .accordion-checkbox:checked + .accordion-label i { transform: rotate(180deg); }
-        .accordion-checkbox:checked + .accordion-label .label-text::before { content: attr(data-open); }
-        .accordion-checkbox:not(:checked) + .accordion-label .label-text::before { content: attr(data-closed); }
-        .accordion-checkbox:not(:checked) ~ .pet-feature-list { display: none; }
-        .accordion-checkbox:checked ~ .pet-feature-list { display: block; animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+    <!-- Custom Logic for the form -->
+    <script>
+        const plans = [
+            { id: 'integral', tier: 'MAYOR RESPALDO', name: 'Integral Pro T+2', capital: '9 UF urgencias', match: 95, lead: 'La mejor protección para contingencias y salud', urgent: 'Urgencia por accidente y enf.', price: '$22.170/mes' },
+            { id: 'universalpro', tier: 'PROTECCIÓN AMPLIADA', name: 'Universal Pro', capital: 'Asistencias', match: 88, lead: 'Cobertura ideal para toda la familia con médico a domicilio', urgent: 'Topes de urgencia al doble', price: 'Desde $9.590/mes' },
+            { id: 'universal', tier: 'EQUILIBRIO', name: 'Salud Universal', capital: 'Asistencias', match: 85, lead: 'Urgencias, consultas y telemedicina a tu alcance', urgent: 'Urgencia por accidente y enf.', price: 'Desde $6.490/mes' },
+            { id: 'joven', tier: 'PROTECCIÓN ESENCIAL', name: 'Salud Joven', capital: 'Asistencias', match: 80, lead: 'Protección para tu salud día a día, de forma económica', urgent: 'Urgencia solo accidente', price: '$3.890/mes' }
+        ];
 
-        /* Buttons */
-        .vt-card-actions {
-            display: flex; gap: 12px; flex-direction: column; margin-top: auto; padding-top: 24px;
-        }
+        let profile = { age: '', gender: '', health: '', partner: false, children: 0 };
         
-        .btn-outline-premium {
-            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
-            border: 1px solid #DBEAFE !important; color: #1E3A8A !important; background: #EFF6FF !important; 
-            cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem;
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-outline-premium:hover {
-            background: #DBEAFE !important; color: #1E3A8A !important; border-color: #BFDBFE !important;
-        }
-        
-        .btn-primary-premium {
-            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
-            cursor: pointer; border: none; background: #2563EB; color: white;
-            font-size: 1rem; transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-primary-premium:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
-            background: #1D4ED8;
-        }
-
-        .btn-primary-premium.familiar {
-            background: #1E40AF;
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
-        }
-        .btn-primary-premium.familiar:hover {
-            background: #1E3A8A;
-            box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
-        }
-
-        .split-btn-container {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;
-        }
-        .split-btn {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border-radius: 12px; padding: 10px 5px; font-weight: 700; cursor: pointer; border: none; 
-            color: white; font-size: 0.95rem; line-height: 1.3; transition: all 0.3s ease;
-        }
-        .split-btn span {
-            font-size: 0.8em; font-weight: 500; opacity: 0.9;
-        }
-    </style>
-
-    
-        <div class="veh-type-grid">
+        function updateUI() {
+            // Update Valid State
+            const valid = profile.age >= 18 && profile.age <= 65 && profile.gender && profile.health;
+            document.getElementById('btnRecommend').disabled = !valid;
             
-            <div class="veh-type-card pro-card">
-                <div class="card-aurora-top"></div>
-                <div class="vt-image"><img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=600&auto=format&fit=crop" alt="Profesional de la salud representando el seguro de salud complementario de MHM Corredores." id="img-integral"></div>
-                <div class="vt-info">
-                    <div class="vt-info-header">
-                        <h4 style="color: #796bfc !important;">Integral Pro T+2</h4>
-                        <span class="badge-recomendado"><i class="fa-solid fa-star" style="margin-right:4px;"></i>Recomendado</span>
-                    </div>
-                    <div class="plan-price-wrapper">
-                        <span class="plan-price">$22.170</span>
-                        <span class="plan-price-period">/ mes</span>
-                    </div>
-                    <input type="checkbox" id="toggle-integral" class="accordion-checkbox">
-                    <label for="toggle-integral" class="accordion-label">
-                        <span class="label-text" data-open="Ocultar beneficios" data-closed="Ver beneficios"></span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </label>
-                    <ul class="pet-feature-list">
-                        <li><i class="fa-solid fa-check"></i> <span>Urgencias y telemedicina</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Parto y maternidad</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Exámenes preventivos</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Sin límite en telemedicina</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Descuento en farmacias</span></li>
-                    </ul>
-                    <div class="vt-card-actions">
-                        <button type="button" class="btn-outline-premium" onclick="openCoverageModal('integral')"><i class="fa-solid fa-list-ul"></i> Coberturas</button>
-                        <button type="button" class="btn-primary-premium" onclick="contratarPlan('integral')">Contratar Plan <i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="veh-type-card">
-                <div class="vt-image"><img src="https://images.unsplash.com/photo-1505751172876-fa1923c5c528?q=80&w=600&auto=format&fit=crop" alt="Profesional de la salud representando el seguro de salud complementario de MHM Corredores." id="img-joven"></div>
-                <div class="vt-info">
-                    <div class="vt-info-header">
-                        <h4 style="color: #796bfc !important;">Salud Joven</h4>
-                    </div>
-                    <div class="plan-price-wrapper">
-                        <span class="plan-price">$3.890</span>
-                        <span class="plan-price-period">/ mes</span>
-                    </div>
-                    <input type="checkbox" id="toggle-joven" class="accordion-checkbox">
-                    <label for="toggle-joven" class="accordion-label">
-                        <span class="label-text" data-open="Ocultar beneficios" data-closed="Ver beneficios"></span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </label>
-                    <ul class="pet-feature-list">
-                        <li><i class="fa-solid fa-check"></i> <span>Urgencia médica por accidente</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Descuento en farmacias</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Telemedicina</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Orientación telefónica</span></li>
-                    </ul>
-                    <div class="vt-card-actions">
-                        <button type="button" class="btn-outline-premium" onclick="openCoverageModal('joven')"><i class="fa-solid fa-list-ul"></i> Coberturas</button>
-                        <button type="button" class="btn-primary-premium" onclick="contratarPlan('joven')">Contratar Plan <i class="fa-solid fa-arrow-right"></i></button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="veh-type-card">
-                <div class="vt-image"><img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?q=80&w=600&auto=format&fit=crop" alt="Profesional de la salud representando el seguro de salud complementario de MHM Corredores." id="img-universal"></div>
-                <div class="vt-info">
-                    <div class="vt-info-header">
-                        <h4 style="color: #796bfc !important;">Salud Universal</h4>
-                    </div>
-                    <div class="plan-price-wrapper">
-                        <span class="plan-price-label">Desde</span>
-                        <span class="plan-price">$6.490</span>
-                        <span class="plan-price-period">/ mes</span>
-                    </div>
-                    <input type="checkbox" id="toggle-universal" class="accordion-checkbox">
-                    <label for="toggle-universal" class="accordion-label">
-                        <span class="label-text" data-open="Ocultar beneficios" data-closed="Ver beneficios"></span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </label>
-                    <ul class="pet-feature-list">
-                        <li><i class="fa-solid fa-check"></i> <span>Urgencia por accidente y enfermedad</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Consulta médica general</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Descuento en farmacias</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Telemedicina</span></li>
-                    </ul>
-                    <div class="vt-card-actions">
-                        <button type="button" class="btn-outline-premium" onclick="openCoverageModal('universal')"><i class="fa-solid fa-list-ul"></i> Coberturas</button>
-                        <div class="split-btn-container">
-                            <button type="button" class="split-btn btn-primary-premium" onclick="contratarPlan('universal', 'individual')">Individual<br><span>$6.490</span></button>
-                            <button type="button" class="split-btn btn-primary-premium familiar" onclick="contratarPlan('universal', 'familiar')">Familiar<br><span>$7.390</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="veh-type-card">
-                <div class="vt-image"><img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=600&auto=format&fit=crop" alt="Profesional de la salud representando el seguro de salud complementario de MHM Corredores." id="img-universalpro"></div>
-                <div class="vt-info">
-                    <div class="vt-info-header">
-                        <h4 style="color: #796bfc !important;">Universal Pro</h4>
-                    </div>
-                    <div class="plan-price-wrapper">
-                        <span class="plan-price-label">Desde</span>
-                        <span class="plan-price">$9.590</span>
-                        <span class="plan-price-period">/ mes</span>
-                    </div>
-                    <input type="checkbox" id="toggle-universalpro" class="accordion-checkbox">
-                    <label for="toggle-universalpro" class="accordion-label">
-                        <span class="label-text" data-open="Ocultar beneficios" data-closed="Ver beneficios"></span>
-                        <i class="fa-solid fa-chevron-down"></i>
-                    </label>
-                    <ul class="pet-feature-list">
-                        <li><i class="fa-solid fa-check"></i> <span>Topes de urgencia al doble</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Médico a domicilio</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Consulta médica general</span></li>
-                        <li><i class="fa-solid fa-check"></i> <span>Telemedicina ilimitada</span></li>
-                    </ul>
-                    <div class="vt-card-actions">
-                        <button type="button" class="btn-outline-premium" onclick="openCoverageModal('universalpro')"><i class="fa-solid fa-list-ul"></i> Coberturas</button>
-                        <div class="split-btn-container">
-                            <button type="button" class="split-btn btn-primary-premium" onclick="contratarPlan('universalpro', 'individual')">Individual<br><span>$9.590</span></button>
-                            <button type="button" class="split-btn btn-primary-premium familiar" onclick="contratarPlan('universalpro', 'familiar')">Familiar<br><span>$11.990</span></button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </div>
-    
-        </div> <!-- End premium-white-card -->
-    </div> <!-- End main-spec-col -->
-    
-    <div class="sidebar-col">
-        <div class="premium-white-card" style="position: sticky; top: 120px; padding: 25px;">
-            <div class="why-mhm-container">
-            <div class="sidebar-title text-gradient-corp" style="font-size: 1.4rem; font-weight: 800; margin-bottom: 20px;">
-                ¿Por qué cotizar con MHM?
-            </div>
-            <div class="mhm-premium-features" style="display: flex; flex-direction: column; gap: 16px;">
-                <div class="mhm-feature-card" style="padding: 18px; border-radius: 16px; background: white; border: 1px solid #E2E8F0; display: flex; gap: 16px; align-items: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);">
-                    <div class="mhm-feature-icon" style="width: 48px; height: 48px; border-radius: 12px; background: rgba(16, 185, 129, 0.1); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;"><i class="fa-solid fa-shield-halved"></i></div>
-                    <div class="mhm-feature-content">
-                        <h4 style="margin: 0 0 4px 0; font-size: 1.05rem; color: #0F172A; font-weight: 800;">Seguridad y Confianza</h4>
-                        <p style="margin: 0; font-size: 0.9rem; color: #64748B;">Trabajamos con las aseguradoras más prestigiosas de Chile.</p>
-                    </div>
-                </div>
-                
-                <div class="mhm-feature-card" style="padding: 18px; border-radius: 16px; background: white; border: 1px solid #E2E8F0; display: flex; gap: 16px; align-items: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);">
-                    <div class="mhm-feature-icon" style="width: 48px; height: 48px; border-radius: 12px; background: rgba(16, 185, 129, 0.1); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;"><i class="fa-solid fa-headset"></i></div>
-                    <div class="mhm-feature-content">
-                        <h4 style="margin: 0 0 4px 0; font-size: 1.05rem; color: #0F172A; font-weight: 800;">Asesoría 360°</h4>
-                        <p style="margin: 0; font-size: 0.9rem; color: #64748B;">Acompañamiento experto en la elección y gestión 24/7.</p>
-                    </div>
-                </div>
-                
-                <div class="mhm-feature-card" style="padding: 18px; border-radius: 16px; background: white; border: 1px solid #E2E8F0; display: flex; gap: 16px; align-items: center; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.02);">
-                    <div class="mhm-feature-icon" style="width: 48px; height: 48px; border-radius: 12px; background: rgba(16, 185, 129, 0.1); color: #10B981; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0;"><i class="fa-solid fa-bolt"></i></div>
-                    <div class="mhm-feature-content">
-                        <h4 style="margin: 0 0 4px 0; font-size: 1.05rem; color: #0F172A; font-weight: 800;">Eficiencia Digital</h4>
-                        <p style="margin: 0; font-size: 0.9rem; color: #64748B;">Proceso 100% online, ultra rápido y sin papeleos.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        </div>
-    </div>
-
-
-<script>
-    const plans = {
-        'integral': { name: 'Integral Pro T+2', price: 22170 },
-        'joven': { name: 'Salud Joven', price: 3890 },
-        'universal': { name: 'Salud Universal', price: 6490 },
-        'universalpro': { name: 'Universal Pro', price: 9590 }
-    };
-    
-    function contratarPlan(planId) {
-        const plan = plans[planId];
-        sessionStorage.setItem('mhm_salud_plan', JSON.stringify({
-            id: planId,
-            name: plan.name,
-            price: plan.price
-        }));
-        
-        if (planId === 'joven') {
-            window.location.href = 'cotizacion-joven-2.html';
-        } else {
-            window.location.href = 'cotizacion-salud-2.html';
-        }
-
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        // Auto-add data-label for responsive tables on mobile
-        document.querySelectorAll('#coverageModal table').forEach(table => {
-            const headers = Array.from(table.querySelectorAll('thead th')).map(th => th.innerText);
-            table.querySelectorAll('tbody tr').forEach(tr => {
-                Array.from(tr.querySelectorAll('td')).forEach((td, i) => {
-                    td.setAttribute('data-label', headers[i]);
-                });
-            });
-        });
-    });
-
-                        function openCoverageModal(planId) {
-        try {
-            // Remove any existing dynamic modal
-            const existing = document.getElementById('coverageModalDynamic');
-            if(existing) document.body.removeChild(existing);
-
-            // Create backdrop
-            const modal = document.createElement('div');
-            modal.id = 'coverageModalDynamic';
-            modal.className = 'modal-backdrop-aurora';
-            modal.style.cssText = 'display: flex; opacity: 1; visibility: visible; pointer-events: auto; z-index: 99999999;';
-
-            // Base Content
-            const contentHTML = `
-                <div class="modal-content-tech" style="max-width: 800px; padding: 30px; opacity: 1; visibility: visible; transform: none;">
-                    <div class="shimmer-effect"></div>
-                    <div class="modal-header-tech" style="margin-bottom: 20px;">
-                        <div class="header-icon-glass"><i class="fa-solid fa-heart-pulse"></i></div>
-                        <div class="header-text-tech">
-                            <h3 class="tech-title text-gradient-corp" id="covModalTitleDynamic">Coberturas: Asistencia de Salud</h3>
-                            <p>Detalle de servicios, protección, límites y eventos máximos al año.</p>
-                        </div>
-                        <button class="btn-close-tech js-close-coverage-modal" onclick="closeCoverageModal()"><i class="fa-solid fa-xmark"></i></button>
-                    </div>
-                    <div class="modal-body-tech" style="overflow-x: auto;" id="covModalBodyDynamic">
-                    </div>
-                </div>
-            `;
+            // Update Assured Text
+            const total = 1 + (profile.partner ? 1 : 0) + profile.children;
+            document.getElementById('assuredSummary').innerText = total === 1 ? 'Solo titular' : total + ' asegurados';
             
-            modal.innerHTML = contentHTML;
+            // Partner button
+            const btnPartner = document.getElementById('btnPartner');
+            btnPartner.className = profile.partner ? 'active' : '';
+            btnPartner.innerText = profile.partner ? 'Incluido' : 'Agregar';
             
-            let titleText = 'Coberturas';
-            let tableHTML = '';
-
-            const tableStyle = '';
-            const theadStyle = '';
-            const thStyle = '';
-            const tdStyle = '';
-            const tdStyleLimit = '';
-
-            if (planId === 'integral') {
-                titleText = 'Coberturas: Asistencia Integral Pro T+2';
-                tableHTML = `
-                    <table class="table responsive-table" style="${tableStyle}">
-                        <thead>
-                            <tr style="${theadStyle}">
-                                <th style="${thStyle}">SERVICIO</th>
-                                <th style="${thStyle}">PROTECCIÓN</th>
-                                <th style="${thStyle}">LÍMITE</th>
-                                <th style="${thStyle}">MAX EVENTOS AL AÑO</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Urgencia médica por accidente</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">9 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">26</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Urgencia médica por enfermedad</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">9 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">7</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Parto Normal</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">40%</td><td data-label="LÍMITE" style="${tdStyleLimit}">8 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">1</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Parto Cesárea</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">40%</td><td data-label="LÍMITE" style="${tdStyleLimit}">5 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">1</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Orientación Médica Telefónica</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">Ilimitado</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">100</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Orientación Maternal Telefónica</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">Ilimitado</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">100</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Consulta Médica General</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">Ilimitado</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">7</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Consulta Médica Especialista</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">Ilimitado</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">5</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Consulta Médica Psicológica</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">Ilimitado</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">5</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Examen Médico</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">2 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">5</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Examen Preventivo Oncológico</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">2 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">3</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Telemedicina</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">Ilimitado</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">7</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Telemedicina Especialista</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">Ilimitado</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">7</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Descuento en Farmacias</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">50%</td><td data-label="LÍMITE" style="${tdStyleLimit}">$10.000</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">14</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Urgencia Dental</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">60%</td><td data-label="LÍMITE" style="${tdStyleLimit}">5 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">5</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Exodoncia Simple</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">60%</td><td data-label="LÍMITE" style="${tdStyleLimit}">2 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">5</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Exodoncia Colgajo</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">60%</td><td data-label="LÍMITE" style="${tdStyleLimit}">2 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">4</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Radiografía Panorámica</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">2 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">4</td></tr>
-                            <tr><td data-label="SERVICIO" style="${tdStyle}">Limpieza Dental</td><td data-label="PROTECCIÓN" style="${tdStyle} color: #E11D48; font-weight: 700;">100%</td><td data-label="LÍMITE" style="${tdStyleLimit}">2 UF</td><td data-label="MAX EVENTOS AL AÑO" style="${tdStyleLimit}">4</td></tr>
-                        </tbody>
-                    </table>
-                `;
-            } else if (planId === 'joven') {
-                titleText = 'Coberturas: Salud Joven';
-                tableHTML = `
-                    <table class="table responsive-table" style="${tableStyle}">
-                        <thead>
-                            <tr style="${theadStyle}">
-                                <th style="${thStyle}">SERVICIO</th>
-                                <th style="${thStyle}">PROTECCIÓN</th>
-                                <th style="${thStyle}">LÍMITE</th>
-                                <th style="${thStyle}">MAX EVENTOS AL AÑO</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="${tdStyle}">Urgencia médica por accidente</td>
-                                <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <span style="color: #E11D48;">50%</span> FONASA A</td>
-                                <td style="${tdStyleLimit}">$270.000</td>
-                                <td style="${tdStyleLimit}">3</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Descuento en farmacias</td>
-                                <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">50%</span> DE LA BOLETA</td>
-                                <td style="${tdStyleLimit}">$15.000</td>
-                                <td style="${tdStyleLimit}">12</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Telemedicina</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">2 UF</td>
-                                <td style="${tdStyleLimit}">3</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Orientación médica telefónica</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">2 UF</td>
-                                <td style="${tdStyleLimit}">12</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                `;
-            } else if (planId === 'universal') {
-                titleText = 'Coberturas: Salud Universal';
-                tableHTML = `
-                    <table class="table responsive-table" style="${tableStyle}">
-                        <thead>
-                            <tr style="${theadStyle}">
-                                <th style="${thStyle}">SERVICIO</th>
-                                <th style="${thStyle}">PROTECCIÓN</th>
-                                <th style="${thStyle}">LÍMITE</th>
-                                <th style="${thStyle}">MAX EVENTOS AL AÑO</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="${tdStyle}">Urgencia médica por accidente</td>
-                                <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <br><span style="color: #E11D48;">50%</span> FONASA A</td>
-                                <td style="${tdStyleLimit}">$315.000</td>
-                                <td style="${tdStyleLimit}">12</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Urgencia médica por enfermedad</td>
-                                <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <br><span style="color: #E11D48;">50%</span> FONASA A</td>
-                                <td style="${tdStyleLimit}">$315.000</td>
-                                <td style="${tdStyleLimit}">3</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Consulta médica general</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">2 UF</td>
-                                <td style="${tdStyleLimit}">5</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Descuento en farmacias</td>
-                                <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">50%</span> DE LA BOLETA</td>
-                                <td style="${tdStyleLimit}">$15.000</td>
-                                <td style="${tdStyleLimit}">12</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Telemedicina</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">2 UF</td>
-                                <td style="${tdStyleLimit}">3</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Orientación médica telefónica</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">2 UF</td>
-                                <td style="${tdStyleLimit}">12</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                `;
-            } else if (planId === 'universalpro') {
-                titleText = 'Coberturas: Universal Pro';
-                tableHTML = `
-                    <table class="table responsive-table" style="${tableStyle}">
-                        <thead>
-                            <tr style="${theadStyle}">
-                                <th style="${thStyle}">SERVICIO</th>
-                                <th style="${thStyle}">PROTECCIÓN</th>
-                                <th style="${thStyle}">LÍMITE</th>
-                                <th style="${thStyle}">MAX EVENTOS AL AÑO</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td style="${tdStyle}">Urgencia médica por accidente</td>
-                                <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <br><span style="color: #E11D48;">50%</span> FONASA A</td>
-                                <td style="${tdStyleLimit}">$630.000</td>
-                                <td style="${tdStyleLimit}">12</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Urgencia médica por enfermedad</td>
-                                <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">100%</span> ISAPRE - FONASA / <br><span style="color: #E11D48;">50%</span> FONASA A</td>
-                                <td style="${tdStyleLimit}">$630.000</td>
-                                <td style="${tdStyleLimit}">3</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Consulta médica general</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">2 UF</td>
-                                <td style="${tdStyleLimit}">5</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Descuento en farmacias</td>
-                                <td style="${tdStyle} font-weight: 700; color: #0F172A;"><span style="color: #E11D48;">50%</span> DE LA BOLETA</td>
-                                <td style="${tdStyleLimit}">$25.000</td>
-                                <td style="${tdStyleLimit}">12</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Telemedicina</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">2 UF</td>
-                                <td style="${tdStyleLimit}">3</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Orientación médica telefónica</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">2 UF</td>
-                                <td style="${tdStyleLimit}">12</td>
-                            </tr>
-                            <tr>
-                                <td style="${tdStyle}">Médico a domicilio</td>
-                                <td style="${tdStyle} font-weight: 700; color: #E11D48;">100%</td>
-                                <td style="${tdStyleLimit}">$60.000</td>
-                                <td style="${tdStyleLimit}">3</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                `;
+            // Children
+            document.getElementById('childrenCount').innerText = profile.children;
+            
+            // Result Title
+            if (valid) {
+                document.getElementById('resultTitle').innerText = 'Resultados para ' + profile.age + ' años';
+                document.getElementById('resultSubtitle').innerText = profile.gender + ' · ' + profile.health + ' · ' + total + (total===1 ? ' asegurado' : ' asegurados');
             }
 
-            document.body.appendChild(modal);
-            
-            document.getElementById('covModalTitleDynamic').innerText = titleText;
-            document.getElementById('covModalBodyDynamic').innerHTML = '<div class="table-responsive">' + tableHTML + '</div>';
-
-        } catch(e) {
-            alert("Error abriendo modal: " + e.message);
+            // Health filter sync
+            document.querySelectorAll('.filterHealth').forEach(btn => {
+                btn.className = 'filterHealth' + (profile.health === btn.dataset.val ? ' active' : '');
+            });
         }
-    }
+        
+        // Event Listeners
+        document.getElementById('profileAge').addEventListener('input', (e) => { profile.age = e.target.value; updateUI(); });
+        document.getElementById('profileGender').addEventListener('change', (e) => { profile.gender = e.target.value; updateUI(); });
+        document.getElementById('profileHealth').addEventListener('change', (e) => { profile.health = e.target.value; updateUI(); });
+        
+        // Panels
+        let assuredOpen = false;
+        document.getElementById('btnAssuredOpen').addEventListener('click', () => {
+            assuredOpen = !assuredOpen;
+            document.getElementById('assuredPanel').style.display = assuredOpen ? 'flex' : 'none';
+            document.getElementById('assuredToggle').innerText = assuredOpen ? '−' : '+';
+        });
+        
+        document.getElementById('btnPartner').addEventListener('click', () => { profile.partner = !profile.partner; updateUI(); });
+        document.getElementById('btnChildrenInc').addEventListener('click', () => { profile.children = Math.min(4, profile.children + 1); updateUI(); });
+        document.getElementById('btnChildrenDec').addEventListener('click', () => { profile.children = Math.max(0, profile.children - 1); updateUI(); });
+        
+        document.querySelectorAll('.filterHealth').forEach(btn => {
+            btn.addEventListener('click', () => {
+                profile.health = btn.dataset.val;
+                document.getElementById('profileHealth').value = profile.health;
+                updateUI();
+            });
+        });
 
-    function closeCoverageModal() {
-        const modal = document.getElementById('coverageModalDynamic');
-        if(modal) {
-            modal.style.opacity = '0';
-            modal.style.visibility = 'hidden';
+        // Recommend / Submit
+        document.getElementById('btnRecommend').addEventListener('click', () => {
+            document.getElementById('resultados').classList.add('visible');
             setTimeout(() => {
-                if(modal.parentNode) modal.parentNode.removeChild(modal);
-            }, 300);
+                document.getElementById('resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
+            renderPlans();
+        });
+
+        document.getElementById('btnEditProfile').addEventListener('click', () => {
+            document.getElementById('resultados').classList.remove('visible');
+            setTimeout(() => {
+                document.getElementById('recomendador').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
+        });
+        
+        function renderPlans() {
+            const list = document.getElementById('policyList');
+            list.innerHTML = plans.map((p, index) => {
+                return `
+                <article class="healthPolicyCard ${index === 0 ? 'recommended' : ''}">
+                    ${index === 0 ? '<div class="healthBest">MEJOR COINCIDENCIA PARA TI</div>' : ''}
+                    <div class="policyBand band100">
+                        <span>${p.tier}</span>
+                        <div class="healthMark"><i class="fa-solid fa-shield-halved"></i></div>
+                        <b>${p.capital}</b>
+                    </div>
+                    <div class="healthPolicyContent">
+                        <div class="policyMeta">
+                            <span>MHM CORREDORES · SEGURO DE SALUD</span>
+                            <b>${p.match}% afinidad</b>
+                        </div>
+                        <h3>${p.name}</h3>
+                        <p>${p.lead}</p>
+                        <div class="healthBenefits">
+                            <span>✓ ${p.urgent}</span>
+                            <span>✓ Telemedicina</span>
+                            <span>✓ Beneficio en farmacia</span>
+                            <span>✓ Orientación 24/7</span>
+                        </div>
+                        
+                        <div style="margin-top:20px; display:flex; justify-content:space-between; align-items:flex-end;">
+                            <div>
+                                <small style="display:block; color:#64748B; font-weight:600; font-size:12px;">Precio estimado</small>
+                                <strong style="font-size:24px; color:#796bfc; font-weight:800;">${p.price}</strong>
+                            </div>
+                            <button class="btn solid" onclick="contratarPlan('${p.id}')">Cotizar seguro <i class="fa-solid fa-arrow-right"></i></button>
+                        </div>
+                    </div>
+                </article>
+                `;
+            }).join('');
         }
-    }
-</script>
-
-                </div>
-            </div>
-
-        </div>
-    </div>
-
-    <div id="quotesModal" class="modal-backdrop-aurora">
-        <div class="modal-content-tech">
-            <div class="shimmer-effect"></div>
+        
+        function contratarPlan(planId) {
+            const planDef = plans.find(p => p.id === planId);
+            sessionStorage.setItem('mhm_salud_plan', JSON.stringify({
+                id: planId,
+                name: planDef.name,
+                price: planDef.price.replace(/[^0-9]/g, '')
+            }));
             
-            <div class="aurora-ambient-light"></div>
-
-            <div class="modal-header-tech">
-                <div class="header-icon-glass">
-                    <i class="fa-solid fa-clock-rotate-left"></i>
-                </div>
-                <div class="header-text-tech">
-                    <h3 class="tech-title text-gradient-corp">Hola de Nuevo</h3>
-                    <p>Encontramos <strong>3 sesiones existentes</strong> vinculadas a <span id="userEmailSpan" style="color: #4F46E5; font-weight: 700;">tu perfil</span>.</p>
-                </div>
-                <button class="btn-close-tech js-close-modal"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-
-            <div class="modal-body-tech">
-                
-                <div class="list-labels-tech">
-                    <span>DETALLES DE COTIZACIÓN</span>
-                    <span>HISTORIAL</span>
-                    <span class="text-right">ACCIÓN</span>
-                </div>
-
-                <div class="quote-card-tech">
-                    <div class="col-info">
-                        <span class="q-id">#00000263</span>
-                        <span class="q-badge Inactiva">Inactiva</span>
-                    </div>
-                    <div class="col-HISTORIAL">
-                        <div class="tl-item">
-                            <i class="fa-regular fa-pen-to-square gradient-icon"></i>
-                            <span>Actualizado: <strong>03/02/2026</strong> 11:28</span>
-                        </div>
-                        <div class="tl-item sub">
-                            <i class="fa-solid fa-plus gradient-icon"></i>
-                            <span>Creado: 30/01/2026</span>
-                        </div>
-                    </div>
-                    <div class="col-action">
-                        <button class="btn-select-tech">
-                            Seleccionar <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="quote-card-tech">
-                    <div class="col-info">
-                        <span class="q-id">#00000261</span>
-                        <span class="q-badge Inactiva">Inactiva</span>
-                    </div>
-                    <div class="col-HISTORIAL">
-                        <div class="tl-item">
-                            <i class="fa-regular fa-pen-to-square gradient-icon"></i>
-                            <span>Actualizado: <strong>03/02/2026</strong> 11:29</span>
-                        </div>
-                        <div class="tl-item sub">
-                            <i class="fa-solid fa-plus gradient-icon"></i>
-                            <span>Creado: 27/01/2026</span>
-                        </div>
-                    </div>
-                    <div class="col-action">
-                        <button class="btn-select-tech">
-                            Seleccionar <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-
-                <div class="quote-card-tech">
-                    <div class="col-info">
-                        <span class="q-id">#00000264</span>
-                        <span class="q-badge Inactiva">Inactiva</span>
-                    </div>
-                    <div class="col-HISTORIAL">
-                        <div class="tl-item">
-                            <i class="fa-regular fa-pen-to-square gradient-icon"></i>
-                            <span>Actualizado: <strong>30/01/2026</strong> 12:51</span>
-                        </div>
-                        <div class="tl-item sub">
-                            <i class="fa-solid fa-plus gradient-icon"></i>
-                            <span>Creado: 30/01/2026</span>
-                        </div>
-                    </div>
-                    <div class="col-action">
-                        <button class="btn-select-tech">
-                            Seleccionar <i class="fa-solid fa-chevron-right"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="modal-footer-tech">
-                <button class="btn-cancel-simple js-close-modal">Cancelar</button>
-                
-                <button class="btn-start-new-gradient js-start-new shimmer-btn">
-                    Nueva Cotización <i class="fa-solid fa-plus"></i>
-                </button>
-            </div>
-        </div>
-    </div>
-
-    <style>
-        .veh-type-grid {
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 32px; 
-            margin-bottom: 40px;
+            if (planId === 'joven') {
+                window.location.href = 'cotizacion-joven-2.html';
+            } else {
+                window.location.href = 'cotizacion-salud-2.html';
+            }
         }
-        @media (max-width: 992px) {
-            .veh-type-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        }
-        @media (max-width: 768px) {
-            .veh-type-grid { grid-template-columns: 1fr; }
-        }
-        
-        .veh-type-card {
-            height: 100%; box-sizing: border-box;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 24px;
-            overflow: hidden;
-            position: relative;
-            display: flex; flex-direction: column; align-items: stretch; text-align: left; gap: 20px;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 4px 10px -5px rgba(15, 23, 42, 0.02);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .veh-type-card:hover { 
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(121, 107, 252, 0.15);
-            border-color: transparent;
-        }
-        
-        .vt-image {
-            width: 100%; aspect-ratio: 16 / 9; border-radius: 16px;
-            overflow: hidden; margin-bottom: 5px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            background: #F8FAFC;
-            position: relative;
-        }
-        .vt-image img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .veh-type-card:hover .vt-image img { transform: scale(1.08); }
-        
-        .vt-info { width: 100%; display: flex; flex-direction: column; flex-grow: 1; }
-        .vt-info-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-        .vt-info h4 { margin: 0; color: #0F172A; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
-        
-        .badge-recomendado {
-            font-size: 0.65rem; 
-            line-height: 1;
-            background: linear-gradient(135deg, #796bfc, #4F46E5); 
-            color: #ffffff; 
-            padding: 6px 12px; 
-            border-radius: 30px; 
-            font-weight: 800; 
-            display: inline-flex; 
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .badge-recomendado i {
-            color: #FFD700 !important;
-            margin-right: 6px !important;
-            font-size: 0.8rem;
-        }
-        .badge-recomendado::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-            transform: skewX(-20deg);
-            animation: badgeShine 3s infinite;
-        }
-        @keyframes badgeShine {
-            0% { left: -100%; }
-            20% { left: 200%; }
-            100% { left: 200%; }
-        }
-
-        .pet-feature-list {
-            list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 0.95rem; color: #475569;
-            text-align: left;
-        }
-        .pet-feature-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; line-height: 1.4; }
-        .pet-feature-list li i { color: #2ED9C3; font-size: 1.1rem; margin-top: 2px; }
-        
-        .plan-price-wrapper { display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; }
-        .plan-price-label { font-size: 0.9rem; color: #64748B; font-weight: 600; }
-        .plan-price { font-size: 1.8rem; font-weight: 800; color: #796bfc; letter-spacing: -0.5px; }
-        .plan-price-period { font-size: 1rem; color: #94A3B8; font-weight: 500; }
-        
-        /* Pro Card Top Aurora */
-        .pro-card {
-            border: 1px solid rgba(121, 107, 252, 0.3);
-            box-shadow: 0 10px 30px -5px rgba(121, 107, 252, 0.1);
-        }
-        .pro-card .card-aurora-top {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            z-index: 10;
-            background: linear-gradient(90deg, #796bfc, #2ED9C3, #796bfc);
-            background-size: 200% 100%;
-            animation: gradientMove 3s linear infinite;
-        }
-        @keyframes gradientMove {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
+    </script>
     
-        /* Accordion */
-        .accordion-checkbox { display: none; }
-        .accordion-label {
-            cursor: pointer; display: inline-flex; align-items: center; justify-content: flex-start;
-            gap: 8px; color: #796bfc; font-weight: 700; font-size: 0.95rem; margin-top: 15px;
-            transition: color 0.2s; padding: 6px 12px; border-radius: 8px; background: #F8FAFC;
-            border: 1px solid #E2E8F0; width: fit-content;
-        }
-        .accordion-label:hover { background: #F1F5F9; color: #4F46E5; border-color: #CBD5E1; }
-        .accordion-label i { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .accordion-checkbox:checked + .accordion-label i { transform: rotate(180deg); }
-        .accordion-checkbox:checked + .accordion-label .label-text::before { content: attr(data-open); }
-        .accordion-checkbox:not(:checked) + .accordion-label .label-text::before { content: attr(data-closed); }
-        .accordion-checkbox:not(:checked) ~ .pet-feature-list { display: none; }
-        .accordion-checkbox:checked ~ .pet-feature-list { display: block; animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Buttons */
-        .vt-card-actions {
-            display: flex; gap: 12px; flex-direction: column; margin-top: auto; padding-top: 24px;
-        }
-        
-        .btn-outline-premium {
-            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
-            border: 1px solid #DBEAFE !important; color: #1E3A8A !important; background: #EFF6FF !important; 
-            cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem;
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-outline-premium:hover {
-            background: #DBEAFE !important; color: #1E3A8A !important; border-color: #BFDBFE !important;
-        }
-        
-        .btn-primary-premium {
-            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
-            cursor: pointer; border: none; background: #2563EB; color: white;
-            font-size: 1rem; transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-primary-premium:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
-            background: #1D4ED8;
-        }
-
-        .btn-primary-premium.familiar {
-            background: #1E40AF;
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
-        }
-        .btn-primary-premium.familiar:hover {
-            background: #1E3A8A;
-            box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
-        }
-
-        .split-btn-container {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;
-        }
-        .split-btn {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border-radius: 12px; padding: 10px 5px; font-weight: 700; cursor: pointer; border: none; 
-            color: white; font-size: 0.95rem; line-height: 1.3; transition: all 0.3s ease;
-        }
-        .split-btn span {
-            font-size: 0.8em; font-weight: 500; opacity: 0.9;
-        }
-    </style>
-
-    <div id="coverageModal" class="modal-backdrop-aurora">
-        <div class="modal-content-tech" style="max-width: 800px; padding: 30px;">
-            <div class="shimmer-effect"></div>
-            <div class="modal-header-tech" style="margin-bottom: 20px;">
-                <div class="header-icon-glass"><i class="fa-solid fa-heart-pulse"></i></div>
-                <div class="header-text-tech">
-                    <h3 class="tech-title text-gradient-corp" id="covModalTitle">Coberturas: Asistencia de Salud</h3>
-                    <p>Detalle de servicios, protección, límites y eventos máximos al año.</p>
-                </div>
-                <button class="btn-close-tech js-close-coverage-modal" onclick="closeCoverageModal()"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            <div class="modal-body-tech" style="overflow-x: auto;">
-<table class="cov-table" id="table-integral" style="display: none;">
-                    <thead><tr><th>Cobertura</th><th>Límite / Eventos</th></tr></thead>
-                    <tbody>
-                        <tr><td>Telemedicina Medicina General</td><td>Ilimitado</td></tr>
-                        <tr><td>Consulta Presencial (Copago $1.990)</td><td>3 eventos al año</td></tr>
-                        <tr><td>Exámenes de Laboratorio (Copago $2.990)</td><td>Hasta $30.000 por evento</td></tr>
-                        <tr><td>Orientación Telefónica Psicológica</td><td>Ilimitado</td></tr>
-                        <tr><td>Orientación Telefónica Nutricional</td><td>Ilimitado</td></tr>
-                    </tbody>
-                </table>
-                <table class="cov-table" id="table-joven" style="display: none;">
-                    <thead><tr><th>Cobertura</th><th>Límite / Eventos</th></tr></thead>
-                    <tbody>
-                        <tr><td>Telemedicina Medicina General</td><td>Ilimitado</td></tr>
-                        <tr><td>Consulta Presencial (Copago $2.990)</td><td>2 eventos al año</td></tr>
-                        <tr><td>Orientación Telefónica Psicológica</td><td>Ilimitado</td></tr>
-                    </tbody>
-                </table>
-                <table class="cov-table" id="table-universal" style="display: none;">
-                    <thead><tr><th>Cobertura</th><th>Límite / Eventos</th></tr></thead>
-                    <tbody>
-                        <tr><td>Telemedicina Medicina General</td><td>Ilimitado</td></tr>
-                        <tr><td>Consulta Presencial Médica</td><td>3 eventos al año</td></tr>
-                        <tr><td>Exámenes de Imagenología (Copago $4.990)</td><td>2 eventos al año</td></tr>
-                        <tr><td>Asistencia Dental de Urgencia</td><td>1 evento al año</td></tr>
-                    </tbody>
-                </table>
-                <table class="cov-table" id="table-universalpro" style="display: none;">
-                    <thead><tr><th>Cobertura</th><th>Límite / Eventos</th></tr></thead>
-                    <tbody>
-                        <tr><td>Telemedicina Medicina General y Especialidades</td><td>Ilimitado</td></tr>
-                        <tr><td>Consulta Presencial Médica Copago $0</td><td>4 eventos al año</td></tr>
-                        <tr><td>Exámenes de Laboratorio e Imagenología</td><td>Hasta $50.000 por evento</td></tr>
-                        <tr><td>Asistencia Dental de Urgencia</td><td>2 eventos al año</td></tr>
-                        <tr><td>Descuento en Farmacias</td><td>Hasta 30% en medicamentos</td></tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-
-    <footer class="footer-aurora">
+    
+<footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
         <div class="container">

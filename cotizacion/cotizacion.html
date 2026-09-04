@@ -11,7 +11,7 @@
 <link href="../css/style.css" rel="stylesheet"/>
 <link href="../assets/img/favicon.ico" rel="icon" type="image/x-icon"/>
 <style>
-        .hub-body { background-color: #F8FAFC; font-family: 'Poppins', sans-serif; }
+        .hub-body { background-color: #F8FAFC; font-family: 'Gotham', sans-serif; }
         
         .hub-hero {
             padding: 80px 20px 40px;
@@ -822,91 +822,245 @@ html, body {
 </div>
 </div>
 </header>
+<style>
+/* CSS Extraído de la Maqueta para el Home Rediseñado */
+.homeHero {
+    height: 620px; position: relative; overflow: hidden; background: #f3f1ff;
+}
+.homeVisual {
+    position: absolute; inset: 0; 
+    background: linear-gradient(90deg, rgba(245,245,255,0.99) 0%, rgba(242,249,250,0.9) 48%, rgba(242,249,250,0.08) 76%), url("../assets/img/maqueta/health-hero.png") center right/cover no-repeat;
+}
+.homeCopy { position: relative; padding-top: 100px; }
+.eyebrow { font-size: 12px; font-weight: 850; letter-spacing: 0.18em; color: #7165f7; display: block; }
+.homeCopy h1 { font-size: 68px; letter-spacing: -0.055em; line-height: 1.02; margin: 24px 0; max-width: 780px; font-weight: 800; color: #0F172A; }
+.homeCopy h1 em { font-style: normal; background: linear-gradient(90deg,#7965ff,#b668de,#2bbfc4); -webkit-background-clip: text; color: transparent; }
+.homeCopy > p { font-size: 19px; line-height: 1.65; color: #54627a; max-width: 680px; margin-bottom: 22px; }
+.btn.solid { background: linear-gradient(135deg, #30d4c4, #22c4b6); color: #fff; box-shadow: 0 11px 25px rgba(47,211,196,0.2); border-radius: 14px; padding: 14px 22px; font-weight: 700; text-decoration: none; display: inline-flex; align-items: center; gap: 10px; border: none; }
+.btn.big { padding: 17px 27px; }
+
+/* Grid Categorías */
+.choose { padding: 75px 0 80px; }
+.sectionHead { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 80px; align-items: end; margin-bottom: 42px; }
+.sectionHead.compact { margin-bottom: 30px; }
+.sectionHead h2 { font-size: 44px; line-height: 1.08; letter-spacing: -0.04em; margin: 14px 0 0; color: #0F172A; font-weight: 800; }
+.sectionHead > p { color: #647086; line-height: 1.7; font-size: 16px; margin: 0; }
+.categoryGrid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+.category { height: 310px; position: relative; overflow: hidden; border-radius: 22px; color: #fff; text-decoration: none; background: #0F172A; display: block; }
+.category img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
+.category:hover img { transform: scale(1.05); }
+.healthCategory { background: #dceaf0 !important; }
+.healthCategory img { width: 100% !important; height: 100% !important; object-fit: cover !important; object-position: center !important; }
+.healthCategory .categoryShade { background: linear-gradient(0deg,#09142df5 0%,rgba(9,20,45,.66) 30%,rgba(9,20,45,0) 72%)!important; }
+.categoryShade { position: absolute; inset: 0; background: linear-gradient(0deg, #09142df2, transparent 72%); }
+.category > div { position: absolute; left: 20px; right: 20px; bottom: 19px; }
+.category small { font-size: 9px; letter-spacing: 0.18em; color: #55dfd3; font-weight: 800; display: block; margin-bottom: 8px;}
+.category h3 { font-size: 21px; margin: 0 0 3px; font-weight: 700; color: #fff; }
+.category p { font-size: 11px; color: #d6deea; margin: 0 0 13px; line-height: 1.4; }
+.category > em { position: absolute; top: 14px; right: 12px; background: rgba(118,100,245,0.85); border-radius: 10px; padding: 6px 8px; font-size: 7px; letter-spacing: 0.13em; font-style: normal; font-weight: 800; color: #fff;}
+
+/* Bottom Section */
+.homeBottom { background: #f8fafc; padding: 0 0 75px; }
+
+/* Aseguradoras Aliadas */
+.allies { min-height: 148px; display: grid; grid-template-columns: max-content minmax(0, 1fr); background: #fff; border: 1px solid #dce3ed; border-top: 3px solid transparent; border-radius: 22px; transform: translateY(-18px); box-shadow: 0 18px 50px rgba(38,53,83,0.06); overflow: hidden; background-image: linear-gradient(#fff,#fff), linear-gradient(90deg,#7864ff,#cc5fe4); background-origin: border-box; background-clip: padding-box, border-box; }
+.alliesTitle { display: flex; flex-direction: column; justify-content: center; padding: 24px 34px; border-right: 1px solid #e2e6ee; position: relative; z-index: 2; background: #fff; }
+.alliesTitle:before { content: ""; position: absolute; width: 22px; height: 22px; border-radius: 50%; left: 16px; top: 50%; transform: translate(-50%,-50%); background: #b4eee5; }
+.alliesTitle small { font-size: 9px; letter-spacing: 0.15em; color: #65738a; font-weight: 900; }
+.alliesTitle h2 { font-size: 22px; line-height: 1.12; color: #7561ee; margin: 6px 0 0; font-weight: 800; white-space: nowrap; }
+.alliesViewport { overflow: hidden; display: flex; align-items: center; mask-image: linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent); -webkit-mask-image: linear-gradient(90deg,transparent,#000 4%,#000 96%,transparent); }
+.alliesTrack { display: flex; align-items: center; width: max-content; animation: alliesScroll 38s linear infinite; }
+.alliesDuplicate { display: flex; align-items: center; }
+.allies:hover .alliesTrack { animation-play-state: paused; }
+.allyLogo { width: 176px; height: 88px; margin: 0 9px; border: 1px solid #e0e5ee; border-radius: 15px; background: #fff; display: flex; align-items: center; justify-content: center; padding: 18px; flex: none; position: relative;}
+.allyLogo img { max-width: 126px; max-height: 48px; object-fit: contain; background: #fff; z-index: 2;}
+@keyframes alliesScroll { to { transform: translateX(-50%); } }
+
+/* Latest Posts */
+.latest { padding-top: 35px; }
+.latest h2 { font-size: 44px; line-height: 1.08; letter-spacing: -0.04em; margin: 14px 0 0; color: #0F172A; font-weight: 800; }
+.latest > div { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+.latest > div a { background: #fff; border: 1px solid #e2e8f0; border-radius: 20px; padding: 22px; text-decoration: none; color: #0F172A; transition: 0.3s; display: flex; flex-direction: column; }
+.latest > div a:hover { transform: translateY(-5px); box-shadow: 0 10px 25px rgba(0,0,0,0.05); border-color: #796bfc; }
+.latest small { color: #7165f7; font-size: 9px; font-weight: 800; text-transform: uppercase; margin-bottom: 8px;}
+.latest h3 { font-size: 18px; line-height: 1.35; min-height: 55px; margin: 0 0 15px; font-weight: 700; }
+.latest a span { font-size: 11px; color: #22b9ad; font-weight: 750; margin-top: auto;}
+
+/* Utilidades generales que la maqueta usaba */
+.shell { max-width: 1180px; width: calc(100% - 48px); margin: 0 auto; }
+
+/* Responsive Media Queries (Mobile First approach on existing overrides) */
+@media(max-width: 950px) {
+    .homeHero { height: 590px; }
+    .homeCopy h1 { font-size: 55px; }
+    .categoryGrid { grid-template-columns: repeat(2, 1fr); }
+    .category:last-child { grid-column: 1 / 3; }
+    .sectionHead { grid-template-columns: 1fr; gap: 25px; }
+    .latest > div { grid-template-columns: 1fr 1fr; }
+}
+
+@media(max-width: 600px) {
+    .shell { width: calc(100% - 30px); }
+    .homeHero { height: 610px; }
+    .homeVisual { background: linear-gradient(90deg, rgba(245,245,255,0.98), rgba(242,249,250,0.8)), url("../assets/img/maqueta/health-hero.png") center/cover; }
+    .homeCopy { padding-top: 70px; }
+    .homeCopy h1 { font-size: 44px; }
+    .homeCopy > p { font-size: 16px; }
+    .choose { padding-top: 60px; }
+    .sectionHead h2, .latest h2 { font-size: 34px; }
+    .categoryGrid { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; padding-bottom: 10px; }
+    .category { min-width: 82vw; height: 390px; scroll-snap-align: center; }
+    .allies { grid-template-columns: 1fr; transform: none; margin-top: 0; min-height: 126px; border-radius: 18px; }
+    .alliesTitle { border-right: none; border-bottom: 1px solid #e2e6ee; padding: 18px 20px 18px 28px; }
+    .alliesTitle h2 { font-size: 17px; }
+    .alliesTitle small { font-size: 7px; }
+    .allyLogo { width: 142px; height: 76px; padding: 15px; margin: 0 8px; }
+    .allyLogo img { max-width: 105px; max-height: 40px; }
+    .latest > div { grid-template-columns: 1fr; }
+}
+</style>
+
 <main>
-<section class="hub-hero">
-<h1>¿Qué deseas <span>proteger hoy?</span></h1>
-<p>Selecciona el producto que deseas cotizar. Nuestra plataforma 100% digital te encontrará la mejor opción en minutos.</p>
-</section>
-<div class="hub-container">
-<!-- TABS -->
-<div class="hub-tabs">
-<button class="hub-tab-btn active" onclick="openTab('tab-vehiculos', this)">
-<i class="fa-solid fa-car-side"></i> Vehículos
-            </button>
-<button class="hub-tab-btn" onclick="openTab('tab-vida-salud', this)">
-<i class="fa-solid fa-heart-pulse"></i> Vida y Salud
-            </button>
-<button class="hub-tab-btn" onclick="openTab('tab-hogar', this)">
-<i class="fa-solid fa-house-chimney"></i> Hogar
-            </button>
-<button class="hub-tab-btn" onclick="openTab('tab-empresas', this)">
-<i class="fa-solid fa-building"></i> Empresas
-            </button>
-<button class="hub-tab-btn" onclick="openTab('tab-asistencias', this)">
-<i class="fa-solid fa-headset"></i> Asistencias
-            </button>
-</div>
+    <section class="homeHero">
+        <div class="homeVisual"></div>
+        <div class="shell homeCopy">
+            <span class="eyebrow">SEGUROS PARA PERSONAS, FAMILIAS Y EMPRESAS</span>
+            <h1>Protege lo que estás<br/><em>construyendo.</em></h1>
+            <p>Una familia que crece, un negocio que avanza, una salud que quieres cuidar. En MHM encontramos el seguro que acompaña lo que estás construyendo.</p>
+            <a class="btn solid big" href="#seguros">Encontrar mi seguro <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+    </section>
 
-<!-- TAB CONTENT: Vehículos -->
-<div class="hub-tab-content active" id="tab-vehiculos">
-<!-- AUTO (Links to cotizacion-1.html) -->
-<div class="hub-card" data-covers="['Daños materiales del vehículo (parcial/total)', 'Robo y/o hurto del vehículo', 'Responsabilidad frente a terceros', 'Asistencia en ruta 24/7']" data-desc="Protección completa para tu vehículo personal o comercial. El Seguro Automotriz es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros." data-icon="fa-car" data-link="cotizacion-1.html" data-tag="Protección Vehicular" data-title="Seguro Automotriz" data-img="../assets/img/vehicular.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
-<div class="hub-icon"><i class="fa-solid fa-car"></i></div>
-<h3>Seguro Automotriz</h3>
-<p>Protección completa para tu vehículo personal o comercial.</p>
-</div>
-</div>
+    <section class="choose shell" id="seguros">
+        <div class="sectionHead compact">
+            <div>
+                <span class="eyebrow">ENCUENTRA TU PROTECCIÓN IDEAL</span>
+                <h2>¿Qué quieres proteger?</h2>
+            </div>
+            <p>Elige una categoría. Cada una tiene su propia experiencia, productos y cotizador.</p>
+        </div>
+        
+        <div class="categoryGrid">
+            <!-- 1. Salud -->
+            <a href="cotizacion-salud-1.html" class="category healthCategory" aria-label="Ir a Seguros de salud">
+                <img src="../assets/img/maqueta/salud-categoria.png" alt="Niña en consulta médica con una doctora" />
+                <span class="categoryShade"></span>
+                <div>
+                    <small>SALUD</small>
+                    <h3>Seguros de salud</h3>
+                    <p>Protección para ti y tu familia</p>
+                </div>
+            </a>
+            
+            <!-- 2. Pymes -->
+            <a href="../seguro-pymes/index.html" class="category" aria-label="Ir a Seguros para PYMES">
+                <img src="../assets/img/maqueta/pymes-categoria.png" alt="Seguros para PYMES" />
+                <span class="categoryShade"></span>
+                <div>
+                    <small>PYMES</small>
+                    <h3>Seguros para PYMES</h3>
+                    <p>Tu negocio merece seguir avanzando</p>
+                </div>
+            </a>
+            
+            <!-- 3. Vehículos -->
+            <a href="cotizacion-1.html" class="category" aria-label="Ir a Seguros vehiculares">
+                <img src="../assets/img/maqueta/vehiculos-categoria.png" alt="Seguros vehiculares" />
+                <span class="categoryShade"></span>
+                <div>
+                    <small>VEHÍCULOS</small>
+                    <h3>Seguros vehiculares</h3>
+                    <p>Muévete con respaldo</p>
+                </div>
+            </a>
+            
+            <!-- 4. Hogar -->
+            <a href="cotizacion-asistencia-hogar-1.html" class="category" aria-label="Ir a Seguros de hogar">
+                <img src="../assets/img/maqueta/hogar-categoria.png" alt="Seguros de hogar" />
+                <span class="categoryShade"></span>
+                <div>
+                    <small>HOGAR</small>
+                    <h3>Seguros de hogar</h3>
+                    <p>Protege el lugar donde ocurre tu vida</p>
+                </div>
+            </a>
+            
+            <!-- 5. Mascotas -->
+            <a href="cotizacion-mascota-1.html" class="category" aria-label="Ir a Seguros para mascotas">
+                <img src="../assets/img/maqueta/mascotas-categoria.png" alt="Seguros para mascotas" />
+                <span class="categoryShade"></span>
+                <div>
+                    <small>MASCOTAS</small>
+                    <h3>Seguros para mascotas</h3>
+                    <p>Cuida a quien siempre está contigo</p>
+                </div>
+            </a>
+        </div>
+    </section>
 
-<!-- TAB CONTENT: Vida y Salud -->
-<div class="hub-tab-content" id="tab-vida-salud">
-<!-- No products yet -->
-</div>
+    <section class="homeBottom">
+        <section class="allies shell" aria-label="Aseguradoras aliadas">
+            <div class="alliesTitle">
+                <small>RED DE ASEGURADORAS</small>
+                <h2>Aseguradoras<br/>Aliadas</h2>
+            </div>
+            <div class="alliesViewport">
+                <div class="alliesTrack">
+                    <!-- Logos -->
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-mapfre.png" alt="Logo MAPFRE" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-hdi.png" alt="Logo HDI Seguros" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-fid.png" alt="Logo FID Seguros" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-renta.png" alt="Logo Renta Nacional" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-sura.png" alt="Logo SURA" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-unnio.png" alt="Logo Unnio" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-zurich.png" alt="Logo Zurich" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-aspor.png" alt="Logo Aspor" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-bci.png" alt="Logo Bci Seguros" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-chubb-cropped.png" alt="Logo Chubb" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-continental.png" alt="Logo Continental" /></div>
+                    <div class="allyLogo"><img src="../assets/img/maqueta/ally-consorcio.png" alt="Logo Consorcio" /></div>
+                    
+                    <!-- Duplicated Logos for seamless scroll -->
+                    <div class="alliesDuplicate" aria-hidden="true">
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-mapfre.png" alt="Logo MAPFRE" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-hdi.png" alt="Logo HDI Seguros" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-fid.png" alt="Logo FID Seguros" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-renta.png" alt="Logo Renta Nacional" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-sura.png" alt="Logo SURA" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-unnio.png" alt="Logo Unnio" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-zurich.png" alt="Logo Zurich" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-aspor.png" alt="Logo Aspor" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-bci.png" alt="Logo Bci Seguros" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-chubb-cropped.png" alt="Logo Chubb" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-continental.png" alt="Logo Continental" /></div>
+                        <div class="allyLogo"><img src="../assets/img/maqueta/ally-consorcio.png" alt="Logo Consorcio" /></div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-<!-- TAB CONTENT: Hogar -->
-<div class="hub-tab-content" id="tab-hogar">
-<!-- No products yet -->
-</div>
-
-<!-- TAB CONTENT: Empresas -->
-<div class="hub-tab-content" id="tab-empresas">
-<!-- No products yet -->
-</div>
-
-<!-- TAB CONTENT: Asistencias -->
-<div class="hub-tab-content" id="tab-asistencias">
-<div class="hub-card" data-covers="['Urgencia Médica', 'Telemedicina', 'Médico a Domicilio', 'Descuento Farmacias']" data-desc="Protege a tu familia con acceso a servicios de urgencia, atención médica online y descuentos en medicamentos." data-icon="fa-user-doctor" data-link="cotizacion-salud-1.html" data-tag="Salud" data-title="Asistencia de Salud" data-img="../assets/img/salud.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
-<div class="hub-icon"><i class="fa-solid fa-user-doctor"></i></div>
-<h3>Asistencia de Salud</h3>
-<p>Servicios de urgencia, atención online y salud preventiva.</p>
-</div>
-<div class="hub-card" data-covers="['Urgencia médica veterinaria', 'Consulta médica veterinaria', 'Descuento en farmacias (uso veterinario)', 'Telemedicina veterinaria', 'Vacuna antirrábica']" data-desc="Protege a tus mascotas con nuestro seguro de asistencia veterinaria. Cubre gastos médicos, accidentes y más." data-icon="fa-paw" data-link="cotizacion-mascota-1.html" data-tag="Mascotas" data-title="Asistencia Veterinaria" data-img="../assets/img/veterinaria.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
-<div class="hub-icon"><i class="fa-solid fa-paw"></i></div>
-<h3>Asistencia Veterinaria</h3>
-<p>Seguro y asistencia completa para tus mascotas.</p>
-</div>
-<div class="hub-card" data-covers="['Urgencia médica por accidente', 'Descuento en farmacias', 'Consulta médica general', 'Telemedicina', 'Orientación médica telefónica']" data-desc="Protección y cobertura médica enfocada en escolares, brindando atención en caso de accidentes, telemedicina y descuentos en medicamentos." data-icon="fa-school" data-link="cotizacion-escolar-1.html" data-tag="Escolar" data-title="Asistencia Protección Escolar" data-img="../assets/img/escolar.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
-<div class="hub-icon"><i class="fa-solid fa-school"></i></div>
-<h3>Asistencia Protección Escolar</h3>
-<p>Protección médica y accidentes para la tranquilidad de tus hijos.</p>
-</div>
-<div class="hub-card" data-covers="['Protección para neumáticos', 'Protección para amortiguadores', 'Protección al vidrio lateral del vehículo', 'Cerrajería Vehicular', 'Protección insignia o emblema']" data-desc="Cobertura para imprevistos en tu auto, protegiendo llantas, vidrios y cerrajería en cualquier momento." data-icon="fa-car-burst" data-link="cotizacion-vehicular-1.html" data-tag="Vehicular" data-title="Asistencia Vehicular" data-img="../assets/img/vehicular.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
-<div class="hub-icon"><i class="fa-solid fa-car-burst"></i></div>
-<h3>Asistencia Vehicular</h3>
-<p>Protección para neumáticos, vidrios, cerrajería y más imprevistos.</p>
-</div>
-<div class="hub-card" data-covers="['Plomería', 'Electricidad', 'Cerrajería', 'Vidriería', 'Instalación de cortinas']" data-desc="Asistencia rápida y confiable para los imprevistos de tu hogar, incluyendo servicios de plomería, electricidad y cerrajería." data-icon="fa-house-chimney" data-link="cotizacion-asistencia-hogar-1.html" data-tag="Hogar" data-title="Asistencia Hogar" data-img="../assets/img/hogar.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
-<div class="hub-icon"><i class="fa-solid fa-house-chimney"></i></div>
-<h3>Asistencia Hogar</h3>
-<p>Protección y asistencia experta para los imprevistos de tu hogar.</p>
-</div>
-<div class="hub-card" data-covers="['Urgencia médica por accidente en bicicleta', 'Descuento en farmacias', 'Telemedicina', 'Orientación médica telefónica', 'Asistencia legal telefónica']" data-desc="Cobertura completa para ciclistas, con asistencia médica por accidentes, descuentos médicos y asesoría legal telefónica." data-icon="fa-person-biking" data-link="cotizacion-asistencia-ciclista-1.html" data-tag="Bicicleta" data-title="Asistencia al Ciclista" data-img="../assets/img/ciclista.svg" onclick="openModal(this)" onmouseenter="showCustomPopover(this)" onmouseleave="hideCustomPopover()">
-<div class="hub-icon"><i class="fa-solid fa-person-biking"></i></div>
-<h3>Asistencia al Ciclista</h3>
-<p>Cobertura médica y legal pensada para tu tranquilidad sobre dos ruedas.</p>
-</div>
-</div>
-</div>
-</div>
+        <div class="shell latest">
+            <span class="eyebrow">MHM EXPLICA</span>
+            <h2>Información útil para elegir mejor.</h2>
+            <div>
+                <a href="../5-mitos-comunes-sobre-el-seguro-de-auto-que-debes-saber/index.html">
+                    <small>SEGURO DE VEHÍCULOS · 5 min</small>
+                    <h3>5 mitos comunes sobre el seguro de auto que debes saber</h3>
+                    <span>Leer guía →</span>
+                </a>
+                <a href="../como-la-ia-esta-revolucionando-la-industria-de-los-seguros/index.html">
+                    <small>TECNOLOGÍA · 4 min</small>
+                    <h3>Cómo la IA está revolucionando la industria de los seguros</h3>
+                    <span>Leer guía →</span>
+                </a>
+                <a href="../guia-para-principiantes-que-cubre-el-seguro-de-inquilinos/index.html">
+                    <small>INQUILINOS · 6 min</small>
+                    <h3>Guía para principiantes: ¿Qué cubre el seguro de inquilinos?</h3>
+                    <span>Leer guía →</span>
+                </a>
+            </div>
+        </div>
+    </section>
 </main>
 <!-- MODAL COMING SOON -->
 <div class="cs-modal-overlay" id="comingSoonModal">

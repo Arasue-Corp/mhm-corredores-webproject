@@ -1,0 +1,212 @@
+
+/* Base styles (Mobile First) */
+.healthExperience { color: #10182f; background: #fff; }
+.healthLanding { position: relative; min-height: auto; padding: 20px 0 120px; background: linear-gradient(180deg, #f8faff 0%, #edf1f8 100%); overflow: visible; z-index: 3; display: flex; flex-direction: column; }
+.healthPhoto { display: none; } /* Hidden on mobile */
+
+.healthIntro { position: relative; z-index: 1; padding: 70px 15px 40px; text-align: center; }
+.healthKicker { color: #715ff0; font-size: 11px; font-weight: 900; letter-spacing: .18em; display: block; margin-bottom: 12px; }
+.healthIntro h1 { font-size: 32px; line-height: 1.2; letter-spacing: -.03em; max-width: 100%; margin: 0 auto 15px; color: #10182f; }
+.healthIntro h1 em { display: block; font-style: normal; background: linear-gradient(90deg, #765fff, #bb63d9, #2bc8bd); background-clip: text; color: transparent; }
+.healthIntro p { font-size: 15px; line-height: 1.6; color: #536079; margin: 0 auto; max-width: 400px; }
+
+.healthFinder { position: relative; left: auto; bottom: auto; transform: none; width: 92%; max-width: 1200px; margin: 0 auto 40px; padding: 30px 20px; background: #fff; border: 1px solid #e1e6f0; border-radius: 24px; box-shadow: 0 15px 40px rgba(25,35,70,.08); z-index: 10; height: auto; }
+.finderHead { display: flex; flex-direction: column; align-items: center; text-align: center; gap: 10px; margin-bottom: 25px; }
+.finderHead b { font-size: 12px; color: #6858e5; letter-spacing: .1em; display: flex; align-items: center; gap: 8px; text-transform: uppercase; }
+.finderHead i { font-size: 14px; color: #2bc9bc; background: transparent; box-shadow: none; width: auto; height: auto; border-radius: 0; }
+.finderHead > span { font-size: 14px; color: #8994a8; }
+
+.finderFields { display: grid; grid-template-columns: 1fr; gap: 14px; }
+.finderFields > label, .assuredField { min-height: 75px; height: auto; border: 1px solid #dce2ed; border-radius: 16px; background: #fafbfc; padding: 14px 16px; text-align: left; font-size: 11px; font-weight: 800; color: #68758c; transition: all 0.3s ease; }
+.finderFields > label:focus-within { border-color: #715ff0; background: #fff; box-shadow: 0 0 0 4px rgba(113, 95, 240, 0.1); }
+.finderFields input, .finderFields select { display: block; width: 100%; border: 0; outline: 0; background: transparent; font-size: 16px; font-weight: 800; color: #111a31; margin-top: 8px; }
+
+.assuredField { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
+.assuredField span { display: grid; gap: 6px; }
+.assuredField strong { color: #111a31; font-size: 15px; }
+.assuredField > b { font-size: 24px; color: #715ff0; background: #f0edff; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; }
+.finderSubmit { grid-column: auto; height: 75px; border-radius: 16px; font-size: 17px; margin-top: 10px; }
+.finderSubmit:disabled { opacity: .45; }
+
+/* Assured Panel absolute floating over form on mobile */
+.assuredPanel { position: absolute; left: 15px; right: 15px; bottom: 145px; width: auto; margin-top: 0; padding: 20px; border: 1px solid #dfe5ef; border-radius: 18px; background: #fff; box-shadow: 0 20px 50px rgba(20,30,60,.2); z-index: 30; flex-direction: column; }
+.assuredPanel > div { display: flex; justify-content: space-between; align-items: center; padding: 15px 0; width: 100%; }
+.assuredPanel > div + div { border-top: 1px solid #edf0f5; }
+.assuredPanel span { display: grid; }
+.assuredPanel small { color: #8a95a8; margin-top: 4px; font-size: 11px; }
+.assuredPanel button { border: 1px solid #dce2ed; background: #fff; color: #6959e5; border-radius: 9px; padding: 8px 14px; font-weight: 700; transition: all 0.2s; }
+.assuredPanel button.active { background: #e9faf7; color: #188e84; border-color: #2bc8bd; }
+.stepper { display: flex; align-items: center; gap: 14px; }
+.stepper button { width: 34px; height: 34px; padding: 0; border-radius: 50%; display: grid; place-items: center; font-size: 20px; line-height: 1; }
+.stepper b { font-size: 17px; min-width: 14px; text-align: center; }
+
+.healthProof { display: flex; flex-direction: column; align-items: center; gap: 12px; margin: 30px 0 10px; color: #6b7994; font-size: 12px; font-weight: 700; text-align: center; }
+.healthProof span { display: flex; align-items: center; gap: 8px; justify-content: center; width: 100%; }
+.healthProof svg, .healthProof i { color: #2bc9bc; font-size: 16px; }
+
+.healthResults { display: none; background: #f7f9fc; padding-bottom: 80px; scroll-margin-top: 85px; padding-top: 60px; }
+.healthResults.visible { display: block; }
+.resultsBanner { background: linear-gradient(90deg, #725ff0, #b65cdb 55%, #2bc8bd); color: #fff; padding: 38px 0; text-align: center; }
+.resultsBanner span { font-size: 10px; font-weight: 900; letter-spacing: .17em; opacity: 0.9; }
+.resultsBanner h2 { font-size: 30px; letter-spacing: -.03em; margin: 12px 0 8px; }
+.resultsBanner p { margin: 0; font-size: 14px; opacity: 0.95; }
+.resultsBody { padding-top: 34px; }
+
+.resultProfile { display: flex; align-items: flex-start; border: 1px solid #dfe4ee; background: #fff; border-radius: 17px; padding: 19px; }
+.resultProfile > span { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: #28c5a6; color: #fff; font-weight: 900; margin-right: 15px; flex-shrink: 0; }
+.resultProfile div { display: grid; gap: 5px; }
+.resultProfile b { font-size: 13px; }
+.resultProfile small { color: #7e899e; }
+.resultProfile button { margin-left: auto; border: 0; background: none; color: #6d5be7; font-weight: 800; font-size: 9px; }
+
+.resultTools { display: flex; flex-direction: column; align-items: flex-start; gap: 15px; border: 1px solid #dfe4ee; background: #fff; border-radius: 17px; padding: 19px; margin: 19px 0; }
+.resultTools > div:first-child { display: grid; gap: 5px; }
+.resultTools small { color: #8490a4; }
+.resultTools > div:last-child { display: flex; gap: 7px; overflow: auto; width: 100%; padding-bottom: 5px; }
+.resultTools button { white-space: nowrap; border: 0; border-radius: 99px; background: #eef1f6; color: #778397; padding: 10px 16px; font-size: 10px; font-weight: 800; }
+.resultTools button.active { background: #101b36; color: #fff; }
+
+.resultsLayout { display: grid; grid-template-columns: 1fr; gap: 22px; }
+
+.healthFilters { display: block; background: #fff; border: 1px solid #dfe4ee; border-radius: 18px; padding: 20px; height: max-content; }
+.healthFilters h3 { font-size: 17px; margin: 0 0 5px; }
+.healthFilters > p { font-size: 9px; color: #8994a7; }
+.healthFilters fieldset { border: 0; border-top: 1px solid #e5e9f0; margin: 20px 0 0; padding: 18px 0 0; }
+.healthFilters legend { font-size: 10px; font-weight: 850; }
+.segmented { display: grid; grid-template-columns: 1fr 1fr; margin-top: 10px; }
+.segmented button { border: 0; background: #eef1f6; padding: 10px; font-size: 9px; }
+.segmented button:first-child { border-radius: 9px 0 0 9px; }
+.segmented button:last-child { border-radius: 0 9px 9px 0; }
+.segmented button.active { background: #12203e; color: #fff; }
+.healthFilters fieldset > label { display: flex; align-items: center; gap: 8px; font-size: 9px; margin-top: 13px; }
+.healthFilters select { width: 100%; margin-top: 10px; padding: 11px; border: 1px solid #dce2ed; border-radius: 9px; background: #fff; }
+
+.futureFilter { margin-top: 20px; padding: 15px; background: #f2efff; border-radius: 12px; }
+.futureFilter b { font-size: 9px; color: #6d5be7; }
+.futureFilter p { font-size: 8px; line-height: 1.5; color: #718097; }
+
+.healthPolicyList { display: grid; gap: 20px; position: relative; }
+.healthPolicyCard { display: grid; grid-template-columns: 1fr; position: relative; background: #fff; border: 1px solid #dfe4ee; border-radius: 23px; overflow: hidden; min-height: 300px; }
+.healthPolicyCard.recommended { border: 2px solid #2bc7bb; }
+.healthBest { position: absolute; right: 18px; top: -1px; background: #12203e; color: #fff; padding: 7px 15px; border-radius: 0 0 12px 12px; font-size: 8px; font-weight: 850; letter-spacing: .12em; z-index: 2; }
+
+.policyBand { padding: 24px 20px; color: #fff; display: flex; flex-direction: column; min-height: 170px; }
+.band100 { background: linear-gradient(160deg, #735cff, #ae61d8); }
+.band500 { background: linear-gradient(160deg, #132b51, #258b94); }
+.policyBand > span { font-size: 8px; font-weight: 900; letter-spacing: .15em; }
+.healthMark { width: 55px; height: 55px; border-radius: 16px; background: rgba(255,255,255,.16); display: grid; place-items: center; margin: 15px 0; }
+.healthMark svg, .healthMark i { width: 28px; font-size: 28px; }
+.policyBand > b { font-size: 30px; }
+.policyBand > small { font-size: 9px; line-height: 1.4; margin-top: 8px; }
+
+.healthPolicyContent { padding: 22px 18px; }
+.policyMeta { display: flex; justify-content: space-between; }
+.policyMeta span { font-size: 8px; font-weight: 850; letter-spacing: .1em; color: #7a8498; }
+.policyMeta b { font-size: 8px; color: #15998f; background: #e6faf7; border-radius: 99px; padding: 7px; }
+.healthPolicyContent h3 { font-size: 22px; margin: 17px 0 7px; }
+.healthPolicyContent > p { color: #718096; font-size: 13px; }
+.healthBenefits { display: grid; grid-template-columns: 1fr; gap: 14px; margin: 22px 0; }
+.healthBenefits span { font-size: 10px; color: #526079; }
+.healthBenefits span::first-letter { color: #21b8aa; }
+
+.healthCardActions { display: flex; flex-direction: column; align-items: stretch; gap: 12px; }
+.healthCardActions .btn { font-size: 12px; }
+.healthCardActions > button:last-child { border: 0; background: none; color: #6b59e7; font-weight: 800; }
+
+.compareCheck { display: block; border-top: 1px solid #e7eaf0; margin-top: 18px; padding-top: 13px; color: #7f899a; font-size: 9px; }
+.floatingCompare { position: sticky; bottom: 20px; justify-self: end; border: 0; background: #111d3a; color: #fff; border-radius: 99px; padding: 14px 20px; font-weight: 800; box-shadow: 0 15px 35px #111d3a55; }
+.healthLegal { font-size: 8px; line-height: 1.5; color: #8994a7; text-align: center; }
+
+.healthWhy { padding: 60px 0; background: #fff; position: relative; z-index: 1; }
+.healthWhy h2, .healthFaq h2 { font-size: 30px; letter-spacing: -.03em; line-height: 1.2; margin: 15px 0 25px; text-align: center; }
+.healthWhy > div > p { color: #68758a; max-width: 720px; line-height: 1.6; text-align: center; margin: 0 auto; }
+.healthWhy > div > div { display: grid; grid-template-columns: 1fr; gap: 20px; margin-top: 34px; }
+.healthWhy article { border-top: 2px solid #e1e5ee; padding: 20px 5px; }
+.healthWhy article > span { color: #6c5ae7; font-size: 12px; font-weight: 900; }
+.healthWhy article small { display: block; color: #22aa9e; margin: 14px 0 7px; font-size: 11px; }
+.healthWhy h3 { font-size: 19px; }
+
+.healthFaq { padding: 140px 20px 80px; background: #fff; display: flex; flex-direction: column; align-items: center; }
+.healthFaq > .healthKicker { margin-bottom: 15px; text-align: center; }
+.healthFaq details { border-top: 1px solid #dfe4ed; width: 100%; max-width: 800px; }
+.healthFaq details:last-child { border-bottom: 1px solid #dfe4ed; }
+.healthFaq summary { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; font-weight: 800; cursor: pointer; font-size: 15px; }
+.healthFaq summary span { color: #6d5be7; font-size: 18px; }
+.healthFaq details p { color: #69758a; line-height: 1.6; max-width: 780px; margin-bottom: 20px; font-size: 15px; }
+
+/* -- TABLET (min-width: 601px) -- */
+@media (min-width: 601px) {
+    .healthLanding { padding: 40px 0 100px; }
+    
+    .healthIntro { text-align: left; padding-left: 20px; padding-right: 20px; }
+    .healthIntro h1, .healthIntro p { margin-left: 0; }
+    
+    .healthFinder { width: 90%; padding: 35px; }
+    .finderHead { flex-direction: row; align-items: center; text-align: left; justify-content: space-between; }
+    
+    .finderFields { grid-template-columns: 1fr 1fr; }
+    .finderSubmit { grid-column: 1 / 3; }
+    
+    .assuredPanel { position: absolute; left: 35px; right: 35px; bottom: 150px; width: auto; margin-top: 0; padding: 20px 24px; border: 1px solid #dfe5ef; border-radius: 18px; background: #fff; box-shadow: 0 20px 50px rgba(20,30,60,.15); z-index: 30; flex-direction: row; justify-content: space-between; align-items: center; }
+    .assuredPanel > div { width: auto; padding: 0 10px; border: 0 !important; }
+    .healthProof { flex-direction: row; align-items: center; justify-content: flex-start; }
+    .healthProof span { width: auto; }
+    
+    .resultsBanner h2 { font-size: 38px; }
+    .resultProfile { align-items: center; }
+    .resultProfile button { font-size: 11px; }
+    .resultTools { flex-direction: row; align-items: center; }
+    .resultTools > div:last-child { width: auto; overflow: visible; }
+    
+    .healthFilters { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+    .healthFilters h3, .healthFilters > p, .futureFilter { grid-column: 1 / 4; }
+    
+    .healthPolicyCard { grid-template-columns: 150px 1fr; }
+    .policyBand { min-height: auto; }
+    .healthMark { margin: 24px 0; }
+    .healthPolicyContent { padding: 26px 30px; }
+    .healthPolicyContent h3 { font-size: 25px; }
+    .healthBenefits { grid-template-columns: 1fr 1fr; }
+    .healthCardActions { flex-direction: row; align-items: center; }
+    
+    .healthWhy h2, .healthFaq h2 { font-size: 38px; }
+    .healthWhy > div > div { grid-template-columns: 1fr 1fr; }
+    .healthFaq { padding: 100px 20px; }
+}
+
+/* -- DESKTOP (min-width: 951px) -- */
+@media (min-width: 951px) {
+    .healthLanding { min-height: 790px; padding-bottom: 120px; background: #f3f5fb; }
+    .healthPhoto { display: block; position: absolute; inset: 0 0 0 0; opacity: 1; background: url('../assets/img/salud-hero.png') 58% center/cover no-repeat; }
+    .healthPhoto:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #f3f5fb 0%, rgba(243,245,251,.93) 20%, transparent 58%), linear-gradient(0deg, #f3f5fb 0%, transparent 24%); }
+    
+    .healthIntro { padding-top: 95px; padding-left: 0; }
+    .healthIntro h1 { font-size: 68px; max-width: 710px; line-height: 1.05; letter-spacing: -.055em; margin: 31px 0 23px; }
+    .healthIntro p { font-size: 18px; max-width: 100%; }
+    
+    .healthFinder { position: absolute; left: 0; right: 0; margin: 0 auto 40px; bottom: 43px; transform: none; width: 90%; max-width: 1200px; padding: 24px 20px; }
+    .finderHead i { width: 8px; height: 8px; border-radius: 50%; background: #2bc9bc; box-shadow: 0 0 0 6px #e2faf7; } /* Original desktop style */
+    
+    .finderFields { grid-template-columns: .65fr .9fr 1.05fr 1.2fr 1.5fr; }
+    .finderFields > label, .assuredField { height: 78px; min-height: 78px; }
+    .finderSubmit { grid-column: auto; margin-top: 9px; height: 78px; }
+    
+    .assuredPanel { position: absolute; right: 26px; left: auto; bottom: auto; top: 144px; width: 43%; margin-top: 0; flex-direction: column; padding: 12px 18px; }
+    .assuredPanel > div { width: 100%; border-top: 1px solid #edf0f5 !important; padding: 13px 0; }
+    .assuredPanel > div:first-child { border-top: 0 !important; }
+    
+    .resultsLayout { grid-template-columns: 220px 1fr; }
+    .healthFilters { display: block; }
+    .healthFilters h3, .healthFilters > p, .futureFilter { grid-column: auto; }
+    
+    .healthPolicyCard { grid-template-columns: 155px 1fr; }
+    
+    .healthWhy > div > div { grid-template-columns: repeat(4, 1fr); }
+    .healthWhy h2, .healthFaq h2 { font-size: 44px; text-align: left; }
+    .healthWhy > div > p { text-align: left; margin: 0; }
+    
+    .healthFaq { padding: 100px 0; align-items: flex-start; }
+    .healthFaq > .healthKicker { text-align: left; }
+    .healthFaq summary { padding: 24px 0; font-size: 16px; }
+    .healthFaq details p { font-size: 15px; }
+}
