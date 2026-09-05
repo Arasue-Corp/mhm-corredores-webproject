@@ -10814,7 +10814,7 @@ body, html {
     
     .container {
         width: 100% !important;
-        padding: 0 15px !important;
+        padding: 5% 15px !important;
         box-sizing: border-box;
     }
     
@@ -10895,8 +10895,9 @@ input.harmonic-input {
 /* Espaciado de seguridad móvil global */
 @media (max-width: 768px) {
     .container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
+        width: 100% !important;
+        padding: 5% 15px !important;
+        box-sizing: border-box;
     }
     
     .hero-layout,

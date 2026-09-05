@@ -570,7 +570,36 @@ html, body {
 }
 /* ---- END REDESIGN FIX ---- */
 
-</style>
+
+        /* MOBILE FIRST OVERRIDES */
+        @media (max-width: 600px) {
+            .veh-type-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+                padding: 0 10px !important;
+            }
+            .hub-hero {
+                padding: 40px 15px 20px !important;
+            }
+            .hub-hero h1 {
+                font-size: 1.8rem !important;
+            }
+            .hub-tab-btn {
+                padding: 10px 15px !important;
+                font-size: 0.85rem !important;
+                width: 100% !important;
+                justify-content: center !important;
+            }
+            .hub-tabs {
+                flex-direction: column !important;
+                gap: 10px !important;
+            }
+            .veh-type-card {
+                margin: 0 auto !important;
+                max-width: 100% !important;
+            }
+        }
+        </style>
 <style>
 /* ABSOLUTE MOBILE OVERFLOW KILLER */
 @media (max-width: 1024px) {
@@ -598,6 +627,10 @@ html, body {
 /* POPOVER HOVER */
 .card-popover {
     position: absolute;
+    top: 0;
+    left: 0;
+    top: 0;
+    left: 0;
     width: 320px;
     background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(12px);
@@ -1155,59 +1188,97 @@ html, body {
 <div class="aurora-bottom-line"></div>
 </div>
 </footer>
+
 <div id="floating-menu-container">
-<div class="nav-command-center" id="megaMenu">
-<div class="cmd-header">
-<span>Navegación rápida</span>
-<span class="cmd-badge">MENÚ</span>
-</div>
-<div class="cmd-grid">
-<a class="cmd-card" href="../funnel-auto/index.html">
-<div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
-<span>Seguro de Auto</span>
-</a>
-<a class="cmd-card" href="../seguro-complementario-salud/index.html">
-<div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
-<span>Seguro complementario de salud</span>
-</a>
-<a class="cmd-card" href="../seguro-pymes/index.html">
-<div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
-<span>Seguro Pymes</span>
-</a>
-<a class="cmd-card" href="../productos/index.html">
-<div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
-<span>Más productos</span>
-</a>
-<a class="cmd-card" href="../blog/index.html">
-<div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
-<span>Blog</span>
-</a>
-<a class="cmd-card" href="../contacto/index.html">
-<div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
-<span>Contactar Soporte</span>
-</a>
-</div>
-<div class="cmd-footer">
-<a href="../index.html">Back to Home <i class="fa-solid fa-arrow-right"></i></a>
-</div>
-</div>
-<div id="floating-chat-container">
-<div class="alex-chat-window" id="chatWindow">
-<div class="chat-header">
-<div class="agent-info">
-<div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
+        <div class="nav-command-center" id="megaMenu">
+            <div class="cmd-header">
+                <span>Navegación rápida</span>
+                <span class="cmd-badge">MENÚ</span>
+            </div>
+            <div class="cmd-grid">
+                <a href="../funnel-auto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
+                    <span>Seguro de Auto</span>
+                </a>
+                <a href="../seguro-complementario-salud/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
+                    <span>Seguro complementario de salud</span>
+                </a>
+                <a href="../seguro-pymes/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
+                    <span>Seguro Pymes</span>
+                </a>
+                <a href="../productos/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
+                    <span>Más productos</span>
+                </a>
+                <a href="../blog/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
+                    <span>Blog</span>
+                </a>
+                <a href="../contacto/index.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
+                    <span>Contactar Soporte</span>
+                </a>
+            </div>
+            <div class="cmd-footer">
+                <a href="../index.html">Back to Home <i class="fa-solid fa-arrow-right"></i></a>
+            </div>
+        </div>
+        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
+            <i class="fa-regular fa-compass"></i>
+        </button>
+    </div>
+
+    <div id="floating-chat-container">
+        <div class="alex-chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="agent-info">
+                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
+                    <div class="agent-text">
+                        <span class="name">Alex AI Assistant</span>
+                        <span class="status">Reply time: Instant</span>
+                    </div>
+                </div>
+                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-timestamp">Today, 5:00 PM</div>
+                
+                <div class="msg-row bot">
+                    <div class="msg-bubble">
+                        Hello! I see you're looking at quotes. Do you have any questions about the <strong>Collision Deductible</strong>? 🚗
+                    </div>
+                </div>
+                
+                <div class="chat-suggestions">
+                    <button>Explain Deductibles</button>
+                    <button>Talk to Human</button>
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" placeholder="Type your question..." class="chat-input">
+                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span class="online-badge"></span>
+        </button>
+    </div>
+
+    
+    
 <script>
     // Tab Logic
     function openTab(tabId, btnElement) {
-        // Hide all tabs
         const contents = document.querySelectorAll('.hub-tab-content');
         contents.forEach(content => content.classList.remove('active'));
-        
-        // Deactivate all buttons
         const btns = document.querySelectorAll('.hub-tab-btn');
         btns.forEach(btn => btn.classList.remove('active'));
-        
-        // Activate target tab and button
         document.getElementById(tabId).classList.add('active');
         btnElement.classList.add('active');
     }
@@ -1215,25 +1286,21 @@ html, body {
     // Modal Logic
     const modal = document.getElementById('comingSoonModal');
     const csButtons = document.querySelectorAll('.btn-coming-soon');
-    
-    csButtons.forEach(btn => {
-        btn.addEventListener('click', (e) => {
-            e.preventDefault();
-            modal.classList.add('active');
+    if (modal && csButtons) {
+        csButtons.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                modal.classList.add('active');
+            });
         });
-    });
-    
-    function closeComingSoon() {
-        modal.classList.remove('active');
+        function closeComingSoon() {
+            modal.classList.remove('active');
+        }
+        modal.addEventListener('click', (e) => {
+            if(e.target === modal) closeComingSoon();
+        });
     }
-    
-    // Close on overlay click
-    modal.addEventListener('click', (e) => {
-        if(e.target === modal) closeComingSoon();
-    });
 </script>
-
-</div></div></div></div></div>
 <!-- POPOVER -->
 <div class="card-popover" id="card-popover">
 <span class="popover-tag" id="po-tag">Tag</span>
@@ -1376,5 +1443,9 @@ html, body {
         document.body.style.overflow = isOpen ? 'hidden' : '';
     }
 </script>
+
+    
+    
+<script src="../js/script.js"></script>
 </body>
 </html>

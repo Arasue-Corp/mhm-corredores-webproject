@@ -16,297 +16,12 @@
     <link rel="stylesheet" href="../css/style-quote.css?v=5"> 
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 
-<style>
-        .veh-type-grid {
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 32px; 
-            margin-bottom: 40px;
-        }
-        @media (max-width: 992px) {
-            .veh-type-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        }
-        @media (max-width: 768px) {
-            .veh-type-grid { grid-template-columns: 1fr; }
-        }
-        
-        .veh-type-card {
-            height: 100%; box-sizing: border-box;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 24px;
-            overflow: hidden;
-            position: relative;
-            display: flex; flex-direction: column; align-items: stretch; text-align: left; gap: 20px;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 4px 10px -5px rgba(15, 23, 42, 0.02);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .veh-type-card:hover { 
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(121, 107, 252, 0.15);
-            border-color: transparent;
-        }
-        
-        .vt-image {
-            width: 100%; aspect-ratio: 16 / 9; border-radius: 16px;
-            overflow: hidden; margin-bottom: 5px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            background: #F8FAFC;
-            position: relative;
-        }
-        .vt-image img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .veh-type-card:hover .vt-image img { transform: scale(1.08); }
-        
-        .vt-info { width: 100%; display: flex; flex-direction: column; flex-grow: 1; }
-        .vt-info-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-        .vt-info h4 { margin: 0; color: #0F172A; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
-        
-        .badge-recomendado {
-            font-size: 0.65rem; 
-            line-height: 1;
-            background: linear-gradient(135deg, #796bfc, #4F46E5); 
-            color: #ffffff; 
-            padding: 6px 12px; 
-            border-radius: 30px; 
-            font-weight: 800; 
-            display: inline-flex; 
-            align-items: center;
-            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            position: relative;
-            overflow: hidden;
-            white-space: nowrap;
-            border: 1px solid rgba(255,255,255,0.2);
-        }
-        .badge-recomendado i {
-            color: #FFD700 !important;
-            margin-right: 6px !important;
-            font-size: 0.8rem;
-        }
-        .badge-recomendado::before {
-            content: '';
-            position: absolute;
-            top: 0; left: -100%;
-            width: 50%; height: 100%;
-            background: linear-gradient(to right, transparent, rgba(255,255,255,0.4), transparent);
-            transform: skewX(-20deg);
-            animation: badgeShine 3s infinite;
-        }
-        @keyframes badgeShine {
-            0% { left: -100%; }
-            20% { left: 200%; }
-            100% { left: 200%; }
-        }
 
-        .pet-feature-list {
-            list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 0.95rem; color: #475569;
-            text-align: left;
-        }
-        .pet-feature-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; line-height: 1.4; }
-        .pet-feature-list li i { color: #2ED9C3; font-size: 1.1rem; margin-top: 2px; }
-        
-        .plan-price-wrapper { display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; }
-        .plan-price-label { font-size: 0.9rem; color: #64748B; font-weight: 600; }
-        .plan-price { font-size: 1.8rem; font-weight: 800; color: #796bfc; letter-spacing: -0.5px; }
-        .plan-price-period { font-size: 1rem; color: #94A3B8; font-weight: 500; }
-        
-        /* Pro Card Top Aurora */
-        .pro-card {
-            border: 1px solid rgba(121, 107, 252, 0.3);
-            box-shadow: 0 10px 30px -5px rgba(121, 107, 252, 0.1);
-        }
-        .pro-card .card-aurora-top {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            z-index: 10;
-            background: linear-gradient(90deg, #796bfc, #2ED9C3, #796bfc);
-            background-size: 200% 100%;
-            animation: gradientMove 3s linear infinite;
-        }
-        @keyframes gradientMove {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
+
+
     
-        /* Accordion */
-        .accordion-checkbox { display: none; }
-        .accordion-label {
-            cursor: pointer; display: inline-flex; align-items: center; justify-content: flex-start;
-            gap: 8px; color: #796bfc; font-weight: 700; font-size: 0.95rem; margin-top: 15px;
-            transition: color 0.2s; padding: 6px 12px; border-radius: 8px; background: #F8FAFC;
-            border: 1px solid #E2E8F0; width: fit-content;
-        }
-        .accordion-label:hover { background: #F1F5F9; color: #4F46E5; border-color: #CBD5E1; }
-        .accordion-label i { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .accordion-checkbox:checked + .accordion-label i { transform: rotate(180deg); }
-        .accordion-checkbox:checked + .accordion-label .label-text::before { content: attr(data-open); }
-        .accordion-checkbox:not(:checked) + .accordion-label .label-text::before { content: attr(data-closed); }
-        .accordion-checkbox:not(:checked) ~ .pet-feature-list { display: none; }
-        .accordion-checkbox:checked ~ .pet-feature-list { display: block; animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Buttons */
-        .vt-card-actions {
-            display: flex; gap: 12px; flex-direction: column; margin-top: auto; padding-top: 24px;
-        }
-        
-        .btn-outline-premium {
-            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
-            border: 1px solid #DBEAFE !important; color: #1E3A8A !important; background: #EFF6FF !important; 
-            cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem;
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-outline-premium:hover {
-            background: #DBEAFE !important; color: #1E3A8A !important; border-color: #BFDBFE !important;
-        }
-        
-        .btn-primary-premium {
-            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
-            cursor: pointer; border: none; background: #2563EB; color: white;
-            font-size: 1rem; transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(37, 99, 235, 0.25);
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-primary-premium:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(37, 99, 235, 0.4);
-            background: #1D4ED8;
-        }
-
-        .btn-primary-premium.familiar {
-            background: #1E40AF;
-            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.25);
-        }
-        .btn-primary-premium.familiar:hover {
-            background: #1E3A8A;
-            box-shadow: 0 6px 16px rgba(30, 64, 175, 0.4);
-        }
-
-        .split-btn-container {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;
-        }
-        .split-btn {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border-radius: 12px; padding: 10px 5px; font-weight: 700; cursor: pointer; border: none; 
-            color: white; font-size: 0.95rem; line-height: 1.3; transition: all 0.3s ease;
-        }
-        .split-btn span {
-            font-size: 0.8em; font-weight: 500; opacity: 0.9;
-        }
-    
-
-
-
-
-
-
-
-
-
-
-</style>
-
-
-    <style>
-        .salud-layout-container {
-            margin-left: 15%; margin-right: 15%; padding: 0; max-width: none !important;
-        }
-        @media (max-width: 1200px) {
-            .salud-layout-container {
-                margin-left: 5%; margin-right: 5%;
-            }
-        }
-        @media (max-width: 768px) {
-            .salud-layout-container {
-                margin-left: 16px; margin-right: 16px;
-            }
-            .veh-type-card {
-                padding: 20px !important;
-            }
-            .veh-type-grid {
-                gap: 16px !important;
-            }
-            .split-btn-container {
-                gap: 8px !important;
-            }
-            .split-btn {
-                font-size: 0.85rem !important;
-                padding: 8px 4px !important;
-            }
-            .vt-info h4 {
-                font-size: 1.3rem !important;
-            }
-            .plan-price {
-                font-size: 1.5rem !important;
-            }
-        }
-
-        /* Modal Table Responsive */
-        .responsive-table {
-            width: 100%; border-collapse: collapse; text-align: left; font-size: 0.95rem;
-        }
-        .responsive-table thead tr {
-            background: #023859; color: white;
-        }
-        .responsive-table th {
-            padding: 12px; border: 1px solid #E2E8F0; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; text-align: center;
-        }
-        .responsive-table td {
-            padding: 12px; border: 1px solid #E2E8F0; text-align: center;
-        }
-        .responsive-table td:nth-child(3),
-        .responsive-table td:nth-child(4) {
-            color: #4CAF50; font-weight: 600;
-        }
-
-        @media (max-width: 768px) {
-            .responsive-table thead {
-                display: none;
-            }
-            .responsive-table tr {
-                display: block;
-                margin-bottom: 1rem;
-                border: 1px solid #E2E8F0;
-                border-radius: 8px;
-                background: #fff;
-                box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-            }
-            .responsive-table td {
-                display: flex;
-                justify-content: space-between;
-                align-items: center;
-                text-align: right !important;
-                border: none;
-                border-bottom: 1px solid #E2E8F0;
-                padding: 12px 16px;
-            }
-            .responsive-table td:last-child {
-                border-bottom: none;
-            }
-            .responsive-table td::before {
-                content: attr(data-label);
-                font-weight: 700;
-                color: #64748B;
-                text-transform: uppercase;
-                font-size: 0.75rem;
-                margin-right: 15px;
-                text-align: left;
-                flex-shrink: 0;
-                max-width: 50%;
-            }
-        }
-    </style>
-    <link rel="stylesheet" href="../css/salud.css?v=2">
+    <link rel="stylesheet" href="../css/salud.css?v=3">
+<style>@media (max-width: 1024px) { html, body { width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; margin: 0 !important; padding: 0 !important; } }</style>
 </head>
 
 <body class="bg-body">
@@ -506,7 +221,7 @@
                         </select>
                     </label>
                     <button class="assuredField" id="btnAssuredOpen">
-                        <span>Asegurados<strong id="assuredSummary">Solo titular</strong></span>
+                        <span>Asegurados<strong id="assuredSummary">Selecciona</strong></span>
                         <b id="assuredToggle">+</b>
                     </button>
                     <button class="btn solid finderSubmit" id="btnRecommend" disabled>Cotizar ahora <i class="fa-solid fa-arrow-right"></i></button>
@@ -614,7 +329,7 @@
             
             // Update Assured Text
             const total = 1 + (profile.partner ? 1 : 0) + profile.children;
-            document.getElementById('assuredSummary').innerText = total === 1 ? 'Solo titular' : total + ' asegurados';
+            document.getElementById('assuredSummary').innerText = total === 1 ? 'Selecciona' : total + ' asegurados';
             
             // Partner button
             const btnPartner = document.getElementById('btnPartner');
@@ -910,7 +625,7 @@
     </div>
 
     <script src="../js/script.js?v=1785403170"></script>
-    <script src="../js/script-quote.js?v=1785403170"></script>
+    
 
     
 

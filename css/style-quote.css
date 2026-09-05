@@ -8513,7 +8513,7 @@ body, html {
     
     .container {
         width: 100% !important;
-        padding: 0 15px !important;
+        padding: 5% 15px !important;
         box-sizing: border-box;
     }
     

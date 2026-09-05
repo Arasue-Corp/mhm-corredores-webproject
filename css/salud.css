@@ -1,13 +1,13 @@
 
 /* Base styles (Mobile First) */
 .healthExperience { color: #10182f; background: #fff; }
-.healthLanding { position: relative; min-height: auto; padding: 20px 0 120px; background: linear-gradient(180deg, #f8faff 0%, #edf1f8 100%); overflow: visible; z-index: 3; display: flex; flex-direction: column; }
+.healthLanding { position: relative; min-height: auto; padding: 20px 0 60px; background: linear-gradient(180deg, #f8faff 0%, #edf1f8 100%); overflow: visible; z-index: 3; display: flex; flex-direction: column; }
 .healthPhoto { display: none; } /* Hidden on mobile */
 
 .healthIntro { position: relative; z-index: 1; padding: 70px 15px 40px; text-align: center; }
 .healthKicker { color: #715ff0; font-size: 11px; font-weight: 900; letter-spacing: .18em; display: block; margin-bottom: 12px; }
 .healthIntro h1 { font-size: 32px; line-height: 1.2; letter-spacing: -.03em; max-width: 100%; margin: 0 auto 15px; color: #10182f; }
-.healthIntro h1 em { display: block; font-style: normal; background: linear-gradient(90deg, #765fff, #bb63d9, #2bc8bd); background-clip: text; color: transparent; }
+.healthIntro h1 em { display: block; font-style: normal; background: linear-gradient(90deg, #796bfc, #cb6ce6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
 .healthIntro p { font-size: 15px; line-height: 1.6; color: #536079; margin: 0 auto; max-width: 400px; }
 
 .healthFinder { position: relative; left: auto; bottom: auto; transform: none; width: 92%; max-width: 1200px; margin: 0 auto 40px; padding: 30px 20px; background: #fff; border: 1px solid #e1e6f0; border-radius: 24px; box-shadow: 0 15px 40px rgba(25,35,70,.08); z-index: 10; height: auto; }
@@ -17,14 +17,16 @@
 .finderHead > span { font-size: 14px; color: #8994a8; }
 
 .finderFields { display: grid; grid-template-columns: 1fr; gap: 14px; }
-.finderFields > label, .assuredField { min-height: 75px; height: auto; border: 1px solid #dce2ed; border-radius: 16px; background: #fafbfc; padding: 14px 16px; text-align: left; font-size: 11px; font-weight: 800; color: #68758c; transition: all 0.3s ease; }
-.finderFields > label:focus-within { border-color: #715ff0; background: #fff; box-shadow: 0 0 0 4px rgba(113, 95, 240, 0.1); }
+.finderFields > label { min-height: 75px; height: auto; border: 1px solid #dce2ed; border-radius: 16px; background: #fafbfc; padding: 14px 16px; text-align: left; font-size: 11px; font-weight: 800; color: #68758c; transition: all 0.3s ease; }
+.assuredField { min-height: 75px; height: auto; border: 1px solid #32d8c3; border-radius: 16px; background: #32d8c3; padding: 14px 16px; text-align: left; font-size: 11px; font-weight: 800; color: white !important; transition: all 0.3s ease; }
+.assuredField:focus, .assuredField:active { background: #32d8c3 !important; border-color: #32d8c3 !important; color: white !important; box-shadow: none !important; outline: none !important; }
+.finderFields > label:focus-within { border-color: #715ff0; box-shadow: 0 0 0 4px rgba(113, 95, 240, 0.1); }
 .finderFields input, .finderFields select { display: block; width: 100%; border: 0; outline: 0; background: transparent; font-size: 16px; font-weight: 800; color: #111a31; margin-top: 8px; }
 
 .assuredField { display: flex; align-items: center; justify-content: space-between; cursor: pointer; }
 .assuredField span { display: grid; gap: 6px; }
-.assuredField strong { color: #111a31; font-size: 15px; }
-.assuredField > b { font-size: 24px; color: #715ff0; background: #f0edff; width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; }
+.assuredField strong { color: white !important; font-size: 15px; }
+.assuredField > b { font-size: 24px; color: #715ff0; background: #f0edff; width: 36px; height: 36px; border-radius: 50%; display: flex; align-items: center; justify-content: center; line-height: 0; padding-bottom: 2px; }
 .finderSubmit { grid-column: auto; height: 75px; border-radius: 16px; font-size: 17px; margin-top: 10px; }
 .finderSubmit:disabled { opacity: .45; }
 
@@ -86,7 +88,8 @@
 .futureFilter p { font-size: 8px; line-height: 1.5; color: #718097; }
 
 .healthPolicyList { display: grid; gap: 20px; position: relative; }
-.healthPolicyCard { display: grid; grid-template-columns: 1fr; position: relative; background: #fff; border: 1px solid #dfe4ee; border-radius: 23px; overflow: hidden; min-height: 300px; }
+.healthPolicyCard { display: grid; grid-template-columns: 1fr; position: relative; background: #fff; border: 1px solid #dfe4ee; border-radius: 23px; overflow: hidden; min-height: 300px;  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
+.healthPolicyCard:hover { transform: translateY(-5px); box-shadow: 0 15px 35px rgba(20, 30, 60, 0.08); border-color: transparent; }
 .healthPolicyCard.recommended { border: 2px solid #2bc7bb; }
 .healthBest { position: absolute; right: 18px; top: -1px; background: #12203e; color: #fff; padding: 7px 15px; border-radius: 0 0 12px 12px; font-size: 8px; font-weight: 850; letter-spacing: .12em; z-index: 2; }
 
@@ -177,19 +180,19 @@
 /* -- DESKTOP (min-width: 951px) -- */
 @media (min-width: 951px) {
     .healthLanding { min-height: 790px; padding-bottom: 120px; background: #f3f5fb; }
-    .healthPhoto { display: block; position: absolute; inset: 0 0 0 0; opacity: 1; background: url('../assets/img/salud-hero.png') 58% center/cover no-repeat; }
+    .healthPhoto { display: block; position: absolute; inset: 0 0 0 42%; opacity: 1; background: url('../assets/img/salud-hero.png') 58% /cover no-repeat; }
     .healthPhoto:after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, #f3f5fb 0%, rgba(243,245,251,.93) 20%, transparent 58%), linear-gradient(0deg, #f3f5fb 0%, transparent 24%); }
     
     .healthIntro { padding-top: 95px; padding-left: 0; }
     .healthIntro h1 { font-size: 68px; max-width: 710px; line-height: 1.05; letter-spacing: -.055em; margin: 31px 0 23px; }
     .healthIntro p { font-size: 18px; max-width: 100%; }
     
-    .healthFinder { position: absolute; left: 0; right: 0; margin: 0 auto 40px; bottom: 43px; transform: none; width: 90%; max-width: 1200px; padding: 24px 20px; }
+    .healthFinder { position: absolute; left: 0; right: 0; margin: 5% auto 40px; bottom: 43px; transform: none; width: 90%; max-width: 1200px; padding: 24px 20px; }
     .finderHead i { width: 8px; height: 8px; border-radius: 50%; background: #2bc9bc; box-shadow: 0 0 0 6px #e2faf7; } /* Original desktop style */
     
     .finderFields { grid-template-columns: .65fr .9fr 1.05fr 1.2fr 1.5fr; }
     .finderFields > label, .assuredField { height: 78px; min-height: 78px; }
-    .finderSubmit { grid-column: auto; margin-top: 9px; height: 78px; }
+    .finderSubmit { grid-column: auto; margin-top: 0; height: 78px; }
     
     .assuredPanel { position: absolute; right: 26px; left: auto; bottom: auto; top: 144px; width: 43%; margin-top: 0; flex-direction: column; padding: 12px 18px; }
     .assuredPanel > div { width: 100%; border-top: 1px solid #edf0f5 !important; padding: 13px 0; }
