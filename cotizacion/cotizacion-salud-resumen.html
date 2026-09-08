@@ -24,74 +24,65 @@
             flex-direction: column;
         }
 
-        .summaryNav {
+        /* SUB-BAR / WIZARD BREADCRUMB */
+        .summarySubBar {
             background: #FFFFFF;
-            border-bottom: 1px solid var(--color-border);
-            padding: 14px 24px;
-            position: sticky;
-            top: 0;
-            z-index: 200;
+            border-bottom: 1px solid #E2E8F0;
+            box-shadow: 0 2px 8px rgba(15, 23, 42, 0.03);
+            padding: 12px 24px;
+            position: relative;
+            z-index: 90;
         }
 
-        .summaryNavInner {
+        .summarySubBarInner {
             max-width: 1240px;
             margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: space-between;
+            gap: 16px;
         }
 
-        .summaryNavBrand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .summaryNavLogo {
-            height: 32px;
-            width: auto;
-            display: block;
-        }
-
-        .summaryNavBack {
+        .summarySubBack {
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            color: var(--color-primary);
+            color: #475569;
             text-decoration: none;
-            font-size: 13.5px;
+            font-size: 13px;
             font-weight: 700;
+            padding: 7px 14px;
+            border-radius: 999px;
+            background: #F1F5F9;
+            border: 1px solid #E2E8F0;
             transition: all 0.2s ease;
+            white-space: nowrap;
         }
 
-        .summaryNavBack:hover {
-            color: var(--color-primary-dark);
-            transform: translateX(-3px);
+        .summarySubBack:hover {
+            color: #4338CA;
+            background: #EEF2FF;
+            border-color: #C7D2FE;
+            transform: translateX(-2px);
         }
 
         .summaryNavSecure {
-            display: flex;
+            display: inline-flex;
             align-items: center;
             gap: 6px;
             font-size: 11.5px;
             font-weight: 700;
-            color: var(--color-teal-dark);
-            background: rgba(46, 217, 195, 0.12);
-            padding: 5px 12px;
+            color: #047857;
+            background: #ECFDF5;
+            border: 1px solid #A7F3D0;
+            padding: 6px 14px;
             border-radius: 999px;
-            letter-spacing: 0.04em;
+            letter-spacing: 0.02em;
+            white-space: nowrap;
         }
 
         /* WIZARD PROGRESS */
-        .summaryWizardTrack {
-            background: #FFFFFF;
-            border-bottom: 1px solid var(--color-border);
-            padding: 14px 20px;
-        }
-
         .summaryWizardInner {
-            max-width: 1240px;
-            margin: 0 auto;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -99,6 +90,29 @@
             flex-wrap: wrap;
             font-size: 12px;
             font-weight: 700;
+        }
+
+        @media (max-width: 991px) {
+            .summarySubBar {
+                padding: 10px 16px;
+            }
+            .summarySubBarInner {
+                flex-wrap: wrap;
+                gap: 10px;
+                justify-content: space-between;
+            }
+            .summaryWizardInner {
+                width: 100%;
+                order: 3;
+                justify-content: flex-start;
+                overflow-x: auto;
+                padding: 6px 0 2px;
+                scrollbar-width: none;
+                -webkit-overflow-scrolling: touch;
+            }
+            .summaryWizardInner::-webkit-scrollbar {
+                display: none;
+            }
         }
 
         .wizardStepItem {
@@ -809,43 +823,178 @@
 </head>
 <body class="summaryCheckoutPage">
 
-    <!-- NAVIGATION HEADER -->
-    <header class="summaryNav">
-        <div class="summaryNavInner">
-            <div class="summaryNavBrand">
-                <a href="../index.html">
-                    <img src="../assets/img/logo-mhm.png" alt="MHM Corredores de Seguros" class="summaryNavLogo" onerror="this.src='../assets/img/logo-mhm-blanco.png';">
+    <div class="noise-overlay"></div>
+
+    <!-- TOP BAR AURORA -->
+    <div class="top-header-aurora">
+        <div class="container top-bar-flex">
+            <div class="top-info-group">
+                <a href="tel:+56961446652" class="top-link glass-hover">
+                    <i class="fa-solid fa-phone pulse-icon"></i> 
+                    <span>+56 9 6144 6652</span>
+                </a>
+                
+                <span class="divider-vertical"></span>
+                
+                <a href="mailto:info@mhmseguros.cl" class="top-link glass-hover">
+                    <i class="fa-solid fa-envelope"></i> 
+                    <span>info@mhmseguros.cl</span>
+                </a>
+
+                <span class="divider-vertical desktop-only"></span>
+                <div class="top-location desktop-only">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span>Huérfanos 669, piso 7, Santiago, Chile</span>
+                </div>
+            </div>
+
+            <div class="top-social-group">
+                <span class="social-label desktop-only">Conectar:</span>
+                <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank" class="social-btn" aria-label="Facebook">
+                    <i class="fa-brands fa-facebook-f"></i>
+                </a>
+                <a href="https://www.instagram.com/mhmseguros.cl" target="_blank" class="social-btn" aria-label="Instagram">
+                    <i class="fa-brands fa-instagram"></i>
                 </a>
             </div>
-            <a href="cotizacion-salud-1.html" class="summaryNavBack">
-                <i class="fa-solid fa-arrow-left"></i>
-                <span>Volver al Catálogo de Salud</span>
+        </div>
+        <div class="aurora-border-glow"></div>
+    </div>
+
+    <!-- MAIN NAVBAR -->
+    <header class="site-header glass-navbar">
+        <div class="container nav-container">
+            <a href="../index.html" class="brand-logo">
+                <img src="../assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros, corredora de seguros en Chile especializada en seguros para personas y empresas." class="site-logo">
             </a>
-            <div class="summaryNavSecure">
-                <i class="fa-solid fa-lock"></i>
-                <span>Checkout Protegido CMF</span>
+
+            <nav class="nav-center desktop-only">
+                <ul class="nav-links">
+                    <li><a href="../index.html" class="nav-item">Inicio</a></li>
+                    
+                    <li class="nav-dropdown-group">
+                        <a href="../productos/index.html" class="nav-item dropdown-btn" style="text-decoration: none; cursor: pointer; display: inline-block;">Productos <i class="fa-solid fa-angle-down arrow-indicator"></i></a>
+                        
+                        <div class="dropdown-glass-panel">
+                            <div class="dropdown-grid">
+                                <a href="../seguros-personales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-user"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros personales</span><span class="dd-desc">Auto, salud, viajes y más.</span></div>
+                                </a>
+                                <a href="../seguros-comerciales/index.html" class="dd-card">
+                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-store"></i></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros comerciales</span><span class="dd-desc">Pymes, construcción, garantías y más.</span></div>
+                                </a>
+                            </div>
+                        </div>
+                    </li>
+                    
+                    <li><a href="../index.html#carriers" class="nav-item">Aseguradoras</a></li>
+                    <li><a href="../blog/index.html" class="nav-item">Blog</a></li>
+                    <li><a href="../contacto/index.html" class="nav-item">Contacto</a></li>
+                </ul>
+            </nav>
+
+            <div class="nav-actions">
+                <span class="divider-vertical desktop-only"></span>
+
+                <a href="../cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
+                    <span>Cotizar seguro</span>
+                    <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
+                </a>
+                
+                <button class="mobile-toggle-btn mobile-only" onclick="toggleMobileMenu()" aria-label="Menu">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- MOBILE MENU -->
+        <div class="mobile-menu-premium" id="mobileMenu">
+            <div class="menu-aurora-bg"></div>
+            
+            <div class="menu-inner-container">
+                <div class="menu-internal-header">
+                    <img src="../assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros" style="height: 30px;">
+                    <button class="menu-close-btn" onclick="toggleMobileMenu()">
+                        <i class="fa-solid fa-xmark"></i>
+                    </button>
+                </div>
+                
+                <a href="../cotizacion/cotizacion.html" class="menu-widget-card highlight-card">
+                    <div class="widget-icon"><i class="fa-solid fa-bolt"></i></div>
+                    <div class="widget-info">
+                        <span class="widget-title">Cotizar seguro</span>
+                        <span class="widget-desc">Revisa los precios en menos de 90 segundos</span>
+                    </div>
+                    <div class="widget-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                </a>
+
+                <div class="menu-grid-row">
+                    <a href="../seguros-personales/index.html" class="menu-square-card">
+                        <i class="fa-solid fa-users-viewfinder" style="color: #7C3AED;"></i>
+                        <span>Seguros personales</span>
+                    </a>
+                    <a href="../seguros-comerciales/index.html" class="menu-square-card">
+                        <i class="fa-solid fa-file-signature" style="color: #2563EB;"></i>
+                        <span>Seguros comerciales</span>
+                    </a>
+                </div>
+
+                <div class="menu-section-title">Seguros disponibles</div>
+                <div class="menu-links-group">
+                    <a href="../seguro-complementario-salud/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-house"></i> Seguro complementario de salud
+                    </a>
+                    <a href="../seguro-pymes/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-key"></i> Seguro Pymes
+                    </a>
+                    <a href="../index.html#carriers" class="menu-link-item">
+                        <i class="fa-solid fa-shield-halved"></i> Asistencia de viajes
+                    </a>
+                </div>
+
+                <div class="menu-footer">
+                    <a href="../contacto/index.html" class="menu-footer-link">Contact Support</a>
+                    <div class="menu-socials">
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&amp;locale=es_LA" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                    </div>
+                </div>
             </div>
         </div>
     </header>
 
-    <!-- WIZARD PROGRESS TRACK -->
-    <div class="summaryWizardTrack">
-        <div class="summaryWizardInner">
-            <span class="wizardStepItem done">
-                <i class="fa-solid fa-circle-check"></i> 1. Selección de Cobertura
-            </span>
-            <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
-            <span class="wizardStepItem active">
-                <i class="fa-solid fa-file-invoice-dollar"></i> 2. Resumen y Condiciones
-            </span>
-            <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
-            <span class="wizardStepItem">
-                <i class="fa-regular fa-circle"></i> 3. Registro del Contratante
-            </span>
-            <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
-            <span class="wizardStepItem">
-                <i class="fa-regular fa-circle"></i> 4. Pago Seguro
-            </span>
+    <!-- CHECKOUT WIZARD SUB-BAR -->
+    <div class="summarySubBar">
+        <div class="summarySubBarInner">
+            <a href="cotizacion-salud-1.html" class="summarySubBack">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Volver al Catálogo de Salud</span>
+            </a>
+
+            <div class="summaryWizardInner">
+                <span class="wizardStepItem done">
+                    <i class="fa-solid fa-circle-check"></i> 1. Selección de Cobertura
+                </span>
+                <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="wizardStepItem active">
+                    <i class="fa-solid fa-file-invoice-dollar"></i> 2. Resumen y Condiciones
+                </span>
+                <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="wizardStepItem">
+                    <i class="fa-regular fa-circle"></i> 3. Registro del Contratante
+                </span>
+                <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="wizardStepItem">
+                    <i class="fa-regular fa-circle"></i> 4. Pago Seguro
+                </span>
+            </div>
+
+            <div class="summaryNavSecure">
+                <i class="fa-solid fa-shield-halved"></i>
+                <span>Checkout Protegido CMF</span>
+            </div>
         </div>
     </div>
 
@@ -1299,8 +1448,8 @@
                 // Estando en móvil o sin marcar, desplazarse suavemente hasta la sección del checkbox
                 const termsCard = document.getElementById('termsAcceptanceCard') || check;
                 if (termsCard) {
-                    // Obtener offset considerando sticky nav de 70px
-                    const navHeight = 75;
+                    // Obtener offset considerando sticky nav + sub-bar
+                    const navHeight = 110;
                     const rect = termsCard.getBoundingClientRect();
                     const targetScrollY = window.pageYOffset + rect.top - navHeight;
                     
@@ -1322,6 +1471,13 @@
                 return;
             }
             window.location.href = 'cotizacion-salud-2.html';
+        }
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobileMenu');
+            if (!menu) return;
+            const isOpen = menu.classList.toggle('is-open');
+            document.body.style.overflow = isOpen ? 'hidden' : '';
         }
 
         function openAdvisorModal() {
