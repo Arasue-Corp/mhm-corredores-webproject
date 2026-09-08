@@ -1,3 +1,7 @@
+@import url('./tokens.css');
+@import url('./mobile-first.css');
+@import url('./responsive-overrides.css');
+
 /* =========================================
    1. EXECUTIVE DESIGN SYSTEM
    ========================================= */
@@ -165,9 +169,8 @@ body::before {
 .form-grid-2 .cov-label { font-weight: 700; font-size: 0.95rem; color: #1E293B; word-wrap: break-word; white-space: normal; padding-right: 20px; }
 
 /* =========================================
-/* PANTALLA 14 PANTALLA DE OFERTAS */
-/* =========================================
-
+   PANTALLA 14 PANTALLA DE OFERTAS
+   ========================================= */
 
 /* =========================================
    3. SIDEBARS (Clean & Professional)
@@ -1352,7 +1355,7 @@ body.bg-matte-brand {
     display: flex; justify-content: center; position: sticky; top: 0; z-index: 50;
 }
 .nav-content { display: flex; align-items: center; gap: 15px; }
-.brand-logo { height: 28px; }
+.nav-executive .brand-logo { height: 28px; }
 .sep { width: 1px; height: 20px; background: #CBD5E1; }
 .page-title { font-weight: 600; color: #64748B; font-size: 0.9rem; }
 

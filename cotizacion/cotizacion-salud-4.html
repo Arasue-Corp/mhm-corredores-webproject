@@ -952,6 +952,24 @@ html, body {
                     }
                 });
             }
+
+            // Pre-fill health prevision from profile
+            const profileStr = sessionStorage.getItem('mhm_salud_profile');
+            if (profileStr) {
+                try {
+                    const profile = JSON.parse(profileStr);
+                    const prevSelect = document.getElementById('previsionInput');
+                    if (prevSelect && profile.health) {
+                        const h = profile.health.toLowerCase();
+                        for (let opt of prevSelect.options) {
+                            if (opt.value.toLowerCase() === h || opt.text.toLowerCase().includes(h)) {
+                                prevSelect.value = opt.value;
+                                break;
+                            }
+                        }
+                    }
+                } catch(e){}
+            }
         });
 
         function validateForm() {

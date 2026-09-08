@@ -12,16 +12,12 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/mobile-first.css">
     <link rel="stylesheet" href="../css/style.css?v=5"> 
     <link rel="stylesheet" href="../css/style-quote.css?v=5"> 
+    <link rel="stylesheet" href="../css/salud.css?v=7">
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
-
-
-
-
-    
-    <link rel="stylesheet" href="../css/salud.css?v=3">
-<style>@media (max-width: 1024px) { html, body { width: 100% !important; max-width: 100% !important; overflow-x: hidden !important; margin: 0 !important; padding: 0 !important; } }</style>
 </head>
 
 <body class="bg-body">
@@ -191,61 +187,128 @@
     <main class="healthExperience">
         <section class="healthLanding" id="inicio">
             <div class="healthPhoto"></div>
-            <div class="container healthIntro">
-                <span class="healthKicker">SEGUROS PARA PERSONAS, FAMILIAS Y EMPRESAS</span>
-                <h1>Protege lo que estás <em>construyendo.</em></h1>
-                <p>Una familia que crece, un negocio que avanza, una salud que quieres cuidar.<br/>En MHM encontramos el seguro que acompaña lo que estás construyendo.</p>
+            <div class="container healthIntro-wrap">
+                <div class="healthIntro">
+                    <span class="healthKicker-badge"><i class="fa-solid fa-shield-heart"></i> SEGUROS PARA PERSONAS, FAMILIAS Y EMPRESAS</span>
+                    <h1>Protege lo que estás <em>construyendo.</em></h1>
+                    <p>Una familia que crece, un negocio que avanza, una salud que quieres cuidar.<br/>En MHM encontramos el seguro que acompaña lo que estás construyendo.</p>
+                </div>
             </div>
             
             <section class="healthFinder container" id="recomendador">
                 <div class="finderHead">
-                    <b><i class="fa-solid fa-magnifying-glass"></i> ENCUENTRA TU PROTECCIÓN IDEAL</b>
-                    <span>Cuéntanos sobre ti y compara opciones que sí hacen sentido</span>
+                    <div class="finder-badge"><i class="fa-solid fa-shield-heart"></i> ENCUENTRA TU PROTECCIÓN IDEAL</div>
+                    <span class="finder-sub">Cuéntanos sobre ti y compara opciones que sí hacen sentido</span>
                 </div>
                 <div class="finderFields">
-                    <label>Edad
-                        <input type="number" min="18" max="65" id="profileAge" placeholder="Ej. 34"/>
-                    </label>
-                    <label>Género
-                        <select id="profileGender">
-                            <option value="">Selecciona</option>
-                            <option value="Femenino">Femenino</option>
-                            <option value="Masculino">Masculino</option>
-                        </select>
-                    </label>
-                    <label>Previsión de salud
-                        <select id="profileHealth">
-                            <option value="">Selecciona</option>
-                            <option value="Fonasa">Fonasa</option>
-                            <option value="Isapre">Isapre</option>
-                        </select>
-                    </label>
-                    <button class="assuredField" id="btnAssuredOpen">
-                        <span>Asegurados<strong id="assuredSummary">Selecciona</strong></span>
-                        <b id="assuredToggle">+</b>
-                    </button>
-                    <button class="btn solid finderSubmit" id="btnRecommend" disabled>Cotizar ahora <i class="fa-solid fa-arrow-right"></i></button>
-                </div>
-                
-                <div class="assuredPanel" id="assuredPanel" style="display: none;">
-                    <div>
-                        <span><b>Pareja o cónyuge</b><small>Agregar a la cotización</small></span>
-                        <button id="btnPartner">Agregar</button>
-                    </div>
-                    <div>
-                        <span><b>Cargas</b><small>Hijos u otras cargas asegurables</small></span>
-                        <div class="stepper">
-                            <button id="btnChildrenDec">−</button>
-                            <b id="childrenCount">0</b>
-                            <button id="btnChildrenInc">+</button>
+                    <!-- Campo Edad -->
+                    <div class="finder-field-col">
+                        <div class="finder-tile">
+                            <label class="finder-label" for="profileAge">
+                                <i class="fa-solid fa-cake-candles"></i> EDAD
+                            </label>
+                            <input type="number" min="18" max="65" id="profileAge" class="finder-input" placeholder="Ej. 34" />
                         </div>
+                    </div>
+
+                    <!-- Campo Género -->
+                    <div class="finder-field-col">
+                        <div class="finder-tile select-tile">
+                            <label class="finder-label" for="profileGender">
+                                <i class="fa-solid fa-venus-mars"></i> GÉNERO
+                            </label>
+                            <select id="profileGender" class="finder-select">
+                                <option value="" disabled selected>Selecciona</option>
+                                <option value="Femenino">Femenino</option>
+                                <option value="Masculino">Masculino</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+
+                    <!-- Campo Previsión -->
+                    <div class="finder-field-col">
+                        <div class="finder-tile select-tile">
+                            <label class="finder-label" for="profileHealth">
+                                <i class="fa-solid fa-notes-medical"></i> PREVISIÓN
+                            </label>
+                            <select id="profileHealth" class="finder-select">
+                                <option value="" disabled selected>Selecciona</option>
+                                <option value="Fonasa">Fonasa</option>
+                                <option value="Isapre">Isapre</option>
+                            </select>
+                            <i class="fa-solid fa-chevron-down select-arrow"></i>
+                        </div>
+                    </div>
+
+                    <!-- Columna Asegurados con Dropdown anclado -->
+                    <div class="finder-field-col assured-col-wrapper">
+                        <div class="assured-wrapper">
+                            <button class="finder-tile assuredField" id="btnAssuredOpen" type="button" aria-expanded="false" aria-controls="assuredPanel">
+                                <div class="assuredField-content">
+                                    <span class="finder-label"><i class="fa-solid fa-users"></i> ASEGURADOS</span>
+                                    <strong class="assured-value" id="assuredSummary">1 titular (Solo tú)</strong>
+                                </div>
+                                <span class="assured-badge-icon" id="assuredToggle">
+                                    <i class="fa-solid fa-user-plus"></i>
+                                </span>
+                            </button>
+
+                            <!-- Dropdown Flotante Anclado -->
+                            <div class="assuredPanel" id="assuredPanel" style="display: none;">
+                                <div class="assuredPanel-header">
+                                    <strong><i class="fa-solid fa-users-viewfinder"></i> Grupo Familiar Asegurado</strong>
+                                    <p>Personaliza quiénes estarán cubiertos en la póliza de salud</p>
+                                </div>
+                                
+                                <div class="assuredPanel-body">
+                                    <div class="assuredPanel-row">
+                                        <div class="assured-info-cell">
+                                            <span class="assured-row-title"><i class="fa-solid fa-heart"></i> Pareja o cónyuge</span>
+                                            <small>Agregar a la cotización</small>
+                                        </div>
+                                        <button type="button" id="btnPartner" class="btn-partner-toggle">
+                                            <i class="fa-solid fa-plus"></i> <span class="partner-label">Agregar</span>
+                                        </button>
+                                    </div>
+
+                                    <div class="assuredPanel-row">
+                                        <div class="assured-info-cell">
+                                            <span class="assured-row-title"><i class="fa-solid fa-children"></i> Cargas familiares</span>
+                                            <small>Hijos u otras cargas asegurables</small>
+                                        </div>
+                                        <div class="stepper">
+                                            <button type="button" id="btnChildrenDec" aria-label="Disminuir cargas">−</button>
+                                            <b id="childrenCount">0</b>
+                                            <button type="button" id="btnChildrenInc" aria-label="Aumentar cargas">+</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="assuredPanel-footer">
+                                    <button type="button" id="btnAssuredDone" class="btn-assured-done">
+                                        <i class="fa-solid fa-check"></i> Aplicar al cálculo
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Botón Cotizar Ahora (Aurora CTA) -->
+                    <div class="finder-field-col submit-col">
+                        <button class="finderSubmit" id="btnRecommend" disabled type="button">
+                            <span>Cotizar ahora</span>
+                            <div class="submit-icon-circle">
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </div>
+                        </button>
                     </div>
                 </div>
                 
                 <div class="healthProof">
-                    <span><i class="fa-solid fa-shield-halved"></i> Cotización sin compromiso</span>
+                    <span><i class="fa-solid fa-shield-halved"></i> Cotización sin costo ni compromiso</span>
                     <span>• Pólizas explicadas en simple</span>
-                    <span>• Un corredor te acompaña</span>
+                    <span>• Un corredor experto te acompaña</span>
                 </div>
             </section>
         </section>
@@ -253,120 +316,450 @@
         <section class="healthResults" id="resultados">
             <div class="resultsBanner">
                 <div class="container">
-                    <span>COTIZACIÓN DE SEGUROS DE SALUD</span>
+                    <span class="resultsKicker"><i class="fa-solid fa-shield-halved"></i> COTIZACIÓN DE SEGUROS DE SALUD</span>
                     <h2>Opciones pensadas para ti</h2>
-                    <p>Compara coberturas y beneficios para elegir con información clara.</p>
+                    <p>Compara coberturas, asistencias y beneficios para elegir la mejor protección para ti o tu familia.</p>
                 </div>
             </div>
             
             <div class="container resultsBody">
+                <!-- User Profile Bar -->
                 <div class="resultProfile">
-                    <span>✓</span>
-                    <div>
-                        <b id="resultTitle">Resultados para -- años</b>
-                        <small id="resultSubtitle">-- · -- · -- asegurado</small>
+                    <span class="profileCheck"><i class="fa-solid fa-check"></i></span>
+                    <div class="profileTexts">
+                        <b id="resultTitle">Resultados para 36 años</b>
+                        <small id="resultSubtitle">Femenino · Isapre · 3 asegurados</small>
                     </div>
-                    <button id="btnEditProfile">Editar mi perfil</button>
+                    <button type="button" id="btnEditProfile">Editar mi perfil</button>
                 </div>
                 
+                <!-- Tools Bar: Count & Quick Pills -->
                 <div class="resultTools">
-                    <div>
-                        <b>4 seguros de salud disponibles</b>
+                    <div class="toolsTitleGroup">
+                        <b id="availablePlansCount">2 seguros de salud disponibles</b>
                         <small>Compara alternativas seleccionadas por MHM</small>
+                    </div>
+                    <div class="toolsPillGroup">
+                        <button type="button" class="toolPill active" data-pill="all" onclick="handlePillFilter('all')">Equilibrio</button>
+                        <button type="button" class="toolPill" data-pill="benefits" onclick="handlePillFilter('benefits')">Más beneficios</button>
+                        <button type="button" class="toolPill" data-pill="cover" onclick="handlePillFilter('cover')">Mayor respaldo</button>
                     </div>
                 </div>
 
                 <div class="resultsLayout">
-                    <aside class="healthFilters">
-                        <h3>Refina tus resultados</h3>
-                        <p>Los cambios se aplican al instante</p>
-                        <fieldset>
-                            <legend>Previsión</legend>
-                            <div class="segmented">
-                                <button class="filterHealth" data-val="Fonasa">Fonasa</button>
-                                <button class="filterHealth" data-val="Isapre">Isapre</button>
+                    <!-- Left Sidebar Filters -->
+                    <aside class="healthFilters is-collapsed" id="healthFilters">
+                        <div class="filterHead" id="filterHeadToggle" onclick="toggleMobileFilters()">
+                            <div class="filterHeadText">
+                                <h3><i class="fa-solid fa-sliders filterIconTitle"></i> Refina tus resultados</h3>
+                                <p>Los cambios se aplican al instante</p>
                             </div>
-                        </fieldset>
-                        <div class="futureFilter">
-                            <b>Próximamente</b>
-                            <p>Aseguradora · tipo de cobertura · precio mensual</p>
+                            <button type="button" class="mobileFilterToggleBtn" aria-label="Mostrar u ocultar filtros">
+                                <span class="mobileToggleText">Mostrar</span>
+                                <i class="fa-solid fa-chevron-down toggleChevron"></i>
+                            </button>
+                        </div>
+
+                        <div class="filterBody" id="filterBody">
+                            <!-- Previsión -->
+                            <fieldset class="filterFieldset">
+                                <legend>Previsión</legend>
+                                <div class="segmented" id="previsionSegmented">
+                                    <button type="button" class="filterHealth active" data-val="Fonasa">Fonasa</button>
+                                    <button type="button" class="filterHealth" data-val="Isapre">Isapre</button>
+                                </div>
+                            </fieldset>
+
+                            <!-- Prioridad -->
+                            <fieldset class="filterFieldset">
+                                <legend>Prioridad</legend>
+                                <div class="radioGroup">
+                                    <label class="customRadio">
+                                        <input type="radio" name="priorityRadio" value="all" checked onchange="handlePriorityFilter('all')">
+                                        <span class="radioDot"></span>
+                                        <span class="radioLabel">Equilibrio y precio</span>
+                                    </label>
+                                    <label class="customRadio">
+                                        <input type="radio" name="priorityRadio" value="benefits" onchange="handlePriorityFilter('benefits')">
+                                        <span class="radioDot"></span>
+                                        <span class="radioLabel">Beneficios para usar</span>
+                                    </label>
+                                    <label class="customRadio">
+                                        <input type="radio" name="priorityRadio" value="cover" onchange="handlePriorityFilter('cover')">
+                                        <span class="radioDot"></span>
+                                        <span class="radioLabel">Mayor respaldo</span>
+                                    </label>
+                                </div>
+                            </fieldset>
+
+                            <!-- Capital asegurado -->
+                            <fieldset class="filterFieldset">
+                                <legend>Capital asegurado</legend>
+                                <div class="selectWrapper">
+                                    <select id="filterCapital" class="customSelect" onchange="handleCapitalFilter(this.value)">
+                                        <option value="all">Todos los capitales</option>
+                                        <option value="100">100 UF</option>
+                                        <option value="500">500 UF</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down selectIcon"></i>
+                                </div>
+                            </fieldset>
+
+                            <!-- Próximamente -->
+                            <div class="futureFilter">
+                                <span class="futureBadge">Próximamente</span>
+                                <p>Aseguradora · tipo de cobertura · precio mensual</p>
+                            </div>
+
+                            <div class="advisorMiniCard">
+                                <div class="advisorIcon"><i class="fa-solid fa-headset"></i></div>
+                                <div class="advisorText">
+                                    <b>¿Dudas con tu plan?</b>
+                                    <p>Un especialista de MHM te asesora gratis.</p>
+                                </div>
+                                <button type="button" class="btn-advisor-mini" onclick="openLeadModalForPlan('Asesoría General MAPFRE AP Salud')">
+                                    Hablar con asesor
+                                </button>
+                            </div>
                         </div>
                     </aside>
                     
+                    <!-- Policy Cards Column -->
                     <div class="healthPolicyList" id="policyList">
-                        <!-- Planes reales se inyectan aqui -->
+                        <!-- Planes reales de MAPFRE AP Salud se inyectan aqui -->
+                    </div>
+                </div>
+
+                <!-- Commercial Legal Disclaimer -->
+                <p class="resultsLegalNote">
+                    Productos sujetos a condiciones de asegurabilidad, límites, exclusiones y condiciones particulares de la póliza. La información presentada es un resumen comercial.
+                </p>
+            </div>
+
+            <!-- Floating Compare Dock -->
+            <div class="compareFloatingDock" id="compareDock">
+                <div class="compareDockInner">
+                    <div class="compareDockInfo">
+                        <i class="fa-solid fa-code-compare"></i>
+                        <span id="compareDockText">2 planes seleccionados para comparar</span>
+                    </div>
+                    <div class="compareDockActions">
+                        <button type="button" class="btn-view-compare" onclick="openCompareModal()">
+                            <span>Ver comparativa frente a frente</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                        <button type="button" class="btn-clear-compare" onclick="clearComparison()" title="Limpiar comparación">
+                            <i class="fa-solid fa-xmark"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compare Modal -->
+            <div class="compareModalOverlay" id="compareModal" onclick="closeCompareModal(event)">
+                <div class="compareModalBox">
+                    <button type="button" class="compareModalClose" onclick="closeCompareModal()"><i class="fa-solid fa-xmark"></i></button>
+                    <div class="compareModalHead">
+                        <span class="compareModalTag">COMPARATIVA EXCLUSIVA</span>
+                        <h3>MAPFRE AP Salud: Individual vs Familiar</h3>
+                        <p>Compara directamente las coberturas, asistencias y tarifas para decidir con total claridad.</p>
+                    </div>
+                    <div class="compareModalTableWrapper" id="compareTableContent">
+                        <!-- Dynamic table rendered here -->
                     </div>
                 </div>
             </div>
         </section>
         
-        <section class="healthFaq container" id="preguntas">
-            <span class="healthKicker">RESUELVE TUS DUDAS ANTES DE COTIZAR</span>
-            <h2>Preguntas frecuentes sobre seguros de salud</h2>
-            <details><summary>¿Este seguro reemplaza a Fonasa o Isapre?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
-            <details><summary>¿Desde cuándo puedo usar las asistencias?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
-            <details><summary>¿Cuál es la edad para contratar?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
-            <details><summary>¿Estoy protegido fuera de Chile?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
-            <details><summary>¿Cómo se activan las asistencias?<span>+</span></summary><p>La respuesta final depende de las condiciones de la póliza seleccionada. Un corredor MHM te explicará requisitos, topes, carencias y forma de uso antes de contratar.</p></details>
+        <!-- SECCIÓN DE PREGUNTAS FRECUENTES (AURORA ACCORDION) -->
+        <section id="faq" class="faq-aurora-section">
+            <div class="container">
+                <div class="faq-grid-layout">
+                    
+                    <div class="faq-sidebar">
+                        <div class="lab-header">
+                            <div class="header-status-light">
+                                <span class="pulse-blue"></span>FAQ SALUD
+                            </div>
+                            <h2 class="display-title-lab">Preguntas <span class="text-gradient-anim">Frecuentes.</span></h2>
+                            <p class="lead-text-faq">Todo lo que necesitas saber antes de contratar tu seguro de salud o complementario en MHM.</p>
+                        </div>
+
+                        <div class="support-glass-card">
+                            <div class="icon-support-glow"><i class="fa-solid fa-headset"></i></div>
+                            <div class="support-text">
+                                <strong>¿Necesitas asesoría personalizada?</strong>
+                                <p>Un corredor especialista de MHM te orienta sin costo.</p>
+                            </div>
+                            <a href="../contacto/index.html">
+                                <button class="btn-chat-support" type="button">Hablar con un asesor</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="faq-content-column">
+                        
+                        <div class="faq-item active">
+                            <div class="faq-question">
+                                <h3>¿Este seguro reemplaza a Fonasa o Isapre?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>No lo reemplaza, sino que <strong>lo complementa y potencia</strong>. El seguro complementario de salud financia el copago que queda después de la bonificación de Fonasa o tu Isapre, reduciendo drásticamente tus gastos de bolsillo en hospitalizaciones, cirugías, consultas y medicamentos.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Desde cuándo puedo comenzar a usar las coberturas?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Las asistencias médicas inmediatas (como <strong>telemedicina ilimitada 24/7 y descuentos en farmacias</strong>) quedan activas desde el primer día de vigencia de tu póliza. Para coberturas ambulatorias u hospitalarias mayores, algunas pólizas aplican periodos de carencia estándar de 30 a 90 días, los cuales te explicamos con total claridad antes de contratar.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Cuál es el rango de edad para contratar?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>La edad de ingreso para titulares suele ser desde los <strong>18 hasta los 64 años</strong> (con permanencia asegurada hasta los 70 u 80 años según la aseguradora). Los hijos y cargas familiares pueden asegurarse habitualmente desde los 14 días de nacidos hasta los 24 años si son estudiantes.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Estoy protegido si viajo fuera de Chile?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Planes como <strong>Integral Pro</strong> incluyen cobertura de asistencia médica en viajes internacionales ante urgencias y accidentes inesperados en el extranjero. Para viajes prolongados de turismo o trabajo, también disponemos de pólizas dedicadas de asistencia en viaje con cobertura médica global.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Cómo se solicitan los reembolsos de gastos médicos?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>El proceso es <strong>100% digital</strong>. En la mayoría de las clínicas y centros médicos asociados el reembolso opera en línea mediante el sistema I-Med (pagas solo tu deducible final con tu huella digital). Para reembolsos posteriores, basta con subir la foto de la boleta y orden médica a la app de la aseguradora y el abono se transfiere directamente a tu cuenta bancaria.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
         </section>
     </main>
 
     <!-- Custom Logic for the form -->
     <script>
-        const plans = [
-            { id: 'integral', tier: 'MAYOR RESPALDO', name: 'Integral Pro T+2', capital: '9 UF urgencias', match: 95, lead: 'La mejor protección para contingencias y salud', urgent: 'Urgencia por accidente y enf.', price: '$22.170/mes' },
-            { id: 'universalpro', tier: 'PROTECCIÓN AMPLIADA', name: 'Universal Pro', capital: 'Asistencias', match: 88, lead: 'Cobertura ideal para toda la familia con médico a domicilio', urgent: 'Topes de urgencia al doble', price: 'Desde $9.590/mes' },
-            { id: 'universal', tier: 'EQUILIBRIO', name: 'Salud Universal', capital: 'Asistencias', match: 85, lead: 'Urgencias, consultas y telemedicina a tu alcance', urgent: 'Urgencia por accidente y enf.', price: 'Desde $6.490/mes' },
-            { id: 'joven', tier: 'PROTECCIÓN ESENCIAL', name: 'Salud Joven', capital: 'Asistencias', match: 80, lead: 'Protección para tu salud día a día, de forma económica', urgent: 'Urgencia solo accidente', price: '$3.890/mes' }
-        ];
+        let profile = { age: '36', gender: 'Femenino', health: 'Isapre', partner: false, children: 0 };
+        let currentFilterCapital = 'all';
+        let currentFilterPriority = 'all';
+        const openDetailsState = {};
+        const selectedForCompare = new Set();
 
-        let profile = { age: '', gender: '', health: '', partner: false, children: 0 };
+        function getMapfrePlans() {
+            const totalMembers = 1 + (profile.partner ? 1 : 0) + (profile.children || 0);
+            const isFamily = totalMembers > 1;
+
+            return [
+                {
+                    id: 'mapfre-individual',
+                    planType: 'individual',
+                    tier: 'PLAN 100% INDIVIDUAL',
+                    badgeSub: 'Para 1 Persona (Titular)',
+                    bandTheme: 'band-individual',
+                    capitalUF: '100 UF',
+                    capitalLabel: 'Capital muerte accidental',
+                    capitalValue: 100,
+                    insurer: 'MAPFRE · SEGURO INDIVIDUAL · AP + SALUD',
+                    title: 'MAPFRE AP Salud Individual (100 UF)',
+                    subtitle: 'Producto Individual (1 persona)',
+                    match: isFamily ? 74 : 96,
+                    bestMatchBadge: isFamily ? null : 'MEJOR COINCIDENCIA PARA TI',
+                    isRecommended: !isFamily,
+                    lead: 'Diseñado exclusivamente para la protección médica y urgencias de 1 persona independiente.',
+                    priceMonth: '$6.990/mes',
+                    priceYear: '$83.880 anual',
+                    rawPrice: '6990',
+                    quickBenefits: [
+                        'Cobertura exclusiva para 1 persona (Titular)',
+                        'Hasta 3 UF en urgencias por evento',
+                        'Consultas y exámenes ambulatorios',
+                        'Telemedicina ilimitada 24/7 sin copago'
+                    ],
+                    coberturas: [
+                        'Capital por muerte accidental: 100 UF',
+                        'Hasta 3 UF en urgencias médicas por evento',
+                        'Consultas médicas y exámenes ambulatorios',
+                        'Invalidez total y permanente por accidente: 100 UF'
+                    ],
+                    adicionales: [
+                        'Telemedicina ilimitada 24/7 para titular',
+                        'Beneficio y descuentos en farmacias hasta 50%',
+                        'Orientación médica telefónica continua',
+                        'Asistencia dental básica de urgencia'
+                    ],
+                    exclusiones: [
+                        'Exclusivo para el titular asegurado (no admite cargas adicionales).',
+                        'Edades de ingreso: 18 a 64 años con permanencia hasta los 70.',
+                        'Aplican carencias y topes por evento según póliza.',
+                        'No reemplaza el sistema previsional Fonasa o Isapre.'
+                    ]
+                },
+                {
+                    id: 'mapfre-familiar',
+                    planType: 'familiar',
+                    tier: 'PLAN FAMILIAR COMPLETO',
+                    badgeSub: 'Titular + Cónyuge + Hijos',
+                    bandTheme: 'band-familiar',
+                    capitalUF: '500 UF',
+                    capitalLabel: 'Capital muerte accidental',
+                    capitalValue: 500,
+                    insurer: 'MAPFRE · SEGURO FAMILIAR · AP + SALUD',
+                    title: 'MAPFRE AP Salud Familiar (500 UF)',
+                    subtitle: 'Producto Familiar (Titular + Cargas)',
+                    match: isFamily ? 98 : 86,
+                    bestMatchBadge: isFamily ? 'MEJOR COINCIDENCIA FAMILIAR' : null,
+                    isRecommended: isFamily,
+                    lead: 'Protección médica integral ampliada para el titular y todo su grupo familiar (cónyuge e hijos).',
+                    priceMonth: '$9.990/mes',
+                    priceYear: '$119.880 anual',
+                    rawPrice: '9990',
+                    quickBenefits: [
+                        'Incluye titular + cargas familiares (cónyuge e hijos)',
+                        'Hasta 5 UF en urgencias médicas por evento',
+                        'Consultas y exámenes para todo el grupo',
+                        'Telemedicina general y pediátrica 24/7'
+                    ],
+                    coberturas: [
+                        'Capital por muerte accidental: 500 UF',
+                        'Hasta 5 UF en urgencias médicas por evento',
+                        'Consultas y exámenes para titular y cargas familiares',
+                        'Invalidez total y permanente por accidente: 500 UF'
+                    ],
+                    adicionales: [
+                        'Telemedicina 24/7 (Medicina general + Pediatría ilimitada)',
+                        'Beneficio en farmacias con despacho preferencial',
+                        'Orientación médica, pediátrica y psicológica telefónica',
+                        'Asistencia nutricional y dental familiar'
+                    ],
+                    exclusiones: [
+                        'Cubre titular, cónyuge/conviviente civil e hijos hasta 24 años estudiantes.',
+                        'Edades de ingreso: 18 a 64 años para adultos, hijos desde 14 días.',
+                        'Aplican carencias y topes por evento según póliza.',
+                        'No reemplaza el sistema previsional Fonasa o Isapre.'
+                    ]
+                }
+            ];
+        }
         
         function updateUI() {
-            // Update Valid State
-            const valid = profile.age >= 18 && profile.age <= 65 && profile.gender && profile.health;
+            const ageVal = parseInt(profile.age, 10);
+            const valid = !isNaN(ageVal) && ageVal >= 18 && ageVal <= 65 && profile.gender && profile.health;
             document.getElementById('btnRecommend').disabled = !valid;
             
             // Update Assured Text
             const total = 1 + (profile.partner ? 1 : 0) + profile.children;
-            document.getElementById('assuredSummary').innerText = total === 1 ? 'Selecciona' : total + ' asegurados';
+            document.getElementById('assuredSummary').innerText = total === 1 ? '1 titular (Solo tú)' : total + ' personas aseguradas';
             
             // Partner button
             const btnPartner = document.getElementById('btnPartner');
-            btnPartner.className = profile.partner ? 'active' : '';
-            btnPartner.innerText = profile.partner ? 'Incluido' : 'Agregar';
+            if (btnPartner) {
+                btnPartner.className = profile.partner ? 'btn-partner-toggle active' : 'btn-partner-toggle';
+                btnPartner.innerHTML = profile.partner 
+                    ? '<i class="fa-solid fa-check"></i> <span class="partner-label">Incluido</span>' 
+                    : '<i class="fa-solid fa-plus"></i> <span class="partner-label">Agregar</span>';
+            }
             
             // Children
             document.getElementById('childrenCount').innerText = profile.children;
             
             // Result Title
-            if (valid) {
-                document.getElementById('resultTitle').innerText = 'Resultados para ' + profile.age + ' años';
-                document.getElementById('resultSubtitle').innerText = profile.gender + ' · ' + profile.health + ' · ' + total + (total===1 ? ' asegurado' : ' asegurados');
+            const titleEl = document.getElementById('resultTitle');
+            const subEl = document.getElementById('resultSubtitle');
+            if (titleEl && subEl) {
+                if (valid) {
+                    titleEl.innerText = 'Resultados para ' + profile.age + ' años';
+                    subEl.innerText = profile.gender + ' · ' + profile.health + ' · ' + total + (total === 1 ? ' persona (Solo tú)' : ' personas (En familia)');
+                } else {
+                    titleEl.innerText = 'Resultados para 36 años';
+                    subEl.innerText = 'Femenino · Isapre · 1 persona';
+                }
             }
 
-            // Health filter sync
+            // Health filter sync in form and in sidebar
             document.querySelectorAll('.filterHealth').forEach(btn => {
                 btn.className = 'filterHealth' + (profile.health === btn.dataset.val ? ' active' : '');
             });
+
+            // If results are already visible, update plans to reflect solo vs family recommendation
+            const resultadosEl = document.getElementById('resultados');
+            if (resultadosEl && resultadosEl.classList.contains('visible')) {
+                renderPlans();
+            }
         }
         
-        // Event Listeners
+        // Form Event Listeners
         document.getElementById('profileAge').addEventListener('input', (e) => { profile.age = e.target.value; updateUI(); });
         document.getElementById('profileGender').addEventListener('change', (e) => { profile.gender = e.target.value; updateUI(); });
         document.getElementById('profileHealth').addEventListener('change', (e) => { profile.health = e.target.value; updateUI(); });
         
-        // Panels
+        // Assured Panel Toggle
         let assuredOpen = false;
-        document.getElementById('btnAssuredOpen').addEventListener('click', () => {
-            assuredOpen = !assuredOpen;
-            document.getElementById('assuredPanel').style.display = assuredOpen ? 'flex' : 'none';
-            document.getElementById('assuredToggle').innerText = assuredOpen ? '−' : '+';
+        const btnAssuredOpen = document.getElementById('btnAssuredOpen');
+        const assuredPanel = document.getElementById('assuredPanel');
+        const assuredToggle = document.getElementById('assuredToggle');
+
+        function toggleAssuredPanel(show) {
+            assuredOpen = typeof show === 'boolean' ? show : !assuredOpen;
+            assuredPanel.style.display = assuredOpen ? 'flex' : 'none';
+            btnAssuredOpen.setAttribute('aria-expanded', assuredOpen ? 'true' : 'false');
+            btnAssuredOpen.classList.toggle('active', assuredOpen);
+            if (assuredToggle) {
+                assuredToggle.innerHTML = assuredOpen 
+                    ? '<i class="fa-solid fa-minus"></i>' 
+                    : '<i class="fa-solid fa-user-plus"></i>';
+            }
+        }
+
+        btnAssuredOpen.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleAssuredPanel();
+        });
+
+        document.getElementById('btnAssuredDone')?.addEventListener('click', (e) => {
+            e.stopPropagation();
+            toggleAssuredPanel(false);
+        });
+
+        assuredPanel.addEventListener('click', (e) => {
+            e.stopPropagation();
+        });
+
+        document.addEventListener('click', (e) => {
+            if (assuredOpen && !assuredPanel.contains(e.target) && !btnAssuredOpen.contains(e.target)) {
+                toggleAssuredPanel(false);
+            }
         });
         
-        document.getElementById('btnPartner').addEventListener('click', () => { profile.partner = !profile.partner; updateUI(); });
-        document.getElementById('btnChildrenInc').addEventListener('click', () => { profile.children = Math.min(4, profile.children + 1); updateUI(); });
-        document.getElementById('btnChildrenDec').addEventListener('click', () => { profile.children = Math.max(0, profile.children - 1); updateUI(); });
+        document.getElementById('btnPartner').addEventListener('click', () => { 
+            profile.partner = !profile.partner; 
+            updateUI(); 
+        });
+        document.getElementById('btnChildrenInc').addEventListener('click', () => { 
+            profile.children = Math.min(4, profile.children + 1); 
+            updateUI(); 
+        });
+        document.getElementById('btnChildrenDec').addEventListener('click', () => { 
+            profile.children = Math.max(0, profile.children - 1); 
+            updateUI(); 
+        });
         
         document.querySelectorAll('.filterHealth').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -376,74 +769,508 @@
             });
         });
 
-        // Recommend / Submit
+        // Mobile Collapsible Filters Logic
+        function toggleMobileFilters() {
+            if (window.innerWidth >= 992) return; // Only toggle on mobile / small screens
+            const filtersAside = document.getElementById('healthFilters');
+            const toggleText = filtersAside.querySelector('.mobileToggleText');
+            if (!filtersAside) return;
+            
+            const isCollapsed = filtersAside.classList.toggle('is-collapsed');
+            if (toggleText) {
+                toggleText.textContent = isCollapsed ? 'Mostrar' : 'Ocultar';
+            }
+        }
+
+        // Recommend / Submit Button
         document.getElementById('btnRecommend').addEventListener('click', () => {
-            document.getElementById('resultados').classList.add('visible');
-            setTimeout(() => {
-                document.getElementById('resultados').scrollIntoView({ behavior: 'smooth', block: 'start' });
-            }, 100);
+            const res = document.getElementById('resultados');
+            res.style.opacity = '1';
+            res.style.visibility = 'visible';
+            res.classList.add('visible');
+            
+            // Auto collapse filters on mobile so policy cards slide right up
+            const filtersAside = document.getElementById('healthFilters');
+            if (filtersAside && window.innerWidth < 992) {
+                filtersAside.classList.add('is-collapsed');
+                const toggleText = filtersAside.querySelector('.mobileToggleText');
+                if (toggleText) toggleText.textContent = 'Mostrar';
+            }
+
             renderPlans();
+            setTimeout(() => {
+                res.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }, 100);
         });
 
+        // Edit Profile Button
         document.getElementById('btnEditProfile').addEventListener('click', () => {
-            document.getElementById('resultados').classList.remove('visible');
-            setTimeout(() => {
-                document.getElementById('recomendador').scrollIntoView({ behavior: 'smooth', block: 'center' });
-            }, 100);
+            document.getElementById('recomendador').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            const ageInput = document.getElementById('profileAge');
+            if (ageInput) ageInput.focus();
         });
-        
+
+        // =========================================
+        // RENDERING MAPFRE AP SALUD PLANS
+        // =========================================
         function renderPlans() {
             const list = document.getElementById('policyList');
-            list.innerHTML = plans.map((p, index) => {
+            if (!list) return;
+
+            const plans = getMapfrePlans();
+
+            const filtered = plans.filter(p => {
+                if (currentFilterCapital !== 'all' && p.capitalValue !== parseInt(currentFilterCapital, 10)) {
+                    return false;
+                }
+                if (currentFilterPriority === 'cover' && p.capitalValue < 500) {
+                    return false;
+                }
+                return true;
+            });
+
+            const countEl = document.getElementById('availablePlansCount');
+            if (countEl) {
+                countEl.innerText = filtered.length === 1 ? '1 seguro de salud disponible' : `${filtered.length} seguros de salud disponibles`;
+            }
+
+            list.innerHTML = filtered.map((p) => {
+                const isDetailsOpen = openDetailsState[p.id] || false;
+                const isCompared = selectedForCompare.has(p.id);
+
                 return `
-                <article class="healthPolicyCard ${index === 0 ? 'recommended' : ''}">
-                    ${index === 0 ? '<div class="healthBest">MEJOR COINCIDENCIA PARA TI</div>' : ''}
-                    <div class="policyBand band100">
-                        <span>${p.tier}</span>
-                        <div class="healthMark"><i class="fa-solid fa-shield-halved"></i></div>
-                        <b>${p.capital}</b>
-                    </div>
-                    <div class="healthPolicyContent">
-                        <div class="policyMeta">
-                            <span>MHM CORREDORES · SEGURO DE SALUD</span>
-                            <b>${p.match}% afinidad</b>
-                        </div>
-                        <h3>${p.name}</h3>
-                        <p>${p.lead}</p>
-                        <div class="healthBenefits">
-                            <span>✓ ${p.urgent}</span>
-                            <span>✓ Telemedicina</span>
-                            <span>✓ Beneficio en farmacia</span>
-                            <span>✓ Orientación 24/7</span>
-                        </div>
-                        
-                        <div style="margin-top:20px; display:flex; justify-content:space-between; align-items:flex-end;">
-                            <div>
-                                <small style="display:block; color:#64748B; font-weight:600; font-size:12px;">Precio estimado</small>
-                                <strong style="font-size:24px; color:#796bfc; font-weight:800;">${p.price}</strong>
+                <article class="healthPolicyCard ${p.planType === 'individual' ? 'card-individual' : 'card-familiar'} ${p.isRecommended ? 'recommended' : ''}" id="card-${p.id}">
+                    <div class="cardTopRow">
+                        <!-- Left Side Ribbon Band with Mapfre Logo & Explicit Identification -->
+                        <div class="policyBand ${p.bandTheme}">
+                            <span class="bandTier">${p.tier}</span>
+                            <div class="healthMark" title="Aseguradora Oficial: MAPFRE Seguros">
+                                <img src="../assets/img/maqueta/ally-mapfre.png" alt="MAPFRE Seguros" class="mapfreLogoImg">
                             </div>
-                            <button class="btn solid" onclick="contratarPlan('${p.id}')">Cotizar seguro <i class="fa-solid fa-arrow-right"></i></button>
+                            <b class="bandCapital">${p.capitalUF}</b>
+                            <small class="bandSub"><strong>${p.badgeSub}</strong><br>${p.capitalLabel}</small>
+                        </div>
+
+                        <!-- Right Policy Content -->
+                        <div class="healthPolicyContent">
+                            <div class="policyMeta">
+                                <span class="insurerTag">${p.insurer}</span>
+                                <div class="metaBadges">
+                                    ${p.bestMatchBadge ? `<span class="badge-best-match"><i class="fa-solid fa-star" style="color: #2ED9C3; margin-right: 4px;"></i>${p.bestMatchBadge}</span>` : ''}
+                                    <span class="badge-affinity">${p.match}% afinidad</span>
+                                </div>
+                            </div>
+
+                            <h3 class="planTitle">${p.title}</h3>
+                            <p class="planLead">${p.lead}</p>
+
+                            <div class="healthBenefitsGrid">
+                                ${p.quickBenefits.map(b => `
+                                    <div class="benefitItem">
+                                        <i class="fa-solid fa-check"></i>
+                                        <span>${b}</span>
+                                    </div>
+                                `).join('')}
+                            </div>
+
+                            <div class="policyActionsRow">
+                                <button type="button" class="btn-details-toggle" id="btn-toggle-${p.id}" onclick="togglePlanDetails('${p.id}')">
+                                    <span>${isDetailsOpen ? 'Cerrar detalles' : 'Ver detalles'}</span>
+                                    <i class="fa-solid ${isDetailsOpen ? 'fa-chevron-up' : 'fa-chevron-down'}"></i>
+                                </button>
+                                <button type="button" class="btn-contratar-action" onclick="contratarPlan('${p.id}')">
+                                    <span>Contratar ahora</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                            </div>
+
+                            <div class="compareCheckRow">
+                                <label class="custom-compare-label">
+                                    <input type="checkbox" class="compare-checkbox" ${isCompared ? 'checked' : ''} onchange="handleCompareChange('${p.id}', this.checked)">
+                                    <span>Agregar a comparación</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Expandable Nested Drawer -->
+                    <div class="policyDetailsDrawer ${isDetailsOpen ? 'open' : ''}" id="details-${p.id}">
+                        <div class="drawerInner">
+                            <div class="drawerHeader">
+                                <div class="drawerHeaderLeft">
+                                    <span class="drawerTier">${p.tier}</span>
+                                    <h4 class="drawerTitle">${p.title}</h4>
+                                    <span class="drawerInsurer">MAPFRE · Seguro de salud</span>
+                                </div>
+                                <div class="drawerHeaderRight">
+                                    <span class="priceMetaLabel">PRIMA MENSUAL</span>
+                                    <div class="priceMain">${p.priceMonth}</div>
+                                    <small class="priceAnnual">${p.priceYear}</small>
+                                </div>
+                            </div>
+
+                            <p class="drawerLead">${p.lead}</p>
+
+                            <div class="detailsCols3">
+                                <div class="detailCard detailCard-coberturas">
+                                    <div class="detailCardHead">
+                                        <i class="fa-solid fa-shield-halved"></i>
+                                        <h5>Coberturas</h5>
+                                    </div>
+                                    <ul class="detailList checkList">
+                                        ${p.coberturas.map(c => `
+                                            <li><i class="fa-solid fa-check"></i> <span>${c}</span></li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="detailCard detailCard-asistencias">
+                                    <div class="detailCardHead">
+                                        <i class="fa-solid fa-plus"></i>
+                                        <h5>Adicionales y asistencias</h5>
+                                    </div>
+                                    <ul class="detailList plusList">
+                                        ${p.adicionales.map(a => `
+                                            <li><i class="fa-solid fa-plus"></i> <span>${a}</span></li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+
+                                <div class="detailCard detailCard-exclusiones">
+                                    <div class="detailCardHead">
+                                        <i class="fa-solid fa-circle-info"></i>
+                                        <h5>Exclusiones y condiciones relevantes</h5>
+                                    </div>
+                                    <ul class="detailList bulletList">
+                                        ${p.exclusiones.map(e => `
+                                            <li><span>•</span> <span>${e}</span></li>
+                                        `).join('')}
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <div class="drawerFooter">
+                                <button type="button" class="btn-contratar-action" onclick="contratarPlan('${p.id}')">
+                                    <span>Contratar ahora</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </button>
+                                <button type="button" class="btn-contact-agent" onclick="openLeadModalForPlan('${p.title}')">
+                                    <i class="fa-regular fa-comments"></i>
+                                    <span>Que me contacten</span>
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </article>
                 `;
             }).join('');
         }
-        
-        function contratarPlan(planId) {
-            const planDef = plans.find(p => p.id === planId);
-            sessionStorage.setItem('mhm_salud_plan', JSON.stringify({
-                id: planId,
-                name: planDef.name,
-                price: planDef.price.replace(/[^0-9]/g, '')
-            }));
-            
-            if (planId === 'joven') {
-                window.location.href = 'cotizacion-joven-2.html';
-            } else {
-                window.location.href = 'cotizacion-salud-2.html';
+
+        // =========================================
+        // EXPAND / COLLAPSE DETAILS DRAWER
+        // =========================================
+        function togglePlanDetails(planId) {
+            openDetailsState[planId] = !openDetailsState[planId];
+            const drawer = document.getElementById(`details-${planId}`);
+            const btn = document.getElementById(`btn-toggle-${planId}`);
+            if (drawer && btn) {
+                if (openDetailsState[planId]) {
+                    drawer.classList.add('open');
+                    btn.innerHTML = '<span>Cerrar detalles</span> <i class="fa-solid fa-chevron-up"></i>';
+                } else {
+                    drawer.classList.remove('open');
+                    btn.innerHTML = '<span>Ver detalles</span> <i class="fa-solid fa-chevron-down"></i>';
+                }
             }
         }
+
+        // =========================================
+        // COMPARISON DOCK & MODAL LOGIC
+        // =========================================
+        function handleCompareChange(planId, checked) {
+            if (checked) {
+                selectedForCompare.add(planId);
+            } else {
+                selectedForCompare.delete(planId);
+            }
+            updateCompareDock();
+        }
+
+        function updateCompareDock() {
+            const dock = document.getElementById('compareDock');
+            const text = document.getElementById('compareDockText');
+            if (!dock) return;
+
+            if (selectedForCompare.size > 0) {
+                dock.classList.add('visible');
+                text.innerText = selectedForCompare.size === 1 
+                    ? '1 plan seleccionado para comparar' 
+                    : '2 planes seleccionados para comparar';
+            } else {
+                dock.classList.remove('visible');
+            }
+        }
+
+        function clearComparison() {
+            selectedForCompare.clear();
+            updateCompareDock();
+            document.querySelectorAll('.compare-checkbox').forEach(cb => cb.checked = false);
+        }
+
+        function openCompareModal() {
+            const modal = document.getElementById('compareModal');
+            const container = document.getElementById('compareTableContent');
+            if (!modal || !container) return;
+
+            const totalMembers = 1 + (profile.partner ? 1 : 0) + (profile.children || 0);
+            const isFamily = totalMembers > 1;
+
+            container.innerHTML = `
+            <!-- Top Product Cards in Comparator -->
+            <div class="compareHeroCardsGrid">
+                <div class="compareHeroCard card-ind-hero">
+                    <div class="compareHeroCardHead">
+                        <div class="heroCardLogo">
+                            <img src="../assets/img/maqueta/ally-mapfre.png" alt="MAPFRE">
+                        </div>
+                        <span class="heroCardTierBadge">PLAN 100% INDIVIDUAL</span>
+                    </div>
+                    <h4 class="heroCardTitle">MAPFRE AP Salud Individual 100 UF</h4>
+                    <div class="heroCardPrice">
+                        <strong>$6.990</strong> <span>/ mes</span>
+                        <small style="color: #64748B; margin-left: 8px;">($83.880/año)</small>
+                    </div>
+                    <p style="font-size: 12px; color: #64748B; margin: 0;">Para 1 titular independiente (sin cargas familiares).</p>
+                    <button type="button" class="btn-contratar-action" style="width: 100%; margin-top: 8px; font-size: 13px; padding: 10px 18px;" onclick="closeCompareModal(); contratarPlan('mapfre-individual');">
+                        <span>Contratar Individual</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+
+                <div class="compareHeroCard card-fam-hero">
+                    <div class="compareHeroCardHead">
+                        <div class="heroCardLogo">
+                            <img src="../assets/img/maqueta/ally-mapfre.png" alt="MAPFRE">
+                        </div>
+                        <span class="heroCardTierBadge">PLAN FAMILIAR COMPLETO</span>
+                    </div>
+                    <h4 class="heroCardTitle">MAPFRE AP Salud Familiar 500 UF</h4>
+                    <div class="heroCardPrice">
+                        <strong>$9.990</strong> <span>/ mes</span>
+                        <small style="color: #64748B; margin-left: 8px;">($119.880/año)</small>
+                    </div>
+                    <p style="font-size: 12px; color: #64748B; margin: 0;">Para titular + cónyuge/conviviente + hijos hasta 24 años.</p>
+                    <button type="button" class="btn-contratar-action" style="width: 100%; margin-top: 8px; font-size: 13px; padding: 10px 18px;" onclick="closeCompareModal(); contratarPlan('mapfre-familiar');">
+                        <span>Contratar Familiar</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Detailed Categorized Table -->
+            <div class="compareTableWrapper">
+                <table class="compareTable">
+                    <thead>
+                        <tr>
+                            <th style="width: 32%;">Característica / Cobertura</th>
+                            <th style="width: 34%;">MAPFRE AP Salud Individual (100 UF)</th>
+                            <th style="width: 34%;">MAPFRE AP Salud Familiar (500 UF)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Categoría 1 -->
+                        <tr class="compareCategoryRow">
+                            <th colspan="3"><i class="fa-solid fa-users" style="margin-right: 8px; color: var(--color-primary);"></i> 1. Perfil y Destinatarios</th>
+                        </tr>
+                        <tr>
+                            <td>¿A quién asegura la póliza?</td>
+                            <td class="colIndCell"><strong>1 Persona (Solo titular)</strong></td>
+                            <td class="colFamCell"><strong>Titular + Cónyuge + Hijos</strong> <span class="diffChip teal">Multicarga</span></td>
+                        </tr>
+                        <tr>
+                            <td>Afinidad con tu perfil actual (${totalMembers === 1 ? 'Solo tú' : totalMembers + ' personas en familia'})</td>
+                            <td class="colIndCell">
+                                ${!isFamily ? '<span style="color: #0F766E; font-weight: 800;"><i class="fa-solid fa-star"></i> 96% (Recomendado para ti)</span>' : '<span style="color: #64748B;">74% (Solo cubre al titular)</span>'}
+                            </td>
+                            <td class="colFamCell">
+                                ${isFamily ? '<span style="color: #0F766E; font-weight: 800;"><i class="fa-solid fa-star"></i> 98% (Recomendado Familiar)</span>' : '<span style="color: #64748B;">86% (Opción con mayor respaldo)</span>'}
+                            </td>
+                        </tr>
+
+                        <!-- Categoría 2 -->
+                        <tr class="compareCategoryRow">
+                            <th colspan="3"><i class="fa-solid fa-shield-halved" style="margin-right: 8px; color: #10B981;"></i> 2. Coberturas Médicas y Capitales</th>
+                        </tr>
+                        <tr>
+                            <td>Capital por Muerte Accidental</td>
+                            <td class="colIndCell"><strong>100 UF</strong> (~$3.800.000)</td>
+                            <td class="colFamCell"><strong>500 UF</strong> (~$19.000.000) <span class="diffChip violet">5x Mayor Capital</span></td>
+                        </tr>
+                        <tr>
+                            <td>Tope en Urgencias Médicas</td>
+                            <td class="colIndCell">Hasta 3 UF por evento</td>
+                            <td class="colFamCell"><strong>Hasta 5 UF por evento</strong> <span class="diffChip teal">Tope Superior</span></td>
+                        </tr>
+                        <tr>
+                            <td>Consultas y Exámenes Ambulatorios</td>
+                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Copago bonificado para titular</td>
+                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Copago bonificado para todo el grupo</td>
+                        </tr>
+                        <tr>
+                            <td>Invalidez Total y Permanente por Accidente</td>
+                            <td class="colIndCell">Hasta 100 UF</td>
+                            <td class="colFamCell"><strong>Hasta 500 UF</strong></td>
+                        </tr>
+
+                        <!-- Categoría 3 -->
+                        <tr class="compareCategoryRow">
+                            <th colspan="3"><i class="fa-solid fa-bolt" style="margin-right: 8px; color: #F59E0B;"></i> 3. Asistencias y Servicios Inmediatos 24/7</th>
+                        </tr>
+                        <tr>
+                            <td>Telemedicina 24/7 sin copago</td>
+                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Medicina General Ilimitada</td>
+                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> <strong>General + Pediatría 24/7</strong> <span class="diffChip teal">Incluye Pediatría</span></td>
+                        </tr>
+                        <tr>
+                            <td>Descuento en Farmacias Cruz Verde / Salcobrand</td>
+                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Hasta 50% de descuento</td>
+                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Hasta 50% + <strong>Despacho a domicilio</strong></td>
+                        </tr>
+                        <tr>
+                            <td>Orientación Telefónica Continua</td>
+                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Médica 24/7</td>
+                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Médica, <strong>Pediátrica</strong> y Nutricional 24/7</td>
+                        </tr>
+                        <tr>
+                            <td>Asistencia Dental de Urgencia</td>
+                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Alivio del dolor titular</td>
+                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Alivio del dolor para titular y cargas</td>
+                        </tr>
+
+                        <!-- Categoría 4 -->
+                        <tr class="compareCategoryRow">
+                            <th colspan="3"><i class="fa-solid fa-circle-info" style="margin-right: 8px; color: #64748B;"></i> 4. Condiciones y Requisitos</th>
+                        </tr>
+                        <tr>
+                            <td>Edades de Ingreso</td>
+                            <td class="colIndCell">18 a 64 años (permanencia hasta los 70)</td>
+                            <td class="colFamCell">Adultos 18 a 64 años / Hijos desde los 14 días hasta los 24 años</td>
+                        </tr>
+                        <tr>
+                            <td>Compatibilidad Previsional</td>
+                            <td class="colIndCell">Complementario con Fonasa e Isapre</td>
+                            <td class="colFamCell">Complementario con Fonasa e Isapre</td>
+                        </tr>
+                        <tr>
+                            <td>Carencias en Asistencias</td>
+                            <td class="colIndCell"><strong style="color: #10B981;">Día 1 de vigencia (Inmediato)</strong></td>
+                            <td class="colFamCell"><strong style="color: #10B981;">Día 1 de vigencia (Inmediato)</strong></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Modal Footer Advice -->
+            <div class="compareFooterAdvice">
+                <p>
+                    <strong>¿Necesitas ayuda para elegir?</strong> Un corredor certificado de MHM Corredores te orienta gratis para asegurar la póliza correcta según tu situación médica y familiar.
+                </p>
+                <button type="button" class="btn-details-toggle" style="background: #FFFFFF; font-size: 13px; padding: 10px 18px;" onclick="closeCompareModal(); openLeadModalForPlan('Comparativa MAPFRE AP Salud');">
+                    <i class="fa-solid fa-headset"></i>
+                    <span>Hablar con un asesor</span>
+                </button>
+            </div>
+            `;
+
+            modal.classList.add('active');
+        }
+
+        function closeCompareModal(e) {
+            if (e && e.target && e.target !== document.getElementById('compareModal') && !e.target.closest('.compareModalClose')) {
+                return;
+            }
+            const modal = document.getElementById('compareModal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        // =========================================
+        // FILTER HANDLERS
+        // =========================================
+        function handleCapitalFilter(val) {
+            currentFilterCapital = val;
+            renderPlans();
+        }
+
+        function handlePriorityFilter(val) {
+            currentFilterPriority = val;
+            document.querySelectorAll('.toolPill').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.pill === val);
+            });
+            renderPlans();
+        }
+
+        function handlePillFilter(val) {
+            currentFilterPriority = val;
+            document.querySelectorAll('.toolPill').forEach(btn => {
+                btn.classList.toggle('active', btn.dataset.pill === val);
+            });
+            const radio = document.querySelector(`input[name="priorityRadio"][value="${val}"]`);
+            if (radio) radio.checked = true;
+            renderPlans();
+        }
+
+        // =========================================
+        // LEAD MODAL AGENT HANDLERS
+        // =========================================
+        function openLeadModalForPlan(planTitle) {
+            const modal = document.getElementById('leadModal');
+            if (!modal) return;
+            const desc = modal.querySelector('#leadContent p');
+            if (desc) {
+                desc.innerHTML = `Déjanos tus datos y un Agente especialista de MHM te contactará sobre <strong>${planTitle}</strong> con una propuesta a tu medida.`;
+            }
+            modal.classList.add('active');
+        }
+
+        function closeLeadModal() {
+            const modal = document.getElementById('leadModal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        // Contratar Plan Checkout Flow
+        function contratarPlan(planId) {
+            const plans = getMapfrePlans();
+            const planDef = plans.find(p => p.id === planId) || plans[0];
+            const totalMembers = 1 + (profile.partner ? 1 : 0) + (profile.children || 0);
+
+            sessionStorage.setItem('mhm_salud_plan', JSON.stringify({
+                id: planId,
+                name: planDef.title,
+                tier: planDef.tier,
+                capitalUF: planDef.capitalUF,
+                price: planDef.rawPrice,
+                priceFormatted: planDef.priceMonth,
+                priceYear: planDef.priceYear,
+                planType: planDef.planType || (planId.includes('familiar') ? 'familiar' : 'individual')
+            }));
+
+            sessionStorage.setItem('mhm_salud_profile', JSON.stringify({
+                age: profile.age,
+                gender: profile.gender,
+                health: profile.health,
+                partner: profile.partner,
+                children: profile.children,
+                totalMembers: totalMembers
+            }));
+
+            window.location.href = 'cotizacion-salud-resumen.html';
+        }
+
+        // Initial setup on load
+        document.addEventListener('DOMContentLoaded', () => {
+            updateUI();
+            renderPlans();
+        });
     </script>
     
     
@@ -624,7 +1451,7 @@
         </button>
     </div>
 
-    <script src="../js/script.js?v=1785403170"></script>
+    <script src="../js/script.js?v=6"></script>
     
 
     

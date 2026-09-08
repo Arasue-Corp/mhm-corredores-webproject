@@ -8,20 +8,38 @@ function initFAQAccordion() {
     if (!faqItems.length) return;
 
     faqItems.forEach(item => {
+        if (item.dataset.faqInit) return;
+        item.dataset.faqInit = 'true';
+
         const question = item.querySelector('.faq-question');
         if (question) {
-            question.addEventListener('click', () => {
-                // Cerrar otros items abiertos (opcional: solo uno abierto)
+            question.addEventListener('click', (e) => {
+                e.preventDefault();
+                const isCurrentlyActive = item.classList.contains('active');
+                
+                // Cerrar otros items abiertos
                 faqItems.forEach(otherItem => {
                     if (otherItem !== item) {
                         otherItem.classList.remove('active');
                     }
                 });
-                // Toggle del item actual
-                item.classList.toggle('active');
+
+                // Alternar estado del item actual
+                if (isCurrentlyActive) {
+                    item.classList.remove('active');
+                } else {
+                    item.classList.add('active');
+                }
             });
         }
     });
+}
+
+// Auto-inicializar FAQ en carga de documento
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQAccordion);
+} else {
+    initFAQAccordion();
 }
 
 // --- BLOG Pagination & Filtering ---
@@ -1250,8 +1268,8 @@ document.addEventListener('DOMContentLoaded', function() {
 // MHM 2.0 - ANIMATION ON SCROLL (IntersectionObserver)
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
-    // Select all sections and cards that should animate on scroll
-    const animatedElements = document.querySelectorAll("section, .social-glass-card, .cmd-card, .feat-card, .step-card");
+    // Select all sections and cards that should animate on scroll (exclude hidden/results sections)
+    const animatedElements = document.querySelectorAll("section:not(.healthResults):not([hidden]), .social-glass-card, .cmd-card, .feat-card, .step-card");
     
     const observerOptions = {
         root: null,
@@ -1263,15 +1281,19 @@ document.addEventListener("DOMContentLoaded", () => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("animate-on-scroll");
+                entry.target.style.opacity = ""; // Allow CSS to handle opacity
                 observer.unobserve(entry.target); // Animate only once
             }
         });
     }, observerOptions);
     
     animatedElements.forEach(el => {
-        // Initialize opacity to 0 via CSS to prevent flashing, then observe
-        el.style.opacity = "0";
-        observer.observe(el);
+        // Only initialize opacity if element is visible and not display:none
+        const style = window.getComputedStyle(el);
+        if (style.display !== 'none') {
+            el.style.opacity = "0";
+            observer.observe(el);
+        }
     });
 });
 

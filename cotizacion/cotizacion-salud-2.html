@@ -766,7 +766,7 @@ html, body {
 
     
     <nav class="quote-nav">
-        <a href="cotizacion-salud-1.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Selección de Plan</span></a>
+        <a href="cotizacion-salud-resumen.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Resumen de Solicitud</span></a>
         <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
     </nav>
 
@@ -779,17 +779,17 @@ html, body {
     <div class="page-wrapper">
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-regular fa-hand-spock"></i>Para Empezar</div>
-                <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
+                <div class="wizard-title"><i class="fa-solid fa-user-check"></i> Paso 2: Registro de Contratación</div>
+                <div class="wizard-title"><i class="fa-solid fa-shield-halved"></i> MAPFRE AP SALUD</div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 16%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 35%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp" id="dynamic-plan-title">Asistencia Integral Pro T+2</h1>
+                    <h1 class="text-gradient-corp" id="dynamic-plan-title">MAPFRE AP Salud 100 UF</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Ingresa los datos del comprador para continuar con la contratación.</p>
+                <p>Verifica los datos de tu cotización y completa la información del contratante para continuar.</p>
             </header>
         </div>
             
@@ -805,143 +805,247 @@ html, body {
                         grid-template-columns: 1fr;
                     }
                 }
+
+                .quotePreFilledBox {
+                    background: rgba(121, 107, 252, 0.05);
+                    border: 1.5px solid rgba(121, 107, 252, 0.22);
+                    border-radius: 16px;
+                    padding: 22px;
+                    margin-bottom: 28px;
+                }
             </style>
 
             <div class="specs-layout-grid">
                 
                 <div class="main-spec-col anim-entry delay-1">
-                    <div class="premium-white-card" style="padding: 40px;">
-                        <h2 style="font-size: 1.5rem; color: #796bfc; margin-bottom: 30px; font-weight: 800;">Datos del Contratante</h2>
+                    <div class="premium-white-card" style="padding: 36px 32px;">
                         
                         <form id="compradorForm" onsubmit="event.preventDefault(); goToNextStep();">
+
+                            <!-- =========================================
+                                 PREGUNTAS YA CONTESTADAS EN COTIZACIÓN
+                                 ========================================= -->
+                            <div class="quotePreFilledBox">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                    <div style="display: flex; align-items: center; gap: 8px;">
+                                        <div style="width: 26px; height: 26px; border-radius: 50%; background: #10B981; color: white; display: grid; place-items: center; font-size: 12px;">
+                                            <i class="fa-solid fa-check"></i>
+                                        </div>
+                                        <h3 style="font-size: 1.05rem; font-weight: 800; color: #0F172A; margin: 0;">Datos validados de tu cotización</h3>
+                                    </div>
+                                    <span style="font-size: 11px; font-weight: 700; color: #796BFC; background: #FFFFFF; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(121, 107, 252, 0.3);">
+                                        <i class="fa-solid fa-bolt" style="margin-right: 4px;"></i> Pre-completados
+                                    </span>
+                                </div>
+
+                                <div class="form-grid" style="margin-bottom: 16px;">
+                                    <!-- Edad -->
+                                    <div class="input-group-modern">
+                                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.9rem;">
+                                            <i class="fa-regular fa-calendar" style="color: #796bfc; margin-right: 6px;"></i> Edad del Titular *
+                                        </label>
+                                        <div class="input-with-icon" style="position: relative;">
+                                            <i class="fa-solid fa-cake-candles" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                            <input type="number" id="ageInput" min="18" max="65" oninput="validateForm(); updateStoredProfile()" class="rich-input" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1.5px solid #CBD5E1; background: #FFFFFF; font-size: 1rem; color: #0F172A; font-weight: 700;" required>
+                                        </div>
+                                    </div>
+
+                                    <!-- Género -->
+                                    <div class="input-group-modern">
+                                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.9rem;">
+                                            <i class="fa-solid fa-venus-mars" style="color: #796bfc; margin-right: 6px;"></i> Género *
+                                        </label>
+                                        <div class="input-with-icon" style="position: relative;">
+                                            <i class="fa-solid fa-user-circle" style="position: absolute; left: 16px; top: 16px; color: #94A3B8; z-index: 10;"></i>
+                                            <select id="genderInput" onchange="validateForm(); updateStoredProfile()" class="rich-input" style="width: 100%; padding: 14px 38px 14px 45px; border-radius: 12px; border: 1.5px solid #CBD5E1; background: #FFFFFF; font-size: 1rem; color: #0F172A; font-weight: 700; cursor: pointer; appearance: none;" required>
+                                                <option value="Femenino">Femenino</option>
+                                                <option value="Masculino">Masculino</option>
+                                                <option value="Otro">Otro</option>
+                                            </select>
+                                            <i class="fa-solid fa-chevron-down" style="position: absolute; right: 15px; top: 18px; pointer-events: none; color: #94A3B8;"></i>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-grid">
+                                    <!-- Previsión Médica -->
+                                    <div class="input-group-modern">
+                                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.9rem;">
+                                            <i class="fa-solid fa-hospital-user" style="color: #796bfc; margin-right: 6px;"></i> Previsión de Salud *
+                                        </label>
+                                        <div class="input-with-icon" style="position: relative;">
+                                            <i class="fa-solid fa-stethoscope" style="position: absolute; left: 16px; top: 16px; color: #94A3B8; z-index: 10;"></i>
+                                            <select id="healthInput" onchange="validateForm(); updateStoredProfile()" class="rich-input" style="width: 100%; padding: 14px 38px 14px 45px; border-radius: 12px; border: 1.5px solid #CBD5E1; background: #FFFFFF; font-size: 1rem; color: #0F172A; font-weight: 700; cursor: pointer; appearance: none;" required>
+                                                <option value="Isapre">Isapre</option>
+                                                <option value="Fonasa">Fonasa</option>
+                                                <option value="Capredena">Capredena</option>
+                                                <option value="Dipreca">Dipreca</option>
+                                                <option value="Particular">Particular / Sin previsión</option>
+                                            </select>
+                                            <i class="fa-solid fa-chevron-down" style="position: absolute; right: 15px; top: 18px; pointer-events: none; color: #94A3B8;"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Grupo Asegurado -->
+                                    <div class="input-group-modern">
+                                        <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.9rem;">
+                                            <i class="fa-solid fa-users" style="color: #796bfc; margin-right: 6px;"></i> Grupo Asegurado
+                                        </label>
+                                        <div class="input-with-icon" style="position: relative;">
+                                            <i class="fa-solid fa-people-roof" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                            <input type="text" id="groupInput" readonly class="rich-input" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1.5px solid #CBD5E1; background: #F1F5F9; font-size: 0.95rem; color: #334155; font-weight: 700; cursor: default;">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- =========================================
+                                 DATOS PERSONALES DEL CONTRATANTE
+                                 ========================================= -->
+                            <h2 style="font-size: 1.3rem; color: #0F172A; margin-bottom: 22px; font-weight: 800;">
+                                <i class="fa-solid fa-id-card-clip" style="color: #796bfc; margin-right: 8px;"></i> Datos Personales del Contratante
+                            </h2>
                             
                             <div class="input-group-modern" style="margin-bottom: 25px;">
-                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Rut *</label>
-                                <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-id-card" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="rutInput" onkeyup="validateForm()" class="rich-input" placeholder="Ej: 12.345.678-9" style="width: 100%; max-width: 300px; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
+                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">RUT *</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-id-card" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                    <input type="text" id="rutInput" onkeyup="validateForm()" class="rich-input" placeholder="Ej: 12.345.678-9" style="width: 100%; max-width: 320px; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                </div>
                             </div>
 
                             <div class="input-group-modern" style="margin-bottom: 25px;">
-                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Nombre *</label>
-                                <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-user" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="nameInput" onkeyup="validateForm()" class="rich-input" placeholder="Ingrese nombre completo" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
+                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Nombres *</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-user" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                    <input type="text" id="nameInput" onkeyup="validateForm()" class="rich-input" placeholder="Ingrese nombres completos" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                </div>
                             </div>
 
                             <div class="form-grid">
                                 <div class="input-group-modern" style="margin-bottom: 25px;">
                                     <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Apellido Paterno *</label>
-                                    <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-user-tag" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="lastNameInput" onkeyup="validateForm()" class="rich-input" placeholder="Apellido paterno" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
+                                    <div class="input-with-icon" style="position: relative;">
+                                        <i class="fa-solid fa-user-tag" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                        <input type="text" id="lastNameInput" onkeyup="validateForm()" class="rich-input" placeholder="Apellido paterno" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                    </div>
                                 </div>
                                 <div class="input-group-modern" style="margin-bottom: 25px;">
                                     <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Apellido Materno *</label>
-                                    <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-user-tag" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="secondLastNameInput" onkeyup="validateForm()" class="rich-input" placeholder="Apellido materno" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
+                                    <div class="input-with-icon" style="position: relative;">
+                                        <i class="fa-solid fa-user-tag" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                        <input type="text" id="secondLastNameInput" onkeyup="validateForm()" class="rich-input" placeholder="Apellido materno" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="form-grid">
                                 <div class="input-group-modern" style="margin-bottom: 25px;">
                                     <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Correo Electrónico *</label>
-                                    <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-envelope" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="email" id="emailInput" onkeyup="validateForm()" class="rich-input" placeholder="correo@ejemplo.com" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
+                                    <div class="input-with-icon" style="position: relative;">
+                                        <i class="fa-solid fa-envelope" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                        <input type="email" id="emailInput" onkeyup="validateForm()" class="rich-input" placeholder="correo@ejemplo.com" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                    </div>
                                 </div>
                                 <div class="input-group-modern" style="margin-bottom: 25px;">
-                                    <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Teléfono *</label>
-                                    <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-phone" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="tel" id="phoneInput" onkeyup="validateForm()" class="rich-input" placeholder="+56 9 1234 5678" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
+                                    <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Teléfono Móvil *</label>
+                                    <div class="input-with-icon" style="position: relative;">
+                                        <i class="fa-solid fa-phone" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                        <input type="tel" id="phoneInput" onkeyup="validateForm()" class="rich-input" placeholder="+56 9 1234 5678" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                    </div>
                                 </div>
                             </div>
 
                             <div class="input-group-modern" style="margin-bottom: 25px;">
-                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Dirección *</label>
-                                <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-location-dot" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-<input type="text" id="addressInput" onkeyup="validateForm()" class="rich-input" placeholder="Av. Providencia 1234, depto 501" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
-</div>
+                                <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Dirección Residencial *</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-location-dot" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                    <input type="text" id="addressInput" onkeyup="validateForm()" class="rich-input" placeholder="Av. Providencia 1234, depto 501" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                </div>
                             </div>
 
                             <div class="input-group-modern" style="margin-bottom: 35px;">
                                 <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Comuna *</label>
-                                <div class="input-with-icon" style="position: relative;"><i class="fa-solid fa-map-location-dot" style="position: absolute; left: 16px; top: 16px; color: #94A3B8; z-index: 10;"></i>
-<select id="comunaInput" onchange="validateForm()" class="rich-input" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #E2E8F0; background: #F8FAFC; transition: 0.3s; font-size: 1rem; color: #0F172A; cursor: pointer; appearance: none;" required>
-                                    <option value="" disabled selected>Selecciona tu comuna</option>
-                                    <option value="santiago">Santiago Centro</option>
-                                    <option value="providencia">Providencia</option>
-                                    <option value="las_condes">Las Condes</option>
-                                    <option value="nunoa">Ñuñoa</option>
-                                    <option value="vitacura">Vitacura</option>
-                                    <option value="lo_barnechea">Lo Barnechea</option>
-                                    <option value="la_reina">La Reina</option>
-                                    <option value="macul">Macul</option>
-                                    <option value="florida">La Florida</option>
-                                    <option value="maipu">Maipú</option>
-                                    <option value="vina">Viña del Mar</option>
-                                    <option value="concepcion">Concepción</option>
-                                </select>
-</div>
-                                <!-- Custom dropdown arrow -->
-                                <i class="fa-solid fa-chevron-down" style="position: absolute; right: 15px; top: 45px; pointer-events: none; color: #94A3B8;"></i>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-map-location-dot" style="position: absolute; left: 16px; top: 16px; color: #94A3B8; z-index: 10;"></i>
+                                    <select id="comunaInput" onchange="validateForm()" class="rich-input" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A; cursor: pointer; appearance: none;" required>
+                                        <option value="" disabled selected>Selecciona tu comuna</option>
+                                        <option value="santiago">Santiago Centro</option>
+                                        <option value="providencia">Providencia</option>
+                                        <option value="las_condes">Las Condes</option>
+                                        <option value="nunoa">Ñuñoa</option>
+                                        <option value="vitacura">Vitacura</option>
+                                        <option value="lo_barnechea">Lo Barnechea</option>
+                                        <option value="la_reina">La Reina</option>
+                                        <option value="macul">Macul</option>
+                                        <option value="florida">La Florida</option>
+                                        <option value="maipu">Maipú</option>
+                                        <option value="vina">Viña del Mar</option>
+                                        <option value="concepcion">Concepción</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down" style="position: absolute; right: 15px; top: 18px; pointer-events: none; color: #94A3B8;"></i>
+                                </div>
                             </div>
 
                             <div style="display: flex; justify-content: flex-end;">
-                                <button type="submit" id="btn-continue" class="btn-primary-shimmer" style="background: linear-gradient(135deg, #3B82F6, #796bfc); opacity: 0.5; pointer-events: none; transition: 0.3s; padding: 15px 30px;">
-                                    Siguiente Paso <i class="fa-solid fa-arrow-right"></i>
+                                <button type="submit" id="btn-continue" style="background: linear-gradient(135deg, #796BFC 0%, #5E4BF5 100%) !important; color: #FFFFFF !important; opacity: 0.5; pointer-events: none; transition: all 0.3s ease; padding: 16px 36px; border-radius: 14px; font-weight: 800; font-size: 1rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 22px -3px rgba(121, 107, 252, 0.45);">
+                                    <span>Continuar con el Pago</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
                                 </button>
                             </div>
                         </form>
                     </div>
                 </div>
 
-                
-
-<aside class="config-sidebar anim-entry delay-2">
-                    <div class="organic-panel ruta-container">
+                <aside class="config-sidebar anim-entry delay-2">
+                    <div class="organic-panel ruta-container" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; margin-bottom: 20px;">
                         
-                        <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
+                        <div class="sidebar-title text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 18px;">
                             Ruta de Contratación
                         </div>
-                        <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
+                        <ul class="aurora-list" style="margin-bottom: 0; padding-bottom: 0;">
                             <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
+                            <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Resumen Checkout</li>
                             <li class="active"><span class="pulse-dot"></span> Datos del Contratante</li>
-                            <li><i class="fa-regular fa-circle"></i> Titular</li>
-                            <li><i class="fa-regular fa-circle"></i> Producto</li>
-                            <li><i class="fa-regular fa-circle"></i> Beneficiarios</li>
                             <li><i class="fa-regular fa-circle"></i> Pago Seguro</li>
                         </ul>
 
-                        </div>
-                        <div class="organic-panel resumen-container">
-                        <div id="resumen-title-header" class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
-                            Resumen de Selección
+                    </div>
+
+                    <div class="organic-panel resumen-container" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px;">
+                        <div id="resumen-title-header" class="sidebar-title text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 18px; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px;">
+                            Resumen del Plan
                         </div>
                         
                         <div id="cart-summary-step2">
-                            <div class="summary-item" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                            <div class="summary-item" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
                                 <div>
-                                    <h4 id="dynamic-sidebar-title" style="margin: 0; color: #1E293B; font-weight: 700; font-size: 0.95rem;">Asistencia Integral Pro T+2</h4>
-                                    <p style="margin: 0; color: #64748B; font-size: 0.85rem;">Cobertura completa</p>
+                                    <span style="font-size: 10px; font-weight: 800; color: #796BFC; text-transform: uppercase; letter-spacing: 0.1em; display: block;" id="dynamic-sidebar-tier">MAPFRE AP SALUD</span>
+                                    <h4 id="dynamic-sidebar-title" style="margin: 3px 0 2px; color: #0F172A; font-weight: 800; font-size: 1.05rem;">MAPFRE AP Salud 100 UF</h4>
+                                    <p id="dynamic-sidebar-desc" style="margin: 0; color: #64748B; font-size: 0.82rem;">Capital muerte accidental: 100 UF</p>
                                 </div>
                                 <div style="text-align: right;">
-                                    <div id="dynamic-sidebar-price" style="color: #3B82F6; font-weight: 800; font-size: 1.1rem;">$22.170</div>
+                                    <div id="dynamic-sidebar-price" style="color: #796bfc; font-weight: 900; font-size: 1.2rem;">$6.990</div>
                                     <div style="color: #94A3B8; font-size: 0.75rem;">/ mes</div>
                                 </div>
                             </div>
-                            
-                            <button onclick="openCoverageModal('integral')" class="btn-primary-shimmer" style="width: 100%; padding: 10px; font-size: 0.9rem; background: transparent; border: 1px solid #3B82F6; color: #3B82F6; margin-top: 10px;">
-                                <i class="fa-solid fa-list-check"></i> Ver Coberturas
-                            </button>
+
+                            <div style="background: #F8FAFC; border-radius: 12px; padding: 12px; font-size: 12px; color: #475569; margin: 15px 0; display: flex; flex-direction: column; gap: 6px;">
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Valor anual estimado:</span>
+                                    <strong id="dynamic-sidebar-annual" style="color: #0F172A;">$83.880</strong>
+                                </div>
+                                <div style="display: flex; justify-content: space-between;">
+                                    <span>Asegurados incluidos:</span>
+                                    <strong id="dynamic-sidebar-members" style="color: #0F172A;">1 persona</strong>
+                                </div>
+                            </div>
                         </div>
 
-                        <div id="generic-protection-box" style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
-                            <i class="fa-solid fa-shield-heart" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
-                            <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
-                            <p style="margin: 0; font-size: 0.85rem; color: #64748B;">Estás a pocos pasos de asegurar tu salud.</p>
+                        <div id="generic-protection-box" style="background: rgba(46, 217, 195, 0.08); border: 1.5px dashed #2ED9C3; border-radius: 16px; padding: 16px; margin-top: 20px; text-align: center;">
+                            <i class="fa-solid fa-shield-heart" style="font-size: 1.8rem; color: #0F766E; margin-bottom: 8px;"></i>
+                            <h4 style="margin: 0 0 4px 0; color: #0F172A; font-weight: 800; font-size: 0.95rem;">Protección MAPFRE Activa</h4>
+                            <p style="margin: 0; font-size: 0.8rem; color: #475569;">Emitida con respaldo de MAPFRE Compañía de Seguros Generales.</p>
                         </div>
                     </div>
                 </aside>
@@ -951,17 +1055,113 @@ html, body {
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            initRegistrationForm();
+        });
+
+        function initRegistrationForm() {
+            // Read stored plan
+            let plan = {
+                id: 'mapfre-individual',
+                name: 'MAPFRE AP Salud 100 UF',
+                tier: 'PLAN 100% INDIVIDUAL',
+                capitalUF: '100 UF',
+                priceFormatted: '$6.990/mes',
+                priceYear: '$83.880',
+                price: 6990
+            };
             const planStr = sessionStorage.getItem('mhm_salud_plan');
             if (planStr) {
-                const plan = JSON.parse(planStr);
-                const title = document.getElementById('dynamic-plan-title');
-                const sbTitle = document.getElementById('dynamic-sidebar-title');
-                const sbPrice = document.getElementById('dynamic-sidebar-price');
-                if (title) title.innerText = plan.name;
-                if (sbTitle) sbTitle.innerText = plan.name;
-                if (sbPrice) sbPrice.innerText = '$' + plan.price.toLocaleString('es-CL');
+                try { plan = { ...plan, ...JSON.parse(planStr) }; } catch(e){}
             }
-        });
+
+            // Read stored profile
+            let profile = {
+                age: '36',
+                gender: 'Femenino',
+                health: 'Isapre',
+                partner: false,
+                children: 0,
+                totalMembers: 1
+            };
+            const profileStr = sessionStorage.getItem('mhm_salud_profile');
+            if (profileStr) {
+                try { profile = { ...profile, ...JSON.parse(profileStr) }; } catch(e){}
+            }
+
+            // Populate Pre-Answered Fields
+            const ageInput = document.getElementById('ageInput');
+            const genderInput = document.getElementById('genderInput');
+            const healthInput = document.getElementById('healthInput');
+            const groupInput = document.getElementById('groupInput');
+
+            if (ageInput) ageInput.value = profile.age || '36';
+            if (genderInput && profile.gender) genderInput.value = profile.gender;
+            if (healthInput && profile.health) healthInput.value = profile.health;
+
+            const total = profile.totalMembers || (1 + (profile.partner ? 1 : 0) + (profile.children || 0));
+            if (groupInput) {
+                if (total > 1) {
+                    let desc = 'Titular';
+                    if (profile.partner) desc += ' + Cónyuge';
+                    if (profile.children > 0) desc += ` + ${profile.children} hijo${profile.children > 1 ? 's' : ''}`;
+                    groupInput.value = `${desc} (${total} asegurados)`;
+                } else {
+                    groupInput.value = '1 persona (Solo titular)';
+                }
+            }
+
+            // Populate Header & Sidebar
+            const titleEl = document.getElementById('dynamic-plan-title');
+            const sbTitle = document.getElementById('dynamic-sidebar-title');
+            const sbPrice = document.getElementById('dynamic-sidebar-price');
+            const sbTier = document.getElementById('dynamic-sidebar-tier');
+            const sbDesc = document.getElementById('dynamic-sidebar-desc');
+            const sbAnnual = document.getElementById('dynamic-sidebar-annual');
+            const sbMembers = document.getElementById('dynamic-sidebar-members');
+
+            if (titleEl) titleEl.innerText = plan.name;
+            if (sbTitle) sbTitle.innerText = plan.name;
+            if (sbPrice) sbPrice.innerText = plan.priceFormatted || ('$' + parseInt(plan.price || 6990, 10).toLocaleString('es-CL'));
+            if (sbTier) sbTier.innerText = plan.tier || 'MAPFRE AP SALUD';
+            if (sbDesc) sbDesc.innerText = `Capital muerte accidental: ${plan.capitalUF || '100 UF'}`;
+            if (sbAnnual) sbAnnual.innerText = plan.priceYear || (total > 1 ? '$119.880' : '$83.880');
+            if (sbMembers) sbMembers.innerText = total > 1 ? `${total} personas` : '1 persona (Titular)';
+
+            // If user previously filled contractor data in this session
+            const prevContractor = sessionStorage.getItem('contratanteData');
+            if (prevContractor) {
+                try {
+                    const c = JSON.parse(prevContractor);
+                    if (c.rut) document.getElementById('rutInput').value = c.rut;
+                    if (c.name) document.getElementById('nameInput').value = c.name;
+                    if (c.lastName) document.getElementById('lastNameInput').value = c.lastName;
+                    if (c.secondLastName) document.getElementById('secondLastNameInput').value = c.secondLastName;
+                    if (c.email) document.getElementById('emailInput').value = c.email;
+                    if (c.phone) document.getElementById('phoneInput').value = c.phone;
+                    if (c.address) document.getElementById('addressInput').value = c.address;
+                    if (c.comuna) document.getElementById('comunaInput').value = c.comuna;
+                } catch(e){}
+            }
+
+            validateForm();
+        }
+
+        function updateStoredProfile() {
+            const ageVal = document.getElementById('ageInput')?.value;
+            const genderVal = document.getElementById('genderInput')?.value;
+            const healthVal = document.getElementById('healthInput')?.value;
+
+            let profile = {};
+            const profileStr = sessionStorage.getItem('mhm_salud_profile');
+            if (profileStr) {
+                try { profile = JSON.parse(profileStr); } catch(e){}
+            }
+            if (ageVal) profile.age = ageVal;
+            if (genderVal) profile.gender = genderVal;
+            if (healthVal) profile.health = healthVal;
+
+            sessionStorage.setItem('mhm_salud_profile', JSON.stringify(profile));
+        }
 
         function validateEmail(email) {
             return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
@@ -972,20 +1172,26 @@ html, body {
         }
 
         function validateForm() {
-            const rut = document.getElementById('rutInput').value.trim();
-            const name = document.getElementById('nameInput').value.trim();
-            const lastName = document.getElementById('lastNameInput').value.trim();
-            const secondLastName = document.getElementById('secondLastNameInput').value.trim();
-            const email = document.getElementById('emailInput').value.trim();
-            const phone = document.getElementById('phoneInput').value.trim();
-            const address = document.getElementById('addressInput').value.trim();
-            const comuna = document.getElementById('comunaInput').value;
+            const age = document.getElementById('ageInput')?.value;
+            const rut = document.getElementById('rutInput')?.value.trim() || '';
+            const name = document.getElementById('nameInput')?.value.trim() || '';
+            const lastName = document.getElementById('lastNameInput')?.value.trim() || '';
+            const secondLastName = document.getElementById('secondLastNameInput')?.value.trim() || '';
+            const email = document.getElementById('emailInput')?.value.trim() || '';
+            const phone = document.getElementById('phoneInput')?.value.trim() || '';
+            const address = document.getElementById('addressInput')?.value.trim() || '';
+            const comuna = document.getElementById('comunaInput')?.value || '';
             const btn = document.getElementById('btn-continue');
+            if (!btn) return;
             
-            // All required fields must be somewhat filled
-            if (validateRut(rut) && name.length > 2 && lastName.length > 2 && secondLastName.length > 2 && validateEmail(email) && phone.length > 7 && address.length > 5 && comuna !== "") {
+            const isValid = age && parseInt(age, 10) >= 18 && validateRut(rut) && 
+                            name.length >= 2 && lastName.length >= 2 && secondLastName.length >= 2 && 
+                            validateEmail(email) && phone.length >= 7 && address.length >= 4 && comuna !== "";
+
+            if (isValid) {
                 btn.style.opacity = '1';
                 btn.style.pointerEvents = 'auto';
+                btn.style.filter = 'none';
             } else {
                 btn.style.opacity = '0.5';
                 btn.style.pointerEvents = 'none';
@@ -993,6 +1199,7 @@ html, body {
         }
 
         function goToNextStep() {
+            updateStoredProfile();
             const formData = {
                 rut: document.getElementById('rutInput').value,
                 name: document.getElementById('nameInput').value,

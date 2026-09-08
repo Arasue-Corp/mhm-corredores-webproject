@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Solicitud | MAPFRE AP Salud | MHM Corredores</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1785907847" rel="stylesheet">
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
+    <link rel="stylesheet" href="../css/tokens.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/style-quote.css">
+    <link rel="stylesheet" href="../css/mobile-first.css">
+    <link rel="stylesheet" href="../css/salud.css?v=8">
+
+    <style>
+        /* PAGE-SPECIFIC ENHANCEMENTS FOR SUMMARY CHECKOUT */
+        .summaryCheckoutPage {
+            background-color: #F8FAFC;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .summaryNav {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--color-border);
+            padding: 14px 24px;
+            position: sticky;
+            top: 0;
+            z-index: 200;
+        }
+
+        .summaryNavInner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .summaryNavBrand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .summaryNavLogo {
+            height: 32px;
+            width: auto;
+            display: block;
+        }
+
+        .summaryNavBack {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--color-primary);
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 700;
+            transition: all 0.2s ease;
+        }
+
+        .summaryNavBack:hover {
+            color: var(--color-primary-dark);
+            transform: translateX(-3px);
+        }
+
+        .summaryNavSecure {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 11.5px;
+            font-weight: 700;
+            color: var(--color-teal-dark);
+            background: rgba(46, 217, 195, 0.12);
+            padding: 5px 12px;
+            border-radius: 999px;
+            letter-spacing: 0.04em;
+        }
+
+        /* WIZARD PROGRESS */
+        .summaryWizardTrack {
+            background: #FFFFFF;
+            border-bottom: 1px solid var(--color-border);
+            padding: 14px 20px;
+        }
+
+        .summaryWizardInner {
+            max-width: 1240px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+            font-size: 12px;
+            font-weight: 700;
+        }
+
+        .wizardStepItem {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #94A3B8;
+            text-decoration: none;
+        }
+
+        .wizardStepItem.done {
+            color: #10B981;
+        }
+
+        .wizardStepItem.active {
+            color: var(--color-primary);
+            font-weight: 800;
+        }
+
+        .wizardStepSep {
+            color: #CBD5E1;
+            font-size: 10px;
+            margin: 0 4px;
+        }
+
+        /* MAIN LAYOUT */
+        .summaryMain {
+            max-width: 1240px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 36px 20px 60px;
+            flex: 1;
+        }
+
+        .summaryGrid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 28px;
+            align-items: start;
+        }
+
+        /* En móvil: El cuadro con el botón de contratación aparece PRIMERO */
+        @media (max-width: 991px) {
+            .summaryCheckoutSidebar {
+                order: -1;
+                margin-bottom: 4px;
+            }
+            .summaryFlow {
+                order: 2;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .summaryGrid {
+                grid-template-columns: 1.65fr 1fr;
+                gap: 40px;
+            }
+            .summaryFlow {
+                order: 1;
+            }
+            .summaryCheckoutSidebar {
+                order: 2;
+            }
+        }
+
+        /* CARDS */
+        .summaryCard {
+            background: #FFFFFF;
+            border: 1.5px solid var(--color-border);
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.04), 0 0 0 1px rgba(226, 232, 240, 0.7);
+            margin-bottom: 24px;
+            transition: border-color 0.2s ease;
+        }
+
+        .summaryCard:last-child {
+            margin-bottom: 0;
+        }
+
+        .summaryCardHead {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+
+        .summaryCardKicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            font-size: 11px;
+            font-weight: 800;
+            color: var(--color-primary);
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+        }
+
+        .btnModifyQuote {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            background: rgba(121, 107, 252, 0.08);
+            border: 1px solid rgba(121, 107, 252, 0.25);
+            padding: 6px 14px;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+        }
+
+        .btnModifyQuote:hover {
+            background: var(--color-primary);
+            color: #FFFFFF;
+            border-color: var(--color-primary);
+        }
+
+        /* PROFILE TILES */
+        .profileTilesGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 580px) {
+            .profileTilesGrid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .profileTile {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 14px 16px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .profileTileIcon {
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(121, 107, 252, 0.12);
+            color: var(--color-primary);
+            display: grid;
+            place-items: center;
+            font-size: 14px;
+            flex-shrink: 0;
+        }
+
+        .profileTileText small {
+            display: block;
+            font-size: 11px;
+            color: #64748B;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+
+        .profileTileText strong {
+            display: block;
+            font-size: 14.5px;
+            color: #0F172A;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        /* LEGAL CONDITIONS ACCORDION / LIST */
+        .legalList {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+            margin-bottom: 24px;
+        }
+
+        .legalListItem {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 13px;
+            line-height: 1.55;
+            color: #334155;
+        }
+
+        .legalListItemIcon {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 11px;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .legalListItemIcon.success {
+            background: rgba(16, 185, 129, 0.15);
+            color: #10B981;
+        }
+
+        .legalListItemIcon.info {
+            background: rgba(121, 107, 252, 0.15);
+            color: var(--color-primary);
+        }
+
+        .legalListItemIcon.teal {
+            background: rgba(46, 217, 195, 0.18);
+            color: var(--color-teal-dark);
+        }
+
+        /* ACCEPTANCE CHECKBOX BOX */
+        .termsAcceptanceCard {
+            background: linear-gradient(135deg, rgba(121, 107, 252, 0.05) 0%, rgba(46, 217, 195, 0.04) 100%);
+            border: 2px solid rgba(121, 107, 252, 0.25);
+            border-radius: 16px;
+            padding: 20px;
+            display: flex;
+            align-items: flex-start;
+            gap: 14px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .termsAcceptanceCard:hover {
+            border-color: var(--color-primary);
+            background: rgba(121, 107, 252, 0.08);
+            box-shadow: 0 4px 18px rgba(121, 107, 252, 0.12);
+        }
+
+        .termsAcceptanceCard:has(:checked),
+        .termsAcceptanceCard.checked {
+            border-color: var(--color-primary);
+            background: rgba(121, 107, 252, 0.1);
+            box-shadow: 0 6px 20px rgba(121, 107, 252, 0.18);
+        }
+
+        .termsCheckboxInput {
+            width: 22px;
+            height: 22px;
+            border-radius: 6px;
+            accent-color: var(--color-primary);
+            cursor: pointer;
+            margin-top: 2px;
+            flex-shrink: 0;
+        }
+
+        .termsAcceptanceCard div strong {
+            display: block;
+            font-size: 14.5px;
+            color: #0F172A;
+            font-weight: 800;
+            margin-bottom: 4px;
+        }
+
+        .termsAcceptanceCard div p {
+            font-size: 12.5px;
+            color: #475569;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        /* CROSS SELL CARDS */
+        .crossSellSectionTitle {
+            font-size: 18px;
+            font-weight: 800;
+            color: #0F172A;
+            margin: 0 0 4px;
+            letter-spacing: -0.02em;
+        }
+
+        .crossSellSectionSub {
+            font-size: 13px;
+            color: #64748B;
+            margin-bottom: 20px;
+        }
+
+        .crossSellCardsRow {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 16px;
+        }
+
+        @media (min-width: 640px) {
+            .crossSellCardsRow {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        .mhmCrossSellItem {
+            border: 1.5px solid var(--color-border);
+            border-radius: 18px;
+            padding: 20px 18px;
+            background: #FFFFFF;
+            text-decoration: none;
+            color: inherit;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            gap: 14px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .mhmCrossSellItem:hover {
+            transform: translateY(-4px);
+            border-color: var(--color-primary);
+            box-shadow: 0 16px 32px -8px rgba(15, 23, 42, 0.1), 0 0 0 1px rgba(121, 107, 252, 0.2);
+        }
+
+        .crossSellTop {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .crossSellBadgeIcon {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            font-size: 15px;
+            flex-shrink: 0;
+        }
+
+        .crossSellBadgeIcon.hogar {
+            background: rgba(46, 217, 195, 0.15);
+            color: var(--color-teal-dark);
+        }
+
+        .crossSellBadgeIcon.mascota {
+            background: rgba(121, 107, 252, 0.12);
+            color: var(--color-primary);
+        }
+
+        .crossSellBadgeIcon.auto {
+            background: rgba(59, 130, 246, 0.12);
+            color: #2563EB;
+        }
+
+        .crossSellHead h4 {
+            font-size: 13.5px;
+            font-weight: 800;
+            color: #0F172A;
+            margin: 0;
+            line-height: 1.3;
+        }
+
+        .crossSellHead small {
+            font-size: 11px;
+            color: #64748B;
+            font-weight: 500;
+        }
+
+        .crossSellDesc {
+            font-size: 12px;
+            color: #475569;
+            line-height: 1.45;
+            margin: 0;
+        }
+
+        .crossSellBottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-top: 10px;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        .crossSellPriceText {
+            font-size: 12.5px;
+            font-weight: 800;
+            color: var(--color-primary);
+        }
+
+        .crossSellCtaLink {
+            font-size: 11.5px;
+            font-weight: 700;
+            color: #64748B;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            transition: color 0.2s ease;
+        }
+
+        .mhmCrossSellItem:hover .crossSellCtaLink {
+            color: var(--color-primary);
+        }
+
+        /* RIGHT CHECKOUT SIDEBAR */
+        .summaryCheckoutSidebar {
+            position: sticky;
+            top: 80px;
+        }
+
+        .mhmCheckoutDarkCard {
+            background: linear-gradient(160deg, #0F172A 0%, #17253B 100%);
+            border-radius: 24px;
+            padding: 32px 28px;
+            color: #FFFFFF;
+            box-shadow: 0 25px 60px -15px rgba(15, 23, 42, 0.45);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .mhmCheckoutDarkCard::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--grad-aurora);
+        }
+
+        .checkoutCardLogoRow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+        }
+
+        .checkoutMapfrePill {
+            background: #FFFFFF;
+            padding: 5px 12px;
+            border-radius: 10px;
+            display: inline-flex;
+            align-items: center;
+            height: 32px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        }
+
+        .checkoutMapfrePill img {
+            max-height: 20px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        .checkoutPlanTierBadge {
+            background: rgba(121, 107, 252, 0.25);
+            border: 1px solid rgba(121, 107, 252, 0.5);
+            color: #C4B5FD;
+            font-size: 10.5px;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            padding: 4px 10px;
+            border-radius: 999px;
+            text-transform: uppercase;
+        }
+
+        .checkoutPlanTitle {
+            font-size: 21px;
+            font-weight: 800;
+            color: #FFFFFF;
+            line-height: 1.25;
+            letter-spacing: -0.02em;
+            margin: 0 0 6px;
+        }
+
+        .checkoutCapitalChip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #2ED9C3;
+            margin-bottom: 20px;
+        }
+
+        .checkoutPriceDivider {
+            border: 0;
+            height: 1px;
+            background: rgba(255, 255, 255, 0.12);
+            margin: 16px 0;
+        }
+
+        .checkoutPriceLine {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 10px;
+            font-size: 13.5px;
+        }
+
+        .checkoutPriceLine.total {
+            margin-top: 14px;
+            padding-top: 14px;
+            border-top: 1px dashed rgba(255, 255, 255, 0.18);
+        }
+
+        .checkoutPriceLine.total strong {
+            font-size: 26px;
+            font-weight: 900;
+            color: #2ED9C3;
+            letter-spacing: -0.03em;
+        }
+
+        /* TRUST SEALS */
+        .checkoutTrustSeals {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            margin: 20px 0;
+            padding: 14px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 14px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 11.5px;
+            color: #CBD5E1;
+        }
+
+        .checkoutTrustItem {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .checkoutTrustItem i {
+            color: #2ED9C3;
+            font-size: 12px;
+        }
+
+        /* ACTIONS */
+        .checkoutActions {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .btnProceedContract {
+            width: 100%;
+            padding: 15px 24px;
+            border-radius: 14px;
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            font-size: 14.5px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: #232D3F;
+            color: #8E9BAE;
+            opacity: 0.75;
+            transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+            text-decoration: none;
+            box-shadow: none;
+            position: relative;
+            overflow: hidden;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        .btnProceedContract.is-disabled {
+            background: #232D3F;
+            color: #8E9BAE;
+            opacity: 0.75;
+            cursor: pointer;
+        }
+
+        @keyframes checkboxAttention {
+            0% { transform: scale(1); box-shadow: 0 0 0 0 rgba(121, 107, 252, 0.6); }
+            50% { transform: scale(1.02); box-shadow: 0 0 0 10px rgba(121, 107, 252, 0.25); border-color: var(--color-primary); background: rgba(121, 107, 252, 0.12); }
+            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(121, 107, 252, 0); }
+        }
+
+        .termsAcceptanceCard.attention-pulse {
+            animation: checkboxAttention 0.8s ease 2;
+        }
+
+        .btnProceedContract .btnLockIcon {
+            display: inline-block;
+            font-size: 13px;
+            color: #64748B;
+            transition: transform 0.3s ease;
+        }
+
+        .btnProceedContract .btnArrowIcon {
+            display: none;
+            font-size: 14px;
+            transition: transform 0.3s ease;
+        }
+
+        .btnProceedContract.enabled {
+            background: var(--grad-aurora);
+            color: #FFFFFF;
+            font-weight: 800;
+            border: 1px solid transparent;
+            opacity: 1;
+            cursor: pointer;
+            pointer-events: auto;
+            box-shadow: 0 10px 25px -4px rgba(121, 107, 252, 0.55);
+            animation: pulseGlow 2.5s infinite ease-in-out;
+        }
+
+        .btnProceedContract.enabled .btnLockIcon {
+            display: none;
+        }
+
+        .btnProceedContract.enabled .btnArrowIcon {
+            display: inline-block;
+        }
+
+        .btnProceedContract.enabled:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 14px 30px -4px rgba(121, 107, 252, 0.7);
+            filter: brightness(1.08);
+        }
+
+        .btnProceedContract.enabled:hover .btnArrowIcon {
+            transform: translateX(3px);
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% {
+                box-shadow: 0 10px 25px -4px rgba(121, 107, 252, 0.55);
+            }
+            50% {
+                box-shadow: 0 12px 30px -2px rgba(121, 107, 252, 0.75), 0 0 15px rgba(46, 217, 195, 0.35);
+            }
+        }
+
+        .btnCallAdvisor {
+            width: 100%;
+            padding: 12px 18px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.25);
+            background: transparent;
+            color: #FFFFFF;
+            font-size: 13px;
+            font-weight: 700;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+        }
+
+        .btnCallAdvisor:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .legalCmfNote {
+            font-size: 11px;
+            color: #94A3B8;
+            line-height: 1.45;
+            margin-top: 14px;
+            text-align: center;
+        }
+
+        /* MODAL ASESOR */
+        .modalAdvisorOverlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.65);
+            backdrop-filter: blur(8px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modalAdvisorOverlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modalAdvisorBox {
+            background: #FFFFFF;
+            border-radius: 24px;
+            max-width: 480px;
+            width: 100%;
+            padding: 36px 32px;
+            position: relative;
+            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.25);
+        }
+
+        .modalCloseBtn {
+            position: absolute;
+            right: 20px;
+            top: 20px;
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            border: 1px solid #E2E8F0;
+            background: #F8FAFC;
+            cursor: pointer;
+            display: grid;
+            place-items: center;
+            color: #64748B;
+        }
+    </style>
+</head>
+<body class="summaryCheckoutPage">
+
+    <!-- NAVIGATION HEADER -->
+    <header class="summaryNav">
+        <div class="summaryNavInner">
+            <div class="summaryNavBrand">
+                <a href="../index.html">
+                    <img src="../assets/img/logo-mhm.png" alt="MHM Corredores de Seguros" class="summaryNavLogo" onerror="this.src='../assets/img/logo-mhm-blanco.png';">
+                </a>
+            </div>
+            <a href="cotizacion-salud-1.html" class="summaryNavBack">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Volver al Catálogo de Salud</span>
+            </a>
+            <div class="summaryNavSecure">
+                <i class="fa-solid fa-lock"></i>
+                <span>Checkout Protegido CMF</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- WIZARD PROGRESS TRACK -->
+    <div class="summaryWizardTrack">
+        <div class="summaryWizardInner">
+            <span class="wizardStepItem done">
+                <i class="fa-solid fa-circle-check"></i> 1. Selección de Cobertura
+            </span>
+            <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+            <span class="wizardStepItem active">
+                <i class="fa-solid fa-file-invoice-dollar"></i> 2. Resumen y Condiciones
+            </span>
+            <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+            <span class="wizardStepItem">
+                <i class="fa-regular fa-circle"></i> 3. Registro del Contratante
+            </span>
+            <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+            <span class="wizardStepItem">
+                <i class="fa-regular fa-circle"></i> 4. Pago Seguro
+            </span>
+        </div>
+    </div>
+
+    <!-- MAIN SUMMARY WRAPPER -->
+    <main class="summaryMain">
+        <div class="summaryGrid">
+            
+            <!-- LEFT MAIN CONTENT -->
+            <section class="summaryFlow">
+                
+                <!-- HEADER SECTION -->
+                <div style="margin-bottom: 24px;">
+                    <div class="healthKicker-badge" style="margin-bottom: 8px;">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <span>Revisión de Solicitud · MAPFRE AP Salud</span>
+                    </div>
+                    <h1 style="font-size: clamp(24px, 3.2vw, 34px); font-weight: 900; color: #0F172A; letter-spacing: -0.03em; margin: 4px 0 8px;">
+                        Revisa tu póliza antes de continuar.
+                    </h1>
+                    <p style="font-size: 14.5px; color: #475569; margin: 0;">
+                        Verifica las especificaciones de tu seguro y confirma las condiciones contractuales para la emisión de tu póliza.
+                    </p>
+                </div>
+
+                <!-- CARD 1: PERFIL COTIZADO -->
+                <div class="summaryCard">
+                    <div class="summaryCardHead">
+                        <div class="summaryCardKicker">
+                            <i class="fa-solid fa-user-check"></i>
+                            <span>Perfil del Asegurado Principal</span>
+                        </div>
+                        <a href="cotizacion-salud-1.html" class="btnModifyQuote">
+                            <i class="fa-solid fa-pen-to-square"></i>
+                            <span>Modificar datos</span>
+                        </a>
+                    </div>
+
+                    <div class="profileTilesGrid">
+                        <!-- Edad -->
+                        <div class="profileTile">
+                            <div class="profileTileIcon"><i class="fa-solid fa-cake-candles"></i></div>
+                            <div class="profileTileText">
+                                <small>Edad Titular</small>
+                                <strong id="valAge">36 años</strong>
+                            </div>
+                        </div>
+
+                        <!-- Género -->
+                        <div class="profileTile">
+                            <div class="profileTileIcon"><i class="fa-solid fa-venus-mars"></i></div>
+                            <div class="profileTileText">
+                                <small>Género</small>
+                                <strong id="valGender">Femenino</strong>
+                            </div>
+                        </div>
+
+                        <!-- Previsión -->
+                        <div class="profileTile">
+                            <div class="profileTileIcon"><i class="fa-solid fa-hospital-user"></i></div>
+                            <div class="profileTileText">
+                                <small>Previsión de Salud</small>
+                                <strong id="valHealth">Isapre</strong>
+                            </div>
+                        </div>
+
+                        <!-- Grupo -->
+                        <div class="profileTile">
+                            <div class="profileTileIcon"><i class="fa-solid fa-users"></i></div>
+                            <div class="profileTileText">
+                                <small>Personas Aseguradas</small>
+                                <strong id="valMembers">1 persona (Solo titular)</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: CONDICIONES CONTRACTUALES Y LEGALES -->
+                <div class="summaryCard">
+                    <div class="summaryCardHead">
+                        <div class="summaryCardKicker">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                            <span>Condiciones Generales y Normativa CMF</span>
+                        </div>
+                        <span style="font-size: 11px; color: #10B981; font-weight: 700; background: rgba(16, 185, 129, 0.1); padding: 4px 10px; border-radius: 999px;">
+                            <i class="fa-solid fa-circle-check"></i> Póliza Regulada
+                        </span>
+                    </div>
+
+                    <ul class="legalList">
+                        <li class="legalListItem">
+                            <div class="legalListItemIcon success"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <strong>Intermediación Regulada:</strong> Póliza intermediada por <strong>MHM Corredores de Seguros SpA</strong>, entidad autorizada y fiscalizada por la Comisión para el Mercado Financiero (CMF).
+                            </div>
+                        </li>
+                        <li class="legalListItem">
+                            <div class="legalListItemIcon info"><i class="fa-solid fa-shield"></i></div>
+                            <div>
+                                <strong>Compañía Aseguradora:</strong> El riesgo es suscrito y cubierto por <strong>MAPFRE Compañía de Seguros Generales de Chile S.A.</strong> Las condiciones generales y exclusiones se rigen según póliza depositada en la CMF.
+                            </div>
+                        </li>
+                        <li class="legalListItem">
+                            <div class="legalListItemIcon teal"><i class="fa-solid fa-clock"></i></div>
+                            <div>
+                                <strong>Vigencia y Carencias:</strong> Las asistencias médicas, urgencias dentales y telemedicina 24/7 inician desde el día 1 de vigencia. Los capitales de indemnización aplican según el texto de la póliza contratada.
+                            </div>
+                        </li>
+                        <li class="legalListItem">
+                            <div class="legalListItemIcon success"><i class="fa-solid fa-notes-medical"></i></div>
+                            <div>
+                                <strong>Complementariedad:</strong> Este seguro de accidentes y salud opera como cobertura complementaria y no sustituye la afiliación obligatoria a Fonasa o Isapre.
+                            </div>
+                        </li>
+                        <li class="legalListItem">
+                            <div class="legalListItemIcon info"><i class="fa-solid fa-receipt"></i></div>
+                            <div>
+                                <strong>Primas y Facturación:</strong> Los valores en Pesos Chilenos (CLP) se calculan en base al valor oficial de la Unidad de Fomento (UF) a la fecha de facturación correspondiente.
+                            </div>
+                        </li>
+                    </ul>
+
+                    <!-- ACCEPTANCE CHECKBOX -->
+                    <label class="termsAcceptanceCard" id="termsAcceptanceCard" for="termsAccept">
+                        <input type="checkbox" id="termsAccept" class="termsCheckboxInput" onchange="toggleAcceptance(this.checked)">
+                        <div>
+                            <strong>He leído y acepto las condiciones generales de la póliza MAPFRE</strong>
+                            <p>
+                                Declaro haber sido informado sobre las coberturas, exclusiones y límites de la póliza intermediada por MHM Corredores de Seguros, y autorizo el tratamiento de mis datos para la emisión del contrato.
+                            </p>
+                        </div>
+                    </label>
+                </div>
+
+                <!-- CARD 3: PROTECCIÓN COMPLEMENTARIA (VENTA CRUZADA MHM) -->
+                <div class="summaryCard">
+                    <div class="summaryCardHead">
+                        <div class="summaryCardKicker">
+                            <i class="fa-solid fa-cubes"></i>
+                            <span>Protección Integral Familiar</span>
+                        </div>
+                        <span style="font-size: 11px; color: #64748B; font-weight: 600;">Convenios y beneficios preferenciales</span>
+                    </div>
+
+                    <h3 class="crossSellSectionTitle">Complementa la seguridad de tu hogar y familia</h3>
+                    <p class="crossSellSectionSub">Puedes cotizar estos seguros adicionales con cobertura inmediata gestionados por MHM Corredores.</p>
+
+                    <div class="crossSellCardsRow">
+                        <!-- Seguro Hogar -->
+                        <a href="cotizacion-asistencia-hogar-1.html" class="mhmCrossSellItem" target="_blank">
+                            <div>
+                                <div class="crossSellTop">
+                                    <div class="crossSellBadgeIcon hogar"><i class="fa-solid fa-house-chimney"></i></div>
+                                    <div class="crossSellHead">
+                                        <h4>Seguro de Hogar</h4>
+                                        <small>Incendio, sismo y robo</small>
+                                    </div>
+                                </div>
+                                <p class="crossSellDesc" style="margin-top: 10px;">Respaldo total para tu vivienda y contenidos con asistencia domiciliaria de urgencia.</p>
+                            </div>
+                            <div class="crossSellBottom">
+                                <span class="crossSellPriceText">Desde $5.100/mes</span>
+                                <span class="crossSellCtaLink">Cotizar <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- Seguro Mascotas -->
+                        <a href="cotizacion-mascota-1.html" class="mhmCrossSellItem" target="_blank">
+                            <div>
+                                <div class="crossSellTop">
+                                    <div class="crossSellBadgeIcon mascota"><i class="fa-solid fa-shield-dog"></i></div>
+                                    <div class="crossSellHead">
+                                        <h4>Seguro Mascotas</h4>
+                                        <small>Perros y gatos</small>
+                                    </div>
+                                </div>
+                                <p class="crossSellDesc" style="margin-top: 10px;">Consultas veterinarias, vacunas, exámenes y urgencias médicas 24/7 sin copago.</p>
+                            </div>
+                            <div class="crossSellBottom">
+                                <span class="crossSellPriceText">Desde $2.990/mes</span>
+                                <span class="crossSellCtaLink">Cotizar <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- Seguro Vehicular -->
+                        <a href="cotizacion-vehicular-1.html" class="mhmCrossSellItem" target="_blank">
+                            <div>
+                                <div class="crossSellTop">
+                                    <div class="crossSellBadgeIcon auto"><i class="fa-solid fa-car-side"></i></div>
+                                    <div class="crossSellHead">
+                                        <h4>Seguro Vehicular</h4>
+                                        <small>Auto y conductor</small>
+                                    </div>
+                                </div>
+                                <p class="crossSellDesc" style="margin-top: 10px;">Cobertura total con asistencia en ruta, vehículo de reemplazo y deducible inteligente.</p>
+                            </div>
+                            <div class="crossSellBottom">
+                                <span class="crossSellPriceText" style="color: #2563EB;">Plan a medida</span>
+                                <span class="crossSellCtaLink">Cotizar <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- RIGHT STICKY CHECKOUT SIDEBAR -->
+            <aside class="summaryCheckoutSidebar">
+                <div class="mhmCheckoutDarkCard">
+                    
+                    <div class="checkoutCardLogoRow">
+                        <div class="checkoutMapfrePill">
+                            <img src="../assets/img/maqueta/ally-mapfre.png" alt="MAPFRE Seguros">
+                        </div>
+                        <span class="checkoutPlanTierBadge" id="planTierBadge">PLAN INDIVIDUAL</span>
+                    </div>
+
+                    <h2 class="checkoutPlanTitle" id="planTitleHeader">MAPFRE AP Salud Individual 100 UF</h2>
+                    
+                    <div class="checkoutCapitalChip" id="planCapitalChip">
+                        <i class="fa-solid fa-shield-heart"></i>
+                        <span>Capital Accidental: 100 UF (~$3.800.000)</span>
+                    </div>
+
+                    <div class="checkoutPriceDivider"></div>
+
+                    <div class="checkoutPriceLine">
+                        <span style="color: #94A3B8;">Aseguradora emisora</span>
+                        <strong style="color: #FFFFFF;">MAPFRE Seguros</strong>
+                    </div>
+
+                    <div class="checkoutPriceLine">
+                        <span style="color: #94A3B8;">Intermediación</span>
+                        <strong style="color: #FFFFFF;">MHM Corredores</strong>
+                    </div>
+
+                    <div class="checkoutPriceLine">
+                        <span style="color: #94A3B8;">Valor Anual Estimado</span>
+                        <strong id="planPriceYear" style="color: #FFFFFF;">$83.880</strong>
+                    </div>
+
+                    <div class="checkoutPriceLine total">
+                        <div>
+                            <span style="display: block; font-size: 11px; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">Prima Mensual</span>
+                            <span style="font-size: 12px; color: #CBD5E1;">IVA incluido</span>
+                        </div>
+                        <strong id="planPriceMonth">$6.990</strong>
+                    </div>
+
+                    <!-- TRUST SEALS -->
+                    <div class="checkoutTrustSeals">
+                        <div class="checkoutTrustItem">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Corredor Registrado ante la CMF</span>
+                        </div>
+                        <div class="checkoutTrustItem">
+                            <i class="fa-solid fa-lock"></i>
+                            <span>Conexión Encriptada SSL de 256 bits</span>
+                        </div>
+                        <div class="checkoutTrustItem">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>Asesoría personalizada sin costo</span>
+                        </div>
+                    </div>
+
+                    <!-- ACTIONS -->
+                    <div class="checkoutActions">
+                        <button type="button" class="btnProceedContract is-disabled" id="btnContinue" onclick="proceedToContractorStep()" role="button" aria-disabled="true">
+                            <i class="fa-solid fa-lock btnLockIcon"></i>
+                            <span id="btnContinueText">Acepta las condiciones para continuar</span>
+                            <i class="fa-solid fa-arrow-right btnArrowIcon"></i>
+                        </button>
+
+                        <button type="button" class="btnCallAdvisor" onclick="openAdvisorModal()">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <span>Solicitar llamada con un asesor</span>
+                        </button>
+                    </div>
+
+                    <p class="legalCmfNote">
+                        MHM Corredores de Seguros SpA. Entidad fiscalizada por la Comisión para el Mercado Financiero (CMF). Las coberturas y exclusiones corresponden a la póliza oficial de MAPFRE Seguros Generales de Chile S.A.
+                    </p>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <!-- FOOTER MHM -->
+    <footer class="footer-aurora">
+        <div class="footer-light-mesh"></div>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col brand-col">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corredores de Seguros" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">
+                        Tu intermediario de seguros de confianza en Chile. Te acompañamos en cada etapa de tu vida y la de tu familia con asesoría cercana, transparente y personalizada.
+                    </p>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Seguros Personales</h4>
+                    <ul class="footer-links">
+                        <li><a href="cotizacion-salud-1.html">Seguro de Salud MAPFRE</a></li>
+                        <li><a href="cotizacion-1.html">Seguro Automotriz</a></li>
+                        <li><a href="cotizacion-asistencia-hogar-1.html">Seguro de Hogar</a></li>
+                        <li><a href="cotizacion-mascota-1.html">Seguro de Mascotas</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4 class="footer-heading">Regulación y Ayuda</h4>
+                    <ul class="footer-links">
+                        <li><a href="../contacto/index.html">Atención al Asegurado</a></li>
+                        <li><a href="../terminos-condiciones/index.html">Términos del Servicio</a></li>
+                        <li><a href="https://www.cmfchile.cl" target="_blank">Comisión para el Mercado Financiero (CMF)</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom" style="margin-top: 30px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); text-align: center; font-size: 12px; color: #94A3B8;">
+                © 2026 MHM Corredores de Seguros SpA. Todos los derechos reservados. Fiscalizado por la CMF.
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODAL ASESOR PERSONALIZADO -->
+    <div class="modalAdvisorOverlay" id="advisorModal">
+        <div class="modalAdvisorBox">
+            <button type="button" class="modalCloseBtn" onclick="closeAdvisorModal()"><i class="fa-solid fa-xmark"></i></button>
+            <div class="summaryCardKicker" style="margin-bottom: 8px;">
+                <i class="fa-solid fa-headset"></i>
+                <span>Asesoría Gratuita MHM</span>
+            </div>
+            <h3 style="font-size: 21px; font-weight: 800; color: #0F172A; margin: 4px 0 10px;">
+                ¿Deseas contratar con ayuda telefónica?
+            </h3>
+            <p style="font-size: 13.5px; color: #64748B; margin-bottom: 22px; line-height: 1.5;">
+                Un corredor certificado de MHM te orientará sin costo para validar coberturas, deducibles y completar tu incorporación oficial a MAPFRE.
+            </p>
+            <form onsubmit="handleAdvisorSubmit(event)">
+                <div style="margin-bottom: 14px;">
+                    <label style="display: block; font-size: 12px; font-weight: 700; color: #1E293B; margin-bottom: 6px;">Nombre y Apellido</label>
+                    <input type="text" id="advisorName" required placeholder="Ej: Marcela González" style="width: 100%; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #CBD5E1; font-size: 14px; outline: none;">
+                </div>
+                <div style="margin-bottom: 20px;">
+                    <label style="display: block; font-size: 12px; font-weight: 700; color: #1E293B; margin-bottom: 6px;">Teléfono móvil</label>
+                    <input type="tel" id="advisorPhone" required placeholder="+56 9 1234 5678" style="width: 100%; padding: 12px 14px; border-radius: 12px; border: 1.5px solid #CBD5E1; font-size: 14px; outline: none;">
+                </div>
+                <button type="submit" style="width: 100%; padding: 14px; border-radius: 12px; border: none; background: var(--grad-aurora); color: #FFFFFF; font-weight: 800; font-size: 14px; cursor: pointer; box-shadow: 0 8px 20px -3px rgba(121, 107, 252, 0.45);">
+                    Solicitar llamada ahora
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- SCRIPT DE SINCRONIZACIÓN Y LÓGICA -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            initCheckoutData();
+        });
+
+        function initCheckoutData() {
+            // Read Profile
+            let profile = {
+                age: '36',
+                gender: 'Femenino',
+                health: 'Isapre',
+                partner: false,
+                children: 0,
+                totalMembers: 1
+            };
+            const profileStr = sessionStorage.getItem('mhm_salud_profile');
+            if (profileStr) {
+                try { profile = { ...profile, ...JSON.parse(profileStr) }; } catch(e){}
+            }
+
+            // Read Plan
+            let plan = {
+                id: 'mapfre-individual',
+                name: 'MAPFRE AP Salud Individual (100 UF)',
+                tier: 'PLAN INDIVIDUAL',
+                capitalUF: '100 UF',
+                priceFormatted: '$6.990/mes',
+                priceYear: '$83.880',
+                price: 6990,
+                planType: 'individual'
+            };
+            const planStr = sessionStorage.getItem('mhm_salud_plan');
+            if (planStr) {
+                try { plan = { ...plan, ...JSON.parse(planStr) }; } catch(e){}
+            }
+
+            // Populate Card 1 - Profile Tiles
+            const total = profile.totalMembers || (1 + (profile.partner ? 1 : 0) + (profile.children || 0));
+            document.getElementById('valAge').innerText = (profile.age || '36') + ' años';
+            document.getElementById('valGender').innerText = profile.gender || 'Femenino';
+            document.getElementById('valHealth').innerText = profile.health || 'Isapre';
+
+            let groupText = '1 persona (Solo titular)';
+            if (total > 1) {
+                let parts = ['Titular'];
+                if (profile.partner) parts.push('Cónyuge');
+                if (profile.children > 0) parts.push(`${profile.children} hijo${profile.children > 1 ? 's' : ''}`);
+                groupText = `${total} personas (${parts.join(' + ')})`;
+            }
+            document.getElementById('valMembers').innerText = groupText;
+
+            // Populate Sidebar
+            const isFamily = plan.planType === 'familiar' || plan.id.includes('familiar') || total > 1;
+
+            const badgeEl = document.getElementById('planTierBadge');
+            const titleEl = document.getElementById('planTitleHeader');
+            const capitalEl = document.getElementById('planCapitalChip');
+            const monthEl = document.getElementById('planPriceMonth');
+            const yearEl = document.getElementById('planPriceYear');
+
+            if (isFamily) {
+                if (badgeEl) badgeEl.innerText = 'PLAN FAMILIAR';
+                if (titleEl) titleEl.innerText = 'MAPFRE AP Salud Familiar (500 UF)';
+                if (capitalEl) capitalEl.innerHTML = '<i class="fa-solid fa-shield-heart"></i> <span>Capital Accidental: 500 UF (~$19.000.000)</span>';
+                if (monthEl) monthEl.innerText = '$9.990';
+                if (yearEl) yearEl.innerText = '$119.880';
+            } else {
+                if (badgeEl) badgeEl.innerText = 'PLAN INDIVIDUAL';
+                if (titleEl) titleEl.innerText = 'MAPFRE AP Salud Individual (100 UF)';
+                if (capitalEl) capitalEl.innerHTML = '<i class="fa-solid fa-shield-heart"></i> <span>Capital Accidental: 100 UF (~$3.800.000)</span>';
+                if (monthEl) monthEl.innerText = '$6.990';
+                if (yearEl) yearEl.innerText = '$83.880';
+            }
+        }
+
+        function toggleAcceptance(accepted) {
+            const btn = document.getElementById('btnContinue');
+            const textEl = document.getElementById('btnContinueText');
+            if (!btn) return;
+            if (accepted) {
+                btn.classList.add('enabled');
+                btn.classList.remove('is-disabled');
+                btn.setAttribute('aria-disabled', 'false');
+                if (textEl) textEl.innerText = 'Continuar al Registro de Contratación';
+            } else {
+                btn.classList.remove('enabled');
+                btn.classList.add('is-disabled');
+                btn.setAttribute('aria-disabled', 'true');
+                if (textEl) textEl.innerText = 'Acepta las condiciones para continuar';
+            }
+        }
+
+        function proceedToContractorStep() {
+            const check = document.getElementById('termsAccept');
+            if (!check || !check.checked) {
+                // Estando en móvil o sin marcar, desplazarse suavemente hasta la sección del checkbox
+                const termsCard = document.getElementById('termsAcceptanceCard') || check;
+                if (termsCard) {
+                    // Obtener offset considerando sticky nav de 70px
+                    const navHeight = 75;
+                    const rect = termsCard.getBoundingClientRect();
+                    const targetScrollY = window.pageYOffset + rect.top - navHeight;
+                    
+                    window.scrollTo({
+                        top: targetScrollY,
+                        behavior: 'smooth'
+                    });
+
+                    // Disparar animación de atención en la tarjeta del checkbox
+                    termsCard.classList.remove('attention-pulse');
+                    void termsCard.offsetWidth; // Force reflow
+                    termsCard.classList.add('attention-pulse');
+                    
+                    // Dar foco al input
+                    setTimeout(() => {
+                        check.focus();
+                    }, 400);
+                }
+                return;
+            }
+            window.location.href = 'cotizacion-salud-2.html';
+        }
+
+        function openAdvisorModal() {
+            const modal = document.getElementById('advisorModal');
+            if (modal) modal.classList.add('active');
+        }
+
+        function closeAdvisorModal() {
+            const modal = document.getElementById('advisorModal');
+            if (modal) modal.classList.remove('active');
+        }
+
+        function handleAdvisorSubmit(e) {
+            e.preventDefault();
+            alert('¡Solicitud ingresada con éxito! Un corredor asesor de MHM se contactará contigo en breve.');
+            closeAdvisorModal();
+        }
+    </script>
+</body>
+</html>

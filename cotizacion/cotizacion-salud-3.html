@@ -1026,6 +1026,19 @@ html, body {
                 document.getElementById('phoneInput').value = parsed.phone || '';
                 document.getElementById('addressInput').value = parsed.address || '';
                 document.getElementById('comunaInput').value = parsed.comuna || '';
+
+                // Calculate DOB from profile age
+                const profileStr = sessionStorage.getItem('mhm_salud_profile');
+                if (profileStr) {
+                    try {
+                        const prof = JSON.parse(profileStr);
+                        if (prof.age) {
+                            const birthYear = new Date().getFullYear() - parseInt(prof.age, 10);
+                            document.getElementById('dobInput').value = `15/06/${birthYear}`;
+                        }
+                    } catch(e){}
+                }
+
                 validateForm();
             }
         }

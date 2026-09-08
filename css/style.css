@@ -1,3 +1,7 @@
+@import url('./tokens.css');
+@import url('./mobile-first.css');
+@import url('./responsive-overrides.css');
+
 /* ==========================================================
    AURORA PRESTIGE - DESIGN SYSTEM
    Version: 2.0 (Refactorizado)
@@ -207,8 +211,9 @@ a {
     .top-link { font-size: 0.75rem; padding: 4px 8px; }
 
     .site-logo {
-        height: 40px !important;
-        margin-left: -20px !important;
+        height: 38px !important;
+        margin: 0 !important;
+        transform: none !important;
     }
 }
 
@@ -247,15 +252,13 @@ a {
 }
 
 .site-logo {
-    height: 55px !important; /* Altura muy visible (estándar es 30-40px) */
+    height: 48px !important;
     width: auto !important;
-    max-height: none !important; /* Eliminar restricciones */
+    max-height: 52px !important;
     object-fit: contain !important;
     display: block !important;
-    
-    /* TRUCO: Zoom óptico para eliminar espacios vacíos de la imagen */
-    transform: scale(1.2); 
-    transform-origin: left center;
+    transform: none !important;
+    margin: 0 !important;
 }
 
 /* --- MENÚ DE NAVEGACIÓN (DESKTOP) --- */
@@ -425,43 +428,57 @@ a {
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
-    width: 100%; /* IMPORTANTE: Asegura que use todo el espacio horizontal */
-    max-width: 1400px; /* Opcional: Para limitar el ancho en pantallas gigantes */
-    margin: 0 auto; /* Centra el contenedor si usas max-width */
+    width: 100%;
+    max-width: 1440px !important;
+    margin: 0 auto;
+    gap: 24px;
 }
 
-.container { width: 90%; max-width: 1200px; margin: 0 auto; }
-
+.container { width: 92%; max-width: 1280px; margin: 0 auto; }
 
 /* AJUSTE LOGO */
+.brand-logo {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+    text-decoration: none;
+    z-index: 10;
+}
+
 .brand-logo img {
-    height: 55px; /* Antes 36px. Ahora mucho más visible. */
-    width: auto;
-    display: block;
-    object-fit: contain;
-    margin-top: -15px;
-    margin-right: 15px;
+    height: 48px !important;
+    width: auto !important;
+    max-height: 52px !important;
+    display: block !important;
+    object-fit: contain !important;
+    margin: 0 !important;
+    transform: none !important;
 }
 
 .nav-center {
-    flex-grow: 1;        /* Toma todo el espacio disponible (el área morada que veías) */
-    display: flex;       /* Convierte este contenedor en flexible también */
-    justify-content: center; /* Alinea los hijos (.nav-links) al CENTRO absoluto */
+    flex: 1 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 0;
     padding-left: 0;    
 }
 
 /* MENÚ CENTRAL */
 .nav-links { 
     display: flex; 
-    gap: 6px; 
+    align-items: center;
+    gap: 8px; 
     list-style: none; 
     margin: 0; 
     padding: 0;
- }
+    flex-wrap: nowrap;
+}
 
 .nav-item {
     padding: 8px 14px;
-    font-size: 0.9rem; font-weight: 600; color: #796bfc;
+    font-size: 0.92rem; font-weight: 600; color: #796bfc;
+    white-space: nowrap;
     text-decoration: none; border-radius: 10px;
     transition: all 0.2s ease;
     display: flex; align-items: center; gap: 6px;
@@ -972,8 +989,9 @@ a {
     }
 
     .site-logo {
-        height: 45px !important; /* Grande pero seguro para móvil */
-        transform: scale(1.1);
+        height: 38px !important;
+        transform: none !important;
+        margin: 0 !important;
     }
 }
 
@@ -2713,15 +2731,31 @@ position: absolute;
     padding: 25px 30px;
     display: flex; justify-content: space-between; align-items: center;
     cursor: pointer;
+    user-select: none;
+    transition: background-color 0.25s ease;
 }
 
-.faq-question h3 { font-size: 1.15rem; font-weight: 700; margin: 0; transition: color 0.3s; }
-.faq-item.active .faq-question h3 { color: #796bfc; }
+.faq-question h3 { 
+    font-size: 1.15rem; 
+    font-weight: 700; 
+    margin: 0; 
+    color: #0F172A !important; /* Negro / Oscuro por defecto */
+    transition: color 0.3s ease; 
+}
+
+.faq-question:hover h3 {
+    color: #796bfc !important;
+}
+
+.faq-item.active .faq-question h3 { 
+    color: #796bfc !important; /* Cambia a color corporativo al elegir */
+}
 
 .faq-toggle {
-    width: 32px; height: 32px; border-radius: 50%; background: #F1F5F9; color: #0F172A;
-    display: flex; align-items: center; justify-content: center; font-size: 0.9rem;
-    transition: all 0.3s;
+    width: 34px; height: 34px; border-radius: 50%; background: #F1F5F9; color: #0F172A;
+    display: flex; align-items: center; justify-content: center; font-size: 0.95rem;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    flex-shrink: 0;
 }
 .faq-item.active .faq-toggle {
     transform: rotate(45deg); /* Se convierte en X */
@@ -11185,8 +11219,138 @@ input:not([type="checkbox"]):not([type="radio"]):focus, select:focus, textarea:f
     box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.4), 0 20px 50px -10px rgba(15, 23, 42, 0.15) !important;
 }
 
-/* Intensificar saturacin del cristal en navbar y hero */
+/* Intensificar saturación del cristal en navbar y hero */
 .aurora-navbar, .hero-glass-card {
     backdrop-filter: blur(20px) saturate(150%) !important;
     -webkit-backdrop-filter: blur(20px) saturate(150%) !important;
 }
+
+/* ==============================================================================
+   6. RESPONSIVE DESKTOP PREMIUM: ESCALABILIDAD 1080p, 1440p (2K) Y 4K
+   ============================================================================== */
+
+/* --- Desktop Compacto / Laptops (992px a 1199px) --- */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .glass-navbar {
+        padding: 0 24px !important;
+    }
+    .nav-container {
+        gap: 16px !important;
+    }
+    .brand-logo img, .site-logo {
+        height: 42px !important;
+    }
+    .nav-links {
+        gap: 4px !important;
+    }
+    .nav-item {
+        padding: 6px 10px !important;
+        font-size: 0.85rem !important;
+    }
+    .nav-actions {
+        gap: 10px !important;
+    }
+    .btn-aurora-gradient {
+        padding: 10px 16px !important;
+        font-size: 0.88rem !important;
+    }
+}
+
+/* --- Full HD / 1080p Estándar (1200px a 1439px) --- */
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1320px !important;
+    }
+    .nav-container {
+        max-width: 1400px !important;
+        gap: 24px !important;
+    }
+    .brand-logo img, .site-logo {
+        height: 48px !important;
+    }
+    .nav-links {
+        gap: 8px !important;
+    }
+    .nav-item {
+        padding: 8px 14px !important;
+        font-size: 0.92rem !important;
+    }
+}
+
+/* --- QHD / 1440p (2K) (1440px a 1919px) --- */
+@media (min-width: 1440px) {
+    .container {
+        max-width: 1480px !important;
+    }
+    .nav-container {
+        max-width: 1540px !important;
+        gap: 36px !important;
+    }
+    .brand-logo img, .site-logo {
+        height: 50px !important;
+    }
+    .nav-links {
+        gap: 12px !important;
+    }
+    .nav-item {
+        padding: 10px 16px !important;
+        font-size: 0.96rem !important;
+    }
+    .hero-split-grid, .lemonade-split {
+        gap: 50px !important;
+    }
+}
+
+/* --- Wide Desktop / 1080p Ultrawide (1920px a 2559px) --- */
+@media (min-width: 1920px) {
+    .container {
+        max-width: 1680px !important;
+    }
+    .nav-container {
+        max-width: 1720px !important;
+        gap: 44px !important;
+    }
+    .brand-logo img, .site-logo {
+        height: 54px !important;
+    }
+    .nav-links {
+        gap: 16px !important;
+    }
+    .nav-item {
+        padding: 10px 18px !important;
+        font-size: 1.02rem !important;
+    }
+    .btn-aurora-gradient {
+        padding: 14px 28px !important;
+        font-size: 1rem !important;
+    }
+}
+
+/* --- Ultra HD / 4K Displays (2560px a 3840px+) --- */
+@media (min-width: 2560px) {
+    html {
+        font-size: 18px; /* Escala tipográfica global proporcional para 4K */
+    }
+    .container {
+        max-width: 2100px !important;
+    }
+    .nav-container {
+        max-width: 2200px !important;
+        gap: 56px !important;
+    }
+    .brand-logo img, .site-logo {
+        height: 62px !important;
+    }
+    .nav-links {
+        gap: 20px !important;
+    }
+    .nav-item {
+        padding: 12px 22px !important;
+        font-size: 1.1rem !important;
+    }
+    .glass-navbar {
+        min-height: 105px !important;
+        padding: 0 60px !important;
+    }
+}
+
