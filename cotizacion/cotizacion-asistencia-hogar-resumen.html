@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resumen de Cotización | Seguro de Hogar | MHM Corredores</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1785907847" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="../css/style.css?v=1789287000"> 
+    <link rel="stylesheet" href="../css/style-quote.css?v=1789287000"> 
+    <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
+
+    <style>
+        :root {
+            --color-primary: #796BFC;
+            --color-secondary: #CB6CE6;
+            --color-dark: #0F172A;
+            --color-teal: #2ED9C3;
+            --color-teal-dark: #0D9488;
+        }
+
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+        }
+
+        body.summaryCheckoutPage {
+            background: #F8FAFC;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .summaryNav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+        }
+
+        .summaryNavInner {
+            max-width: 1240px;
+            margin: 0 auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+        }
+
+        .summaryBackBtn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #475569;
+            text-decoration: none;
+            font-size: 13.5px;
+            font-weight: 700;
+            padding: 8px 14px;
+            border-radius: 12px;
+            background: #F1F5F9;
+            transition: all 0.2s ease;
+        }
+
+        .summaryBackBtn:hover {
+            background: #E2E8F0;
+            color: var(--color-dark);
+            transform: translateX(-2px);
+        }
+
+        .summaryWizardInner {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 13px;
+        }
+
+        .wizardStepItem {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #94A3B8;
+            text-decoration: none;
+        }
+
+        .wizardStepItem.done {
+            color: #10B981;
+        }
+
+        .wizardStepItem.active {
+            color: var(--color-primary);
+            font-weight: 800;
+        }
+
+        .wizardStepSep {
+            color: #CBD5E1;
+            font-size: 10px;
+            margin: 0 4px;
+        }
+
+        .summaryMain {
+            max-width: 1240px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 36px 20px 60px;
+            flex: 1;
+        }
+
+        .summaryGrid {
+            display: grid;
+            grid-template-columns: 1.65fr 1fr;
+            gap: 36px;
+            align-items: start;
+        }
+
+        @media (max-width: 991px) {
+            .summaryGrid {
+                grid-template-columns: 1fr !important;
+                gap: 24px !important;
+            }
+            .summaryCheckoutSidebar {
+                order: -1;
+                margin-bottom: 8px;
+            }
+            .summaryFlow {
+                order: 2;
+            }
+        }
+
+        .summaryCard {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 26px 24px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+            margin-bottom: 24px;
+        }
+
+        .summaryCardHeader {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #F1F5F9;
+            padding-bottom: 14px;
+        }
+
+        .summaryCardHeader h3 {
+            margin: 0;
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0F172A;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .summaryCardHeader h3 i {
+            color: var(--color-primary);
+        }
+
+        .btnModifyLink {
+            font-size: 0.82rem;
+            font-weight: 700;
+            color: var(--color-primary);
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 8px;
+            background: rgba(121, 107, 252, 0.08);
+            transition: all 0.2s;
+        }
+
+        .btnModifyLink:hover {
+            background: rgba(121, 107, 252, 0.15);
+        }
+
+        .propDetailsGrid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .propDetailsGrid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .propDetailTile {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 12px;
+            padding: 14px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .propDetailIcon {
+            width: 40px;
+            height: 40px;
+            border-radius: 10px;
+            background: rgba(121, 107, 252, 0.12);
+            color: var(--color-primary);
+            display: grid;
+            place-items: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+
+        .propDetailText small {
+            display: block;
+            font-size: 0.72rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: #64748B;
+            font-weight: 700;
+        }
+
+        .propDetailText strong {
+            display: block;
+            font-size: 0.95rem;
+            color: #0F172A;
+            font-weight: 800;
+            margin-top: 2px;
+        }
+
+        /* Coverage pills */
+        .covPillList {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-top: 14px;
+        }
+
+        @media (max-width: 600px) {
+            .covPillList {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .covPillItem {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 10px;
+            padding: 10px 14px;
+            font-size: 0.85rem;
+            color: #334155;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .covPillItem i {
+            color: #10B981;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+
+        /* Checkout Sidebar Sticky */
+        .summaryCheckoutSidebar {
+            position: sticky;
+            top: 80px;
+        }
+
+        .checkoutBox {
+            background: #FFFFFF;
+            border: 2px solid rgba(121, 107, 252, 0.25);
+            border-radius: 22px;
+            padding: 26px 24px;
+            box-shadow: 0 10px 35px -5px rgba(121, 107, 252, 0.12);
+        }
+
+        .btnProceedToContractor {
+            width: 100%;
+            padding: 16px 20px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #796BFC 0%, #5E4BF5 100%);
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 1.05rem;
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 24px rgba(121, 107, 252, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            text-decoration: none;
+            box-sizing: border-box;
+            margin-top: 20px;
+        }
+
+        .btnProceedToContractor:hover {
+            transform: translateY(-2px);
+            filter: brightness(1.05);
+            box-shadow: 0 12px 28px rgba(121, 107, 252, 0.5);
+        }
+
+        .footer-logo-img {
+            height: auto !important;
+            max-width: 180px !important;
+            object-fit: contain !important;
+            display: block !important;
+        }
+    </style>
+</head>
+<body class="summaryCheckoutPage">
+
+    <div id="toast-container"></div>
+    <div class="noise-overlay"></div>
+
+    <!-- STICKY TOP NAV -->
+    <nav class="summaryNav">
+        <div class="summaryNavInner">
+            <a href="cotizacion-asistencia-hogar-1.html" class="summaryBackBtn">
+                <i class="fa-solid fa-arrow-left"></i>
+                <span>Volver a Selección</span>
+            </a>
+
+            <div class="summaryWizardInner">
+                <span class="wizardStepItem done"><i class="fa-solid fa-circle-check"></i> Inmueble y Plan</span>
+                <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="wizardStepItem active"><i class="fa-solid fa-circle-dot"></i> Resumen</span>
+                <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="wizardStepItem"><i class="fa-regular fa-circle"></i> Datos Contratante</span>
+                <span class="wizardStepSep"><i class="fa-solid fa-chevron-right"></i></span>
+                <span class="wizardStepItem"><i class="fa-regular fa-circle"></i> Pago</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="summaryMain">
+        <div class="summaryGrid">
+            
+            <!-- LEFT FLOW: RESUMEN DE LA ORDEN -->
+            <div class="summaryFlow">
+                
+                <div style="margin-bottom: 24px;">
+                    <span style="font-size: 0.8rem; font-weight: 800; color: #796BFC; text-transform: uppercase; letter-spacing: 0.06em;">PASO 2 DE 4</span>
+                    <h1 style="margin: 4px 0 8px; font-size: 1.85rem; font-weight: 900; color: #0F172A; letter-spacing: -0.02em;">Resumen de tu Cotización</h1>
+                    <p style="margin: 0; font-size: 0.95rem; color: #64748B;">Revisa los detalles del inmueble y coberturas antes de completar tus datos de contratación.</p>
+                </div>
+
+                <!-- CARD 1: INMUEBLE ASEGURADO -->
+                <div class="summaryCard">
+                    <div class="summaryCardHeader">
+                        <h3><i class="fa-solid fa-house-chimney"></i> Inmueble Asegurado</h3>
+                        <a href="cotizacion-asistencia-hogar-1.html" class="btnModifyLink">
+                            <i class="fa-solid fa-pen-to-square"></i> Modificar
+                        </a>
+                    </div>
+
+                    <div class="propDetailsGrid">
+                        <div class="propDetailTile">
+                            <div class="propDetailIcon">
+                                <i class="fa-solid fa-house" id="resumenPropIcon"></i>
+                            </div>
+                            <div class="propDetailText">
+                                <small>Tipo de Inmueble</small>
+                                <strong id="resumenPropType">Casa</strong>
+                            </div>
+                        </div>
+
+                        <div class="propDetailTile">
+                            <div class="propDetailIcon">
+                                <i class="fa-solid fa-map-location-dot"></i>
+                            </div>
+                            <div class="propDetailText">
+                                <small>Comuna</small>
+                                <strong id="resumenPropComuna">Providencia</strong>
+                            </div>
+                        </div>
+
+                        <div class="propDetailTile" style="grid-column: 1 / -1;">
+                            <div class="propDetailIcon">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="propDetailText">
+                                <small>Dirección Asegurada</small>
+                                <strong id="resumenPropAddress">Av. Providencia 1234, Depto 402</strong>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- CARD 2: PLAN Y COBERTURAS -->
+                <div class="summaryCard">
+                    <div class="summaryCardHeader">
+                        <h3><i class="fa-solid fa-shield-halved"></i> Plan Seleccionado y Coberturas</h3>
+                        <span id="resumenPlanBadge" style="background: rgba(121, 107, 252, 0.12); color: #796BFC; font-weight: 800; font-size: 0.78rem; padding: 4px 12px; border-radius: 20px;">
+                            COBERTURA TOTAL
+                        </span>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 16px;">
+                        <div>
+                            <h2 id="resumenPlanName" style="margin: 0; font-size: 1.4rem; font-weight: 900; color: #0F172A;">Seguro de Hogar Pro</h2>
+                            <p id="resumenPlanSub" style="margin: 4px 0 0; font-size: 0.85rem; color: #64748B;">Máxima protección integral con sismo, robo y asistencias ilimitadas.</p>
+                        </div>
+                        <div style="text-align: right;">
+                            <div id="resumenPlanPrice" style="font-size: 1.5rem; font-weight: 900; color: #796BFC;">$9.490</div>
+                            <small style="color: #64748B; font-weight: 600;">/ mes</small>
+                        </div>
+                    </div>
+
+                    <h4 style="margin: 18px 0 10px; font-size: 0.92rem; font-weight: 800; color: #0F172A;">Coberturas principales incluidas:</h4>
+                    <div class="covPillList" id="resumenCovList">
+                        <!-- Filled by JS -->
+                    </div>
+                </div>
+
+                <!-- CARD 3: BENEFICIOS DE CONTRATACIÓN -->
+                <div class="summaryCard" style="background: linear-gradient(135deg, rgba(121, 107, 252, 0.04) 0%, rgba(46, 217, 195, 0.04) 100%); border-color: rgba(121, 107, 252, 0.18);">
+                    <div class="summaryCardHeader" style="border-bottom-color: rgba(226, 232, 240, 0.6);">
+                        <h3><i class="fa-solid fa-certificate"></i> Garantías de MHM Corredores</h3>
+                    </div>
+
+                    <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+                        <div style="display: flex; gap: 10px; align-items: flex-start;">
+                            <i class="fa-solid fa-clock-rotate-left" style="color: #796BFC; margin-top: 3px;"></i>
+                            <div style="font-size: 0.85rem; color: #334155; line-height: 1.4;">
+                                <strong>Activación Inmediata</strong><br>
+                                Tu póliza queda operativa sin necesidad de inspección previa en línea.
+                            </div>
+                        </div>
+                        <div style="display: flex; gap: 10px; align-items: flex-start;">
+                            <i class="fa-solid fa-headset" style="color: #10B981; margin-top: 3px;"></i>
+                            <div style="font-size: 0.85rem; color: #334155; line-height: 1.4;">
+                                <strong>Asistencia de Emergencia 24/7</strong><br>
+                                Coordinación inmediata de técnicos certificados ante cualquier urgencia.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- RIGHT SIDEBAR: CHECKOUT SUMMARY -->
+            <div class="summaryCheckoutSidebar">
+                <div class="checkoutBox">
+                    
+                    <span style="font-size: 0.72rem; font-weight: 800; color: #796BFC; text-transform: uppercase; letter-spacing: 0.08em; display: block;">RESUMEN DE LA ORDEN</span>
+                    <h3 style="margin: 4px 0 16px; font-size: 1.3rem; font-weight: 900; color: #0F172A;">Detalle de Cobro</h3>
+
+                    <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px; margin-bottom: 20px;">
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                            <span style="font-size: 0.9rem; color: #475569;" id="boxPlanName">Seguro de Hogar Pro</span>
+                            <strong style="color: #0F172A;" id="boxPlanPrice">$9.490</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; font-size: 0.85rem; color: #64748B;">
+                            <span>Impuestos (IVA 19%)</span>
+                            <span>Incluido</span>
+                        </div>
+                        <div style="border-top: 1px dashed #CBD5E1; padding-top: 10px; margin-top: 8px; display: flex; justify-content: space-between; align-items: baseline;">
+                            <span style="font-weight: 800; font-size: 1rem; color: #0F172A;">Total Mensual:</span>
+                            <strong style="font-size: 1.5rem; font-weight: 900; color: #796BFC;" id="boxTotalPrice">$9.490</strong>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #64748B; margin-top: 6px;">
+                            <span>Proyección Anual:</span>
+                            <strong id="boxAnnualPrice" style="color: #0F172A;">$113.880</strong>
+                        </div>
+                    </div>
+
+                    <a href="cotizacion-asistencia-hogar-2.html" class="btnProceedToContractor" id="btnContinueCheckout">
+                        <span>Continuar con mis Datos</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+
+                    <a href="cotizacion-asistencia-hogar-1.html" style="display: block; text-align: center; margin-top: 14px; font-size: 0.85rem; color: #64748B; font-weight: 700; text-decoration: none;">
+                        Modificar Inmueble o Plan
+                    </a>
+
+                    <div style="margin-top: 24px; padding-top: 16px; border-top: 1px solid #E2E8F0; text-align: center; font-size: 0.78rem; color: #94A3B8;">
+                        <i class="fa-solid fa-shield-check" style="color: #10B981; margin-right: 4px;"></i> Pago encriptado de 256 bits · Respaldo MHM
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- FOOTER MHM AURORA (FULL BLEED) -->
+    <footer class="footer-aurora">
+        <div class="footer-light-mesh"></div>
+
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corredores de Seguros" class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">
+                        Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades que mejorarán tu vida de forma accesible, dinámica y eficiente.
+                    </p>
+                    <div class="footer-social-mini">
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Productos</h4>
+                    <ul class="footer-links">
+                        <li><a href="cotizacion-1.html">Seguros de auto</a></li>
+                        <li><a href="cotizacion-salud-1.html">Vida y salud</a></li>
+                        <li><a href="cotizacion-asistencia-hogar-1.html">Seguros de hogar</a></li>
+                        <li><a href="cotizacion-mascota-nueva-1.html">Seguros para mascotas</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguro Pymes</a></li>
+                        <li><a href="cotizacion.html">Otros seguros</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Compañía</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/mhmseguros.cl" target="_blank">Sobre nosotros</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contacto/index.html">Contactar con soporte</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Contacto y Acceso</h4>
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa-solid fa-phone"></i> 
+                            <a href="tel:+56961446652">+56 9 6144 6652</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <a href="mailto:info@mhmseguros.cl">info@mhmseguros.cl</a>
+                        </li>
+                    </ul>
+                    <div class="footer-app-buttons">
+                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="store-text">
+                                    <span>Download on the</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="store-text">
+                                    <span>Get it on</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 MHM Corredores de Seguros. Todos los derechos reservados.
+                </div>
+                <div class="legal-links">
+                    <a href="../politica-privacidad/index.html">Política de Privacidad</a>
+                    <span class="divider">|</span>
+                    <a href="../terminos-condiciones/index.html">Términos de Servicio</a>
+                </div>
+            </div>
+            <div class="aurora-bottom-line"></div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const dataStr = sessionStorage.getItem('mhm_hogar_data');
+            if (!dataStr) {
+                window.location.href = 'cotizacion-asistencia-hogar-1.html';
+                return;
+            }
+
+            try {
+                const data = JSON.parse(dataStr);
+                
+                // Inmueble
+                const isCasa = data.propertyType === 'casa';
+                document.getElementById('resumenPropIcon').className = isCasa ? 'fa-solid fa-house-chimney' : 'fa-solid fa-building';
+                document.getElementById('resumenPropType').innerText = isCasa ? 'Casa (Vivienda Unifamiliar)' : 'Departamento (Edificio Residencial)';
+                document.getElementById('resumenPropAddress').innerText = data.address || 'No especificada';
+                document.getElementById('resumenPropComuna').innerText = data.comuna || 'Región Metropolitana';
+
+                // Plan
+                const isPro = data.plan === 'hogar-pro';
+                document.getElementById('resumenPlanName').innerText = isPro ? 'Seguro de Hogar Pro' : 'Seguro de Hogar';
+                document.getElementById('boxPlanName').innerText = isPro ? 'Seguro de Hogar Pro' : 'Seguro de Hogar';
+                document.getElementById('resumenPlanSub').innerText = isPro 
+                    ? 'Máxima protección integral con respaldo ante sismos, robos y asistencias ilimitadas.' 
+                    : 'Protección esencial contra incendios, daños por agua y emergencias cotidianas.';
+                
+                const badgeEl = document.getElementById('resumenPlanBadge');
+                badgeEl.innerText = isPro ? '⭐ COBERTURA TOTAL · RECOMENDADO' : 'PLAN ESENCIAL';
+                badgeEl.style.color = isPro ? '#796BFC' : '#10B981';
+                badgeEl.style.background = isPro ? 'rgba(121, 107, 252, 0.12)' : 'rgba(16, 185, 129, 0.12)';
+
+                const priceStr = `$${(data.priceMonth || (isPro ? 9490 : 7990)).toLocaleString('es-CL')}`;
+                const annualStr = `$${(data.priceAnnual || (isPro ? 113880 : 95880)).toLocaleString('es-CL')}`;
+
+                document.getElementById('resumenPlanPrice').innerText = priceStr;
+                document.getElementById('boxPlanPrice').innerText = priceStr;
+                document.getElementById('boxTotalPrice').innerText = priceStr;
+                document.getElementById('boxAnnualPrice').innerText = annualStr;
+
+                // Coberturas
+                const covList = document.getElementById('resumenCovList');
+                if (isPro) {
+                    covList.innerHTML = `
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Incendio Edificio y Contenido (UF 4.000)</div>
+                        <div class="covPillItem" style="font-weight: 700; color: #796BFC;"><i class="fa-solid fa-shield-halved" style="color: #796BFC;"></i> Cobertura Sismo y Terremoto 100%</div>
+                        <div class="covPillItem" style="font-weight: 700; color: #796BFC;"><i class="fa-solid fa-lock" style="color: #796BFC;"></i> Robo y Hurto Contenido (UF 500)</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Daños por Agua y Filtraciones (UF 250)</div>
+                        <div class="covPillItem" style="font-weight: 700; color: #796BFC;"><i class="fa-solid fa-bolt" style="color: #796BFC;"></i> Asistencias Emergencia Ilimitadas 24/7</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Cristales y Ventanales (UF 35)</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Responsabilidad Civil Familiar y Mascotas (UF 600)</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Alojamiento Alternativo por Inhabitabilidad</div>
+                    `;
+                } else {
+                    covList.innerHTML = `
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Incendio Edificio y Contenido (UF 2.000)</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Daños por Agua y Rotura de Cañerías</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Asistencia Hogar 24/7 (3 eventos / año)</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Cristales y Ventanales (UF 15)</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Responsabilidad Civil Familiar básica</div>
+                        <div class="covPillItem"><i class="fa-solid fa-circle-check"></i> Remoción de Escombros</div>
+                    `;
+                }
+
+            } catch(e) {
+                console.error(e);
+            }
+        });
+    </script>
+</body>
+</html>
