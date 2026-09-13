@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,603 +10,21 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/style.css"> 
-    <link rel="stylesheet" href="../css/style-quote.css"> 
+    <link rel="stylesheet" href="../css/style.css?v=1789287000"> 
+    <link rel="stylesheet" href="../css/style-quote.css?v=1789287000"> 
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 
 <style>
-        .veh-type-grid {
-            display: grid; 
-            grid-template-columns: repeat(2, 1fr); 
-            gap: 32px; 
-            margin-bottom: 40px;
-        }
-        @media (max-width: 992px) {
-            .veh-type-grid { grid-template-columns: repeat(2, 1fr); gap: 24px; }
-        }
-        @media (max-width: 768px) {
-            .veh-type-grid { grid-template-columns: 1fr; }
-        }
-        
-        .veh-type-card {
-            height: 100%; box-sizing: border-box;
-            background: #ffffff;
-            border-radius: 24px;
-            padding: 32px;
-            overflow: hidden;
-            position: relative;
-            display: flex; flex-direction: column; align-items: stretch; text-align: left; gap: 20px;
-            border: 1px solid rgba(226, 232, 240, 0.8);
-            box-shadow: 0 10px 30px -5px rgba(15, 23, 42, 0.04), 0 4px 10px -5px rgba(15, 23, 42, 0.02);
-            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .veh-type-card:hover { 
-            transform: translateY(-8px);
-            box-shadow: 0 25px 50px -12px rgba(15, 23, 42, 0.12), 0 0 0 1px rgba(121, 107, 252, 0.15);
-            border-color: transparent;
-        }
-        
-        .vt-image {
-            width: 100%; aspect-ratio: 4 / 5; border-radius: 16px;
-            overflow: hidden; margin-bottom: 5px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.06);
-            background: #F8FAFC;
-            position: relative;
-        }
-        .vt-image img {
-            width: 100%; height: 100%; object-fit: cover;
-            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
-        }
-        .veh-type-card:hover .vt-image img { transform: scale(1.08); }
-        
-        .vt-info { width: 100%; display: flex; flex-direction: column; flex-grow: 1; }
-        .vt-info-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-        .vt-info h4 { margin: 0; color: #0F172A; font-size: 1.5rem; font-weight: 800; letter-spacing: -0.5px; line-height: 1.2; }
-        
-        .badge-recomendado {
-            font-size: 0.7rem; background: linear-gradient(135deg, #EEF2FF, #E0E7FF); color: #4F46E5; padding: 6px 12px; border-radius: 30px; font-weight: 700; border: 1px solid rgba(79, 70, 229, 0.1); display: inline-block; box-shadow: 0 2px 10px rgba(79, 70, 229, 0.1);
-        }
-
-        .pet-feature-list {
-            list-style: none; padding: 0; margin: 15px 0 0 0; font-size: 0.95rem; color: #475569;
-            text-align: left;
-        }
-        .pet-feature-list li { margin-bottom: 12px; display: flex; align-items: flex-start; gap: 12px; line-height: 1.4; }
-        .pet-feature-list li i { color: #2ED9C3; font-size: 1.1rem; margin-top: 2px; }
-        
-        .plan-price-wrapper { display: flex; align-items: baseline; gap: 6px; margin-bottom: 10px; }
-        .plan-price-label { font-size: 0.9rem; color: #64748B; font-weight: 600; }
-        .plan-price { font-size: 1.8rem; font-weight: 800; color: #796bfc; letter-spacing: -0.5px; }
-        .plan-price-period { font-size: 1rem; color: #94A3B8; font-weight: 500; }
-        
-        /* Pro Card Top Aurora */
-        .pro-card {
-            border: 1px solid rgba(121, 107, 252, 0.3);
-            box-shadow: 0 10px 30px -5px rgba(121, 107, 252, 0.1);
-        }
-        .pro-card .card-aurora-top {
-            position: absolute;
-            top: 0; left: 0; right: 0;
-            height: 6px;
-            z-index: 10;
-            background: linear-gradient(90deg, #796bfc, #2ED9C3, #796bfc);
-            background-size: 200% 100%;
-            animation: gradientMove 3s linear infinite;
-        }
-        @keyframes gradientMove {
-            0% { background-position: 100% 0; }
-            100% { background-position: -100% 0; }
-        }
-    
-        /* Accordion */
-        .accordion-checkbox { display: none; }
-        .accordion-label {
-            cursor: pointer; display: inline-flex; align-items: center; justify-content: flex-start;
-            gap: 8px; color: #796bfc; font-weight: 700; font-size: 0.95rem; margin-top: 15px;
-            transition: color 0.2s; padding: 6px 12px; border-radius: 8px; background: #F8FAFC;
-            border: 1px solid #E2E8F0; width: fit-content;
-        }
-        .accordion-label:hover { background: #F1F5F9; color: #4F46E5; border-color: #CBD5E1; }
-        .accordion-label i { transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        .accordion-checkbox:checked + .accordion-label i { transform: rotate(180deg); }
-        .accordion-checkbox:checked + .accordion-label .label-text::before { content: attr(data-open); }
-        .accordion-checkbox:not(:checked) + .accordion-label .label-text::before { content: attr(data-closed); }
-        .accordion-checkbox:not(:checked) ~ .pet-feature-list { display: none; }
-        .accordion-checkbox:checked ~ .pet-feature-list { display: block; animation: slideDown 0.3s cubic-bezier(0.16, 1, 0.3, 1); }
-        
-        @keyframes slideDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Buttons */
-        .card-actions {
-            display: flex; gap: 12px; flex-direction: column; margin-top: auto; padding-top: 24px;
-        }
-        
-        .btn-outline-premium {
-            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
-            border: 1.5px solid #E2E8F0; color: #475569; background: white; 
-            cursor: pointer; transition: all 0.3s ease; font-size: 0.95rem;
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-outline-premium:hover {
-            border-color: #796bfc; color: #796bfc; background: #F8FAFC;
-        }
-        
-        .btn-primary-premium {
-            width: 100%; border-radius: 12px; padding: 14px; font-weight: 700; 
-            cursor: pointer; border: none; background: #2ED9C3; color: white;
-            font-size: 1rem; transition: all 0.3s ease;
-            box-shadow: 0 4px 12px rgba(46, 217, 195, 0.3);
-            display: flex; justify-content: center; align-items: center; gap: 8px;
-        }
-        .btn-primary-premium:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 6px 16px rgba(46, 217, 195, 0.4);
-            background: #25C7B3;
-        }
-
-        .btn-primary-premium.familiar {
-            background: #796bfc;
-            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.3);
-        }
-        .btn-primary-premium.familiar:hover {
-            background: #6355E0;
-            box-shadow: 0 6px 16px rgba(121, 107, 252, 0.4);
-        }
-
-        .split-btn-container {
-            display: grid; grid-template-columns: 1fr 1fr; gap: 12px; width: 100%;
-        }
-        .split-btn {
-            display: flex; flex-direction: column; align-items: center; justify-content: center;
-            border-radius: 12px; padding: 10px 5px; font-weight: 700; cursor: pointer; border: none; 
-            color: white; font-size: 0.95rem; line-height: 1.3; transition: all 0.3s ease;
-        }
-        .split-btn span {
-            font-size: 0.8em; font-weight: 500; opacity: 0.9;
-        }
-    
-
-
-
-
-
-
-
-
-
-/* ---- REDESIGN UX/UI BALANCED & PREMIUM ---- */
-.veh-type-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)) !important;
-    gap: 24px !important;
-    margin-bottom: 40px !important;
-    align-items: stretch !important;
-    justify-content: center !important;
-    max-width: 1200px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-.veh-type-card {
-    background: #FFFFFF !important;
-    border: 1px solid #E2E8F0 !important;
-    border-radius: 20px !important;
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    position: relative !important;
-    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -3px rgba(15, 23, 42, 0.04) !important;
-    transition: transform 300ms ease, box-shadow 300ms ease !important;
-    max-width: none !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-}
-.veh-type-card:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12), 0 8px 16px -6px rgba(15, 23, 42, 0.06) !important;
-}
-.vt-image {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 4 / 3 !important;
-    border-radius: 0 !important;
-    margin-bottom: 0 !important;
-    box-shadow: none !important;
-    overflow: hidden !important;
-}
-.vt-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center 30% !important;
-    transition: transform 500ms ease !important;
-}
-.veh-type-card:hover .vt-image img {
-    transform: scale(1.05) !important;
-}
-.vt-info {
-    display: flex !important;
-    flex-direction: column !important;
-    flex: 1 !important;
-    padding: 20px 24px 24px 24px !important;
-}
-.vt-info h4 {
-    color: #0F172A !important;
-    font-size: 1.35rem !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.02em !important;
-    margin-bottom: 6px !important;
-    text-align: left !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 6px !important;
-    line-height: 1.2 !important;
-}
-.vt-info h4 br {
-    display: none !important;
-}
-.plan-price {
-    font-size: 1.25rem !important;
-    font-weight: 800 !important;
-    color: #2563EB !important;
-    margin-bottom: 16px !important;
-    font-variant-numeric: tabular-nums !important;
-    text-align: left !important;
-}
-.pet-feature-list {
-    margin-top: 0 !important;
-    margin-bottom: 24px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 10px !important;
-    flex: 1 !important;
-}
-.pet-feature-list li {
-    display: grid !important;
-    grid-template-columns: 18px 1fr !important;
-    gap: 10px !important;
-    align-items: start !important;
-    text-wrap: pretty !important;
-    line-height: 1.4 !important;
-    font-size: 0.95rem !important;
-    color: #475569 !important;
-    font-weight: 500 !important;
-}
-.pet-feature-list li i {
-    margin-top: 4px !important;
-    color: #10B981 !important;
-    font-size: 0.9rem !important;
-}
-.card-actions-row {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 14px !important;
-    margin-top: auto !important;
-    width: 100% !important;
-    align-items: center !important;
-}
-.qty-controls {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #F8FAFC !important;
-    border-radius: 12px !important;
-    padding: 6px !important;
-    border: 1px solid #E2E8F0 !important;
-    margin: 0 auto !important;
-    width: max-content !important;
-    box-sizing: border-box !important;
-    gap: 8px !important;
-}
-.qty-btn {
-    width: 40px !important;
-    height: 40px !important;
-    border-radius: 8px !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.03) !important;
-    background: #FFFFFF !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #0F172A !important;
-    font-size: 1.1rem !important;
-    border: 1px solid #E2E8F0 !important;
-    cursor: pointer !important;
-    transition: all 150ms ease !important;
-}
-.qty-btn:hover { background: #F1F5F9 !important; transform: translateY(-1px) !important; box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important; }
-.qty-btn:active { transform: scale(0.96) !important; }
-.qty-value { 
-    flex: none !important;
-    width: 32px !important;
-    font-size: 1.1rem !important;
-    font-weight: 700 !important;
-    color: #0F172A !important;
-    font-variant-numeric: tabular-nums !important;
-    text-align: center !important;
-}
-.btn-outline-premium, .btn-primary-premium {
-    width: 100% !important;
-    border-radius: 16px !important;
-    padding: 14px 16px !important;
-    margin-top: 0 !important;
-    background: #FFFFFF !important;
-    border: 2px solid #E2E8F0 !important;
-    color: #0F172A !important;
-    font-weight: 700 !important;
-    font-size: 1rem !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 8px !important;
-    cursor: pointer !important;
-    transition: all 200ms ease !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
-    text-align: center !important;
-    line-height: 1.2 !important;
-}
-.btn-outline-premium:hover, .btn-primary-premium:hover {
-    background: #F8FAFC !important;
-    border-color: #CBD5E1 !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.04) !important;
-}
-.btn-outline-premium:active, .btn-primary-premium:active { transform: translateY(0) scale(0.98) !important; }
-
-.pro-card {
-    border: 2px solid #3B82F6 !important;
-}
-.pro-card .vt-info {
-    background: linear-gradient(180deg, rgba(59, 130, 246, 0.03) 0%, rgba(255, 255, 255, 0) 100%) !important;
-}
-.pro-card .btn-outline-premium, .pro-card .btn-primary-premium {
-    border: 2px solid #3B82F6 !important;
-    background: #3B82F6 !important;
-    color: #FFFFFF !important;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
-}
-.pro-card .btn-outline-premium:hover, .pro-card .btn-primary-premium:hover {
-    background: #2563EB !important;
-    border-color: #2563EB !important;
-    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3) !important;
-}
-
-@media (max-width: 768px) {
-    .veh-type-grid {
-        grid-template-columns: 1fr !important;
-        padding-left: 0 !important;
-        padding-right: 0 !important;
+    .footer-logo-img {
+        height: auto !important;
+        max-width: 180px !important;
+        object-fit: contain !important;
+        display: block !important;
     }
-}
-/* ---- END REDESIGN BALANCED ---- */
-
-
-/* ---- REDESIGN UX/UI COMPACT & PREMIUM ---- */
-.veh-type-grid {
-    display: grid !important;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)) !important;
-    gap: 20px !important;
-    margin-bottom: 40px !important;
-    align-items: stretch !important;
-    justify-content: center !important;
-    max-width: 1200px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-.veh-type-card {
-    background: #FFFFFF !important;
-    border: 1px solid #E2E8F0 !important;
-    border-radius: 20px !important;
-    padding: 0 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    position: relative !important;
-    box-shadow: 0 10px 25px -5px rgba(15, 23, 42, 0.08), 0 4px 10px -3px rgba(15, 23, 42, 0.04) !important;
-    transition: transform 300ms ease, box-shadow 300ms ease !important;
-    max-width: none !important;
-    width: 100% !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-}
-.veh-type-card:hover {
-    transform: translateY(-4px) !important;
-    box-shadow: 0 20px 40px -8px rgba(15, 23, 42, 0.12), 0 8px 16px -6px rgba(15, 23, 42, 0.06) !important;
-}
-.vt-image {
-    width: 100% !important;
-    height: auto !important;
-    aspect-ratio: 4 / 5 !important;
-    border-radius: 0 !important;
-    margin-bottom: 0 !important;
-    box-shadow: none !important;
-    overflow: hidden !important;
-}
-.vt-image img {
-    width: 100% !important;
-    height: 100% !important;
-    object-fit: cover !important;
-    object-position: center 30% !important;
-    transition: transform 500ms ease !important;
-}
-.veh-type-card:hover .vt-image img {
-    transform: scale(1.05) !important;
-}
-.vt-info {
-    display: flex !important;
-    flex-direction: column !important;
-    flex: 1 !important;
-    padding: 16px 20px 20px 20px !important;
-}
-.vt-info h4 {
-    color: #0F172A !important;
-    font-size: 1.3rem !important;
-    font-weight: 800 !important;
-    letter-spacing: -0.02em !important;
-    margin-bottom: 6px !important;
-    text-align: left !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: flex-start !important;
-    gap: 6px !important;
-    line-height: 1.2 !important;
-}
-.vt-info h4 br {
-    display: none !important;
-}
-.plan-price {
-    font-size: 1.2rem !important;
-    font-weight: 800 !important;
-    color: #2563EB !important;
-    margin-bottom: 12px !important;
-    font-variant-numeric: tabular-nums !important;
-    text-align: left !important;
-}
-.pet-feature-list {
-    margin-top: 0 !important;
-    margin-bottom: 20px !important;
-    display: flex !important;
-    flex-direction: column !important;
-    gap: 8px !important;
-    flex: 1 !important;
-}
-.pet-feature-list li {
-    display: grid !important;
-    grid-template-columns: 18px 1fr !important;
-    gap: 8px !important;
-    align-items: start !important;
-    text-wrap: pretty !important;
-    line-height: 1.3 !important;
-    font-size: 0.9rem !important;
-    color: #475569 !important;
-    font-weight: 500 !important;
-}
-.pet-feature-list li i {
-    margin-top: 3px !important;
-    color: #10B981 !important;
-    font-size: 0.85rem !important;
-}
-.card-actions-row {
-    display: flex !important;
-    flex-direction: row !important;
-    gap: 8px !important;
-    margin-top: auto !important;
-    width: 100% !important;
-    align-items: center !important;
-}
-.qty-controls {
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    background: #F8FAFC !important;
-    border-radius: 14px !important;
-    padding: 4px !important;
-    border: 1px solid #E2E8F0 !important;
-    margin-top: 0 !important;
-    width: auto !important;
-    box-sizing: border-box !important;
-    gap: 4px !important;
-}
-.qty-btn {
-    width: 38px !important;
-    height: 38px !important;
-    border-radius: 10px !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.03) !important;
-    background: #FFFFFF !important;
-    display: flex !important;
-    align-items: center !important;
-    justify-content: center !important;
-    color: #0F172A !important;
-    font-size: 1rem !important;
-    border: 1px solid #E2E8F0 !important;
-    cursor: pointer !important;
-    transition: all 150ms ease !important;
-}
-.qty-btn:hover { background: #F1F5F9 !important; transform: translateY(-1px) !important; box-shadow: 0 4px 6px rgba(0,0,0,0.05) !important; }
-.qty-btn:active { transform: scale(0.96) !important; }
-.qty-value { 
-    flex: none !important;
-    width: 30px !important;
-    font-size: 1.05rem !important;
-    font-weight: 700 !important;
-    color: #0F172A !important;
-    font-variant-numeric: tabular-nums !important;
-    text-align: center !important;
-}
-.btn-outline-premium, .btn-primary-premium {
-    flex: 1 !important;
-    width: auto !important;
-    border-radius: 14px !important;
-    padding: 12px 14px !important;
-    margin-top: 0 !important;
-    background: #FFFFFF !important;
-    border: 2px solid #E2E8F0 !important;
-    color: #0F172A !important;
-    font-weight: 700 !important;
-    font-size: 0.95rem !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    gap: 8px !important;
-    cursor: pointer !important;
-    transition: all 200ms ease !important;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.02) !important;
-    text-align: center !important;
-    line-height: 1.2 !important;
-}
-.btn-outline-premium:hover, .btn-primary-premium:hover {
-    background: #F8FAFC !important;
-    border-color: #CBD5E1 !important;
-    transform: translateY(-2px) !important;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.04) !important;
-}
-.btn-outline-premium:active, .btn-primary-premium:active { transform: translateY(0) scale(0.98) !important; }
-
-.pro-card {
-    border: 2px solid #3B82F6 !important;
-}
-.pro-card .vt-info {
-    background: linear-gradient(180deg, rgba(59, 130, 246, 0.03) 0%, rgba(255, 255, 255, 0) 100%) !important;
-}
-.pro-card .btn-outline-premium, .pro-card .btn-primary-premium {
-    border: 2px solid #3B82F6 !important;
-    background: #3B82F6 !important;
-    color: #FFFFFF !important;
-    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2) !important;
-}
-.pro-card .btn-outline-premium:hover, .pro-card .btn-primary-premium:hover {
-    background: #2563EB !important;
-    border-color: #2563EB !important;
-    box-shadow: 0 6px 16px rgba(59, 130, 246, 0.3) !important;
-}
-/* ---- END REDESIGN COMPACT ---- */
-
-
-/* ---- REDESIGN UX/UI FIX CARDS WIDTH & FOOTER ---- */
-.veh-type-card {
-    max-width: 380px !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-}
-
-.footer-logo-img {
-    height: auto !important;
-    max-width: 180px !important;
-    object-fit: contain !important;
-    display: block !important;
-}
-
-
-
-/* Ensure html and body don't have extra bottom margin */
-html, body {
-    margin: 0 !important;
-    padding: 0 !important;
-}
-/* ---- END REDESIGN FIX ---- */
-
+    html, body {
+        margin: 0 !important;
+        padding: 0 !important;
+    }
 </style>
 
 </head>
@@ -767,7 +185,7 @@ html, body {
     
     <nav class="quote-nav">
         <a href="cotizacion-mascota-nueva-resumen.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Resumen de Solicitud</span></a>
-        <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
+        <div class="lang-switch-modern"><span class="lang-opt active">ES</span><span class="lang-opt">EN</span></div>
     </nav>
 
     <div class="text-center">
@@ -782,7 +200,7 @@ html, body {
                 <div class="wizard-title"><i class="fa-solid fa-user-check"></i> Paso 3: Registro de Contratación</div>
                 <div class="wizard-title"><i class="fa-solid fa-shield-halved"></i> SEGURO MASCOTAS</div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 35%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
@@ -800,18 +218,81 @@ html, body {
                     gap: 20px;
                 }
                 
-                @media (max-width: 600px) {
-                    .form-grid {
-                        grid-template-columns: 1fr;
-                    }
-                }
-
                 .quotePreFilledBox {
                     background: rgba(121, 107, 252, 0.05);
                     border: 1.5px solid rgba(121, 107, 252, 0.22);
                     border-radius: 16px;
                     padding: 22px;
                     margin-bottom: 28px;
+                }
+
+                .step2-actions-row {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    gap: 16px;
+                    flex-wrap: wrap;
+                    margin-top: 14px;
+                }
+
+                @media (max-width: 768px) {
+                    .page-wrapper {
+                        padding: 12px 10px !important;
+                    }
+                    .wizard-container {
+                        padding: 20px 16px !important;
+                        border-radius: 18px !important;
+                    }
+                    .brand-page-header h1 {
+                        font-size: 1.6rem !important;
+                    }
+                    .specs-layout-grid {
+                        padding: 0 !important;
+                        margin: 12px auto !important;
+                        gap: 16px !important;
+                    }
+                    .main-spec-col {
+                        width: 100% !important;
+                    }
+                    .premium-white-card {
+                        padding: 20px 16px !important;
+                        border-radius: 18px !important;
+                    }
+                    .quotePreFilledBox {
+                        padding: 16px 14px !important;
+                        margin-bottom: 20px !important;
+                    }
+                    .form-grid {
+                        grid-template-columns: 1fr !important;
+                        gap: 0 !important;
+                    }
+                    .input-group-modern {
+                        margin-bottom: 18px !important;
+                    }
+                    .rich-input {
+                        max-width: 100% !important;
+                        font-size: 0.95rem !important;
+                        padding: 13px 14px 13px 42px !important;
+                    }
+                    .step2-actions-row {
+                        flex-direction: column-reverse !important;
+                        gap: 12px !important;
+                        width: 100% !important;
+                    }
+                    .step2-actions-row a,
+                    .step2-actions-row button {
+                        width: 100% !important;
+                        justify-content: center !important;
+                        text-align: center !important;
+                        box-sizing: border-box !important;
+                    }
+                    .config-sidebar {
+                        width: 100% !important;
+                    }
+                    .config-sidebar .organic-panel {
+                        padding: 18px 16px !important;
+                        border-radius: 18px !important;
+                    }
                 }
             </style>
 
@@ -820,6 +301,24 @@ html, body {
                 
                 <div class="main-spec-col anim-entry delay-1">
                     <div class="premium-white-card" style="padding: 36px 32px;">
+
+                        <!-- PRE-FILLED PETS & PLANS BOX -->
+                        <div class="quotePreFilledBox" id="preFilledPetsBox">
+                            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px; flex-wrap: wrap; gap: 10px;">
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 26px; height: 26px; border-radius: 50%; background: #10B981; color: white; display: grid; place-items: center; font-size: 12px;">
+                                        <i class="fa-solid fa-check"></i>
+                                    </div>
+                                    <h3 style="font-size: 1.05rem; font-weight: 800; color: #0F172A; margin: 0;">Mascotas y Planes Seleccionados</h3>
+                                </div>
+                                <span style="font-size: 11px; font-weight: 700; color: #0F766E; background: #FFFFFF; padding: 4px 10px; border-radius: 999px; border: 1px solid rgba(15, 118, 110, 0.3);">
+                                    <i class="fa-solid fa-paw" style="margin-right: 4px;"></i> Cotización Validada
+                                </span>
+                            </div>
+                            <div id="preFilledPetsGrid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 12px;">
+                                <!-- Pets inyectados via JS -->
+                            </div>
+                        </div>
                         
                         <form id="compradorForm" onsubmit="event.preventDefault(); goToNextStep();">
 
@@ -832,7 +331,7 @@ html, body {
                                 <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">RUT *</label>
                                 <div class="input-with-icon" style="position: relative;">
                                     <i class="fa-solid fa-id-card" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
-                                    <input type="text" id="rutInput" onkeyup="validateForm()" class="rich-input" placeholder="Ej: 12.345.678-9" style="width: 100%; max-width: 320px; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                    <input type="text" id="rutInput" onkeyup="validateForm()" onblur="this.value = formatRut(this.value); validateForm();" class="rich-input" placeholder="Ej: 12.345.678-9" style="width: 100%; max-width: 320px; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
                                 </div>
                             </div>
 
@@ -844,7 +343,7 @@ html, body {
                                 </div>
                             </div>
 
-                            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-grid">
                                 <div class="input-group-modern" style="margin-bottom: 25px;">
                                     <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Apellido Paterno *</label>
                                     <div class="input-with-icon" style="position: relative;">
@@ -861,7 +360,7 @@ html, body {
                                 </div>
                             </div>
 
-                            <div class="form-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div class="form-grid">
                                 <div class="input-group-modern" style="margin-bottom: 25px;">
                                     <label style="display: block; margin-bottom: 10px; font-weight: 700; color: #1E293B; font-size: 0.95rem;">Correo Electrónico *</label>
                                     <div class="input-with-icon" style="position: relative;">
@@ -909,7 +408,11 @@ html, body {
                                 </div>
                             </div>
 
-                            <div style="display: flex; justify-content: flex-end;">
+                            <div class="step2-actions-row">
+                                <a href="cotizacion-mascota-nueva-resumen.html" style="display: inline-flex; align-items: center; gap: 8px; color: #475569; text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 14px 22px; border-radius: 14px; border: 1px solid #CBD5E1; background: #F8FAFC; transition: all 0.2s ease;">
+                                    <i class="fa-solid fa-arrow-left"></i>
+                                    <span>Volver al resumen</span>
+                                </a>
                                 <button type="submit" id="btn-continue" style="background: linear-gradient(135deg, #796BFC 0%, #5E4BF5 100%) !important; color: #FFFFFF !important; opacity: 0.5; pointer-events: none; transition: all 0.3s ease; padding: 16px 36px; border-radius: 14px; font-weight: 800; font-size: 1rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 22px -3px rgba(121, 107, 252, 0.45);">
                                     <span>Continuar con el Pago</span>
                                     <i class="fa-solid fa-arrow-right"></i>
@@ -938,15 +441,20 @@ html, body {
                         </div>
                         
                         <div id="cart-summary-step2">
-                            <div class="summary-item" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px;">
+                            <div class="summary-item" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
                                 <div>
                                     <span style="font-size: 10px; font-weight: 800; color: #796BFC; text-transform: uppercase; letter-spacing: 0.1em; display: block;">SEGURO MASCOTAS</span>
                                     <h4 style="margin: 3px 0 2px; color: #0F172A; font-weight: 800; font-size: 1.05rem;" id="mascotaCountText">Múltiples Planes</h4>
+                                    <span style="font-size: 0.8rem; color: #64748B;" id="mascotaNamesSub"></span>
                                 </div>
                                 <div style="text-align: right;">
                                     <div id="dynamic-sidebar-price" style="color: #796bfc; font-weight: 900; font-size: 1.2rem;">$0</div>
                                     <div style="color: #94A3B8; font-size: 0.75rem;">/ mes</div>
                                 </div>
+                            </div>
+                            <div style="display: flex; justify-content: space-between; padding-top: 10px; border-top: 1px dashed #E2E8F0; font-size: 0.85rem; color: #64748B;">
+                                <span>Total anual estimado:</span>
+                                <strong id="dynamic-sidebar-annual" style="color: #0F172A;">$0</strong>
                             </div>
                         </div>
 
@@ -959,6 +467,7 @@ html, body {
                 </aside>
 
     </div>
+    </div> <!-- End page-wrapper -->
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -969,6 +478,12 @@ html, body {
             'basico': 9490,
             'pro': 12490,
             'senior': 16490
+        };
+
+        const PLAN_NAMES = {
+            'basico': 'Plan Básico (Asistencia)',
+            'pro': 'Plan Pro (Cirugías)',
+            'senior': 'Plan Senior (+10 años)'
         };
 
         function initRegistrationForm() {
@@ -983,8 +498,40 @@ html, body {
                 totalMensual += PLAN_PRICES[p.plan] || 0;
             });
 
-            document.getElementById('mascotaCountText').innerText = `${petsData.length} mascota${petsData.length > 1 ? 's' : ''}`;
+            // Populate pre-filled pets box
+            const grid = document.getElementById('preFilledPetsGrid');
+            if (grid) {
+                grid.innerHTML = petsData.map(p => {
+                    const planName = PLAN_NAMES[p.plan] || 'Plan Personalizado';
+                    const price = PLAN_PRICES[p.plan] || 0;
+                    return `
+                        <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);">
+                            <div style="width: 42px; height: 42px; border-radius: 10px; background: rgba(16, 185, 129, 0.1); color: #0F766E; display: grid; place-items: center; font-size: 1.15rem; flex-shrink: 0;">
+                                <i class="fa-solid ${p.type === 'gato' ? 'fa-cat' : 'fa-dog'}"></i>
+                            </div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="font-weight: 800; font-size: 0.95rem; color: #0F172A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">${p.name || 'Mascota'}</div>
+                                <div style="font-size: 0.75rem; color: #64748B;">${p.breed || 'Mestizo'} · ${p.age} años · ${p.gender || 'Macho'}</div>
+                                <div style="font-size: 0.78rem; font-weight: 700; color: #0F766E; margin-top: 2px;">
+                                    ${planName} <span style="color: #64748B; font-weight: 600;">($${price.toLocaleString('es-CL')}/mes)</span>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+
+            // Populate sidebar
+            const totalAnual = totalMensual * 12;
+            const countText = `${petsData.length} mascota${petsData.length > 1 ? 's' : ''}`;
+            document.getElementById('mascotaCountText').innerText = countText;
             document.getElementById('dynamic-sidebar-price').innerText = `$${totalMensual.toLocaleString('es-CL')}`;
+            
+            const annualEl = document.getElementById('dynamic-sidebar-annual');
+            if (annualEl) annualEl.innerText = `$${totalAnual.toLocaleString('es-CL')}`;
+
+            const subNamesEl = document.getElementById('mascotaNamesSub');
+            if (subNamesEl) subNamesEl.innerText = petsData.map(p => p.name || 'Mascota').join(', ');
 
             const prevContractor = sessionStorage.getItem('contratanteMascotaData');
             if (prevContractor) {
@@ -1008,8 +555,32 @@ html, body {
             return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
         }
         
-        function validateRut(rut) {
-            return rut.length >= 8;
+                function validateRut(rut) {
+            if (!rut || typeof rut !== 'string') return false;
+            const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+            if (clean.length < 2 || clean.length > 9) return false;
+            const body = clean.slice(0, -1);
+            const dv = clean.slice(-1);
+            let sum = 0;
+            let mul = 2;
+            for (let i = body.length - 1; i >= 0; i--) {
+                sum += parseInt(body[i], 10) * mul;
+                mul = mul === 7 ? 2 : mul + 1;
+            }
+            let expectedDv = 11 - (sum % 11);
+            if (expectedDv === 11) expectedDv = '0';
+            else if (expectedDv === 10) expectedDv = 'K';
+            else expectedDv = expectedDv.toString();
+            return dv === expectedDv;
+        }
+
+        function formatRut(rut) {
+            if (!rut) return '';
+            const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+            if (clean.length <= 1) return clean;
+            const body = clean.slice(0, -1);
+            const dv = clean.slice(-1);
+            return body.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + '-' + dv;
         }
 
         function validateForm() {
@@ -1050,14 +621,109 @@ html, body {
                 comuna: document.getElementById('comunaInput').value
             };
             sessionStorage.setItem('contratanteMascotaData', JSON.stringify(formData));
+            sessionStorage.setItem('compradorEmail', formData.email);
 
             document.body.style.opacity = '0';
             document.body.style.transition = 'opacity 0.3s ease';
             setTimeout(() => {
-                alert('Cotización finalizada. Simulación de redirección al pago.');
-                window.location.href = '../index.html';
+                window.location.href = 'pago-flow.html';
             }, 300);
         }
     </script>
+<footer class="footer-aurora">
+        <div class="footer-light-mesh"></div>
+
+        <div class="container">
+            <div class="footer-grid">
+                
+                <div class="footer-col brand-col">
+                    <a href="../index.html" class="footer-logo">
+                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corredores de Seguros, corredora de seguros en Chile especializada en seguros para personas y empresas." class="footer-logo-img">
+                    </a>
+                    <p class="footer-tagline">
+                        Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades que mejorarán tu vida de forma accesible, dinámica y eficiente.
+                    </p>
+                    <div class="footer-social-mini">
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+
+                    </div>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Productos</h4>
+                    <ul class="footer-links">
+                        <li><a href="cotizacion-1.html">Seguros de auto</a></li>
+                        <li><a href="cotizacion-salud-1.html">Vida y salud</a></li>
+                        <li><a href="cotizacion-asistencia-hogar-1.html">Seguros de hogar</a></li>
+                        <li><a href="cotizacion-mascota-nueva-1.html">Seguros para mascotas</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguro Pymes</a></li>
+                        <li><a href="cotizacion.html">Otros seguros</a></li>
+                    </ul>
+                </div>
+
+                <div class="footer-col">
+                    <h4 class="footer-heading">Compañía</h4>
+                    <ul class="footer-links">
+                        <li><a href="https://www.instagram.com/mhmseguros.cl" target="_blank">Sobre nosotros</a></li>
+                        <li><a href="../blog/index.html">Blog</a></li>
+                        <li><a href="../contacto/index.html">Contactar con soporte</a></li>
+
+                    </ul>
+                </div>
+
+                <div class="footer-col contact-col">
+                    <h4 class="footer-heading">Contacto y Acceso</h4>
+                    
+                    <ul class="contact-list">
+                        <li>
+                            <i class="fa-solid fa-phone"></i> 
+                            <a href="tel:+56961446652">+56 9 6144 6652</a>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-envelope"></i> 
+                            <a href="mailto:info@mhmseguros.cl">info@mhmseguros.cl</a>
+                        </li>
+                    </ul>
+                    
+                    <div class="footer-app-buttons">
+                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-apple"></i>
+                                <div class="store-text">
+                                    <span>Download on the</span>
+                                    <strong>App Store</strong>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share" target="_blank">
+                            <button class="btn-footer-store">
+                                <i class="fa-brands fa-google-play"></i>
+                                <div class="store-text">
+                                    <span>Get it on</span>
+                                    <strong>Google Play</strong>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="copyright-text">
+                    &copy; 2026 MHM Corredores de Seguros. Todos los derechos reservados.
+                </div>
+                <div class="legal-links">
+                    <a href="../politica-privacidad/index.html">Política de Privacidad</a>
+                    <span class="divider">|</span>
+                    <a href="../terminos-condiciones/index.html">Términos de Servicio</a>
+                </div>
+            </div>
+            <div class="aurora-bottom-line"></div>
+        </div>
+    </footer>
 </body>
 </html>

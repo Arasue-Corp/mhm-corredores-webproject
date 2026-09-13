@@ -10,8 +10,8 @@
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="../css/tokens.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/style-quote.css">
+    <link rel="stylesheet" href="../css/style.css?v=1789287000">
+    <link rel="stylesheet" href="../css/style-quote.css?v=1789287000">
     <link rel="stylesheet" href="../css/mobile-first.css">
     <link rel="stylesheet" href="../css/salud.css?v=8">
 
@@ -619,6 +619,135 @@
             letter-spacing: -0.03em;
         }
 
+        
+        /* LEGAL CONDITIONS ACCORDION / COLLAPSIBLE */
+        .legalConditionsCard {
+            transition: all 0.3s ease;
+        }
+
+        .legalConditionsToggleBtn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--color-primary);
+            background: rgba(121, 107, 252, 0.08);
+            border: 1.5px solid rgba(121, 107, 252, 0.25);
+            padding: 8px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .legalConditionsToggleBtn:hover {
+            background: var(--color-primary);
+            color: #FFFFFF;
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.25);
+        }
+
+        .legalConditionsToggleBtn .toggleIcon {
+            font-size: 11px;
+            transition: transform 0.3s ease;
+        }
+
+        .legalConditionsToggleBtn.is-open .toggleIcon {
+            transform: rotate(180deg);
+        }
+
+        .legalConditionsCollapse {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, margin-top 0.3s ease;
+            margin-top: 0;
+        }
+
+        .legalConditionsCollapse.is-open {
+            max-height: 900px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        /* CHECKOUT CONSENT GROUP */
+        .checkoutConsentGroup {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .consentCheckboxLabel {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .consentCheckboxInput {
+            width: 17px;
+            height: 17px;
+            min-width: 17px;
+            margin-top: 2px;
+            border-radius: 4px;
+            accent-color: var(--color-teal);
+            cursor: pointer;
+        }
+
+        .consentText {
+            font-size: 12px;
+            line-height: 1.45;
+            color: #E2E8F0;
+        }
+
+        .consentText a.consentLink {
+            color: #2ED9C3;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .consentText a.consentLink:hover {
+            color: #796BFC;
+        }
+
+        .consentText .requiredTag {
+            color: #F87171;
+            font-weight: 800;
+            margin-left: 2px;
+        }
+
+        .btnJumpTerms {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(121, 107, 252, 0.15);
+            border: 1px dashed rgba(196, 181, 253, 0.4);
+            color: #E0E7FF;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 4px;
+            width: 100%;
+            transition: all 0.25s ease;
+        }
+
+        .btnJumpTerms:hover {
+            background: rgba(121, 107, 252, 0.3);
+            color: #FFFFFF;
+            border-color: rgba(121, 107, 252, 0.6);
+        }
+
         /* TRUST SEALS */
         .checkoutTrustSeals {
             display: flex;
@@ -968,9 +1097,9 @@
     <!-- CHECKOUT WIZARD SUB-BAR -->
     <div class="summarySubBar">
         <div class="summarySubBarInner">
-            <a href="cotizacion-mascota-nueva-1.html" class="summarySubBack">
+            <a href="cotizacion-mascota-nueva-1.html?edit=1" class="summarySubBack">
                 <i class="fa-solid fa-arrow-left"></i>
-                <span>Volver al Selección de Mascotas</span>
+                <span>Volver a Selección de Mascotas</span>
             </a>
 
             <div class="summaryWizardInner">
@@ -1027,7 +1156,7 @@
                             <i class="fa-solid fa-list-check"></i>
                             <span>Mascotas y Planes Seleccionados</span>
                         </div>
-                        <a href="cotizacion-mascota-nueva-1.html" class="btnModifyQuote">
+                        <a href="cotizacion-mascota-nueva-1.html?edit=1" class="btnModifyQuote">
                             <i class="fa-solid fa-pen-to-square"></i>
                             <span>Modificar datos</span>
                         </a>
@@ -1038,40 +1167,111 @@
                     </div>
                 </div>
 
-                <!-- CARD 2: CONDICIONES -->
-                <div class="summaryCard">
+                <!-- CARD 2: CONDICIONES GENERALES (COLAPSADO DE INICIO) -->
+                <div class="summaryCard legalConditionsCard" id="seccionCondiciones">
                     <div class="summaryCardHead">
                         <div class="summaryCardKicker">
                             <i class="fa-solid fa-scale-balanced"></i>
-                            <span>Condiciones Generales</span>
+                            <span>Condiciones Generales del Seguro</span>
                         </div>
+                        <button type="button" class="legalConditionsToggleBtn" id="btnToggleLegalConditions" onclick="toggleLegalConditions()">
+                            <span id="btnToggleLegalConditionsText">Ver condiciones generales</span>
+                            <i class="fa-solid fa-chevron-down toggleIcon"></i>
+                        </button>
                     </div>
 
-                    <ul class="legalList">
-                        <li class="legalListItem">
-                            <div class="legalListItemIcon success"><i class="fa-solid fa-check"></i></div>
-                            <div>
-                                <strong>Vigencia:</strong> La cobertura inicia inmediatamente después del pago para consultas de telemedicina.
-                            </div>
-                        </li>
-                        <li class="legalListItem">
-                            <div class="legalListItemIcon info"><i class="fa-solid fa-notes-medical"></i></div>
-                            <div>
-                                <strong>Reembolsos:</strong> Los reembolsos por atención veterinaria están sujetos a los topes establecidos en cada plan.
-                            </div>
-                        </li>
-                    </ul>
+                    <div class="legalConditionsCollapse" id="legalConditionsCollapse">
+                        <ul class="legalList">
+                            <li class="legalListItem">
+                                <div class="legalListItemIcon success"><i class="fa-solid fa-check"></i></div>
+                                <div>
+                                    <strong>Intermediación:</strong> Póliza intermediada por <strong>MHM Corredores de Seguros SpA</strong>, entidad autorizada ante la CMF.
+                                </div>
+                            </li>
+                            <li class="legalListItem">
+                                <div class="legalListItemIcon success"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <strong>Vigencia:</strong> La cobertura inicia inmediatamente después del pago para consultas de telemedicina y urgencias.
+                                </div>
+                            </li>
+                            <li class="legalListItem">
+                                <div class="legalListItemIcon info"><i class="fa-solid fa-notes-medical"></i></div>
+                                <div>
+                                    <strong>Reembolsos:</strong> Los reembolsos por atención veterinaria externa aplican conforme a los topes anuales de cada plan contratado.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
 
-                    <!-- ACCEPTANCE CHECKBOX -->
-                    <label class="termsAcceptanceCard" id="termsAcceptanceCard" for="termsAccept">
-                        <input type="checkbox" id="termsAccept" class="termsCheckboxInput" onchange="toggleAcceptance(this.checked)">
-                        <div>
-                            <strong>He leído y acepto las condiciones generales del seguro de mascotas</strong>
-                            <p>
-                                Declaro que la información de mis mascotas es verdadera y autorizo el tratamiento de mis datos para la emisión de la póliza.
-                            </p>
+                <!-- CARD 3: PROTECCIÓN COMPLEMENTARIA (VENTA CRUZADA MHM) -->
+                <div class="summaryCard">
+                    <div class="summaryCardHead">
+                        <div class="summaryCardKicker">
+                            <i class="fa-solid fa-cubes"></i>
+                            <span>Protección Integral Familiar</span>
                         </div>
-                    </label>
+                        <span style="font-size: 11px; color: #64748B; font-weight: 600;">Convenios y beneficios preferenciales</span>
+                    </div>
+
+                    <h3 class="crossSellSectionTitle">Complementa la seguridad de tu hogar y familia</h3>
+                    <p class="crossSellSectionSub">Puedes cotizar estos seguros adicionales con cobertura inmediata gestionados por MHM Corredores.</p>
+
+                    <div class="crossSellCardsRow">
+                        <!-- Seguro Hogar -->
+                        <a href="cotizacion-asistencia-hogar-1.html" class="mhmCrossSellItem" target="_blank">
+                            <div>
+                                <div class="crossSellTop">
+                                    <div class="crossSellBadgeIcon hogar"><i class="fa-solid fa-house-chimney"></i></div>
+                                    <div class="crossSellHead">
+                                        <h4>Seguro de Hogar</h4>
+                                        <small>Incendio, sismo y robo</small>
+                                    </div>
+                                </div>
+                                <p class="crossSellDesc" style="margin-top: 10px;">Respaldo total para tu vivienda y contenidos con asistencia domiciliaria de urgencia.</p>
+                            </div>
+                            <div class="crossSellBottom">
+                                <span class="crossSellPriceText">Desde $5.100/mes</span>
+                                <span class="crossSellCtaLink">Cotizar <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- Seguro Salud -->
+                        <a href="cotizacion-salud-1.html" class="mhmCrossSellItem" target="_blank">
+                            <div>
+                                <div class="crossSellTop">
+                                    <div class="crossSellBadgeIcon salud" style="background: rgba(16, 185, 129, 0.12); color: #059669;"><i class="fa-solid fa-heart-pulse"></i></div>
+                                    <div class="crossSellHead">
+                                        <h4>Vida y Salud</h4>
+                                        <small>MAPFRE Individual y Familiar</small>
+                                    </div>
+                                </div>
+                                <p class="crossSellDesc" style="margin-top: 10px;">Cobertura ante accidentes, urgencias médicas, telemedicina 24/7 y asistencia dental sin copago.</p>
+                            </div>
+                            <div class="crossSellBottom">
+                                <span class="crossSellPriceText">Desde $6.990/mes</span>
+                                <span class="crossSellCtaLink">Cotizar <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+
+                        <!-- Seguro Vehicular -->
+                        <a href="cotizacion-vehicular-1.html" class="mhmCrossSellItem" target="_blank">
+                            <div>
+                                <div class="crossSellTop">
+                                    <div class="crossSellBadgeIcon auto"><i class="fa-solid fa-car-side"></i></div>
+                                    <div class="crossSellHead">
+                                        <h4>Seguro Vehicular</h4>
+                                        <small>Auto y conductor</small>
+                                    </div>
+                                </div>
+                                <p class="crossSellDesc" style="margin-top: 10px;">Cobertura total con asistencia en ruta, vehículo de reemplazo y deducible inteligente.</p>
+                            </div>
+                            <div class="crossSellBottom">
+                                <span class="crossSellPriceText" style="color: #2563EB;">Plan a medida</span>
+                                <span class="crossSellCtaLink">Cotizar <i class="fa-solid fa-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
                 </div>
             </section>
 
@@ -1108,23 +1308,36 @@
                         <strong id="planPriceMonth">$0</strong>
                     </div>
 
-                    <!-- TRUST SEALS -->
-                    <div class="checkoutTrustSeals">
-                        <div class="checkoutTrustItem">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>Corredor Registrado ante la CMF</span>
-                        </div>
-                        <div class="checkoutTrustItem">
-                            <i class="fa-solid fa-lock"></i>
-                            <span>Conexión Encriptada SSL de 256 bits</span>
-                        </div>
+                    <!-- CONSENTIMIENTO Y POLÍTICAS (CHILE) -->
+                    <div class="checkoutConsentGroup" id="consentGroupCard">
+                        <!-- Checkbox 1: Datos Personales (Obligatorio, destildado) -->
+                        <label class="consentCheckboxLabel" for="consentDataPolicy">
+                            <input type="checkbox" id="consentDataPolicy" class="consentCheckboxInput" onchange="toggleDataPolicyAcceptance(this.checked)">
+                            <span class="consentText">
+                                He leído y acepto la <a href="javascript:void(0)" class="consentLink">política de datos personales</a> para la emisión y gestión de mi seguro (Ley 19.628). <span class="requiredTag">*</span>
+                            </span>
+                        </label>
+
+                        <!-- Checkbox 2: Publicidad y Ofertas (Opcional, tildado de inicio) -->
+                        <label class="consentCheckboxLabel" for="consentMarketing">
+                            <input type="checkbox" id="consentMarketing" class="consentCheckboxInput" checked>
+                            <span class="consentText">
+                                Acepto recibir información sobre promociones, beneficios y nuevos productos de MHM Corredores.
+                            </span>
+                        </label>
+
+                        <!-- Botón para ver Términos y Condiciones colapsados -->
+                        <button type="button" class="btnJumpTerms" id="btnJumpTerms" onclick="scrollToTermsAndConditions()">
+                            <i class="fa-solid fa-file-contract"></i>
+                            <span>Ver términos y condiciones del seguro</span>
+                        </button>
                     </div>
 
                     <!-- ACTIONS -->
                     <div class="checkoutActions">
                         <button type="button" class="btnProceedContract is-disabled" id="btnContinue" onclick="proceedToContractorStep()" role="button" aria-disabled="true">
                             <i class="fa-solid fa-lock btnLockIcon"></i>
-                            <span id="btnContinueText">Acepta las condiciones</span>
+                            <span id="btnContinueText">Acepta la política de datos para continuar</span>
                             <i class="fa-solid fa-arrow-right btnArrowIcon"></i>
                         </button>
                     </div>
@@ -1269,7 +1482,43 @@
             document.getElementById('planPriceMonth').innerText = `$${totalMensual.toLocaleString('es-CL')}`;
         }
 
-        function toggleAcceptance(accepted) {
+        function toggleLegalConditions() {
+            const collapse = document.getElementById('legalConditionsCollapse');
+            const btn = document.getElementById('btnToggleLegalConditions');
+            const btnText = document.getElementById('btnToggleLegalConditionsText');
+            if (!collapse || !btn) return;
+            const isOpen = collapse.classList.toggle('is-open');
+            btn.classList.toggle('is-open', isOpen);
+            if (btnText) {
+                btnText.innerText = isOpen ? 'Ocultar condiciones generales' : 'Ver condiciones generales';
+            }
+        }
+
+        function scrollToTermsAndConditions() {
+            const card = document.getElementById('seccionCondiciones');
+            const collapse = document.getElementById('legalConditionsCollapse');
+            const btn = document.getElementById('btnToggleLegalConditions');
+            const btnText = document.getElementById('btnToggleLegalConditionsText');
+            
+            if (collapse && !collapse.classList.contains('is-open')) {
+                collapse.classList.add('is-open');
+                if (btn) btn.classList.add('is-open');
+                if (btnText) btnText.innerText = 'Ocultar condiciones generales';
+            }
+
+            if (card) {
+                const navHeight = 90;
+                const rect = card.getBoundingClientRect();
+                const targetScrollY = window.pageYOffset + rect.top - navHeight;
+                window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
+
+                card.classList.remove('attention-pulse');
+                void card.offsetWidth;
+                card.classList.add('attention-pulse');
+            }
+        }
+
+        function toggleDataPolicyAcceptance(accepted) {
             const btn = document.getElementById('btnContinue');
             const textEl = document.getElementById('btnContinueText');
             if (!btn) return;
@@ -1282,26 +1531,32 @@
                 btn.classList.remove('enabled');
                 btn.classList.add('is-disabled');
                 btn.setAttribute('aria-disabled', 'true');
-                if (textEl) textEl.innerText = 'Acepta las condiciones';
+                if (textEl) textEl.innerText = 'Acepta la política de datos para continuar';
             }
         }
 
         function proceedToContractorStep() {
-            const check = document.getElementById('termsAccept');
-            if (!check || !check.checked) {
-                const termsCard = document.getElementById('termsAcceptanceCard') || check;
-                if (termsCard) {
+            const dataPolicy = document.getElementById('consentDataPolicy');
+            if (!dataPolicy || !dataPolicy.checked) {
+                const consentBox = document.getElementById('consentGroupCard') || dataPolicy;
+                if (consentBox) {
                     const navHeight = 110;
-                    const rect = termsCard.getBoundingClientRect();
+                    const rect = consentBox.getBoundingClientRect();
                     const targetScrollY = window.pageYOffset + rect.top - navHeight;
                     window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
-                    termsCard.classList.remove('attention-pulse');
-                    void termsCard.offsetWidth;
-                    termsCard.classList.add('attention-pulse');
-                    setTimeout(() => { check.focus(); }, 400);
+
+                    consentBox.classList.remove('attention-pulse');
+                    void consentBox.offsetWidth;
+                    consentBox.classList.add('attention-pulse');
+                    setTimeout(() => { dataPolicy.focus(); }, 350);
                 }
                 return;
             }
+
+            const marketingAccepted = document.getElementById('consentMarketing')?.checked ?? true;
+            sessionStorage.setItem('mhm_consent_marketing', marketingAccepted ? 'true' : 'false');
+            sessionStorage.setItem('mhm_consent_datapolicy', 'true');
+
             window.location.href = 'cotizacion-mascota-nueva-2.html';
         }
 

@@ -10,8 +10,8 @@
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 
     <link rel="stylesheet" href="../css/tokens.css">
-    <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/style-quote.css">
+    <link rel="stylesheet" href="../css/style.css?v=1789287000">
+    <link rel="stylesheet" href="../css/style-quote.css?v=1789287000">
     <link rel="stylesheet" href="../css/mobile-first.css">
     <link rel="stylesheet" href="../css/salud.css?v=8">
 
@@ -619,6 +619,135 @@
             letter-spacing: -0.03em;
         }
 
+        
+        /* LEGAL CONDITIONS ACCORDION / COLLAPSIBLE */
+        .legalConditionsCard {
+            transition: all 0.3s ease;
+        }
+
+        .legalConditionsToggleBtn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 12.5px;
+            font-weight: 700;
+            color: var(--color-primary);
+            background: rgba(121, 107, 252, 0.08);
+            border: 1.5px solid rgba(121, 107, 252, 0.25);
+            padding: 8px 16px;
+            border-radius: 999px;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .legalConditionsToggleBtn:hover {
+            background: var(--color-primary);
+            color: #FFFFFF;
+            border-color: var(--color-primary);
+            box-shadow: 0 4px 12px rgba(121, 107, 252, 0.25);
+        }
+
+        .legalConditionsToggleBtn .toggleIcon {
+            font-size: 11px;
+            transition: transform 0.3s ease;
+        }
+
+        .legalConditionsToggleBtn.is-open .toggleIcon {
+            transform: rotate(180deg);
+        }
+
+        .legalConditionsCollapse {
+            max-height: 0;
+            overflow: hidden;
+            opacity: 0;
+            transition: max-height 0.45s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.35s ease, margin-top 0.3s ease;
+            margin-top: 0;
+        }
+
+        .legalConditionsCollapse.is-open {
+            max-height: 900px;
+            opacity: 1;
+            margin-top: 20px;
+        }
+
+        /* CHECKOUT CONSENT GROUP */
+        .checkoutConsentGroup {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 20px 0;
+            padding: 16px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .consentCheckboxLabel {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            cursor: pointer;
+            user-select: none;
+        }
+
+        .consentCheckboxInput {
+            width: 17px;
+            height: 17px;
+            min-width: 17px;
+            margin-top: 2px;
+            border-radius: 4px;
+            accent-color: var(--color-teal);
+            cursor: pointer;
+        }
+
+        .consentText {
+            font-size: 12px;
+            line-height: 1.45;
+            color: #E2E8F0;
+        }
+
+        .consentText a.consentLink {
+            color: #2ED9C3;
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            font-weight: 600;
+            transition: color 0.2s ease;
+        }
+
+        .consentText a.consentLink:hover {
+            color: #796BFC;
+        }
+
+        .consentText .requiredTag {
+            color: #F87171;
+            font-weight: 800;
+            margin-left: 2px;
+        }
+
+        .btnJumpTerms {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            background: rgba(121, 107, 252, 0.15);
+            border: 1px dashed rgba(196, 181, 253, 0.4);
+            color: #E0E7FF;
+            padding: 9px 14px;
+            border-radius: 10px;
+            font-size: 11.5px;
+            font-weight: 600;
+            cursor: pointer;
+            margin-top: 4px;
+            width: 100%;
+            transition: all 0.25s ease;
+        }
+
+        .btnJumpTerms:hover {
+            background: rgba(121, 107, 252, 0.3);
+            color: #FFFFFF;
+            border-color: rgba(121, 107, 252, 0.6);
+        }
+
         /* TRUST SEALS */
         .checkoutTrustSeals {
             display: flex;
@@ -1071,61 +1200,53 @@
                     </div>
                 </div>
 
-                <!-- CARD 2: CONDICIONES CONTRACTUALES Y LEGALES -->
-                <div class="summaryCard">
+                <!-- CARD 2: CONDICIONES CONTRACTUALES Y LEGALES (COLAPSADO DE INICIO) -->
+                <div class="summaryCard legalConditionsCard" id="seccionCondiciones">
                     <div class="summaryCardHead">
                         <div class="summaryCardKicker">
                             <i class="fa-solid fa-scale-balanced"></i>
                             <span>Condiciones Generales y Normativa CMF</span>
                         </div>
-                        <span style="font-size: 11px; color: #10B981; font-weight: 700; background: rgba(16, 185, 129, 0.1); padding: 4px 10px; border-radius: 999px;">
-                            <i class="fa-solid fa-circle-check"></i> Póliza Regulada
-                        </span>
+                        <button type="button" class="legalConditionsToggleBtn" id="btnToggleLegalConditions" onclick="toggleLegalConditions()">
+                            <span id="btnToggleLegalConditionsText">Ver condiciones generales</span>
+                            <i class="fa-solid fa-chevron-down toggleIcon"></i>
+                        </button>
                     </div>
 
-                    <ul class="legalList">
-                        <li class="legalListItem">
-                            <div class="legalListItemIcon success"><i class="fa-solid fa-check"></i></div>
-                            <div>
-                                <strong>Intermediación Regulada:</strong> Póliza intermediada por <strong>MHM Corredores de Seguros SpA</strong>, entidad autorizada y fiscalizada por la Comisión para el Mercado Financiero (CMF).
-                            </div>
-                        </li>
-                        <li class="legalListItem">
-                            <div class="legalListItemIcon info"><i class="fa-solid fa-shield"></i></div>
-                            <div>
-                                <strong>Compañía Aseguradora:</strong> El riesgo es suscrito y cubierto por <strong>MAPFRE Compañía de Seguros Generales de Chile S.A.</strong> Las condiciones generales y exclusiones se rigen según póliza depositada en la CMF.
-                            </div>
-                        </li>
-                        <li class="legalListItem">
-                            <div class="legalListItemIcon teal"><i class="fa-solid fa-clock"></i></div>
-                            <div>
-                                <strong>Vigencia y Carencias:</strong> Las asistencias médicas, urgencias dentales y telemedicina 24/7 inician desde el día 1 de vigencia. Los capitales de indemnización aplican según el texto de la póliza contratada.
-                            </div>
-                        </li>
-                        <li class="legalListItem">
-                            <div class="legalListItemIcon success"><i class="fa-solid fa-notes-medical"></i></div>
-                            <div>
-                                <strong>Complementariedad:</strong> Este seguro de accidentes y salud opera como cobertura complementaria y no sustituye la afiliación obligatoria a Fonasa o Isapre.
-                            </div>
-                        </li>
-                        <li class="legalListItem">
-                            <div class="legalListItemIcon info"><i class="fa-solid fa-receipt"></i></div>
-                            <div>
-                                <strong>Primas y Facturación:</strong> Los valores en Pesos Chilenos (CLP) se calculan en base al valor oficial de la Unidad de Fomento (UF) a la fecha de facturación correspondiente.
-                            </div>
-                        </li>
-                    </ul>
-
-                    <!-- ACCEPTANCE CHECKBOX -->
-                    <label class="termsAcceptanceCard" id="termsAcceptanceCard" for="termsAccept">
-                        <input type="checkbox" id="termsAccept" class="termsCheckboxInput" onchange="toggleAcceptance(this.checked)">
-                        <div>
-                            <strong>He leído y acepto las condiciones generales de la póliza MAPFRE</strong>
-                            <p>
-                                Declaro haber sido informado sobre las coberturas, exclusiones y límites de la póliza intermediada por MHM Corredores de Seguros, y autorizo el tratamiento de mis datos para la emisión del contrato.
-                            </p>
-                        </div>
-                    </label>
+                    <div class="legalConditionsCollapse" id="legalConditionsCollapse">
+                        <ul class="legalList">
+                            <li class="legalListItem">
+                                <div class="legalListItemIcon success"><i class="fa-solid fa-check"></i></div>
+                                <div>
+                                    <strong>Intermediación Regulada:</strong> Póliza intermediada por <strong>MHM Corredores de Seguros SpA</strong>, entidad autorizada y fiscalizada por la Comisión para el Mercado Financiero (CMF).
+                                </div>
+                            </li>
+                            <li class="legalListItem">
+                                <div class="legalListItemIcon info"><i class="fa-solid fa-shield"></i></div>
+                                <div>
+                                    <strong>Compañía Aseguradora:</strong> El riesgo es suscrito y cubierto por <strong>MAPFRE Compañía de Seguros Generales de Chile S.A.</strong> Las condiciones generales y exclusiones se rigen según póliza depositada en la CMF.
+                                </div>
+                            </li>
+                            <li class="legalListItem">
+                                <div class="legalListItemIcon teal"><i class="fa-solid fa-clock"></i></div>
+                                <div>
+                                    <strong>Vigencia y Carencias:</strong> Las asistencias médicas, urgencias dentales y telemedicina 24/7 inician desde el día 1 de vigencia. Los capitales de indemnización aplican según el texto de la póliza contratada.
+                                </div>
+                            </li>
+                            <li class="legalListItem">
+                                <div class="legalListItemIcon success"><i class="fa-solid fa-notes-medical"></i></div>
+                                <div>
+                                    <strong>Complementariedad:</strong> Este seguro de accidentes y salud opera como cobertura complementaria y no sustituye la afiliación obligatoria a Fonasa o Isapre.
+                                </div>
+                            </li>
+                            <li class="legalListItem">
+                                <div class="legalListItemIcon info"><i class="fa-solid fa-receipt"></i></div>
+                                <div>
+                                    <strong>Primas y Facturación:</strong> Los valores en Pesos Chilenos (CLP) se calculan en base al valor oficial de la Unidad de Fomento (UF) a la fecha de facturación correspondiente.
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
                 </div>
 
                 <!-- CARD 3: PROTECCIÓN COMPLEMENTARIA (VENTA CRUZADA MHM) -->
@@ -1243,27 +1364,36 @@
                         <strong id="planPriceMonth">$6.990</strong>
                     </div>
 
-                    <!-- TRUST SEALS -->
-                    <div class="checkoutTrustSeals">
-                        <div class="checkoutTrustItem">
-                            <i class="fa-solid fa-circle-check"></i>
-                            <span>Corredor Registrado ante la CMF</span>
-                        </div>
-                        <div class="checkoutTrustItem">
-                            <i class="fa-solid fa-lock"></i>
-                            <span>Conexión Encriptada SSL de 256 bits</span>
-                        </div>
-                        <div class="checkoutTrustItem">
-                            <i class="fa-solid fa-headset"></i>
-                            <span>Asesoría personalizada sin costo</span>
-                        </div>
+                    <!-- CONSENTIMIENTO Y POLÍTICAS (CHILE) -->
+                    <div class="checkoutConsentGroup" id="consentGroupCard">
+                        <!-- Checkbox 1: Datos Personales (Obligatorio, destildado) -->
+                        <label class="consentCheckboxLabel" for="consentDataPolicy">
+                            <input type="checkbox" id="consentDataPolicy" class="consentCheckboxInput" onchange="toggleDataPolicyAcceptance(this.checked)">
+                            <span class="consentText">
+                                He leído y acepto la <a href="javascript:void(0)" class="consentLink">política de datos personales</a> para la emisión y gestión de mi seguro (Ley 19.628). <span class="requiredTag">*</span>
+                            </span>
+                        </label>
+
+                        <!-- Checkbox 2: Publicidad y Ofertas (Opcional, tildado de inicio) -->
+                        <label class="consentCheckboxLabel" for="consentMarketing">
+                            <input type="checkbox" id="consentMarketing" class="consentCheckboxInput" checked>
+                            <span class="consentText">
+                                Acepto recibir información sobre promociones, beneficios y nuevos productos de MHM Corredores.
+                            </span>
+                        </label>
+
+                        <!-- Botón para ver Términos y Condiciones colapsados -->
+                        <button type="button" class="btnJumpTerms" id="btnJumpTerms" onclick="scrollToTermsAndConditions()">
+                            <i class="fa-solid fa-file-contract"></i>
+                            <span>Ver términos y condiciones de la póliza</span>
+                        </button>
                     </div>
 
                     <!-- ACTIONS -->
                     <div class="checkoutActions">
                         <button type="button" class="btnProceedContract is-disabled" id="btnContinue" onclick="proceedToContractorStep()" role="button" aria-disabled="true">
                             <i class="fa-solid fa-lock btnLockIcon"></i>
-                            <span id="btnContinueText">Acepta las condiciones para continuar</span>
+                            <span id="btnContinueText">Acepta la política de datos para continuar</span>
                             <i class="fa-solid fa-arrow-right btnArrowIcon"></i>
                         </button>
 
@@ -1425,7 +1555,43 @@
             }
         }
 
-        function toggleAcceptance(accepted) {
+        function toggleLegalConditions() {
+            const collapse = document.getElementById('legalConditionsCollapse');
+            const btn = document.getElementById('btnToggleLegalConditions');
+            const btnText = document.getElementById('btnToggleLegalConditionsText');
+            if (!collapse || !btn) return;
+            const isOpen = collapse.classList.toggle('is-open');
+            btn.classList.toggle('is-open', isOpen);
+            if (btnText) {
+                btnText.innerText = isOpen ? 'Ocultar condiciones generales' : 'Ver condiciones generales';
+            }
+        }
+
+        function scrollToTermsAndConditions() {
+            const card = document.getElementById('seccionCondiciones');
+            const collapse = document.getElementById('legalConditionsCollapse');
+            const btn = document.getElementById('btnToggleLegalConditions');
+            const btnText = document.getElementById('btnToggleLegalConditionsText');
+            
+            if (collapse && !collapse.classList.contains('is-open')) {
+                collapse.classList.add('is-open');
+                if (btn) btn.classList.add('is-open');
+                if (btnText) btnText.innerText = 'Ocultar condiciones generales';
+            }
+
+            if (card) {
+                const navHeight = 90;
+                const rect = card.getBoundingClientRect();
+                const targetScrollY = window.pageYOffset + rect.top - navHeight;
+                window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
+
+                card.classList.remove('attention-pulse');
+                void card.offsetWidth;
+                card.classList.add('attention-pulse');
+            }
+        }
+
+        function toggleDataPolicyAcceptance(accepted) {
             const btn = document.getElementById('btnContinue');
             const textEl = document.getElementById('btnContinueText');
             if (!btn) return;
@@ -1438,38 +1604,32 @@
                 btn.classList.remove('enabled');
                 btn.classList.add('is-disabled');
                 btn.setAttribute('aria-disabled', 'true');
-                if (textEl) textEl.innerText = 'Acepta las condiciones para continuar';
+                if (textEl) textEl.innerText = 'Acepta la política de datos para continuar';
             }
         }
 
         function proceedToContractorStep() {
-            const check = document.getElementById('termsAccept');
-            if (!check || !check.checked) {
-                // Estando en móvil o sin marcar, desplazarse suavemente hasta la sección del checkbox
-                const termsCard = document.getElementById('termsAcceptanceCard') || check;
-                if (termsCard) {
-                    // Obtener offset considerando sticky nav + sub-bar
+            const dataPolicy = document.getElementById('consentDataPolicy');
+            if (!dataPolicy || !dataPolicy.checked) {
+                const consentBox = document.getElementById('consentGroupCard') || dataPolicy;
+                if (consentBox) {
                     const navHeight = 110;
-                    const rect = termsCard.getBoundingClientRect();
+                    const rect = consentBox.getBoundingClientRect();
                     const targetScrollY = window.pageYOffset + rect.top - navHeight;
-                    
-                    window.scrollTo({
-                        top: targetScrollY,
-                        behavior: 'smooth'
-                    });
+                    window.scrollTo({ top: targetScrollY, behavior: 'smooth' });
 
-                    // Disparar animación de atención en la tarjeta del checkbox
-                    termsCard.classList.remove('attention-pulse');
-                    void termsCard.offsetWidth; // Force reflow
-                    termsCard.classList.add('attention-pulse');
-                    
-                    // Dar foco al input
-                    setTimeout(() => {
-                        check.focus();
-                    }, 400);
+                    consentBox.classList.remove('attention-pulse');
+                    void consentBox.offsetWidth;
+                    consentBox.classList.add('attention-pulse');
+                    setTimeout(() => { dataPolicy.focus(); }, 350);
                 }
                 return;
             }
+
+            const marketingAccepted = document.getElementById('consentMarketing')?.checked ?? true;
+            sessionStorage.setItem('mhm_consent_marketing', marketingAccepted ? 'true' : 'false');
+            sessionStorage.setItem('mhm_consent_datapolicy', 'true');
+
             window.location.href = 'cotizacion-salud-2.html';
         }
 

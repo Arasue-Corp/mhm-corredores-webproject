@@ -644,7 +644,7 @@ html, body {
             </p>
 
             <div class="flow-buttons">
-                <button class="btn-flow btn-volver" onclick="window.location.href='cotizacion-salud-6.html'">Volver</button>
+                <button class="btn-flow btn-volver" onclick="volverAtras()">Volver</button>
                 <button class="btn-flow btn-continuar" onclick="processPayment()">Continuar con el Pago</button>
             </div>
         </div>
@@ -671,9 +671,28 @@ html, body {
     </div>
 
     <script>
+        function volverAtras() {
+            if (sessionStorage.getItem('contratanteHogarData') || sessionStorage.getItem('mhm_hogar_data')) {
+                window.location.href = 'cotizacion-asistencia-hogar-2.html';
+            } else if (sessionStorage.getItem('contratanteMascotaData') || sessionStorage.getItem('mhm_mascotas_data')) {
+                window.location.href = 'cotizacion-mascota-nueva-2.html';
+            } else {
+                window.location.href = 'cotizacion-salud-2.html';
+            }
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
-            // Cargar email del usuario desde sessionStorage
-            const email = sessionStorage.getItem('compradorEmail') || 'usuario@correo.cl';
+            let email = 'usuario@correo.cl';
+            const hogarContratante = sessionStorage.getItem('contratanteHogarData');
+            const mascotaContratante = sessionStorage.getItem('contratanteMascotaData');
+            const compradorEmail = sessionStorage.getItem('compradorEmail');
+            if (hogarContratante) {
+                try { email = JSON.parse(hogarContratante).email || email; } catch(e){}
+            } else if (mascotaContratante) {
+                try { email = JSON.parse(mascotaContratante).email || email; } catch(e){}
+            } else if (compradorEmail) {
+                email = compradorEmail;
+            }
             document.getElementById('user-email').textContent = email;
         });
 

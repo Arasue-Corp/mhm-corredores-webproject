@@ -1312,3 +1312,51 @@ document.addEventListener("DOMContentLoaded", () => {
         slides[currentSlide].classList.add('active');
     }, 4000); // Change image every 4 seconds
 });
+
+// ==========================================
+// VALIDACIÓN Y FORMATEO OFICIAL DE RUT (CHILE - MÓDULO 11)
+// ==========================================
+window.validateRut = function(rut) {
+    if (!rut || typeof rut !== 'string') return false;
+    const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+    if (clean.length < 2 || clean.length > 9) return false;
+    
+    const body = clean.slice(0, -1);
+    const dv = clean.slice(-1);
+    
+    let sum = 0;
+    let mul = 2;
+    for (let i = body.length - 1; i >= 0; i--) {
+        sum += parseInt(body[i], 10) * mul;
+        mul = mul === 7 ? 2 : mul + 1;
+    }
+    
+    let expectedDv = 11 - (sum % 11);
+    if (expectedDv === 11) expectedDv = '0';
+    else if (expectedDv === 10) expectedDv = 'K';
+    else expectedDv = expectedDv.toString();
+    
+    return dv === expectedDv;
+};
+
+window.formatRut = function(rut) {
+    if (!rut) return '';
+    const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+    if (clean.length <= 1) return clean;
+    const body = clean.slice(0, -1);
+    const dv = clean.slice(-1);
+    return body.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + '-' + dv;
+};
+
+// Auto-bind a inputs con id o name que contenga "rut" o clase .rut-input
+document.addEventListener('DOMContentLoaded', () => {
+    const rutInputs = document.querySelectorAll('input[id*="rut" i], input[id*="Rut" i], input[name*="rut" i], input.rut-input');
+    rutInputs.forEach(input => {
+        input.addEventListener('blur', function() {
+            if (this.value) {
+                this.value = window.formatRut(this.value);
+            }
+        });
+    });
+});
+

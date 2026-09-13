@@ -14,8 +14,8 @@
     
     <link rel="stylesheet" href="../css/tokens.css">
     <link rel="stylesheet" href="../css/mobile-first.css">
-    <link rel="stylesheet" href="../css/style.css?v=5"> 
-    <link rel="stylesheet" href="../css/style-quote.css?v=5"> 
+    <link rel="stylesheet" href="../css/style.css?v=1789287000"> 
+    <link rel="stylesheet" href="../css/style-quote.css?v=1789287000"> 
     <link rel="stylesheet" href="../css/salud.css?v=7">
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 </head>
@@ -451,21 +451,6 @@
                         <button type="button" class="btn-clear-compare" onclick="clearComparison()" title="Limpiar comparación">
                             <i class="fa-solid fa-xmark"></i>
                         </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Compare Modal -->
-            <div class="compareModalOverlay" id="compareModal" onclick="closeCompareModal(event)">
-                <div class="compareModalBox">
-                    <button type="button" class="compareModalClose" onclick="closeCompareModal()"><i class="fa-solid fa-xmark"></i></button>
-                    <div class="compareModalHead">
-                        <span class="compareModalTag">COMPARATIVA EXCLUSIVA</span>
-                        <h3>MAPFRE AP Salud: Individual vs Familiar</h3>
-                        <p>Compara directamente las coberturas, asistencias y tarifas para decidir con total claridad.</p>
-                    </div>
-                    <div class="compareModalTableWrapper" id="compareTableContent">
-                        <!-- Dynamic table rendered here -->
                     </div>
                 </div>
             </div>
@@ -1494,6 +1479,21 @@
             <h3>¡Todo listo!</h3>
             <p>Hemos recibido tus datos correctamente. Un ejecutivo de MHM Seguros se contactará contigo a la brevedad para asesorarte y ofrecerte la mejor tarifa.</p>
             <button class="lead-submit" onclick="window.location.href='cotizacion.html'" style="margin-top: 30px;">Volver a Productos</button>
+        </div>
+    </div>
+</div>
+
+<!-- Compare Modal -->
+<div class="compareModalOverlay" id="compareModal" onclick="closeCompareModal(event)">
+    <div class="compareModalBox">
+        <button type="button" class="compareModalClose" onclick="closeCompareModal()"><i class="fa-solid fa-xmark"></i></button>
+        <div class="compareModalHead">
+            <span class="compareModalTag">COMPARATIVA EXCLUSIVA</span>
+            <h3>MAPFRE AP Salud: Individual vs Familiar</h3>
+            <p>Compara directamente las coberturas, asistencias y tarifas para decidir con total claridad.</p>
+        </div>
+        <div class="compareModalTableWrapper" id="compareTableContent">
+            <!-- Dynamic table rendered here -->
         </div>
     </div>
 </div>

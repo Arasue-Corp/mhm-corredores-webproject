@@ -213,7 +213,7 @@
                 
                 <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
                     <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Rut</div>
-                    <input type="text" id="rutInput" onkeyup="validateForm()" placeholder="12345678-9" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
+                    <input type="text" id="rutInput" onkeyup="validateForm()" onblur="this.value = formatRut(this.value); validateForm();" placeholder="12345678-9" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
                 </div>
                 
                 <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
@@ -271,9 +271,34 @@
         summaryDiv.innerHTML = html;
     }
 
-    function validateRut(rut) {}$/.test(rut);
-    }
-    
+            function validateRut(rut) {
+            if (!rut || typeof rut !== 'string') return false;
+            const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+            if (clean.length < 2 || clean.length > 9) return false;
+            const body = clean.slice(0, -1);
+            const dv = clean.slice(-1);
+            let sum = 0;
+            let mul = 2;
+            for (let i = body.length - 1; i >= 0; i--) {
+                sum += parseInt(body[i], 10) * mul;
+                mul = mul === 7 ? 2 : mul + 1;
+            }
+            let expectedDv = 11 - (sum % 11);
+            if (expectedDv === 11) expectedDv = '0';
+            else if (expectedDv === 10) expectedDv = 'K';
+            else expectedDv = expectedDv.toString();
+            return dv === expectedDv;
+        }
+
+        function formatRut(rut) {
+            if (!rut) return '';
+            const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+            if (clean.length <= 1) return clean;
+            const body = clean.slice(0, -1);
+            const dv = clean.slice(-1);
+            return body.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + '-' + dv;
+        }
+
     function validateEmail(email) {
         return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
     }
@@ -284,7 +309,7 @@
         const email = document.getElementById('emailInput').value.trim();
         const btn = document.getElementById('btn-continue');
         
-        if (rut.length > 5 && name.length > 2 && validateEmail(email)) {
+        if (validateRut(rut) && name.length > 2 && validateEmail(email)) {
             btn.style.opacity = '1';
             btn.style.pointerEvents = 'auto';
         } else {
@@ -375,11 +400,12 @@
                 <div class="footer-col">
                     <h4 class="footer-heading">Productos</h4>
                     <ul class="footer-links">
-                        <li><a href="../cotizacion/cotizacion-1.html">Seguros de auto</a></li>
-                        <li><a href="../seguro-complementario-salud/index.html">Seguro complementario de salud</a></li>
-                        <li><a href="../seguro-pymes/index.html">Seguros Pymes</a></li>
-                        <li><a href="../seguros-personales/index.html">Productos personales <span class="badge-new">New</span></a></li>
-                        <li><a href="../seguros-comerciales/index.html">Productos comerciales <span class="badge-new">New</span></a></li>
+                        <li><a href="cotizacion-1.html">Seguros de auto</a></li>
+                        <li><a href="cotizacion-salud-1.html">Vida y salud</a></li>
+                        <li><a href="cotizacion-asistencia-hogar-1.html">Seguros de hogar</a></li>
+                        <li><a href="cotizacion-mascota-nueva-1.html">Seguros para mascotas</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguro Pymes</a></li>
+                        <li><a href="cotizacion.html">Otros seguros</a></li>
                     </ul>
                 </div>
 

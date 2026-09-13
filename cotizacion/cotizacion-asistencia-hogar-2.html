@@ -1,50 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cotización de Asistencia Ciclista | MHM Corredores</title>
+    <title>Registro de Contratante | Seguro de Hogar | MHM Corredores</title>
     
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1785907847" rel="stylesheet">
-
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" href="../css/style.css"> 
-    <link rel="stylesheet" href="../css/style-quote.css"> 
+    <link rel="stylesheet" href="../css/style.css?v=1789287000"> 
+    <link rel="stylesheet" href="../css/style-quote.css?v=1789287000"> 
     <link rel="icon" href="../assets/img/favicon.ico" type="image/x-icon">
 
+    <style>
+        html, body {
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow-x: hidden !important;
+            width: 100% !important;
+        }
 
+        .footer-logo-img {
+            height: auto !important;
+            max-width: 180px !important;
+            object-fit: contain !important;
+            display: block !important;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .quotePreFilledBox {
+            background: rgba(121, 107, 252, 0.05);
+            border: 1.5px solid rgba(121, 107, 252, 0.22);
+            border-radius: 16px;
+            padding: 20px;
+            margin-bottom: 28px;
+        }
+
+        .step2-actions-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 24px;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrapper {
+                padding: 12px 10px !important;
+            }
+            .wizard-container {
+                padding: 20px 16px !important;
+                border-radius: 18px !important;
+            }
+            .brand-page-header h1 {
+                font-size: 1.6rem !important;
+            }
+            .specs-layout-grid {
+                padding: 0 !important;
+                margin: 12px auto !important;
+                gap: 16px !important;
+                display: flex !important;
+                flex-direction: column !important;
+            }
+            .main-spec-col, .config-sidebar {
+                width: 100% !important;
+            }
+            .premium-white-card {
+                padding: 20px 16px !important;
+                border-radius: 18px !important;
+            }
+            .form-grid {
+                grid-template-columns: 1fr !important;
+                gap: 14px !important;
+            }
+            .step2-actions-row {
+                flex-direction: column !important;
+                align-items: stretch !important;
+                gap: 12px !important;
+            }
+            .step2-actions-row a,
+            .step2-actions-row button {
+                width: 100% !important;
+                justify-content: center !important;
+                box-sizing: border-box !important;
+                text-align: center !important;
+            }
+            .rich-input {
+                width: 100% !important;
+                max-width: 100% !important;
+                box-sizing: border-box !important;
+            }
+        }
+    </style>
 </head>
 <body class="bg-body">
 
     <div id="toast-container"></div>
     <div class="noise-overlay"></div>
 
-
     <div class="top-header-aurora">
         <div class="container top-bar-flex">
-            
             <div class="top-info-group">
                 <a href="tel:+56961446652" class="top-link glass-hover">
                     <i class="fa-solid fa-phone pulse-icon"></i> 
                     <span>+56 9 6144 6652</span>
                 </a>
-                
                 <span class="divider-vertical"></span>
-                
                 <a href="mailto:info@mhmseguros.cl" class="top-link glass-hover">
                     <i class="fa-solid fa-envelope"></i> 
                     <span>info@mhmseguros.cl</span>
                 </a>
-
-                <span class="divider-vertical desktop-only"></span>
-                <div class="top-location desktop-only">
-                    <i class="fa-solid fa-location-dot"></i>
-                    <span>Huérfanos 669, piso 7, Santiago, Chile</span>
-                </div>
             </div>
-
             <div class="top-social-group">
                 <span class="social-label desktop-only">Conectar:</span>
                 <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank" class="social-btn" aria-label="Facebook">
@@ -55,303 +128,250 @@
                 </a>
             </div>
         </div>
-        
         <div class="aurora-border-glow"></div>
     </div>
 
-   <header class="site-header glass-navbar">
+    <header class="site-header glass-navbar">
         <div class="container nav-container">
-            
             <a href="../index.html" class="brand-logo">
-                <img src="../assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros, corredora de seguros en Chile especializada en seguros para personas y empresas." class="site-logo">
+                <img src="../assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros" class="site-logo">
             </a>
-
-            <nav class="nav-center desktop-only">
-                <ul class="nav-links">
-                    <li><a href="../index.html" class="nav-item active">Inicio</a></li>
-                    
-                    <li class="nav-dropdown-group">
-                        <a href="../productos/index.html" class="nav-item dropdown-btn" style="text-decoration: none; cursor: pointer; display: inline-block;">Productos <i class="fa-solid fa-angle-down arrow-indicator"></i></a>
-                        
-                        <div class="dropdown-glass-panel">
-                            <div class="dropdown-grid">
-                                <a href="../seguros-personales/index.html" class="dd-card">
-                                    <div class="icon-tile tile-blue"><i class="fa-solid fa-user"></i></div>
-                                    <div class="dd-info"><span class="dd-title">Seguros personales</span><span class="dd-desc">Auto, salud, viajes y más.</span></div>
-                                </a>
-                                <a href="../seguros-comerciales/index.html" class="dd-card">
-                                    <div class="icon-tile tile-indigo"><i class="fa-solid fa-store"></i></div>
-                                    <div class="dd-info"><span class="dd-title">Seguros comerciales</span><span class="dd-desc">Pymes, construcción, garantías y más.</span></div>
-                                </a>
-                            </div>
-                        </div>
-                    </li>
-                    
-                    <li><a href="#carriers" class="nav-item">Aseguradoras</a></li>
-                    <li><a href="../blog/index.html" class="nav-item">Blog</a></li>
-                    <li><a href="../contacto/index.html" class="nav-item">Contacto</a></li>
-
-                </ul>
-            </nav>
-
             <div class="nav-actions">
-                
-
-                <span class="divider-vertical desktop-only"></span>
-
                 <a href="../cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
                     <span>Cotizar seguro</span>
                     <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
                 </a>
-                
-                <button class="mobile-toggle-btn mobile-only" onclick="toggleMobileMenu()" aria-label="Menu">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-            </div>
-        </div>
-
-        <div class="mobile-menu-premium" id="mobileMenu">
-            <div class="menu-aurora-bg"></div>
-            
-            <div class="menu-inner-container">
-                
-                <div class="menu-internal-header">
-                    <img src="../assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros, corredora de seguros en Chile especializada en seguros para personas y empresas." style="height: 30px;">
-                    <button class="menu-close-btn" onclick="toggleMobileMenu()">
-                        <i class="fa-solid fa-xmark"></i>
-                    </button>
-                </div>
-                
-                <a href="../cotizacion/cotizacion.html" class="menu-widget-card highlight-card">
-                    <div class="widget-icon"><i class="fa-solid fa-bolt"></i></div>
-                    <div class="widget-info">
-                        <span class="widget-title">Cotizar seguro</span>
-                        <span class="widget-desc">Revisa los precios en menos de 90 segundos</span>
-                    </div>
-                    <div class="widget-arrow"><i class="fa-solid fa-arrow-right"></i></div>
-                </a>
-
-                <div class="menu-grid-row">
-                    <a href="../embajadores/documentos.html" class="menu-square-card">
-                        <i class="fa-solid fa-users-viewfinder" style="color: #7C3AED;"></i>
-                        <span>Seguros personales</span>
-                    </a>
-                    <a href="../alex-sign/index.html" class="menu-square-card">
-                        <i class="fa-solid fa-file-signature" style="color: #2563EB;"></i>
-                        <span>Seguros comerciales</span>
-                    </a>
-                </div>
-
-                <div class="menu-section-title">Seguros disponibles</div>
-                <div class="menu-links-group">
-                    <a href="../seguro-complementario-salud/index.html" class="menu-link-item">
-                        <i class="fa-solid fa-house"></i> Seguro complementario de salud
-                    </a>
-                    <a href="../seguro-pymes/index.html" class="menu-link-item">
-                        <i class="fa-solid fa-key"></i> Seguro Pymes
-                    </a>
-                    <a href="../index.html#carriers" class="menu-link-item">
-                        <i class="fa-solid fa-shield-halved"></i>Asistencia de viajes
-                    </a>
-                </div>
-
-                <div class="menu-footer">
-                    <a href="../contacto/index.html" class="menu-footer-link">Contact Support</a>
-                    <div class="menu-socials">
-                        <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61559262527632&amp;locale=es_LA" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-                    </div>
-                </div>
-
             </div>
         </div>
     </header>
 
     <nav class="quote-nav">
-        <a href="cotizacion-asistencia-hogar-1.html" class="nav-back-btn"><div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div><span> Volver a Selección de Plan</span></a>
-        <div class="lang-switch-modern"><span class="lang-opt">ES</span><span class="lang-opt active">EN</span></div>
+        <a href="cotizacion-asistencia-hogar-resumen.html" class="nav-back-btn">
+            <div class="icon-circle"><i class="fa-solid fa-arrow-left"></i></div>
+            <span> Volver al Resumen de Solicitud</span>
+        </a>
+        <div class="lang-switch-modern">
+            <span class="lang-opt active">ES</span>
+            <span class="lang-opt">EN</span>
+        </div>
     </nav>
 
-        <div class="text-center">
-            <div class="header-status-light">
-                <span class="pulse-blue"></span> <strong class="text-gradient-corp">Cotización en Tiempo Real</strong> 
-            </div>
+    <div class="text-center">
+        <div class="header-status-light">
+            <span class="pulse-blue"></span> 
+            <strong class="text-gradient-corp" style="background: linear-gradient(135deg, #3B82F6, #796bfc); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">Cotización en Tiempo Real</strong> 
         </div>
-
+    </div>
 
     <div class="page-wrapper">
-
         <div class="wizard-container">
             <div class="wizard-top">
-                <div class="wizard-title"><i class="fa-regular fa-hand-spock"></i>Para Empezar</div>
-                <div class="wizard-title"><i class="fa-solid fa-flag-checkered"></i></div>
+                <div class="wizard-title"><i class="fa-solid fa-user-check"></i> Paso 3: Registro de Contratación</div>
+                <div class="wizard-title"><i class="fa-solid fa-shield-halved"></i> SEGURO DE HOGAR</div>
             </div>
-            <div class="progress-track"><div class="progress-fill" style="width: 50%;"></div></div>
+            <div class="progress-track"><div class="progress-fill" style="width: 75%;"></div></div>
             <div class="header-split"></div>
             <header class="brand-page-header">
                 <div class="title-group">
-                    <h1 class="text-gradient-corp">Datos del Contratante</h1>
+                    <h1 class="text-gradient-corp">Registro de Contratante</h1>
                     <div class="aurora-line"></div> 
                 </div>
-                <p>Ingresa tus datos personales para continuar con la contratación.</p>
+                <p>Verifica los datos del inmueble e ingresa la información del titular de la póliza para proceder al pago seguro.</p>
             </header>
         </div>
 
-        <div class="specs-layout-grid">
+        <div class="specs-layout-grid" style="display: grid; grid-template-columns: 2fr 1fr; gap: 30px; margin-top: 30px; align-items: start;">
             
             <div class="main-spec-col">
-                <div class="premium-white-card" id="quoteFormStep1">
+                <div class="premium-white-card" style="padding: 30px; border-radius: 20px; background: #FFFFFF; border: 1px solid #E2E8F0; box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);">
                     
-<form id="startForm" onsubmit="event.preventDefault(); goToNextStep();">
-    <div style="border-radius: 12px; overflow: hidden; border: 1px solid #E2E8F0; margin-bottom: 20px;">
+                    <!-- BOX PRE-FILLED INMUEBLE -->
+                    <div class="quotePreFilledBox">
+                        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; flex-wrap: wrap; gap: 8px;">
+                            <span style="font-size: 11px; font-weight: 800; color: #796BFC; text-transform: uppercase; letter-spacing: 0.08em;">
+                                <i class="fa-solid fa-house-circle-check" style="margin-right: 4px;"></i> INMUEBLE Y PLAN SELECCIONADO
+                            </span>
+                            <a href="cotizacion-asistencia-hogar-1.html" style="font-size: 0.8rem; font-weight: 700; color: #796BFC; text-decoration: none;">
+                                <i class="fa-solid fa-pen-to-square"></i> Cambiar
+                            </a>
+                        </div>
+                        <div id="preFilledHogarGrid">
+                            <!-- Populated by JS -->
+                        </div>
+                    </div>
 
-        
-        <!-- Body -->
-        <div style="padding: 40px; background: white; max-width: 500px; margin: 0 auto;">
-            <!-- Form Fields -->
-            <div style="display: flex; flex-direction: column; gap: 15px; border: 1px solid #E2E8F0; border-radius: 12px; padding: 25px; box-shadow: 0 4px 15px rgba(0,0,0,0.02);">
-                
-                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
-                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Rut</div>
-                    <input type="text" id="rutInput" onkeyup="validateForm()" placeholder="12345678-9" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
-                </div>
-                
-                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
-                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Nombre</div>
-                    <input type="text" id="nameInput" onkeyup="validateForm()" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
-                </div>
-                
-                <div style="display: flex; border: 1px solid #E2E8F0; border-radius: 8px; overflow: hidden; background: #F8FAFC;">
-                    <div style="padding: 12px 15px; font-weight: 700; color: #334155; border-right: 1px solid #E2E8F0; display: flex; align-items: center; width: 85px;">Email</div>
-                    <input type="email" id="emailInput" onkeyup="validateForm()" style="width: 100%; border: none; background: transparent; padding: 12px 15px; font-size: 1rem; color: #0F172A; outline: none;" required>
-                </div>
+                    <!-- FORMULARIO CONTRATANTE -->
+                    <form id="contractorForm" onsubmit="event.preventDefault(); submitContractor();">
+                        
+                        <div style="font-size: 1.15rem; font-weight: 800; color: #0F172A; margin-bottom: 18px; border-bottom: 1px solid #E2E8F0; padding-bottom: 10px;">
+                            Datos Personales del Titular
+                        </div>
 
-                <button type="submit" id="btn-continue" style="margin-top: 10px; width: 100%; padding: 12px; border-radius: 8px; background: #1C4E5E; color: white; font-weight: 700; border: none; cursor: pointer; transition: 0.3s; opacity: 0.5; pointer-events: none; font-size: 1rem;">
-                    Continuar
-                </button>
+                        <!-- RUT Input -->
+                        <div class="input-group-modern" style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.92rem;">RUT del Contratante *</label>
+                            <div class="input-with-icon" style="position: relative;">
+                                <i class="fa-solid fa-id-card" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                <input type="text" id="rutInput" onkeyup="validateHogarContractorForm()" onblur="this.value = formatRut(this.value); validateHogarContractorForm();" class="rich-input" placeholder="Ej: 12.345.678-9" style="width: 100%; max-width: 320px; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                            </div>
+                            <small id="rutFeedback" style="display: block; margin-top: 5px; font-size: 0.8rem; color: #DC2626;"></small>
+                        </div>
+
+                        <!-- Nombres y Apellidos -->
+                        <div class="form-grid" style="margin-bottom: 20px;">
+                            <div class="input-group-modern">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.92rem;">Nombres *</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-user" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                    <input type="text" id="nameInput" onkeyup="validateHogarContractorForm()" class="rich-input" placeholder="Ej: Juan Carlos" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                </div>
+                            </div>
+
+                            <div class="input-group-modern">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.92rem;">Apellido Paterno *</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-user" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                    <input type="text" id="lastNameInput" onkeyup="validateHogarContractorForm()" class="rich-input" placeholder="Ej: Pérez" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Apellido Materno y Email -->
+                        <div class="form-grid" style="margin-bottom: 20px;">
+                            <div class="input-group-modern">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.92rem;">Apellido Materno</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-user" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                    <input type="text" id="secondLastNameInput" onkeyup="validateHogarContractorForm()" class="rich-input" placeholder="Ej: González" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;">
+                                </div>
+                            </div>
+
+                            <div class="input-group-modern">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.92rem;">Correo Electrónico *</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-envelope" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                    <input type="email" id="emailInput" onkeyup="validateHogarContractorForm()" class="rich-input" placeholder="nombre@correo.com" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                                </div>
+                                <small id="emailFeedback" style="display: block; margin-top: 5px; font-size: 0.8rem; color: #DC2626;"></small>
+                            </div>
+                        </div>
+
+                        <!-- Teléfono Móvil -->
+                        <div class="input-group-modern" style="margin-bottom: 25px;">
+                            <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.92rem;">Teléfono Celular *</label>
+                            <div class="input-with-icon" style="position: relative;">
+                                <i class="fa-solid fa-phone" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                <input type="tel" id="phoneInput" onkeyup="validateHogarContractorForm()" class="rich-input" placeholder="+56 9 1234 5678" style="width: 100%; max-width: 320px; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;" required>
+                            </div>
+                        </div>
+
+                        <!-- Toggle Misma Dirección -->
+                        <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 18px; margin-bottom: 25px;">
+                            <label style="display: flex; align-items: center; gap: 10px; cursor: pointer; font-size: 0.9rem; font-weight: 700; color: #0F172A; margin: 0;">
+                                <input type="checkbox" id="sameAddressToggle" onchange="toggleSameAddress()" checked style="width: 18px; height: 18px; accent-color: #796BFC; cursor: pointer;">
+                                <span>Mi dirección personal es la misma del inmueble asegurado</span>
+                            </label>
+                        </div>
+
+                        <!-- Campos Dirección Personal (Alternativa) -->
+                        <div id="customAddressGroup" style="display: none; margin-bottom: 25px;">
+                            <div class="input-group-modern" style="margin-bottom: 18px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.92rem;">Dirección Residencial del Contratante *</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-location-dot" style="position: absolute; left: 16px; top: 16px; color: #94A3B8;"></i>
+                                    <input type="text" id="contractorAddressInput" onkeyup="validateHogarContractorForm()" class="rich-input" placeholder="Av. Los Leones 2500, Providencia" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; transition: 0.3s; font-size: 1rem; color: #0F172A;">
+                                </div>
+                            </div>
+                            <div class="input-group-modern">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 700; color: #1E293B; font-size: 0.92rem;">Comuna del Contratante *</label>
+                                <div class="input-with-icon" style="position: relative;">
+                                    <i class="fa-solid fa-map-location-dot" style="position: absolute; left: 16px; top: 16px; color: #94A3B8; z-index: 2;"></i>
+                                    <select id="contractorComunaInput" onchange="validateHogarContractorForm()" class="rich-input" style="width: 100%; padding: 14px 15px 14px 45px; border-radius: 12px; border: 1px solid #CBD5E1; background: #FFFFFF; font-size: 1rem; color: #0F172A; appearance: none; cursor: pointer;">
+                                        <option value="" disabled selected>Selecciona comuna</option>
+                                        <option value="Santiago Centro">Santiago Centro</option>
+                                        <option value="Providencia">Providencia</option>
+                                        <option value="Las Condes">Las Condes</option>
+                                        <option value="Ñuñoa">Ñuñoa</option>
+                                        <option value="Vitacura">Vitacura</option>
+                                        <option value="Lo Barnechea">Lo Barnechea</option>
+                                        <option value="La Reina">La Reina</option>
+                                        <option value="Macul">Macul</option>
+                                        <option value="La Florida">La Florida</option>
+                                        <option value="Maipú">Maipú</option>
+                                        <option value="Viña del Mar">Viña del Mar</option>
+                                        <option value="Concepción">Concepción</option>
+                                    </select>
+                                    <i class="fa-solid fa-chevron-down" style="position: absolute; right: 16px; top: 18px; pointer-events: none; color: #94A3B8;"></i>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción -->
+                        <div class="step2-actions-row">
+                            <a href="cotizacion-asistencia-hogar-resumen.html" style="display: inline-flex; align-items: center; gap: 8px; color: #475569; text-decoration: none; font-weight: 700; font-size: 0.95rem; padding: 14px 22px; border-radius: 14px; border: 1px solid #CBD5E1; background: #F8FAFC; transition: all 0.2s ease;">
+                                <i class="fa-solid fa-arrow-left"></i>
+                                <span>Volver al resumen</span>
+                            </a>
+                            <button type="submit" id="btn-continue" style="background: linear-gradient(135deg, #796BFC 0%, #5E4BF5 100%) !important; color: #FFFFFF !important; opacity: 0.5; pointer-events: none; transition: all 0.3s ease; padding: 16px 36px; border-radius: 14px; font-weight: 800; font-size: 1rem; border: none; cursor: pointer; display: inline-flex; align-items: center; gap: 10px; box-shadow: 0 8px 22px -3px rgba(121, 107, 252, 0.45);">
+                                <span>Continuar con el Pago</span>
+                                <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+
+                    </form>
+
+                </div>
             </div>
-        </div>
-    </div></form>
 
-<script>
-    function renderSummaryStep2() {
-        const summaryDiv = document.getElementById('cart-summary-step2');
-        if(!summaryDiv) return;
-        
-        let html = '';
-        let total = 0;
-        let hasItems = false;
-        
-        const cartStr = sessionStorage.getItem('mhmHogarCart');
-        if (cartStr) {
-            const plans = JSON.parse(cartStr);
-            for(let id in plans) {
-                if(plans[id].qty > 0) {
-                    hasItems = true;
-                    const subtotal = plans[id].qty * plans[id].price;
-                    total += subtotal;
-                    html += `<div style="display: flex; justify-content: space-between; margin-bottom: 12px; font-size: 1.05rem; color: #334155;">
-                        <span><i class="fa-solid fa-house" style="color: #CBD5E1; margin-right: 8px;"></i> ${plans[id].name} <strong style="color: #0F172A;">x ${plans[id].qty}</strong></span>
-                        <strong style="color: #0F172A;">$${subtotal.toLocaleString('es-CL')}</strong>
-                    </div>`;
-                }
-            }
-        }
-        
-        if (!hasItems) {
-            window.location.href = 'cotizacion-asistencia-hogar-1.html';
-            return;
-        }
-
-        html += `<div style="border-top: 2px dashed #E2E8F0; margin-top: 15px; padding-top: 20px; display: flex; justify-content: space-between; font-size: 1.3rem; color: #0F172A; align-items: baseline;">
-            <strong>Total Estimado:</strong>
-            <strong style="color: #2ED9C3;">$${total.toLocaleString('es-CL')}<span style="font-size: 0.9rem; color: #64748B; font-weight: normal; margin-left: 4px;">/mes</span></strong>
-        </div>`;
-        
-        summaryDiv.innerHTML = html;
-    }
-
-    function validateRut(rut) {}$/.test(rut);
-    }
-    
-    function validateEmail(email) {
-        return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
-    }
-
-    function validateForm() {
-        const rut = document.getElementById('rutInput').value.trim();
-        const name = document.getElementById('nameInput').value.trim();
-        const email = document.getElementById('emailInput').value.trim();
-        const btn = document.getElementById('btn-continue');
-        
-        if (rut.length > 5 && name.length > 2 && validateEmail(email)) {
-            btn.style.opacity = '1';
-            btn.style.pointerEvents = 'auto';
-        } else {
-            btn.style.opacity = '0.5';
-            btn.style.pointerEvents = 'none';
-        }
-    }
-
-    function goToNextStep() {
-        const rut = document.getElementById('rutInput').value.trim();
-        const name = document.getElementById('nameInput').value.trim();
-        const email = document.getElementById('emailInput').value.trim();
-        
-        sessionStorage.setItem('mhmHogarClient', JSON.stringify({rut, name, email}));
-        
-        document.body.style.opacity = '0';
-        document.body.style.transition = 'opacity 0.3s ease';
-        setTimeout(() => {
-            window.location.href = 'cotizacion-asistencia-hogar-3.html';
-        }, 300);
-    }
-    
-    document.addEventListener('DOMContentLoaded', () => {
-        renderSummaryStep2();
-    });
-</script>
-
-                </div>
-            </div>
-            
-            
-
-<aside class="config-sidebar anim-entry delay-2">
-                <div class="organic-panel ruta-container">
-                    
-                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.25rem; font-weight: 800; margin-bottom: 20px;">
+            <!-- SIDEBAR RESUMEN DE LA ORDEN -->
+            <aside class="config-sidebar anim-entry delay-2">
+                <div class="organic-panel ruta-container" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px; margin-bottom: 20px;">
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 18px;">
                         Ruta de Contratación
                     </div>
-                    <ul class="aurora-list" style="margin-bottom: 30px; border-bottom: 1px solid #E2E8F0; padding-bottom: 20px;">
-                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Selección de Plan</li>
+                    <ul class="aurora-list" style="margin-bottom: 0; padding-bottom: 0;">
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Inmueble y Plan</li>
+                        <li style="color: #10B981; font-weight: 600;"><i class="fa-solid fa-circle-check" style="color: #10B981;"></i> Resumen de Solicitud</li>
                         <li class="active"><span class="pulse-dot"></span> Datos del Contratante</li>
                         <li><i class="fa-regular fa-circle"></i> Pago Seguro</li>
-                        <li><i class="fa-regular fa-circle"></i> Registro Beneficiarios</li>
                     </ul>
+                </div>
 
-                    </div>
-                        <div class="organic-panel resumen-container">
-                        <div id="resumen-title-header" class="sidebar-title text-gradient-corp" style="display: none; font-size: 1.25rem; font-weight: 800; margin-bottom: 20px; border-bottom: 1px solid #E2E8F0; padding-bottom: 15px;">
-                        Resumen de Selección
+                <div class="organic-panel resumen-container" style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 20px; padding: 24px;">
+                    <div class="sidebar-title text-gradient-corp" style="font-size: 1.15rem; font-weight: 800; margin-bottom: 18px; border-bottom: 1px solid #E2E8F0; padding-bottom: 12px;">
+                        Resumen de la Orden
                     </div>
                     
                     <div id="cart-summary-step2">
-                        <!-- Javascript will render selected plans here -->
+                        <div class="summary-item" style="display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 12px;">
+                            <div>
+                                <span style="font-size: 10px; font-weight: 800; color: #796BFC; text-transform: uppercase; letter-spacing: 0.1em; display: block;">SEGURO DE HOGAR</span>
+                                <h4 style="margin: 3px 0 2px; color: #0F172A; font-weight: 800; font-size: 1.05rem;" id="sidePlanName">Seguro de Hogar Pro</h4>
+                                <span style="font-size: 0.8rem; color: #64748B;" id="sidePropSub">Casa · Providencia</span>
+                            </div>
+                            <div style="text-align: right;">
+                                <div id="sidePriceMonth" style="color: #796bfc; font-weight: 900; font-size: 1.25rem;">$9.490</div>
+                                <div style="color: #94A3B8; font-size: 0.75rem;">/ mes</div>
+                            </div>
+                        </div>
+                        <div style="display: flex; justify-content: space-between; padding-top: 10px; border-top: 1px dashed #E2E8F0; font-size: 0.85rem; color: #64748B;">
+                            <span>Total anual estimado:</span>
+                            <strong id="sidePriceAnnual" style="color: #0F172A;">$113.880</strong>
+                        </div>
                     </div>
 
-                    <div id="generic-protection-box" style="background: rgba(16, 185, 129, 0.05); border: 1px dashed #10B981; border-radius: 12px; padding: 15px; margin-top: 25px; text-align: center;">
-                        <i class="fa-solid fa-house" style="font-size: 2rem; color: #10B981; margin-bottom: 10px;"></i>
-                        <h4 style="margin: 0 0 5px 0; color: #0F172A; font-weight: 700; font-size: 1rem;">Protección Activa</h4>
-                        <p style="margin: 0; font-size: 0.85rem; color: #64748B; margin-top: 10px;">Si eres <strong style="font-weight: 700; color: #0F172A;">contratante y beneficiario</strong> a la vez, continúa completando los formularios con tus datos.</p>
+                    <div style="background: rgba(46, 217, 195, 0.08); border: 1.5px dashed #2ED9C3; border-radius: 16px; padding: 16px; margin-top: 20px; text-align: center;">
+                        <i class="fa-solid fa-house-shield" style="font-size: 1.8rem; color: #0F766E; margin-bottom: 8px;"></i>
+                        <h4 style="margin: 0 0 4px 0; color: #0F172A; font-weight: 800; font-size: 0.95rem;">Hogar Protegido 24/7</h4>
+                        <p style="margin: 0; font-size: 0.8rem; color: #475569;">Asistencias de emergencia inmediatas y póliza con respaldo líder.</p>
                     </div>
                 </div>
             </aside>
 
-
         </div>
-    </div>
+    </div> <!-- End page-wrapper -->
 
+    <!-- FOOTER MHM AURORA (FULL BLEED) -->
     <footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
@@ -360,7 +380,7 @@
                 
                 <div class="footer-col brand-col">
                     <a href="../index.html" class="footer-logo">
-                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corredores de Seguros, corredora de seguros en Chile especializada en seguros para personas y empresas." class="footer-logo-img">
+                        <img src="../assets/img/logo-mhm-blanco.png" alt="MHM Corredores de Seguros" class="footer-logo-img">
                     </a>
                     <p class="footer-tagline">
                         Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades que mejorarán tu vida de forma accesible, dinámica y eficiente.
@@ -368,18 +388,18 @@
                     <div class="footer-social-mini">
                         <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-
                     </div>
                 </div>
 
                 <div class="footer-col">
                     <h4 class="footer-heading">Productos</h4>
                     <ul class="footer-links">
-                        <li><a href="../cotizacion/cotizacion-1.html">Seguros de auto</a></li>
-                        <li><a href="../seguro-complementario-salud/index.html">Seguro complementario de salud</a></li>
-                        <li><a href="../seguro-pymes/index.html">Seguros Pymes</a></li>
-                        <li><a href="../seguros-personales/index.html">Productos personales <span class="badge-new">New</span></a></li>
-                        <li><a href="../seguros-comerciales/index.html">Productos comerciales <span class="badge-new">New</span></a></li>
+                        <li><a href="cotizacion-1.html">Seguros de auto</a></li>
+                        <li><a href="cotizacion-salud-1.html">Vida y salud</a></li>
+                        <li><a href="cotizacion-asistencia-hogar-1.html">Seguros de hogar</a></li>
+                        <li><a href="cotizacion-mascota-nueva-1.html">Seguros para mascotas</a></li>
+                        <li><a href="../seguro-pymes/index.html">Seguro Pymes</a></li>
+                        <li><a href="cotizacion.html">Otros seguros</a></li>
                     </ul>
                 </div>
 
@@ -389,13 +409,11 @@
                         <li><a href="https://www.instagram.com/mhmseguros.cl" target="_blank">Sobre nosotros</a></li>
                         <li><a href="../blog/index.html">Blog</a></li>
                         <li><a href="../contacto/index.html">Contactar con soporte</a></li>
-
                     </ul>
                 </div>
 
                 <div class="footer-col contact-col">
                     <h4 class="footer-heading">Contacto y Acceso</h4>
-                    
                     <ul class="contact-list">
                         <li>
                             <i class="fa-solid fa-phone"></i> 
@@ -406,7 +424,6 @@
                             <a href="mailto:info@mhmseguros.cl">info@mhmseguros.cl</a>
                         </li>
                     </ul>
-                    
                     <div class="footer-app-buttons">
                         <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
                             <button class="btn-footer-store">
@@ -447,141 +464,200 @@
         </div>
     </footer>
 
+    <script>
+        let cachedHogarData = null;
 
-    <div id="floating-menu-container">
-        <div class="nav-command-center" id="megaMenu">
-            <div class="cmd-header">
-                <span>Navegación rápida</span>
-                <span class="cmd-badge">MENÚ</span>
-            </div>
-            <div class="cmd-grid">
-                <a href="../funnel-auto/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
-                    <span>Seguro de Auto</span>
-                </a>
-                <a href="../seguro-complementario-salud/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
-                    <span>Seguro complementario de salud</span>
-                </a>
-                <a href="../seguro-pymes/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
-                    <span>Seguro Pymes</span>
-                </a>
-                <a href="../productos/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
-                    <span>Más productos</span>
-                </a>
-                <a href="../blog/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
-                    <span>Blog</span>
-                </a>
-                <a href="../contacto/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
-                    <span>Contactar Soporte</span>
-                </a>
-            </div>
-            <div class="cmd-footer">
-                <a href="../index.html">Volver to Home <i class="fa-solid fa-arrow-right"></i></a>
-            </div>
-        </div>
-        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
-            <i class="fa-regular fa-compass"></i>
-        </button>
-    </div>
+        document.addEventListener('DOMContentLoaded', () => {
+            initContractorHogar();
+        });
 
-    <div id="floating-chat-container">
-        <div class="alex-chat-window" id="chatWindow">
-            <div class="chat-header">
-                <div class="agent-info">
-                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
-                    <div class="agent-text">
-                        <span class="name">Asistente MHM</span>
-                        <span class="status">Tiempo de respuesta: Inmediato</span>
+        function initContractorHogar() {
+            const dataStr = sessionStorage.getItem('mhm_hogar_data');
+            if (!dataStr) {
+                window.location.href = 'cotizacion-asistencia-hogar-1.html';
+                return;
+            }
+
+            try {
+                cachedHogarData = JSON.parse(dataStr);
+
+                // Populate Pre-filled Box
+                const preBox = document.getElementById('preFilledHogarGrid');
+                const isCasa = cachedHogarData.propertyType === 'casa';
+                const isPro = cachedHogarData.plan === 'hogar-pro';
+
+                preBox.innerHTML = `
+                    <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 14px 16px; display: flex; align-items: center; gap: 14px; box-shadow: 0 2px 6px rgba(15, 23, 42, 0.04);">
+                        <div style="width: 44px; height: 44px; border-radius: 12px; background: rgba(121, 107, 252, 0.12); color: #796BFC; display: grid; place-items: center; font-size: 1.25rem; flex-shrink: 0;">
+                            <i class="fa-solid ${isCasa ? 'fa-house-chimney' : 'fa-building'}"></i>
+                        </div>
+                        <div style="flex: 1; min-width: 0;">
+                            <div style="font-weight: 800; font-size: 0.98rem; color: #0F172A; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">
+                                ${cachedHogarData.address || 'Inmueble Asegurado'} (${cachedHogarData.comuna || ''})
+                            </div>
+                            <div style="font-size: 0.78rem; color: #64748B;">
+                                ${isCasa ? 'Casa Unifamiliar' : 'Departamento'} · ${cachedHogarData.planName || (isPro ? 'Seguro de Hogar Pro' : 'Seguro de Hogar')}
+                            </div>
+                        </div>
+                        <div style="text-align: right; flex-shrink: 0;">
+                            <strong style="color: #796BFC; font-size: 1.15rem; font-weight: 900;">$${(cachedHogarData.priceMonth || (isPro ? 9490 : 7990)).toLocaleString('es-CL')}</strong>
+                            <small style="display: block; color: #64748B; font-size: 0.75rem;">/ mes</small>
+                        </div>
                     </div>
-                </div>
-                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
-            </div>
+                `;
+
+                // Sidebar
+                document.getElementById('sidePlanName').innerText = cachedHogarData.planName || (isPro ? 'Seguro de Hogar Pro' : 'Seguro de Hogar');
+                document.getElementById('sidePropSub').innerText = `${isCasa ? 'Casa' : 'Departamento'} · ${cachedHogarData.comuna || ''}`;
+                document.getElementById('sidePriceMonth').innerText = `$${(cachedHogarData.priceMonth || (isPro ? 9490 : 7990)).toLocaleString('es-CL')}`;
+                document.getElementById('sidePriceAnnual').innerText = `$${(cachedHogarData.priceAnnual || (isPro ? 113880 : 95880)).toLocaleString('es-CL')}`;
+
+                // Restore previous contractor inputs if exists
+                const prevContractorStr = sessionStorage.getItem('contratanteHogarData');
+                if (prevContractorStr) {
+                    const c = JSON.parse(prevContractorStr);
+                    if (c.rut) document.getElementById('rutInput').value = c.rut;
+                    if (c.name) document.getElementById('nameInput').value = c.name;
+                    if (c.lastName) document.getElementById('lastNameInput').value = c.lastName;
+                    if (c.secondLastName) document.getElementById('secondLastNameInput').value = c.secondLastName;
+                    if (c.email) document.getElementById('emailInput').value = c.email;
+                    if (c.phone) document.getElementById('phoneInput').value = c.phone;
+                    if (c.sameAddress !== undefined) {
+                        document.getElementById('sameAddressToggle').checked = c.sameAddress;
+                        toggleSameAddress();
+                        if (!c.sameAddress) {
+                            if (c.customAddress) document.getElementById('contractorAddressInput').value = c.customAddress;
+                            if (c.customComuna) document.getElementById('contractorComunaInput').value = c.customComuna;
+                        }
+                    }
+                }
+
+                validateHogarContractorForm();
+
+            } catch(e) {
+                console.error(e);
+            }
+        }
+
+        function toggleSameAddress() {
+            const isSame = document.getElementById('sameAddressToggle').checked;
+            const customGroup = document.getElementById('customAddressGroup');
+            customGroup.style.display = isSame ? 'none' : 'block';
+            validateHogarContractorForm();
+        }
+
+        function validateEmail(email) {
+            return /^[^@]+@[^@]+\.[a-zA-Z]{2,}$/.test(email);
+        }
+
+        function validateRut(rut) {
+            if (!rut || typeof rut !== 'string') return false;
+            const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+            if (clean.length < 2 || clean.length > 9) return false;
+            const body = clean.slice(0, -1);
+            const dv = clean.slice(-1);
+            let sum = 0;
+            let mul = 2;
+            for (let i = body.length - 1; i >= 0; i--) {
+                sum += parseInt(body[i], 10) * mul;
+                mul = mul === 7 ? 2 : mul + 1;
+            }
+            let expectedDv = 11 - (sum % 11);
+            if (expectedDv === 11) expectedDv = '0';
+            else if (expectedDv === 10) expectedDv = 'K';
+            else expectedDv = expectedDv.toString();
+            return dv === expectedDv;
+        }
+
+        function formatRut(rut) {
+            if (!rut) return '';
+            const clean = rut.replace(/[^0-9kK]/g, '').toUpperCase();
+            if (clean.length <= 1) return clean;
+            const body = clean.slice(0, -1);
+            const dv = clean.slice(-1);
+            let formatted = '';
+            let count = 0;
+            for (let i = body.length - 1; i >= 0; i--) {
+                formatted = body[i] + formatted;
+                count++;
+                if (count === 3 && i !== 0) {
+                    formatted = '.' + formatted;
+                    count = 0;
+                }
+            }
+            return formatted + '-' + dv;
+        }
+
+        function validateHogarContractorForm() {
+            const rut = document.getElementById('rutInput')?.value.trim() || '';
+            const name = document.getElementById('nameInput')?.value.trim() || '';
+            const lastName = document.getElementById('lastNameInput')?.value.trim() || '';
+            const email = document.getElementById('emailInput')?.value.trim() || '';
+            const phone = document.getElementById('phoneInput')?.value.trim() || '';
+            const isSame = document.getElementById('sameAddressToggle')?.checked;
             
-            <div class="chat-body">
-                <div class="chat-timestamp">Hoy, 17:00</div>
-                
-                <div class="msg-row bot">
-                    <div class="msg-bubble">
-                        ¡Hola! Veo que estás cotizando. ¿Tienes alguna pregunta sobre el <strong>Deducible</strong> o las coberturas? 🚗
-                    </div>
-                </div>
-                
-                <div class="chat-suggestions">
-                    <button>Explicar Deducibles</button>
-                    <button>Hablar con Ejecutivo</button>
-                </div>
-            </div>
-            
-            <div class="chat-footer">
-                <input type="text" placeholder="Escribe tu pregunta..." class="chat-input">
-                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
+            const rutValid = validateRut(rut);
+            const emailValid = validateEmail(email);
 
-        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
-            <i class="fa-solid fa-comment-dots"></i>
-            <span class="online-badge"></span>
-        </button>
-    </div>
+            const rutFeedback = document.getElementById('rutFeedback');
+            if (rutFeedback) {
+                if (rut.length > 3 && !rutValid) {
+                    rutFeedback.innerText = 'RUT inválido. Verifica el número y dígito verificador.';
+                } else {
+                    rutFeedback.innerText = '';
+                }
+            }
 
-    <script src="../js/script.js?v=1785403170"></script>
-    <script src="../js/script-quote.js?v=1785403170"></script>
+            const emailFeedback = document.getElementById('emailFeedback');
+            if (emailFeedback) {
+                if (email.length > 4 && !emailValid) {
+                    emailFeedback.innerText = 'Formato de correo electrónico inválido.';
+                } else {
+                    emailFeedback.innerText = '';
+                }
+            }
 
-    
+            let addressValid = true;
+            if (!isSame) {
+                const cAddr = document.getElementById('contractorAddressInput')?.value.trim() || '';
+                const cCom = document.getElementById('contractorComunaInput')?.value || '';
+                addressValid = cAddr.length >= 5 && cCom !== '';
+            }
 
-                    <h2 class="c-title">Cotizando <br><span class="shimmer-text">Asistencia Ciclistas</span></h2>
-                    
-                    <div class="c-copy">
-                        <p>Has accedido a una plataforma de seguros de nueva generación. Conectamos con las mejores aseguradoras de Chile para darte la cobertura ideal.</p>
-                        <p>Nuestro proceso está diseñado para ser rápido y eficiente. En menos de <strong>5 minutos</strong>, vamos a analizar tu perfil y presentarte las mejores opciones de cobertura.</p>
-                    </div>
-                </div>
+            const btn = document.getElementById('btn-continue');
+            const allValid = rutValid && name.length >= 2 && lastName.length >= 2 && emailValid && phone.length >= 8 && addressValid;
 
-                <div class="c-slide" data-step="1">
-                    <div class="tech-icon-stack">
-                        <div class="tech-icon-bg"></div>
-                        <i class="fa-solid fa-file-contract tech-icon-main"></i>
-                        <div class="tech-icon-badge"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    </div>
+            if (allValid) {
+                btn.style.opacity = '1';
+                btn.style.pointerEvents = 'auto';
+            } else {
+                btn.style.opacity = '0.5';
+                btn.style.pointerEvents = 'none';
+            }
+        }
 
-                    <h2 class="c-title">Requisitos de <br><span class="shimmer-text">Cotización</span></h2>
-                    
-                    <div class="c-copy">
-                        <p>Para garantizar una tarifa exacta (no solo un estimado), necesitamos los siguientes datos:</p>
-                    </div>
+        function submitContractor() {
+            const isSame = document.getElementById('sameAddressToggle').checked;
+            const contractorData = {
+                rut: document.getElementById('rutInput').value.trim(),
+                name: document.getElementById('nameInput').value.trim(),
+                lastName: document.getElementById('lastNameInput').value.trim(),
+                secondLastName: document.getElementById('secondLastNameInput').value.trim(),
+                email: document.getElementById('emailInput').value.trim(),
+                phone: document.getElementById('phoneInput').value.trim(),
+                sameAddress: isSame,
+                address: isSame ? cachedHogarData.address : document.getElementById('contractorAddressInput').value.trim(),
+                comuna: isSame ? cachedHogarData.comuna : document.getElementById('contractorComunaInput').value
+            };
 
-                    <div class="info-group">
-                        
-                        <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-user"></i></div>
-                            <div class="ic-content">
-                                <h4>Datos del Dueño</h4>
-                                <p>Tu nombre, RUT, teléfono y correo electrónico.</p>
-                            </div>
-                        </div>
+            sessionStorage.setItem('contratanteHogarData', JSON.stringify(contractorData));
 
-                        <div class="info-card-row" style="border-color: #2ED9C333; background: #f0f9ff;">
-                            <div class="ic-icon" style="background:white; color:#2ED9C3;"><i class="fa-solid fa-house"></i></div>
-                            <div class="ic-content">
-                                <h4>Información del Ciclista</h4>
-                                <p>Nombre, rut y fecha de nacimiento del ciclista beneficiario.</p>
-                            </div>
-                        </div>
-
-                        <div class="info-card-row">
-                            <div class="ic-icon"><i class="fa-solid fa-shield-halved"></i></div>
-                            <div class="ic-content">
-                                <h4>Plan Deseado</h4>
-                                <p>Elige entre Básico, Pro o Senior según sus necesidades.</p>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
+            document.body.style.opacity = '0';
+            document.body.style.transition = 'opacity 0.25s ease';
+            setTimeout(() => {
+                window.location.href = 'pago-flow.html';
+            }, 250);
+        }
+    </script>
 </body>
 </html>
