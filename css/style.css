@@ -567,6 +567,9 @@ a {
 .btn-icon-anim { transition: transform 0.3s; }
 .btn-aurora-gradient:hover .btn-icon-anim { transform: translateX(4px); }
 
+.cta-text-desktop { display: inline; }
+.cta-text-mobile { display: none; }
+
 /* BOTÓN HAMBURGUESA (MÓVIL) */
 .mobile-toggle-btn {
     background: transparent; border: none; font-size: 1.4rem;
@@ -597,8 +600,10 @@ a {
         padding: 0 16px !important;
     }
     .nav-container { 
-        padding: 5px 0; 
-        gap: 12px;
+        padding: 8px 12px !important; 
+        gap: 10px !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
     }
     .mobile-only { display: block; }
     .btn-aurora-gradient.js-trigger-quote {
@@ -606,8 +611,47 @@ a {
     }
 }
 @media (max-width: 768px) {
+    .site-logo {
+        max-height: 32px !important;
+        width: auto !important;
+    }
+    .brand-logo {
+        flex-shrink: 1 !important;
+        min-width: 0 !important;
+    }
     .nav-actions {
-        gap: 8px;
+        display: flex !important;
+        align-items: center !important;
+        gap: 6px !important;
+        flex-shrink: 0 !important;
+        margin-left: auto !important;
+    }
+    .btn-aurora-gradient {
+        padding: 7px 11px !important;
+        font-size: 0.82rem !important;
+        gap: 5px !important;
+        border-radius: 10px !important;
+        white-space: nowrap !important;
+        flex-shrink: 0 !important;
+    }
+    .btn-aurora-gradient .cta-text-desktop {
+        display: none !important;
+    }
+    .btn-aurora-gradient .cta-text-mobile {
+        display: inline !important;
+    }
+    .btn-aurora-gradient .btn-icon-anim {
+        font-size: 0.76rem !important;
+    }
+    .mobile-toggle-btn {
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        flex-shrink: 0 !important;
+        width: 36px !important;
+        height: 36px !important;
+        padding: 4px !important;
+        font-size: 1.35rem !important;
     }
 }
 

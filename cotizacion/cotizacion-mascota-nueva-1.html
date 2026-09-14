@@ -2363,15 +2363,26 @@
                 <h3>Seguros de Mascotas</h3>
                 <p>Compara directamente las coberturas, asistencias y tarifas para decidir con total claridad.</p>
             </div>
-            <!-- Rotate Hint for Mobile Experience -->
-            <div class="compare-rotate-hint">
-                <div class="rotate-hint-icon">
-                    <i class="fa-solid fa-mobile-screen"></i>
+            <!-- Rotate Hint for Mobile Experience with Entrance Animation -->
+            <div class="compare-rotate-hint" id="compareRotateHint">
+                <div class="rotate-hint-icon-wrap">
+                    <div class="rotate-hint-icon">
+                        <i class="fa-solid fa-mobile-screen"></i>
+                        <span class="rotate-radar-pulse"></span>
+                    </div>
+                    <div class="rotate-motion-arrow">
+                        <i class="fa-solid fa-arrow-rotate-right"></i>
+                    </div>
                 </div>
                 <div class="rotate-hint-content">
-                    <span class="rotate-hint-badge"><i class="fa-solid fa-arrows-rotate"></i> Modo recomendado</span>
-                    <strong>¿Quieres comparar con más comodidad?</strong>
-                    Para una mejor experiencia pon el celular o activa la opción de ver en horizontal.
+                    <div class="rotate-hint-header-line">
+                        <span class="rotate-hint-badge"><i class="fa-solid fa-arrows-rotate"></i> Modo recomendado</span>
+                        <button type="button" class="btn-hint-dismiss" onclick="this.closest('.compare-rotate-hint').style.display='none'" aria-label="Entendido">
+                            <i class="fa-solid fa-check"></i> <span>Entendido</span>
+                        </button>
+                    </div>
+                    <strong>¡Gira tu celular para una mejor experiencia!</strong>
+                    <p>En horizontal podrás ver todos los planes y coberturas frente a frente sin tener que desplazarte.</p>
                 </div>
             </div>
             <div class="compareModalTableWrapper" id="compareTableContent">

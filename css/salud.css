@@ -2569,82 +2569,195 @@
         margin: 0 !important;
     }
 
-    /* Aurora Mobile Rotate Hint Banner */
+    /* Aurora Mobile Rotate Hint Banner with Entrance Animation */
     .compare-rotate-hint {
-        display: flex;
+        display: flex !important;
         align-items: center;
         gap: 12px;
-        background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(16, 185, 129, 0.12) 100%);
-        border: 1px solid rgba(79, 70, 229, 0.22);
+        background: linear-gradient(135deg, rgba(79, 70, 229, 0.09) 0%, rgba(16, 185, 129, 0.13) 100%);
+        border: 1.5px solid rgba(79, 70, 229, 0.32);
         border-radius: 14px;
-        padding: 10px 14px;
+        padding: 11px 13px;
         margin-bottom: 14px;
         position: relative;
         overflow: hidden;
-        animation: hintGlow 3s infinite ease-in-out;
+        animation: hintEntranceBounce 0.7s cubic-bezier(0.2, 0.9, 0.3, 1.2) both, hintAuraPulse 3s infinite 0.7s ease-in-out;
+    }
+    @keyframes hintEntranceBounce {
+        0% {
+            opacity: 0;
+            transform: translateY(-16px) scale(0.92);
+        }
+        65% {
+            opacity: 1;
+            transform: translateY(3px) scale(1.02);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+    @keyframes hintAuraPulse {
+        0%, 100% {
+            border-color: rgba(79, 70, 229, 0.32);
+            box-shadow: 0 6px 18px -4px rgba(79, 70, 229, 0.18), 0 0 0 1px rgba(79, 70, 229, 0.15);
+        }
+        50% {
+            border-color: rgba(16, 185, 129, 0.6);
+            box-shadow: 0 8px 24px -4px rgba(16, 185, 129, 0.28), 0 0 0 2px rgba(16, 185, 129, 0.35);
+        }
+    }
+    .rotate-hint-icon-wrap {
+        position: relative;
+        flex-shrink: 0;
     }
     .rotate-hint-icon {
-        flex-shrink: 0;
-        width: 36px;
-        height: 36px;
-        border-radius: 10px;
-        background: white;
+        width: 42px;
+        height: 42px;
+        border-radius: 11px;
+        background: #FFFFFF;
+        border: 1.5px solid rgba(79, 70, 229, 0.22);
         display: flex;
         align-items: center;
         justify-content: center;
         color: #4F46E5;
-        font-size: 17px;
-        box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
+        font-size: 19px;
+        position: relative;
+        box-shadow: 0 4px 12px rgba(79, 70, 229, 0.16);
     }
-    .rotate-hint-icon i {
+    .rotate-hint-icon i.fa-mobile-screen {
         display: inline-block;
-        animation: rotatePhoneAnim 2.6s infinite ease-in-out;
+        animation: rotatePhone3D 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+        transform-origin: center center;
     }
-    @keyframes rotatePhoneAnim {
+    @keyframes rotatePhone3D {
+        0%, 15% {
+            transform: rotate(0deg) scale(1);
+            color: #4F46E5;
+        }
+        40%, 75% {
+            transform: rotate(90deg) scale(1.18);
+            color: #10B981;
+        }
+        90%, 100% {
+            transform: rotate(0deg) scale(1);
+            color: #4F46E5;
+        }
+    }
+    .rotate-radar-pulse {
+        position: absolute;
+        inset: -3px;
+        border-radius: 13px;
+        border: 1.5px solid #10B981;
+        animation: radarPulse 2.8s infinite cubic-bezier(0.4, 0, 0.2, 1);
+        pointer-events: none;
+    }
+    @keyframes radarPulse {
+        0%, 20% {
+            transform: scale(0.95);
+            opacity: 0;
+        }
+        40% {
+            transform: scale(1.05);
+            opacity: 0.8;
+        }
+        75% {
+            transform: scale(1.28);
+            opacity: 0;
+        }
+        100% {
+            transform: scale(1.28);
+            opacity: 0;
+        }
+    }
+    .rotate-motion-arrow {
+        position: absolute;
+        top: -5px;
+        right: -5px;
+        width: 18px;
+        height: 18px;
+        background: #10B981;
+        color: #FFFFFF;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 9.5px;
+        box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+        animation: arrowRotateAnim 2.8s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    }
+    @keyframes arrowRotateAnim {
         0%, 15% {
             transform: rotate(0deg);
+            background: #4F46E5;
         }
-        40%, 65% {
-            transform: rotate(90deg);
+        40%, 75% {
+            transform: rotate(180deg) scale(1.1);
+            background: #10B981;
         }
-        85%, 100% {
-            transform: rotate(0deg);
-        }
-    }
-    @keyframes hintGlow {
-        0%, 100% {
-            border-color: rgba(79, 70, 229, 0.22);
-        }
-        50% {
-            border-color: rgba(16, 185, 129, 0.45);
+        90%, 100% {
+            transform: rotate(360deg);
+            background: #4F46E5;
         }
     }
     .rotate-hint-content {
         flex: 1;
-        font-size: 11.5px;
-        line-height: 1.35;
-        color: #334155;
+        min-width: 0;
     }
-    .rotate-hint-content strong {
-        display: block;
-        color: #0F172A;
-        font-weight: 700;
-        font-size: 12px;
-        margin-bottom: 2px;
+    .rotate-hint-header-line {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 6px;
+        margin-bottom: 3px;
     }
     .rotate-hint-badge {
         display: inline-flex;
         align-items: center;
         gap: 4px;
-        background: #4F46E5;
-        color: white;
+        background: linear-gradient(135deg, #4F46E5 0%, #6366F1 100%);
+        color: #FFFFFF;
         font-size: 9.5px;
         font-weight: 800;
         padding: 2px 7px;
-        border-radius: 10px;
-        margin-bottom: 3px;
-        letter-spacing: 0.03em;
+        border-radius: 999px;
+        letter-spacing: 0.04em;
         text-transform: uppercase;
+        box-shadow: 0 2px 6px rgba(79, 70, 229, 0.25);
+    }
+    .btn-hint-dismiss {
+        background: #FFFFFF;
+        border: 1px solid rgba(79, 70, 229, 0.25);
+        color: #4F46E5;
+        font-size: 10.5px;
+        font-weight: 700;
+        padding: 3px 8px;
+        border-radius: 7px;
+        cursor: pointer;
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        transition: all 0.2s ease;
+        white-space: nowrap;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+    }
+    .btn-hint-dismiss:active {
+        background: #4F46E5;
+        color: #FFFFFF;
+    }
+    .rotate-hint-content strong {
+        display: block;
+        color: #0F172A;
+        font-weight: 800;
+        font-size: 12px;
+        margin-bottom: 2px;
+        line-height: 1.3;
+    }
+    .rotate-hint-content p {
+        font-size: 11px;
+        line-height: 1.35;
+        color: #475569;
+        margin: 0;
     }
 
     /* Compare Hero Cards Carousel */
