@@ -8365,6 +8365,15 @@ DROPDOWN DOWNPAYMENT */
     word-break: break-word;
 }
 
+.highlight-green .readout-label {
+    color: #166534;
+}
+
+.highlight-green .readout-value {
+    color: #14532d;
+}
+
+
 .verified-badge-corner {
     position: absolute;
     top: 0.75rem;
