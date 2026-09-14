@@ -569,7 +569,8 @@
                     </div>
                     <div class="compareDockActions">
                         <button type="button" class="btn-view-compare" onclick="openCompareModal()">
-                            <span>Ver comparativa frente a frente</span>
+                            <span class="compare-btn-text-desktop">Ver comparativa frente a frente</span>
+                            <span class="compare-btn-text-mobile">Comparar</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                         <button type="button" class="btn-clear-compare" onclick="clearComparison()" title="Limpiar comparación">
@@ -709,15 +710,17 @@
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="footer-bottom">
-                <div class="footer-bottom-flex">
-                    <p>© 2026 MHM Corredores de Seguros SpA. Todos los derechos reservados. Fiscalizado por la CMF.</p>
-                    <div class="footer-legal-links">
-                        <a href="../contacto/index.html">Políticas de Privacidad</a>
-                        <span class="divider-dot">•</span>
-                        <a href="../terminos-condiciones/index.html">Términos de Servicio</a>
-                    </div>
+        <div class="footer-bottom">
+            <div class="container bottom-flex">
+                <div class="copyright-text">
+                    © 2026 MHM Corredores de Seguros SpA. Todos los derechos reservados. Fiscalizado por la CMF.
+                </div>
+                <div class="legal-links">
+                    <a href="../politica-privacidad/index.html">Política de Privacidad</a>
+                    <span class="divider">|</span>
+                    <a href="../terminos-condiciones/index.html">Términos de Servicio</a>
                 </div>
             </div>
             <div class="aurora-bottom-line"></div>
@@ -768,6 +771,17 @@
                 <span class="compareModalTag">COMPARATIVA EXCLUSIVA</span>
                 <h3>Seguro de Hogar vs Seguro de Hogar Pro</h3>
                 <p>Compara directamente las coberturas, límites asegurados y asistencias para decidir con total claridad.</p>
+            </div>
+            <!-- Rotate Hint for Mobile Experience -->
+            <div class="compare-rotate-hint">
+                <div class="rotate-hint-icon">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <div class="rotate-hint-content">
+                    <span class="rotate-hint-badge"><i class="fa-solid fa-arrows-rotate"></i> Modo recomendado</span>
+                    <strong>¿Quieres comparar con más comodidad?</strong>
+                    Para una mejor experiencia pon el celular o activa la opción de ver en horizontal.
+                </div>
             </div>
             <div class="compareModalTableWrapper" id="compareTableContent">
                 <!-- Dynamic comparison table -->
@@ -1078,9 +1092,9 @@
             if (!dock) return;
             if (selectedForCompare.size > 0) {
                 dock.classList.add('visible');
-                text.innerText = selectedForCompare.size === 1 
-                    ? '1 plan seleccionado para comparar' 
-                    : selectedForCompare.size + ' planes seleccionados para comparar';
+                const count = selectedForCompare.size;
+                const isPlural = count > 1;
+                text.innerHTML = `<span class="dock-full-text">${count} ${isPlural ? 'planes seleccionados para comparar' : 'plan seleccionado para comparar'}</span><span class="dock-short-text">${count} ${isPlural ? 'seleccionados' : 'seleccionado'}</span>`;
             } else {
                 dock.classList.remove('visible');
             }

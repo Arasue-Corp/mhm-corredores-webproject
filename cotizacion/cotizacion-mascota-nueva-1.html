@@ -327,33 +327,67 @@
         /* --- MOBILE RESPONSIVE COMPARATOR (AURORA DESIGN) --- */
         @media (max-width: 768px) {
             .compareFloatingDock {
-                width: calc(100% - 24px) !important;
+                width: calc(100% - 20px) !important;
                 max-width: 420px !important;
-                padding: 8px 12px 8px 16px !important;
+                padding: 8px 10px 8px 14px !important;
                 bottom: 16px !important;
+                border-radius: 100px !important;
+                box-sizing: border-box !important;
             }
             .compareFloatingDock.dock-elevated {
                 bottom: 84px !important;
             }
             .compareDockInner {
                 width: 100% !important;
+                display: flex !important;
+                align-items: center !important;
                 justify-content: space-between !important;
                 gap: 8px !important;
+                box-sizing: border-box !important;
             }
             .compareDockInfo {
                 font-size: 11.5px !important;
                 gap: 6px !important;
+                min-width: 0 !important;
+                flex: 1 1 auto !important;
+                overflow: hidden !important;
+                display: flex !important;
+                align-items: center !important;
             }
             .compareDockInfo i {
                 font-size: 13px !important;
+                flex-shrink: 0 !important;
+            }
+            .compareDockInfo span {
+                white-space: nowrap !important;
+                overflow: hidden !important;
+                text-overflow: ellipsis !important;
+                display: inline-block !important;
+            }
+            .compareDockActions {
+                flex-shrink: 0 !important;
+                display: flex !important;
+                align-items: center !important;
+                gap: 6px !important;
             }
             .btn-view-compare {
-                padding: 8px 14px !important;
+                padding: 7px 13px !important;
                 font-size: 11.5px !important;
                 white-space: nowrap !important;
+                flex-shrink: 0 !important;
+                border-radius: 999px !important;
             }
-            .btn-view-compare span {
+            .btn-view-compare .compare-btn-text-desktop {
+                display: none !important;
+            }
+            .btn-view-compare .compare-btn-text-mobile {
                 display: inline !important;
+            }
+            .compareDockInfo .dock-short-text {
+                display: inline-block !important;
+            }
+            .compareDockInfo .dock-full-text {
+                display: none !important;
             }
 
             /* Compare Modal Mobile Optimization */
@@ -903,7 +937,8 @@
                     </div>
                     <div class="compareDockActions">
                         <button type="button" class="btn-view-compare" onclick="openCompareModal()">
-                            <span>Ver comparativa frente a frente</span>
+                            <span class="compare-btn-text-desktop">Ver comparativa frente a frente</span>
+                            <span class="compare-btn-text-mobile">Comparar</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                         <button type="button" class="btn-clear-compare" onclick="clearComparison()" title="Limpiar comparación">
@@ -2063,9 +2098,9 @@
                     dock.classList.remove('dock-elevated');
                 }
                 if (text) {
-                    text.innerText = selectedForCompare.size === 1 
-                        ? '1 plan seleccionado para comparar' 
-                        : `${selectedForCompare.size} planes seleccionados para comparar`;
+                    const count = selectedForCompare.size;
+                    const isPlural = count > 1;
+                    text.innerHTML = `<span class="dock-full-text">${count} ${isPlural ? 'planes seleccionados para comparar' : 'plan seleccionado para comparar'}</span><span class="dock-short-text">${count} ${isPlural ? 'seleccionados' : 'seleccionado'}</span>`;
                 }
             } else {
                 dock.classList.remove('visible');
@@ -2327,6 +2362,17 @@
                 <span class="compareModalTag">COMPARATIVA EXCLUSIVA</span>
                 <h3>Seguros de Mascotas</h3>
                 <p>Compara directamente las coberturas, asistencias y tarifas para decidir con total claridad.</p>
+            </div>
+            <!-- Rotate Hint for Mobile Experience -->
+            <div class="compare-rotate-hint">
+                <div class="rotate-hint-icon">
+                    <i class="fa-solid fa-mobile-screen"></i>
+                </div>
+                <div class="rotate-hint-content">
+                    <span class="rotate-hint-badge"><i class="fa-solid fa-arrows-rotate"></i> Modo recomendado</span>
+                    <strong>¿Quieres comparar con más comodidad?</strong>
+                    Para una mejor experiencia pon el celular o activa la opción de ver en horizontal.
+                </div>
             </div>
             <div class="compareModalTableWrapper" id="compareTableContent">
                 <!-- Dynamic table rendered here -->

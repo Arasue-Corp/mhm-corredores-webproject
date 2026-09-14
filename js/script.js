@@ -1175,7 +1175,7 @@ document.addEventListener('DOMContentLoaded', function() {
     initPremiumSelectsContact();
     initCustomCursor();
     initFloatingMegaMenu();
-    toggleMobileMenu(); // Call if needed, but it's event-based
+    // toggleMobileMenu is event-based on user click
 
     // Page-Specific Inits
     initHomePageLogic();
@@ -1268,34 +1268,31 @@ document.addEventListener('DOMContentLoaded', function() {
 // MHM 2.0 - ANIMATION ON SCROLL (IntersectionObserver)
 // ==========================================
 document.addEventListener("DOMContentLoaded", () => {
-    // Select all sections and cards that should animate on scroll (exclude hidden/results sections)
-    const animatedElements = document.querySelectorAll("section:not(.healthResults):not([hidden]), .social-glass-card, .cmd-card, .feat-card, .step-card");
+    // Select specific cards and components that should animate on scroll smoothly
+    const animatedElements = document.querySelectorAll(".social-glass-card, .cmd-card, .feat-card, .step-card, .step-aurora-card, .value-prop-card, .product-card, .explica-card");
     
+    if (!('IntersectionObserver' in window)) return;
+
     const observerOptions = {
         root: null,
-        rootMargin: "0px",
-        threshold: 0.1
+        rootMargin: "50px",
+        threshold: 0.05
     };
     
     const observer = new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("animate-on-scroll");
-                entry.target.style.opacity = ""; // Allow CSS to handle opacity
-                observer.unobserve(entry.target); // Animate only once
+                observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
     
     animatedElements.forEach(el => {
-        // Only initialize opacity if element is visible and not display:none
-        const style = window.getComputedStyle(el);
-        if (style.display !== 'none') {
-            el.style.opacity = "0";
-            observer.observe(el);
-        }
+        observer.observe(el);
     });
 });
+
 
 // ==========================================
 // HERO CAROUSEL LOGIC

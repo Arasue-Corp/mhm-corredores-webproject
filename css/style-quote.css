@@ -6819,6 +6819,10 @@ DROPDOWN DOWNPAYMENT */
     z-index: 11;
 }
 
+.compare-rotate-hint {
+    display: none;
+}
+
 @media (max-width: 900px) {
     .comp-card {
         width: 100% !important;
@@ -6841,6 +6845,89 @@ DROPDOWN DOWNPAYMENT */
     
     .c-table.mhm-strict-table td.sticky-col, .c-table.mhm-strict-table th.sticky-col {
         max-width: 130px !important;
+    }
+
+    /* Aurora Mobile Rotate Hint Banner for Quote flow */
+    .compare-rotate-hint {
+        display: flex !important;
+        align-items: center;
+        gap: 12px;
+        background: linear-gradient(135deg, rgba(79, 70, 229, 0.08) 0%, rgba(16, 185, 129, 0.12) 100%);
+        border: 1px solid rgba(79, 70, 229, 0.22);
+        border-radius: 14px;
+        padding: 10px 14px;
+        position: relative;
+        overflow: hidden;
+        animation: hintGlow 3s infinite ease-in-out;
+    }
+    .rotate-hint-icon {
+        flex-shrink: 0;
+        width: 36px;
+        height: 36px;
+        border-radius: 10px;
+        background: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #4F46E5;
+        font-size: 17px;
+        box-shadow: 0 4px 10px rgba(79, 70, 229, 0.15);
+    }
+    .rotate-hint-icon i {
+        display: inline-block;
+        animation: rotatePhoneAnim 2.6s infinite ease-in-out;
+    }
+    @keyframes rotatePhoneAnim {
+        0%, 15% {
+            transform: rotate(0deg);
+        }
+        40%, 65% {
+            transform: rotate(90deg);
+        }
+        85%, 100% {
+            transform: rotate(0deg);
+        }
+    }
+    @keyframes hintGlow {
+        0%, 100% {
+            border-color: rgba(79, 70, 229, 0.22);
+        }
+        50% {
+            border-color: rgba(16, 185, 129, 0.45);
+        }
+    }
+    .rotate-hint-content {
+        flex: 1;
+        font-size: 11.5px;
+        line-height: 1.35;
+        color: #334155;
+    }
+    .rotate-hint-content strong {
+        display: block;
+        color: #0F172A;
+        font-weight: 700;
+        font-size: 12px;
+        margin-bottom: 2px;
+    }
+    .rotate-hint-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        background: #4F46E5;
+        color: white;
+        font-size: 9.5px;
+        font-weight: 800;
+        padding: 2px 7px;
+        border-radius: 10px;
+        margin-bottom: 3px;
+        letter-spacing: 0.03em;
+        text-transform: uppercase;
+    }
+}
+
+@media (max-width: 900px) and (orientation: landscape) {
+    .compare-rotate-hint {
+        display: none !important;
     }
 }
 

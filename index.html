@@ -1,31 +1,497 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MHM Seguros | Cotizador Inteligente en Segundos</title>
-    <meta name="description" content="Cotizador de seguros automotriz, salud, inquilinos y vida. Obtén cobertura en menos de 90 segundos con inteligencia artificial y asesores reales.">
+    <title>MHM Corredores de Seguros | Protege lo que estás construyendo</title>
+    <meta name="description" content="Cotiza seguros de salud, hogar, vehículos, mascotas y PYMES de forma simple y clara. Contrata 100% online con el respaldo y asesoría experta de MHM Corredores.">
+    
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
-    <meta property="og:title" content="MHM Seguros | Cotizador Inteligente">
-    <meta property="og:description" content="Olvida el papeleo y largas esperas. Cotiza y contrata seguros en segundos.">
+    <meta property="og:title" content="MHM Corredores de Seguros | Protege lo que estás construyendo">
+    <meta property="og:description" content="Cotiza seguros de salud, hogar, vehículos, mascotas y PYMES de forma simple y clara. 100% online y con asesoría humana.">
     <meta property="og:image" content="https://mhmseguros.cl/assets/img/logo-mhm-color.png">
     
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:title" content="MHM Seguros | Cotizador Inteligente">
-    <meta property="twitter:description" content="Olvida el papeleo y largas esperas. Cotiza y contrata seguros en segundos.">
+    <meta property="twitter:title" content="MHM Corredores de Seguros | Protege lo que estás construyendo">
+    <meta property="twitter:description" content="Cotiza seguros de salud, hogar, vehículos, mascotas y PYMES de forma simple y clara.">
     <meta property="twitter:image" content="https://mhmseguros.cl/assets/img/logo-mhm-color.png">
     
-    <link rel="preload" as="image" href="./assets/img/alex-hero-2.webp">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css?v=1785907847" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style-quote.css?v=1785907847">
-    <link rel="stylesheet" href="./css/style.css?v=1785907847">
+    
+    <link rel="stylesheet" href="./css/tokens.css">
+    <link rel="stylesheet" href="./css/mobile-first.css">
+    <link rel="stylesheet" href="./css/style-quote.css?v=1789287000">
+    <link rel="stylesheet" href="./css/style.css?v=1789287000">
 
     <link rel="icon" href="./assets/img/favicon.ico" type="image/x-icon">
 
+    <style>
+        /* ==========================================================================
+           AURORA INDEX ENHANCEMENTS & NEW SECTIONS
+           ========================================================================== */
+        
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Subtext & Actions */
+        .hero-desc-clean {
+            font-size: clamp(1.05rem, 1.8vw, 1.22rem) !important;
+            line-height: 1.65 !important;
+            color: #475569 !important;
+            margin-bottom: 28px !important;
+            max-width: 580px;
+        }
+
+        .hero-micro-text {
+            font-size: 0.88rem;
+            color: #64748B;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin-top: 14px;
+        }
+
+        /* Stepper "Una forma más simple de contratar seguros" */
+        .how-it-works-section {
+            padding: 80px 0;
+            background: #FFFFFF;
+            position: relative;
+            border-top: 1px solid #F1F5F9;
+            border-bottom: 1px solid #F1F5F9;
+        }
+
+        .steps-aurora-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 48px;
+            position: relative;
+        }
+
+        @media (max-width: 991px) {
+            .steps-aurora-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .steps-aurora-grid {
+                grid-template-columns: 1fr !important;
+                gap: 16px !important;
+            }
+        }
+
+        .step-aurora-card {
+            background: #F8FAFC;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 28px 24px;
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .step-aurora-card:hover {
+            transform: translateY(-6px);
+            background: #FFFFFF;
+            border-color: #796BFC;
+            box-shadow: 0 16px 32px -8px rgba(121, 107, 252, 0.12);
+        }
+
+        .step-number-badge {
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, #796BFC 0%, #CB6CE6 100%);
+            color: #FFFFFF;
+            font-size: 1.25rem;
+            font-weight: 900;
+            display: grid;
+            place-items: center;
+            margin-bottom: 20px;
+            box-shadow: 0 6px 16px rgba(121, 107, 252, 0.28);
+        }
+
+        .step-number-badge.help-badge {
+            background: linear-gradient(135deg, #2ED9C3 0%, #0D9488 100%);
+            box-shadow: 0 6px 16px rgba(46, 217, 195, 0.28);
+        }
+
+        .step-aurora-card h3 {
+            font-size: 1.2rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 10px;
+        }
+
+        .step-aurora-card p {
+            font-size: 0.95rem;
+            color: #64748B;
+            line-height: 1.55;
+            margin: 0;
+        }
+
+        /* Value Props: "Más claridad. Menos complejidad." */
+        .value-props-section {
+            padding: 90px 0;
+            background: radial-gradient(circle at 10% 20%, rgba(121, 107, 252, 0.05) 0%, transparent 40%),
+                        radial-gradient(circle at 90% 80%, rgba(46, 217, 195, 0.05) 0%, transparent 40%),
+                        #F8FAFC;
+        }
+
+        .value-props-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-top: 44px;
+        }
+
+        @media (max-width: 991px) {
+            .value-props-grid {
+                grid-template-columns: repeat(2, 1fr) !important;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .value-props-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .value-prop-card {
+            background: #FFFFFF;
+            border: 1px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 30px 24px;
+            box-shadow: 0 4px 20px rgba(15, 23, 42, 0.03);
+            transition: all 0.3s ease;
+        }
+
+        .value-prop-card:hover {
+            border-color: rgba(121, 107, 252, 0.4);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08);
+        }
+
+        .value-icon-box {
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            display: grid;
+            place-items: center;
+            font-size: 1.3rem;
+            margin-bottom: 18px;
+        }
+
+        .value-icon-box.icon-purple {
+            background: rgba(121, 107, 252, 0.1);
+            color: #796BFC;
+        }
+        .value-icon-box.icon-teal {
+            background: rgba(46, 217, 195, 0.12);
+            color: #0D9488;
+        }
+        .value-icon-box.icon-blue {
+            background: rgba(59, 130, 246, 0.1);
+            color: #2563EB;
+        }
+        .value-icon-box.icon-magenta {
+            background: rgba(203, 108, 230, 0.12);
+            color: #CB6CE6;
+        }
+
+        .value-prop-card h3 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .value-prop-card p {
+            font-size: 0.92rem;
+            color: #64748B;
+            line-height: 1.5;
+            margin: 0;
+        }
+
+        /* 5-Product Grid */
+        .products-grid-5 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 991px) {
+            .products-grid-5 {
+                grid-template-columns: repeat(2, 1fr) !important;
+                gap: 20px !important;
+            }
+        }
+
+        @media (max-width: 650px) {
+            .products-grid-5 {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* MHM Explica Pills */
+        .explica-section {
+            padding: 85px 0;
+            background: #FFFFFF;
+            border-top: 1px solid #F1F5F9;
+        }
+
+        .explica-cards-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin: 40px 0 36px;
+        }
+
+        @media (max-width: 991px) {
+            .explica-cards-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        .explica-card {
+            background: #F8FAFC;
+            border: 1.5px solid #E2E8F0;
+            border-radius: 20px;
+            padding: 30px 26px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            transition: all 0.25s ease;
+        }
+
+        .explica-card:hover {
+            background: #FFFFFF;
+            border-color: #796BFC;
+            box-shadow: 0 10px 25px -4px rgba(121, 107, 252, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .explica-icon-head {
+            font-size: 2rem;
+            margin-bottom: 16px;
+        }
+
+        .explica-card h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            color: #0F172A;
+            margin-bottom: 8px;
+        }
+
+        .explica-card p {
+            font-size: 0.95rem;
+            color: #64748B;
+            line-height: 1.55;
+            margin-bottom: 18px;
+        }
+
+        .explica-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            color: #796BFC;
+            font-weight: 700;
+            font-size: 0.92rem;
+            text-decoration: none;
+            transition: gap 0.2s ease;
+        }
+
+        .explica-card:hover .explica-link {
+            gap: 10px;
+            color: #6152F5;
+        }
+
+        /* Final Conversion Banner */
+        .conversion-banner-aurora {
+            padding: 90px 20px;
+            background: linear-gradient(135deg, #0F172A 0%, #1E1B4B 100%);
+            position: relative;
+            overflow: hidden;
+            border-radius: 36px;
+            margin: 40px auto 70px;
+            max-width: 1240px;
+            box-shadow: 0 20px 50px -10px rgba(15, 23, 42, 0.3);
+        }
+
+        .conversion-banner-mesh {
+            position: absolute;
+            top: -50%;
+            left: -20%;
+            width: 140%;
+            height: 200%;
+            background: radial-gradient(circle at 30% 30%, rgba(121, 107, 252, 0.25) 0%, transparent 50%),
+                        radial-gradient(circle at 70% 70%, rgba(46, 217, 195, 0.2) 0%, transparent 50%);
+            filter: blur(50px);
+            pointer-events: none;
+        }
+
+        .conversion-banner-inner {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 780px;
+            margin: 0 auto;
+        }
+
+        .conversion-banner-inner h2 {
+            font-size: clamp(2rem, 4.5vw, 3.2rem);
+            font-weight: 900;
+            color: #FFFFFF;
+            letter-spacing: -0.03em;
+            margin-bottom: 16px;
+            line-height: 1.15;
+        }
+
+        .conversion-banner-inner p {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: #CBD5E1;
+            line-height: 1.6;
+            margin-bottom: 34px;
+        }
+
+        .conversion-cta-row {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        .btn-conversion-main {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #796BFC 0%, #CB6CE6 100%);
+            color: #FFFFFF;
+            font-weight: 800;
+            font-size: 1.05rem;
+            padding: 16px 36px;
+            border-radius: 16px;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(121, 107, 252, 0.4);
+            transition: all 0.25s ease;
+        }
+
+        .btn-conversion-main:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 30px rgba(121, 107, 252, 0.55);
+            color: #FFFFFF;
+        }
+
+        .conversion-support-link {
+            color: #2ED9C3;
+            font-weight: 700;
+            font-size: 0.95rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+            padding: 12px 20px;
+            border-radius: 12px;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(8px);
+            transition: all 0.2s ease;
+        }
+
+        .conversion-support-link:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #FFFFFF;
+        }
+
+        /* Alex AI Chat Prompt Suggestions */
+        .chat-suggestion-chip {
+            padding: 7px 12px;
+            border-radius: 10px;
+            border: 1px solid rgba(121, 107, 252, 0.25);
+            background: rgba(121, 107, 252, 0.06);
+            color: #796BFC;
+            font-size: 12px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.2s ease;
+            text-align: left;
+        }
+        .chat-suggestion-chip:hover {
+            background: #796BFC;
+            color: #FFFFFF;
+        }
+
+        /* Mobile Strict Overflow & Typography Protection */
+        html, body {
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+        }
+
+        .product-card {
+            overflow: hidden !important;
+            position: relative;
+            max-width: 100% !important;
+        }
+
+        .card-content {
+            overflow: hidden !important;
+            position: relative;
+        }
+
+        .mobile-menu-premium {
+            max-width: 100vw !important;
+            overflow-x: hidden !important;
+        }
+
+        .mobile-menu-premium .menu-aurora-bg {
+            max-width: 100vw !important;
+            overflow: hidden !important;
+        }
+
+        @media (max-width: 768px) {
+            .hero-headline {
+                font-size: clamp(2.1rem, 8.5vw, 2.75rem) !important;
+                line-height: 1.15 !important;
+                word-break: normal !important;
+                overflow-wrap: break-word !important;
+                hyphens: none !important;
+            }
+
+            .top-bar-flex {
+                flex-direction: column !important;
+                gap: 8px !important;
+                text-align: center !important;
+            }
+
+            .top-info-group {
+                flex-wrap: wrap !important;
+                justify-content: center !important;
+                gap: 6px !important;
+            }
+
+            .nav-container {
+                padding: 8px 16px !important;
+                max-width: 100vw !important;
+            }
+
+            .conversion-banner-aurora {
+                border-radius: 24px !important;
+                padding: 60px 20px !important;
+                margin: 30px 12px 60px !important;
+            }
+        }
+    </style>
 </head>
 <body>
 
@@ -33,6 +499,7 @@
 
     <div id="toast-container"></div>
 
+    <!-- TOP HEADER BAR -->
     <div class="top-header-aurora">
         <div class="container top-bar-flex">
             
@@ -70,11 +537,12 @@
         <div class="aurora-border-glow"></div>
     </div>
 
-   <header class="site-header glass-navbar">
+    <!-- NAVBAR AURORA GLASS -->
+    <header class="site-header glass-navbar">
         <div class="container nav-container">
             
             <a href="index.html" class="brand-logo">
-                <img src="./assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros, corredora de seguros en Chile especializada en seguros para personas y empresas." class="site-logo">
+                <img src="./assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros" class="site-logo">
             </a>
 
             <nav class="nav-center desktop-only">
@@ -88,7 +556,7 @@
                             <div class="dropdown-grid">
                                 <a href="./seguros-personales/index.html" class="dd-card">
                                     <div class="icon-tile tile-blue"><i class="fa-solid fa-user"></i></div>
-                                    <div class="dd-info"><span class="dd-title">Seguros personales</span><span class="dd-desc">Auto, salud, viajes y más.</span></div>
+                                    <div class="dd-info"><span class="dd-title">Seguros personales</span><span class="dd-desc">Auto, salud, hogar y mascotas.</span></div>
                                 </a>
                                 <a href="./seguros-comerciales/index.html" class="dd-card">
                                     <div class="icon-tile tile-indigo"><i class="fa-solid fa-store"></i></div>
@@ -99,18 +567,15 @@
                     </li>
                     
                     <li><a href="#carriers" class="nav-item">Aseguradoras</a></li>
+                    <li><a href="#como-funciona" class="nav-item">Cómo contratar</a></li>
                     <li><a href="./blog/index.html" class="nav-item">Blog</a></li>
                     <li><a href="./contacto/index.html" class="nav-item">Contacto</a></li>
-
                 </ul>
             </nav>
 
             <div class="nav-actions">
-                
-
                 <span class="divider-vertical desktop-only"></span>
-
-                <a href="cotizacion/cotizacion.html" class="btn-aurora-gradient js-trigger-quote">
+                <a href="#productos" class="btn-aurora-gradient">
                     <span>Cotizar seguro</span>
                     <i class="fa-solid fa-arrow-right-long btn-icon-anim"></i>
                 </a>
@@ -125,15 +590,14 @@
             <div class="menu-aurora-bg"></div>
             
             <div class="menu-inner-container">
-                
                 <div class="menu-internal-header">
-                    <img src="./assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros, corredora de seguros en Chile especializada en seguros para personas y empresas." style="height: 30px;" loading="lazy" decoding="async">
+                    <img src="./assets/img/logo-mhm-color.png" alt="MHM Corredores de Seguros" style="height: 30px;" loading="lazy" decoding="async">
                     <button class="menu-close-btn" onclick="toggleMobileMenu()">
                         <i class="fa-solid fa-xmark"></i>
                     </button>
                 </div>
                 
-                <a href="cotizacion/cotizacion.html" class="menu-widget-card highlight-card">
+                <a href="#productos" class="menu-widget-card highlight-card" onclick="toggleMobileMenu()">
                     <div class="widget-icon"><i class="fa-solid fa-bolt"></i></div>
                     <div class="widget-info">
                         <span class="widget-title">Cotizar seguro</span>
@@ -143,11 +607,11 @@
                 </a>
 
                 <div class="menu-grid-row">
-                    <a href="./embajadores/documentos.html" class="menu-square-card">
+                    <a href="./seguros-personales/index.html" class="menu-square-card">
                         <i class="fa-solid fa-users-viewfinder" style="color: #7C3AED;"></i>
                         <span>Seguros personales</span>
                     </a>
-                    <a href="./alex-sign/index.html" class="menu-square-card">
+                    <a href="./seguros-comerciales/index.html" class="menu-square-card">
                         <i class="fa-solid fa-file-signature" style="color: #2563EB;"></i>
                         <span>Seguros comerciales</span>
                     </a>
@@ -155,1097 +619,1222 @@
 
                 <div class="menu-section-title">Seguros disponibles</div>
                 <div class="menu-links-group">
-                    <a href="./seguro-complementario-salud/index.html" class="menu-link-item">
-                        <i class="fa-solid fa-house"></i> Seguro complementario de salud
+                    <a href="./funnel-auto/index.html" class="menu-link-item">
+                        <i class="fa-solid fa-car"></i> Seguro de Auto
+                    </a>
+                    <a href="./cotizacion/cotizacion-asistencia-hogar-1.html" class="menu-link-item">
+                        <i class="fa-solid fa-house-chimney"></i> Seguro de Hogar
+                    </a>
+                    <a href="./cotizacion/cotizacion-salud-1.html" class="menu-link-item">
+                        <i class="fa-solid fa-heart-pulse"></i> Seguro de Salud
                     </a>
                     <a href="./seguro-pymes/index.html" class="menu-link-item">
-                        <i class="fa-solid fa-key"></i> Seguro Pymes
+                        <i class="fa-solid fa-store"></i> Seguro para PYMES
                     </a>
-                    <a href="./index.html#carriers" class="menu-link-item">
-                        <i class="fa-solid fa-shield-halved"></i>Asistencia de viajes
+                    <a href="./cotizacion/cotizacion-mascota-nueva-1.html" class="menu-link-item">
+                        <i class="fa-solid fa-paw"></i> Seguro para Mascotas
                     </a>
                 </div>
 
-                <div class="menu-footer">
-                    <a href="./contacto/index.html" class="menu-footer-link">Contact Support</a>
+                <div class="menu-footer-actions">
+                    <a href="./contacto/index.html" class="menu-footer-link">Contactar Soporte</a>
                     <div class="menu-socials">
                         <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="https://www.facebook.com/profile.php?id=61559262527632&amp;locale=es_LA" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
                     </div>
                 </div>
-
             </div>
         </div>
     </header>
 
     <main>
-    <section id="hero-split" class="hero-clean-section">
-        <div class="container">
-            <div class="hero-layout">
-                
-                <div class="hero-text-area">
+
+        <!-- SECCIÓN 1: HERO RENOVADO -->
+        <section id="hero-split" class="hero-clean-section">
+            <div class="container">
+                <div class="hero-layout">
                     
-                    <div class="pill-badge">
-                        <span class="pill-dot"></span> Nuevo: Cotización Smart MHM 2.0
+                    <div class="hero-text-area">
+                        <div class="pill-badge">
+                            <span class="pill-dot"></span> SEGUROS PARA PERSONAS Y EMPRESAS
+                        </div>
+
+                        <h1 class="hero-headline">
+                            Protege lo que <br>
+                            <span class="text-gradient-anim">estás construyendo.</span>
+                        </h1>
+                        
+                        <p class="hero-desc hero-desc-clean">
+                            Cotiza seguros de salud, hogar, vehículos, mascotas y PYMES de forma simple y clara. Algunos productos puedes contratarlos 100% online y, si necesitas ayuda, MHM te acompaña durante el proceso.
+                        </p>
+                        
+                        <div class="hero-cta-group">
+                            <a href="#productos" class="btn-primary-tech">
+                                <span>Encontrar mi seguro</span>
+                                <i class="fa-solid fa-arrow-right" style="margin-left: 8px;"></i>
+                            </a>
+                            
+                            <div class="rating-box">
+                                <div class="stars">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </div>
+                                <span><strong>4.9/5</strong> de más de 10 mil usuarios</span>
+                            </div>
+                        </div>
+
+                        <div class="hero-micro-text">
+                            <i class="fa-solid fa-shield-check" style="color: #10B981;"></i>
+                            <span>Cotiza online y revisa las alternativas disponibles para ti.</span>
+                        </div>
                     </div>
 
-                    <h1 class="hero-headline">
-                        Cotiza Seguros para Auto, Hogar, Salud y Empresas <br>
-                        <span class="text-gradient-anim">con MHM Corredores</span>
-                    </h1>
+                    <div class="hero-visual-area">
+                        <div class="float-card" style="z-index: 999;">
+                            <div class="icon-check"><i class="fa-solid fa-check"></i></div>
+                            <div>
+                                <strong>Póliza Activa</strong>
+                                <span>Asegurado al instante</span>
+                            </div>
+                        </div>
+                        <div class="arch-visual-col">
+                            <div class="arch-visual-wrapper">     
+                                <div class="arch-glow-back"></div>
+                                <div class="arch-glass-frame hero-carousel-frame">
+                                    <img src="./assets/img/carrusel 1.svg" alt="MHM Hero 1" class="arch-img carousel-slide active" fetchpriority="high"> 
+                                    <img src="./assets/img/carrusel 2.svg" alt="MHM Hero 2" class="arch-img carousel-slide"> 
+                                    <img src="./assets/img/carrusel 3.svg" alt="MHM Hero 3" class="arch-img carousel-slide"> 
+                                    <div class="arch-shimmer"></div>
+                                    <div class="arch-reflection"></div>
+                                </div>
+                                <div class="arch-floating-tags">
+                                    <div class="glass-tag tag-top">
+                                        <span class="status-pulse"></span>
+                                        <div>
+                                            <strong>Póliza Activa</strong>
+                                            <span>Protección Verificada</span>
+                                        </div>
+                                    </div>
+                                    <div class="glass-tag tag-bottom">
+                                        <div class="icon-flash"><i class="fa-solid fa-bolt"></i></div>
+                                        <div>
+                                            <strong>Cotización Instantánea</strong>
+                                            <span>Menos de 2 minutos</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 2: PRODUCTOS ("¿QUÉ QUIERES PROTEGER?") -->
+        <section id="productos" class="products-section">
+            <div class="container">
+
+                <div class="social-header text-center">
+                    <div class="inline-badge-premium mb-3">
+                        <span class="pulse-dot-purple"></span> ENCUENTRA TU PROTECCIÓN
+                    </div>
+                    <h2 class="headline-tech">¿Qué quieres <span class="text-gradient-anim">proteger?</span></h2>
+                    <p class="subhead-tech" style="text-align: center;">Elige una categoría y encuentra seguros pensados para tus necesidades.</p>
+                </div>
+                
+                <div class="products-grid-5">
                     
-                    <p class="hero-desc">
-                        Olvida las llamadas. Obtén tu póliza de auto en <strong>90 segundos</strong> con nuestro nuevo sistema de cotización.
+                    <!-- 1. Seguro de Auto -->
+                    <div class="product-card js-product-trigger" data-product="car">
+                        <div class="card-aurora-top"></div>
+                        <div class="card-media-area">
+                            <img src="./assets/img/maqueta/vehiculos-categoria.png" alt="Seguro de Auto" loading="lazy" decoding="async">
+                            <div class="media-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-box icon-car">
+                                <i class="fa-solid fa-car"></i>
+                            </div>
+                            <h3>Seguro de Auto</h3>
+                            <p>Protege tu vehículo frente a daños, accidentes y responsabilidad frente a terceros.</p>
+                            <div class="card-action-area">
+                                <a href="./funnel-auto/index.html" class="btn-aurora-full" style="text-decoration: none; display: flex;">
+                                    <span>Cotizar seguro de auto</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Seguro de Hogar -->
+                    <div class="product-card js-product-trigger-home" data-product="hogar">
+                        <div class="card-aurora-top"></div>
+                        <div class="card-media-area">
+                            <img src="./assets/img/maqueta/hogar-categoria.png" alt="Seguro de Hogar" loading="lazy" decoding="async">
+                            <div class="media-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-box icon-home">
+                                <i class="fa-solid fa-house-chimney"></i>
+                            </div>
+                            <h3>Seguro de Hogar</h3>
+                            <p>Protege tu hogar frente a imprevistos y accede a beneficios que también pueden acompañar el cuidado de tu salud.</p>
+                            <div class="card-action-area">
+                                <a href="./cotizacion/cotizacion-asistencia-hogar-1.html" class="btn-aurora-full" style="text-decoration: none; display: flex;">
+                                    <span>Cotizar seguro de hogar</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Seguro de Salud -->
+                    <div class="product-card js-product-trigger-renters" data-product="salud">
+                        <div class="card-aurora-top"></div>
+                        <div class="card-media-area">
+                            <img src="./assets/img/maqueta/salud-categoria.png" alt="Seguro de Salud" loading="lazy" decoding="async">
+                            <div class="media-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-box icon-renters">
+                                <i class="fa-solid fa-heart-pulse"></i>
+                            </div>
+                            <h3>Seguro de Salud</h3>
+                            <p>Complementa tu cobertura y reduce el impacto de gastos médicos para ti y tu familia.</p>
+                            <div class="card-action-area">
+                                <a href="./cotizacion/cotizacion-salud-1.html" class="btn-aurora-full" style="text-decoration: none; display: flex;">
+                                    <span>Cotizar seguro de salud</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 4. Seguro para PYMES -->
+                    <div class="product-card" data-product="pymes">
+                        <div class="card-aurora-top"></div>
+                        <div class="card-media-area">
+                            <img src="./assets/img/maqueta/pymes-categoria.png" alt="Seguro para PYMES" loading="lazy" decoding="async">
+                            <div class="media-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-box" style="background: rgba(37, 99, 235, 0.1); color: #2563EB;">
+                                <i class="fa-solid fa-store"></i>
+                            </div>
+                            <h3>Seguro para PYMES</h3>
+                            <p>Protege tu negocio, sus bienes y la continuidad de tu operación frente a distintos imprevistos.</p>
+                            <div class="card-action-area">
+                                <a href="./seguro-pymes/index.html" class="btn-aurora-full" style="text-decoration: none; display: flex;">
+                                    <span>Proteger mi negocio</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 5. Seguro para Mascotas -->
+                    <div class="product-card" data-product="mascotas">
+                        <div class="card-aurora-top"></div>
+                        <div class="card-media-area">
+                            <img src="./assets/img/maqueta/mascotas-categoria.png" alt="Seguro para Mascotas" loading="lazy" decoding="async">
+                            <div class="media-overlay"></div>
+                        </div>
+                        <div class="card-content">
+                            <div class="icon-box" style="background: rgba(46, 217, 195, 0.12); color: #0D9488;">
+                                <i class="fa-solid fa-paw"></i>
+                            </div>
+                            <h3>Seguro para Mascotas</h3>
+                            <p>Accede a protección frente a gastos veterinarios y otras prestaciones para el cuidado de tu mascota.</p>
+                            <div class="card-action-area">
+                                <a href="./cotizacion/cotizacion-mascota-nueva-1.html" class="btn-aurora-full" style="text-decoration: none; display: flex;">
+                                    <span>Proteger a mi mascota</span>
+                                    <i class="fa-solid fa-arrow-right"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 3: UNA FORMA MÁS SIMPLE DE CONTRATAR SEGUROS (STEPPER) -->
+        <section id="como-funciona" class="how-it-works-section">
+            <div class="container">
+                <div class="social-header text-center">
+                    <div class="inline-badge-premium mb-3">
+                        <span class="pulse-dot-purple"></span> PROCESO CLARO & TRANSPARENTE
+                    </div>
+                    <h2 class="headline-tech">Una forma más simple de <span class="text-gradient-anim">contratar seguros.</span></h2>
+                    <p class="subhead-tech" style="text-align: center;">Cotiza online. Contrata cuando puedas. Te ayudamos cuando lo necesites.</p>
+                </div>
+
+                <div class="steps-aurora-grid">
+                    
+                    <div class="step-aurora-card">
+                        <div>
+                            <div class="step-number-badge">1</div>
+                            <h3>Elige qué quieres proteger</h3>
+                            <p>Encuentra el seguro que necesitas según tu situación personal o empresarial.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-aurora-card">
+                        <div>
+                            <div class="step-number-badge">2</div>
+                            <h3>Cotiza y compara</h3>
+                            <p>Revisa alternativas, coberturas y condiciones disponibles en tiempo real.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-aurora-card">
+                        <div>
+                            <div class="step-number-badge">3</div>
+                            <h3>Contrata online</h3>
+                            <p>Cuando el producto lo permita, completa tu contratación directamente desde MHM.</p>
+                        </div>
+                    </div>
+
+                    <div class="step-aurora-card">
+                        <div>
+                            <div class="step-number-badge help-badge"><i class="fa-solid fa-headset"></i></div>
+                            <h3>¿Necesitas ayuda?</h3>
+                            <p>Un ejecutivo puede acompañarte durante el proceso sin interrumpir tu experiencia digital.</p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="text-center" style="margin-top: 40px;">
+                    <a href="#productos" class="btn-aurora-wide" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                        <span>Comenzar mi cotización</span>
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 4: PROPUESTA DE VALOR ("MÁS CLARIDAD. MENOS COMPLEJIDAD.") -->
+        <section class="value-props-section">
+            <div class="container">
+                <div class="social-header text-center">
+                    <div class="inline-badge-premium mb-3">
+                        <span class="pulse-dot-purple"></span> MÁS CLARIDAD. MENOS COMPLEJIDAD.
+                    </div>
+                    <h2 class="headline-tech">Elegir un seguro <span class="text-gradient-anim">debería ser más fácil.</span></h2>
+                    <p class="subhead-tech" style="text-align: center;">Diseñamos cada parte de la experiencia para darte el control absoluto de tus decisiones.</p>
+                </div>
+
+                <div class="value-props-grid">
+                    
+                    <div class="value-prop-card">
+                        <div class="value-icon-box icon-purple">
+                            <i class="fa-solid fa-scale-balanced"></i>
+                        </div>
+                        <h3>Compara alternativas</h3>
+                        <p>Revisa distintas opciones antes de decidir con comparativas claras y sin letras chicas.</p>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-icon-box icon-teal">
+                            <i class="fa-solid fa-book-open-reader"></i>
+                        </div>
+                        <h3>Entiende qué estás contratando</h3>
+                        <p>Te ayudamos a entender coberturas, límites y condiciones de manera más simple y directa.</p>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-icon-box icon-blue">
+                            <i class="fa-solid fa-mobile-screen-button"></i>
+                        </div>
+                        <h3>Compra online cuando puedas</h3>
+                        <p>Avanza de forma digital y sin presiones en los productos que lo permiten las 24 horas.</p>
+                    </div>
+
+                    <div class="value-prop-card">
+                        <div class="value-icon-box icon-magenta">
+                            <i class="fa-solid fa-user-shield"></i>
+                        </div>
+                        <h3>Recibe apoyo cuando lo necesites</h3>
+                        <p>Nuestro equipo humano de corredores certificados puede acompañarte durante tu cotización.</p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 5: ASEGURADORAS ALIADAS (INFINITE DOCK) -->
+        <section id="carriers" class="trust-dock-section">
+            <div class="social-header text-center">
+                <div class="inline-badge-premium mb-3">
+                    <span class="pulse-dot-purple"></span> TRABAJAMOS CON DISTINTAS ASEGURADORAS
+                </div>
+                <h2 class="headline-tech" style="font-size: 1.8rem; margin-top: 6px;">Más alternativas para encontrar una <span class="text-gradient-anim">protección adecuada.</span></h2>
+                <p class="subhead-tech" style="text-align: center; max-width: 680px; margin: 8px auto 0;">Trabajamos con distintas compañías para ayudarte a encontrar opciones que se ajusten mejor a lo que quieres proteger.</p>
+            </div>
+            
+            <div class="container" style="margin-top: 30px;">
+                <div class="aurora-dock">
+                    <div class="dock-gradient-top"></div>
+
+                    <div class="dock-label">
+                        <div class="status-indicator">
+                            <span class="pulse-ring"></span>
+                            <span class="dot"></span>
+                        </div>
+                        <div class="label-text">
+                            <span class="sub">Red verificada</span>
+                            <span class="main text-gradient-corp">Compañías Aliadas</span>
+                        </div>
+                    </div>
+
+                    <div class="dock-divider desktop-only"></div>
+
+                    <div class="dock-slider-area">
+                        <div class="infinite-track">
+                            <div class="tech-logo"><img src="./assets/img/logo-bci-seguros.webp" alt="BCI Seguros" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-chubb.webp" alt="Chubb" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-consorcio.webp" alt="Consorcio" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-hdi-seguros.webp" alt="HDI Seguros" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-sura.webp" alt="Sura" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-zurich.webp" alt="Zurich" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-liberty-seguros.webp" alt="Liberty Seguros" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-fid.webp" alt="FID" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-renta.webp" alt="Renta Nacional" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-continental.webp" alt="Continental" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-aspor.webp" alt="Aspor" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-unnio.webp" alt="Unnio" loading="lazy" decoding="async"></div>
+
+                            <div class="tech-logo"><img src="./assets/img/logo-bci-seguros.webp" alt="BCI Seguros" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-chubb.webp" alt="Chubb" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-consorcio.webp" alt="Consorcio" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-hdi-seguros.webp" alt="HDI Seguros" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-sura.webp" alt="Sura" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-zurich.webp" alt="Zurich" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-liberty-seguros.webp" alt="Liberty Seguros" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-fid.webp" alt="FID" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-renta.webp" alt="Renta Nacional" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-continental.webp" alt="Continental" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-aspor.webp" alt="Aspor" loading="lazy" decoding="async"></div>
+                            <div class="tech-logo"><img src="./assets/img/logo-unnio.webp" alt="Unnio" loading="lazy" decoding="async"></div>
+                        </div>
+                        
+                        <div class="dock-fade-left"></div>
+                        <div class="dock-fade-right"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 6: "SOMOS MÁS QUE ALGORITMOS" (CONSERVADA) -->
+        <section id="features" class="command-section">
+            <div class="container">
+
+                <div class="social-header text-center">
+                    <div class="inline-badge-premium mb-3">
+                        <span class="pulse-dot-purple"></span> TECNOLOGÍA & PERSONAS
+                    </div>
+                    <h2 class="headline-tech">Somos más que <span class="text-gradient-anim">algoritmos.</span></h2>
+                    <p class="subhead-tech" style="text-align: center;">
+                        Tecnología para hacerlo más simple. Personas para acompañarte.<br>
+                        Usamos IA para agilizar la cotización y facilitar la búsqueda de alternativas. Y cuando necesitas orientación, nuestro equipo está disponible para ayudarte.
                     </p>
-                    
-                    <div class="hero-cta-group">
-                        <a href="./cotizacion/cotizacion.html" class="btn-primary-tech js-trigger-quote">
-                            Cotiza tu seguro ahora
-                        </a>
-                        
-                        <div class="rating-box">
-                            <div class="stars">
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                                <i class="fa-solid fa-star"></i>
-                            </div>
-                            <span><strong>4.9/5</strong> de más de 10 mil usuarios</span>
-                        </div>
-                    </div>
                 </div>
 
-                <div class="hero-visual-area">
-                    <div class="float-card" style="z-index: 999;">
-                        <div class="icon-check"><i class="fa-solid fa-check"></i></div>
-                        <div>
-                            <strong>Póliza Activa</strong>
-                            <span>Asegurado al instante</span>
+                <div class="command-grid">
+                    
+                    <div class="cmd-card card-speed">
+                        <div class="card-aurora-border"></div>
+                        <div class="cmd-content">
+                            <div class="cmd-label"><i class="fa-solid fa-bolt"></i> Latencia</div>
+                            <div class="speed-gauge">
+                                <svg viewBox="0 0 100 50" class="gauge-svg">
+                                    <path d="M10 50 A 40 40 0 0 1 90 50" stroke="#E2E8F0" stroke-width="8" fill="none" />
+                                    <path d="M10 50 A 40 40 0 0 1 90 50" stroke="#009cff" stroke-width="8" fill="none" stroke-dasharray="126" stroke-dashoffset="10" class="gauge-fill" />
+                                </svg>
+                                <div class="gauge-value">90<span>s</span></div>
+                            </div>
+                            <h3>Ultra rápido</h3>
+                            <p>Cotizamos seguros en menos de 90 segundos con nuestro motor inteligente.</p>
                         </div>
                     </div>
-                    <div class="arch-visual-col">
-                        <div class="arch-visual-wrapper">     
-                            <div class="arch-glow-back"></div>
-                            <div class="arch-glass-frame hero-carousel-frame">
-                                <img src="./assets/img/carrusel 1.svg" alt="MHM Hero 1" class="arch-img carousel-slide active" fetchpriority="high"> 
-                                <img src="./assets/img/carrusel 2.svg" alt="MHM Hero 2" class="arch-img carousel-slide"> 
-                                <img src="./assets/img/carrusel 3.svg" alt="MHM Hero 3" class="arch-img carousel-slide"> 
-                                <div class="arch-shimmer"></div>
-                                <div class="arch-reflection"></div>
+
+                    <div class="cmd-card card-core">
+                        <div class="float-card" style="z-index: 999; position: relative;">
+                            <div class="icon-check-blue"><i class="fa-solid fa-heart"></i></div>
+                            <div>
+                                <strong>Humanos primero</strong>
+                                <span>Siempre para ti</span>
                             </div>
-                            <div class="arch-floating-tags">
-                                <div class="glass-tag tag-top">
-                                    <span class="status-pulse"></span>
-                                    <div>
-                                        <strong>Póliza Activa</strong>
-                                        <span>Protección Verificada</span>
-                                    </div>
+                        </div>
+                        <div class="card-aurora-border"></div>
+                        <div class="core-visual">
+                            <div class="data-stream">
+                                <span>0101</span><span>AI</span><span>BIND</span><span>01</span>
+                            </div>
+                        </div>
+                        
+                        <div class="core-info">
+                            <div class="chip-group">
+                                <span class="tech-tag">IA Potenciada</span>
+                                <span class="tech-tag tag-human">Verificado por humanos</span>
+                            </div>
+                            <h3>Experiencia Física-Digital</h3>
+                            <p>No elegimos entre algoritmos y personas. Usamos IA para procesar opciones y <strong>agentes de seguros autorizados</strong> para cuidar tu tranquilidad.</p>
+                        </div>
+                    </div>
+
+                    <div class="cmd-card card-custom">
+                        <div class="card-aurora-border"></div>
+                        <div class="cmd-content">
+                            <div class="cmd-label"><i class="fa-solid fa-sliders"></i> Calibración</div>
+                            <div class="eq-visual">
+                                <div class="eq-bar"><div class="eq-fill h-80"></div></div>
+                                <div class="eq-bar"><div class="eq-fill h-40"></div></div>
+                                <div class="eq-bar"><div class="eq-fill h-60"></div></div>
+                                <div class="eq-bar"><div class="eq-fill h-90"></div></div>
+                                <div class="eq-bar"><div class="eq-fill h-30"></div></div>
+                            </div>
+                            <h3>Hiper-Personalizado</h3>
+                            <p>Cobertura que se ajusta a tus necesidades reales como un guante.</p>
+                        </div>
+                    </div>
+
+                    <div class="cmd-card card-map-light">
+                        <div class="card-aurora-border"></div>
+                        <div class="global-map-container">
+                            <img src="./assets/img/world-map-dots.webp" alt="Cobertura Nacional" class="map-img-bg" loading="lazy" decoding="async">
+                            <div class="connection-point cp-1"></div>
+                            <div class="connection-point cp-2"></div>
+                            <div class="connection-point cp-3"></div>
+                            <div class="connection-point cp-4"></div>
+                            <div class="radar-scan-light"></div>
+                        </div>
+
+                        <div class="cmd-content bottom-aligned">
+                            <div class="map-header-light">
+                                <div class="live-indicator">
+                                    <span class="blink-dot"></span> RED EN VIVO
                                 </div>
-                                <div class="glass-tag tag-bottom">
-                                    <div class="icon-flash"><i class="fa-solid fa-bolt"></i></div>
-                                    <div>
-                                        <strong>Cotización Instantánea</strong>
-                                        <span>Menos de 2 minutos</span>
-                                    </div>
+                                <div class="active-count">Soporte Nacional</div>
+                            </div>
+                            <h3>Disponibilidad 24/7</h3>
+                            <p>Estamos aquí cuando nos necesites. De día o de noche en todo Chile.</p>
+                        </div>
+                    </div>
+
+                    <div class="cmd-card card-digital">
+                        <div class="card-aurora-border"></div>
+                        <div class="digital-icon-stack">
+                            <i class="fa-solid fa-file-invoice file-back"></i>
+                            <i class="fa-solid fa-mobile-screen file-front"></i>
+                            <div class="check-mark"><i class="fa-solid fa-check"></i></div>
+                        </div>
+                        <div class="cmd-content">
+                            <h3>100% Digital</h3>
+                            <p>Cero papeleo. Control total de tu póliza desde tu teléfono o computador.</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 7: INTELIGENCIA DE PRECIOS (CONSERVADA) -->
+        <section id="savings" class="savings-section-lab">
+            <div class="container">
+                
+                <div class="lab-header text-center">
+                    <div class="header-status-light">
+                        <span class="pulse-blue"></span> Análisis de Mercado en Vivo
+                    </div>
+                    <h2 class="display-title-lab">Inteligencia de precios.<span class="text-gradient-anim"></span></h2>
+                    <p class="lead-text-lab" style="text-align: center;">Descubre cómo Alex AI y MHM reestructuran la comparativa de mercado para desbloquear ahorros reales.</p>
+                </div>
+
+                <div class="pricing-lab-wrapper">
+                    
+                    <div class="data-module">
+                        <div class="module-status-bar">
+                            <span class="id-code">ID: ANTONIO-AUTO</span>
+                            <span class="status-live"><i class="fa-solid fa-circle-check"></i> OPTIMIZADO</span>
+                        </div>
+                        
+                        <div class="module-body">
+                            <div class="profile-cluster">
+                                <img src="./assets/img/Profile-antonio.webp" alt="Antonio" class="profile-avatar" loading="lazy" decoding="async">
+                                <div class="profile-meta">
+                                    <h4>Antonio M.</h4>
+                                    <span class="meta-tag">Conductor Seguro</span>
                                 </div>
+                                <div class="icon-stamp icon-blue"><i class="fa-solid fa-car"></i></div>
                             </div>
 
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="carriers" class="trust-dock-section">
-        <div class="social-header text-center">
-            <div class="inline-badge-premium mb-3">
-                <span class="pulse-dot-purple"></span> Aseguradoras de nivel top
-            </div>
-        </div>
-        <div class="container">
-            
-            <div class="aurora-dock">
-                
-                <div class="dock-gradient-top"></div>
-
-                <div class="dock-label">
-                    <div class="status-indicator">
-                        <span class="pulse-ring"></span>
-                        <span class="dot"></span>
-                    </div>
-                    <div class="label-text">
-                        <span class="sub">Red verificada</span>
-                        <span class="main text-gradient-corp">Aseguradoras aliadas</span>
-                    </div>
-                </div>
-
-                <div class="dock-divider desktop-only"></div>
-
-                <div class="dock-slider-area">
-                    <div class="infinite-track">
-                        <div class="tech-logo"><img src="./assets/img/logo-aspor.webp" alt="Aspor" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-bci-seguros.webp" alt="BCI Seguros" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-chubb.webp" alt="Chubb" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-continental.webp" alt="Continental" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-consorcio.webp" alt="Consorcio" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-fid.webp" alt="FID" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-hdi-seguros.webp" alt="HDI Seguros" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-liberty-seguros.webp" alt="Liberty Seguros" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-renta.webp" alt="Renta Nacional" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-sura.webp" alt="Sura" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-unnio.webp" alt="Unnio" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-zurich.webp" alt="Zurich" loading="lazy" decoding="async"></div>
-
-
-                        <div class="tech-logo"><img src="./assets/img/logo-aspor.webp" alt="Aspor" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-bci-seguros.webp" alt="BCI Seguros" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-chubb.webp" alt="Chubb" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-continental.webp" alt="Continental" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-consorcio.webp" alt="Consorcio" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-fid.webp" alt="FID" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-hdi-seguros.webp" alt="HDI Seguros" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-liberty-seguros.webp" alt="Liberty Seguros" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-renta.webp" alt="Renta Nacional" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-sura.webp" alt="Sura" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-unnio.webp" alt="Unnio" loading="lazy" decoding="async"></div>
-                        <div class="tech-logo"><img src="./assets/img/logo-zurich.webp" alt="Zurich" loading="lazy" decoding="async"></div>
-
-                    </div>
-                    
-                    <div class="dock-fade-left"></div>
-                    <div class="dock-fade-right"></div>
-                </div>
-
-            </div>
-            
-        </div>
-    </section>
-
-    <section id="products" class="products-section">
-        <div class="container">
-
-            <div class="social-header text-center">
-                <div class="inline-badge-premium mb-3">
-                    <span class="pulse-dot-purple"></span> Cobertura inteligente en minutos
-                </div>
-                <h2 class="headline-tech">Protege <span class="text-gradient-anim">lo más importante.</span></h2>
-                <p class="subhead-tech" style="text-align: center;">Elige un producto y obten una cotización en segundos.</p>
-            </div>
-            
-            <div class="products-grid">
-                
-                <div class="product-card js-product-trigger" data-product="car">
-                    <div class="card-aurora-top"></div>
-                    
-                    <div class="card-media-area">
-                        <img src="./assets/img/maqueta/vehiculos-categoria.png" alt="Seguro de Auto" loading="lazy" decoding="async">
-                        <div class="media-overlay"></div>
-                    </div>
-                    
-                    <div class="card-content">
-                        <div class="icon-box icon-car">
-                            <i class="fa-solid fa-car"></i>
-                        </div>
-                        
-                        <h3>Seguro de auto</h3>
-                        <p>El Seguro Automotriz, es un medio eficaz para la protección frente a las consecuencias de los riesgos, daños de un automóvil y frente a terceros.</p>
-                        
-                        <div class="card-action-area">
-                            <a href="./funnel-auto/index.html" class="btn-aurora-full" style="text-decoration: none; display: flex;">
-                                <span>¡Cotiza ahora!</span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card js-product-trigger-home" data-product="hogar">
-                    <div class="card-aurora-top"></div>
-
-                    <div class="card-media-area">
-                        <img src="./assets/img/hogar.png" alt="Asistencia de Hogar" loading="lazy" decoding="async">
-                        <div class="media-overlay"></div>
-                    </div>
-
-                    <div class="card-content">
-                        <div class="icon-box icon-home">
-                            <i class="fa-solid fa-house-chimney"></i>
-                        </div>
-
-                        <h3>Asistencia de hogar</h3>
-                        <p>Protege tu hogar frente a imprevistos y mantén la tranquilidad de tu familia con nuestra asistencia completa para daños, reparaciones y emergencias.</p>
-
-                        <div class="card-action-area">
-                            <a href="./cotizacion/cotizacion-asistencia-hogar-1.html" class="btn-aurora-full" style="text-decoration: none; display: flex;">
-                                <span>¡Cotiza ahora!</span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="product-card js-product-trigger-renters" data-product="salud">
-                    <div class="card-aurora-top"></div>
-
-                    <div class="card-media-area">
-                        <img src="./assets/img/salud.png" alt="Asistencia de Salud Integral" loading="lazy" decoding="async">
-                        <div class="media-overlay"></div>
-                    </div>
-
-                    <div class="card-content">
-                        <div class="icon-box icon-renters">
-                            <i class="fa-solid fa-heart-pulse"></i>
-                        </div>
-
-                        <h3>Asistencia de salud integral</h3>
-                        <p>Asegura tu bienestar y el de tus seres queridos con acceso rápido y confiable a telemedicina, consultas y servicios médicos de primer nivel en todo momento.</p>
-
-                        <div class="card-action-area">
-                            <a href="./cotizacion/cotizacion-salud-1.html" class="btn-aurora-full" style="text-decoration: none; display: flex;">
-                                <span>¡Cotiza ahora!</span>
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-        <section id="social" class="social-aurora-section">
-        <div class="ambient-light-social"></div>
-        
-        <div class="container position-relative z-2">
-            
-            <div class="social-header text-center">
-                <div class="inline-badge-premium mb-3">
-                    <span class="pulse-dot-purple"></span> Comunidad en vivo
-                </div>
-                <h2 class="display-title-social">¡Únete a <span class="text-gradient-corp">nuestra comunidad!</span></h2>
-                <p class="lead-text-social" style="text-align: center;">Mira cómo miles de asegurados viven la nueva experiencia con MHM Corredores. ¡Sigue la señal!</p>
-            </div>
-
-            <div class="social-hub-grid">
-                
-                <div class="main-feed-col">
-                    
-                    <div class="social-glass-card card-ig-visual">
-                        <div class="card-header-social">
-                            <div class="platform-identity">
-                                <img src="./assets/img/icon-mhm-color.jpg" alt="MHM Corredores" class="brand-avatar-sm" loading="lazy" decoding="async">
-                                <div class="handle-info">
-                                    <strong>MHM Corredores de Seguros</strong>
-                                    <span>@mhmseguros.cl • Instagram</span>
+                            <div class="comparison-chart">
+                                <div class="chart-row old-market">
+                                    <span class="bar-label">Mercado</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+                                    <span class="bar-value">$145.000</span>
+                                </div>
+                                <div class="chart-row new-alex">
+                                    <div class="bar-track"><div class="bar-fill fill-aurora" style="width: 60%;"></div></div>
+                                    <span class="bar-value aurora-text" style="font-size: 0.9rem;">$89.000</span>
                                 </div>
                             </div>
-                            <a href="https://www.instagram.com/mhmseguros.cl" target="_blank">
-                                <i class="fa-brands fa-instagram icon-ig-gradient"></i>
-                            </a>
+
+                            <div class="savings-readout">
+                                <span class="readout-label">Eficiencia Mensual</span>
+                                <span class="readout-value text-green">+$56.000 / mes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-module hero-module">
+                        <div class="module-loading-line"></div>
+                        
+                        <div class="module-status-bar">
+                            <span class="id-code">ID: ARANTXA-HOME</span>
+                            <span class="status-live"><i class="fa-solid fa-bolt"></i> MEJOR VALOR</span>
                         </div>
                         
-                        <div class="post-visual-wrapper">
-                            <img src="./assets/img/rrss-imagen-2.jfif" alt="Lifestyle Post" class="post-img" loading="lazy" decoding="async">
-                            <div class="visual-overlay-glass">
-                            <span class="trending-tag"><i class="fa-solid fa-arrow-trend-up"></i> Trending</span>
-                            </div>
-                        </div>
-                        
-                        <div class="post-caption">
-                            <p>
-                                Emprender implica esfuerzo, inversión y compromiso constante. Pero también conlleva riesgos que muchas veces no se consideran a tiempo.
-                                Un imprevisto puede afectar la operación, los ingresos e incluso la continuidad de tu negocio. Por eso, proteger tu PYME no es solo una opción, es parte de una gestión responsable. 📊
-                                #SeguroPYME #Emprendimiento #ProtecciónEmpresarial #GestiónDeRiesgos #MHMseguros
-                            </p>
-                        </div>
-                        
-                        <div class="engagement-row">
-                            <span><i class="fa-regular fa-heart"></i> 142 likes</span>
-                            <span><i class="fa-regular fa-comment"></i> 2 comments</span>
-                        </div>
-                    </div>
-
-                    <div class="social-double-row">
-                        
-                        <div class="social-glass-card card-twitter-text">
-                            <div class="card-header-social header-compact">
-                                <div class="platform-identity">
-                                    <i class="fa-brands fa-x-twitter icon-x-black"></i>
-                                    <span class="handle-compact">MHM Corredores de Seguros</span>
-                                </div>
-                                <span class="time-stamp">Abril 21, 2026</span>
-                            </div>
-                            <div class="post-caption caption-compact">
-                                <p>
-                                    Tu casa no es solo un lugar… es tu refugio, tu historia y todo lo que has construido.🏠
-                                    <br><br>
-                                    Un imprevisto puede ocurrir en cualquier momento: incendios, robos o daños inesperados pueden poner en riesgo eso que tanto te ha costado lograr. Y cuando pasa, contar con protección marca la diferencia entre perderlo todo o estar respaldado.
-                                    Proteger tu salud es proteger tu tranquilidad y la de tu familia.
-                                    <br><br>
-                                    En MHM Seguros te ayudamos a elegir la cobertura ideal para que vivas con la seguridad que mereces.
-                                    <br><br>
-                                    Cotiza hoy tu Seguro de Salud en www.mhmseguros.cl , contáctanos al +56 9 6310 4941 a al 6000 860 580.
-                                    <br><br>
-                                    #SeguroSalud #ProtecciónFamiliar #MHMseguros #TuCasaSegura #Tranquilidad    
-                                </p>
-                            </div>
-                            <div class="engagement-row row-compact">
-                                <span><i class="fa-solid fa-retweet"></i> 2</span>
-                                <span><i class="fa-regular fa-heart"></i> 82</span>
-                            </div>
-                        </div>
-
-                        <div class="social-glass-card card-linkedin-pro">
-                            <div class="card-header-social header-compact">
-                                <div class="platform-identity">
-                                    <i class="fa-brands fa-facebook" style="color: #1877F2;"></i>
-                                    <span class="handle-compact">MHM Corredores de Seguros</span>
-                                </div>
-                                <span class="time-stamp">Mayo 26, 2026</span>
-                            </div>
-                            <div class="post-caption caption-compact">
-                                <p>
-                                    📄🔍 Tener un seguro es importante… pero entender tu póliza lo es aún más.
-                                    <br><br>
-                                    Muchas personas contratan un seguro sin conocer realmente qué cubre, cuáles son sus exclusiones o cómo funciona al momento de utilizarlo ⚠️ Y ahí es donde los detalles hacen la diferencia.
-                                    <br><br>
-                                    En MHM Seguros te asesoramos para que elijas una cobertura clara, transparente y adaptada a tus necesidades 💜
-                                    <br><br>
-                                    Cotiza hoy tu Seguro de Salud en www.mhmseguros.cl , contáctanos al +56 9 6310 4941 a al 6000 860 580.
-                                    <br><br>
-                                    #Seguros #PólizaDeSeguro #MHMseguros #Protección #Tranquilidad
-                                </p>
-                            </div>
-                            <div class="mini-link-preview">
-                                <div class="preview-icon"><i class="fa-solid fa-video"></i></div>
-                                <div class="preview-text">Mira nuestros últimos videos</div>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-
-                <div class="stats-sidebar-col">
-                    
-                    <div class="community-stats-card">
-                        <div class="aurora-border-glow"></div>
-                        <h3>Alcance de nuestra comunidad</h3>
-                        
-                        <div class="stat-row-big">
-                            <span class="stat-number text-gradient-corp">1.5M+</span>
-                            <span class="stat-label">Vistas totales mensuales en nuestras redes</span>
-                        </div>
-                        
-                        <div class="divider-line-soft"></div>
-                        
-                        <div class="secondary-stats">
-                            <div class="mini-stat">
-                                <strong>4.9/5</strong>
-                                <span>Calificación de nuestra app</span>
-                            </div>
-                            <div class="mini-stat">
-                                <strong>24/7</strong>
-                                <span>Soporte activo</span>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="social-cta-box">
-                        <h4>No te quedes fuera.</h4>
-                        <p>Síguenos para obtener consejos exclusivos, actualizaciones de productos y beneficios para la comunidad.</p>
-                       <div class="follow-buttons-row">
-    
-                            <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" class="btn-social-magnet fb" aria-label="Facebook" target="_blank">
-                                <i class="fa-brands fa-facebook-f"></i>
-                            </a>
-                            
-                            <a href="https://www.instagram.com/mhmseguros.cl" class="btn-social-magnet ig" aria-label="Instagram" target="_blank">
-                                <i class="fa-brands fa-instagram"></i>
-                            </a>
-
-                            <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" class="btn-follow-main" target="_blank">
-                                <span>CONECTAR</span> <i class="fa-solid fa-plus"></i>
-                            </a>
-                            
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-    </section>
-
-    <section id="features" class="command-section">
-        <div class="container">
-
-            <div class="social-header text-center">
-                <div class="inline-badge-premium mb-3">
-                    <span class="pulse-dot-purple"></span> Sistema operativo
-                </div>
-                <h2 class="headline-tech">Somos más que <span class="text-gradient-anim">algoritmos.</span></h2>
-                <p class="subhead-tech" style="text-align: center;">Utilizamos IA para reducir costos y tiempos de espera, no la conexión humana.</p>
-            </div>
-
-
-            <div class="command-grid">
-                
-                <div class="cmd-card card-speed">
-                    <div class="card-aurora-border"></div>
-                    <div class="cmd-content">
-                        <div class="cmd-label"><i class="fa-solid fa-bolt"></i> Latencia</div>
-                        <div class="speed-gauge">
-                            <svg viewBox="0 0 100 50" class="gauge-svg">
-                                <path d="M10 50 A 40 40 0 0 1 90 50" stroke="#E2E8F0" stroke-width="8" fill="none" />
-                                <path d="M10 50 A 40 40 0 0 1 90 50" stroke="#009cff" stroke-width="8" fill="none" stroke-dasharray="126" stroke-dashoffset="10" class="gauge-fill" />
-                            </svg>
-                            <div class="gauge-value">90<span>s</span></div>
-                        </div>
-                        <h3>Ultra rápido</h3>
-                        <p>Cotizamos seguros en menos de 90 segundos.</p>
-                    </div>
-                </div>
-
-                <div class="cmd-card card-core">
-                    <div class="float-card" style="z-index: 999; position: relative;">
-                        <div class="icon-check-blue"><i class="fa-solid fa-heart"></i></div>
-                        <div>
-                            <strong>Humanos primero</strong>
-                            <span>Siempre para ti</span>
-                        </div>
-                    </div>
-                    <div class="card-aurora-border"></div>
-                    <div class="core-visual">
-                        <div class="data-stream">
-                            <span>0101</span><span>AI</span><span>BIND</span><span>01</span>
-                        </div>
-                        
-                    </div>
-                    
-                    <div class="core-info">
-                        <div class="chip-group">
-                            <span class="tech-tag">IA Potenciada</span>
-                            <span class="tech-tag tag-human">Verificado por humanos</span>
-                        </div>
-                        <h3>Experiencia Física-Digital</h3>
-                        <p>No elegimos entre algoritmos y personas. Usamos IA para manejar las matemáticas y <strong>agentes de seguros autorizados</strong> para manejar su tranquilidad.</p>
-                    </div>
-                </div>
-
-                <div class="cmd-card card-custom">
-                    <div class="card-aurora-border"></div>
-                    <div class="cmd-content">
-                        <div class="cmd-label"><i class="fa-solid fa-sliders"></i> Calibration</div>
-                        <div class="eq-visual">
-                            <div class="eq-bar"><div class="eq-fill h-80"></div></div>
-                            <div class="eq-bar"><div class="eq-fill h-40"></div></div>
-                            <div class="eq-bar"><div class="eq-fill h-60"></div></div>
-                            <div class="eq-bar"><div class="eq-fill h-90"></div></div>
-                            <div class="eq-bar"><div class="eq-fill h-30"></div></div>
-                        </div>
-                        <h3>Hiper-Personalizado</h3>
-                        <p>Cobertura que se ajusta a tu vida como un guante.</p>
-                    </div>
-                </div>
-
-                <div class="cmd-card card-map-light">
-                    <div class="card-aurora-border"></div>
-                    
-                    <div class="global-map-container">
-                        <img src="./assets/img/world-map-dots.webp" alt="Global Coverage" class="map-img-bg" loading="lazy" decoding="async">
-                        
-                        <div class="connection-point cp-1"></div>
-                        <div class="connection-point cp-2"></div>
-                        <div class="connection-point cp-3"></div>
-                        <div class="connection-point cp-4"></div>
-                        
-                        <div class="radar-scan-light"></div>
-                    </div>
-
-                    <div class="cmd-content bottom-aligned">
-                        <div class="map-header-light">
-                            <div class="live-indicator">
-                                <span class="blink-dot"></span> RED EN VIVO
-                            </div>
-                            <div class="active-count">Soporte Global</div>
-                        </div>
-                        <h3>Disponibilidad 24/7</h3>
-                        <p>Estamos aquí cuando nos necesites. De día o de noche.</p>
-                    </div>
-                </div>
-
-                <div class="cmd-card card-digital">
-                    <div class="card-aurora-border"></div>
-                    <div class="digital-icon-stack">
-                        <i class="fa-solid fa-file-invoice file-back"></i>
-                        <i class="fa-solid fa-mobile-screen file-front"></i>
-                        <div class="check-mark"><i class="fa-solid fa-check"></i></div>
-                    </div>
-                    <div class="cmd-content">
-                        <h3>100% Digital</h3>
-                        <p>Cero papeleo. Control total desde tu teléfono.</p>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="savings" class="savings-section-lab">
-        <div class="container">
-            
-            <div class="lab-header text-center">
-                <div class="header-status-light">
-                    <span class="pulse-blue"></span> Análisis de Mercado en Vivo
-                </div>
-                <h2 class="display-title-lab">Inteligencia de precios.<span class="text-gradient-anim"></span></h2>
-                <p class="lead-text-lab" style="text-align: center;">Descubre cómo Alex AI reestructura los modelos de precios para desbloquear ahorros masivos.</p>
-            </div>
-
-            <div class="pricing-lab-wrapper">
-                
-                <div class="data-module">
-                    <div class="module-status-bar">
-                        <span class="id-code">ID: ANTONIO-AUTO</span>
-                        <span class="status-live"><i class="fa-solid fa-circle-check"></i> OPTIMIZADO</span>
-                    </div>
-                    
-                    <div class="module-body">
-                        <div class="profile-cluster">
-                            <img src="./assets/img/Profile-antonio.webp" alt="Antonio" class="profile-avatar" loading="lazy" decoding="async">
-                            <div class="profile-meta">
-                                <h4>Antonio M.</h4>
-                                <span class="meta-tag">Conductor Seguro</span>
-                            </div>
-                            <div class="icon-stamp icon-blue"><i class="fa-solid fa-car"></i></div>
-                        </div>
-
-                        <div class="comparison-chart">
-                            <div class="chart-row old-market">
-                                <span class="bar-label">Mercado</span>
-                                <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
-                                <span class="bar-value">$145.000</span>
-                            </div>
-                            <div class="chart-row new-alex">
-                                <div class="bar-track"><div class="bar-fill fill-aurora" style="width: 60%;"></div></div>
-                                <span class="bar-value aurora-text" style="font-size: 0.9rem;">$89.000</span>
-                            </div>
-                        </div>
-
-                        <div class="savings-readout">
-                            <span class="readout-label">Eficiencia Mensual</span>
-                            <span class="readout-value text-green">+$56.000 / mes</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="data-module hero-module">
-                    <div class="module-loading-line"></div>
-                    
-                    <div class="module-status-bar">
-                        <span class="id-code">ID: ARANTXA-HOME</span>
-                        <span class="status-live"><i class="fa-solid fa-bolt"></i> MEJOR VALOR</span>
-                    </div>
-                    
-                    <div class="module-body">
-                        <div class="profile-cluster">
-                            <img src="./assets/img/Profile-arantxa.webp" alt="Arantxa" class="profile-avatar lg" loading="lazy" decoding="async">
-                            <div class="profile-meta">
-                                <h4>Arantxa M.</h4>
-                                <span class="meta-tag">Salud Inteligente</span>
-                            </div>
-                            <div class="icon-stamp icon-indigo"><i class="fa-solid fa-house-chimney"></i></div>
-                        </div>
-
-                        <div class="price-synthesis-light">
-                            <div class="legacy-price">
-                                <span>Tradicional</span>
-                                <strong style="font-size: 1rem;">$1.200.000</strong>
-                            </div>
-                            <div class="arrow-transform"><i class="fa-solid fa-arrow-right"></i></div>
-                            <div class="alex-price" style="text-align: left;">
-                                <span>Tarifa MHM</span>
-                                <strong class="aurora-text-lg" style="font-size: 1.8rem; margin-left: 5px;">$850.000<small>/año</small></strong>
-                            </div>
-                        </div>
-
-                        <div class="savings-readout highlight-green">
-                            <span class="readout-label">Ahorro Total Anual</span>
-                            <span class="readout-value">Ahorra $350.000 / año</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="data-module">
-                    <div class="module-status-bar">
-                        <span class="id-code">ID: JENNY-RENT</span>
-                        <span class="status-live"><i class="fa-solid fa-circle-check"></i> OPTIMIZADO</span>
-                    </div>
-                    
-                    <div class="module-body">
-                        <div class="profile-cluster">
-                            <img src="./assets/img/Profile-jenny.png" alt="Jenny" class="profile-avatar" loading="lazy" decoding="async">
-                            <div class="profile-meta">
-                                <h4>Jenny R.</h4>
-                                <span class="meta-tag">Empaquetado</span>
-                            </div>
-                            <div class="icon-stamp icon-purple"><i class="fa-solid fa-key"></i></div>
-                        </div>
-
-                        <div class="comparison-chart">
-                            <div class="chart-row old-market">
-                                <span class="bar-label">Mercado</span>
-                                <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
-                                <span class="bar-value" >$28.000</span>
-                            </div>
-                            <div class="chart-row new-alex">
-                                <div class="bar-track"><div class="bar-fill fill-aurora" style="width: 45%;"></div></div>
-                                <span class="bar-value aurora-text" style="font-size: 0.9rem;">$12.000</span>
-                            </div>
-                        </div>
-
-                        <div class="savings-readout">
-                            <span class="readout-label">Eficiencia Mensual</span>
-                            <span class="readout-value text-green">+$16.000 / mes</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-            <div class="lab-footer text-center">
-                <a href="./cotizacion/cotizacion-salud-1.html">
-                    <button class="btn-aurora-wide">
-                        Haz mi análisis <i class="fa-solid fa-angle-right"></i>
-                    </button>
-                </a>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="app" class="app-marketing-section">
-        <div class="container">
-            <div class="app-showcase-wrapper">
-                
-                <div class="app-text-content">
-                    <div class="social-header text-center">
-                        <div class="inline-badge-premium mb-3">
-                            <span class="pulse-dot-purple"></span> App Móvil
-                        </div>
-                        <h2 class="display-title-app">Seguros que se adaptan a <span class="text-gradient-corp">tu vida.</span></h2>
-                        <p class="lead-text-app" style="text-align: center;">Olvídate del papeleo. Gestiona tu póliza, presenta reclamos en segundos y cobra más rápido, todo desde tu bolsillo.</p>
-                    </div>
-                    
-                    <div class="benefit-visual-list">
-                        
-                        <div class="benefit-item">
-                            <div class="benefit-icon-box box-blue">
-                                <i class="fa-solid fa-bolt-lightning"></i>
-                            </div>
-                            <div class="benefit-details">
-                                <strong>Solicita Cambios en tu Póliza</strong>
-                                <p>Agrega un vehículo, conductor o cobertura fácilmente.</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon-box box-purple">
-                                <i class="fa-solid fa-user-shield"></i>
-                            </div>
-                            <div class="benefit-details">
-                                <strong>Asesoría Experta</strong>
-                                <p>Chatea con humanos expertos 24/7.</p>
-                            </div>
-                        </div>
-
-                        <div class="benefit-item">
-                            <div class="benefit-icon-box box-cyan">
-                                <i class="fa-solid fa-sliders"></i>
-                            </div>
-                            <div class="benefit-details">
-                                <strong>Control Total</strong>
-                                <p>Ajusta la cobertura al instante.</p>
-                            </div>
-                        </div>
-
-                    </div>
-
-                    <div class="store-btn-group">
-                        <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
-                            <button class="btn-store-unified">
-                                <i class="fa-brands fa-apple"></i>
-                                <div class="btn-text-col">
-                                    <span>Download on the</span>
-                                    <strong>App Store</strong>
-                                </div>
-                            </button>
-                        </a>
-                        <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share&pli=1" target="_blank">
-                            <button class="btn-store-unified">
-                                <i class="fa-brands fa-google-play"></i>
-                                <div class="btn-text-col">
-                                    <span>Get it on</span>
-                                    <strong>Google Play</strong>
-                                </div>
-                            </button>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="app-visual-marketing">
-                    
-                    <div class="phone-core-video">
-                        <div class="phone-aura-clean"></div>
-                        
-                        <div class="phone-chassis-premium organic-box position-relative" id="smartVideoContainer">
-                            
-                            <video class="js-hover-video app-screen-video" loop playsinline id="marketingVideo">
-                                <source src="./assets/videos/video-mhm-1.mp4" type="video/mp4">
-                            </video>
-
-                            <div class="video-overlay">
-                                
-                                <div class="corporate-cta-button shimmer-btn">
-                                    <div class="cta-icon">
-                                        <svg viewBox="0 0 24 24" fill="currentColor">
-                                            <path d="M8 5v14l11-7z"/>
-                                        </svg>
-                                    </div>
-                                    <div class="cta-text-group">
-                                        <span class="cta-main-text">Míralo en acción</span>
-                                        <span class="cta-sub-text desktop-only">Oprime para ver</span>
-                                        <span class="cta-sub-text mobile-only">Oprime para ver</span>
-                                    </div>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="marketing-card card-payout">
-                        <div class="icon-circle-marketing icon-green"><i class="fa-solid fa-file-signature"></i></div>
-                        <div class="marketing-info">
-                            <strong class="benefit-title">Mi póliza en minutos</strong>
-                            <span class="benefit-desc">Documentos enviados directamente.</span>
-                        </div>
-                    </div>
-
-                    <div class="marketing-card card-help">
-                        <div class="agent-stack-marketing">
-                            <img src="./assets/img/Profile-stephanie.webp" alt="Agent" class="avatar-marketing" loading="lazy" decoding="async">
-                            <span class="online-dot-marketing"></span>
-                        </div>
-                        <div class="marketing-info">
-                            <strong class="benefit-title">Estamos aquí 24/7</strong>
-                            <span class="benefit-desc">Ayuda real, al instante.</span>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="reviews" class="reviews-aurora-section">
-        <div class="aurora-mesh-bg"></div>
-        
-        <div class="container position-relative z-2">
-            
-            <div class="reviews-header text-center">
-                <div class="rating-pill">
-                    <span class="score-val">4.9/5</span>
-                    <div class="stars-mini">
-                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                    </div>
-                    <span class="score-label">Promedio de Calificación de Clientes</span>
-                </div>
-                
-                <h2 class="display-title-reviews">El mundo moderno <span class="text-gradient-corp">pone su confianza en nosotros.</span></h2>
-                <p class="lead-text-reviews" style="text-align: center;">Únete a más de 1.000 asegurados que se cambiaron a MHM Corredores por la rapidez, y se quedaron por el servicio.</p>
-            </div>
-
-            <div class="glass-reviews-grid">
-                
-                <div class="review-glass-card card-featured-glass">
-                    <div class="card-glow-border"></div>
-                    <div class="card-glass-content">
-                        <div class="review-meta">
-                            <div class="user-info">
-                                <img src="./assets/img/Profile-arantxa.webp" alt="Arantxa" class="avatar-glow" loading="lazy" decoding="async">
-                                <div>
+                        <div class="module-body">
+                            <div class="profile-cluster">
+                                <img src="./assets/img/Profile-arantxa.webp" alt="Arantxa" class="profile-avatar lg" loading="lazy" decoding="async">
+                                <div class="profile-meta">
                                     <h4>Arantxa M.</h4>
-                                    <span class="verified-tag"><i class="fa-solid fa-certificate"></i> Asegurada Verificada</span>
+                                    <span class="meta-tag">Hogar & Salud</span>
+                                </div>
+                                <div class="icon-stamp icon-indigo"><i class="fa-solid fa-house-chimney"></i></div>
+                            </div>
+
+                            <div class="price-synthesis-light">
+                                <div class="legacy-price">
+                                    <span>Tradicional</span>
+                                    <strong style="font-size: 1rem;">$1.200.000</strong>
+                                </div>
+                                <div class="arrow-transform"><i class="fa-solid fa-arrow-right"></i></div>
+                                <div class="alex-price" style="text-align: left;">
+                                    <span>Tarifa MHM</span>
+                                    <strong class="aurora-text-lg" style="font-size: 1.8rem; margin-left: 5px;">$850.000<small>/año</small></strong>
                                 </div>
                             </div>
-                            <div class="quote-mark-aurora"><i class="fa-solid fa-quote-right"></i></div>
+
+                            <div class="savings-readout highlight-green">
+                                <span class="readout-label">Ahorro Total Anual</span>
+                                <span class="readout-value">Ahorra $350.000 / año</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="data-module">
+                        <div class="module-status-bar">
+                            <span class="id-code">ID: JENNY-RENT</span>
+                            <span class="status-live"><i class="fa-solid fa-circle-check"></i> OPTIMIZADO</span>
+                        </div>
+                        
+                        <div class="module-body">
+                            <div class="profile-cluster">
+                                <img src="./assets/img/Profile-jenny.png" alt="Jenny" class="profile-avatar" loading="lazy" decoding="async">
+                                <div class="profile-meta">
+                                    <h4>Jenny R.</h4>
+                                    <span class="meta-tag">Arrendataria</span>
+                                </div>
+                                <div class="icon-stamp icon-purple"><i class="fa-solid fa-key"></i></div>
+                            </div>
+
+                            <div class="comparison-chart">
+                                <div class="chart-row old-market">
+                                    <span class="bar-label">Mercado</span>
+                                    <div class="bar-track"><div class="bar-fill" style="width: 100%;"></div></div>
+                                    <span class="bar-value">$28.000</span>
+                                </div>
+                                <div class="chart-row new-alex">
+                                    <div class="bar-track"><div class="bar-fill fill-aurora" style="width: 45%;"></div></div>
+                                    <span class="bar-value aurora-text" style="font-size: 0.9rem;">$12.000</span>
+                                </div>
+                            </div>
+
+                            <div class="savings-readout">
+                                <span class="readout-label">Eficiencia Mensual</span>
+                                <span class="readout-value text-green">+$16.000 / mes</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="lab-footer text-center">
+                    <a href="#productos" class="btn-aurora-wide" style="text-decoration: none; display: inline-flex; align-items: center; justify-content: center; gap: 8px;">
+                        <span>Haz mi análisis de seguro</span>
+                        <i class="fa-solid fa-angle-right"></i>
+                    </a>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN 8: APP MÓVIL MHM (CONSERVADA) -->
+        <section id="app" class="app-marketing-section">
+            <div class="container">
+                <div class="app-showcase-wrapper">
+                    
+                    <div class="app-text-content">
+                        <div class="social-header text-center">
+                            <div class="inline-badge-premium mb-3">
+                                <span class="pulse-dot-purple"></span> App Móvil
+                            </div>
+                            <h2 class="display-title-app">Seguros que se adaptan a <span class="text-gradient-corp">tu vida.</span></h2>
+                            <p class="lead-text-app" style="text-align: center;">Olvídate del papeleo. Gestiona tu póliza, presenta reclamos en segundos y cobra más rápido, todo desde tu bolsillo.</p>
+                        </div>
+                        
+                        <div class="benefit-visual-list">
+                            <div class="benefit-item">
+                                <div class="benefit-icon-box box-blue">
+                                    <i class="fa-solid fa-bolt-lightning"></i>
+                                </div>
+                                <div class="benefit-details">
+                                    <strong>Solicita Cambios en tu Póliza</strong>
+                                    <p>Agrega un vehículo, conductor o cobertura fácilmente.</p>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item">
+                                <div class="benefit-icon-box box-purple">
+                                    <i class="fa-solid fa-user-shield"></i>
+                                </div>
+                                <div class="benefit-details">
+                                    <strong>Asesoría Experta</strong>
+                                    <p>Chatea con humanos expertos 24/7.</p>
+                                </div>
+                            </div>
+
+                            <div class="benefit-item">
+                                <div class="benefit-icon-box box-cyan">
+                                    <i class="fa-solid fa-sliders"></i>
+                                </div>
+                                <div class="benefit-details">
+                                    <strong>Control Total</strong>
+                                    <p>Ajusta la cobertura al instante desde tu teléfono.</p>
+                                </div>
+                            </div>
                         </div>
 
-                        <div class="aurora-stars">
+                        <div class="store-btn-group">
+                            <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
+                                <button class="btn-store-unified">
+                                    <i class="fa-brands fa-apple"></i>
+                                    <div class="btn-text-col">
+                                        <span>Download on the</span>
+                                        <strong>App Store</strong>
+                                    </div>
+                                </button>
+                            </a>
+                            <a href="https://play.google.com/store/apps/details?id=cloud.alexai.movil&pcampaignid=web_share&pli=1" target="_blank">
+                                <button class="btn-store-unified">
+                                    <i class="fa-brands fa-google-play"></i>
+                                    <div class="btn-text-col">
+                                        <span>Get it on</span>
+                                        <strong>Google Play</strong>
+                                    </div>
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="app-visual-marketing">
+                        <div class="phone-core-video">
+                            <div class="phone-aura-clean"></div>
+                            
+                            <div class="phone-chassis-premium organic-box position-relative" id="smartVideoContainer">
+                                <video class="js-hover-video app-screen-video" loop playsinline id="marketingVideo">
+                                    <source src="./assets/videos/video-mhm-1.mp4" type="video/mp4">
+                                </video>
+
+                                <div class="video-overlay">
+                                    <div class="corporate-cta-button shimmer-btn">
+                                        <div class="cta-icon">
+                                            <svg viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M8 5v14l11-7z"/>
+                                            </svg>
+                                        </div>
+                                        <div class="cta-text-group">
+                                            <span class="cta-main-text">Míralo en acción</span>
+                                            <span class="cta-sub-text">Oprime para ver</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="marketing-card card-payout">
+                            <div class="icon-circle-marketing icon-green"><i class="fa-solid fa-file-signature"></i></div>
+                            <div class="marketing-info">
+                                <strong class="benefit-title">Mi póliza en minutos</strong>
+                                <span class="benefit-desc">Documentos enviados directamente.</span>
+                            </div>
+                        </div>
+
+                        <div class="marketing-card card-help">
+                            <div class="agent-stack-marketing">
+                                <img src="./assets/img/Profile-stephanie.webp" alt="Agent" class="avatar-marketing" loading="lazy" decoding="async">
+                                <span class="online-dot-marketing"></span>
+                            </div>
+                            <div class="marketing-info">
+                                <strong class="benefit-title">Estamos aquí 24/7</strong>
+                                <span class="benefit-desc">Ayuda real, al instante.</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 9: REVIEWS Y TESTIMONIOS (CONSERVADA) -->
+        <section id="reviews" class="reviews-aurora-section">
+            <div class="aurora-mesh-bg"></div>
+            
+            <div class="container position-relative z-2">
+                <div class="reviews-header text-center">
+                    <div class="rating-pill">
+                        <span class="score-val">4.9/5</span>
+                        <div class="stars-mini">
                             <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
                         </div>
-
-                        <h3 class="quote-headline">"Ahorré $450.000 en 10 minutos."</h3>
-                        <p class="quote-body">
-                            "Dudaba de una compañía de seguros con IA, pero el proceso fue impecable. Alex igualó mi cobertura anterior al instante y redujo significativamente el precio. La app es espectacular."
-                        </p>
+                        <span class="score-label">Promedio de Calificación de Clientes</span>
                     </div>
+                    
+                    <h2 class="display-title-reviews">El mundo moderno <span class="text-gradient-corp">pone su confianza en nosotros.</span></h2>
+                    <p class="lead-text-reviews" style="text-align: center;">Únete a más de 10.000 asegurados que se cambiaron a MHM Corredores por la rapidez, y se quedaron por el servicio.</p>
                 </div>
 
-                <div class="reviews-column-right">
+                <div class="glass-reviews-grid">
                     
-                    <div class="review-glass-card">
+                    <div class="review-glass-card card-featured-glass">
+                        <div class="card-glow-border"></div>
                         <div class="card-glass-content">
-                            <div class="review-meta-compact">
-                                <img src="./assets/img/Profile-veronica.webp" alt="Jessica" class="avatar-sm" loading="lazy" decoding="async">
-                                <div class="meta-text">
-                                    <h4>Veronica F.</h4>
-                                    <span>Paquete de Auto y Casa</span>
+                            <div class="review-meta">
+                                <div class="user-info">
+                                    <img src="./assets/img/Profile-arantxa.webp" alt="Arantxa" class="avatar-glow" loading="lazy" decoding="async">
+                                    <div>
+                                        <h4>Arantxa M.</h4>
+                                        <span class="verified-tag"><i class="fa-solid fa-certificate"></i> Asegurada Verificada</span>
+                                    </div>
                                 </div>
-                                <div class="aurora-stars-sm ms-auto">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
+                                <div class="quote-mark-aurora"><i class="fa-solid fa-quote-right"></i></div>
                             </div>
-                            <p class="quote-body-sm">
-                                "Por fin, un seguro que no se siente como de los años 90. El proceso de reclamación fue increíblemente rápido, dinero en mi cuenta el mismo día."
+
+                            <div class="aurora-stars">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+
+                            <h3 class="quote-headline">"Ahorré $450.000 en 10 minutos."</h3>
+                            <p class="quote-body">
+                                "Dudaba de una corredora digital, pero el proceso fue impecable. Alex y el equipo de MHM igualaron mi cobertura anterior al instante y redujeron significativamente el precio. La app y la atención son espectaculares."
                             </p>
                         </div>
                     </div>
 
-                    <div class="review-glass-card">
-                        <div class="card-glass-content">
-                            <div class="review-meta-compact">
-                                <img src="./assets/img/Profile-oscar.png" alt="David" class="avatar-sm" loading="lazy" decoding="async">
-                                <div class="meta-text">
-                                    <h4>Oscar G.</h4>
-                                    <span>Seguro de Arrendatario</span>
-                                </div>
-                                <div class="aurora-stars-sm ms-auto">
-                                    <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                                </div>
-                            </div>
-                            <p class="quote-body-sm">
-                                "Necesitaba un certificado de seguro para mi arrendador urgentemente un domingo. MHM Corredores lo generó al instante. Me salvó."
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
-        </div>
-    </section>
-
-    <section id="blog" class="blog-magazine-section">
-        <div class="container">
-            
-            <div class="magazine-header">
-                <div>
-                    <div class="social-header text-center">
-                        <div class="inline-badge-premium mb-3">
-                            <span class="pulse-dot-purple"></span> Base de Conocimiento
-                        </div>
-                    </div>
-                    <h2 class="display-title-mag">Consejos inteligentes para vivir mejor y seguros.</h2>
-                </div>
-                
-                <a href="./blog/index.html" class="btn-view-aurora">
-                    <span>Ver blog completo</span> <i class="fa-solid fa-arrow-right-long"></i>
-                </a>
-            </div>
-
-            <div class="magazine-grid">
-                
-                <div class="featured-column">
-                    <article class="hero-card">
-                        <div class="hero-image-wrapper">
-                            <img src="./assets/img/article-12.webp" alt="Auto Insurance" class="hero-img" loading="lazy" decoding="async">
-                            <div class="hero-overlay-gradient"></div>
-                            <span class="aurora-badge-lg">
-                                <i class="fa-solid fa-car-side"></i> Seguro de Auto
-                            </span>
-                        </div>
-
-                        <div class="hero-content-glass">
-                            <div class="meta-row-light">
-                                <span><i class="fa-regular fa-calendar"></i> 28 de Julio, 2025</span>
-                                <span class="dot-light">•</span>
-                                <span>5 min de lectura</span>
-                            </div>
-                            
-                            <a href="./5-mitos-comunes-sobre-el-seguro-de-auto-que-debes-saber/index.html" class="hero-title-link">
-                                <h3>5 mitos comunes sobre el seguro de auto que debes conocer.</h3>
-                            </a>
-                            
-                            <p class="hero-excerpt">El mundo del seguro de auto involucra variables complejas. Con el paso de los años, varios mitos han sido ampliamente aceptados como hechos, lo que lleva a una cobertura ineficiente y a gastos innecesarios.</p>
-                            
-                            <a href="./5-mitos-comunes-sobre-el-seguro-de-auto-que-debes-saber/index.html" class="btn-hero-action">
-                                Ver artículo completo <i class="fa-solid fa-circle-arrow-right"></i>
-                            </a>
-                        </div>
-                    </article>
-                </div>
-
-                <div class="side-column">
-                    
-                    <article class="side-card">
-                        <div class="side-img-box">
-                            <img src="./assets/img/article-11.webp" alt="Tecnología" class="side-img" loading="lazy" decoding="async">
-                        </div>
-                        <div class="side-content">
-                            <span class="category-text text-purple">Tecnología</span>
-                            <a href="./como-la-ia-esta-revolucionando-la-industria-de-los-seguros/index.html" class="side-title-link">
-                                <h4>Cómo la IA está revolucionando la industria de seguros.</h4>
-                            </a>
-                            <div class="meta-side">
-                                <span>22 de Julio, 2025</span> • <span>4 min de lectura</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="side-card">
-                        <div class="side-img-box">
-                            <img src="./assets/img/article-10.webp" alt="Arrendatario" class="side-img" loading="lazy" decoding="async">
-                        </div>
-                        <div class="side-content">
-                            <span class="category-text text-cyan">Arrendatario</span>
-                            <a href="./guia-para-principiantes-que-cubre-el-seguro-de-inquilinos/index.html" class="side-title-link">
-                                <h4>Una guía para principiantes: ¿qué cubre el seguro de arrendatario?</h4>
-                            </a>
-                            <div class="meta-side">
-                                <span>15 de Julio, 2025</span> • <span>6 min de lectura</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="side-card">
-                        <div class="side-img-box">
-                            <img src="./assets/img/article-9.webp" alt="Finanzas" class="side-img" loading="lazy" decoding="async">
-                        </div>
-                        <div class="side-content">
-                            <span class="category-text text-blue">Finanzas</span>
-                            <a href="./cuanto-seguro-de-vida-necesitas-realmente/index.html" class="side-title-link">
-                                <h4>¿Cuánta cobertura de seguro de vida realmente necesitas?</h4>
-                            </a>
-                            <div class="meta-side">
-                                <span>10 de Julio, 2025</span> • <span>5 min de lectura</span>
-                            </div>
-                        </div>
-                    </article>
-
-                    <div class="newsletter-vip-card">
-                        <div class="vip-bg-mesh"></div>
+                    <div class="reviews-column-right">
                         
-                        <div class="vip-content">
-                            <div class="vip-header">
-                                <div class="icon-sparkle-box">
-                                    <i class="fa-solid fa-wand-magic-sparkles"></i>
+                        <div class="review-glass-card">
+                            <div class="card-glass-content">
+                                <div class="review-meta-compact">
+                                    <img src="./assets/img/Profile-veronica.webp" alt="Veronica" class="avatar-sm" loading="lazy" decoding="async">
+                                    <div class="meta-text">
+                                        <h4>Veronica F.</h4>
+                                        <span>Seguro de Auto y Casa</span>
+                                    </div>
+                                    <div class="aurora-stars-sm ms-auto">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
                                 </div>
-                                <div class="vip-text">
-                                    <h4>Obtén inteligencia semanal</h4>
-                                    <p>Únete a más de <strong>50.000 titulares de pólizas</strong> que reciben consejos exclusivos para reducir primas.</p>
+                                <p class="quote-body-sm">
+                                    "Por fin, un seguro que no se siente como de los años 90. El proceso de asistencia fue increíblemente rápido, con apoyo humano en todo momento."
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="review-glass-card">
+                            <div class="card-glass-content">
+                                <div class="review-meta-compact">
+                                    <img src="./assets/img/Profile-oscar.png" alt="Oscar" class="avatar-sm" loading="lazy" decoding="async">
+                                    <div class="meta-text">
+                                        <h4>Oscar G.</h4>
+                                        <span>Seguro de Hogar</span>
+                                    </div>
+                                    <div class="aurora-stars-sm ms-auto">
+                                        <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                                    </div>
+                                </div>
+                                <p class="quote-body-sm">
+                                    "Necesitaba certificar mi póliza urgentemente un fin de semana. MHM Corredores lo gestionó al instante sin trabas. Excelente servicio."
+                                </p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN 10: ¡ÚNETE A NUESTRA COMUNIDAD! (REUBICADA MÁS ABAJO) -->
+        <section id="social" class="social-aurora-section">
+            <div class="ambient-light-social"></div>
+            
+            <div class="container position-relative z-2">
+                <div class="social-header text-center">
+                    <div class="inline-badge-premium mb-3">
+                        <span class="pulse-dot-purple"></span> COMUNIDAD EN VIVO
+                    </div>
+                    <h2 class="display-title-social">¡Únete a <span class="text-gradient-corp">nuestra comunidad!</span></h2>
+                    <p class="lead-text-social" style="text-align: center;">Mira cómo miles de asegurados viven la nueva experiencia con MHM Corredores. ¡Sigue la señal!</p>
+                </div>
+
+                <div class="social-hub-grid">
+                    
+                    <div class="main-feed-col">
+                        <div class="social-glass-card card-ig-visual">
+                            <div class="card-header-social">
+                                <div class="platform-identity">
+                                    <img src="./assets/img/icon-mhm-color.jpg" alt="MHM Corredores" class="brand-avatar-sm" loading="lazy" decoding="async">
+                                    <div class="handle-info">
+                                        <strong>MHM Corredores de Seguros</strong>
+                                        <span>@mhmseguros.cl • Instagram</span>
+                                    </div>
+                                </div>
+                                <a href="https://www.instagram.com/mhmseguros.cl" target="_blank">
+                                    <i class="fa-brands fa-instagram icon-ig-gradient"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="post-visual-wrapper">
+                                <img src="./assets/img/rrss-imagen-2.jfif" alt="Post Comunidad MHM" class="post-img" loading="lazy" decoding="async">
+                                <div class="visual-overlay-glass">
+                                    <span class="trending-tag"><i class="fa-solid fa-arrow-trend-up"></i> Trending</span>
+                                </div>
+                            </div>
+                            
+                            <div class="post-caption">
+                                <p>
+                                    Emprender implica esfuerzo, inversión y compromiso constante. Pero también conlleva riesgos que muchas veces no se consideran a tiempo. Proteger tu PYME no es solo una opción, es parte de una gestión responsable. 📊 #SeguroPYME #MHMseguros
+                                </p>
+                            </div>
+                            
+                            <div class="engagement-row">
+                                <span><i class="fa-regular fa-heart"></i> 142 likes</span>
+                                <span><i class="fa-regular fa-comment"></i> 2 comments</span>
+                            </div>
+                        </div>
+
+                        <div class="social-double-row">
+                            <div class="social-glass-card card-twitter-text">
+                                <div class="card-header-social header-compact">
+                                    <div class="platform-identity">
+                                        <i class="fa-brands fa-x-twitter icon-x-black"></i>
+                                        <span class="handle-compact">MHM Corredores de Seguros</span>
+                                    </div>
+                                    <span class="time-stamp">Abril 2026</span>
+                                </div>
+                                <div class="post-caption caption-compact">
+                                    <p>
+                                        Tu hogar no es solo un lugar… es tu refugio, tu historia y todo lo que has construido. En MHM Corredores te ayudamos a elegir la cobertura ideal para vivir con la seguridad que mereces. 🏠 #SeguroHogar #Tranquilidad
+                                    </p>
+                                </div>
+                                <div class="engagement-row row-compact">
+                                    <span><i class="fa-solid fa-retweet"></i> 12</span>
+                                    <span><i class="fa-regular fa-heart"></i> 82</span>
                                 </div>
                             </div>
 
-                            <form class="vip-form" id="vip-form" novalidate>
-                                <div class="input-pill-wrapper">
-                                    <input type="email" id="vip-email" placeholder="Tu correo electrónico" class="vip-input">
-                                    
-                                    <button type="submit" class="btn-vip-submit">
-                                        Únete gratis
-                                    </button>
+                            <div class="social-glass-card card-linkedin-pro">
+                                <div class="card-header-social header-compact">
+                                    <div class="platform-identity">
+                                        <i class="fa-brands fa-facebook" style="color: #1877F2;"></i>
+                                        <span class="handle-compact">MHM Corredores de Seguros</span>
+                                    </div>
+                                    <span class="time-stamp">Mayo 2026</span>
                                 </div>
-                            </form>
+                                <div class="post-caption caption-compact">
+                                    <p>
+                                        📄🔍 Tener un seguro es importante… pero entender tu póliza lo es aún más. En MHM te asesoramos para que elijas una cobertura clara, transparente y adaptada a tus necesidades.
+                                    </p>
+                                </div>
+                                <div class="mini-link-preview">
+                                    <div class="preview-icon"><i class="fa-solid fa-video"></i></div>
+                                    <div class="preview-text">Mira nuestros últimos videos explicativos</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-                            <div class="trust-footer">
-                                <span><i class="fa-solid fa-lock"></i> No spam. Desuscríbete en cualquier momento.</span>
+                    <div class="stats-sidebar-col">
+                        <div class="community-stats-card">
+                            <div class="aurora-border-glow"></div>
+                            <h3>Alcance de nuestra comunidad</h3>
+                            
+                            <div class="stat-row-big">
+                                <span class="stat-number text-gradient-corp">1.5M+</span>
+                                <span class="stat-label">Vistas totales mensuales en nuestras redes</span>
+                            </div>
+                            
+                            <div class="divider-line-soft"></div>
+                            
+                            <div class="secondary-stats">
+                                <div class="mini-stat">
+                                    <strong>4.9/5</strong>
+                                    <span>Calificación de nuestros clientes</span>
+                                </div>
+                                <div class="mini-stat">
+                                    <strong>24/7</strong>
+                                    <span>Soporte activo</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="social-cta-box">
+                            <h4>No te quedes fuera.</h4>
+                            <p>Síguenos para obtener consejos exclusivos, actualizaciones y beneficios para la comunidad.</p>
+                            <div class="follow-buttons-row">
+                                <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" class="btn-social-magnet fb" aria-label="Facebook" target="_blank">
+                                    <i class="fa-brands fa-facebook-f"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mhmseguros.cl" class="btn-social-magnet ig" aria-label="Instagram" target="_blank">
+                                    <i class="fa-brands fa-instagram"></i>
+                                </a>
+                                <a href="https://www.instagram.com/mhmseguros.cl" class="btn-follow-main" target="_blank">
+                                    <span>CONECTAR</span> <i class="fa-solid fa-plus"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
 
                 </div>
-
             </div>
-        </div>
-    </section>
+        </section>
 
-    <section id="faq" class="faq-aurora-section">
-        <div class="container">
-            <div class="faq-grid-layout">
+        <!-- SECCIÓN 11: MHM EXPLICA & BLOG (ENTIENDE ANTES DE ELEGIR) -->
+        <section id="blog" class="explica-section">
+            <div class="container">
                 
-                <div class="faq-sidebar">
-                    <div class="lab-header text-center">
-                        <div class="header-status-light">
-                            <span class="pulse-blue"></span>FAQ
+                <div class="social-header text-center">
+                    <div class="inline-badge-premium mb-3">
+                        <span class="pulse-dot-purple"></span> MHM EXPLICA
+                    </div>
+                    <h2 class="headline-tech">Entiende antes de <span class="text-gradient-anim">elegir.</span></h2>
+                    <p class="subhead-tech" style="text-align: center;">Contenido simple para ayudarte a comprender coberturas, deducibles, condiciones y conceptos importantes antes de contratar.</p>
+                </div>
+
+                <div class="explica-cards-grid">
+                    
+                    <div class="explica-card">
+                        <div>
+                            <div class="explica-icon-head">🛡️</div>
+                            <h3>Coberturas</h3>
+                            <p>Qué cubre un seguro, por qué importa y cómo identificar los límites asegurados para no pagar de más ni quedar desprotegido.</p>
                         </div>
-                        <h2 class="display-title-lab">Preguntas <span class="text-gradient-anim">Frecuentes.</span></h2>
-                        <p class="lead-text-faq" style="text-align: center;">Todo lo que necesitas saber sobre el ecosistema MHM Corredores, protocolos de cobertura y seguridad.</p>
+                        <a href="./blog/index.html" class="explica-link">
+                            <span>Ver guías de coberturas</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
                     </div>
 
-                    <div class="support-glass-card">
-                        <div class="icon-support-glow"><i class="fa-solid fa-headset"></i></div>
-                        <div class="support-text">
-                            <strong>¿Aún tienes preguntas?</strong>
-                            <p>Nuestro equipo de expertos está en línea.</p>
+                    <div class="explica-card">
+                        <div>
+                            <div class="explica-icon-head">⚖️</div>
+                            <h3>Deducibles</h3>
+                            <p>Cómo funcionan en la práctica, cuándo conviene un deducible 0 UF versus uno mayor y cómo impactan tu prima mensual.</p>
                         </div>
-                        <a href="./contacto/index.html">
-                            <button class="btn-chat-support">Chatea con nosotros</button>
+                        <a href="./entender-tu-deducible-una-guia-sencilla/index.html" class="explica-link">
+                            <span>Entender deducibles</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="explica-card">
+                        <div>
+                            <div class="explica-icon-head">📋</div>
+                            <h3>Condiciones</h3>
+                            <p>Qué revisar en tu póliza antes de contratar: exclusiones, períodos de carencia y vigencias de forma clara y sin tecnicismos.</p>
+                        </div>
+                        <a href="./blog/index.html" class="explica-link">
+                            <span>Revisar condiciones clave</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+
+                </div>
+
+                <!-- ARTÍCULOS DESTACADOS DEL BLOG -->
+                <div class="magazine-grid" style="margin-top: 50px;">
+                    <div class="featured-column">
+                        <article class="hero-card">
+                            <div class="hero-image-wrapper">
+                                <img src="./assets/img/article-12.webp" alt="Seguro de Auto Mitos" class="hero-img" loading="lazy" decoding="async">
+                                <div class="hero-overlay-gradient"></div>
+                                <span class="aurora-badge-lg">
+                                    <i class="fa-solid fa-car-side"></i> Seguro de Auto
+                                </span>
+                            </div>
+
+                            <div class="hero-content-glass">
+                                <div class="meta-row-light">
+                                    <span><i class="fa-regular fa-calendar"></i> Actualizado 2026</span>
+                                    <span class="dot-light">•</span>
+                                    <span>5 min de lectura</span>
+                                </div>
+                                <a href="./5-mitos-comunes-sobre-el-seguro-de-auto-que-debes-saber/index.html" class="hero-title-link">
+                                    <h3>5 mitos comunes sobre el seguro de auto que debes conocer.</h3>
+                                </a>
+                                <p class="hero-excerpt">Con el paso de los años, varios mitos sobre deducibles y coberturas han sido aceptados como ciertos, lo que genera gastos innecesarios.</p>
+                                <a href="./5-mitos-comunes-sobre-el-seguro-de-auto-que-debes-saber/index.html" class="btn-hero-action">
+                                    Ver artículo completo <i class="fa-solid fa-circle-arrow-right"></i>
+                                </a>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="side-column">
+                        <article class="side-card">
+                            <div class="side-img-box">
+                                <img src="./assets/img/article-11.webp" alt="IA y Seguros" class="side-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="side-content">
+                                <span class="category-text text-purple">Tecnología</span>
+                                <a href="./como-la-ia-esta-revolucionando-la-industria-de-los-seguros/index.html" class="side-title-link">
+                                    <h4>Cómo la IA está revolucionando la industria de seguros.</h4>
+                                </a>
+                                <div class="meta-side"><span>Lectura 4 min</span></div>
+                            </div>
+                        </article>
+
+                        <article class="side-card">
+                            <div class="side-img-box">
+                                <img src="./assets/img/article-10.webp" alt="Seguro Inquilinos" class="side-img" loading="lazy" decoding="async">
+                            </div>
+                            <div class="side-content">
+                                <span class="category-text text-cyan">Hogar e Inquilinos</span>
+                                <a href="./guia-para-principiantes-que-cubre-el-seguro-de-inquilinos/index.html" class="side-title-link">
+                                    <h4>Guía para arrendatarios: ¿qué cubre el seguro de hogar?</h4>
+                                </a>
+                                <div class="meta-side"><span>Lectura 6 min</span></div>
+                            </div>
+                        </article>
+
+                        <div class="text-center" style="margin-top: 10px;">
+                            <a href="./blog/index.html" class="btn-view-aurora" style="width: 100%; justify-content: center;">
+                                <span>Ver todos los contenidos del blog</span> <i class="fa-solid fa-arrow-right-long"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECCIÓN 12: PREGUNTAS FRECUENTES (FAQ OFICIAL MHM) -->
+        <section id="faq" class="faq-aurora-section">
+            <div class="container">
+                <div class="faq-grid-layout">
+                    
+                    <div class="faq-sidebar">
+                        <div class="lab-header text-center">
+                            <div class="header-status-light">
+                                <span class="pulse-blue"></span>FAQ MHM
+                            </div>
+                            <h2 class="display-title-lab">Preguntas <span class="text-gradient-anim">Frecuentes.</span></h2>
+                            <p class="lead-text-faq" style="text-align: center;">Respuestas claras para tomar las mejores decisiones de aseguramiento.</p>
+                        </div>
+
+                        <div class="support-glass-card">
+                            <div class="icon-support-glow"><i class="fa-solid fa-headset"></i></div>
+                            <div class="support-text">
+                                <strong>¿Necesitas orientación?</strong>
+                                <p>Un corredor especialista de MHM te acompaña sin costo.</p>
+                            </div>
+                            <a href="./contacto/index.html">
+                                <button class="btn-chat-support" type="button">Hablar con un asesor</button>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="faq-content-column">
+                        
+                        <div class="faq-item active">
+                            <div class="faq-question">
+                                <h3>¿Puedo contratar un seguro completamente online?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Sí. Varios de nuestros productos (como salud, hogar, auto y mascotas) permiten completar <strong>todo el proceso de contratación online</strong> desde nuestra plataforma. En otros casos más específicos o corporativos, un ejecutivo de MHM te asistirá para finalizar la gestión.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Necesito hablar con un ejecutivo para contratar?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>No necesariamente.</strong> Puedes avanzar de forma digital y autónoma cuando el producto lo permita. Sin embargo, si en cualquier momento tienes dudas o prefieres asesoría humana, nuestro equipo está listo para acompañarte sin interrumpir tu experiencia.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Puedo comparar distintas alternativas de aseguradoras?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p><strong>Sí, absolutamente.</strong> Como corredores independientes supervisados por la CMF, trabajamos con las principales aseguradoras de Chile (BCI, Chubb, Consorcio, HDI, Sura, Zurich, entre otras) para presentarte opciones competitivas frente a frente.</p>
+                            </div>
+                        </div>
+
+                        <div class="faq-item">
+                            <div class="faq-question">
+                                <h3>¿Qué pasa si no sé qué seguro necesito?</h3>
+                                <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
+                            </div>
+                            <div class="faq-answer">
+                                <p>Puedes comenzar en nuestra sección <strong>"¿Qué quieres proteger?"</strong> seleccionando tu prioridad (familia, hogar, vehículo, mascota o PYME) o escribirle a nuestro asistente <strong>Alex AI</strong> para que te recomiende alternativas según tu situación.</p>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECCIÓN 13: BANNER FINAL DE CONVERSIÓN -->
+        <div class="container">
+            <section class="conversion-banner-aurora">
+                <div class="conversion-banner-mesh"></div>
+                <div class="conversion-banner-inner">
+                    <h2>Empieza por lo que quieres proteger.</h2>
+                    <p>Encuentra una alternativa para tu salud, hogar, vehículo, mascota o negocio y comienza tu cotización online en menos de 90 segundos.</p>
+                    
+                    <div class="conversion-cta-row">
+                        <a href="#productos" class="btn-conversion-main">
+                            <span>Encontrar mi seguro</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="./contacto/index.html" class="conversion-support-link">
+                            <i class="fa-solid fa-headset"></i>
+                            <span>¿Necesitas ayuda? Un ejecutivo te acompaña</span>
                         </a>
                     </div>
                 </div>
-
-                <div class="faq-content-column">
-                    
-                    <div class="faq-item active"> <div class="faq-question">
-                            <h3>¿Cómo funciona el seguro?</h3>
-                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
-                        </div>
-                        <div class="faq-answer">
-                            <p>El seguro te protege financieramente ante el riesgo de perder un bien que te sería difícil de reponer. Puedes asegurar el bien que más trabajo te costó o lo que más aprecias, que represente para ti un gran valor y que difícilmente podrías restituir con tus propios recursos.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>¿Qué es una póliza?</h3>
-                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Es lo que entendemos comúnmente como un “seguro”. Se trata del contrato que adquiere un usuario con una compañía, mediante el cual una persona o un bien, quedan cubiertos ante determinados incidentes.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>¿Cómo lo activo?</h3>
-                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Es un seguro voluntario que sirve para cubrir los gastos asociados a los daños materiales que puedan afectar al vehículo del asegurado y/o a terceras personas. Puedes contratar con menor o más deducible.</p>
-                        </div>
-                    </div>
-
-                    <div class="faq-item">
-                        <div class="faq-question">
-                            <h3>¿Cuánto es el tiempo de permanencia?</h3>
-                            <div class="faq-toggle"><i class="fa-solid fa-plus"></i></div>
-                        </div>
-                        <div class="faq-answer">
-                            <p>Las vigencias de las pólizas son anuales, el asegurado podrá dar término a la vigencia de la póliza informando a la compañía, otorgando los motivos por el cual desea dar término anticipado.</p>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
+            </section>
         </div>
-    </section>
 
     </main>
 
+    <!-- FOOTER AURORA (FULL BLEED) -->
     <footer class="footer-aurora">
         <div class="footer-light-mesh"></div>
 
@@ -1254,27 +1843,26 @@
                 
                 <div class="footer-col brand-col">
                     <a href="./index.html" class="footer-logo">
-                        <img src="./assets/img/logo-mhm-blanco.png" alt="MHM Corredores de Seguros, corredora de seguros en Chile especializada en seguros para personas y empresas." class="footer-logo-img" loading="lazy" decoding="async">
+                        <img src="./assets/img/logo-mhm-blanco.png" alt="MHM Corredores de Seguros" class="footer-logo-img" loading="lazy" decoding="async">
                     </a>
                     <p class="footer-tagline">
-                        Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades que mejorarán tu vida de forma accesible, dinámica y eficiente.
+                        Te ofrecemos el seguro ideal para ti. Somos tu intermediario de confianza y nos enfocamos en resolver todas tus necesidades de forma accesible, dinámica y eficiente.
                     </p>
                     <div class="footer-social-mini">
                         <a href="https://www.facebook.com/profile.php?id=61559262527632&locale=es_LA" target="_blank"><i class="fa-brands fa-facebook"></i></a>
                         <a href="https://www.instagram.com/mhmseguros.cl" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-
                     </div>
                 </div>
 
                 <div class="footer-col">
                     <h4 class="footer-heading">Productos</h4>
                     <ul class="footer-links">
-                        <li><a href="./cotizacion/cotizacion-1.html">Seguros de auto</a></li>
+                        <li><a href="./funnel-auto/index.html">Seguros de auto</a></li>
                         <li><a href="./cotizacion/cotizacion-salud-1.html">Vida y salud</a></li>
                         <li><a href="./cotizacion/cotizacion-asistencia-hogar-1.html">Seguros de hogar</a></li>
                         <li><a href="./cotizacion/cotizacion-mascota-nueva-1.html">Seguros para mascotas</a></li>
                         <li><a href="./seguro-pymes/index.html">Seguro Pymes</a></li>
-                        <li><a href="./cotizacion/cotizacion.html">Otros seguros</a></li>
+                        <li><a href="./cotizacion/cotizacion.html">Todos los seguros</a></li>
                     </ul>
                 </div>
 
@@ -1282,15 +1870,13 @@
                     <h4 class="footer-heading">Compañía</h4>
                     <ul class="footer-links">
                         <li><a href="https://www.instagram.com/mhmseguros.cl" target="_blank">Sobre nosotros</a></li>
-                        <li><a href="./blog/index.html">Blog</a></li>
+                        <li><a href="./blog/index.html">Blog & Contenidos</a></li>
                         <li><a href="./contacto/index.html">Contactar con soporte</a></li>
-
                     </ul>
                 </div>
 
                 <div class="footer-col contact-col">
                     <h4 class="footer-heading">Contacto y Acceso</h4>
-                    
                     <ul class="contact-list">
                         <li>
                             <i class="fa-solid fa-phone"></i> 
@@ -1301,7 +1887,6 @@
                             <a href="mailto:info@mhmseguros.cl">info@mhmseguros.cl</a>
                         </li>
                     </ul>
-                    
                     <div class="footer-app-buttons">
                         <a href="https://apps.apple.com/us/app/alex-ai-insurtech-app/id6752793999" target="_blank">
                             <button class="btn-footer-store">
@@ -1342,7 +1927,56 @@
         </div>
     </footer>
 
+    <!-- ALEX AI ASSISTANT FLOTANTE (CON LOS COPYS DE LA PROPUESTA) -->
+    <div id="floating-chat-container">
+        <div class="alex-chat-window" id="chatWindow">
+            <div class="chat-header">
+                <div class="agent-info">
+                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
+                    <div class="agent-text">
+                        <span class="name">Alex AI · MHM Asistente</span>
+                        <span class="status">Respuesta inmediata</span>
+                    </div>
+                </div>
+                <button class="close-chat-btn js-close-chat" aria-label="Cerrar"><i class="fa-solid fa-xmark"></i></button>
+            </div>
+            
+            <div class="chat-body">
+                <div class="chat-timestamp">Hoy en MHM</div>
+                
+                <div class="msg-row bot">
+                    <div class="msg-bubble">
+                        ¡Hola! 👋 Soy Alex, el asistente de MHM Corredores.<br><br>
+                        Puedo ayudarte a encontrar un seguro, entender una cobertura o acompañarte durante tu cotización. ¿En qué te puedo apoyar hoy?
+                    </div>
+                </div>
+                
+                <div class="chat-suggestions" style="display: flex; flex-direction: column; gap: 6px; margin-top: 10px;">
+                    <a href="#productos" onclick="closeChat()" class="chat-suggestion-chip" style="text-decoration: none;">
+                        <i class="fa-solid fa-bolt"></i> Quiero cotizar
+                    </a>
+                    <a href="./entender-tu-deducible-una-guia-sencilla/index.html" class="chat-suggestion-chip" style="text-decoration: none;">
+                        <i class="fa-solid fa-circle-question"></i> Tengo una duda sobre coberturas
+                    </a>
+                    <a href="./contacto/index.html" class="chat-suggestion-chip" style="text-decoration: none;">
+                        <i class="fa-solid fa-headset"></i> Necesito ayuda de un asesor
+                    </a>
+                </div>
+            </div>
+            
+            <div class="chat-footer">
+                <input type="text" placeholder="Escribe tu consulta aquí..." class="chat-input">
+                <button class="send-btn" aria-label="Enviar"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
 
+        <button class="chat-avatar-btn js-trigger-chat" aria-label="Hablar con Alex AI">
+            <i class="fa-solid fa-comment-dots"></i>
+            <span class="online-badge"></span>
+        </button>
+    </div>
+
+    <!-- MEGA MENÚ FLOTANTE -->
     <div id="floating-menu-container">
         <div class="nav-command-center" id="megaMenu">
             <div class="cmd-header">
@@ -1354,21 +1988,21 @@
                     <div class="cmd-icon"><i class="fa-solid fa-car"></i></div>
                     <span>Seguro de Auto</span>
                 </a>
-                <a href="./seguro-complementario-salud/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-notes-medical"></i></div>
-                    <span>Seguro complementario de salud</span>
+                <a href="./cotizacion/cotizacion-asistencia-hogar-1.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-house-chimney"></i></div>
+                    <span>Seguro de Hogar</span>
+                </a>
+                <a href="./cotizacion/cotizacion-salud-1.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-heart-pulse"></i></div>
+                    <span>Seguro de Salud</span>
                 </a>
                 <a href="./seguro-pymes/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-building"></i></div>
-                    <span>Seguro Pymes</span>
+                    <div class="cmd-icon"><i class="fa-solid fa-store"></i></div>
+                    <span>Seguro PYMES</span>
                 </a>
-                <a href="./productos/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-layer-group"></i></div>
-                    <span>Más productos</span>
-                </a>
-                <a href="./blog/index.html" class="cmd-card">
-                    <div class="cmd-icon"><i class="fa-solid fa-newspaper"></i></div>
-                    <span>Blog</span>
+                <a href="./cotizacion/cotizacion-mascota-nueva-1.html" class="cmd-card">
+                    <div class="cmd-icon"><i class="fa-solid fa-paw"></i></div>
+                    <span>Seguro Mascotas</span>
                 </a>
                 <a href="./contacto/index.html" class="cmd-card">
                     <div class="cmd-icon"><i class="fa-solid fa-headset"></i></div>
@@ -1376,58 +2010,16 @@
                 </a>
             </div>
             <div class="cmd-footer">
-                <a href="./index.html">Back to Home <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="./index.html">Volver al Inicio <i class="fa-solid fa-arrow-right"></i></a>
             </div>
         </div>
-        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Open menu">
+        <button class="floating-menu-btn js-toggle-mega-menu" aria-label="Abrir menú rápido">
             <i class="fa-regular fa-compass"></i>
         </button>
     </div>
 
-    <div id="floating-chat-container">
-        <div class="alex-chat-window" id="chatWindow">
-            <div class="chat-header">
-                <div class="agent-info">
-                    <div class="agent-avatar"><i class="fa-solid fa-robot"></i><div class="status-dot"></div></div>
-                    <div class="agent-text">
-                        <span class="name">Alex AI Assistant</span>
-                        <span class="status">Reply time: Instant</span>
-                    </div>
-                </div>
-                <button class="close-chat-btn js-close-chat"><i class="fa-solid fa-xmark"></i></button>
-            </div>
-            
-            <div class="chat-body">
-                <div class="chat-timestamp">Today, 5:00 PM</div>
-                
-                <div class="msg-row bot">
-                    <div class="msg-bubble">
-                        Hello! I see you're looking at quotes. Do you have any questions about the <strong>Collision Deductible</strong>? 🚗
-                    </div>
-                </div>
-                
-                <div class="chat-suggestions">
-                    <button>Explain Deductibles</button>
-                    <button>Talk to Human</button>
-                </div>
-            </div>
-            
-            <div class="chat-footer">
-                <input type="text" placeholder="Type your question..." class="chat-input">
-                <button class="send-btn"><i class="fa-solid fa-paper-plane"></i></button>
-            </div>
-        </div>
-
-        <button class="chat-avatar-btn js-trigger-chat" aria-label="Chat with support">
-            <i class="fa-solid fa-comment-dots"></i>
-            <span class="online-badge"></span>
-        </button>
-    </div>
-
-    
-    <script src="./js/script.js?v=1785403170"></script>
-    <script src="./js/script-quote.js?v=1785403170"></script>
-
+    <script src="./js/script.js?v=1789287000"></script>
+    <script src="./js/script-quote.js?v=1789287000"></script>
 
 </body>
 </html>

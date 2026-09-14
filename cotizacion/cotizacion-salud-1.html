@@ -445,7 +445,8 @@
                     </div>
                     <div class="compareDockActions">
                         <button type="button" class="btn-view-compare" onclick="openCompareModal()">
-                            <span>Ver comparativa frente a frente</span>
+                            <span class="compare-btn-text-desktop">Ver comparativa frente a frente</span>
+                            <span class="compare-btn-text-mobile">Comparar</span>
                             <i class="fa-solid fa-arrow-right"></i>
                         </button>
                         <button type="button" class="btn-clear-compare" onclick="clearComparison()" title="Limpiar comparación">
@@ -988,9 +989,9 @@
 
             if (selectedForCompare.size > 0) {
                 dock.classList.add('visible');
-                text.innerText = selectedForCompare.size === 1 
-                    ? '1 plan seleccionado para comparar' 
-                    : '2 planes seleccionados para comparar';
+                const count = selectedForCompare.size;
+                const isPlural = count > 1;
+                text.innerHTML = `<span class="dock-full-text">${count} ${isPlural ? 'planes seleccionados para comparar' : 'plan seleccionado para comparar'}</span><span class="dock-short-text">${count} ${isPlural ? 'seleccionados' : 'seleccionado'}</span>`;
             } else {
                 dock.classList.remove('visible');
             }
@@ -1491,6 +1492,17 @@
             <span class="compareModalTag">COMPARATIVA EXCLUSIVA</span>
             <h3>MAPFRE AP Salud: Individual vs Familiar</h3>
             <p>Compara directamente las coberturas, asistencias y tarifas para decidir con total claridad.</p>
+        </div>
+        <!-- Rotate Hint for Mobile Experience -->
+        <div class="compare-rotate-hint">
+            <div class="rotate-hint-icon">
+                <i class="fa-solid fa-mobile-screen"></i>
+            </div>
+            <div class="rotate-hint-content">
+                <span class="rotate-hint-badge"><i class="fa-solid fa-arrows-rotate"></i> Modo recomendado</span>
+                <strong>¿Quieres comparar con más comodidad?</strong>
+                Para una mejor experiencia pon el celular o activa la opción de ver en horizontal.
+            </div>
         </div>
         <div class="compareModalTableWrapper" id="compareTableContent">
             <!-- Dynamic table rendered here -->
