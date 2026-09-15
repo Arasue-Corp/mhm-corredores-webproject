@@ -441,7 +441,7 @@
                 <div class="compareDockInner">
                     <div class="compareDockInfo">
                         <i class="fa-solid fa-code-compare"></i>
-                        <span id="compareDockText">2 planes seleccionados para comparar</span>
+                        <span id="compareDockText">0 planes seleccionados para comparar</span>
                     </div>
                     <div class="compareDockActions">
                         <button type="button" class="btn-view-compare" onclick="openCompareModal()">
@@ -557,7 +557,7 @@
                 {
                     id: 'mapfre-individual',
                     planType: 'individual',
-                    tier: 'PLAN 100% INDIVIDUAL',
+                    tier: 'INDIVIDUAL ESENCIAL',
                     badgeSub: 'Para 1 Persona (Titular)',
                     bandTheme: 'band-individual',
                     capitalUF: '100 UF',
@@ -567,8 +567,8 @@
                     title: 'MAPFRE AP Salud Individual (100 UF)',
                     subtitle: 'Producto Individual (1 persona)',
                     match: isFamily ? 74 : 96,
-                    bestMatchBadge: isFamily ? null : 'MEJOR COINCIDENCIA PARA TI',
-                    isRecommended: !isFamily,
+                    bestMatchBadge: isFamily ? null : 'MÁS ECONÓMICO',
+                    isRecommended: !isFamily && currentFilterPriority !== 'cover',
                     lead: 'Diseñado exclusivamente para la protección médica y urgencias de 1 persona independiente.',
                     priceMonth: '$6.990/mes',
                     priceYear: '$83.880 anual',
@@ -599,9 +599,97 @@
                     ]
                 },
                 {
+                    id: 'mapfre-individual-500',
+                    planType: 'individual',
+                    tier: 'INDIVIDUAL PRO',
+                    badgeSub: 'Para 1 Persona (Titular)',
+                    bandTheme: 'band-individual-plus',
+                    capitalUF: '500 UF',
+                    capitalLabel: 'Capital muerte accidental',
+                    capitalValue: 500,
+                    insurer: 'MAPFRE · SEGURO INDIVIDUAL · AP + SALUD',
+                    title: 'MAPFRE AP Salud Individual (500 UF)',
+                    subtitle: 'Producto Individual (1 persona)',
+                    match: isFamily ? 78 : 98,
+                    bestMatchBadge: isFamily ? null : 'MEJOR PROTECCIÓN INDIVIDUAL',
+                    isRecommended: !isFamily && currentFilterPriority === 'cover',
+                    lead: 'Máxima cobertura médica y accidentes para 1 persona independiente con capital ampliado.',
+                    priceMonth: '$8.990/mes',
+                    priceYear: '$107.880 anual',
+                    rawPrice: '8990',
+                    quickBenefits: [
+                        'Cobertura individual con 500 UF de respaldo',
+                        'Hasta 5 UF en urgencias por evento',
+                        'Consultas y exámenes con mayor bonificación',
+                        'Telemedicina ilimitada 24/7 con especialistas'
+                    ],
+                    coberturas: [
+                        'Capital por muerte accidental: 500 UF',
+                        'Hasta 5 UF en urgencias médicas por evento',
+                        'Consultas médicas y exámenes ambulatorios ampliados',
+                        'Invalidez total y permanente por accidente: 500 UF'
+                    ],
+                    adicionales: [
+                        'Telemedicina 24/7 (Medicina general y nutrición)',
+                        'Descuento en farmacias con despacho preferente',
+                        'Orientación telefónica médica y psicológica continua',
+                        'Asistencia dental ampliada de urgencia'
+                    ],
+                    exclusiones: [
+                        'Exclusivo para el titular asegurado (no admite cargas adicionales).',
+                        'Edades de ingreso: 18 a 64 años con permanencia hasta los 70.',
+                        'Aplican carencias y topes por evento según póliza.',
+                        'No reemplaza el sistema previsional Fonasa o Isapre.'
+                    ]
+                },
+                {
+                    id: 'mapfre-familiar-100',
+                    planType: 'familiar',
+                    tier: 'FAMILIAR ESENCIAL',
+                    badgeSub: 'Titular + Cónyuge + Hijos',
+                    bandTheme: 'band-familiar-esencial',
+                    capitalUF: '100 UF',
+                    capitalLabel: 'Capital muerte accidental',
+                    capitalValue: 100,
+                    insurer: 'MAPFRE · SEGURO FAMILIAR · AP + SALUD',
+                    title: 'MAPFRE AP Salud Familiar (100 UF)',
+                    subtitle: 'Producto Familiar (Titular + Cargas)',
+                    match: isFamily ? 92 : 82,
+                    bestMatchBadge: isFamily ? 'FAMILIAR ECONÓMICO' : null,
+                    isRecommended: isFamily && currentFilterPriority !== 'cover',
+                    lead: 'Protección médica y accidentes para todo el grupo familiar a un valor mensual accesible.',
+                    priceMonth: '$7.990/mes',
+                    priceYear: '$95.880 anual',
+                    rawPrice: '7990',
+                    quickBenefits: [
+                        'Cubre titular + cónyuge + hijos asegurados',
+                        'Hasta 3 UF en urgencias por evento',
+                        'Consultas y exámenes para todo el grupo',
+                        'Telemedicina familiar 24/7 sin copago'
+                    ],
+                    coberturas: [
+                        'Capital por muerte accidental: 100 UF',
+                        'Hasta 3 UF en urgencias médicas por evento',
+                        'Consultas y exámenes para titular y cargas familiares',
+                        'Invalidez total y permanente por accidente: 100 UF'
+                    ],
+                    adicionales: [
+                        'Telemedicina 24/7 (Medicina general + Pediatría básica)',
+                        'Beneficio en farmacias Cruz Verde / Salcobrand',
+                        'Orientación médica y pediátrica 24/7',
+                        'Asistencia dental de urgencia familiar'
+                    ],
+                    exclusiones: [
+                        'Cubre titular, cónyuge/conviviente civil e hijos hasta 24 años estudiantes.',
+                        'Edades de ingreso: 18 a 64 años para adultos, hijos desde 14 días.',
+                        'Aplican carencias y topes por evento según póliza.',
+                        'No reemplaza el sistema previsional Fonasa o Isapre.'
+                    ]
+                },
+                {
                     id: 'mapfre-familiar',
                     planType: 'familiar',
-                    tier: 'PLAN FAMILIAR COMPLETO',
+                    tier: 'FAMILIAR COMPLETO',
                     badgeSub: 'Titular + Cónyuge + Hijos',
                     bandTheme: 'band-familiar',
                     capitalUF: '500 UF',
@@ -612,8 +700,8 @@
                     subtitle: 'Producto Familiar (Titular + Cargas)',
                     match: isFamily ? 98 : 86,
                     bestMatchBadge: isFamily ? 'MEJOR COINCIDENCIA FAMILIAR' : null,
-                    isRecommended: isFamily,
-                    lead: 'Protección médica integral ampliada para el titular y todo su grupo familiar (cónyuge e hijos).',
+                    isRecommended: isFamily && currentFilterPriority === 'cover',
+                    lead: 'Protección médica integral ampliada para el titular y todo su grupo familiar con máximo capital.',
                     priceMonth: '$9.990/mes',
                     priceYear: '$119.880 anual',
                     rawPrice: '9990',
@@ -847,7 +935,15 @@
                                 </div>
                             </div>
 
-                            <h3 class="planTitle">${p.title}</h3>
+                            <div class="planTitleRow">
+                                <div class="planTitleGroup">
+                                    <h3 class="planTitle">${p.title}</h3>
+                                </div>
+                                <div class="cardFacePrice">
+                                    <div class="cardFacePriceValue">${p.priceMonth}</div>
+                                    <span class="cardFacePricePeriod">UF mensual</span>
+                                </div>
+                            </div>
                             <p class="planLead">${p.lead}</p>
 
                             <div class="healthBenefitsGrid">
@@ -1008,49 +1104,41 @@
             const container = document.getElementById('compareTableContent');
             if (!modal || !container) return;
 
+            const allPlans = getMapfrePlans();
+            let plansToCompare = allPlans.filter(p => selectedForCompare.has(p.id));
+            if (plansToCompare.length < 2) {
+                // If fewer than 2 selected, compare Individual 100 UF vs Familiar 500 UF as benchmark
+                plansToCompare = [
+                    allPlans.find(p => p.id === 'mapfre-individual') || allPlans[0],
+                    allPlans.find(p => p.id === 'mapfre-familiar') || allPlans[3]
+                ];
+            }
+
             const totalMembers = 1 + (profile.partner ? 1 : 0) + (profile.children || 0);
-            const isFamily = totalMembers > 1;
 
             container.innerHTML = `
             <!-- Top Product Cards in Comparator -->
-            <div class="compareHeroCardsGrid">
-                <div class="compareHeroCard card-ind-hero">
-                    <div class="compareHeroCardHead">
-                        <div class="heroCardLogo">
-                            <img src="../assets/img/maqueta/ally-mapfre.png" alt="MAPFRE">
+            <div class="compareHeroCardsGrid" style="grid-template-columns: repeat(${plansToCompare.length}, minmax(0, 1fr));">
+                ${plansToCompare.map(p => `
+                    <div class="compareHeroCard ${p.planType === 'individual' ? 'card-ind-hero' : 'card-fam-hero'}">
+                        <div class="compareHeroCardHead">
+                            <div class="heroCardLogo">
+                                <img src="../assets/img/maqueta/ally-mapfre.png" alt="MAPFRE">
+                            </div>
+                            <span class="heroCardTierBadge">${p.tier}</span>
                         </div>
-                        <span class="heroCardTierBadge">PLAN 100% INDIVIDUAL</span>
-                    </div>
-                    <h4 class="heroCardTitle">MAPFRE AP Salud Individual 100 UF</h4>
-                    <div class="heroCardPrice">
-                        <strong>$6.990</strong> <span>/ mes</span>
-                        <small style="color: #64748B; margin-left: 8px;">($83.880/año)</small>
-                    </div>
-                    <p style="font-size: 12px; color: #64748B; margin: 0;">Para 1 titular independiente (sin cargas familiares).</p>
-                    <button type="button" class="btn-contratar-action" style="width: 100%; margin-top: 8px; font-size: 13px; padding: 10px 18px;" onclick="closeCompareModal(); contratarPlan('mapfre-individual');">
-                        <span>Contratar Individual</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
-
-                <div class="compareHeroCard card-fam-hero">
-                    <div class="compareHeroCardHead">
-                        <div class="heroCardLogo">
-                            <img src="../assets/img/maqueta/ally-mapfre.png" alt="MAPFRE">
+                        <h4 class="heroCardTitle">${p.title}</h4>
+                        <div class="heroCardPrice">
+                            <strong>${p.priceMonth.split('/')[0]}</strong> <span>/ mes</span>
+                            <small style="color: #64748B; margin-left: 8px;">(${p.priceYear})</small>
                         </div>
-                        <span class="heroCardTierBadge">PLAN FAMILIAR COMPLETO</span>
+                        <p style="font-size: 12px; color: #64748B; margin: 0;">${p.badgeSub}.</p>
+                        <button type="button" class="btn-contratar-action" style="width: 100%; margin-top: 8px; font-size: 13px; padding: 10px 18px;" onclick="closeCompareModal(); contratarPlan('${p.id}');">
+                            <span>Contratar Plan</span>
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </button>
                     </div>
-                    <h4 class="heroCardTitle">MAPFRE AP Salud Familiar 500 UF</h4>
-                    <div class="heroCardPrice">
-                        <strong>$9.990</strong> <span>/ mes</span>
-                        <small style="color: #64748B; margin-left: 8px;">($119.880/año)</small>
-                    </div>
-                    <p style="font-size: 12px; color: #64748B; margin: 0;">Para titular + cónyuge/conviviente + hijos hasta 24 años.</p>
-                    <button type="button" class="btn-contratar-action" style="width: 100%; margin-top: 8px; font-size: 13px; padding: 10px 18px;" onclick="closeCompareModal(); contratarPlan('mapfre-familiar');">
-                        <span>Contratar Familiar</span>
-                        <i class="fa-solid fa-arrow-right"></i>
-                    </button>
-                </div>
+                `).join('')}
             </div>
 
             <!-- Detailed Categorized Table -->
@@ -1058,99 +1146,113 @@
                 <table class="compareTable">
                     <thead>
                         <tr>
-                            <th style="width: 32%;">Característica / Cobertura</th>
-                            <th style="width: 34%;">MAPFRE AP Salud Individual (100 UF)</th>
-                            <th style="width: 34%;">MAPFRE AP Salud Familiar (500 UF)</th>
+                            <th style="width: 28%;">Característica / Cobertura</th>
+                            ${plansToCompare.map(p => `
+                                <th style="width: ${(72 / plansToCompare.length).toFixed(1)}%;">${p.title}</th>
+                            `).join('')}
                         </tr>
                     </thead>
                     <tbody>
                         <!-- Categoría 1 -->
                         <tr class="compareCategoryRow">
-                            <th colspan="3"><i class="fa-solid fa-users" style="margin-right: 8px; color: var(--color-primary);"></i> 1. Perfil y Destinatarios</th>
+                            <th colspan="${plansToCompare.length + 1}"><i class="fa-solid fa-users" style="margin-right: 8px; color: var(--color-primary);"></i> 1. Perfil y Destinatarios</th>
                         </tr>
                         <tr>
                             <td>¿A quién asegura la póliza?</td>
-                            <td class="colIndCell"><strong>1 Persona (Solo titular)</strong></td>
-                            <td class="colFamCell"><strong>Titular + Cónyuge + Hijos</strong> <span class="diffChip teal">Multicarga</span></td>
+                            ${plansToCompare.map(p => `
+                                <td><strong>${p.planType === 'individual' ? '1 Persona (Solo titular)' : 'Titular + Cónyuge + Hijos'}</strong> ${p.planType === 'familiar' ? '<span class="diffChip teal">Multicarga</span>' : ''}</td>
+                            `).join('')}
                         </tr>
                         <tr>
-                            <td>Afinidad con tu perfil actual (${totalMembers === 1 ? 'Solo tú' : totalMembers + ' personas en familia'})</td>
-                            <td class="colIndCell">
-                                ${!isFamily ? '<span style="color: #0F766E; font-weight: 800;"><i class="fa-solid fa-star"></i> 96% (Recomendado para ti)</span>' : '<span style="color: #64748B;">74% (Solo cubre al titular)</span>'}
-                            </td>
-                            <td class="colFamCell">
-                                ${isFamily ? '<span style="color: #0F766E; font-weight: 800;"><i class="fa-solid fa-star"></i> 98% (Recomendado Familiar)</span>' : '<span style="color: #64748B;">86% (Opción con mayor respaldo)</span>'}
-                            </td>
+                            <td>Afinidad con tu perfil (${totalMembers === 1 ? 'Solo tú' : totalMembers + ' personas en familia'})</td>
+                            ${plansToCompare.map(p => `
+                                <td>
+                                    <span style="color: ${p.match >= 90 ? '#0F766E' : '#64748B'}; font-weight: ${p.match >= 90 ? '800' : '600'};">
+                                        ${p.match >= 90 ? '<i class="fa-solid fa-star"></i> ' : ''}${p.match}% afinidad
+                                    </span>
+                                </td>
+                            `).join('')}
                         </tr>
 
                         <!-- Categoría 2 -->
                         <tr class="compareCategoryRow">
-                            <th colspan="3"><i class="fa-solid fa-shield-halved" style="margin-right: 8px; color: #10B981;"></i> 2. Coberturas Médicas y Capitales</th>
+                            <th colspan="${plansToCompare.length + 1}"><i class="fa-solid fa-shield-halved" style="margin-right: 8px; color: #10B981;"></i> 2. Coberturas Médicas y Capitales</th>
                         </tr>
                         <tr>
                             <td>Capital por Muerte Accidental</td>
-                            <td class="colIndCell"><strong>100 UF</strong> (~$3.800.000)</td>
-                            <td class="colFamCell"><strong>500 UF</strong> (~$19.000.000) <span class="diffChip violet">5x Mayor Capital</span></td>
+                            ${plansToCompare.map(p => `
+                                <td><strong>${p.capitalUF}</strong> ${p.capitalValue === 500 ? '<span class="diffChip violet">5x Mayor Capital</span>' : ''}</td>
+                            `).join('')}
                         </tr>
                         <tr>
                             <td>Tope en Urgencias Médicas</td>
-                            <td class="colIndCell">Hasta 3 UF por evento</td>
-                            <td class="colFamCell"><strong>Hasta 5 UF por evento</strong> <span class="diffChip teal">Tope Superior</span></td>
+                            ${plansToCompare.map(p => `
+                                <td>Hasta ${p.capitalValue === 500 ? '5 UF' : '3 UF'} por evento ${p.capitalValue === 500 ? '<span class="diffChip teal">Tope Superior</span>' : ''}</td>
+                            `).join('')}
                         </tr>
                         <tr>
                             <td>Consultas y Exámenes Ambulatorios</td>
-                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Copago bonificado para titular</td>
-                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Copago bonificado para todo el grupo</td>
+                            ${plansToCompare.map(p => `
+                                <td><i class="fa-solid fa-circle-check compareCheckIcon"></i> ${p.planType === 'individual' ? 'Copago bonificado titular' : 'Copago bonificado para todo el grupo'}</td>
+                            `).join('')}
                         </tr>
                         <tr>
                             <td>Invalidez Total y Permanente por Accidente</td>
-                            <td class="colIndCell">Hasta 100 UF</td>
-                            <td class="colFamCell"><strong>Hasta 500 UF</strong></td>
+                            ${plansToCompare.map(p => `
+                                <td>Hasta ${p.capitalUF}</td>
+                            `).join('')}
                         </tr>
 
                         <!-- Categoría 3 -->
                         <tr class="compareCategoryRow">
-                            <th colspan="3"><i class="fa-solid fa-bolt" style="margin-right: 8px; color: #F59E0B;"></i> 3. Asistencias y Servicios Inmediatos 24/7</th>
+                            <th colspan="${plansToCompare.length + 1}"><i class="fa-solid fa-bolt" style="margin-right: 8px; color: #F59E0B;"></i> 3. Asistencias y Servicios Inmediatos 24/7</th>
                         </tr>
                         <tr>
                             <td>Telemedicina 24/7 sin copago</td>
-                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Medicina General Ilimitada</td>
-                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> <strong>General + Pediatría 24/7</strong> <span class="diffChip teal">Incluye Pediatría</span></td>
+                            ${plansToCompare.map(p => `
+                                <td><i class="fa-solid fa-circle-check compareCheckIcon"></i> ${p.planType === 'familiar' ? '<strong>General + Pediatría 24/7</strong>' : 'Medicina General Ilimitada'}</td>
+                            `).join('')}
                         </tr>
                         <tr>
                             <td>Descuento en Farmacias Cruz Verde / Salcobrand</td>
-                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Hasta 50% de descuento</td>
-                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Hasta 50% + <strong>Despacho a domicilio</strong></td>
+                            ${plansToCompare.map(p => `
+                                <td><i class="fa-solid fa-circle-check compareCheckIcon"></i> Hasta 50% de descuento ${p.capitalValue === 500 ? '+ despacho preferente' : ''}</td>
+                            `).join('')}
                         </tr>
                         <tr>
                             <td>Orientación Telefónica Continua</td>
-                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Médica 24/7</td>
-                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Médica, <strong>Pediátrica</strong> y Nutricional 24/7</td>
+                            ${plansToCompare.map(p => `
+                                <td><i class="fa-solid fa-circle-check compareCheckIcon"></i> ${p.planType === 'familiar' ? 'Médica, Pediátrica y Psicológica 24/7' : 'Médica y Telefónica 24/7'}</td>
+                            `).join('')}
                         </tr>
                         <tr>
                             <td>Asistencia Dental de Urgencia</td>
-                            <td class="colIndCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Alivio del dolor titular</td>
-                            <td class="colFamCell"><i class="fa-solid fa-circle-check compareCheckIcon"></i> Alivio del dolor para titular y cargas</td>
+                            ${plansToCompare.map(p => `
+                                <td><i class="fa-solid fa-circle-check compareCheckIcon"></i> ${p.planType === 'familiar' ? 'Alivio del dolor grupo familiar' : 'Alivio del dolor titular'}</td>
+                            `).join('')}
                         </tr>
 
                         <!-- Categoría 4 -->
                         <tr class="compareCategoryRow">
-                            <th colspan="3"><i class="fa-solid fa-circle-info" style="margin-right: 8px; color: #64748B;"></i> 4. Condiciones y Requisitos</th>
+                            <th colspan="${plansToCompare.length + 1}"><i class="fa-solid fa-circle-info" style="margin-right: 8px; color: #64748B;"></i> 4. Condiciones y Requisitos</th>
                         </tr>
                         <tr>
                             <td>Edades de Ingreso</td>
-                            <td class="colIndCell">18 a 64 años (permanencia hasta los 70)</td>
-                            <td class="colFamCell">Adultos 18 a 64 años / Hijos desde los 14 días hasta los 24 años</td>
+                            ${plansToCompare.map(p => `
+                                <td>${p.planType === 'familiar' ? 'Adultos 18 a 64 años / Hijos desde 14 días a 24 años' : '18 a 64 años (permanencia hasta 70)'}</td>
+                            `).join('')}
                         </tr>
                         <tr>
                             <td>Compatibilidad Previsional</td>
-                            <td class="colIndCell">Complementario con Fonasa e Isapre</td>
-                            <td class="colFamCell">Complementario con Fonasa e Isapre</td>
+                            ${plansToCompare.map(() => `
+                                <td>Complementario con Fonasa e Isapre</td>
+                            `).join('')}
                         </tr>
                         <tr>
                             <td>Carencias en Asistencias</td>
-                            <td class="colIndCell"><strong style="color: #10B981;">Día 1 de vigencia (Inmediato)</strong></td>
-                            <td class="colFamCell"><strong style="color: #10B981;">Día 1 de vigencia (Inmediato)</strong></td>
+                            ${plansToCompare.map(() => `
+                                <td><strong style="color: #10B981;">Día 1 de vigencia (Inmediato)</strong></td>
+                            `).join('')}
                         </tr>
                     </tbody>
                 </table>
@@ -1256,6 +1358,7 @@
         document.addEventListener('DOMContentLoaded', () => {
             updateUI();
             renderPlans();
+            updateCompareDock();
         });
     </script>
     

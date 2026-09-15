@@ -1270,6 +1270,14 @@
     background: linear-gradient(155deg, #796BFC 0%, #503DE6 100%);
 }
 
+.policyBand.band-individual-plus {
+    background: linear-gradient(155deg, #6366F1 0%, #4338CA 100%);
+}
+
+.policyBand.band-familiar-esencial {
+    background: linear-gradient(155deg, #0D9488 0%, #0F766E 100%);
+}
+
 .policyBand.band-familiar {
     background: linear-gradient(155deg, #0A4D5C 0%, #06313C 100%);
 }
@@ -1369,19 +1377,86 @@
     border-radius: 999px;
 }
 
+.planTitleRow {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    margin: 12px 0 6px;
+    flex-wrap: wrap;
+}
+
+.planTitleGroup {
+    flex: 1 1 280px;
+    min-width: 0;
+}
+
 .planTitle {
-    font-size: clamp(20px, 2.2vw, 24px);
+    font-size: clamp(19px, 2vw, 23px);
     font-weight: 800;
     color: var(--color-dark);
-    margin: 12px 0 6px;
+    margin: 0 0 6px;
     letter-spacing: -0.02em;
 }
 
 .planLead {
     color: #64748B;
-    font-size: 14px;
+    font-size: 13.5px;
     line-height: 1.5;
     margin: 0;
+}
+
+.cardFacePrice {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    flex-shrink: 0;
+    background: linear-gradient(135deg, rgba(121, 107, 252, 0.07) 0%, rgba(46, 217, 195, 0.1) 100%);
+    border: 1.5px solid rgba(121, 107, 252, 0.22);
+    border-radius: 14px;
+    padding: 8px 14px;
+    box-shadow: 0 4px 12px rgba(121, 107, 252, 0.08);
+}
+
+.cardFacePrice .priceMetaLabel {
+    font-size: 10px;
+    font-weight: 800;
+    color: #64748B;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.cardFacePrice .cardPriceMain {
+    font-size: 1.4rem;
+    font-weight: 900;
+    color: #0F172A;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+}
+
+.cardFacePrice .cardPriceAnnual {
+    font-size: 11px;
+    color: #64748B;
+    font-weight: 600;
+}
+
+@media (max-width: 576px) {
+    .planTitleRow {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 10px;
+    }
+    .cardFacePrice {
+        align-items: center;
+        text-align: left;
+        flex-direction: row;
+        justify-content: space-between;
+        padding: 8px 12px;
+    }
+    .cardFacePrice .cardPriceMain {
+        font-size: 1.3rem;
+    }
 }
 
 /* Grid de Beneficios Rápidos (2 columnas) */
@@ -1722,7 +1797,10 @@
     position: fixed;
     bottom: 24px;
     left: 50%;
-    transform: translateX(-50%) translateY(120px);
+    transform: translateX(-50%) translateY(160%);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
     z-index: 1000;
     background: #0F172A;
     color: #FFFFFF;
@@ -1731,11 +1809,14 @@
     box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.35), 0 0 0 1px rgba(255, 255, 255, 0.1);
     display: flex;
     align-items: center;
-    transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
     max-width: 90vw;
 }
 
 .compareFloatingDock.visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
     transform: translateX(-50%) translateY(0);
 }
 
@@ -1864,21 +1945,33 @@
     width: 38px;
     height: 38px;
     border-radius: 50%;
-    border: 1px solid var(--color-border);
-    background: #F8FAFC;
+    border: 1.5px solid #CBD5E1 !important;
+    background: #F1F5F9 !important;
     cursor: pointer;
     display: grid;
     place-items: center;
     font-size: 15px;
-    color: #64748B;
+    color: #0F172A !important;
     transition: all 0.2s ease;
     z-index: 10;
 }
 
-.compareModalClose:hover {
-    background: #0F172A;
-    color: #FFFFFF;
-    border-color: #0F172A;
+.compareModalClose i {
+    color: #0F172A !important;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.compareModalClose:hover,
+.compareModalClose:active {
+    background: #0F172A !important;
+    color: #FFFFFF !important;
+    border-color: #0F172A !important;
+}
+
+.compareModalClose:hover i,
+.compareModalClose:active i {
+    color: #FFFFFF !important;
 }
 
 .compareModalHead {
@@ -2553,6 +2646,11 @@
         height: 34px !important;
         font-size: 14px !important;
         background: #F1F5F9 !important;
+        border: 1.5px solid #CBD5E1 !important;
+        color: #0F172A !important;
+    }
+    .compareModalClose i {
+        color: #0F172A !important;
     }
     .compareModalHead {
         margin-bottom: 12px !important;

@@ -864,11 +864,15 @@ body::before {
 .comp-title p { margin: 4px 0 0 0; color: #64748B; font-size: 0.95rem; font-weight: 500; }
 
 .close-comp-btn {
-    width: 44px; height: 44px; border-radius: 12px; border: none; background: #F8FAFC;
-    color: #64748B; cursor: pointer; transition: all 0.2s; font-size: 1.2rem;
+    width: 44px; height: 44px; border-radius: 12px; border: 1.5px solid #CBD5E1 !important; background: #F1F5F9 !important;
+    color: #0F172A !important; cursor: pointer; transition: all 0.2s; font-size: 1.2rem;
     display: flex; align-items: center; justify-content: center;
 }
-.close-comp-btn:hover { background: #fee2e2; color: #ef4444; transform: scale(1.1); }
+.close-comp-btn i {
+    color: #0F172A !important;
+}
+.close-comp-btn:hover { background: #fee2e2 !important; color: #ef4444 !important; border-color: #fca5a5 !important; transform: scale(1.1); }
+.close-comp-btn:hover i { color: #ef4444 !important; }
 
 /* --- CONTROLES (Vehículos) --- */
 .comp-controls-area {
