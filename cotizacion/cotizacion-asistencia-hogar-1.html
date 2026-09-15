@@ -949,7 +949,13 @@
             validateForm();
         }
 
-        btnAssuredDone.addEventListener('click', closePanel);
+        btnAssuredDone.addEventListener('click', () => {
+            closePanel();
+            const btnRec = document.getElementById('btnRecommend');
+            if (btnRec && !btnRec.disabled) {
+                btnRec.click();
+            }
+        });
 
         document.addEventListener('click', (e) => {
             const path = e.composedPath();
@@ -1267,7 +1273,15 @@
                                 </div>
                             </div>
 
-                            <h3 class="planTitle">` + p.title + `</h3>
+                            <div class="planTitleRow">
+                                <div class="planTitleGroup">
+                                    <h3 class="planTitle">` + p.title + `</h3>
+                                </div>
+                                <div class="cardFacePrice">
+                                    <div class="cardFacePriceValue">` + p.priceMonth + `</div>
+                                    <span class="cardFacePricePeriod">Valor mensual</span>
+                                </div>
+                            </div>
                             <p class="planLead">` + p.lead + `</p>
 
                             <div class="healthBenefitsGrid">

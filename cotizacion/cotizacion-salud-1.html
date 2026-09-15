@@ -810,6 +810,10 @@
         document.getElementById('btnAssuredDone')?.addEventListener('click', (e) => {
             e.stopPropagation();
             toggleAssuredPanel(false);
+            const btnRec = document.getElementById('btnRecommend');
+            if (btnRec && !btnRec.disabled) {
+                btnRec.click();
+            }
         });
 
         assuredPanel.addEventListener('click', (e) => {

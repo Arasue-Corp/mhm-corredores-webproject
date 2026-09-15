@@ -1419,7 +1419,8 @@
     box-shadow: 0 4px 12px rgba(121, 107, 252, 0.08);
 }
 
-.cardFacePrice .priceMetaLabel {
+.cardFacePrice .priceMetaLabel,
+.cardFacePrice .cardFacePricePeriod {
     font-size: 10px;
     font-weight: 800;
     color: #64748B;
@@ -1427,7 +1428,8 @@
     text-transform: uppercase;
 }
 
-.cardFacePrice .cardPriceMain {
+.cardFacePrice .cardPriceMain,
+.cardFacePrice .cardFacePriceValue {
     font-size: 1.4rem;
     font-weight: 900;
     color: #0F172A;
@@ -1454,7 +1456,8 @@
         justify-content: space-between;
         padding: 8px 12px;
     }
-    .cardFacePrice .cardPriceMain {
+    .cardFacePrice .cardPriceMain,
+    .cardFacePrice .cardFacePriceValue {
         font-size: 1.3rem;
     }
 }
