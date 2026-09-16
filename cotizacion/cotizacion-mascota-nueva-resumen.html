@@ -1300,6 +1300,11 @@
                         <strong style="color: #FFFFFF;">MHM Corredores</strong>
                     </div>
 
+                    <div class="checkoutPriceLine">
+                        <span style="color: #94A3B8;">Valor Anual Estimado</span>
+                        <strong id="planPriceYear" style="color: #FFFFFF;">$0</strong>
+                    </div>
+
                     <div class="checkoutPriceLine total">
                         <div>
                             <span style="display: block; font-size: 11px; color: #94A3B8; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700;">Total Mensual</span>
@@ -1340,7 +1345,16 @@
                             <span id="btnContinueText">Acepta la política de datos para continuar</span>
                             <i class="fa-solid fa-arrow-right btnArrowIcon"></i>
                         </button>
+
+                        <button type="button" class="btnCallAdvisor" onclick="openAdvisorModal()">
+                            <i class="fa-solid fa-phone-volume"></i>
+                            <span>Solicitar llamada con un asesor</span>
+                        </button>
                     </div>
+
+                    <p class="legalCmfNote">
+                        MHM Corredores de Seguros SpA. Entidad fiscalizada por la Comisión para el Mercado Financiero (CMF). Las coberturas y asistencias veterinarias operan bajo los estándares oficiales de póliza y red de prestadores en convenio.
+                    </p>
 
                 </div>
             </aside>
@@ -1417,8 +1431,6 @@
     </div>
 
     <!-- SCRIPT DE SINCRONIZACIÓN Y LÓGICA -->
-    
-</html>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
@@ -1480,6 +1492,11 @@
 
             document.getElementById('totalPetsCount').innerText = `${petsData.length} mascota${petsData.length > 1 ? 's' : ''} asegurada${petsData.length > 1 ? 's' : ''}`;
             document.getElementById('planPriceMonth').innerText = `$${totalMensual.toLocaleString('es-CL')}`;
+
+            const elPriceYear = document.getElementById('planPriceYear');
+            if (elPriceYear) {
+                elPriceYear.innerText = `$${(totalMensual * 12).toLocaleString('es-CL')}`;
+            }
         }
 
         function toggleLegalConditions() {
@@ -1565,6 +1582,30 @@
             if (!menu) return;
             const isOpen = menu.classList.toggle('is-open');
             document.body.style.overflow = isOpen ? 'hidden' : '';
+        }
+
+        function openAdvisorModal() {
+            const modal = document.getElementById('advisorModal');
+            if (modal) {
+                modal.classList.add('is-open');
+                document.body.style.overflow = 'hidden';
+            }
+        }
+
+        function closeAdvisorModal() {
+            const modal = document.getElementById('advisorModal');
+            if (modal) {
+                modal.classList.remove('is-open');
+                document.body.style.overflow = '';
+            }
+        }
+
+        function handleAdvisorSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('advisorName')?.value || '';
+            const phone = document.getElementById('advisorPhone')?.value || '';
+            alert(`¡Gracias ${name}! Un asesor de MHM se comunicará contigo al ${phone} a la brevedad.`);
+            closeAdvisorModal();
         }
     </script>
 </body>
